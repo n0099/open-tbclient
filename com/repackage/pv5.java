@@ -1,619 +1,226 @@
 package com.repackage;
 
-import android.os.Looper;
-import android.util.AndroidRuntimeException;
 import android.view.View;
-import androidx.annotation.RestrictTo;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.ClickableHeaderImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.frs.game.strategy.FrsGameStrategyActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ov5;
-import com.repackage.pv5;
-import com.tachikoma.core.component.anim.AnimationProperty;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class pv5<T extends pv5<T>> implements ov5.b {
+public class pv5 extends nv5<a16> {
     public static /* synthetic */ Interceptable $ic;
-    public static final l m;
-    public static final l n;
-    public static final l o;
-    public static final l p;
-    public static final l q;
-    public static final l r;
-    public static final l s;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public boolean c;
-    public final Object d;
-    public final qv5 e;
-    public boolean f;
-    public float g;
-    public float h;
-    public long i;
-    public float j;
-    public final ArrayList<j> k;
-    public final ArrayList<k> l;
+    public LinearLayout i;
+    public TextView j;
+    public RelativeLayout k;
+    public TbImageView l;
+    public ImageView m;
+    public TextView n;
+    public RelativeLayout o;
+    public ClickableHeaderImageView p;
+    public TextView q;
+    public TextView r;
+    public TextView s;
+    public View t;
+    public a16 u;
+    public String v;
+    public String w;
 
-    /* loaded from: classes6.dex */
-    public static class a extends l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str) {
-            super(str, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (b) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: c */
-        public float a(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getAlpha() : invokeL.floatValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: d */
-        public void b(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
-                view2.setAlpha(f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(String str) {
-            super(str, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (b) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: c */
-        public float a(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getTranslationY() : invokeL.floatValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: d */
-        public void b(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
-                view2.setTranslationY(f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(String str) {
-            super(str, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (b) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: c */
-        public float a(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getScaleX() : invokeL.floatValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: d */
-        public void b(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
-                view2.setScaleX(f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e extends l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(String str) {
-            super(str, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (b) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: c */
-        public float a(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getScaleY() : invokeL.floatValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: d */
-        public void b(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
-                view2.setScaleY(f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class f extends l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(String str) {
-            super(str, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (b) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: c */
-        public float a(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getRotation() : invokeL.floatValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: d */
-        public void b(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
-                view2.setRotation(f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g extends l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(String str) {
-            super(str, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (b) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: c */
-        public float a(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getRotationX() : invokeL.floatValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: d */
-        public void b(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
-                view2.setRotationX(f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class h extends l {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(String str) {
-            super(str, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (b) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: c */
-        public float a(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) ? view2.getRotationY() : invokeL.floatValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.qv5
-        /* renamed from: d */
-        public void b(View view2, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048579, this, view2, f) == null) {
-                view2.setRotationY(f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float a;
-        public float b;
-
-        public i() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface j {
-        void a(pv5 pv5Var, boolean z, float f, float f2);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface k {
-        void a(pv5 pv5Var, float f, float f2);
-    }
-
-    /* loaded from: classes6.dex */
-    public static abstract class l extends qv5<View> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ l(String str, b bVar) {
-            this(str);
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public l(String str) {
-            super(str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755396446, "Lcom/repackage/pv5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755396446, "Lcom/repackage/pv5;");
-                return;
-            }
-        }
-        m = new c(AnimationProperty.TRANSLATE_Y);
-        n = new d(AnimationProperty.SCALE_X);
-        o = new e(AnimationProperty.SCALE_Y);
-        p = new f("rotation");
-        q = new g(AnimationProperty.ROTATE_X);
-        r = new h(AnimationProperty.ROTATE_Y);
-        s = new a(AnimationProperty.OPACITY);
-    }
-
-    public <K> pv5(K k2, qv5<K> qv5Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pv5(TbPageContext<?> tbPageContext, String str, String str2) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k2, qv5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {tbPageContext, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0.0f;
-        this.b = Float.MAX_VALUE;
-        this.c = false;
-        this.f = false;
-        this.g = Float.MAX_VALUE;
-        this.h = -Float.MAX_VALUE;
-        this.i = 0L;
-        this.k = new ArrayList<>();
-        this.l = new ArrayList<>();
-        this.d = k2;
-        this.e = qv5Var;
-        if (qv5Var != p && qv5Var != q && qv5Var != r) {
-            if (qv5Var == s) {
-                this.j = 0.00390625f;
-                return;
-            } else if (qv5Var != n && qv5Var != o) {
-                this.j = 1.0f;
-                return;
-            } else {
-                this.j = 0.00390625f;
-                return;
-            }
-        }
-        this.j = 0.1f;
+        this.v = str;
+        this.w = str2;
+        s(k());
     }
 
-    public static <T> void f(ArrayList<T> arrayList) {
+    @Override // com.repackage.nv5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, arrayList) == null) {
-            for (int size = arrayList.size() - 1; size >= 0; size--) {
-                if (arrayList.get(size) == null) {
-                    arrayList.remove(size);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0184 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.nv5
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(k(), R.color.CAM_X0201);
+                SkinManager.setBackgroundResource(this.t, R.color.CAM_X0204);
+                di8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+                if (readThreadHistory != null && readThreadHistory.d(this.u.getThreadData().getId())) {
+                    SkinManager.setViewTextColor(this.j, R.color.CAM_X0108, 1);
+                } else {
+                    SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
                 }
+                SkinManager.setViewTextColor(this.q, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.r, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.s, R.color.CAM_X0304, 1);
+                SkinManager.setViewTextColor(this.n, R.color.CAM_X0101, 1);
             }
+            this.a = i;
         }
     }
 
-    @Override // com.repackage.ov5.b
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean a(long j2) {
-        InterceptResult invokeJ;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            long j3 = this.i;
-            if (j3 == 0) {
-                this.i = j2;
-                g(this.b);
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if (view2 == this.s) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 4).param("fid", this.v));
+                FrsGameStrategyActivity.startActivity(this.b.getPageActivity(), this.v, this.w);
+            } else if (e() != null) {
+                e().a(k(), this.u);
             }
-            this.i = j2;
-            boolean j4 = j(j2 - j3);
-            float min = Math.min(this.b, this.g);
-            this.b = min;
-            float max = Math.max(min, this.h);
-            this.b = max;
-            g(max);
-            if (j4) {
-                c(false);
-            }
-            return j4;
         }
-        return invokeJ.booleanValue;
     }
 
-    public T b(j jVar) {
+    public final void s(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09051c);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051f);
+            this.k = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
+            this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051a);
+            this.m = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e97);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090520);
+            this.o = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090521);
+            this.p = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f090522);
+            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090523);
+            this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051e);
+            this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051d);
+            this.t = view2.findViewById(R.id.obfuscated_res_0x7f0904fc);
+            this.l.setDefaultBgResource(R.drawable.obfuscated_res_0x7f080866);
+            int dimensionPixelSize = li.q(this.c)[0] - (this.c.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.k.getLayoutParams();
+            layoutParams.width = dimensionPixelSize;
+            layoutParams.height = (dimensionPixelSize * 9) / 21;
+            this.k.setLayoutParams(layoutParams);
+            this.s.setOnClickListener(this);
+            this.p.setDefaultResource(17170445);
+            this.p.setDefaultBgResource(R.color.CAM_X0205);
+            this.p.setIsRound(true);
+            this.p.setDrawBorder(true);
+            this.p.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
+            this.p.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
+            k().setOnClickListener(this);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.nv5
+    /* renamed from: t */
+    public void l(a16 a16Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, a16Var) == null) || a16Var == null || a16Var.getThreadData() == null) {
+            return;
+        }
+        this.u = a16Var;
+        String str = null;
+        if (a16Var.getThreadData().isVideoThreadType()) {
+            this.m.setVisibility(0);
+            this.n.setVisibility(0);
+            if (a16Var.getThreadData().getThreadVideoInfo() != null) {
+                this.n.setText(StringHelper.stringForVideoTime(a16Var.getThreadData().getThreadVideoInfo().video_duration.intValue() * 1000));
+                str = a16Var.getThreadData().getThreadVideoInfo().thumbnail_url;
+            }
+        } else {
+            this.m.setVisibility(8);
+            this.n.setVisibility(4);
+            if (a16Var.getThreadData().getMedias() != null && a16Var.getThreadData().getMedias().size() >= 1) {
+                str = a16Var.getThreadData().getMedias().get(0).origin_pic;
+            }
+        }
+        this.l.K(str, 10, false);
+        this.j.setText(a16Var.getThreadData().getTitle());
+        di8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+        if (readThreadHistory != null && readThreadHistory.d(a16Var.getThreadData().getId())) {
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0108);
+        } else {
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0105);
+        }
+        this.p.setData(a16Var.getThreadData(), false);
+        y(a16Var.getThreadData());
+        this.r.setText(StringHelper.getFormatTimeShort(a16Var.getThreadData().getAuditTime()));
+        if ("guide".equals(a16Var.getThreadData().getGameInformationSource())) {
+            this.s.setVisibility(0);
+        } else {
+            this.s.setVisibility(8);
+        }
+    }
+
+    public String u(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jVar)) == null) {
-            if (!this.k.contains(jVar)) {
-                this.k.add(jVar);
-            }
-            return this;
-        }
-        return (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? StringHelper.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE) : (String) invokeL.objValue;
     }
 
-    public final void c(boolean z) {
+    public void v(int i, int i2, int i3, int i4) {
+        LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f = false;
-            ov5.i().l(this);
-            this.i = 0L;
-            this.c = false;
-            for (int i2 = 0; i2 < this.k.size(); i2++) {
-                if (this.k.get(i2) != null) {
-                    this.k.get(i2).a(this, z, this.b, this.a);
-                }
-            }
-            f(this.k);
-        }
-    }
-
-    public final float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e.a(this.d) : invokeV.floatValue;
-    }
-
-    public float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j * 0.75f : invokeV.floatValue;
-    }
-
-    public void g(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.e.b(this.d, f2);
-            for (int i2 = 0; i2 < this.l.size(); i2++) {
-                if (this.l.get(i2) != null) {
-                    this.l.get(i2).a(this, this.b, this.a);
-                }
-            }
-            f(this.l);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                if (this.f) {
-                    return;
-                }
-                i();
-                return;
-            }
-            throw new AndroidRuntimeException("Animations may only be started on the main thread");
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) || (linearLayout = this.i) == null) {
             return;
         }
-        this.f = true;
-        if (!this.c) {
-            this.b = d();
-        }
-        float f2 = this.b;
-        if (f2 <= this.g && f2 >= this.h) {
-            ov5.i().f(this, 0L);
-            return;
-        }
-        throw new IllegalArgumentException("Starting value need to be in between min value and max value");
+        linearLayout.setPadding(i, i2, i3, i4);
     }
 
-    public abstract boolean j(long j2);
+    public void w(int i) {
+        RelativeLayout relativeLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (relativeLayout = this.o) == null) {
+            return;
+        }
+        relativeLayout.setVisibility(i);
+    }
+
+    public void x(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (view2 = this.t) == null) {
+            return;
+        }
+        view2.setVisibility(i);
+    }
+
+    public final void y(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) || this.q == null || threadData == null || StringUtils.isNull(threadData.getAuthor().getName_show())) {
+            return;
+        }
+        this.q.setText(u(threadData.getAuthor().getName_show()));
+    }
 }

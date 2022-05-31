@@ -34,13 +34,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f9;
-import com.repackage.fm4;
-import com.repackage.fx5;
-import com.repackage.hl4;
-import com.repackage.il4;
+import com.repackage.ki;
 import com.repackage.li;
-import com.repackage.mi;
-import com.repackage.xd5;
+import com.repackage.rc5;
+import com.repackage.sk4;
+import com.repackage.uj4;
+import com.repackage.vj4;
+import com.repackage.yv5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class UserIconLayout extends LinearLayout {
@@ -91,7 +91,7 @@ public class UserIconLayout extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.g == null || this.a.g.getAuthor() == null) {
                 return;
             }
-            fm4.q(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14d7), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            sk4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14eb), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.g.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.j == 1) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.USER_ICON_VISIT).param("obj_type", 3));
             }
@@ -242,8 +242,8 @@ public class UserIconLayout extends LinearLayout {
             if (str2 == null || str == null) {
                 return spannableStringBuilder;
             }
-            arrayList.add(new fx5.a(str, R.drawable.pic_smalldot_title));
-            return fx5.h(this.a, str2, arrayList, true);
+            arrayList.add(new yv5.a(str, R.drawable.pic_smalldot_title));
+            return yv5.h(this.a, str2, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -262,16 +262,16 @@ public class UserIconLayout extends LinearLayout {
             this.d = new UserIconBox(this.a);
             this.e = new UserIconBox(this.a);
             this.b = new TextView(this.a);
-            View a2 = il4.b().a(this.a, 1);
+            View a2 = vj4.b().a(this.a, 1);
             this.c = a2;
             if (a2 != null) {
                 a2.setVisibility(8);
             }
-            layoutParams.setMargins(0, 0, mi.f(this.a, R.dimen.obfuscated_res_0x7f070234), mi.f(this.a, R.dimen.obfuscated_res_0x7f070224));
-            layoutParams2.setMargins(mi.f(this.a, R.dimen.obfuscated_res_0x7f0701b2), -mi.f(this.a, R.dimen.obfuscated_res_0x7f070198), 0, 0);
-            layoutParams3.setMargins(0, mi.f(this.a, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
-            layoutParams4.setMargins(mi.f(this.a, R.dimen.obfuscated_res_0x7f070305), mi.f(this.a, R.dimen.obfuscated_res_0x7f07029b), 0, 0);
-            this.b.setTextSize(0, mi.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
+            layoutParams.setMargins(0, 0, li.f(this.a, R.dimen.obfuscated_res_0x7f070234), li.f(this.a, R.dimen.obfuscated_res_0x7f070224));
+            layoutParams2.setMargins(li.f(this.a, R.dimen.obfuscated_res_0x7f0701b2), -li.f(this.a, R.dimen.obfuscated_res_0x7f070198), 0, 0);
+            layoutParams3.setMargins(0, li.f(this.a, R.dimen.obfuscated_res_0x7f0701d4), 0, 0);
+            layoutParams4.setMargins(li.f(this.a, R.dimen.obfuscated_res_0x7f070305), li.f(this.a, R.dimen.obfuscated_res_0x7f07029b), 0, 0);
+            this.b.setTextSize(0, li.f(this.a, R.dimen.obfuscated_res_0x7f0702b3));
             if (!this.i) {
                 this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(14)});
             }
@@ -307,10 +307,10 @@ public class UserIconLayout extends LinearLayout {
         if (threadData.getAuthor() != null && threadData.getAuthor().getAlaUserData() != null) {
             AlaUserInfoData alaUserData = threadData.getAuthor().getAlaUserData();
             if (this.c != null) {
-                hl4 hl4Var = new hl4();
-                hl4Var.a = alaUserData;
-                hl4Var.b = 1;
-                this.c.setTag(hl4Var);
+                uj4 uj4Var = new uj4();
+                uj4Var.a = alaUserData;
+                uj4Var.b = 1;
+                this.c.setTag(uj4Var);
             }
         }
         if (StringUtils.isNull(this.g.getAuthor().getName_show())) {
@@ -320,8 +320,8 @@ public class UserIconLayout extends LinearLayout {
             String name_show = this.g.getAuthor().getName_show();
             if (this.i) {
                 if (this.k) {
-                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), xd5.l(name_show, 20)));
-                    int byteLength = li.byteLength(name_show);
+                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), rc5.l(name_show, 20)));
+                    int byteLength = ki.byteLength(name_show);
                     i = byteLength < 20 ? byteLength >= 16 ? 2 : 4 : 1;
                     ArrayList<IconData> iconInfo = threadData.getAuthor().getIconInfo();
                     if (!this.f && ListUtils.getCount(iconInfo) != 0) {
@@ -339,7 +339,7 @@ public class UserIconLayout extends LinearLayout {
                     }
                     setUserTextColor(threadData);
                 }
-                this.b.setText(xd5.l(name_show, 20));
+                this.b.setText(rc5.l(name_show, 20));
             } else if (this.k) {
                 this.b.setText(e(this.g.getAuthor().getSealPrefix(), name_show));
             } else {
@@ -381,7 +381,7 @@ public class UserIconLayout extends LinearLayout {
     public void setUserNameTextSizeRid(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b.setTextSize(0, mi.f(this.a, i));
+            this.b.setTextSize(0, li.f(this.a, i));
         }
     }
 

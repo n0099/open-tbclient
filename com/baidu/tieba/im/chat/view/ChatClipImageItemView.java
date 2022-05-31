@@ -19,18 +19,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co;
-import com.repackage.mi;
-import com.repackage.sk;
-import com.repackage.vk;
-import com.repackage.yk;
+import com.repackage.li;
+import com.repackage.qk;
+import com.repackage.tk;
+import com.repackage.um;
+import com.repackage.wk;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public class ChatClipImageItemView extends GifView implements vk.a {
+public class ChatClipImageItemView extends GifView implements tk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean h1;
-    public vk i1;
+    public tk i1;
     public final Path j1;
     public boolean k1;
     public a l1;
@@ -87,19 +87,19 @@ public class ChatClipImageItemView extends GifView implements vk.a {
                 }
             }
             if (!z) {
-                this.i1 = new yk();
+                this.i1 = new wk();
             } else {
-                this.i1 = new sk();
+                this.i1 = new qk();
             }
             this.d.n = true;
-            this.i1.t(this);
-            vk vkVar = this.i1;
-            this.e = vkVar;
-            vkVar.p(this.d);
+            this.i1.v(this);
+            tk tkVar = this.i1;
+            this.e = tkVar;
+            tkVar.r(this.d);
         }
     }
 
-    @Override // com.repackage.vk.a
+    @Override // com.repackage.tk.a
     public Path a(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public class ChatClipImageItemView extends GifView implements vk.a {
         return (Path) invokeL.objValue;
     }
 
-    @Override // com.repackage.vk.a
+    @Override // com.repackage.tk.a
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -124,43 +124,43 @@ public class ChatClipImageItemView extends GifView implements vk.a {
     }
 
     @Override // com.baidu.tbadk.gif.GifView, com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public co getBdImage() {
+    public um getBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            co bdImage = super.getBdImage();
+            um bdImage = super.getBdImage();
             boolean z = true;
             boolean z2 = (getDrawable() == null || !(getDrawable() instanceof BitmapDrawable) || ((BitmapDrawable) getDrawable()).getBitmap() == null) ? false : true;
             boolean z3 = bdImage != null && bdImage.w();
-            vk vkVar = this.i1;
+            tk tkVar = this.i1;
             if (!z3 && !z2) {
                 z = false;
             }
-            vkVar.u(z);
+            tkVar.w(z);
             return bdImage;
         }
-        return (co) invokeV.objValue;
+        return (um) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.adp.newwidget.ImageView.BDImageView
-    public co getDefaultBdImage() {
+    public um getDefaultBdImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.i1.u(false);
+            this.i1.w(false);
             return super.getDefaultBdImage();
         }
-        return (co) invokeV.objValue;
+        return (um) invokeV.objValue;
     }
 
     public final Path l0(float f, float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            int d = mi.d(getContext(), 4.0f);
-            int d2 = mi.d(getContext(), 12.0f);
-            int d3 = mi.d(getContext(), 6.0f);
-            int d4 = mi.d(getContext(), 10.0f);
+            int d = li.d(getContext(), 4.0f);
+            int d2 = li.d(getContext(), 12.0f);
+            int d3 = li.d(getContext(), 6.0f);
+            int d4 = li.d(getContext(), 10.0f);
             float f4 = d3;
             float f5 = 2.0f * f3;
             float f6 = (f - f4) - f5;
@@ -242,7 +242,7 @@ public class ChatClipImageItemView extends GifView implements vk.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onStartTemporaryDetach();
-            this.i1.s();
+            this.i1.u();
         }
     }
 
@@ -252,9 +252,9 @@ public class ChatClipImageItemView extends GifView implements vk.a {
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onWindowVisibilityChanged(i);
             if (i != 0) {
-                this.i1.s();
+                this.i1.u();
             } else if (!this.k1) {
-                this.i1.r();
+                this.i1.t();
                 invalidate();
             } else {
                 this.k1 = false;

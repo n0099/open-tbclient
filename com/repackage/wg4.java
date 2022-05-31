@@ -1,43 +1,24 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.view.Window;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class wg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
+    public static boolean a() {
+        InterceptResult invokeV;
+        SwanAppActivity x;
+        Window window;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) ? jSONObject == null ? str2 : jSONObject.optString(str, str2) : (String) invokeLLL.objValue;
-    }
-
-    public static JSONObject b(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "NA";
-            }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            try {
-                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
-                    jSONObject.put("pre_source", str);
-                }
-                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
-                    jSONObject.put("pre_appid", "NA");
-                }
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            hz2 a0 = hz2.a0();
+            return (a0 == null || (x = a0.x()) == null || x.isFinishing() || (window = x.getWindow()) == null || (window.getAttributes().flags & 1024) != 1024) ? false : true;
         }
-        return (JSONObject) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 }

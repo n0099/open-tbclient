@@ -1,32 +1,33 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.videoplayer.SwanVideoView;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.tbadk.core.data.NewUserRedPackageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.ActiveConfig.DataRes;
+import tbclient.FloatStrategy;
+import tbclient.MissionInfo;
 /* loaded from: classes6.dex */
-public final class li4 implements MediaGestureLayout.b {
+public class li4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public MediaGestureLayout b;
-    public MediaGestureLayout.c c;
+    public DataRes a;
+    public boolean b;
+    public String c;
+    public final ArrayList<lh4> d;
+    public final ArrayList<FloatStrategy> e;
+    public NewUserRedPackageData f;
+    public ActiveCenterData g;
 
-    public li4(Context context) {
+    public li4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,84 +37,56 @@ public final class li4 implements MediaGestureLayout.b {
                 return;
             }
         }
-        this.a = context;
-        g(context);
+        this.b = false;
+        this.c = "";
+        this.d = new ArrayList<>();
+        this.e = new ArrayList<>();
     }
 
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void a(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, motionEvent) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.a(motionEvent);
-    }
-
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent, mediaGestureMode) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.b(motionEvent, mediaGestureMode);
-    }
-
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void c(int i) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.c(i);
-    }
-
-    public void d(SwanVideoView swanVideoView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, swanVideoView) == null) {
-            this.b.h(swanVideoView);
-        }
-    }
-
-    public void e(ii4 ii4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ii4Var) == null) {
-            this.b.g(ii4Var);
-        }
-    }
-
-    public ViewGroup f() {
+    public ArrayList<FloatStrategy> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
     }
 
-    public final void g(Context context) {
+    public ArrayList<lh4> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.a = context;
-            MediaGestureLayout mediaGestureLayout = new MediaGestureLayout(context);
-            this.b = mediaGestureLayout;
-            mediaGestureLayout.setMediaGestureListener(this);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
     }
 
-    public void h(MediaGestureLayout.c cVar) {
+    public void c(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
-            this.c = cVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) {
+            this.a = dataRes;
+            this.d.clear();
+            this.e.clear();
+            if (dataRes == null) {
+                return;
+            }
+            this.b = dataRes.is_new_user.intValue() == 1;
+            this.c = dataRes.active_url;
+            this.e.addAll(dataRes.float_list);
+            for (MissionInfo missionInfo : this.a.mission_list) {
+                if (missionInfo != null) {
+                    lh4 lh4Var = new lh4(missionInfo);
+                    if (missionInfo.tasktype.intValue() == 5) {
+                        ws4.e().g(missionInfo);
+                    } else if (missionInfo.tasktype.intValue() == 9) {
+                        zh4.c().f(lh4Var);
+                    } else if (lh4Var.K()) {
+                        this.d.add(lh4Var);
+                    }
+                }
+            }
+            NewUserRedPackageData newUserRedPackageData = new NewUserRedPackageData();
+            this.f = newUserRedPackageData;
+            newUserRedPackageData.parseProto(dataRes);
+            if (dataRes.active_center != null) {
+                ActiveCenterData activeCenterData = new ActiveCenterData();
+                this.g = activeCenterData;
+                activeCenterData.parseProto(dataRes);
+            }
         }
-    }
-
-    @Override // com.baidu.swan.videoplayer.media.video.view.MediaGestureLayout.b
-    public void onDoubleTap(MotionEvent motionEvent) {
-        MediaGestureLayout.c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.onDoubleTap(motionEvent);
     }
 }

@@ -1,194 +1,267 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.os.Build;
-import android.os.Bundle;
-import android.view.Surface;
-import androidx.annotation.RequiresApi;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.encoder.VideoEncoderCore;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-@TargetApi(16)
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class ka9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface a;
-    public ja9 b;
-    public MediaCodec c;
-    public MediaCodec.BufferInfo d;
-    public int e;
-    public boolean f;
-    public Bundle g;
-    public long h;
-    public int i;
+    public String a;
+    public String b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public float g;
+    public List<ma9> h;
+    public Map<String, la9> i;
 
-    @TargetApi(18)
-    public ka9(int i, int i2, int i3, boolean z, ja9 ja9Var) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), ja9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755565458, "Lcom/repackage/ka9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755565458, "Lcom/repackage/ka9;");
                 return;
             }
         }
-        this.g = new Bundle();
-        this.h = 0L;
-        this.i = 10000;
-        String str = MimeTypes.VIDEO_H265;
-        str = (!z || fb9.m(MimeTypes.VIDEO_H265) == null) ? "video/avc" : "video/avc";
-        this.d = new MediaCodec.BufferInfo();
-        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i, i2);
-        createVideoFormat.setInteger("color-format", 2130708361);
-        createVideoFormat.setInteger("bitrate", i3);
-        createVideoFormat.setInteger("frame-rate", 30);
-        createVideoFormat.setInteger("i-frame-interval", 5);
-        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(str);
-        this.c = createEncoderByType;
-        createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.a = this.c.createInputSurface();
-        this.c.start();
-        this.g.putInt("request-sync", 0);
-        if (Build.VERSION.SDK_INT >= 19) {
-            this.c.setParameters(this.g);
-        }
-        this.e = -1;
-        this.f = false;
-        this.b = ja9Var;
+        AppConfig.isDebug();
     }
 
-    public Surface a() {
+    public ka9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.h = new ArrayList();
+        new ArrayList();
+        new HashMap();
+        this.i = new HashMap();
+    }
+
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Surface) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.equals("1", this.b)) {
+                this.b = "0";
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.i = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.equals("0", this.a)) {
+                this.a = "1";
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Map<String, la9> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (Map) invokeV.objValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            float f = this.g;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.g = 20.0f;
+            }
+            return this.g;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            float f = this.d;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.d = 1.0f;
+            }
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public List<ma9> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : (List) invokeV.objValue;
+    }
+
+    public float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            float f = this.e;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.e = 20.0f;
+            }
+            return this.e;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            float f = this.f;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.f = 7.0f;
+            }
+            return this.f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public float i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            float f = this.c;
+            if (f <= 0.0f || Float.isNaN(f)) {
+                this.c = 100.0f;
+            }
+            return this.c;
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? TextUtils.equals("1", a()) : invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? TextUtils.equals("1", b()) : invokeV.booleanValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a = "1";
+            this.b = "0";
+            this.c = 100.0f;
+            this.d = 1.0f;
+            this.e = 20.0f;
+            this.f = 7.0f;
+            this.g = 20.0f;
         }
     }
 
-    @RequiresApi(api = 18)
-    public void c(boolean z) throws Exception {
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) {
-            return;
-        }
-        if (z) {
-            this.c.signalEndOfInputStream();
-        }
-        while (true) {
-            ByteBuffer[] outputBuffers = this.c.getOutputBuffers();
-            while (true) {
-                int dequeueOutputBuffer = this.c.dequeueOutputBuffer(this.d, this.i);
-                if (dequeueOutputBuffer == -1) {
-                    if (!z) {
-                        return;
-                    }
-                } else if (dequeueOutputBuffer == -3) {
-                    break;
-                } else if (dequeueOutputBuffer == -2) {
-                    if (this.f) {
-                        throw new RuntimeException("format changed twice");
-                    }
-                    MediaFormat outputFormat = this.c.getOutputFormat();
-                    va9.c(VideoEncoderCore.TAG, "encoder output format changed: " + outputFormat);
-                    this.e = this.b.a(outputFormat);
-                    if (!this.b.c()) {
-                        synchronized (this.b) {
-                            while (!this.b.e()) {
-                                try {
-                                    this.b.wait(100L);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                    this.f = true;
-                } else if (dequeueOutputBuffer < 0) {
-                    va9.l(VideoEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                } else {
-                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                    if (byteBuffer == null) {
-                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
-                    }
-                    MediaCodec.BufferInfo bufferInfo = this.d;
-                    if ((bufferInfo.flags & 2) != 0) {
-                        bufferInfo.size = 0;
-                    }
-                    MediaCodec.BufferInfo bufferInfo2 = this.d;
-                    if (bufferInfo2.size != 0) {
-                        if (!this.f) {
-                            throw new RuntimeException("muxer hasn't started");
-                        }
-                        byteBuffer.position(bufferInfo2.offset);
-                        MediaCodec.BufferInfo bufferInfo3 = this.d;
-                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                        this.b.b(this.e, byteBuffer, this.d);
-                    }
-                    this.c.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.h >= 500) {
-                        this.c.setParameters(this.g);
-                        this.h = System.currentTimeMillis();
-                    }
-                    if ((this.d.flags & 4) != 0) {
-                        if (z) {
-                            return;
-                        }
-                        va9.l(VideoEncoderCore.TAG, "reached end of stream unexpectedly");
-                        return;
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.b = str;
         }
     }
 
-    public void d() {
+    public void n(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MediaCodec mediaCodec = this.c;
-            if (mediaCodec != null) {
-                mediaCodec.stop();
-                this.c.release();
-                this.c = null;
-            }
-            ja9 ja9Var = this.b;
-            if (ja9Var != null) {
-                try {
-                    ja9Var.d();
-                } catch (IllegalStateException e) {
-                    va9.g(e);
-                }
-                this.b = null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048589, this, map) == null) {
         }
     }
 
-    public synchronized void e() {
+    public void o(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-            }
+        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void q(Map<String, la9> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, map) == null) {
+            this.i = map;
+        }
+    }
+
+    public void r(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
+            this.g = f;
+        }
+    }
+
+    public void s(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
+            this.d = f;
+        }
+    }
+
+    public void t(List<ma9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
+            this.h = list;
+        }
+    }
+
+    public void u(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048596, this, f) == null) {
+            this.e = f;
+        }
+    }
+
+    public void v(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048597, this, f) == null) {
+            this.f = f;
+        }
+    }
+
+    public void w(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
+            this.c = f;
         }
     }
 }

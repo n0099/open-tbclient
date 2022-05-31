@@ -1,163 +1,75 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.support.okhttp.converters.ResponseConverter;
+import android.content.Context;
+import android.net.NetworkInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Callback;
-import okhttp3.OkHttpClient;
-import okhttp3.Response;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class b60 implements Call {
+public final class b60 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Request a;
-    @NonNull
-    public okhttp3.Request b;
-    @NonNull
-    public OkHttpClient c;
-    @NonNull
-    public okhttp3.Call d;
+    public String a;
+    public int b;
 
-    /* loaded from: classes5.dex */
-    public class a implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.searchbox.network.outback.core.Callback a;
-        public final /* synthetic */ b60 b;
-
-        public a(b60 b60Var, com.baidu.searchbox.network.outback.core.Callback callback) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755875179, "Lcom/repackage/b60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b60Var, callback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = b60Var;
-            this.a = callback;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(okhttp3.Call call, IOException iOException) {
-            com.baidu.searchbox.network.outback.core.Callback callback;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) || (callback = this.a) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755875179, "Lcom/repackage/b60;");
                 return;
             }
-            callback.onFailure(this.b, iOException);
         }
-
-        @Override // okhttp3.Callback
-        public void onResponse(okhttp3.Call call, Response response) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                com.baidu.searchbox.network.outback.core.Response fromOks = ResponseConverter.fromOks(this.b.a, response);
-                if (fromOks.getStatRecord() != null) {
-                    fromOks.getStatRecord().finishTs = System.currentTimeMillis();
-                }
-                com.baidu.searchbox.network.outback.core.Callback callback = this.a;
-                if (callback != null) {
-                    callback.onResponse(this.b, fromOks);
-                }
-            }
-        }
+        HashMap<String, Integer> hashMap = new HashMap<>();
+        c = hashMap;
+        hashMap.put("WIFI", 1);
+        c.put("3GNET", 21);
+        c.put("3GWAP", 22);
+        c.put("CMNET", 31);
+        c.put("UNINET", 32);
+        c.put("CTNET", 33);
+        c.put("CMWAP", 41);
+        c.put("UNIWAP", 42);
+        c.put("CTWAP", 43);
     }
 
-    public b60(@NonNull Request request, @NonNull okhttp3.Request request2, @NonNull OkHttpClient okHttpClient) {
+    public b60(Context context) {
+        String upperCase;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {request, request2, okHttpClient};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = request;
-        this.b = request2;
-        this.c = okHttpClient;
-        this.d = okHttpClient.newCall(request2);
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.cancel();
-        }
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void enqueue(com.baidu.searchbox.network.outback.core.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, callback) == null) {
-            this.a.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            this.d.enqueue(new a(this, callback));
-        }
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public com.baidu.searchbox.network.outback.core.Response execute() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.a.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            com.baidu.searchbox.network.outback.core.Response fromOks = ResponseConverter.fromOks(this.a, this.d.execute());
-            if (fromOks.getStatRecord() != null) {
-                fromOks.getStatRecord().finishTs = System.currentTimeMillis();
+        NetworkInfo a = c60.a(context);
+        if (a != null) {
+            if (!"wifi".equals(a.getTypeName().toLowerCase())) {
+                String extraInfo = a.getExtraInfo();
+                upperCase = extraInfo != null ? extraInfo.toUpperCase() : upperCase;
+                this.b = a.getSubtype();
             }
-            return fromOks;
+            "wifi".toUpperCase();
+            this.a = upperCase;
+            this.b = a.getSubtype();
         }
-        return (com.baidu.searchbox.network.outback.core.Response) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public boolean isCanceled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d.isCanceled() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public boolean isExecuted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d.isExecuted() : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Request request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (Request) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Call clone() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new b60(this.a, this.b, this.c) : (Call) invokeV.objValue;
     }
 }

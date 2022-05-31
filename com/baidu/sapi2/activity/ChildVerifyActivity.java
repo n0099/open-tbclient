@@ -44,7 +44,7 @@ public class ChildVerifyActivity extends BaseActivity {
             try {
                 this.t = CoreViewRouter.getInstance().getAccountRealNameCallback();
                 CoreViewRouter.getInstance().releaseAccountRealNameCallback();
-                setContentView(R.layout.obfuscated_res_0x7f0d04d4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04ca);
                 setupViews();
             } catch (Throwable th) {
                 reportWebviewError(th);

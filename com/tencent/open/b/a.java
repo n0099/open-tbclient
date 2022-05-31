@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
     public Rect b;
     public boolean c;
-    public InterfaceC0652a d;
+    public InterfaceC0654a d;
 
     /* renamed from: com.tencent.open.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC0652a {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC0654a {
         void a();
 
         void a(int i);
@@ -72,10 +72,10 @@ public class a extends RelativeLayout {
         }
     }
 
-    public void a(InterfaceC0652a interfaceC0652a) {
+    public void a(InterfaceC0654a interfaceC0654a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0652a) == null) {
-            this.d = interfaceC0652a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0654a) == null) {
+            this.d = interfaceC0654a;
         }
     }
 
@@ -87,12 +87,12 @@ public class a extends RelativeLayout {
             Activity activity = (Activity) getContext();
             activity.getWindow().getDecorView().getWindowVisibleDisplayFrame(this.b);
             int height = (activity.getWindowManager().getDefaultDisplay().getHeight() - this.b.top) - size;
-            InterfaceC0652a interfaceC0652a = this.d;
-            if (interfaceC0652a != null && size != 0) {
+            InterfaceC0654a interfaceC0654a = this.d;
+            if (interfaceC0654a != null && size != 0) {
                 if (height > 100) {
-                    interfaceC0652a.a((Math.abs(this.b.height()) - getPaddingBottom()) - getPaddingTop());
+                    interfaceC0654a.a((Math.abs(this.b.height()) - getPaddingBottom()) - getPaddingTop());
                 } else {
-                    interfaceC0652a.a();
+                    interfaceC0654a.a();
                 }
             }
             super.onMeasure(i, i2);

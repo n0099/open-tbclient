@@ -1,12 +1,19 @@
 package com.repackage;
 
-import android.os.Environment;
-import android.os.StatFs;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.StorageUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,46 +21,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.StringTokenizer;
+import com.google.protobuf.CodedInputStream;
+import com.repackage.he3;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public final class ie3 {
+public class ie3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean i;
+    public static int j;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public Activity a;
+    @NonNull
+    public ViewGroup b;
+    @Nullable
+    public View c;
+    @Nullable
+    public View d;
+    public int e;
+    public boolean f;
+    public he3 g;
+    public View.OnSystemUiVisibilityChangeListener h;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a implements View.OnSystemUiVisibilityChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
 
-        public a(String str, boolean z, boolean z2, int i) {
+        public a(ie3 ie3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
+                Object[] objArr = {ie3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = str;
+        }
+
+        @Override // android.view.View.OnSystemUiVisibilityChangeListener
+        public void onSystemUiVisibilityChange(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
         }
     }
 
@@ -70,219 +86,347 @@ public final class ie3 {
                 return;
             }
         }
-        a = eh1.a;
+        i = j();
+        j = 0;
+        if (TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
+            j = 1;
+        } else if (TextUtils.equals(Build.MANUFACTURER, "Meizu")) {
+            j = 2;
+        }
     }
 
-    public static int a() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ie3(@NonNull Activity activity) {
+        this(activity, (ViewGroup) activity.findViewById(16908290));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Activity) objArr2[0], (ViewGroup) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static int a(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
+            if (i3 == 0) {
+                return i2;
+            }
+            float f = 1.0f - (i3 / 255.0f);
+            return ((int) (((i2 & 255) * f) + 0.5d)) | (((int) ((((i2 >> 16) & 255) * f) + 0.5d)) << 16) | (-16777216) | (((int) ((((i2 >> 8) & 255) * f) + 0.5d)) << 8);
+        }
+        return invokeII.intValue;
+    }
+
+    public static boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b()) {
-                return (int) (new StatFs(Environment.getExternalStorageDirectory().getPath()).getTotalBytes() / 1024);
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.VERSION.SDK_INT >= 21 : invokeV.booleanValue;
+    }
+
+    public final he3 b(int i2, int i3, boolean z, boolean z2, boolean z3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+            he3.b b = he3.b.b();
+            b.i(z);
+            b.h(true);
+            b.g(false);
+            b.f(i3);
+            b.e(i2);
+            b.c(z2);
+            b.d(z3);
+            return b.a();
+        }
+        return (he3) invokeCommon.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int f = f();
+            this.g = b(f, g(f), false, false, true);
+        }
+    }
+
+    @NonNull
+    public he3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.g == null) {
+                c();
             }
-            return -1;
+            return this.g;
+        }
+        return (he3) invokeV.objValue;
+    }
+
+    @Nullable
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (View) invokeV.objValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603dd);
+            }
+            return this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603de);
         }
         return invokeV.intValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public final int g(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Environment.getExternalStorageState().equals("mounted") : invokeV.booleanValue;
-    }
-
-    public static long c() {
-        InterceptResult invokeV;
-        long blockSize;
-        long availableBlocks;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b()) {
-                StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                if (bd3.d()) {
-                    blockSize = statFs.getBlockSizeLong();
-                    availableBlocks = statFs.getAvailableBlocksLong();
-                } else {
-                    blockSize = statFs.getBlockSize();
-                    availableBlocks = statFs.getAvailableBlocks();
-                }
-                return availableBlocks * blockSize;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return 0;
             }
-            return -1L;
+            return a(i2, 45);
         }
-        return invokeV.longValue;
+        return invokeI.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:108:0x01d0  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static List<a> d() {
-        InterceptResult invokeV;
-        HashSet hashSet;
-        BufferedReader bufferedReader;
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            BufferedReader bufferedReader2 = null;
-            File externalFilesDir = AppRuntime.getAppContext().getExternalFilesDir(null);
-            String path = externalFilesDir == null ? null : externalFilesDir.getPath();
-            int i2 = 1;
-            boolean z = false;
-            boolean z2 = bd3.b() ? !Environment.isExternalStorageRemovable() : false;
-            String externalStorageState = Environment.getExternalStorageState();
-            boolean z3 = externalStorageState.equals("mounted") || externalStorageState.equals("mounted_ro");
-            boolean equals = Environment.getExternalStorageState().equals("mounted_ro");
-            try {
-                try {
-                    hashSet = new HashSet();
-                    bufferedReader = new BufferedReader(new FileReader("/proc/mounts"));
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-                bufferedReader2 = null;
-            } catch (IOException e2) {
-                e = e2;
-                bufferedReader2 = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedReader2 = null;
-            }
-            try {
-                if (a) {
-                    Log.d(StorageUtils.TAG, "/proc/mounts");
-                }
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    if (a) {
-                        Log.d(StorageUtils.TAG, readLine);
-                    }
-                    StringTokenizer stringTokenizer = new StringTokenizer(readLine, " ");
-                    String nextToken = stringTokenizer.nextToken();
-                    String nextToken2 = stringTokenizer.nextToken();
-                    if (!hashSet.contains(nextToken2)) {
-                        stringTokenizer.nextToken();
-                        boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
-                        if (!readLine.contains("vfat") && !readLine.contains("/mnt")) {
-                            if (e(nextToken, nextToken2)) {
-                                hashSet.add(nextToken2);
-                                if (f(nextToken2)) {
-                                    i = i2 + 1;
-                                    arrayList.add(new a(nextToken2, z, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                            z = false;
-                        }
-                        if (nextToken2.equals(path)) {
-                            hashSet.add(path);
-                            hashMap.put(nextToken, new a(path, z2, contains, -1));
-                        } else if (readLine.contains("/dev/block/vold")) {
-                            if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
-                                hashSet.add(nextToken2);
-                                if (!hashMap.containsKey(nextToken)) {
-                                    i = i2 + 1;
-                                    hashMap.put(nextToken, new a(nextToken2, z, contains, i2));
-                                    i2 = i;
-                                }
-                            }
-                        } else if (hashSet.contains(nextToken)) {
-                            Iterator it = hashMap.keySet().iterator();
-                            while (true) {
-                                if (!it.hasNext()) {
-                                    str = null;
-                                    break;
-                                }
-                                str = (String) it.next();
-                                if (TextUtils.equals(((a) hashMap.get(str)).a, nextToken)) {
-                                    break;
-                                }
-                            }
-                            hashMap.remove(str);
-                            hashSet.add(nextToken2);
-                            if (!hashMap.containsKey(nextToken)) {
-                                hashMap.put(nextToken, new a(nextToken2, false, contains, i2));
-                                i2++;
-                            }
-                        }
-                        z = false;
-                    }
-                }
-                for (a aVar : hashMap.values()) {
-                    if (f(aVar.a)) {
-                        arrayList.add(aVar);
-                    }
-                }
-                if (!hashSet.contains(path) && z3) {
-                    arrayList.add(0, new a(path, z2, equals, -1));
-                }
-                xg4.d(bufferedReader);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                bufferedReader2 = bufferedReader;
-                if (a) {
-                    e.printStackTrace();
-                }
-                xg4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
-            } catch (IOException e4) {
-                e = e4;
-                bufferedReader2 = bufferedReader;
-                if (a) {
-                    e.printStackTrace();
-                }
-                xg4.d(bufferedReader2);
-                if (arrayList.isEmpty()) {
-                }
-                return arrayList;
-            } catch (Throwable th3) {
-                th = th3;
-                bufferedReader2 = bufferedReader;
-                xg4.d(bufferedReader2);
-                throw th;
-            }
-            if (arrayList.isEmpty()) {
-                arrayList.add(new a(path, z2, equals, -1));
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static boolean e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (str == null || !str.contains("/dev/fuse") || str2 == null || str2.startsWith("/storage/emulated/legacy") || str2.contains("/Android/obb")) {
-                return false;
-            }
-            if (str2.startsWith("/storage/")) {
-                return true;
-            }
-            return (!bd3.e() || str2.startsWith("/mnt/") || str2.startsWith("/data/")) ? false : true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean f(String str) {
+    public final View h(@NonNull he3 he3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, he3Var)) == null) {
+            if (he3Var.g) {
+                View view2 = this.d;
+                if (view2 != null) {
+                    if (he3Var.e) {
+                        return view2;
+                    }
+                    this.b.removeView(view2);
+                    this.d = null;
+                    return null;
+                } else if (!he3Var.e) {
+                    this.d = null;
+                    return null;
+                } else {
+                    int t = yc3.t();
+                    View view3 = new View(this.a);
+                    view3.setTag("IMMERSION_VIEW");
+                    view3.setId(R.id.obfuscated_res_0x7f090eb6);
+                    this.b.addView(view3, new ViewGroup.LayoutParams(-1, t));
+                    this.d = view3;
+                    return view3;
+                }
             }
-            return new File(str).canRead();
+            return null;
         }
-        return invokeL.booleanValue;
+        return (View) invokeL.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.g = null;
+            this.e = 1;
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            o(d());
+        }
+    }
+
+    public void m(int i2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            n(i2, z, true, z2);
+        }
+    }
+
+    public void n(int i2, boolean z, boolean z2, boolean z3) {
+        he3 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && i) {
+            if (i2 == 1) {
+                if (this.e != 1) {
+                    k();
+                }
+                this.e = i2;
+                b = d();
+            } else {
+                this.e = i2;
+                b = b(i2, g(i2), z3, z, z2);
+                this.g = b;
+            }
+            this.f = z;
+            o(b);
+        }
+    }
+
+    public final void o(@NonNull he3 he3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, he3Var) == null) {
+            if (j == 2) {
+                p(he3Var);
+            } else {
+                r();
+                s(he3Var);
+            }
+            View view2 = this.c;
+            if (view2 != null) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+                if (he3Var.f) {
+                    layoutParams.topMargin = 0;
+                } else {
+                    layoutParams.topMargin = yc3.t();
+                }
+                this.c.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    public final void p(he3 he3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, he3Var) == null) {
+            try {
+                Window window = this.a.getWindow();
+                window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON");
+                Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
+                declaredField.setAccessible(true);
+                declaredField2.setAccessible(true);
+                int i2 = declaredField.getInt(null);
+                int i3 = declaredField2.getInt(attributes);
+                declaredField2.setInt(attributes, he3Var.d ? i2 | i3 : (~i2) & i3);
+                window.setAttributes(attributes);
+                int i4 = he3Var.b;
+                if (i4 == 1) {
+                    i4 = f();
+                }
+                View h = h(he3Var);
+                if (h != null) {
+                    h.setBackgroundColor(i4);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @SuppressLint({"PrivateApi"})
+    public final boolean q(Window window, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, window, z)) == null) {
+            if (window != null) {
+                Class<?> cls = window.getClass();
+                try {
+                    Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+                    int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                    Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
+                    if (z) {
+                        method.invoke(window, Integer.valueOf(i2), Integer.valueOf(i2));
+                    } else {
+                        method.invoke(window, 0, Integer.valueOf(i2));
+                    }
+                    return true;
+                } catch (Exception unused) {
+                }
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            Window window = this.a.getWindow();
+            window.clearFlags(1024);
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 < 21) {
+                if (i2 >= 19) {
+                    window.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+                    return;
+                }
+                return;
+            }
+            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
+            window.addFlags(Integer.MIN_VALUE);
+            if (j != 1) {
+                return;
+            }
+            q(window, d().d);
+        }
+    }
+
+    @SuppressLint({"InlinedApi"})
+    public final void s(he3 he3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, he3Var) == null) {
+            Window window = this.a.getWindow();
+            boolean z = he3Var.c;
+            int i2 = he3Var.d ? 13312 : 5120;
+            int i3 = !he3Var.e ? i2 & (-257) : i2 | 256;
+            int i4 = he3Var.b;
+            if (i4 == 1) {
+                i4 = f();
+            }
+            window.getDecorView().setSystemUiVisibility(i3);
+            if (Build.VERSION.SDK_INT >= 21) {
+                window.setStatusBarColor(he3Var.a);
+            }
+            View h = h(he3Var);
+            if (h != null) {
+                h.setBackgroundColor(i4);
+            }
+            if (this.h == null) {
+                this.h = new a(this);
+                window.getDecorView().setOnSystemUiVisibilityChangeListener(this.h);
+            }
+        }
+    }
+
+    public ie3(@NonNull Activity activity, @NonNull ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, viewGroup};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.e = 1;
+        this.a = activity;
+        this.b = viewGroup;
+        this.c = viewGroup.getChildAt(0);
     }
 }

@@ -1,64 +1,26 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.repackage.pc2;
 /* loaded from: classes7.dex */
-public class wj1 implements km1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wj1 {
+    boolean a(@Nullable Activity activity);
 
-    public wj1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(@NonNull Context context);
 
-    @Override // com.repackage.km1
-    public String[] a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (String[]) invokeV.objValue;
-    }
+    void c(@NonNull String str);
 
-    @Override // com.repackage.km1
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
+    void d(CallbackHandler callbackHandler);
 
-    @Override // com.repackage.km1
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (bk2.w0().d()) {
-                return null;
-            }
-            if (u62.b()) {
-                return u62.b + File.separator + "libcom.baidu.zeus.so";
-            }
-            return u62.d + File.separator + "libcom.baidu.zeus.so";
-        }
-        return (String) invokeV.objValue;
-    }
+    void e(hz2 hz2Var);
+
+    String f(@NonNull Context context);
+
+    void g(hz2 hz2Var);
+
+    void h(@NonNull Activity activity, String str, String str2, oc2 oc2Var, pc2.b bVar);
 }

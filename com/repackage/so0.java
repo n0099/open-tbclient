@@ -1,36 +1,28 @@
 package com.repackage;
 
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
 /* loaded from: classes7.dex */
-public abstract class so0 implements cp0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface so0 extends oo0, qo0 {
+    public static final a a = w21.a;
 
     /* loaded from: classes7.dex */
     public interface a {
-        void a(Exception exc, int i);
+        so0 a(Context context, int i);
 
-        void b(Headers headers, InputStream inputStream, int i) throws Exception;
-
-        void c(Headers headers, String str, int i) throws Exception;
+        so0 b(Context context, int i, @Nullable to0 to0Var);
     }
 
-    public so0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(po0 po0Var);
+
+    void attachToContainer(@NonNull ViewGroup viewGroup);
+
+    void c(@NonNull vm0 vm0Var);
+
+    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
+
+    void release();
 }

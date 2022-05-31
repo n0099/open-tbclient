@@ -1,11 +1,10 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.app.Application;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class xg0 implements lm0 {
+public class xg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<im0> a;
+    public static Application a;
+    public static ch0 b;
+    public static final eh0 c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,18 +33,7 @@ public class xg0 implements lm0 {
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
-        a = arrayList;
-        arrayList.add(new mg0());
-        a.add(new ql0());
-        a.add(new wg0());
-        a.add(new zg0());
-        ah0 ah0Var = new ah0();
-        ec1<im0> ec1Var = ah0Var.a;
-        if (ec1Var == null || ty0.g(ec1Var.getList())) {
-            return;
-        }
-        a.addAll(ah0Var.a.getList());
+        c = new bh0();
     }
 
     public xg0() {
@@ -62,99 +50,48 @@ public class xg0 implements lm0 {
         }
     }
 
-    public final boolean e() {
+    @Deprecated
+    public static eh0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !a.isEmpty() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (eh0) invokeV.objValue;
     }
 
-    @Override // com.repackage.lm0
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+    public static Context b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle) == null) && e()) {
-            for (im0 im0Var : a) {
-                im0Var.onActivityCreated(activity, bundle);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : (Context) invokeV.objValue;
     }
 
-    @Override // com.repackage.lm0
-    public void onActivityDestroyed(@NonNull Activity activity) {
+    public static ch0 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && e()) {
-            for (im0 im0Var : a) {
-                im0Var.onActivityDestroyed(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
+                synchronized (xg0.class) {
+                    if (b == null) {
+                        b = (ch0) ServiceManager.getService(ch0.a);
+                    }
+                    if (b == null) {
+                        b = ch0.b;
+                    }
+                }
             }
+            return b;
         }
+        return (ch0) invokeV.objValue;
     }
 
-    @Override // com.repackage.lm0
-    public void onActivityPaused(@NonNull Activity activity) {
+    public static eh0 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && e()) {
-            for (im0 im0Var : a) {
-                im0Var.onActivityPaused(activity);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? c : (eh0) invokeV.objValue;
     }
 
-    @Override // com.repackage.lm0
-    public void onActivityResumed(@NonNull Activity activity) {
+    @NonNull
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, activity) == null) && e()) {
-            for (im0 im0Var : a) {
-                im0Var.onActivityResumed(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.lm0
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, activity, bundle) == null) && e()) {
-            for (im0 im0Var : a) {
-                im0Var.onActivitySaveInstanceState(activity, bundle);
-            }
-        }
-    }
-
-    @Override // com.repackage.lm0
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, activity) == null) && e()) {
-            for (im0 im0Var : a) {
-                im0Var.onActivityStarted(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.lm0
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && e()) {
-            for (im0 im0Var : a) {
-                im0Var.onActivityStopped(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.lm0
-    public void onBackgroundToForeground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) && e()) {
-            for (im0 im0Var : a) {
-                im0Var.onBackgroundToForeground(activity);
-            }
-        }
-    }
-
-    @Override // com.repackage.lm0
-    public void onForegroundToBackground(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, activity) == null) && e()) {
-            for (im0 im0Var : a) {
-                im0Var.onForegroundToBackground(activity);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? zg0.c().b() : (String) invokeV.objValue;
     }
 }

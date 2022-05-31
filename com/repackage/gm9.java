@@ -1,32 +1,46 @@
 package com.repackage;
 
+import android.location.Location;
+import android.location.LocationListener;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.opensource.svgaplayer.proto.ShapeEntity;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class gm9 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
+public class gm9 implements LocationListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        int[] iArr = new int[ShapeEntity.ShapeType.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[ShapeEntity.ShapeType.SHAPE.ordinal()] = 1;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.RECT.ordinal()] = 2;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.ELLIPSE.ordinal()] = 3;
-        $EnumSwitchMapping$0[ShapeEntity.ShapeType.KEEP.ordinal()] = 4;
-        int[] iArr2 = new int[ShapeEntity.ShapeStyle.LineCap.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[ShapeEntity.ShapeStyle.LineCap.LineCap_BUTT.ordinal()] = 1;
-        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_ROUND.ordinal()] = 2;
-        $EnumSwitchMapping$1[ShapeEntity.ShapeStyle.LineCap.LineCap_SQUARE.ordinal()] = 3;
-        int[] iArr3 = new int[ShapeEntity.ShapeStyle.LineJoin.values().length];
-        $EnumSwitchMapping$2 = iArr3;
-        iArr3[ShapeEntity.ShapeStyle.LineJoin.LineJoin_BEVEL.ordinal()] = 1;
-        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_MITER.ordinal()] = 2;
-        $EnumSwitchMapping$2[ShapeEntity.ShapeStyle.LineJoin.LineJoin_ROUND.ordinal()] = 3;
+    public /* synthetic */ gm9(em9 em9Var) {
+    }
+
+    @Override // android.location.LocationListener
+    public void onLocationChanged(Location location) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
+            jm9.c.a = location.getLatitude();
+            jm9.c.b = location.getLongitude();
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderDisabled(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onProviderEnabled(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
+
+    @Override // android.location.LocationListener
+    public void onStatusChanged(String str, int i, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
+        }
     }
 }

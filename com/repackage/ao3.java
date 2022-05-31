@@ -1,41 +1,50 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ao3 implements ik1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ao3 {
+    String a();
 
-    public ao3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    @Override // com.repackage.ik1
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return context.getPackageName() + ".swan.fileprovider";
-        }
-        return (String) invokeL.objValue;
-    }
+    String c();
+
+    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull hn3 hn3Var);
+
+    String e();
+
+    String getAppId();
+
+    String getAppKey();
+
+    String getSdkVersion();
+
+    String k();
+
+    String l(String str);
+
+    String m();
+
+    int n();
+
+    String o(String str);
+
+    int p();
+
+    int q();
+
+    Uri r(@NonNull Context context, @NonNull File file);
+
+    String s();
+
+    JSONObject t();
+
+    boolean u(View view2);
 }

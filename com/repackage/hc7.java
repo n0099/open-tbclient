@@ -1,231 +1,105 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.appsearchlib.Info;
-import com.baidu.clientupdate.ClientUpdater;
-import com.baidu.clientupdate.IClientUpdaterCallback;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.clientupdate.appinfo.RuleInfo;
-import com.baidu.nps.utils.Constant;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.R;
+import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.io.IOException;
-import java.util.Date;
-import org.json.JSONObject;
+import com.baidubce.auth.NTLMEngineImpl;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class hc7 extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
+public class hc7 extends kj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClientUpdater a;
-    public IClientUpdaterCallback b;
-    public volatile ClientUpdateInfo c;
-    public String d;
-    public boolean e;
-    public Handler f;
-    public Runnable g;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hc7 a;
-
-        public a(hc7 hc7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hc7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hc7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null && "1".equals(this.a.c.mStatus) && TbConfig.COULD_UPDATE) {
-                VersionData versionData = new VersionData();
-                versionData.setForceUpdate(Integer.parseInt(this.a.c.mIsForceUpdate));
-                versionData.setStrategy(0);
-                versionData.setNewVersion(this.a.c.mVername);
-                versionData.setNewVersionCode(Integer.parseInt(this.a.c.mVercode));
-                versionData.setNewFile(this.a.c.mPackageName + this.a.c.mVername + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-                versionData.setHasNewVer(Integer.parseInt(this.a.c.mStatus));
-                versionData.setNewVersionDesc(this.a.c.mChangelog);
-                versionData.setUrl(this.a.c.mDownurl);
-                versionData.setSize(this.a.c.mSize);
-                versionData.setPatch(this.a.c.mPatchDownUrl);
-                versionData.setPatchSize(this.a.c.mPatchSize);
-                versionData.setTiebaIconUrl(this.a.c.mIconUrl);
-                versionData.setApkMD5RSA(this.a.c.mSignMd5);
-                TbadkCoreApplication.getInst().setVersionData(versionData);
-                TbadkCoreApplication.getInst().refreshNewVersion(true);
-                if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
-                    if (versionData.forceUpdate()) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), this.a.c, this.a.d)));
-                        return;
-                    }
-                    Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
-                    Long valueOf2 = Long.valueOf(new Date().getTime());
-                    if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || this.a.e) && versionData.getStrategy() == 0) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), this.a.c, this.a.d)));
-                        TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements IClientUpdaterCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hc7 a;
-
-        public b(hc7 hc7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hc7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hc7Var;
-        }
-
-        @Override // com.baidu.clientupdate.IClientUpdaterCallback
-        public void onCompleted(ClientUpdateInfo clientUpdateInfo, RuleInfo ruleInfo) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, clientUpdateInfo, ruleInfo) == null) || clientUpdateInfo == null || TextUtils.isEmpty(this.a.d)) {
-                return;
-            }
-            this.a.c = clientUpdateInfo;
-            this.a.f.post(this.a.g);
-        }
-
-        @Override // com.baidu.clientupdate.IClientUpdaterCallback
-        public void onError(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            }
-        }
-
-        @Override // com.baidu.clientupdate.IClientUpdaterCallback
-        public void onException(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            }
-        }
-
-        @Override // com.baidu.clientupdate.IClientUpdaterCallback
-        public void onFetched(JSONObject jSONObject) {
-            JSONObject optJSONObject;
-            JSONObject optJSONObject2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("rule")) == null || (optJSONObject2 = optJSONObject.optJSONObject("custom")) == null) {
-                return;
-            }
-            this.a.d = optJSONObject2.optString("apk_MD5_RSA");
-        }
-    }
-
-    public hc7(boolean z) {
+    public hc7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = new a(this);
-        this.e = z;
-        ClientUpdater clientUpdater = ClientUpdater.getInstance(TbadkCoreApplication.getInst());
-        this.a = clientUpdater;
-        clientUpdater.setUseCFG(false);
-        this.a.setUseRSA(false);
-        this.a.setFileProvider("com.baidu.tieba.fileprovider");
-        this.b = new b(this);
-        this.f = new Handler(Looper.getMainLooper());
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void cancel() {
+    @Override // com.repackage.kj4, com.repackage.nj4
+    public pj4 b(Object obj, HashMap<String, String> hashMap, String str) {
+        InterceptResult invokeLLL;
+        Map.Entry<String, String> next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.cancel();
-            this.f.removeCallbacks(this.g);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: i */
-    public ClientUpdateInfo doInBackground(String... strArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
-            this.a.setOsName(Info.PASSWORD);
-            this.a.setTypeId("0");
-            this.a.setFrom("tieba");
-            this.a.addParamValue("versionType", String.valueOf(TbConfig.getVersionType()));
-            this.a.addParamValue("tieba_versionname", TbConfig.getVersion());
-            ClientUpdater clientUpdater = this.a;
-            boolean a2 = ai.a();
-            String str = WebKitFactory.OS_64;
-            clientUpdater.addParamValue("running_abi", a2 ? WebKitFactory.OS_64 : "32");
-            ClientUpdater clientUpdater2 = this.a;
-            if (!ai.b()) {
-                str = "32";
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            pj4 pj4Var = new pj4();
+            if (obj instanceof ab7) {
+                ab7 ab7Var = (ab7) obj;
+                boolean c = ab7Var.c();
+                AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+                Intent intent = new Intent(context, AlarmReceiver.class);
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
+                }
+                intent.putExtra("uid", TbadkCoreApplication.getCurrentAccount());
+                intent.setData(Uri.parse(currentAccount));
+                long j = 0;
+                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
+                int i = 0;
+                while (it.hasNext() && (next = it.next()) != null) {
+                    intent.putExtra(next.getKey(), next.getValue());
+                    if ("task_id".equals(next.getKey())) {
+                        i = Integer.parseInt(next.getValue());
+                    } else if ("s_time".equals(next.getKey())) {
+                        j = Long.parseLong(next.getValue()) * 1000;
+                    }
+                }
+                StatisticItem statisticItem = new StatisticItem(ab7Var.i());
+                statisticItem.param("obj_id", "");
+                if (c) {
+                    statisticItem.param("obj_type", "2");
+                    BdToast.c(context, context.getString(R.string.obfuscated_res_0x7f0f092e)).n();
+                    PendingIntent broadcast = PendingIntent.getBroadcast(context, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
+                    if (broadcast != null) {
+                        alarmManager.cancel(broadcast);
+                        broadcast.cancel();
+                    }
+                    pj4Var.a = false;
+                } else {
+                    statisticItem.param("obj_type", "1");
+                    BdToast.c(context, context.getString(R.string.obfuscated_res_0x7f0f0939)).n();
+                    alarmManager.set(0, j, PendingIntent.getBroadcast(context, i, intent, 134217728));
+                    pj4Var.a = true;
+                }
+                TiebaStatic.log(statisticItem);
+                ab7Var.l(pj4Var.a);
             }
-            clientUpdater2.addParamValue("support_abi", str);
-            this.a.checkUpdate(this.b);
-            return null;
+            return pj4Var;
         }
-        return (ClientUpdateInfo) invokeL.objValue;
+        return (pj4) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPreExecute() {
+    @Override // com.repackage.kj4
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onPreExecute();
-            this.f.removeCallbacks(this.g);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/registerInterviewNotice" : (String) invokeV.objValue;
     }
 }

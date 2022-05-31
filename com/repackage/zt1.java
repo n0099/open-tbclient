@@ -1,72 +1,65 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class zt1 extends rt1 {
+public class zt1 extends ns1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Path a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zt1(r13 r13Var) {
-        super(r13Var, "/swanAPI/canvas/update");
+    public zt1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((r13) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.ns1
+    public void a(os1 os1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            rv1 k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = l(201);
-                ux1.c("SwanAppCanvas", "update action parse model is null");
-                return false;
-            }
-            String str = k.b;
-            ar2 ar2Var = k.h;
-            if (!TextUtils.isEmpty(str) && ar2Var != null && ar2Var.h()) {
-                uw1 uw1Var = (uw1) hx1.a(k);
-                if (uw1Var == null) {
-                    ux1.c("SwanAppCanvas", "update canvas fail: fina a null component");
-                    unitedSchemeEntity.result = l(1001);
-                    return false;
-                }
-                lw1 update = uw1Var.update((uw1) k);
-                boolean a = update.a();
-                if (!a) {
-                    ux1.c("SwanAppCanvas", "update canvas fail: " + update.b);
-                }
-                j(unitedSchemeEntity, callbackHandler, a);
-                return a;
-            }
-            ux1.c("SwanAppCanvas", "some params invalid");
-            unitedSchemeEntity.result = l(202);
-            return false;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, os1Var, canvas) == null) || this.a == null) {
+            return;
         }
-        return invokeLLLL.booleanValue;
+        int alpha = os1Var.c.getAlpha();
+        os1Var.c(os1Var.c);
+        canvas.drawPath(this.a, os1Var.c);
+        os1Var.c.setAlpha(alpha);
+    }
+
+    @Override // com.repackage.ns1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = yc3.g((float) jSONArray.optDouble(0));
+                    int g2 = yc3.g((float) jSONArray.optDouble(1));
+                    int g3 = yc3.g((float) jSONArray.optDouble(2));
+                    int g4 = yc3.g((float) jSONArray.optDouble(3));
+                    Path path = new Path();
+                    this.a = path;
+                    path.addRect(new RectF(g, g2, g + g3, g2 + g4), Path.Direction.CW);
+                }
+            } catch (Exception e) {
+                if (rf1.a) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

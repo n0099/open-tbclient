@@ -1,78 +1,98 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBError;
 import java.io.File;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class kq9 {
+public class kq9 implements qo9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadPoolExecutor a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ Bitmap.CompressFormat a;
+    public final /* synthetic */ xl9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755550082, "Lcom/repackage/kq9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755550082, "Lcom/repackage/kq9;");
+    public kq9(xl9 xl9Var, Bitmap.CompressFormat compressFormat) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xl9Var, compressFormat};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ThreadPoolExecutor(1, 5, 1L, TimeUnit.MINUTES, new LinkedBlockingQueue(30));
+        this.b = xl9Var;
+        this.a = compressFormat;
     }
 
-    public static String a(Context context, String str, String str2, List list, dq9 dq9Var) {
-        InterceptResult invokeLLLLL;
+    @Override // com.repackage.qo9
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, context, str, str2, list, dq9Var)) == null) {
-            AtomicInteger atomicInteger = new AtomicInteger(0);
-            Iterator it = list.iterator();
-            while (it.hasNext()) {
-                String str3 = (String) it.next();
-                File file = new File(str2, String.valueOf(str3.hashCode()));
-                if (file.exists()) {
-                    if (file.length() == xp9.b(context).a(str3)) {
-                        str = str.replace(str3, "file://" + file.getAbsolutePath());
-                        atomicInteger.addAndGet(1);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.qo9
+    public void a(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+            xl9 xl9Var = this.b;
+            if (!xl9Var.j) {
+                yl9 yl9Var = xl9Var.e;
+                if (yl9Var != null) {
+                    xl9Var.c = bitmap;
+                    yl9Var.onLoaded();
+                    xl9.i(this.b, true);
+                }
+            } else if (xl9Var.l.exists()) {
+            } else {
+                File file = this.b.l;
+                gq9 gq9Var = new gq9(this);
+                Bitmap.CompressFormat compressFormat = this.a;
+                if (file.isDirectory()) {
+                    new com.win.opensdk.k0("the specified path points to a directory, should be a file");
+                } else if (file.exists()) {
+                    new com.win.opensdk.k0("file already exists, write operation cancelled");
+                } else {
+                    File parentFile = file.getParentFile();
+                    if (!parentFile.exists() && !parentFile.mkdirs()) {
+                        new com.win.opensdk.k0("could not create parent directory");
+                        return;
+                    }
+                    try {
+                        if (file.createNewFile()) {
+                            new jo9(file, bitmap, compressFormat, gq9Var).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
+                        } else {
+                            new com.win.opensdk.k0("could not create file");
+                        }
+                    } catch (IOException e) {
+                        new com.win.opensdk.k0(e);
                     }
                 }
             }
-            if (dq9Var != null) {
-                if (atomicInteger.get() <= 0) {
-                    dq9Var.a(0);
-                } else if (atomicInteger.get() == list.size()) {
-                    dq9Var.a(2);
-                } else {
-                    dq9Var.a(1);
-                }
-            }
-            return str;
         }
-        return (String) invokeLLLLL.objValue;
     }
 
-    public static void b(Context context, String str, List list, aq9 aq9Var) {
+    @Override // com.repackage.qo9
+    public void a(com.win.opensdk.k0 k0Var) {
+        xl9 xl9Var;
+        yl9 yl9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, context, str, list, aq9Var) == null) {
-            try {
-                a.execute(new up9(context, str, list, aq9Var));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) || (yl9Var = (xl9Var = this.b).e) == null || xl9Var.j) {
+            return;
         }
+        yl9Var.onFail(PBError.NO_RESUOURCE);
+        xl9.i(this.b, true);
     }
 }

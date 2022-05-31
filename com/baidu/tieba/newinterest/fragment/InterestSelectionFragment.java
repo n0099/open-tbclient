@@ -19,18 +19,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cp7;
-import com.repackage.dp7;
-import com.repackage.xu4;
-import com.repackage.zp7;
+import com.repackage.in7;
+import com.repackage.lm7;
+import com.repackage.mm7;
+import com.repackage.nt4;
 /* loaded from: classes3.dex */
-public class InterestSelectionFragment extends BaseInterestSelectionFragment implements cp7.a {
+public class InterestSelectionFragment extends BaseInterestSelectionFragment implements lm7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout g;
     public TextView h;
     public TextView i;
-    public zp7 j;
+    public in7 j;
     public NoScrollGridView k;
 
     public InterestSelectionFragment() {
@@ -47,7 +47,7 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         }
     }
 
-    public static InterestSelectionFragment G0(int i, String[] strArr) {
+    public static InterestSelectionFragment I0(int i, String[] strArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, strArr)) == null) {
@@ -61,20 +61,20 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         return (InterestSelectionFragment) invokeIL.objValue;
     }
 
-    public final void H0() {
+    public final void J0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.k = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f090f2a);
-            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f090f25);
-            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090f2e);
+            this.k = (NoScrollGridView) this.d.findViewById(R.id.obfuscated_res_0x7f090eef);
+            this.b = (TBSpecificationBtn) this.d.findViewById(R.id.obfuscated_res_0x7f090eea);
+            TextView textView = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090ef3);
             this.h = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
-            this.i = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090f29);
-            this.g = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0903de);
-            xu4 xu4Var = new xu4();
+            this.i = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f090eee);
+            this.g = (FrameLayout) this.d.findViewById(R.id.obfuscated_res_0x7f0903d9);
+            nt4 nt4Var = new nt4();
             this.b.setTextSize(R.dimen.tbds42);
-            this.b.setConfig(xu4Var);
-            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10e8));
+            this.b.setConfig(nt4Var);
+            this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f10f8));
             this.b.setEnabled(false);
             this.b.setOnClickListener(this);
             this.k.setAdapter((ListAdapter) this.c);
@@ -99,8 +99,8 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.j = new zp7(getContext());
-            this.c = new dp7(this.j.c(), getContext());
+            this.j = new in7(getContext());
+            this.c = new mm7(this.j.c(), getContext());
         }
     }
 
@@ -109,9 +109,9 @@ public class InterestSelectionFragment extends BaseInterestSelectionFragment imp
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.d = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02d9, viewGroup, false);
-            H0();
-            C0();
+            this.d = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02d5, viewGroup, false);
+            J0();
+            E0();
             if (getArguments() != null) {
                 this.e = getArguments().getInt("scene");
                 this.f = getArguments().getStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);

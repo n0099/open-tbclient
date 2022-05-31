@@ -46,9 +46,9 @@ public class TextFormView extends FrameLayout {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04bb, (ViewGroup) this, true);
-            this.mTextView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc2);
-            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091bbd);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04b1, (ViewGroup) this, true);
+            this.mTextView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b70);
+            this.mBottomLine = inflate.findViewById(R.id.obfuscated_res_0x7f091b6b);
             this.mTextView.setText(this.mTextStr);
             this.mBottomLine.setVisibility(this.mIsShowBottomLine ? 0 : 4);
         }

@@ -39,16 +39,16 @@ public class bw extends fm {
 
     @Override // com.xiaomi.push.fm
     /* renamed from: a */
-    public byte[] mo367a() {
+    public byte[] mo366a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 du.b bVar = new du.b();
-                bVar.a(bi.a().m654a());
-                return bVar.m320a();
+                bVar.a(bi.a().m653a());
+                return bVar.m319a();
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("getOBBString err: " + e.toString());
+                com.xiaomi.channel.commonutils.logger.b.m108a("getOBBString err: " + e.toString());
                 return null;
             }
         }

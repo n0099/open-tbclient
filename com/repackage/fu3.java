@@ -1,119 +1,46 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yz2;
-/* loaded from: classes6.dex */
+import java.net.URLEncoder;
+/* loaded from: classes5.dex */
 public class fu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yz2 a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ boolean d;
-        public final /* synthetic */ DialogInterface.OnClickListener e;
-        public final /* synthetic */ fu3 f;
-
-        public a(fu3 fu3Var, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fu3Var, activity, str, str2, Boolean.valueOf(z), onClickListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(nt3 nt3Var, JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, nt3Var, jsObject) == null) {
+            gu3 gu3Var = new gu3();
+            or1 F = or1.F(jsObject);
+            if (F == null) {
+                F = new or1();
             }
-            this.f = fu3Var;
-            this.a = activity;
-            this.b = str;
-            this.c = str2;
-            this.d = z;
-            this.e = onClickListener;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f.a != null && this.f.a.isShowing()) {
-                    this.f.a.dismiss();
-                }
-                Activity activity = this.a;
-                if (activity == null || activity.isFinishing()) {
-                    return;
-                }
-                yz2.a d = this.f.d(this.a, this.b, this.c, this.d, this.e);
-                this.f.a = d.X();
+            boolean z = false;
+            if (nt3Var == null) {
+                gu3Var.errMsg = "openCustomerServiceConversation:fail";
+                s14.call(F, false, gu3Var);
+                return;
             }
-        }
-    }
-
-    public fu3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if (qv3.c()) {
+                hz2 L = hz2.L();
+                if (L != null) {
+                    String str = "{\"appKey\":\"" + L.N() + "\"}";
+                    if (SchemeRouter.invoke(oi2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
+                        gu3Var.errMsg = "openCustomerServiceConversation:ok";
+                        z = true;
+                    } else {
+                        gu3Var.errMsg = "openCustomerServiceConversation:fail";
+                    }
+                } else {
+                    gu3Var.errMsg = "openCustomerServiceConversation:fail";
+                }
+            } else {
+                gu3Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
             }
-        }
-    }
-
-    public final yz2.a d(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener})) == null) {
-            yz2.a aVar = new yz2.a(activity);
-            aVar.x(str);
-            aVar.a();
-            aVar.n(new cg3());
-            aVar.m(z);
-            aVar.Q(R.color.obfuscated_res_0x7f060a62);
-            aVar.f(true);
-            aVar.P(str2, onClickListener);
-            return aVar;
-        }
-        return (yz2.a) invokeCommon.objValue;
-    }
-
-    public void e() {
-        yz2 yz2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (yz2Var = this.a) == null) {
-            return;
-        }
-        if (yz2Var.isShowing()) {
-            this.a.dismiss();
-        }
-        this.a = null;
-    }
-
-    public void f(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener}) == null) {
-            oe3.a0(new a(this, activity, str, str2, z, onClickListener));
+            s14.call(F, z, gu3Var);
         }
     }
 }

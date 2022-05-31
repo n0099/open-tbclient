@@ -1,13 +1,9 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,11 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
-public class rp2 extends wp2 {
+public class rp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean j;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public boolean c;
+    public int d;
+    public long e;
+    public long f;
+    public int g;
+    public Rect h;
+    public boolean i;
 
     static {
         InterceptResult invokeClinit;
@@ -34,67 +40,90 @@ public class rp2 extends wp2 {
                 return;
             }
         }
-        boolean z = eh1.a;
+        j = hz2.v;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rp2(String str) {
-        super(str);
+    public rp2(String str, String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {str, str2, Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.g = 0;
+        this.a = str;
+        this.b = str2;
+        this.e = System.currentTimeMillis();
+        this.f = j2;
+        this.d = 0;
+        this.i = z;
     }
 
-    @Override // com.repackage.wp2
-    public boolean a(mp2 mp2Var, op2 op2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeCommon;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{mp2Var, op2Var, context, unitedSchemeEntity, callbackHandler, u03Var})) == null) {
-            ux1.i("video", "open, video id:" + op2Var.j + " slave id: " + op2Var.c);
-            mp2Var.l();
-            d(mp2Var, op2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = 2;
         }
-        return invokeCommon.booleanValue;
     }
 
-    @Override // com.repackage.wp2
-    public mp2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j2 = this.f;
+            if (j2 > 0) {
+                this.f = j2 - (System.currentTimeMillis() - this.e);
             }
-            sn2 f = tn2.f(str, str2, str3);
-            if (f == null) {
-                return new mp2(context, op2.h(jSONObject, new op2()));
-            }
-            if (f.i() instanceof mp2) {
-                return (mp2) f.i();
-            }
-            return null;
+            return this.f;
         }
-        return (mp2) invokeLLLLL.objValue;
+        return invokeV.longValue;
     }
 
-    public final void d(mp2 mp2Var, op2 op2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, mp2Var, op2Var, unitedSchemeEntity, callbackHandler) == null) {
-            mp2Var.o(op2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d == 2 : invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j2 = this.f;
+            if (j2 > 0) {
+                this.f = j2 - (System.currentTimeMillis() - this.e);
+                if (j) {
+                    Log.d("SwanAppPageMonitor", "pause, left " + this.f + "ms");
+                }
+            }
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.e = System.currentTimeMillis();
+        }
+    }
+
+    public void f(Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
+            new WeakReference(bitmap);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.d = 1;
         }
     }
 }

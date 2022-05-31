@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.hj8;
-import com.repackage.kg;
+import com.repackage.ig8;
+import com.repackage.jg;
 import com.repackage.wa;
 /* loaded from: classes3.dex */
 public class ReplyMeModel extends BdBaseModel {
@@ -76,12 +76,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.a.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
                 }
             } else {
                 if (z) {
@@ -112,10 +112,10 @@ public class ReplyMeModel extends BdBaseModel {
                             }
                             return;
                         } else if (postState == 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13c0);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13d2);
                             return;
                         } else if (postState == -1) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13cb);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f13dd);
                             return;
                         } else {
                             return;
@@ -152,8 +152,8 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        hj8.f(303010, CheckPostResponseMessage.class, false);
-        hj8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        ig8.f(303010, CheckPostResponseMessage.class, false);
+        ig8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -197,7 +197,7 @@ public class ReplyMeModel extends BdBaseModel {
             checkPostRequestMessage.setPid(j);
             checkPostRequestMessage.setPostType(i);
             checkPostRequestMessage.setForumName(str);
-            checkPostRequestMessage.setTid(kg.g(str2, 0L));
+            checkPostRequestMessage.setTid(jg.g(str2, 0L));
             checkPostRequestMessage.setTag(this.a.getUniqueId());
             if (baijiahaoData != null) {
                 checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;

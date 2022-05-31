@@ -7,14 +7,14 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class a extends d {
-    public C0286a b;
+    public C0287a b;
 
     /* renamed from: com.kwad.sdk.collector.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0286a {
+    public static class C0287a {
         public List<String> a;
 
-        public C0286a(List<String> list) {
+        public C0287a(List<String> list) {
             this.a = list;
         }
 
@@ -26,9 +26,9 @@ public class a extends d {
     }
 
     public a(List<String> list) {
-        C0286a c0286a = new C0286a(list);
-        this.b = c0286a;
-        a("targetAppInfo", c0286a.a());
+        C0287a c0287a = new C0287a(list);
+        this.b = c0287a;
+        a("targetAppInfo", c0287a.a());
         b(CommandMessage.SDK_VERSION, "3.3.17.4");
         a("sdkVersionCode", 3031704);
     }

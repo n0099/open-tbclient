@@ -1,64 +1,110 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.searchbox.v8engine.console.DebugConsole;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.input.ReturnKeyType;
 /* loaded from: classes5.dex */
-public class ax3 implements DebugConsole {
+public class ax3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755841451, "Lcom/repackage/ax3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755841451, "Lcom/repackage/ax3;");
-                return;
-            }
-        }
-        b = eh1.a;
-    }
+    public String a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
+    public String f;
 
     public ax3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = Integer.MAX_VALUE;
+        this.c = false;
+        this.d = false;
     }
 
-    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
-    public void onReceiveInfo(int i, String str) {
+    public boolean a(or1 or1Var) throws JSTypeMismatchException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && b && !q14.d()) {
-            if (i == 0) {
-                Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
-            } else if (i == 1) {
-                this.a = System.currentTimeMillis();
-                Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
-            } else if (i != 2) {
-            } else {
-                Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.a), str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, or1Var)) == null) {
+            try {
+                this.a = or1Var.B("defaultValue");
+                this.b = or1Var.q("maxLength");
+                this.c = or1Var.l("multiple");
+                this.d = or1Var.l("confirmHold");
+                String B = or1Var.B("confirmType");
+                char c = 65535;
+                switch (B.hashCode()) {
+                    case -906336856:
+                        if (B.equals("search")) {
+                            c = 2;
+                            break;
+                        }
+                        break;
+                    case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                        if (B.equals(ReturnKeyType.GO)) {
+                            c = 3;
+                            break;
+                        }
+                        break;
+                    case 3089282:
+                        if (B.equals("done")) {
+                            c = 0;
+                            break;
+                        }
+                        break;
+                    case 3377907:
+                        if (B.equals("next")) {
+                            c = 1;
+                            break;
+                        }
+                        break;
+                    case 3526536:
+                        if (B.equals(ReturnKeyType.SEND)) {
+                            c = 4;
+                            break;
+                        }
+                        break;
+                }
+                if (c == 0) {
+                    this.e = 6;
+                    this.f = "done";
+                } else if (c == 1) {
+                    this.e = 5;
+                    this.f = "next";
+                } else if (c == 2) {
+                    this.e = 3;
+                    this.f = "search";
+                } else if (c == 3) {
+                    this.e = 2;
+                    this.f = ReturnKeyType.GO;
+                } else if (c != 4) {
+                    this.e = 6;
+                    this.f = "done";
+                } else {
+                    this.e = 4;
+                    this.f = ReturnKeyType.SEND;
+                }
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
         }
+        return invokeL.booleanValue;
     }
 }

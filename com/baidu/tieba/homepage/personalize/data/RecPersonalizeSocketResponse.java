@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sy6;
+import com.repackage.ww6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -62,11 +62,11 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        sy6.a = false;
-        if (sy6.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
-            this.resultData = sy6.b();
-            sy6.a = true;
-            sy6.a();
+        ww6.a = false;
+        if (ww6.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
+            this.resultData = ww6.b();
+            ww6.a = true;
+            ww6.a();
             return;
         }
         this.resultData = personalizedResIdl.data;

@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mf8;
-/* loaded from: classes4.dex */
+import com.repackage.nc8;
+/* loaded from: classes3.dex */
 public class SplashAdView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mf8 a;
+    public nc8 a;
     public BaseFragmentActivity b;
     public int c;
 
@@ -45,21 +45,21 @@ public class SplashAdView extends FrameLayout {
     }
 
     public void a() {
-        mf8 mf8Var;
+        nc8 nc8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (mf8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nc8Var = this.a) == null) {
             return;
         }
-        mf8Var.e();
+        nc8Var.e();
     }
 
     public void b() {
-        mf8 mf8Var;
+        nc8 nc8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mf8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (nc8Var = this.a) == null) {
             return;
         }
-        mf8Var.f();
+        nc8Var.f();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -67,20 +67,20 @@ public class SplashAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
-            mf8 mf8Var = new mf8();
-            this.a = mf8Var;
-            mf8Var.a(this.b, this, this.c);
+            nc8 nc8Var = new nc8();
+            this.a = nc8Var;
+            nc8Var.a(this.b, this, this.c);
         }
     }
 
     @Override // android.view.View
     public void onConfigurationChanged(@NonNull Configuration configuration) {
-        mf8 mf8Var;
+        nc8 nc8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) || (mf8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) || (nc8Var = this.a) == null) {
             return;
         }
-        mf8Var.d(configuration);
+        nc8Var.d(configuration);
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -88,9 +88,9 @@ public class SplashAdView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDetachedFromWindow();
-            mf8 mf8Var = this.a;
-            if (mf8Var != null) {
-                mf8Var.g();
+            nc8 nc8Var = this.a;
+            if (nc8Var != null) {
+                nc8Var.g();
             }
             this.a = null;
         }

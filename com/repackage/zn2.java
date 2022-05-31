@@ -3,79 +3,44 @@ package com.repackage;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.media.audio.SwanAppAudioPlayer;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.nj2;
 /* loaded from: classes7.dex */
-public class zn2 extends r23 {
+public class zn2 implements fm2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
+    public nj2 a;
+    public String b;
+    public bo2 c;
+    public boolean d;
+    public Context e;
+    public boolean f;
+    public ao2 g;
 
     /* loaded from: classes7.dex */
-    public class a implements nf3<String> {
+    public class a implements nj2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vn2 a;
-        public final /* synthetic */ SwanAppAudioPlayer b;
+        public final /* synthetic */ zn2 a;
 
-        /* renamed from: com.repackage.zn2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0572a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0572a(a aVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    a aVar = this.b;
-                    vn2 vn2Var = aVar.a;
-                    vn2Var.c = this.a;
-                    aVar.b.update(vn2Var);
-                }
-            }
-        }
-
-        public a(zn2 zn2Var, vn2 vn2Var, SwanAppAudioPlayer swanAppAudioPlayer) {
+        public a(zn2 zn2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zn2Var, vn2Var, swanAppAudioPlayer};
+                Object[] objArr = {zn2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,76 +50,31 @@ public class zn2 extends r23 {
                     return;
                 }
             }
-            this.a = vn2Var;
-            this.b = swanAppAudioPlayer;
+            this.a = zn2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(String str) {
+        @Override // com.repackage.nj2.a
+        public void b(nj2 nj2Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    a83.b("audio", 3001, "cloud url is null", -1, "");
-                }
-                oe3.e0(new RunnableC0572a(this, str));
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, nj2Var) == null) || this.a.g == null) {
+                return;
             }
+            this.a.g.b(nj2Var);
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements nf3<String> {
+    public class b implements nj2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vn2 a;
-        public final /* synthetic */ SwanAppAudioPlayer b;
-        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ zn2 a;
 
-        /* loaded from: classes7.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.b;
-                    vn2 vn2Var = bVar.a;
-                    vn2Var.c = this.a;
-                    bVar.b.x(vn2Var, bVar.c);
-                }
-            }
-        }
-
-        public b(zn2 zn2Var, vn2 vn2Var, SwanAppAudioPlayer swanAppAudioPlayer, CallbackHandler callbackHandler) {
+        public b(zn2 zn2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zn2Var, vn2Var, swanAppAudioPlayer, callbackHandler};
+                Object[] objArr = {zn2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -164,356 +84,475 @@ public class zn2 extends r23 {
                     return;
                 }
             }
-            this.a = vn2Var;
-            this.b = swanAppAudioPlayer;
-            this.c = callbackHandler;
+            this.a = zn2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(String str) {
+        @Override // com.repackage.nj2.b
+        public boolean f(nj2 nj2Var, int i, int i2) {
+            InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    a83.b("audio", 3001, "cloud url is null", -1, "");
-                }
-                oe3.e0(new a(this, str));
-            }
+            return (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, nj2Var, i, i2)) == null) ? this.a.g != null && this.a.g.f(nj2Var, i, i2) : invokeLII.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zn2(r13 r13Var) {
-        super(r13Var, "/swanAPI/audio");
+    /* loaded from: classes7.dex */
+    public class c implements nj2.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zn2 a;
+
+        public c(zn2 zn2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zn2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zn2Var;
+        }
+
+        @Override // com.repackage.nj2.d
+        public void e(nj2 nj2Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, nj2Var) == null) || this.a.g == null) {
+                return;
+            }
+            this.a.g.e(nj2Var);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements nj2.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zn2 a;
+
+        public d(zn2 zn2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zn2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zn2Var;
+        }
+
+        @Override // com.repackage.nj2.e
+        public void a(nj2 nj2Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, nj2Var) == null) || this.a.g == null) {
+                return;
+            }
+            this.a.g.a(nj2Var);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements nj2.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zn2 a;
+
+        public e(zn2 zn2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zn2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zn2Var;
+        }
+
+        @Override // com.repackage.nj2.f
+        public void d(nj2 nj2Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, nj2Var) == null) || this.a.g == null) {
+                return;
+            }
+            this.a.g.d(nj2Var);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements nj2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zn2 a;
+
+        public f(zn2 zn2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zn2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zn2Var;
+        }
+
+        @Override // com.repackage.nj2.c
+        public void c(nj2 nj2Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, nj2Var) == null) || this.a.g == null) {
+                return;
+            }
+            this.a.g.c(nj2Var);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755106317, "Lcom/repackage/zn2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755106317, "Lcom/repackage/zn2;");
+                return;
+            }
+        }
+        h = rf1.a;
+    }
+
+    public zn2(Context context, @NonNull bo2 bo2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, bo2Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.f = true;
+        this.e = context;
+        this.c = bo2Var;
+        this.b = bo2Var.j;
+        h();
+        d();
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLLL;
+    public void A(bo2 bo2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (unitedSchemeEntity != null) {
-                xn2.b("AudioPlayerAction", "#handle entity.uri=" + unitedSchemeEntity.getUri());
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bo2Var) == null) {
+            if (h) {
+                Log.e("SwanAppVideoPlayer", "update 接口");
             }
-            return false;
+            nj2 nj2Var = this.a;
+            if (nj2Var != null) {
+                nj2Var.h(bo2Var, true);
+            }
+            this.c = bo2Var;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x006b A[ADDED_TO_REGION] */
-    @Override // com.repackage.r23
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, u03 u03Var) {
-        InterceptResult invokeLLLLL;
-        SwanAppAudioPlayer k;
-        char c;
-        boolean z;
-        char c2;
+    public final boolean B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, u03Var)) == null) {
-            xn2.b("AudioPlayerAction", "#handleSubAction subAction=" + str + " entity.uri=" + unitedSchemeEntity.getUri());
-            if (u03Var.m0()) {
-                if (r23.b) {
-                    Log.d("AudioPlayerAction", "AudioPlayerAction does not supported when app is invisible.");
-                }
-                int hashCode = str.hashCode();
-                if (hashCode != 1726838360) {
-                    if (hashCode == 1726864194 && str.equals("/swanAPI/audio/play")) {
-                        c2 = 1;
-                        if (c2 != 0 || c2 == 1) {
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                            return false;
-                        }
-                    }
-                    c2 = 65535;
-                    if (c2 != 0) {
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
-                }
-                if (str.equals("/swanAPI/audio/open")) {
-                    c2 = 0;
-                    if (c2 != 0) {
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
-                }
-                c2 = 65535;
-                if (c2 != 0) {
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            bo2 bo2Var = this.c;
+            return (bo2Var == null || TextUtils.isEmpty(bo2Var.y) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c.b)) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.fm2
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.c : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fm2
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || TextUtils.isEmpty(this.b)) {
+            return;
+        }
+        gm2.a(this);
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? h().getCurrentPosition() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.fm2
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            bo2 bo2Var = this.c;
+            return bo2Var != null ? bo2Var.z : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public bo2 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (bo2) invokeV.objValue;
+    }
+
+    public nj2 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.a == null) {
+                hw1.i("video", "create player");
+                nj2 C0 = oi2.C0();
+                C0.e(this.e, this.c);
+                this.a = C0;
+                C0.g(new a(this));
+                this.a.p(new b(this));
+                this.a.m(new c(this));
+                this.a.j(new d(this));
+                this.a.k(new e(this));
+                this.a.r(new f(this));
             }
-            JSONObject j = j(unitedSchemeEntity.getParam("params"));
-            if (j == null) {
-                a83.b("audio", 1001, "param is null", 201, "param is null");
-                ux1.c("audio", "object is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (TextUtils.equals(str, "/swanAPI/audio/setInnerAudioOption")) {
-                return m(j, u03Var, unitedSchemeEntity, callbackHandler);
-            } else {
-                if (TextUtils.equals(str, "/swanAPI/audio/getAvailableAudioSources")) {
-                    return l(unitedSchemeEntity, callbackHandler, u03Var);
+            return this.a;
+        }
+        return (nj2) invokeV.objValue;
+    }
+
+    @Override // com.repackage.fm2
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this : invokeV.objValue;
+    }
+
+    @Override // com.repackage.fm2
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        }
+    }
+
+    @Override // com.repackage.fm2
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f = z;
+            if (z) {
+                if (this.d) {
+                    h().resume();
                 }
-                String optString = j.optString("audioId");
-                if (TextUtils.equals(str, "/swanAPI/audio/open")) {
-                    k = new SwanAppAudioPlayer(optString);
-                } else {
-                    k = k(optString);
-                }
-                if (k == null) {
-                    a83.b("audio", 2001, "player is null", 201, "player is null");
-                    ux1.c("audio", "player is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                vn2 a2 = vn2.a(j, k.u());
-                if (!a2.b()) {
-                    a83.b("audio", 2001, "param is invalid", 201, "param is invalid");
-                    ux1.c("audio", "params is invalid");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                switch (str.hashCode()) {
-                    case 1726838360:
-                        if (str.equals("/swanAPI/audio/open")) {
-                            c = 0;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1726864194:
-                        if (str.equals("/swanAPI/audio/play")) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1726946950:
-                        if (str.equals("/swanAPI/audio/seek")) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1726961680:
-                        if (str.equals("/swanAPI/audio/stop")) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1806024023:
-                        if (str.equals("/swanAPI/audio/update")) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1981190058:
-                        if (str.equals("/swanAPI/audio/close")) {
-                            c = 6;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1992873896:
-                        if (str.equals("/swanAPI/audio/pause")) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                switch (c) {
-                    case 0:
-                        ux1.i("audio", "open, audio id:" + a2.a);
-                        n(context, callbackHandler, k, a2);
-                        z = true;
-                        break;
-                    case 1:
-                        ux1.i("audio", "update, audio id:" + a2.a);
-                        o(context, k, a2);
-                        z = true;
-                        break;
-                    case 2:
-                        ux1.i("audio", "play, audio id:" + a2.a);
-                        k.A();
-                        z = true;
-                        break;
-                    case 3:
-                        ux1.i("audio", "pause, audio id:" + a2.a);
-                        k.y();
-                        z = true;
-                        break;
-                    case 4:
-                        ux1.i("audio", "seek, audio id:" + a2.a);
-                        k.E(a2.h);
-                        z = true;
-                        break;
-                    case 5:
-                        ux1.i("audio", "stop, audio id:" + a2.a);
-                        k.J();
-                        z = true;
-                        break;
-                    case 6:
-                        ux1.i("audio", "release, audio id:" + a2.a);
-                        k.C();
-                        z = true;
-                        break;
-                    default:
-                        z = false;
-                        break;
-                }
-                xn2.b("AudioPlayerAction", "#handleSubAction invokeSuccess=" + z);
-                if (z) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
-                }
-                return super.i(context, unitedSchemeEntity, callbackHandler, str, u03Var);
+                h().b();
+            } else if (this.a != null) {
+                this.d = h().isPlaying();
+                h().pause();
+                h().c();
             }
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public final JSONObject j(String str) {
+    public void l() {
+        nj2 nj2Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (nj2Var = this.a) == null) {
+            return;
+        }
+        nj2Var.f();
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            nj2 nj2Var = this.a;
+            return nj2Var != null && nj2Var.isEnd();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            nj2 nj2Var = this.a;
+            return nj2Var != null && nj2Var.isPlaying();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void o(bo2 bo2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, bo2Var) == null) {
+            hw1.i("video", "Open Player " + bo2Var.j);
+            nj2 nj2Var = this.a;
+            if (nj2Var != null) {
+                nj2Var.o(bo2Var);
+            }
+            this.c = bo2Var;
+        }
+    }
+
+    @Override // com.repackage.fm2
+    public boolean onBackPressed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            hw1.i("video", "onBackPressed");
+            nj2 nj2Var = this.a;
+            return nj2Var != null && nj2Var.onBackPressed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.fm2
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            hw1.i("video", MissionEvent.MESSAGE_DESTROY);
+            nj2 nj2Var = this.a;
+            if (nj2Var != null) {
+                nj2Var.stop();
+                this.a = null;
+            }
+            gm2.k(this);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && B()) {
+            h().pause();
+        }
+    }
+
+    public int q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return new JSONObject(str);
-                } catch (JSONException e) {
-                    if (r23.b) {
-                        Log.d("AudioPlayerAction", Log.getStackTraceString(e));
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            nj2 nj2Var = this.a;
+            if (nj2Var != null) {
+                return nj2Var.q(str);
             }
-            return null;
+            return 1001;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public final SwanAppAudioPlayer k(String str) {
-        InterceptResult invokeL;
+    public void r(String str) {
+        nj2 nj2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                sn2 e = tn2.e(str);
-                if (e instanceof SwanAppAudioPlayer) {
-                    return (SwanAppAudioPlayer) e.i();
-                }
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, str) == null) || (nj2Var = this.a) == null) {
+            return;
         }
-        return (SwanAppAudioPlayer) invokeL.objValue;
+        nj2Var.i(str);
     }
 
-    public boolean l(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLL;
+    public void s() {
+        nj2 nj2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (u03Var == null) {
-                ux1.c("AudioPlayerAction", "aiapp or entity is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put("auto");
-            jSONArray.put("mic");
-            jSONArray.put(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER);
-            jSONArray.put("voice_communication");
-            jSONArray.put("voice_recognition");
-            try {
-                jSONObject.put("audioSources", jSONArray.toString());
-                if (r23.b) {
-                    Log.d("AudioPlayerAction", "audioSource:" + jSONObject.toString());
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            } catch (JSONException e) {
-                if (r23.b) {
-                    e.printStackTrace();
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final boolean m(JSONObject jSONObject, u03 u03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, jSONObject, u03Var, unitedSchemeEntity, callbackHandler)) == null) {
-            if (u03Var == null) {
-                ux1.c("AudioPlayerAction", "aiapp or entity is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            try {
-                boolean optBoolean = jSONObject.optBoolean("mixWithOther", false);
-                u03Var.T().h("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
-                if (r23.b) {
-                    Log.d("AudioPlayerAction", "Audio Mix Changed to " + optBoolean);
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
-            } catch (Exception unused) {
-                ux1.c("AudioPlayerAction", "set aiapps global var error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void n(Context context, CallbackHandler callbackHandler, SwanAppAudioPlayer swanAppAudioPlayer, vn2 vn2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, context, callbackHandler, swanAppAudioPlayer, vn2Var) == null) {
-            cl1 l = bk2.l();
-            if (l != null && c83.s(vn2Var.c) == PathType.CLOUD) {
-                l.b(context, vn2Var.c, new b(this, vn2Var, swanAppAudioPlayer, callbackHandler));
-            } else {
-                swanAppAudioPlayer.x(vn2Var, callbackHandler);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && B() && !n() && this.f && (nj2Var = this.a) != null) {
+            nj2Var.resume();
         }
     }
 
-    public final void o(Context context, SwanAppAudioPlayer swanAppAudioPlayer, vn2 vn2Var) {
+    public void t(int i) {
+        nj2 nj2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, context, swanAppAudioPlayer, vn2Var) == null) {
-            if (TextUtils.isEmpty(vn2Var.c) && c83.s(vn2Var.c) == PathType.CLOUD) {
-                bk2.l().b(context, vn2Var.c, new a(this, vn2Var, swanAppAudioPlayer));
-            } else {
-                swanAppAudioPlayer.update(vn2Var);
-            }
+        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && B() && (nj2Var = this.a) != null) {
+            nj2Var.seekTo(i);
         }
+    }
+
+    public void u(boolean z, int i) {
+        nj2 nj2Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (nj2Var = this.a) == null) {
+            return;
+        }
+        nj2Var.l(z, i);
+    }
+
+    public void v(ao2 ao2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, ao2Var) == null) {
+            this.g = ao2Var;
+        }
+    }
+
+    public void w(boolean z) {
+        nj2 nj2Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048601, this, z) == null) || (nj2Var = this.a) == null) {
+            return;
+        }
+        nj2Var.d(z);
+    }
+
+    public void x(FrameLayout frameLayout) {
+        nj2 nj2Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048602, this, frameLayout) == null) || (nj2Var = this.a) == null) {
+            return;
+        }
+        nj2Var.a(frameLayout);
+    }
+
+    public void y() {
+        nj2 nj2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && B() && (nj2Var = this.a) != null) {
+            nj2Var.seekTo(0);
+            this.a.pause();
+        }
+    }
+
+    public void z(bo2 bo2Var) {
+        nj2 nj2Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, bo2Var) == null) || (nj2Var = this.a) == null) {
+            return;
+        }
+        nj2Var.n(bo2Var);
     }
 }

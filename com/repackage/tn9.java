@@ -1,23 +1,26 @@
 package com.repackage;
 
-import android.view.ViewTreeObserver;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.core.Info;
 /* loaded from: classes7.dex */
-public class tn9 implements ViewTreeObserver.OnScrollChangedListener {
+public class tn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ po9 a;
-    public final /* synthetic */ so9 b;
+    public jn9 a;
+    public xn9 b;
 
-    public tn9(so9 so9Var, po9 po9Var) {
+    public tn9(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {so9Var, po9Var};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,27 +30,37 @@ public class tn9 implements ViewTreeObserver.OnScrollChangedListener {
                 return;
             }
         }
-        this.b = so9Var;
-        this.a = po9Var;
+        jn9 jn9Var = new jn9(context, str);
+        this.a = jn9Var;
+        jn9Var.f = new pn9(this);
     }
 
-    @Override // android.view.ViewTreeObserver.OnScrollChangedListener
-    public void onScrollChanged() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                if (this.b.b || !this.b.b(this.b.a)) {
-                    return;
-                }
-                this.b.e.removeMessages(1101);
-                this.b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
                 if (this.a != null) {
                     this.a.a();
+                    this.a = null;
                 }
-                this.b.b = true;
-            } catch (Exception e) {
-                e.printStackTrace();
+                if (this.b != null) {
+                    this.b = null;
+                }
+            } catch (Exception unused) {
             }
         }
+    }
+
+    public Info b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            jn9 jn9Var = this.a;
+            if (jn9Var == null || !jn9Var.e()) {
+                return null;
+            }
+            return jn9Var.c;
+        }
+        return (Info) invokeV.objValue;
     }
 }

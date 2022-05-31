@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes4.dex */
 public class WriteImageGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class WriteImageGridView extends GridView {
             super.onMeasure(i, i2);
             if (getCount() > 0) {
                 int ceil = (int) Math.ceil(getCount() / 3.0f);
-                setMeasuredDimension(getMeasuredWidth(), ((((mi.k(getContext()) - (mi.f(getContext(), R.dimen.tbds44) * 2)) - (mi.f(getContext(), R.dimen.M_H_X003) * 2)) / 3) * ceil) + ((ceil - 1) * mi.f(getContext(), R.dimen.M_H_X003)) + getPaddingTop() + getPaddingBottom() + mi.f(getContext(), R.dimen.tbds24));
+                setMeasuredDimension(getMeasuredWidth(), ((((li.k(getContext()) - (li.f(getContext(), R.dimen.tbds44) * 2)) - (li.f(getContext(), R.dimen.M_H_X003) * 2)) / 3) * ceil) + ((ceil - 1) * li.f(getContext(), R.dimen.M_H_X003)) + getPaddingTop() + getPaddingBottom() + li.f(getContext(), R.dimen.tbds24));
             }
         }
     }

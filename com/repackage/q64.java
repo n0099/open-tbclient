@@ -1,92 +1,34 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLngBounds;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+@Autowired
 /* loaded from: classes6.dex */
-public abstract class q64 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
+public class q64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaiduMap a;
-    public List<OverlayOptions> b;
-    public List<Overlay> c;
 
-    public q64(BaiduMap baiduMap) {
+    @Inject
+    public static qb4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baiduMap};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = baiduMap;
-        if (0 == 0) {
-            this.b = new ArrayList();
-        }
-        if (this.c == null) {
-            this.c = new ArrayList();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? ri2.a() : (qb4) invokeV.objValue;
     }
 
-    public final void a() {
+    @Inject
+    public static o64 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        c();
-        if (b() != null) {
-            this.b.addAll(b());
-        }
-        for (OverlayOptions overlayOptions : this.b) {
-            this.c.add(this.a.addOverlay(overlayOptions));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? wi2.a() : (o64) invokeV.objValue;
     }
 
-    public abstract List<OverlayOptions> b();
-
-    public final void c() {
+    @Inject
+    public static x74 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
-            return;
-        }
-        for (Overlay overlay : this.c) {
-            overlay.remove();
-        }
-        this.b.clear();
-        this.c.clear();
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null || this.c.size() <= 0) {
-            return;
-        }
-        LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (Overlay overlay : this.c) {
-            if (overlay instanceof Marker) {
-                builder.include(((Marker) overlay).getPosition());
-            }
-        }
-        this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? yi2.a() : (x74) invokeV.objValue;
     }
 }

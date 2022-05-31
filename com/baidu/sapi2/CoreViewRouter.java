@@ -1141,7 +1141,7 @@ public class CoreViewRouter implements NoProguard {
                 Intent intent = new Intent(activity, ShareResultProxyActivity.class);
                 intent.putExtra(ShareResultProxyActivity.KEY_PKG, storageModel.pkg);
                 intent.putExtra("key_url", storageModel.url);
-                intent.putExtra("key_version", ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
+                intent.putExtra(ShareResultProxyActivity.KEY_VERSION, ShareUtils.SHARE_ACCOUNT_NEW_VERSION);
                 intent.putParcelableArrayListExtra(ShareResultProxyActivity.KEY_EXTRA_PARAMS, arrayList);
                 activity.startActivity(intent);
                 return;

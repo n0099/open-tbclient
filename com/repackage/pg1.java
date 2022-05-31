@@ -1,9 +1,11 @@
 package com.repackage;
 
-import android.content.Context;
+import java.io.File;
 /* loaded from: classes6.dex */
 public interface pg1 {
-    String a();
+    File a(String str, String str2);
 
-    void a(Context context, qg1 qg1Var);
+    File b();
+
+    String c();
 }

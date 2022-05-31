@@ -1,123 +1,130 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
-import com.baidu.tieba.R;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wo4 implements Comparable<wo4> {
+public class wo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public ArrayList<UserData> a;
+    public ArrayList<UserData> b;
+    public po4 c;
+    public int d;
+    public int e;
+    public boolean f;
     public String g;
-    public String h;
-    public boolean i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public boolean n;
-    public int o;
-    public int p;
+    public int h;
+    public String i;
+    public int j;
 
-    public wo4(int i, int i2) {
+    public wo4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new po4();
     }
 
-    public static wo4 b(TbLinkSpanGroup tbLinkSpanGroup, hs6 hs6Var) {
-        InterceptResult invokeLL;
-        String str;
+    public ArrayList<UserData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, hs6Var)) == null) {
-            if (tbLinkSpanGroup == null) {
-                return null;
-            }
-            wo4 wo4Var = new wo4(tbLinkSpanGroup.e(), 2);
-            if (hs6Var == null) {
-                return wo4Var;
-            }
-            if (TextUtils.isEmpty(hs6Var.f())) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f157b);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+    }
+
+    public ArrayList<UserData> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        try {
+            boolean z = true;
+            if (jSONObject.optJSONObject("page") != null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        UserData userData = new UserData();
+                        userData.parserJson(optJSONArray.getJSONObject(i));
+                        this.a.add(userData);
+                    }
+                }
+                if (optJSONArray2 != null) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        UserData userData2 = new UserData();
+                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                        userData2.mAttentionType = 1;
+                        this.b.add(userData2);
+                    }
+                }
+                this.c.i(jSONObject.optJSONObject("page"));
+                if (this.c != null) {
+                    this.d = this.c.a();
+                    this.e = this.c.f();
+                    if (this.c.b() != 1) {
+                        z = false;
+                    }
+                    this.f = z;
+                }
+                jSONObject.optInt("tafriendnum", 0);
+                jSONObject.optInt("commonfriendnum", 0);
             } else {
-                str = hs6Var.f() + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040d);
+                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
+                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
+                if (optJSONArray3 != null) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        UserData userData3 = new UserData();
+                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
+                        this.a.add(userData3);
+                    }
+                }
+                if (optJSONArray4 != null) {
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        UserData userData4 = new UserData();
+                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
+                        userData4.mAttentionType = 1;
+                        userData4.setHave_attention(1);
+                        this.b.add(userData4);
+                    }
+                }
+                this.d = jSONObject.optInt(Config.PACKAGE_NAME);
+                this.e = jSONObject.optInt("total_follow_num", 0);
+                if (jSONObject.optInt("has_more", 0) != 1) {
+                    z = false;
+                }
+                this.f = z;
+                this.j = jSONObject.optInt("follow_list_switch", 0);
             }
-            wo4Var.d = str;
-            wo4Var.c = hs6Var.c();
-            wo4Var.m = hs6Var.a();
-            if (!ListUtils.isEmpty(hs6Var.b()) && hs6Var.b().get(0) != null) {
-                wo4Var.e = hs6Var.b().get(0).a();
-            }
-            wo4Var.l = hs6Var.f();
-            wo4Var.f = hs6Var.d();
-            if (hs6Var.e() != null) {
-                wo4Var.j = hs6Var.e().a();
-                wo4Var.k = hs6Var.e().b();
-            }
-            tbLinkSpanGroup.y(wo4Var);
-            return wo4Var;
+            this.i = jSONObject.optString("tips_text");
+            this.h = jSONObject.optInt("type", 0);
+            this.g = jSONObject.optString("block_text");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-        return (wo4) invokeLL.objValue;
-    }
-
-    public static wo4 c(TbLinkSpanGroup tbLinkSpanGroup, xv4 xv4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, xv4Var)) == null) {
-            if (tbLinkSpanGroup == null) {
-                return null;
-            }
-            wo4 wo4Var = new wo4(tbLinkSpanGroup.e(), 1);
-            if (xv4Var == null) {
-                return wo4Var;
-            }
-            wo4Var.c = xv4Var.e;
-            wo4Var.e = xv4Var.d;
-            wo4Var.l = xv4Var.f;
-            wo4Var.f = xv4Var.g;
-            wo4Var.g = xv4Var.c;
-            wo4Var.n = xv4Var.h;
-            String str = xv4Var.i;
-            wo4Var.i = xv4Var.b == 1;
-            wo4Var.o = xv4Var.b;
-            tbLinkSpanGroup.y(wo4Var);
-            return wo4Var;
-        }
-        return (wo4) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(@NonNull wo4 wo4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wo4Var)) == null) ? this.p - wo4Var.p : invokeL.intValue;
     }
 }

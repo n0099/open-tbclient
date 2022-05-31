@@ -1,13 +1,12 @@
 package com.repackage;
 
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.appcompat.graphics.drawable.AnimatedStateListDrawableCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.gslbsdk.db.DelayTB;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -16,22 +15,16 @@ import org.json.JSONObject;
 public class o88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public aq4 b;
+    public String a;
+    public List<a> b;
 
     /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
+        public int a;
+        public long b;
         public long c;
-        public String d;
-        public String e;
-        public long f;
-        public int g;
-        public int h;
-        public String i;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -46,6 +39,22 @@ public class o88 {
                 }
             }
         }
+
+        public a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                this.a = jSONObject.optInt("style");
+                long optLong = jSONObject.optLong(DelayTB.DELAY);
+                this.b = optLong;
+                if (optLong < 0) {
+                    this.b = 0L;
+                }
+                this.c = jSONObject.optLong("duration");
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
     }
 
     public o88() {
@@ -58,93 +67,29 @@ public class o88 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new aq4();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static o88 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<a> list = this.a;
-            return (list == null || list.size() == 0) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            aq4 aq4Var = this.b;
-            return aq4Var != null && aq4Var.b() == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        JSONArray jSONArray;
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            String str2 = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             if (jSONObject == null) {
-                return;
+                return null;
             }
-            try {
-                this.b.i(jSONObject.getJSONObject("page"));
-                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
-                if (optJSONArray == null || optJSONArray.length() == 0) {
-                    return;
-                }
-                this.a.clear();
-                int i2 = 0;
-                while (i2 < optJSONArray.length()) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                    if (jSONObject2 == null) {
-                        jSONArray = optJSONArray;
-                        str = str2;
-                        i = i2;
-                    } else {
-                        JSONObject jSONObject3 = jSONObject2.getJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
-                        String optString = jSONObject3.optString("name_show", str2);
-                        jSONObject3.optString("name", str2);
-                        long optLong = jSONObject2.optLong("pid", 0L);
-                        String optString2 = jSONObject2.optString("title", str2);
-                        long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
-                        String optString3 = jSONObject2.optString("content", str2);
-                        String optString4 = jSONObject2.optString("fname", str2);
-                        long optLong3 = jSONObject2.optLong("tid", 0L);
-                        jSONArray = optJSONArray;
-                        int optInt = jSONObject2.optInt("is_floor", 0);
-                        str = str2;
-                        int optInt2 = jSONObject2.optInt("is_replay", 0);
-                        i = i2;
-                        if (jSONObject2.optInt("thread_type", 0) != 33) {
-                            a aVar = new a();
-                            aVar.a = optLong;
-                            aVar.b = optString2;
-                            aVar.c = optLong2;
-                            aVar.d = optString3;
-                            aVar.e = optString4;
-                            aVar.f = optLong3;
-                            aVar.g = optInt;
-                            aVar.h = optInt2;
-                            aVar.i = optString;
-                            this.a.add(aVar);
-                        }
-                    }
-                    i2 = i + 1;
-                    optJSONArray = jSONArray;
-                    str2 = str;
-                }
-            } catch (Exception e) {
-                BdLog.d(e.getMessage());
+            o88 o88Var = new o88();
+            o88Var.a = jSONObject.optString("backgroundColor");
+            JSONArray optJSONArray = jSONObject.optJSONArray(AnimatedStateListDrawableCompat.ELEMENT_TRANSITION);
+            o88Var.b = new ArrayList();
+            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
+                List<a> list = o88Var.b;
+                a aVar = new a();
+                aVar.a(optJSONArray.optJSONObject(i));
+                list.add(aVar);
             }
+            return o88Var;
         }
+        return (o88) invokeL.objValue;
     }
 }

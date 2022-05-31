@@ -1,7 +1,9 @@
 package com.repackage;
 /* loaded from: classes5.dex */
-public interface dm7 {
-    am7 a(String str, String str2, String str3);
+public interface dm7<E> {
+    void d0();
 
-    zl7 get();
+    void onFail();
+
+    void onSuccess(E e);
 }

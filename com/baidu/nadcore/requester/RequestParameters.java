@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lo0;
+import com.repackage.ym0;
 import java.util.Map;
 /* loaded from: classes2.dex */
 public class RequestParameters {
@@ -22,7 +22,7 @@ public class RequestParameters {
     public final String c;
     public final String d;
     @Nullable
-    public final lo0 e;
+    public final ym0 e;
     @NonNull
     public final RefreshType f;
     public final String g;
@@ -179,7 +179,7 @@ public class RequestParameters {
         public int b;
         public String c;
         public String d;
-        public lo0 e;
+        public ym0 e;
         public RefreshType f;
         public String g;
         public SlotType h;

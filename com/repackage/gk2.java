@@ -1,27 +1,17 @@
 package com.repackage;
 
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class gk2 {
+public final class gk2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fk2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized fk2 a() {
-        InterceptResult invokeV;
-        fk2 fk2Var;
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (gk2.class) {
-                if (a == null) {
-                    a = new fk2();
-                }
-                fk2Var = a;
-            }
-            return fk2Var;
-        }
-        return (fk2) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) ? (intent.getFlags() & 1048576) == 1048576 : invokeL.booleanValue;
     }
 }

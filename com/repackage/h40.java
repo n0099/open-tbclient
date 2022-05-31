@@ -5,8 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.l10;
 /* loaded from: classes6.dex */
-public class h40 extends z30 {
+public class h40 implements l10.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,10 +25,10 @@ public class h40 extends z30 {
         }
     }
 
-    @Override // com.repackage.z30
-    public a40 a() {
+    @Override // com.repackage.l10.a
+    public k10 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new i40() : (a40) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new n10(true) : (k10) invokeV.objValue;
     }
 }

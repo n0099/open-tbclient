@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d15;
-import com.repackage.i15;
-import com.repackage.w05;
+import com.repackage.e05;
+import com.repackage.sz4;
+import com.repackage.zz4;
 /* loaded from: classes3.dex */
-public class BLauncher extends ImageView implements d15 {
+public class BLauncher extends ImageView implements zz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public int b;
     public int c;
-    public i15 d;
+    public e05 d;
     public Drawable e;
     public boolean f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BLauncher(Context context, i15 i15Var) {
+    public BLauncher(Context context, e05 e05Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, i15Var};
+            Object[] objArr = {context, e05Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,12 +53,12 @@ public class BLauncher extends ImageView implements d15 {
         }
         this.c = 0;
         this.f = false;
-        if (i15Var == null) {
+        if (e05Var == null) {
             return;
         }
-        this.d = i15Var;
+        this.d = e05Var;
         setIcon();
-        setToolId(i15Var.c);
+        setToolId(e05Var.c);
     }
 
     public void a(String str) {
@@ -120,7 +120,7 @@ public class BLauncher extends ImageView implements d15 {
         }
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -140,14 +140,14 @@ public class BLauncher extends ImageView implements d15 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (TextView) invokeV.objValue;
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -156,7 +156,7 @@ public class BLauncher extends ImageView implements d15 {
         }
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -165,11 +165,11 @@ public class BLauncher extends ImageView implements d15 {
         }
     }
 
-    @Override // com.repackage.x05
-    public void onAction(w05 w05Var) {
+    @Override // com.repackage.tz4
+    public void onAction(sz4 sz4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, w05Var) == null) && w05Var != null && w05Var.a == 2) {
-            Object obj = w05Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, sz4Var) == null) && sz4Var != null && sz4Var.a == 2) {
+            Object obj = sz4Var.c;
             if (obj == null) {
                 b();
             } else if (obj instanceof String) {
@@ -178,7 +178,7 @@ public class BLauncher extends ImageView implements d15 {
         }
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -212,19 +212,19 @@ public class BLauncher extends ImageView implements d15 {
     }
 
     public void setIcon() {
-        i15 i15Var;
+        e05 e05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (i15Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (e05Var = this.d) == null) {
             return;
         }
-        if (i15Var.i) {
+        if (e05Var.i) {
             SvgManager svgManager = SvgManager.getInstance();
-            i15 i15Var2 = this.d;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(i15Var2.d, i15Var2.e, this.c));
-        } else if (i15Var.j) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(i15Var.d, i15Var.e, i15Var.f, i15Var.g, this.c));
+            e05 e05Var2 = this.d;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(e05Var2.d, e05Var2.e, this.c));
+        } else if (e05Var.j) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(e05Var.d, e05Var.e, e05Var.f, e05Var.g, this.c));
         } else {
-            SkinManager.setImageResource(this, i15Var.d, this.c);
+            SkinManager.setImageResource(this, e05Var.d, this.c);
         }
         if (this.d.c()) {
             return;
@@ -232,7 +232,7 @@ public class BLauncher extends ImageView implements d15 {
         setEnabled(false);
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {

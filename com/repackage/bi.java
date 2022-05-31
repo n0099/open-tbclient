@@ -1,44 +1,75 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.ClipboardManager;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public static Object a(Object obj, Field field) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, field)) == null) {
+            Object obj2 = null;
+            if (obj == null || field == null) {
+                return null;
             }
+            boolean isAccessible = field.isAccessible();
             try {
-                ((ClipboardManager) BdBaseApplication.getInst().getApp().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setText(str);
-            } catch (Throwable th) {
-                BdLog.e(th);
+                field.setAccessible(true);
+                obj2 = field.get(obj);
+                field.setAccessible(isAccessible);
+                return obj2;
+            } catch (Throwable unused) {
+                return obj2;
             }
         }
+        return invokeLL.objValue;
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        int identifier;
+    public static Field b(Class<?> cls, Class<?> cls2) {
+        InterceptResult invokeLL;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context != null && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android")) > 0) {
-                return context.getResources().getDimensionPixelSize(identifier);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, cls2)) == null) {
+            if (cls == null) {
+                return null;
             }
-            return 0;
+            while (cls != Object.class) {
+                try {
+                    for (Field field : cls.getDeclaredFields()) {
+                        if (cls2.isAssignableFrom(field.getType())) {
+                            return field;
+                        }
+                    }
+                    continue;
+                } catch (Throwable unused) {
+                }
+                cls = cls.getSuperclass();
+            }
+            return null;
         }
-        return invokeL.intValue;
+        return (Field) invokeLL.objValue;
+    }
+
+    public static List<Field> c(Object obj, Class<?> cls) {
+        InterceptResult invokeLL;
+        Field[] declaredFields;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, cls)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Field field : obj.getClass().getDeclaredFields()) {
+                if (field.getType().isAssignableFrom(cls)) {
+                    arrayList.add(field);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeLL.objValue;
     }
 }

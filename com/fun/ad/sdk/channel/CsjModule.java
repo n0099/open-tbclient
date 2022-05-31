@@ -12,7 +12,7 @@ import com.fun.ad.sdk.FunAdConfig;
 import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.hf9;
+import com.repackage.bc9;
 /* loaded from: classes4.dex */
 public class CsjModule implements Module {
     public static /* synthetic */ Interceptable $ic;
@@ -87,7 +87,7 @@ public class CsjModule implements Module {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, funAdConfig, str)) == null) {
             TTAdSdk.init(funAdConfig.appContext, new TTAdConfig.Builder().appId(str).useTextureView(funAdConfig.isUseTextureView).appName(funAdConfig.appName).titleBarTheme(funAdConfig.titleBarTheme).allowShowNotify(funAdConfig.logEnabled).allowShowPageWhenScreenLock(true).debug(false).directDownloadNetworkType(4, 1).customController(funAdConfig.ttCustomCtr).supportMultiProcess(funAdConfig.ttSupportMultiProcess).build(), new a(this, funAdConfig));
-            return new hf9();
+            return new bc9();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

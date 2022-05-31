@@ -3,7 +3,6 @@ package com.baidu.tieba.im.chat.officialBar;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,29 +45,20 @@ public class HistoryItemView extends LinearLayout {
             }
         }
         this.a = context;
-        b();
+        a();
     }
 
-    public void a(View view2) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.e.setBackgroundDrawable(null);
-            this.e.removeAllViews();
-            this.e.addView(view2);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0633, (ViewGroup) this, true);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0629, (ViewGroup) this, true);
             setClickable(false);
             setFocusable(false);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d51);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d56);
-            this.b = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f090d58);
-            this.d = (ChatImageWithTailView) findViewById(R.id.obfuscated_res_0x7f090d55);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d15);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d1a);
+            this.b = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f090d1c);
+            this.d = (ChatImageWithTailView) findViewById(R.id.obfuscated_res_0x7f090d19);
             SkinManager.setBackgroundResource(this.e, R.drawable.selector_history_multi_single_bg);
             SkinManager.setViewTextColor(this.c, R.color.common_color_10067, 1);
             this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
@@ -79,18 +69,18 @@ public class HistoryItemView extends LinearLayout {
     public ChatImageWithTailView getImageView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (ChatImageWithTailView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (ChatImageWithTailView) invokeV.objValue;
     }
 
     public TbRichTextView getRichTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (TbRichTextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (TbRichTextView) invokeV.objValue;
     }
 
     public void setTime(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.c.setText(str);
         }
     }
@@ -115,6 +105,6 @@ public class HistoryItemView extends LinearLayout {
             }
         }
         this.a = context;
-        b();
+        a();
     }
 }

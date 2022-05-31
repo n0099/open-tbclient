@@ -25,11 +25,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc8;
-import com.repackage.mi;
+import com.repackage.k98;
+import com.repackage.li;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes3.dex */
-public class FeedAdProgressButton extends View implements dc8 {
+public class FeedAdProgressButton extends View implements k98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -85,12 +85,12 @@ public class FeedAdProgressButton extends View implements dc8 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08ec);
+        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08f2);
         this.t = 0;
         e(context, attributeSet);
     }
 
-    @Override // com.repackage.dc8
+    @Override // com.repackage.k98
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -101,7 +101,7 @@ public class FeedAdProgressButton extends View implements dc8 {
         }
     }
 
-    @Override // com.repackage.dc8
+    @Override // com.repackage.k98
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -248,7 +248,7 @@ public class FeedAdProgressButton extends View implements dc8 {
             if (TextUtils.isEmpty(this.q)) {
                 f = 0.0f;
             } else {
-                String string = this.q.length() >= 4 ? this.q : getResources().getString(R.string.obfuscated_res_0x7f0f08ec);
+                String string = this.q.length() >= 4 ? this.q : getResources().getString(R.string.obfuscated_res_0x7f0f08f2);
                 this.v.getTextBounds(string, 0, string.length(), this.u);
                 float height = this.u.height() + (this.s * 2);
                 f2 = this.u.width() + (this.r * 2);
@@ -273,7 +273,7 @@ public class FeedAdProgressButton extends View implements dc8 {
         }
     }
 
-    @Override // com.repackage.dc8
+    @Override // com.repackage.k98
     public void setButtonTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -282,18 +282,18 @@ public class FeedAdProgressButton extends View implements dc8 {
         }
     }
 
-    @Override // com.repackage.dc8
+    @Override // com.repackage.k98
     public void setButtonTextNightColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.dc8
+    @Override // com.repackage.k98
     public void setButtonTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            float f = mi.f(getContext(), i);
+            float f = li.f(getContext(), i);
             this.j = f;
             TextPaint textPaint = this.i;
             if (textPaint != null) {
@@ -312,7 +312,7 @@ public class FeedAdProgressButton extends View implements dc8 {
         }
     }
 
-    @Override // com.repackage.dc8
+    @Override // com.repackage.k98
     public void setInitText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
@@ -337,7 +337,7 @@ public class FeedAdProgressButton extends View implements dc8 {
         postInvalidate();
     }
 
-    @Override // com.repackage.dc8
+    @Override // com.repackage.k98
     public void setRatio(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
@@ -369,7 +369,7 @@ public class FeedAdProgressButton extends View implements dc8 {
         }
     }
 
-    @Override // com.repackage.dc8
+    @Override // com.repackage.k98
     public void setButtonText(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {
@@ -409,7 +409,7 @@ public class FeedAdProgressButton extends View implements dc8 {
         this.k = SkinManager.getColor(this.c);
         this.m = 100;
         this.n = 0;
-        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08ec);
+        this.q = getResources().getString(R.string.obfuscated_res_0x7f0f08f2);
         this.t = 0;
         e(context, attributeSet);
     }

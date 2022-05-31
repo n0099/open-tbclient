@@ -1,186 +1,308 @@
 package com.repackage;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ElectionInfo.Basic;
-import tbclient.ElectionInfo.NoticeContent;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class yv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public int d;
-    public long e;
-    public int f;
-    public boolean g;
-    public NoticeContent h;
 
-    public yv5() {
+    public static void a(String str) {
+        di8 readThreadHistory;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (!(interceptable == null || interceptable.invokeL(65536, null, str) == null) || StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || readThreadHistory.b(str)) {
+            return;
+        }
+        readThreadHistory.a(str);
+    }
+
+    public static void b(ThreadData threadData, SpannableStringBuilder spannableStringBuilder, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(65537, null, threadData, spannableStringBuilder, z) == null) || spannableStringBuilder == null || ki.isEmptyStringAfterTrim(spannableStringBuilder.toString()) || threadData == null || threadData.getIs_top() != 0) {
+            return;
+        }
+        if (z || threadData.getIsNoTitle() == 1 || StringUtils.isNull(threadData.getTitle())) {
+            ArrayList<oe5> prefixIcons = threadData.getPrefixIcons();
+            if (ListUtils.isEmpty(prefixIcons)) {
                 return;
             }
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < prefixIcons.size(); i++) {
+                if (prefixIcons.get(i) != null && !StringUtils.isNull(prefixIcons.get(i).a())) {
+                    sb.append(prefixIcons.get(i).a());
+                }
+            }
+            SpannableString spannableString = new SpannableString(sb.toString());
+            int i2 = 0;
+            for (int i3 = 0; i3 < prefixIcons.size(); i3++) {
+                if (prefixIcons.get(i3) != null && !StringUtils.isNull(prefixIcons.get(i3).a())) {
+                    int length = prefixIcons.get(i3).a().length();
+                    c(spannableString, prefixIcons.get(i3), i2, length);
+                    i2 += length;
+                }
+            }
+            spannableStringBuilder.insert(0, (CharSequence) spannableString);
         }
-        this.d = 0;
     }
 
-    public static yv5 i(Basic basic) {
-        InterceptResult invokeL;
+    public static void c(SpannableString spannableString, oe5 oe5Var, int i, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, basic)) == null) {
-            if (basic == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(65538, null, spannableString, oe5Var, i, i2) == null) || spannableString == null || oe5Var == null || (i3 = i2 + i) > spannableString.length()) {
+            return;
+        }
+        spannableString.setSpan(new pe5(oe5Var), i, i3, 33);
+        spannableString.setSpan(new AbsoluteSizeSpan(oe5Var.i), i, i3, 33);
+    }
+
+    public static SpannableStringBuilder d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str + " " + str2);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 17);
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0106)), str.length(), str.length() + 1, 33);
+            return spannableStringBuilder;
+        }
+        return (SpannableStringBuilder) invokeLL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? String.valueOf(System.currentTimeMillis() / 1000) : (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "frs_page" : (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? "personalize_page" : (String) invokeV.objValue;
+    }
+
+    public static SpannableStringBuilder h(Context context, String str, ArrayList<a> arrayList, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, str, arrayList, Boolean.valueOf(z)})) == null) ? i(context, str, arrayList, z, true) : (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public static SpannableStringBuilder i(Context context, String str, ArrayList<a> arrayList, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, str, arrayList, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (str == null || context == null || arrayList == null) {
                 return null;
             }
-            yv5 yv5Var = new yv5();
-            yv5Var.p(j(basic.remind_time));
-            yv5Var.q(basic.status.intValue());
-            yv5Var.l(basic.candidate_num.intValue());
-            yv5Var.r(basic.total_vote_num.intValue());
-            yv5Var.m(j(basic.begin_apply_time));
-            yv5Var.s(j(basic.begin_vote_time));
-            yv5Var.n(j(basic.begin_public_time));
-            yv5Var.k(basic.is_voted.booleanValue());
-            yv5Var.o(basic.notice);
-            return yv5Var;
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            for (int i = 0; i != arrayList.size(); i++) {
+                a aVar = arrayList.get(i);
+                if (aVar != null) {
+                    int i2 = aVar.a;
+                    if (i2 > 0) {
+                        aVar.b = context.getString(i2);
+                    }
+                    if (!ki.isEmpty(aVar.b)) {
+                        int length = spannableStringBuilder.length();
+                        spannableStringBuilder.append((CharSequence) aVar.b);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(aVar.c)), length, spannableStringBuilder.length(), 17);
+                        if (i == arrayList.size() - 1 && !z2) {
+                            break;
+                        }
+                        Bitmap bitmap = SkinManager.getBitmap(aVar.d);
+                        BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
+                        if (bitmap != null) {
+                            bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                        }
+                        jt4 jt4Var = new jt4(bitmapDrawable);
+                        int i3 = aVar.e;
+                        if (i3 != 0) {
+                            jt4Var.b(i3);
+                        }
+                        int length2 = spannableStringBuilder.length();
+                        spannableStringBuilder.append((CharSequence) " ");
+                        spannableStringBuilder.setSpan(jt4Var, length2, spannableStringBuilder.length(), 17);
+                    } else {
+                        continue;
+                    }
+                }
+            }
+            if (z) {
+                spannableStringBuilder.append((CharSequence) str);
+            }
+            return spannableStringBuilder;
         }
-        return (yv5) invokeL.objValue;
+        return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public static long j(String str) {
-        InterceptResult invokeL;
+    public static void j(ThreadData threadData, TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                return Long.parseLong(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0L;
+        if (interceptable == null || interceptable.invokeLL(65545, null, threadData, textView) == null) {
+            if ((StringUtils.isNull(threadData.getTitle()) && (threadData.getRichTitle() == null || threadData.getRichTitle().size() == 0)) || threadData.getIsNoTitle() == 1) {
+                threadData.parserSpecTitleForFrsAndPb(false, true);
+                if (threadData.getSpan_str() != null && !StringUtils.isNull(threadData.getSpan_str().toString())) {
+                    textView.setVisibility(0);
+                    textView.setText(threadData.getSpan_str());
+                    return;
+                }
+                textView.setVisibility(8);
+                return;
+            }
+            textView.setVisibility(0);
+            threadData.threadTitleSpanOffset = 0;
+            threadData.parserSpecTitleForFrsAndPb(false, true);
+            SpannableStringBuilder span_str = threadData.getSpan_str();
+            textView.setOnTouchListener(new ws8(span_str));
+            textView.setText(span_str);
+            l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        }
+    }
+
+    public static boolean k(String str) {
+        InterceptResult invokeL;
+        di8 readThreadHistory;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.d(str)) ? false : true : invokeL.booleanValue;
+    }
+
+    public static void l(TextView textView, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLII(65547, null, textView, str, i, i2) == null) && (textView instanceof TextView)) {
+            if (k(str) && TbSingleton.getInstance().isInFrs) {
+                SkinManager.setViewTextColor(textView, i2);
+            } else {
+                SkinManager.setViewTextColor(textView, i);
             }
         }
-        return invokeL.longValue;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.booleanValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public int c;
+        public int d;
+        public int e;
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public NoticeContent e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (NoticeContent) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.longValue;
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.g = z;
+        public a(int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = -1;
+            this.b = "";
+            this.c = R.color.CAM_X0304;
+            this.d = R.drawable.pic_dot_title;
+            this.e = 0;
+            this.a = i;
+            this.c = i2;
+            this.d = i3;
         }
-    }
 
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.f = i;
+        public a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = -1;
+            this.b = "";
+            this.c = R.color.CAM_X0304;
+            this.d = R.drawable.pic_dot_title;
+            this.e = 0;
+            this.a = i;
         }
-    }
 
-    public void m(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.a = j;
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65538, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65538, newInitContext);
+                    return;
+                }
+            }
+            this.a = -1;
+            this.b = "";
+            this.c = R.color.CAM_X0304;
+            this.d = R.drawable.pic_dot_title;
+            this.e = 0;
+            this.b = str;
         }
-    }
 
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void o(NoticeContent noticeContent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, noticeContent) == null) {
-            this.h = noticeContent;
-        }
-    }
-
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.e = j;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65539, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65539, newInitContext);
+                    return;
+                }
+            }
+            this.a = -1;
+            this.b = "";
+            this.c = R.color.CAM_X0304;
+            this.d = R.drawable.pic_dot_title;
+            this.e = 0;
+            this.b = str;
             this.d = i;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-        }
-    }
-
-    public void s(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.b = j;
         }
     }
 }

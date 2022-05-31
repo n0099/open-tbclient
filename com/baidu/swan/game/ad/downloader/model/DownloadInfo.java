@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wo3;
+import com.repackage.jn3;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class DownloadInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long mCreateAt;
-    public transient wo3 mDownloadListener;
+    public transient jn3 mDownloadListener;
     public DownloadException mException;
     public String mId;
     public String mPackageName;
@@ -158,10 +158,10 @@ public class DownloadInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mCreateAt : invokeV.longValue;
     }
 
-    public wo3 getDownloadListener() {
+    public jn3 getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadListener : (wo3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadListener : (jn3) invokeV.objValue;
     }
 
     public DownloadException getException() {
@@ -231,10 +231,10 @@ public class DownloadInfo implements Serializable {
         }
     }
 
-    public void setDownloadListener(wo3 wo3Var) {
+    public void setDownloadListener(jn3 jn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, wo3Var) == null) {
-            this.mDownloadListener = wo3Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, jn3Var) == null) {
+            this.mDownloadListener = jn3Var;
         }
     }
 

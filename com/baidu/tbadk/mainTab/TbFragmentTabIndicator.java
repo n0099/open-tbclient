@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kg;
+import com.repackage.jg;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes3.dex */
 public abstract class TbFragmentTabIndicator extends FrameLayout {
@@ -67,7 +67,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if ("   ".equals(charSequence)) {
                     return 100;
                 }
-                return kg.e(charSequence, -1);
+                return jg.e(charSequence, -1);
             }
             return invokeL.intValue;
         }

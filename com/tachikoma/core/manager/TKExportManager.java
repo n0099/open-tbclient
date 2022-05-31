@@ -13,20 +13,20 @@ import com.tachikoma.core.common.ILifeCycle;
 import com.tachikoma.core.component.IFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKExportManager implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile boolean isInit;
 
     /* renamed from: com.tachikoma.core.manager.TKExportManager$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class InstanceHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final TKExportManager instance;

@@ -1,21 +1,20 @@
 package com.repackage;
 
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class cx1 extends gw1 {
+public class cx1 implements jw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int D;
-    public String E;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cx1() {
-        super("coverView", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,33 +22,52 @@ public final class cx1 extends gw1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.E = "";
     }
 
-    @Override // com.repackage.gw1, com.repackage.iw1, com.repackage.kw1, com.repackage.tq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONObject jSONObject2;
+    public static void d() {
+        hz2 L;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (L = hz2.L()) == null) {
             return;
         }
-        super.a(jSONObject);
-        this.D = jSONObject.optInt("scrollTop");
-        JSONObject jSONObject3 = this.j;
-        if (jSONObject3 != null) {
-            this.E = jSONObject3.optString("overflowY");
+        qb3.j(L.getActivity());
+        System.exit(0);
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.jw1
+    public void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            a = gc3.i(bundle, "extraWSUrl");
+            kw1.i(gc3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
+            kw1.j(gc3.i(bundle, "slavePreload"));
         }
-        ar2 ar2Var = this.h;
-        if (ar2Var == null || (jSONObject2 = this.j) == null) {
-            return;
+    }
+
+    @Override // com.repackage.jw1
+    public void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            bundle.putString("extraWSUrl", a);
+            bundle.putString("slavePreload", kw1.c());
+            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, kw1.a());
         }
-        ar2Var.i(jSONObject2.optBoolean("fixed", false));
+    }
+
+    @Override // com.repackage.jw1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ax1.e().getPath() : (String) invokeV.objValue;
     }
 }

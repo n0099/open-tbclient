@@ -1,14 +1,19 @@
 package com.repackage;
 
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class cv2 implements nf3<HybridUbcFlow> {
+public class cv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public long c;
+    public int d;
+    public String e;
+    public String f;
 
     public cv2() {
         Interceptable interceptable = $ic;
@@ -20,19 +25,14 @@ public class cv2 implements nf3<HybridUbcFlow> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nf3
-    /* renamed from: a */
-    public void onCallback(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("1641");
-            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.VIDEO_NA);
-            hybridUbcFlow.E("from", "swan");
-        }
+        this.a = null;
+        this.b = null;
+        this.c = -1L;
+        this.d = -1;
+        this.e = null;
+        this.f = null;
     }
 }

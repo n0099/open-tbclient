@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.model;
 
 import android.graphics.Bitmap;
+import androidx.annotation.Nullable;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,11 +14,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import java.io.Serializable;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class LocalPicModel extends BdBaseModel implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -339604626740227228L;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public Map<String, Object> extraMap;
     public String mDName;
     public String mDPath;
     public GetImageTask mImageTask;
@@ -83,7 +87,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
                 if (renameTo == null || renameTo2 == null || image == null) {
                     return null;
                 }
-                return new ResponseData(image, renameTo, renameTo2);
+                return new ResponseData(image, renameTo, renameTo2, this.this$0.extraMap);
             }
             return (ResponseData) invokeL.objValue;
         }
@@ -107,16 +111,17 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -9099542245580007084L;
         public transient /* synthetic */ FieldHolder $fh;
+        public final Map<String, Object> extraMap;
         public Bitmap mBitmap;
         public String mDPathGen;
         public String mSPathGen;
 
-        public ResponseData(Bitmap bitmap, String str, String str2) {
+        public ResponseData(Bitmap bitmap, String str, String str2, @Nullable Map<String, Object> map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bitmap, str, str2};
+                Object[] objArr = {bitmap, str, str2, map};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -132,6 +137,7 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             this.mBitmap = bitmap;
             this.mSPathGen = str;
             this.mDPathGen = str2;
+            this.extraMap = map;
         }
 
         public Bitmap getBitmap() {
@@ -146,10 +152,17 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDPathGen : (String) invokeV.objValue;
         }
 
+        @Nullable
+        public Map<String, Object> getExtraMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.extraMap : (Map) invokeV.objValue;
+        }
+
         public String getSPathGen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mSPathGen : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSPathGen : (String) invokeV.objValue;
         }
     }
 
@@ -221,5 +234,12 @@ public class LocalPicModel extends BdBaseModel implements Serializable {
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    public void setExtraMap(@Nullable Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
+            this.extraMap = map;
+        }
     }
 }

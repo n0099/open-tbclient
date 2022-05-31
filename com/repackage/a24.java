@@ -1,5 +1,8 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,15 +11,64 @@ public class a24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static boolean a(View view2, np2 np2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) ? String.format("%s failed,key:%s,%s", str, str2, str3) : (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, np2Var)) == null) {
+            yg1 X = uk2.U().X();
+            return X != null && X.c(view2, np2Var);
+        }
+        return invokeLL.booleanValue;
     }
 
-    public static String b(String str) {
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            yg1 X = uk2.U().X();
+            if (X != null) {
+                return X.getContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static void c(ge3 ge3Var) {
+        yg1 X;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, ge3Var) == null) || (X = uk2.U().X()) == null) {
+            return;
+        }
+        X.e(ge3Var);
+    }
+
+    public static boolean d(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? String.format("%s ok", str) : (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            yg1 X = uk2.U().X();
+            return X != null && X.removeView(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(ge3 ge3Var) {
+        yg1 X;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ge3Var) == null) || (X = uk2.U().X()) == null) {
+            return;
+        }
+        X.f(ge3Var);
+    }
+
+    public static boolean f(View view2, np2 np2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, np2Var)) == null) {
+            yg1 X = uk2.U().X();
+            return X != null && X.a(view2, np2Var);
+        }
+        return invokeLL.booleanValue;
     }
 }

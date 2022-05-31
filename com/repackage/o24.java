@@ -1,82 +1,13 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
+import com.repackage.n24;
 /* loaded from: classes6.dex */
-public final class o24 extends Thread {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public u24 a;
-    public volatile boolean b;
+public interface o24 extends m24 {
+    void e(v24 v24Var);
 
-    @SuppressLint({"MobilebdThread"})
-    public o24() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void m(boolean z);
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
-    }
+    void u(n24.b bVar);
 
-    public final void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public final void c(u24 u24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u24Var) == null) {
-            this.a = u24Var;
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        DatagramSocket D;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            while (this.b) {
-                try {
-                    DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
-                    u24 u24Var = this.a;
-                    if (u24Var != null && (D = u24Var.D()) != null) {
-                        D.receive(datagramPacket);
-                    }
-                    u24 u24Var2 = this.a;
-                    if (u24Var2 != null) {
-                        u24Var2.A(datagramPacket);
-                    }
-                } catch (InterruptedException unused) {
-                    return;
-                } catch (Throwable unused2) {
-                    u24 u24Var3 = this.a;
-                    if (u24Var3 != null) {
-                        u24Var3.E(StatConstants.VALUE_TYPE_RECEIVE, "receive failed");
-                    }
-                }
-            }
-        }
-    }
+    void update();
 }

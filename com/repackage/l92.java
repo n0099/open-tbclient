@@ -1,17 +1,20 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class l92 extends i92 {
+public class l92 extends h92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public l92() {
         Interceptable interceptable = $ic;
@@ -23,14 +26,26 @@ public class l92 extends i92 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "route";
     }
 
-    @Override // com.repackage.tm2
-    public LifecycleProcessType b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.h92
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? LifecycleProcessType.MAIN : (LifecycleProcessType) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            map.put("fromId", this.c);
+            map.put("toId", this.d);
+            map.put("toTabIndex", this.g);
+            if (!TextUtils.isEmpty(this.e)) {
+                map.put("routeType", this.e);
+            }
+            if (TextUtils.isEmpty(this.f)) {
+                return;
+            }
+            map.put("toPage", this.f);
+        }
     }
 }

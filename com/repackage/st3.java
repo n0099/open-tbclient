@@ -1,64 +1,77 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class st3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, ar2 ar2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, ar2Var)) == null) {
-            li1 W = hm2.U().W();
-            return W != null && W.c(view2, ar2Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755309057, "Lcom/repackage/st3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755309057, "Lcom/repackage/st3;");
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        a = rf1.a;
+        b = -1;
     }
 
-    public static boolean b() {
+    public static rt3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            li1 W = hm2.U().W();
-            return (W == null || !W.b() || W.h()) ? false : true;
+            rt3 rt3Var = new rt3();
+            rt3Var.a = b();
+            rt3Var.b = c();
+            rt3Var.c = d();
+            if (a) {
+                Log.d("GameCodeCacheSwitcher", "getCodeCacheConfig() maxCount: " + rt3Var.a + " ,sizeLimit: " + rt3Var.b);
+            }
+            return rt3Var;
         }
-        return invokeV.booleanValue;
+        return (rt3) invokeV.objValue;
     }
 
-    public static boolean c(View view2) {
-        InterceptResult invokeL;
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            li1 W = hm2.U().W();
-            return W != null && W.d(view2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b < 0) {
+                oi2.g0().getSwitch("minigame_code_cache_max_count", 20);
+                b = 20;
+            }
+            return b;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            li1 W = hm2.U().W();
-            if (W == null) {
-                return false;
-            }
-            if (W.h()) {
-                SwanAppActivity activity = hm2.U().getActivity();
-                if (activity != null) {
-                    activity.setRequestedOrientation(0);
-                }
-                W.g(false);
-            }
-            return W.removeView(view2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 102400;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public static long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b() * 6 * 1048576 : invokeV.longValue;
     }
 }

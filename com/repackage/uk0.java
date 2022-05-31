@@ -1,51 +1,98 @@
 package com.repackage;
 
-import android.view.ViewGroup;
+import android.app.Activity;
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.download.view.IDownloadViewCreator;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class uk0 {
+public final class uk0 {
     public static /* synthetic */ Interceptable $ic;
-    public static IDownloadViewCreator a;
+    public static zk0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755258217, "Lcom/repackage/uk0;")) == null) {
-            return;
+    @Nullable
+    public static xk0 a(zk0 zk0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, zk0Var)) == null) {
+            if (zk0Var instanceof xk0) {
+                return (xk0) zk0Var;
+            }
+            return null;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        return (xk0) invokeL.objValue;
+    }
+
+    public static al0 b(zk0 zk0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zk0Var)) == null) {
+            if (zk0Var instanceof al0) {
+                return (al0) zk0Var;
+            }
+            return null;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755258217, "Lcom/repackage/uk0;");
+        return (al0) invokeL.objValue;
+    }
+
+    public static void c(@NonNull zk0 zk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, zk0Var) == null) {
+            synchronized (zk0.class) {
+                if (a != null) {
+                    return;
+                }
+                a = zk0Var;
+            }
         }
     }
 
-    public static hk0<?> a(@NonNull ViewGroup viewGroup, IDownloadViewCreator.ViewType viewType) {
-        InterceptResult invokeLL;
+    @Nullable
+    public static Activity d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, viewGroup, viewType)) == null) {
-            if (a == null) {
-                synchronized (zh0.class) {
-                    if (a == null) {
-                        a = (IDownloadViewCreator) ServiceManager.getService(IDownloadViewCreator.a);
-                    }
-                    if (a == null) {
-                        a = IDownloadViewCreator.b;
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            xk0 a2 = a(a);
+            if (a2 == null) {
+                return null;
             }
-            return a.a(viewGroup, viewType);
+            return a2.a();
         }
-        return (hk0) invokeLL.objValue;
+        return (Activity) invokeV.objValue;
+    }
+
+    @Nullable
+    public static Activity e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            xk0 a2 = a(a);
+            if (a2 == null) {
+                return null;
+            }
+            return a2.c();
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public static void f(yk0 yk0Var) {
+        al0 b;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, yk0Var) == null) || (b = b(a)) == null) {
+            return;
+        }
+        b.b(yk0Var);
+    }
+
+    public static void g(yk0 yk0Var) {
+        al0 b;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, yk0Var) == null) || (b = b(a)) == null) {
+            return;
+        }
+        b.d(yk0Var);
     }
 }

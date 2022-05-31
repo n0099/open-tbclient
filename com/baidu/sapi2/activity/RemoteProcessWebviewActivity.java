@@ -96,22 +96,22 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             if (this.a) {
                 setTheme(R.style.obfuscated_res_0x7f100177);
             }
-            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092477);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092071);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09207d);
+            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f09241d);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092017);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092023);
             this.mLeftBtnIv = imageView;
             imageView.setOnClickListener(this);
-            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09208b);
-            this.dividerLine = findViewById(R.id.obfuscated_res_0x7f092084);
-            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c24);
+            this.mLeftBtnLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092031);
+            this.dividerLine = findViewById(R.id.obfuscated_res_0x7f09202a);
+            this.mTitleBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091bd2);
             this.mTitle.setText(this.c);
             if (this.b) {
-                if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091dfd)) != null) {
+                if (this.bottomBackView == null && (viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f091da8)) != null) {
                     this.bottomBackView = viewStub.inflate();
-                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b6c);
-                    this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f091c23);
-                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b6e);
-                    this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bb7);
+                    this.mBottomBackBtnIv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b1a);
+                    this.mBottomBackTvText = (TextView) findViewById(R.id.obfuscated_res_0x7f091bd1);
+                    this.mBottomBgLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b1c);
+                    this.mBottomDividerLine = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b65);
                     this.mBottomBackBtnIv.setOnClickListener(this);
                     this.mBottomBackTvText.setOnClickListener(this);
                     ViewUtility.setViewClickAlpha(this.mBottomBackBtnIv, 0.2f);
@@ -129,13 +129,13 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             }
             if (this.a) {
                 this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c0));
-                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f081017);
+                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f081029);
                 this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609bd));
                 this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c0));
                 this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609c0));
                 ImageView imageView2 = this.mBottomBackBtnIv;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081017);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f081029);
                 }
                 RelativeLayout relativeLayout = this.mBottomBgLayout;
                 if (relativeLayout != null) {
@@ -189,7 +189,7 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
             if (this.configuration == null) {
                 this.configuration = SapiAccountManager.getInstance().getConfignation();
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d04ce);
+            setContentView(R.layout.obfuscated_res_0x7f0d04c4);
             a(true);
             b();
             c();
@@ -341,9 +341,9 @@ public class RemoteProcessWebviewActivity extends Activity implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
             if (z) {
-                overridePendingTransition(R.anim.obfuscated_res_0x7f01010e, R.anim.obfuscated_res_0x7f01010d);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f010110, R.anim.obfuscated_res_0x7f01010f);
             } else {
-                overridePendingTransition(R.anim.obfuscated_res_0x7f01010c, R.anim.obfuscated_res_0x7f01010f);
+                overridePendingTransition(R.anim.obfuscated_res_0x7f01010e, R.anim.obfuscated_res_0x7f010111);
             }
         }
     }

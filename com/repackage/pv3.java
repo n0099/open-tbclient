@@ -1,127 +1,75 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class pv3 {
+public final class pv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile boolean a;
-    public static volatile boolean b;
-    public static volatile List<va2> c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755396508, "Lcom/repackage/pv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755396508, "Lcom/repackage/pv3;");
-                return;
-            }
-        }
-        c = new ArrayList();
-    }
+    public p62 a;
 
     public pv3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void a() {
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
-            synchronized (pv3.class) {
-                if (c != null) {
-                    for (int i = 0; i < c.size(); i++) {
-                        hm2.U().m("console", c.get(i));
-                    }
-                    c.clear();
-                    c = null;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            p62 p62Var = this.a;
+            if (p62Var == null) {
+                return false;
             }
-            b = true;
-        }
-    }
-
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? TbConfig.TMP_LOG_DIR_NAME : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (pv3.class) {
-                c = new ArrayList();
+            boolean f = qv3.f(p62Var.p());
+            boolean f2 = qv3.f(this.a.x());
+            JSEvent jSEvent = null;
+            if (f || f2) {
+                jSEvent = qv3.j(motionEvent);
             }
-            b = false;
-        }
-    }
-
-    public static void d(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
-            e(b(i), str);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
-            f(jv3.t(str, str2));
-        }
-    }
-
-    public static void f(va2 va2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, va2Var) == null) {
-            if (!b) {
-                synchronized (pv3.class) {
-                    if (c != null) {
-                        c.add(va2Var);
-                        return;
-                    }
-                }
+            boolean dispatchEvent = f ? this.a.dispatchEvent(jSEvent) : false;
+            if (f2 && this.a.w0()) {
+                this.a.x().dispatchEvent(jSEvent);
             }
-            hm2.U().m("console", va2Var);
+            qv3.g(true);
+            return dispatchEvent;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            qv3.m(i, i2);
         }
     }
 
-    public static void g(String str, String str2) {
+    public void c(p62 p62Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
-            f(jv3.v(str, str2));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p62Var) == null) {
+            this.a = p62Var;
         }
     }
 
-    public static void h(boolean z) {
+    public void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            a = z;
-            ux1.n(z);
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            qv3.l(i, i2);
         }
     }
 }

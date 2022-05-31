@@ -20,7 +20,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.reflux.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0326a {
+    public interface InterfaceC0327a {
         void a(int i, String str);
 
         void a(@Nullable List<AdTemplate> list);
@@ -71,7 +71,7 @@ public class a {
         });
     }
 
-    public static void a(@NonNull SceneImpl sceneImpl, final InterfaceC0326a interfaceC0326a) {
+    public static void a(@NonNull SceneImpl sceneImpl, final InterfaceC0327a interfaceC0327a) {
         boolean a2 = ap.a().a(sceneImpl, "loadInterstitialAd");
         final long elapsedRealtime = SystemClock.elapsedRealtime();
         sceneImpl.setAdStyle(11);
@@ -83,7 +83,7 @@ public class a {
                     @Override // java.lang.Runnable
                     public void run() {
                         com.kwad.sdk.core.d.a.e("RefluxAdLoadManager", "loadRefluxAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
-                        InterfaceC0326a.this.a(i, str);
+                        InterfaceC0327a.this.a(i, str);
                     }
                 });
             }
@@ -94,7 +94,7 @@ public class a {
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            InterfaceC0326a.this.a_(adResultData.adTemplateList.size());
+                            InterfaceC0327a.this.a_(adResultData.adTemplateList.size());
                         } catch (Throwable th) {
                             com.kwad.sdk.core.d.a.b(th);
                         }
@@ -103,7 +103,7 @@ public class a {
                 ax.a(new Runnable() { // from class: com.kwad.sdk.reflux.a.1.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        InterfaceC0326a.this.a(adResultData.adTemplateList);
+                        InterfaceC0327a.this.a(adResultData.adTemplateList);
                         a.b(adResultData, elapsedRealtime);
                     }
                 });

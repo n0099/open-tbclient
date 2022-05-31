@@ -1,30 +1,16 @@
 package com.repackage;
 
-import android.content.res.Resources;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.tieba.R;
+import android.animation.TypeEvaluator;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d44 {
+public class d44 implements TypeEvaluator<LatLng> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public volatile float height;
-    @V8JavascriptField
-    public volatile float left;
-    @V8JavascriptField
-    public volatile float top;
-    @V8JavascriptField
-    public volatile float width;
-
-    /* loaded from: classes5.dex */
-    public interface a {
-    }
 
     public d44() {
         Interceptable interceptable = $ic;
@@ -36,40 +22,22 @@ public class d44 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        Resources resources = bk2.c() != null ? bk2.c().getResources() : null;
-        this.left = a(resources, R.dimen.obfuscated_res_0x7f0706c2);
-        this.top = a(resources, R.dimen.obfuscated_res_0x7f0706c3);
-        this.width = a(resources, R.dimen.obfuscated_res_0x7f0706c4);
-        this.height = a(resources, R.dimen.obfuscated_res_0x7f0706c1);
     }
 
-    public final float a(Resources resources, int i) {
-        InterceptResult invokeLI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.animation.TypeEvaluator
+    /* renamed from: a */
+    public LatLng evaluate(float f, LatLng latLng, LatLng latLng2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
-            if (resources == null || i == 0) {
-                return 0.0f;
-            }
-            return j34.b(resources.getDimension(i));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), latLng, latLng2})) == null) {
+            double d = latLng.latitude;
+            double d2 = f;
+            double d3 = latLng.longitude;
+            return new LatLng(d + ((latLng2.latitude - d) * d2), d3 + (d2 * (latLng2.longitude - d3)));
         }
-        return invokeLI.floatValue;
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
-        }
-        return (String) invokeV.objValue;
+        return (LatLng) invokeCommon.objValue;
     }
 }

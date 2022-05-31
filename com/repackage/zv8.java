@@ -1,92 +1,120 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.write.editor.EditorInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.VideoTemplate.DataRes;
-import tbclient.VideoTemplateContent;
 /* loaded from: classes7.dex */
-public class zv8 {
+public class zv8 extends e05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<yv8> a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public Context t;
 
-    public zv8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zv8(Context context, String str) {
+        super(context, (String) null, 15);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.o = false;
+        this.t = context;
+        this.n = 3;
+        this.m = new EditorInfoContainer(context, str);
+        this.p = new int[]{9, 20, 19, 12, 13, 10, 11, 46, 49, 54, 57};
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            f05 f05Var = this.m;
+            if (f05Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) f05Var).hide();
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void h() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f05 f05Var = this.m;
+            if (f05Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) f05Var).i();
+            }
+        }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f05 f05Var = this.m;
+            if (f05Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) f05Var).j();
+            }
+        }
     }
 
-    public List<yv8> c() {
-        InterceptResult invokeV;
+    public void j(String str, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            f05 f05Var = this.m;
+            if (f05Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) f05Var).q(str, i);
+            }
+        }
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            f05 f05Var = this.m;
+            if (f05Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) f05Var).r(i);
+            }
+        }
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            f05 f05Var = this.m;
+            if (f05Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) f05Var).s(z);
+            }
+        }
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            f05 f05Var = this.m;
+            if (f05Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) f05Var).setFrom(str);
+            }
+        }
     }
 
-    public void g(DataRes dataRes) {
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.b = dataRes.topic_id.intValue();
-            this.c = dataRes.topic_name;
-            this.d = dataRes.back_url;
-            this.e = dataRes.video_template_url;
-            this.f = dataRes.activity_url;
-            List<VideoTemplateContent> list = dataRes.video_template_content;
-            if (list != null) {
-                this.a = new ArrayList();
-                for (int i = 0; i < list.size(); i++) {
-                    yv8 yv8Var = new yv8();
-                    yv8Var.a(list.get(i));
-                    this.a.add(yv8Var);
-                }
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            f05 f05Var = this.m;
+            if (f05Var instanceof EditorInfoContainer) {
+                ((EditorInfoContainer) f05Var).u(z);
             }
         }
     }

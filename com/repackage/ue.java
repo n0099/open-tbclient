@@ -85,7 +85,7 @@ public class ue {
                     this.a.i(th, SharedPreferenceManager.OPERATION_GET_PERFIX);
                     return null;
                 } finally {
-                    jg.a(cursor);
+                    ig.a(cursor);
                 }
             }
             return null;

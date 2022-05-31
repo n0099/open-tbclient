@@ -1,57 +1,29 @@
 package com.repackage;
 
-import android.content.Context;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import com.baidu.swan.videoplayer.SwanVideoView;
 /* loaded from: classes6.dex */
 public interface gg4 {
-    String a();
+    void a();
 
-    String b();
+    void b(boolean z);
 
-    boolean c(String str);
+    void c(SwanVideoView swanVideoView);
 
-    ExecutorService d();
+    void d(boolean z);
 
-    void e(String str, int i, JSONArray jSONArray);
+    void onBufferingUpdate(int i);
 
-    void f(String str, int i);
+    void onError(int i, int i2, String str);
 
-    void g(String str, String str2, int i, String str3, int i2);
+    void onPause();
 
-    String getAppId();
+    void onPrepared();
 
-    String getAppVersion();
+    void onResume();
 
-    String getDeviceId(Context context);
+    void onSeekEnd();
 
-    String h();
+    void onStart();
 
-    void i(String str, int i, String str2);
-
-    boolean j();
-
-    String k();
-
-    int l();
-
-    hg4 m();
-
-    String n();
-
-    void o(String str, String str2, int i, String str3, long j, int i2);
-
-    String p(Context context);
-
-    boolean q();
-
-    boolean r();
-
-    boolean s();
-
-    String t();
-
-    String u();
-
-    String v(Context context);
+    void onVideoSizeChanged(int i, int i2);
 }

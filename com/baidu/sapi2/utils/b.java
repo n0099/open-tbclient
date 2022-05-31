@@ -36,12 +36,12 @@ public class b {
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0130a implements Runnable {
+        public class RunnableC0129a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0130a(a aVar) {
+            public RunnableC0129a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class b {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.post(new RunnableC0130a(this));
+                this.a.post(new RunnableC0129a(this));
             }
         }
     }
@@ -187,13 +187,13 @@ public class b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, webView)) == null) {
-            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d04cb, (ViewGroup) null);
-            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090438);
+            View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(R.layout.obfuscated_res_0x7f0d04c1, (ViewGroup) null);
+            Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090433);
             if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-                ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091be7)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609bc));
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091be9)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609bf));
-                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091be8)).setImageResource(R.drawable.obfuscated_res_0x7f08105a);
-                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f08101a);
+                ((LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091b95)).setBackgroundColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609bc));
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091b97)).setTextColor(context.getResources().getColor(R.color.obfuscated_res_0x7f0609bf));
+                ((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b96)).setImageResource(R.drawable.obfuscated_res_0x7f08106c);
+                button.setBackgroundResource(R.drawable.obfuscated_res_0x7f08102c);
                 Resources resources = context.getResources();
                 if (resources != null) {
                     button.setTextColor(resources.getColorStateList(R.color.obfuscated_res_0x7f060a0c));

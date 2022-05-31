@@ -1,29 +1,17 @@
 package com.repackage;
+
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface xd0 {
+public class xd0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void b(xd0 xd0Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        boolean d(xd0 xd0Var, int i, int i2);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        boolean e(xd0 xd0Var, int i, int i2, Object obj);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void c(xd0 xd0Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface e {
-        void a(xd0 xd0Var);
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? BdUploadHandler.MEDIA_SOURCE_KEY.equals(str) : invokeL.booleanValue;
     }
 }

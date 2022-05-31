@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.py;
-import com.repackage.y07;
+import com.repackage.bz6;
+import com.repackage.cx;
+import com.repackage.wq4;
 /* loaded from: classes3.dex */
-public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements py {
+public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConstraintLayout a;
@@ -45,21 +45,21 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements p
                 return;
             }
         }
-        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f092153);
-        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092132);
-        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f09216d);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09211f);
+        this.a = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0920f9);
+        this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920d8);
+        this.c = (EllipsizeTagTitleView) view2.findViewById(R.id.obfuscated_res_0x7f092113);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920c5);
     }
 
-    public void c(y07 y07Var) {
+    public void c(bz6 bz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, y07Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, bz6Var) == null) {
             this.b.setConrers(15);
             this.b.setPlaceHolder(1);
-            this.b.K(y07Var.d, 10, false);
-            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0a3d, y07Var.a), y07Var.c);
-            if (!TextUtils.isEmpty(y07Var.b)) {
-                this.d.setText(y07Var.b);
+            this.b.K(bz6Var.d, 10, false);
+            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0a44, bz6Var.a), bz6Var.c);
+            if (!TextUtils.isEmpty(bz6Var.b)) {
+                this.d.setText(bz6Var.b);
                 this.d.setVisibility(0);
                 return;
             }
@@ -67,7 +67,7 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements p
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
@@ -76,7 +76,7 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements p
                 ellipsizeTagTitleView.onChangeSkinType(tbPageContext, i);
             }
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            gs4.d(this.a).i(R.color.CAM_X0201, R.color.CAM_X0202);
+            wq4.d(this.a).i(R.color.CAM_X0201, R.color.CAM_X0202);
         }
     }
 }

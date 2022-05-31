@@ -1,35 +1,42 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qj2;
-import com.yy.hiidostatis.inner.FlushManager;
-import java.io.File;
-import java.util.List;
-import java.util.Locale;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import org.json.JSONException;
+import org.json.JSONObject;
+@SuppressLint({"SwanCommentWar"})
 /* loaded from: classes5.dex */
-public class bm2 {
+public class bm2 implements gp2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public am2 b;
+    public String c;
+    public String d;
+    public double e;
+    public double f;
+    public int g;
+    public int h;
+    public b i;
+    public c j;
+    public a k;
 
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public static class a implements nf3<PMSAppInfo> {
+    public static class a implements gp2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public double a;
+        public double b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -41,230 +48,278 @@ public class bm2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = 0.5d;
+            this.b = 1.0d;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(PMSAppInfo pMSAppInfo) {
+        @Override // com.repackage.gp2
+        public void a(JSONObject jSONObject) throws JSONException {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, pMSAppInfo) == null) && pMSAppInfo != null && pMSAppInfo.isForbiddenApp()) {
-                e33.K(pMSAppInfo.appKey, pMSAppInfo.appStatus);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
             }
+            this.a = Math.abs(jSONObject.optDouble("x", 0.5d));
+            double d = 1.0d;
+            this.b = Math.abs(jSONObject.optDouble("y", 1.0d));
+            double d2 = this.a;
+            if (d2 < 0.0d) {
+                d2 = 0.0d;
+            } else if (d2 > 1.0d) {
+                d2 = 1.0d;
+            }
+            this.a = d2;
+            double d3 = this.b;
+            if (d3 < 0.0d) {
+                d = 0.0d;
+            } else if (d3 <= 1.0d) {
+                d = d3;
+            }
+            this.b = d;
+        }
+
+        @Override // com.repackage.gp2
+        public boolean isValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public static class b extends t32 {
+    public static class b extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public float f;
+        public String g;
+        public int h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(String str) {
-            super(str);
+        public b(bm2 bm2Var) {
+            super(bm2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {bm2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
+                    super((bm2) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.f = 0.0f;
+            this.g = "BYCLICK";
+            this.h = -1;
         }
 
-        @Override // com.repackage.n84, com.repackage.k84
-        public void n(String str, String str2) {
-            List<UbcFlowEvent> list;
+        @Override // com.repackage.bm2.d, com.repackage.gp2
+        public void a(JSONObject jSONObject) throws JSONException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                super.n(str, str2);
-                if (TextUtils.isEmpty(str2) || !TextUtils.equals(str, "770") || (list = this.p) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            this.f = (float) jSONObject.optDouble("borderRadius", 0.0d);
+            jSONObject.optDouble("borderWidth", 0.0d);
+            this.g = jSONObject.has(CriusAttrConstants.DISPLAY) ? jSONObject.optString(CriusAttrConstants.DISPLAY) : "BYCLICK";
+            this.h = ul2.a(jSONObject.optString("bgColor"), -1);
+            ul2.a(jSONObject.optString("borderColor"), this.h);
+        }
+    }
+
+    @SuppressLint({"SwanCommentWar"})
+    /* loaded from: classes5.dex */
+    public static class c extends d implements gp2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float f;
+        public float g;
+        public float h;
+        public int i;
+        public float j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(bm2 bm2Var) {
+            super(bm2Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bm2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((bm2) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                list.add(new UbcFlowEvent(str2));
             }
+            this.f = 0.0f;
+            this.g = 0.0f;
+            this.h = 0.0f;
+            this.i = 0;
+            this.j = 0.0f;
+        }
+
+        @Override // com.repackage.bm2.d, com.repackage.gp2
+        public void a(JSONObject jSONObject) throws JSONException {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            super.a(jSONObject);
+            this.f = ul2.b(jSONObject.optDouble("x", 0.0d));
+            float b = ul2.b(jSONObject.optDouble("y", 0.0d));
+            this.g = b;
+            if (this.f == 0.0f && b == 0.0f) {
+                this.f = ul2.b(jSONObject.optDouble("anchorX", 0.0d));
+                this.g = ul2.b(jSONObject.optDouble("anchorY", 0.0d));
+            }
+            this.h = (float) jSONObject.optDouble("borderWidth", 0.0d);
+            this.i = ul2.a(jSONObject.optString("borderColor"), 0);
+            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755822262, "Lcom/repackage/bm2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @SuppressLint({"SwanCommentWar"})
+    /* loaded from: classes5.dex */
+    public static class d implements gp2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public float c;
+        public int d;
+        public float e;
+
+        public d(bm2 bm2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bm2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755822262, "Lcom/repackage/bm2;");
+            this.a = "";
+            this.b = -16777216;
+            this.c = ul2.b(10.0d);
+            this.d = 0;
+            this.e = 0.0f;
+        }
+
+        @Override // com.repackage.gp2
+        public void a(JSONObject jSONObject) throws JSONException {
+            float b;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("content")) {
+                this.a = jSONObject.optString("content");
+                this.b = ul2.a(jSONObject.optString("color"), -16777216);
+                if (jSONObject.has(TtmlNode.ATTR_TTS_FONT_SIZE)) {
+                    b = Math.abs(ul2.b(jSONObject.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 10.0d)));
+                } else {
+                    b = ul2.b(10.0d);
+                }
+                this.c = b;
+                this.d = ul2.a(jSONObject.optString("bgColor"), 0);
+                this.e = ul2.b(jSONObject.optDouble(CriusAttrConstants.PADDING, 0.0d));
+                if (jSONObject.has(TtmlNode.ATTR_TTS_TEXT_ALIGN)) {
+                    jSONObject.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+                }
+            }
+        }
+
+        @Override // com.repackage.gp2
+        public boolean isValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
+        }
+    }
+
+    public bm2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = eh1.a;
+        this.a = "";
+        this.c = "";
+        this.d = "";
+        this.e = 0.0d;
+        this.f = 1.0d;
+        this.g = -1;
+        this.h = -1;
     }
 
-    public static void a(@NonNull Bundle bundle) {
+    @Override // com.repackage.gp2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
-            if (a) {
-                Log.i("SwanAppLaunchUtils", "asyncUpdatePkg: swanAsyncUpdate -> 异步更新小程序包 开始");
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        am2 am2Var = new am2();
+        this.b = am2Var;
+        am2Var.a(jSONObject);
+        if (this.b.isValid()) {
+            String optString = jSONObject.optString("markerId");
+            this.a = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.a = jSONObject.optString("id");
             }
-            String string = bundle.getString("mAppId");
-            if (TextUtils.isEmpty(string)) {
-                return;
-            }
-            int i = bundle.getInt("appFrameType");
-            if (1 != i) {
-                i = 0;
-            }
-            ub4 ub4Var = new ub4(string, i);
-            if (bundle.containsKey("pms_update_expect_pkg_ver")) {
-                ub4Var.q(bundle.getLong("pms_update_expect_pkg_ver"));
-            }
-            if (a) {
-                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Long.valueOf(ub4Var.i())));
-            }
-            ub4Var.d("4");
-            b bVar = new b(string);
-            bVar.f0(new a());
-            bVar.M(3);
-            c84.c(ub4Var, bVar);
+            this.c = jSONObject.optString("title");
+            this.d = jSONObject.optString("iconPath");
+            this.e = jSONObject.optDouble(AnimationProperty.ROTATE, 0.0d);
+            this.f = Math.abs(jSONObject.optDouble(AnimationProperty.OPACITY, 1.0d));
+            this.g = jSONObject.has("width") ? Math.abs(yc3.g(jSONObject.optInt("width"))) : -1;
+            this.h = jSONObject.has("height") ? Math.abs(yc3.g(jSONObject.optInt("height"))) : -1;
+            jSONObject.optInt("zIndex", 0);
+            b bVar = new b(this);
+            this.i = bVar;
+            bVar.a(jSONObject.optJSONObject("callout"));
+            c cVar = new c(this);
+            this.j = cVar;
+            cVar.a(jSONObject.optJSONObject("label"));
+            a aVar = new a();
+            this.k = aVar;
+            aVar.a(jSONObject.optJSONObject("anchor"));
         }
     }
 
-    public static boolean b(@Nullable PMSAppInfo pMSAppInfo, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.gp2
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pMSAppInfo, bundle)) == null) {
-            boolean z = false;
-            if (pMSAppInfo != null && !TextUtils.isEmpty(pMSAppInfo.appId)) {
-                long j = pMSAppInfo.versionCode;
-                if (j == 0 || bundle == null || pMSAppInfo.appCategory == 1) {
-                    return false;
-                }
-                File i = qj2.e.i(pMSAppInfo.appId, String.valueOf(j));
-                if (i.exists()) {
-                    String string = bundle.getString("mPage");
-                    if (TextUtils.isEmpty(string)) {
-                        boolean exists = new File(i, "app.json").exists();
-                        ux1.k("SwanAppLaunchUtils", "checkSwanAppPageDirExist app.json exists: " + exists);
-                        return exists;
-                    }
-                    String g = me3.g(string);
-                    int lastIndexOf = g.lastIndexOf(File.separator);
-                    if (lastIndexOf >= 0) {
-                        g = g.substring(0, lastIndexOf);
-                    }
-                    boolean exists2 = new File(i, g).exists();
-                    if (exists2) {
-                        if (new File(i, "app.json").exists()) {
-                            return System.currentTimeMillis() - new File(i, g).lastModified() > FlushManager.ReportTimer.DEFAULT_INTERVAL;
-                        }
-                        int lastIndexOf2 = g.lastIndexOf(File.separator);
-                        while (true) {
-                            if (lastIndexOf2 < 0) {
-                                break;
-                            }
-                            g = g.substring(0, lastIndexOf2);
-                            if (new File(i, g + File.separator + "app.json").exists()) {
-                                z = true;
-                                break;
-                            }
-                            lastIndexOf2 = g.lastIndexOf(File.separator);
-                        }
-                        if (a) {
-                            Log.d("SwanAppLaunchUtils", "isInDependentPkg=" + z + ", pagePath=" + g);
-                        }
-                        if (z && !TextUtils.isEmpty(g)) {
-                            bundle.putBoolean("swan_app_independent", true);
-                            bundle.putString("swan_app_sub_root_path", g);
-                        }
-                    }
-                    return exists2;
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            am2 am2Var = this.b;
+            return am2Var != null && am2Var.isValid();
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static String c(PMSAppInfo pMSAppInfo, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, pMSAppInfo, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String g = me3.g(str);
-            int lastIndexOf = g.lastIndexOf(File.separator);
-            while (lastIndexOf != -1) {
-                g = g.substring(0, lastIndexOf);
-                if (qj2.B(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), g)) {
-                    return g;
-                }
-                lastIndexOf = g.lastIndexOf(File.separator);
-            }
-            return qj2.B(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), g) ? g : "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean d(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return e(p84.i().u(str));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(@Nullable PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pMSAppInfo)) == null) {
-            if (pMSAppInfo != null && !TextUtils.isEmpty(pMSAppInfo.appId)) {
-                long j = pMSAppInfo.versionCode;
-                if (j != 0) {
-                    if (pMSAppInfo.appCategory == 1) {
-                        File a2 = ck2.g().a(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
-                        if (a2 != null) {
-                            return a2.exists();
-                        }
-                        return false;
-                    }
-                    return qj2.z(qj2.e.i(pMSAppInfo.appId, String.valueOf(j)));
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(PMSAppInfo pMSAppInfo, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, pMSAppInfo, str)) == null) {
-            if (pMSAppInfo == null || TextUtils.isEmpty(str)) {
-                return false;
-            }
-            String g = me3.g(str);
-            if (g.lastIndexOf(File.separator) != -1) {
-                g = g.substring(0, g.lastIndexOf(File.separator));
-            }
-            return qj2.p(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode), g).exists();
-        }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

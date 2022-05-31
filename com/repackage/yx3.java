@@ -1,22 +1,21 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.http.HttpManager;
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Callback;
-import okhttp3.Request;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class yx3 implements hi1 {
+public class yx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String data;
+    @V8JavascriptField
+    public Object header;
+    @V8JavascriptField
+    public int statusCode;
 
     public yx3() {
         Interceptable interceptable = $ic;
@@ -32,18 +31,10 @@ public class yx3 implements hi1 {
         }
     }
 
-    @Override // com.repackage.hi1
-    public HttpManager a() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? az3.b() : (HttpManager) invokeV.objValue;
-    }
-
-    @Override // com.repackage.hi1
-    public void call(HttpManager httpManager, Request request, Callback callback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof az3)) {
-            ((az3) httpManager).call(request, callback);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 }

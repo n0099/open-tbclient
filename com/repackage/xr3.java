@@ -1,10 +1,8 @@
 package com.repackage;
 
-import android.content.pm.PackageInfo;
+import android.content.Intent;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,11 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xr3 extends zs3 {
+public class xr3 extends mr3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,12 +30,12 @@ public class xr3 extends zs3 {
                 return;
             }
         }
-        c = eh1.a;
+        c = rf1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xr3() {
-        super("getAppList");
+        super("StartAppUsagePage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,52 +51,30 @@ public class xr3 extends zs3 {
         }
     }
 
-    @Override // com.repackage.zs3
-    public us1 a(@NonNull JSONObject jSONObject, @NonNull yd2 yd2Var) {
+    @Override // com.repackage.mr3
+    public hr1 a(@NonNull JSONObject jSONObject, @NonNull lc2 lc2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, yd2Var)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("data", c());
-                if (c) {
-                    Log.i("GetAppListAction", jSONObject2.toString());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lc2Var)) == null) {
+            hz2 a0 = hz2.a0();
+            if (a0 != null && a0.x() != null) {
+                try {
+                    a0.x().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
+                } catch (Exception e) {
+                    if (c) {
+                        e.printStackTrace();
+                    }
+                    lc3.f(a0.x());
                 }
-            } catch (JSONException e) {
+                lc2Var.a(null);
+            } else {
+                lc2Var.onFail(100, "swan or activity is null");
                 if (c) {
-                    e.printStackTrace();
+                    Log.d("StartAppUsagePage", "swan or activity is null");
                 }
             }
-            yd2Var.a(jSONObject2);
             return null;
         }
-        return (us1) invokeLL.objValue;
-    }
-
-    public final JSONObject b(PackageInfo packageInfo) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("appName", packageInfo.applicationInfo.name);
-            jSONObject.put("appPackageName", packageInfo.packageName);
-            jSONObject.put("appVersion", packageInfo.versionName);
-            jSONObject.put("appIsSystemApp", (packageInfo.applicationInfo.flags & 1) != 0);
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final JSONArray c() throws JSONException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (PackageInfo packageInfo : AppRuntime.getAppContext().getPackageManager().getInstalledPackages(1)) {
-                jSONArray.put(b(packageInfo));
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
+        return (hr1) invokeLL.objValue;
     }
 }

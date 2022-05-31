@@ -1,38 +1,40 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadMessage;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomListNetModel;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import com.repackage.jk4;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class gp6 {
+public final class gp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final VoiceRoomListNetModel a;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static final class a implements NetModel.k<ep6, fp6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vc6 a;
+        public final /* synthetic */ ik4<List<VoiceRoomWrapper>> a;
 
-        public a(vc6 vc6Var) {
+        public a(ik4<List<VoiceRoomWrapper>> ik4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vc6Var};
+                Object[] objArr = {ik4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,52 +44,69 @@ public class gp6 {
                     return;
                 }
             }
-            this.a = vc6Var;
+            this.a = ik4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tbadk.mvc.model.NetModel.m
+        public void m(MvcSocketResponsedMessage<fp6, ?> mvcSocketResponsedMessage, MvcSocketMessage<ep6, fp6> mvcSocketMessage, MvcNetMessage<ep6, fp6> mvcNetMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.J0();
+            if (!(interceptable == null || interceptable.invokeLLL(1048576, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null || mvcSocketResponsedMessage.hasError()) {
+                return;
             }
+            if (mvcSocketResponsedMessage.getError() == 0) {
+                this.a.a(new jk4.c(mvcSocketResponsedMessage.getData().a()));
+                return;
+            }
+            ik4<List<VoiceRoomWrapper>> ik4Var = this.a;
+            String errorString = mvcSocketResponsedMessage.getErrorString();
+            Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+            ik4Var.a(new jk4.a(errorString, null, 2, null));
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.NetModel.l
+        public void r(MvcHttpResponsedMessage<fp6> mvcHttpResponsedMessage, MvcHttpMessage<ep6, fp6> mvcHttpMessage, MvcNetMessage<ep6, fp6> mvcNetMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null || mvcHttpResponsedMessage.hasError()) {
+                return;
+            }
+            if (mvcHttpResponsedMessage.getError() == 0) {
+                this.a.a(new jk4.c(mvcHttpResponsedMessage.getData().a()));
+                return;
+            }
+            ik4<List<VoiceRoomWrapper>> ik4Var = this.a;
+            String errorString = mvcHttpResponsedMessage.getErrorString();
+            Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+            ik4Var.a(new jk4.a(errorString, null, 2, null));
         }
     }
 
-    public static void a(ResponsedMessage<?> responsedMessage, vc6 vc6Var, FrsViewData frsViewData) {
-        List<DownloadData> data;
+    public gp6() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, responsedMessage, vc6Var, frsViewData) == null) || frsViewData == null || vc6Var == null || !(responsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) responsedMessage).getData()) == null) {
-            return;
-        }
-        boolean z = false;
-        Iterator<DownloadData> it = data.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            } else if (it.next().getStatus() == 0) {
-                z = true;
-                break;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        if (z) {
-            ng.a().postDelayed(new a(vc6Var), TimeUnit.SECONDS.toMillis(2L));
-        }
+        this.a = new VoiceRoomListNetModel();
     }
 
-    public static void b(vc6 vc6Var) {
-        HashMap<Integer, ThreadData> h;
+    public final void a(TbPageContext<?> tbPageContext, long j, long j2, ik4<List<VoiceRoomWrapper>> callback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, vc6Var) == null) || vc6Var == null || vc6Var.W() == null || (h = vc6Var.W().h()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            ep6 ep6Var = new ep6(j, j2);
+            this.a.setUniqueId(tbPageContext.getUniqueId());
+            this.a.b0(ep6Var);
+            this.a.a0(new a(callback));
+            this.a.loadData();
+            callback.a(new jk4.b(null, 1, null));
         }
-        ArrayList<AdvertAppInfo> arrayList = new ArrayList<>();
-        for (Map.Entry<Integer, ThreadData> entry : h.entrySet()) {
-            ThreadData value = entry.getValue();
-            if (value != null && (value instanceof AdvertAppInfo)) {
-                arrayList.add((AdvertAppInfo) value);
-            }
-        }
-        ya8.n().w(arrayList);
     }
 }

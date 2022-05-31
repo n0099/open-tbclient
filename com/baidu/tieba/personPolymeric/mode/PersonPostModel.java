@@ -38,10 +38,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.g58;
-import com.repackage.h58;
-import com.repackage.mi;
-import com.repackage.ro;
+import com.repackage.jn;
+import com.repackage.li;
+import com.repackage.n28;
+import com.repackage.o28;
 import com.repackage.ya;
 import com.squareup.wire.Wire;
 import java.io.Serializable;
@@ -70,7 +70,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public g58 mCardNullPolymericData;
+    public n28 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -79,8 +79,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public ResponsedMessage<?> mResponsedMessage;
     public HttpMessageListener pageHttpListener;
     public ya pageSocketListener;
-    public final ArrayList<ro> postList;
-    public final ArrayList<ro> threadList;
+    public final ArrayList<jn> postList;
+    public final ArrayList<jn> threadList;
     public int view_card_num;
 
     /* loaded from: classes3.dex */
@@ -359,7 +359,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     }
 
     /* loaded from: classes3.dex */
-    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, ro {
+    public static class PostInfoList extends OrmObject implements Serializable, PreLoadImageProvider, jn {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniqueId POST_INFO;
         public transient /* synthetic */ FieldHolder $fh;
@@ -467,7 +467,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             return (ArrayList) invokeV.objValue;
         }
 
-        @Override // com.repackage.ro
+        @Override // com.repackage.jn
         public BdUniqueId getType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -928,16 +928,16 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         return invokeII.intValue;
     }
 
-    public static ArrayList<ro> mergeDynamicThreadByTime(ArrayList<ro> arrayList) {
+    public static ArrayList<jn> mergeDynamicThreadByTime(ArrayList<jn> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, arrayList)) == null) {
             String yearBytime = StringHelper.getYearBytime(System.currentTimeMillis());
-            Iterator<ro> it = arrayList.iterator();
+            Iterator<jn> it = arrayList.iterator();
             String str = "";
             String str2 = "";
             while (it.hasNext()) {
-                ro next = it.next();
+                jn next = it.next();
                 if (next instanceof CardPersonDynamicThreadData) {
                     CardPersonDynamicThreadData cardPersonDynamicThreadData = (CardPersonDynamicThreadData) next;
                     cardPersonDynamicThreadData.D = true;
@@ -972,15 +972,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new h58());
+            this.postList.add(new o28());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            g58 g58Var = new g58();
-            this.mCardNullPolymericData = g58Var;
-            this.postList.add(g58Var);
+            n28 n28Var = new n28();
+            this.mCardNullPolymericData = n28Var;
+            this.postList.add(n28Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {
@@ -1065,8 +1065,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(false);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = mi.k(TbadkCoreApplication.getInst().getApp());
-            int i = mi.i(TbadkCoreApplication.getInst().getApp());
+            int k = li.k(TbadkCoreApplication.getInst().getApp());
+            int i = li.i(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i2 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             userPostPageRequestMessage.set_scr_w(k);
@@ -1212,8 +1212,8 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
             userPostPageRequestMessage.setNeedContent(true);
             userPostPageRequestMessage.setReset(z);
             userPostPageRequestMessage.setFrom(this.mFrom);
-            int k = mi.k(TbadkCoreApplication.getInst().getApp());
-            int i2 = mi.i(TbadkCoreApplication.getInst().getApp());
+            int k = li.k(TbadkCoreApplication.getInst().getApp());
+            int i2 = li.i(TbadkCoreApplication.getInst().getApp());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
             userPostPageRequestMessage.set_scr_w(k);

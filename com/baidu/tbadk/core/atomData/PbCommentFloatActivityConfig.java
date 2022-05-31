@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lq4;
-/* loaded from: classes3.dex */
+import com.repackage.ap4;
+/* loaded from: classes2.dex */
 public class PbCommentFloatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -768,13 +768,13 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         intent.putExtra("lego_pre_load_data", str);
     }
 
-    public void setRecomData(lq4 lq4Var) {
+    public void setRecomData(ap4 ap4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, lq4Var) == null) || (intent = getIntent()) == null || lq4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048620, this, ap4Var) == null) || (intent = getIntent()) == null || ap4Var == null) {
             return;
         }
-        lq4Var.c(intent);
+        ap4Var.c(intent);
     }
 
     public void setSmartFrsPosition(int i) {

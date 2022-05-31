@@ -1,44 +1,173 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
-import com.baidu.tbadk.mutiprocess.currentpagetype.CurrentPageTypeEvent;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qe;
+import com.repackage.y55;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class l65 implements y55<CurrentPageTypeEvent> {
+public class l65<T extends y55> extends j65<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public l65() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l65(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y55
-    /* renamed from: a */
-    public boolean onEvent(CurrentPageTypeEvent currentPageTypeEvent) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
+    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
+    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    /* JADX WARN: Type inference failed for: r7v10 */
+    /* JADX WARN: Type inference failed for: r7v12 */
+    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
+    /* JADX WARN: Type inference failed for: r7v18 */
+    /* JADX WARN: Type inference failed for: r7v36 */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         InterceptResult invokeL;
+        String str;
+        ?? arrayList;
+        String str2;
+        y55 y55Var;
+        byte[] bArr;
+        y55 y55Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, currentPageTypeEvent)) == null) {
-            if (currentPageTypeEvent == null) {
-                return false;
-            }
-            CurrentPageTypeHelper.currentPageType = currentPageTypeEvent.currentPageType;
-            return true;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, customMessage)) != null) {
+            return (CustomResponsedMessage) invokeL.objValue;
         }
-        return invokeL.booleanValue;
+        y55 y55Var3 = null;
+        if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
+            return null;
+        }
+        ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
+        y55 y55Var4 = (y55) a();
+        try {
+            try {
+                if (readCacheMessage.isNeedUid()) {
+                    str = TbadkCoreApplication.getCurrentAccount();
+                    if (str == null) {
+                        str = "";
+                    }
+                } else {
+                    str = null;
+                }
+                if (y55Var4 != null) {
+                    if (readCacheMessage.getRequestData() == null) {
+                        try {
+                            if (y55Var4 instanceof x55) {
+                                cq4.f();
+                                List<qe.b<byte[]>> a = qi.a(cq4.e(this.b, str));
+                                if (a != null) {
+                                    arrayList = new ArrayList(a.size());
+                                    for (qe.b<byte[]> bVar : a) {
+                                        if (bVar != null && (bArr = bVar.b) != null && (y55Var2 = (y55) a()) != null) {
+                                            ((x55) y55Var2).initByByteArray(bArr);
+                                            arrayList.add(y55Var2);
+                                        }
+                                    }
+                                    y55Var3 = arrayList;
+                                }
+                            } else if (y55Var4 instanceof a65) {
+                                cq4.f();
+                                List<qe.b<String>> b = qi.b(cq4.h(this.b, str));
+                                if (b != null) {
+                                    arrayList = new ArrayList(b.size());
+                                    for (qe.b<String> bVar2 : b) {
+                                        if (bVar2 != null && (str2 = bVar2.b) != null && (y55Var = (y55) a()) != null) {
+                                            ((a65) y55Var).p(str2);
+                                            arrayList.add(y55Var);
+                                        }
+                                    }
+                                    y55Var3 = arrayList;
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            y55Var3 = y55Var4;
+                            e.printStackTrace();
+                            return new ReadCacheRespMsg(this.a, y55Var3);
+                        } catch (Throwable th) {
+                            th = th;
+                            y55Var3 = y55Var4;
+                            new ReadCacheRespMsg(this.a, y55Var3);
+                            throw th;
+                        }
+                    } else {
+                        String cacheKey = readCacheMessage.getRequestData().getCacheKey();
+                        String x = readCacheMessage.getRequestData().x();
+                        try {
+                            if (y55Var4 instanceof x55) {
+                                cq4.f();
+                                byte[] bArr2 = cq4.e(x, str).get(cacheKey);
+                                if (bArr2 != null) {
+                                    ((x55) y55Var4).initByByteArray(bArr2);
+                                    ArrayList arrayList2 = new ArrayList();
+                                    arrayList2.add(y55Var4);
+                                    x = arrayList2;
+                                    y55Var3 = x;
+                                }
+                            } else if (y55Var4 instanceof a65) {
+                                cq4.f();
+                                String str3 = cq4.h(x, str).get(cacheKey);
+                                if (str3 != null) {
+                                    ((a65) y55Var4).p(str3);
+                                    ?? arrayList3 = new ArrayList();
+                                    arrayList3.add(y55Var4);
+                                    x = arrayList3;
+                                    y55Var3 = x;
+                                }
+                            }
+                        } catch (Exception e2) {
+                            y55Var3 = x;
+                            e = e2;
+                            e.printStackTrace();
+                            return new ReadCacheRespMsg(this.a, y55Var3);
+                        } catch (Throwable th2) {
+                            y55Var3 = x;
+                            th = th2;
+                            new ReadCacheRespMsg(this.a, y55Var3);
+                            throw th;
+                        }
+                    }
+                }
+                return new ReadCacheRespMsg(this.a, y55Var3);
+            } catch (Exception e3) {
+                e = e3;
+            }
+        } catch (Throwable th3) {
+            th = th3;
+        }
     }
 }

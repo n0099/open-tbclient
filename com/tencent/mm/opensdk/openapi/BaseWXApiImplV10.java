@@ -59,7 +59,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BaseWXApiImplV10 implements IWXAPI {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.WXApiImplV10";
@@ -844,12 +844,12 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 this.appId = str;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "register app " + this.context.getPackageName());
-            a.C0645a c0645a = new a.C0645a();
-            c0645a.a = "com.tencent.mm";
-            c0645a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
-            c0645a.content = "weixin://registerapp?appid=" + this.appId;
-            c0645a.b = j;
-            return a.a(this.context, c0645a);
+            a.C0647a c0647a = new a.C0647a();
+            c0647a.a = "com.tencent.mm";
+            c0647a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
+            c0647a.content = "weixin://registerapp?appid=" + this.appId;
+            c0647a.b = j;
+            return a.a(this.context, c0647a);
         }
         return invokeLJ.booleanValue;
     }
@@ -1052,11 +1052,11 @@ public class BaseWXApiImplV10 implements IWXAPI {
                 return;
             }
             Log.d("MicroMsg.SDK.WXApiImplV10", "unregister app " + this.context.getPackageName());
-            a.C0645a c0645a = new a.C0645a();
-            c0645a.a = "com.tencent.mm";
-            c0645a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
-            c0645a.content = "weixin://unregisterapp?appid=" + this.appId;
-            a.a(this.context, c0645a);
+            a.C0647a c0647a = new a.C0647a();
+            c0647a.a = "com.tencent.mm";
+            c0647a.action = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
+            c0647a.content = "weixin://unregisterapp?appid=" + this.appId;
+            a.a(this.context, c0647a);
         }
     }
 }

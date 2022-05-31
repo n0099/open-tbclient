@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.tw8;
+import com.repackage.vt8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class CloudMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tw8<CloudMusicData> a;
+    public vt8<CloudMusicData> a;
     public final HttpMessageListener b;
 
     /* loaded from: classes4.dex */
@@ -158,12 +158,12 @@ public class CloudMusicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void z(tw8<CloudMusicData> tw8Var) {
+    public void z(vt8<CloudMusicData> vt8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, tw8Var) == null) || tw8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, vt8Var) == null) || vt8Var == null) {
             return;
         }
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-        this.a = tw8Var;
+        this.a = vt8Var;
     }
 }

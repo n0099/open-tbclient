@@ -1,75 +1,69 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.concurrent.Executors;
 /* loaded from: classes6.dex */
 public class kl9 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ InstallActivity b;
 
-    public kl9(InstallActivity installActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755554887, "Lcom/repackage/kl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755554887, "Lcom/repackage/kl9;");
                 return;
             }
         }
-        this.b = installActivity;
-        this.a = false;
+        Executors.newFixedThreadPool(1);
+        a = new HashMap();
     }
 
-    public void a(com.google.ar.core.p pVar) {
+    public static synchronized void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                InstallActivity.access$402(this.b, pVar);
-                int ordinal = pVar.ordinal();
-                if (ordinal != 0) {
-                    if (ordinal == 1) {
-                        InstallActivity.access$000(this.b, new UnavailableUserDeclinedInstallationException());
-                    } else if (ordinal == 2) {
-                        if (!InstallActivity.access$500(this.b)) {
-                            InstallActivity.access$600(this.b);
-                        }
-                        InstallActivity.access$000(this.b, null);
-                    }
-                    this.a = true;
-                }
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            synchronized (kl9.class) {
+                a.remove(str);
             }
         }
     }
 
-    public void b(Exception exc) {
+    public static synchronized void b(String str, il9 il9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, il9Var) == null) {
+            synchronized (kl9.class) {
+                HashSet hashSet = (HashSet) a.get(str);
+                if (hashSet == null) {
+                    hashSet = new HashSet();
+                    a.put(str, hashSet);
                 }
-                this.a = true;
-                InstallActivity.access$402(this.b, com.google.ar.core.p.b);
-                boolean z = exc instanceof UnavailableException;
-                InstallActivity.access$000(this.b, exc);
+                hashSet.add(il9Var);
             }
+        }
+    }
+
+    public static void c(String str, String str2, Object obj) {
+        HashSet hashSet;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, str2, obj) == null) || (hashSet = (HashSet) a.get(str)) == null || hashSet.size() <= 0) {
+            return;
+        }
+        Iterator it = hashSet.iterator();
+        while (it.hasNext()) {
+            ((il9) it.next()).a(str, str2, obj);
         }
     }
 }

@@ -1,52 +1,27 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class ri2 extends oe2<fj2> {
+public class ri2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile qi2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ri2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.oe2
-    @NonNull
-    public String b() {
+    public static synchronized qi2 a() {
         InterceptResult invokeV;
+        qi2 qi2Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setMuted" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.oe2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull fj2 fj2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, fj2Var) == null) {
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                fj2Var.l(((Boolean) obj).booleanValue());
-                String str = command.what;
-                d(fj2Var, str, "setMuted:" + command.obj, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ri2.class) {
+                if (a == null) {
+                    a = new qi2();
+                }
+                qi2Var = a;
             }
+            return qi2Var;
         }
+        return (qi2) invokeV.objValue;
     }
 }

@@ -84,7 +84,7 @@ public class ShareResultProxyActivity extends Activity implements NoProguard {
             this.c = intent.getStringExtra(KEY_TRACE_ID);
             this.d = intent.getStringExtra("key_session_id");
             this.e = (ArrayList) intent.getSerializableExtra(KEY_EXTRA_PARAMS);
-            this.f = intent.getStringExtra("key_version");
+            this.f = intent.getStringExtra(KEY_VERSION);
             new ShareCallPacking().startLoginShareActivityForResult(this, this.a, this.b, this.c, this.d, this.e, this.f, "product");
             ShareLoginStat.MakeShareLoginStat.statExtMap.put(ShareLoginStat.MakeShareLoginStat.KEY_NEED_AUTH, "1");
         }

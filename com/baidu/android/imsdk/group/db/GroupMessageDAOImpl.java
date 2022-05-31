@@ -463,7 +463,7 @@ public class GroupMessageDAOImpl {
             int i3 = cursor.getInt(cursor.getColumnIndex("is_read"));
             int i4 = cursor.getInt(cursor.getColumnIndex("status"));
             String string = cursor.getString(cursor.getColumnIndex("content"));
-            long j4 = cursor.getLong(cursor.getColumnIndex("groupid"));
+            long j4 = cursor.getLong(cursor.getColumnIndex(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID));
             int i5 = cursor.getInt(cursor.getColumnIndex("cmd"));
             String string2 = cursor.getString(cursor.getColumnIndex("local_url"));
             boolean z = cursor.getInt(cursor.getColumnIndex("isclicked")) == 1;
@@ -507,7 +507,7 @@ public class GroupMessageDAOImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, chatMsg)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("groupid", Long.valueOf(chatMsg.getContacter()));
+            contentValues.put(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID, Long.valueOf(chatMsg.getContacter()));
             contentValues.put(DBTableDefine.GroupMessageColumns.COLUMN_FROM_USER, Long.valueOf(chatMsg.getFromUser()));
             contentValues.put(DBTableDefine.GroupMessageColumns.COLUMN_FROM_BUID, chatMsg.getSenderUid());
             contentValues.put("msgid", Long.valueOf(chatMsg.getMsgId()));
@@ -651,7 +651,7 @@ public class GroupMessageDAOImpl {
                 if (dBGroupTableManager != null && !dBGroupTableManager.isExistGroupTable(context, str)) {
                     return null;
                 }
-                arrayList = newDb.query(sGroupChatMsgParse, "(select * from " + DBTableDefine.getGroupMessageTableName(str) + " union all select * from " + DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE + " where groupid = " + str + " AND status != 3 )", null, str3, strArr, null, null, str5, String.valueOf(Math.abs(j2)));
+                arrayList = newDb.query(sGroupChatMsgParse, "(select * from " + DBTableDefine.getGroupMessageTableName(str) + " union all select * from " + DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE + " where " + DBTableDefine.GroupMessageColumns.COLUMN_GROUPID + " = " + str + " AND status != 3 )", null, str3, strArr, null, null, str5, String.valueOf(Math.abs(j2)));
                 if (arrayList != null && arrayList.size() > 0) {
                     Iterator<ChatMsg> it = arrayList.iterator();
                     while (it.hasNext()) {

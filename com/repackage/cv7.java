@@ -1,43 +1,38 @@
 package com.repackage;
 
-import android.content.Intent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.atomData.SelectLocationActivityConfig;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.PbEditorData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.pb.pb.main.relatelist.RelateRecThreadListModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.RelateRecThread.DataRes;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class cv7 extends a15 {
+public class cv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VoiceData.VoiceModel b;
-    public LocationModel c;
-    public PbEditorData.ThreadData d;
-    public BaseActivity<?> e;
-    public int f;
-    public LocationModel.e g;
-    public LocationModel.f h;
+    public final List<jn> a;
+    public final RelateRecThreadListModel b;
+    public ot7 c;
+    public PbModel d;
+    public boolean e;
+    public List<jn> f;
+    public final el4 g;
 
     /* loaded from: classes5.dex */
-    public class a implements LocationModel.e {
+    public class a implements el4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cv7 a;
@@ -60,329 +55,127 @@ public class cv7 extends a15 {
             this.a = cv7Var;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void a() {
+        @Override // com.repackage.el4
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.showToast(R.string.obfuscated_res_0x7f0f0c65);
-                this.a.n(0, false, null);
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || this.a.c == null || this.a.c.X0() == null) {
+                return;
             }
+            this.a.c.X0().M();
         }
 
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void b(LocationData locationData) {
+        @Override // com.repackage.el4
+        public void onSuccess(Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationData) == null) {
-                if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
-                    this.a.n(2, true, locationData.getFormatted_address());
-                } else {
-                    onFail(null);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                if (this.a.d != null && (obj instanceof DataRes)) {
+                    DataRes dataRes = (DataRes) obj;
+                    kp7 P1 = this.a.d.P1();
+                    String first_class = P1.l() != null ? P1.l().getFirst_class() : "";
+                    List<ThreadInfo> list = dataRes.recom_thread_info;
+                    if (ListUtils.isEmpty(list)) {
+                        if (this.a.c == null || this.a.c.X0() == null) {
+                            return;
+                        }
+                        this.a.c.X0().u(P1.t());
+                        this.a.c.X0().M();
+                        if (P1.t()) {
+                            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_FOLD_ICON_SHOW);
+                            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+                            statisticItem.param("fid", P1.m());
+                            statisticItem.param("fname", P1.n());
+                            statisticItem.param("tid", P1.Q());
+                            TiebaStatic.log(statisticItem);
+                            return;
+                        }
+                        return;
+                    }
+                    List<jn> b = dv7.b(list, first_class, this.a.d.O1());
+                    this.a.a.addAll(b);
+                    P1.L0(this.a.a);
+                    this.a.f.addAll(b);
+                    Integer num = dataRes.rec_type;
+                    P1.I0(num == null ? 0 : num.intValue());
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                BaseActivity baseActivity = this.a.e;
-                if (StringUtils.isNull(str)) {
-                    str = this.a.a().getContext().getString(R.string.obfuscated_res_0x7f0f0a48);
+                if (this.a.c != null && !ListUtils.isEmpty(this.a.a)) {
+                    this.a.c.N3();
                 }
-                baseActivity.showToast(str);
-                this.a.n(0, false, null);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements LocationModel.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cv7 a;
-
-        public b(cv7 cv7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cv7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if (this.a.c.X0() == null || !this.a.c.X0().n() || ListUtils.isEmpty(this.a.a)) {
                     return;
                 }
-            }
-            this.a = cv7Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.n(0, false, null);
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.f
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.n(2, true, str);
+                this.a.c.X0().k();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements nr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cv7 a;
-
-        public c(cv7 cv7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cv7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cv7Var;
-        }
-
-        @Override // com.repackage.nr4.e
-        public void onClick(nr4 nr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
-                this.a.n(0, true, null);
-                nr4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements nr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cv7 a;
-
-        public d(cv7 cv7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cv7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cv7Var;
-        }
-
-        @Override // com.repackage.nr4.e
-        public void onClick(nr4 nr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
-                if (ki.z()) {
-                    this.a.n(1, true, null);
-                    this.a.c.N();
-                } else {
-                    this.a.g.a();
-                }
-                nr4Var.dismiss();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cv7(EditorTools editorTools) {
-        super(editorTools);
+    public cv7(pw7 pw7Var, BdUniqueId bdUniqueId, ot7 ot7Var, PbModel pbModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
+            Object[] objArr = {pw7Var, bdUniqueId, ot7Var, pbModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((EditorTools) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = 0;
+        this.a = new ArrayList();
+        this.f = new ArrayList();
         this.g = new a(this);
-        this.h = new b(this);
+        this.c = ot7Var;
+        this.d = pbModel;
+        RelateRecThreadListModel relateRecThreadListModel = new RelateRecThreadListModel(pw7Var.getPageContext(), bdUniqueId);
+        this.b = relateRecThreadListModel;
+        relateRecThreadListModel.F(this.g);
     }
 
-    public int f() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public VoiceData.VoiceModel g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (VoiceData.VoiceModel) invokeV.objValue;
-    }
-
-    public BaseActivity<?> getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (BaseActivity) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectLocationActivityConfig(this.e.getActivity())));
-        }
-    }
-
-    public void i(BaseActivity baseActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, baseActivity) == null) {
-            LocationModel locationModel = new LocationModel(baseActivity.getPageContext());
-            this.c = locationModel;
-            locationModel.Q(this.g);
-            this.c.R(this.h);
-            if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && a() != null) {
-                a().A(new w05(2, 12, " "));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PbModel pbModel = this.d;
+            if (pbModel == null || TextUtils.isEmpty(pbModel.h2()) || this.d.P1() == null) {
+                return false;
             }
-            if (this.c.B() || a() == null) {
-                return;
+            if (this.e) {
+                return true;
             }
-            a().A(new w05(20, 8, null));
-        }
-    }
-
-    public void j(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) && i2 == -1 && i == 23004) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010040));
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!PermissionUtil.checkLocationForGoogle(this.e.getActivity())) {
-                PermissionUtil.reuqestLocation(this.e.getActivity(), 0);
-            } else {
-                s();
+            if (this.d.P1().a0()) {
+                return false;
             }
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.c.B()) {
-                if (this.c.F()) {
-                    this.g.b(yk8.a().b());
-                    return;
-                }
-                if (mi.C()) {
-                    this.c.K();
-                }
-                n(0, true, null);
-                return;
+            String forumId = this.d.getForumId();
+            if (TextUtils.isEmpty(forumId) && this.d.P1().l() != null) {
+                forumId = this.d.P1().l().getId();
             }
-            n(0, false, null);
-        }
-    }
-
-    public void m() {
-        PbEditorData.ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (threadData = this.d) == null || StringUtils.isNull(threadData.getAuthorName()) || this.d.getAuthorId() <= 0) {
-            return;
-        }
-        String valueOf = String.valueOf(this.d.getAuthorId());
-        if (valueOf != null && !valueOf.equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.e.getActivity(), this.d.getAuthorId(), this.d.getAuthorName(), this.d.getAuthorNameShow(), GiftTabActivityConfig.FROM_PB, kg.g(this.d.getThreadId(), 0L), kg.g(this.d.getPostId(), 0L))));
-        } else {
-            mi.M(this.e.getActivity(), R.string.obfuscated_res_0x7f0f0371);
-        }
-    }
-
-    public final void n(int i, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), str}) == null) {
-            this.f = i;
-            if (a() != null) {
-                a().A(new w05(19, 8, new n25(i, z, str)));
+            long g = jg.g(forumId, 0L);
+            long g2 = jg.g(this.d.h2(), 0L);
+            int c2 = this.d.c2();
+            String b2 = this.d.b2();
+            if (!this.e) {
+                this.e = true;
             }
+            return this.b.E(g, g2, 1, c2, b2);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
+            this.b.onDestroy();
         }
     }
 
-    public void o(BaseActivity<?> baseActivity) {
+    public void f(ot7 ot7Var, PbModel pbModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, baseActivity) == null) {
-            this.e = baseActivity;
-        }
-    }
-
-    public void p(PbEditorData.ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, threadData) == null) {
-            this.d = threadData;
-            if (a() == null || this.d == null) {
-                return;
-            }
-            a().setFid(kg.g(this.d.getForumId(), 0L));
-            a().setTid(this.d.getThreadId());
-        }
-    }
-
-    public void q(VoiceData.VoiceModel voiceModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, voiceModel) == null) {
-            this.b = voiceModel;
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            nr4 nr4Var = new nr4(this.e.getActivity());
-            nr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0a46).setPositiveButton(R.string.obfuscated_res_0x7f0f0968, new d(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new c(this)).create(this.e.getPageContext());
-            nr4Var.show();
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            if (!this.c.G(this.e.getActivity())) {
-                this.e.showToast((int) R.string.obfuscated_res_0x7f0f0a4d);
-            } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
-                r();
-            } else if (this.c.F()) {
-                h();
-            } else {
-                this.c.P(false);
-                n(1, true, null);
-                this.c.K();
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ot7Var, pbModel) == null) {
+            this.c = ot7Var;
+            this.d = pbModel;
         }
     }
 }

@@ -1,132 +1,72 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class hr9 implements View.OnTouchListener {
+public class hr9 {
     public static /* synthetic */ Interceptable $ic;
+    public static hr9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wq9 a;
-    public boolean b;
-    public long c;
-    public float d;
-    public float e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public long n;
-    public int o;
-    public int p;
-    public long q;
+    public zq9 a;
 
-    public hr9(Info info, wq9 wq9Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755638494, "Lcom/repackage/hr9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755638494, "Lcom/repackage/hr9;");
+        }
+    }
+
+    public hr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {info, wq9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = 0L;
-        this.a = wq9Var;
+        this.a = null;
     }
 
-    public HashMap a() {
+    public static hr9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("dx", Integer.valueOf(this.f));
-            hashMap.put("dy", Integer.valueOf(this.g));
-            hashMap.put("dts", Long.valueOf(this.n));
-            hashMap.put("ux", Integer.valueOf(this.o));
-            hashMap.put("uy", Integer.valueOf(this.p));
-            hashMap.put("uts", Long.valueOf(this.q));
-            ro9.j(hashMap, this.h, this.i, this.j, this.k, this.l, this.m);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                b = new hr9();
+            }
+            return b;
         }
-        return (HashMap) invokeV.objValue;
+        return (hr9) invokeV.objValue;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.b = true;
-                this.c = System.currentTimeMillis();
-                this.d = motionEvent.getX();
-                this.e = motionEvent.getY();
-                this.h = (int) motionEvent.getX();
-                this.i = (int) motionEvent.getY();
-                this.f = (int) motionEvent.getRawX();
-                this.g = (int) motionEvent.getRawY();
-                if (this.l <= 0 || this.m <= 0) {
-                    this.m = view2.getHeight();
-                    this.l = view2.getWidth();
-                }
-                this.n = System.currentTimeMillis();
-            } else if (action == 1) {
-                this.o = (int) motionEvent.getRawX();
-                this.p = (int) motionEvent.getRawY();
-                this.j = (int) motionEvent.getX();
-                this.k = (int) motionEvent.getY();
-                this.q = System.currentTimeMillis();
-                boolean z = Math.abs(motionEvent.getX() - this.d) < 51.0f;
-                boolean z2 = Math.abs(motionEvent.getY() - this.e) < 51.0f;
-                boolean z3 = System.currentTimeMillis() - this.c < 2000;
-                if (z && z2 && z3 && this.b) {
-                    String str = null;
-                    try {
-                        str = a().toString();
-                        rn9 rn9Var = this.a.a.b;
-                        if (rn9Var != null) {
-                            rn9Var.a(str);
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    wq9 wq9Var = this.a;
-                    wq9Var.a.d = true;
-                    wq9Var.a.e = str;
-                    return false;
-                } else if (this.a != null) {
-                    try {
-                        String hashMap = a().toString();
-                        rn9 rn9Var2 = this.a.a.b;
-                        if (rn9Var2 != null) {
-                            rn9Var2.a(hashMap);
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            zq9 zq9Var = this.a;
+            if (zq9Var != null) {
+                zq9Var.info("authsdk", str);
+            } else {
+                Log.i("authsdk", str);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 }

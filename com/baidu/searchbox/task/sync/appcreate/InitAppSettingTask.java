@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dd5;
-import com.repackage.j95;
-import com.repackage.my4;
-import com.repackage.oz4;
-import com.repackage.sy4;
+import com.repackage.d85;
+import com.repackage.ex4;
+import com.repackage.ky4;
+import com.repackage.lx4;
 import com.repackage.x8;
+import com.repackage.xb5;
 /* loaded from: classes2.dex */
 public class InitAppSettingTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -40,8 +40,8 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            dd5.c();
-            j95.b().r(System.currentTimeMillis() - currentTimeMillis);
+            xb5.c();
+            d85.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -54,8 +54,8 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            my4.d().o();
-            j95.b().y(System.currentTimeMillis() - currentTimeMillis);
+            ex4.d().o();
+            d85.b().y(System.currentTimeMillis() - currentTimeMillis);
             x8.g().r(20);
         }
     }
@@ -84,14 +84,14 @@ public class InitAppSettingTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            sy4 sy4Var = new sy4();
-            sy4Var.e(loadString);
-            oz4 a = oz4.a();
-            a.g(sy4Var.b() == 1);
-            a.h(sy4Var.c());
-            a.i(sy4Var.d() * 1000);
-            if (sy4Var.a() != null) {
-                a.j(sy4Var.a());
+            lx4 lx4Var = new lx4();
+            lx4Var.e(loadString);
+            ky4 a = ky4.a();
+            a.g(lx4Var.b() == 1);
+            a.h(lx4Var.c());
+            a.i(lx4Var.d() * 1000);
+            if (lx4Var.a() != null) {
+                a.j(lx4Var.a());
             }
         }
     }

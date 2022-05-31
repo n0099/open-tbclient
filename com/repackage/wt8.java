@@ -1,13 +1,45 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface wt8 {
-    void finishActivity();
 
-    void rePlayVideo(String str);
+    /* loaded from: classes7.dex */
+    public interface a {
+        float a();
 
-    void showDialog(String str, String str2);
+        void b(float f);
 
-    void showErrorView();
+        void onFinish();
 
-    void startPlayVideo(String str);
+        void onProgress(float f);
+    }
+
+    void a();
+
+    boolean b();
+
+    int getMaxDuration();
+
+    float getProgress();
+
+    int getSlideNum();
+
+    void invalidate();
+
+    void reset();
+
+    void setMaxDuration(int i);
+
+    void setMinDuration(int i);
+
+    void setOnProgressListener(a aVar);
+
+    void setProgress(long j);
+
+    void setShowDeleteLastTip(boolean z);
+
+    void setVisibility(int i);
+
+    void start();
+
+    void stop();
 }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk2;
+import com.repackage.oi2;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -65,13 +65,13 @@ public final class SwanLoadingTips$loadingTips$2 extends Lambda implements Funct
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (((int) (Math.random() * 2)) != 0) {
-                Application c = bk2.c();
+                Application c = oi2.c();
                 if (c == null || (resources2 = c.getResources()) == null) {
                     return null;
                 }
                 return resources2.getStringArray(R.array.obfuscated_res_0x7f03000c);
             }
-            Application c2 = bk2.c();
+            Application c2 = oi2.c();
             if (c2 == null || (resources = c2.getResources()) == null) {
                 return null;
             }

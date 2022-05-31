@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,19 +8,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class za4 extends ea4 {
+public class za4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile za4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ua4 a;
-    public boolean b;
+    public final a a;
+    public ya4 b;
 
-    public za4(ua4 ua4Var, boolean z) {
+    /* loaded from: classes7.dex */
+    public static class a extends qf4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_clean_stratey");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public za4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ua4Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,53 +54,61 @@ public class za4 extends ea4 {
                 return;
             }
         }
-        this.a = ua4Var;
-        this.b = z;
+        this.a = new a();
     }
 
-    @Override // com.repackage.ea4
-    public ua4 a() {
+    public static za4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ua4) invokeV.objValue;
-    }
-
-    @Override // com.repackage.ea4
-    public boolean b(ua4 ua4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ua4Var)) == null) {
-            ua4 ua4Var2 = this.a;
-            if (ua4Var2 == ua4Var) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (za4.class) {
+                    if (c == null) {
+                        c = new za4();
+                    }
+                }
             }
-            return ua4Var2.d(ua4Var);
+            return c;
         }
-        return invokeL.booleanValue;
+        return (za4) invokeV.objValue;
     }
 
-    @Override // com.repackage.ea4
-    public void c(boolean z) {
+    @NonNull
+    public ya4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || this.b) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                synchronized (za4.class) {
+                    if (this.b == null) {
+                        this.b = ya4.b(this.a.getString("data", ""));
+                    }
+                }
+            }
+            return this.b;
+        }
+        return (ya4) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        if (z) {
-            ua4 ua4Var = this.a;
-            ua4Var.a.b.b = 0L;
-            ua4Var.b(0);
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString)) {
+            return;
         }
-        sa4.b().f(this.a);
-    }
-
-    @Override // com.repackage.ea4
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "isAttached=" + this.b + " " + super.toString();
+        String optString2 = jSONObject.optString("data");
+        if (TextUtils.isEmpty(optString2)) {
+            return;
         }
-        return (String) invokeV.objValue;
+        this.a.edit().putString("version", optString).putString("data", optString2).apply();
     }
 }

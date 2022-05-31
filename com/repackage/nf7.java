@@ -1,19 +1,16 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.ILivePlayerService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.HotForum.HotTopicList;
 /* loaded from: classes6.dex */
-public class nf7 {
+public class nf7 extends db1<ILivePlayerService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
 
     public nf7() {
         Interceptable interceptable = $ic;
@@ -29,31 +26,12 @@ public class nf7 {
         }
     }
 
-    public long a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.db1
+    /* renamed from: a */
+    public ILivePlayerService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public void d(HotTopicList hotTopicList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) || hotTopicList == null) {
-            return;
-        }
-        this.a = hotTopicList.topic_id.longValue();
-        this.b = hotTopicList.topic_name;
-        this.c = hotTopicList.tag.intValue();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new of7() : (ILivePlayerService) invokeV.objValue;
     }
 }

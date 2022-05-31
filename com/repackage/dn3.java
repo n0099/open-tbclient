@@ -1,120 +1,92 @@
 package com.repackage;
 
-import android.database.Cursor;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.en3;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class dn3 {
+public class dn3 implements en3.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ExecutorService a;
+    public final ln3 b;
+    public final DownloadInfo c;
+    public final a d;
+    public long e;
+    public volatile AtomicBoolean f;
 
-    public static HashMap<String, PMSAppInfo> a() {
-        InterceptResult invokeV;
-        HashMap<String, PMSAppInfo> hashMap;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void e(DownloadInfo downloadInfo);
+    }
+
+    public dn3(ExecutorService executorService, ln3 ln3Var, DownloadInfo downloadInfo, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Cursor query = i94.a().getReadableDatabase().query("swan_app", null, null, null, null, null, null);
-            HashMap<String, PMSAppInfo> hashMap2 = new HashMap<>();
-            if (query == null || !query.moveToFirst()) {
-                hashMap = hashMap2;
-            } else {
-                int columnIndex = query.getColumnIndex("app_id");
-                int columnIndex2 = query.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex3 = query.getColumnIndex("app_sign");
-                int columnIndex4 = query.getColumnIndex("version_code");
-                int columnIndex5 = query.getColumnIndex("version_name");
-                int columnIndex6 = query.getColumnIndex("description");
-                int columnIndex7 = query.getColumnIndex("app_status");
-                int columnIndex8 = query.getColumnIndex("status_detail");
-                int columnIndex9 = query.getColumnIndex("status_desc");
-                int columnIndex10 = query.getColumnIndex("resume_date");
-                int columnIndex11 = query.getColumnIndex("icon_url");
-                int columnIndex12 = query.getColumnIndex("app_name");
-                int columnIndex13 = query.getColumnIndex("service_category");
-                int columnIndex14 = query.getColumnIndex("subject_info");
-                HashMap<String, PMSAppInfo> hashMap3 = hashMap2;
-                int columnIndex15 = query.getColumnIndex("type");
-                int columnIndex16 = query.getColumnIndex("pkg_size");
-                int columnIndex17 = query.getColumnIndex("pending_err_code");
-                int columnIndex18 = query.getColumnIndex("app_category");
-                int columnIndex19 = query.getColumnIndex("orientation");
-                int columnIndex20 = query.getColumnIndex("max_age");
-                int columnIndex21 = query.getColumnIndex("create_time");
-                int columnIndex22 = query.getColumnIndex("webview_domains");
-                int columnIndex23 = query.getColumnIndex("web_action");
-                int columnIndex24 = query.getColumnIndex("domains");
-                int columnIndex25 = query.getColumnIndex(SwanAppBearInfo.BEAR_INFO);
-                int columnIndex26 = query.getColumnIndex("server_ext");
-                int columnIndex27 = query.getColumnIndex("pay_protected");
-                while (true) {
-                    PMSAppInfo pMSAppInfo = new PMSAppInfo();
-                    int i = columnIndex14;
-                    pMSAppInfo.appId = query.getString(columnIndex);
-                    pMSAppInfo.appKey = query.getString(columnIndex2);
-                    int i2 = columnIndex;
-                    int i3 = columnIndex2;
-                    pMSAppInfo.appSign = query.getLong(columnIndex3);
-                    pMSAppInfo.versionCode = query.getInt(columnIndex4);
-                    pMSAppInfo.versionName = query.getString(columnIndex5);
-                    pMSAppInfo.description = query.getString(columnIndex6);
-                    pMSAppInfo.appStatus = query.getInt(columnIndex7);
-                    pMSAppInfo.statusDetail = query.getString(columnIndex8);
-                    pMSAppInfo.statusDesc = query.getString(columnIndex9);
-                    pMSAppInfo.resumeDate = query.getString(columnIndex10);
-                    pMSAppInfo.iconUrl = query.getString(columnIndex11);
-                    pMSAppInfo.appName = query.getString(columnIndex12);
-                    pMSAppInfo.serviceCategory = query.getString(columnIndex13);
-                    pMSAppInfo.subjectInfo = query.getString(i);
-                    int i4 = columnIndex15;
-                    pMSAppInfo.type = query.getInt(i4);
-                    int i5 = columnIndex3;
-                    int i6 = columnIndex16;
-                    pMSAppInfo.pkgSize = query.getLong(i6);
-                    int i7 = columnIndex17;
-                    pMSAppInfo.pendingErrCode = query.getInt(i7);
-                    int i8 = columnIndex18;
-                    pMSAppInfo.appCategory = query.getInt(i8);
-                    int i9 = columnIndex19;
-                    pMSAppInfo.setOrientation(query.getInt(i9));
-                    int i10 = columnIndex4;
-                    int i11 = columnIndex20;
-                    pMSAppInfo.maxAge = query.getLong(i11);
-                    int i12 = columnIndex21;
-                    pMSAppInfo.createTime = query.getLong(i12);
-                    pMSAppInfo.webViewDomains = query.getString(columnIndex22);
-                    pMSAppInfo.webAction = query.getString(columnIndex23);
-                    pMSAppInfo.domains = query.getString(columnIndex24);
-                    pMSAppInfo.bearInfo = query.getString(columnIndex25);
-                    pMSAppInfo.serverExt = query.getString(columnIndex26);
-                    pMSAppInfo.payProtected = query.getInt(columnIndex27);
-                    hashMap = hashMap3;
-                    hashMap.put(pMSAppInfo.appId, pMSAppInfo);
-                    if (!query.moveToNext()) {
-                        break;
-                    }
-                    hashMap3 = hashMap;
-                    columnIndex = i2;
-                    columnIndex14 = i;
-                    columnIndex2 = i3;
-                    columnIndex21 = i12;
-                    columnIndex3 = i5;
-                    columnIndex15 = i4;
-                    columnIndex16 = i6;
-                    columnIndex17 = i7;
-                    columnIndex18 = i8;
-                    columnIndex20 = i11;
-                    columnIndex19 = i9;
-                    columnIndex4 = i10;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executorService, ln3Var, downloadInfo, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            xg4.d(query);
-            return hashMap;
         }
-        return (HashMap) invokeV.objValue;
+        this.e = System.currentTimeMillis();
+        this.f = new AtomicBoolean(false);
+        this.a = executorService;
+        this.b = ln3Var;
+        this.c = downloadInfo;
+        this.d = aVar;
+    }
+
+    @Override // com.repackage.en3.a
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.getProgress() == this.c.getSize()) {
+            this.c.setPackageName(yo3.d(AppRuntime.getAppContext(), this.c.getPath()));
+            this.c.setStatus(DownloadState.DOWNLOADED.value());
+            this.b.b(this.c);
+            a aVar = this.d;
+            if (aVar != null) {
+                aVar.e(this.c);
+            }
+        }
+    }
+
+    @Override // com.repackage.en3.a
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f.get()) {
+            return;
+        }
+        synchronized (this) {
+            if (!this.f.get()) {
+                this.f.set(true);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - this.e > 1000) {
+                    this.b.b(this.c);
+                    this.e = currentTimeMillis;
+                }
+                this.f.set(false);
+            }
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.submit(new en3(this.b, this.c, this));
+        }
     }
 }

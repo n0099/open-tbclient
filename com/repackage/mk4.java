@@ -1,133 +1,124 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class mk4 implements lk4 {
+public abstract class mk4 {
     public static /* synthetic */ Interceptable $ic;
+    public static WeakReference<TbPageContext<?>> a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public interface a {
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755496421, "Lcom/repackage/mk4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755496421, "Lcom/repackage/mk4;");
+        }
+    }
 
     public mk4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new ArrayList(5);
     }
 
-    public void c(String[] strArr, StringBuilder sb, Map<String, String> map, int i) {
+    public static mk4 a(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048576, this, strArr, sb, map, i) == null) || strArr == null || strArr.length <= i || map == null || sb == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, mk4.class, baseFragmentActivity);
+            if (runTask == null || runTask.getData() == null) {
+                return null;
+            }
+            return (mk4) runTask.getData();
+        }
+        return (mk4) invokeL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : invokeV.booleanValue;
+    }
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g(int i);
+
+    public void h() {
+        WeakReference<TbPageContext<?>> weakReference;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (weakReference = a) == null) {
             return;
         }
-        LinkedHashMap linkedHashMap = new LinkedHashMap();
-        while (i < strArr.length) {
-            String str = "@" + strArr[i];
-            Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    Map.Entry<String, String> next = it.next();
-                    if (str.startsWith(next.getKey())) {
-                        String replace = str.replace(next.getKey(), "");
-                        if ("@p".equals(next.getKey())) {
-                            String d = d(replace);
-                            if (!StringUtils.isNull(d)) {
-                                linkedHashMap.put(next.getValue(), d);
-                            }
-                        } else {
-                            linkedHashMap.put(next.getValue(), replace);
-                        }
-                    }
-                }
+        weakReference.get();
+        a.clear();
+        a = null;
+    }
+
+    public abstract void i();
+
+    public void j(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
+            WeakReference<TbPageContext<?>> weakReference = a;
+            if (weakReference == null) {
+                a = new WeakReference<>(tbPageContext);
+                return;
             }
-            i++;
-        }
-        for (Map.Entry entry : linkedHashMap.entrySet()) {
-            if (!StringUtils.isNull((String) entry.getKey()) && !StringUtils.isNull((String) entry.getValue())) {
-                sb.append(sb.toString().contains("?") ? "&" : "?");
-                sb.append((String) entry.getKey());
-                sb.append("=");
-                sb.append((String) entry.getValue());
-            }
+            weakReference.clear();
+            a = null;
+            a = new WeakReference<>(tbPageContext);
         }
     }
 
-    public final String d(String str) {
-        InterceptResult invokeL;
-        char c;
+    public abstract void k(a aVar);
+
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode == 81) {
-                if (str.equals("Q")) {
-                    c = 6;
-                }
-                c = 65535;
-            } else if (hashCode == 104) {
-                if (str.equals("h")) {
-                    c = 3;
-                }
-                c = 65535;
-            } else if (hashCode == 112) {
-                if (str.equals("p")) {
-                    c = 4;
-                }
-                c = 65535;
-            } else if (hashCode == 119) {
-                if (str.equals("w")) {
-                    c = 0;
-                }
-                c = 65535;
-            } else if (hashCode == 122) {
-                if (str.equals("z")) {
-                    c = 5;
-                }
-                c = 65535;
-            } else if (hashCode != 98) {
-                if (hashCode == 99 && str.equals("c")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("b")) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            switch (c) {
-                case 0:
-                    return "wise";
-                case 1:
-                    return ThirdPartyUtil.TYPE_WEIXIN;
-                case 2:
-                    return "shoubai";
-                case 3:
-                    return "tbShareH5";
-                case 4:
-                    return "pc";
-                case 5:
-                    return "zhongjianye";
-                case 6:
-                    return com.tencent.connect.common.Constants.SOURCE_QQ;
-                default:
-                    return null;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
         }
-        return (String) invokeL.objValue;
     }
+
+    public abstract void m();
 }

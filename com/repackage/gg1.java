@@ -1,55 +1,179 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class gg1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
+public class gg1 implements cg1 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public no3 c;
+    public dg1 d;
+    public wn3 e;
+    public List<bg1> f;
+    public bg1 g;
+    public bg1 h;
+    public Map<String, String> i;
+    public mo3 j;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-            } catch (Throwable th) {
-                fg1.d(th);
+    /* loaded from: classes6.dex */
+    public class a implements mo3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gg1 a;
+
+        public a(gg1 gg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            a = ue1.f(context).J();
-            return a;
+            this.a = gg1Var;
         }
-        return (String) invokeL.objValue;
+
+        @Override // com.repackage.mo3
+        public void a(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+                if (z) {
+                    this.a.d.b();
+                    this.a.g.a(0);
+                    for (bg1 bg1Var : this.a.f) {
+                        bg1Var.a(0);
+                        if (this.a.f.contains(bg1Var)) {
+                            this.a.f.remove(bg1Var);
+                        }
+                    }
+                    return;
+                }
+                this.a.g.a(1001);
+                for (bg1 bg1Var2 : this.a.f) {
+                    bg1Var2.a(1001);
+                    if (this.a.f.contains(bg1Var2)) {
+                        this.a.f.remove(bg1Var2);
+                    }
+                }
+            }
+        }
+
+        @Override // com.repackage.mo3
+        public void b(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
+                if (z) {
+                    this.a.h.a(0);
+                } else {
+                    this.a.h.a(1001);
+                }
+            }
+        }
+
+        @Override // com.repackage.mo3
+        public void c(boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+                this.a.d.a(fg1.a(z));
+            }
+        }
+
+        @Override // com.repackage.mo3
+        public void onClick(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
+        }
+
+        @Override // com.repackage.mo3
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.a.d.c(fg1.b(str));
+                po3.k(this.a.i, str);
+            }
+        }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public gg1(@NonNull JSONObject jSONObject, dg1 dg1Var, bg1 bg1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                xe1 xe1Var = new xe1(context);
-                String c = xe1Var.c();
-                if (!TextUtils.isEmpty(c)) {
-                    return new String(dg1.b("30212102dicudiab".getBytes(), Base64.decode(c, 10), true), "UTF-8");
-                }
-                String a2 = xe1Var.a();
-                if (TextUtils.isEmpty(a2)) {
-                    return "";
-                }
-                xe1Var.b(new String(Base64.encode(dg1.a("30212102dicudiab".getBytes(), a2.getBytes("UTF-8")), 10), "UTF-8"));
-                return a2;
-            } catch (Throwable th) {
-                fg1.d(th);
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject, dg1Var, bg1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.a = "";
+        this.i = new TreeMap();
+        this.j = new a(this);
+        if (jSONObject != null && !TextUtils.isEmpty(jSONObject.optString("adUnitId")) && !TextUtils.isEmpty(jSONObject.optString("appSid"))) {
+            this.a = jSONObject.optString("adUnitId");
+            String optString = jSONObject.optString("appSid");
+            this.b = optString;
+            this.i = po3.a("video", "app", optString, this.a, false);
+            this.e = new hg1();
+            no3 no3Var = new no3(uk2.U().getActivity(), this.b, this.a, false, this.j, this.e);
+            this.c = no3Var;
+            no3Var.k0(this.i);
+            this.f = new CopyOnWriteArrayList();
+            b(jSONObject, bg1Var, dg1Var);
+            return;
+        }
+        bg1Var.a(202);
+    }
+
+    @Override // com.repackage.cg1
+    public synchronized void a(JSONObject jSONObject, bg1 bg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, bg1Var) == null) {
+            synchronized (this) {
+                if (this.c != null) {
+                    this.h = bg1Var;
+                    this.c.l0();
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.cg1
+    public synchronized void b(JSONObject jSONObject, bg1 bg1Var, dg1 dg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, bg1Var, dg1Var) == null) {
+            synchronized (this) {
+                this.d = dg1Var;
+                if (this.c != null) {
+                    this.g = bg1Var;
+                    if (bg1Var != null && !this.f.contains(bg1Var)) {
+                        this.f.add(bg1Var);
+                    }
+                    this.c.c0();
+                }
+            }
+        }
     }
 }

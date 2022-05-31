@@ -2,16 +2,14 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.qj2;
-import com.repackage.tj2;
+import com.repackage.di2;
 import java.io.File;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class n42 {
     public static /* synthetic */ Interceptable $ic;
@@ -31,119 +29,58 @@ public class n42 {
                 return;
             }
         }
-        a = eh1.a;
+        a = rf1.a;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String b(String str, String str2) {
+    public static m42 a(PMSAppInfo pMSAppInfo, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? a(qj2.e.i(str, str2).getPath()) : (String) invokeLL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            File a2 = ck2.g().a(str, str2);
-            if (a2 != null) {
-                return c(a2.getPath());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pMSAppInfo, str)) == null) {
+            if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
+                return null;
             }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str, str2);
-                if (file.exists()) {
-                    return file.getPath();
+            File i = di2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
+            if (!i.exists()) {
+                if (a) {
+                    Log.w("PrefetchUtils", "aiapp dir not exist ");
                 }
-                if (file.mkdirs()) {
-                    return file.getPath();
+                return null;
+            }
+            m42 m42Var = new m42();
+            if (new File(i, "app.json").exists()) {
+                if (a) {
+                    Log.d("PrefetchUtils", "find main pkg's app config file");
                 }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean f(List<s94> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return false;
-            }
-            return list.get(0).r;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(s94 s94Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, s94Var)) == null) {
-            if (s94Var == null || TextUtils.isEmpty(s94Var.o)) {
-                return false;
-            }
-            return h(new File(s94Var.a), new File(qj2.e.i(s94Var.o, String.valueOf(s94Var.i)).getPath(), s94Var.p));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h(File file, File file2) {
-        InterceptResult invokeLL;
-        boolean U;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, file2)) == null) {
-            if (file != null && file2 != null) {
-                if (!file.exists()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "解压分包时，ZIP包不存在 zipFile=" + file);
-                    }
-                    return false;
-                } else if (!file2.exists() && !file2.mkdirs()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "创建分包解压文件夹失败 unzipFolder=" + file2);
-                    }
-                    return false;
-                } else {
-                    tj2.c j = tj2.j(file);
-                    int i = j.b;
-                    if (i != -1) {
-                        U = tj2.d(j.a, file2, i).a;
-                    } else {
-                        U = xg4.U(file.getAbsolutePath(), file2.getAbsolutePath());
-                    }
-                    if (U) {
-                        if (a) {
-                            Log.i("SubPkgDownloadUtil", "分包解压成功");
-                            return true;
+                m42Var.a = i;
+                return m42Var;
+            } else if (TextUtils.isEmpty(str)) {
+                return null;
+            } else {
+                String g = zc3.g(str);
+                int lastIndexOf = g.lastIndexOf(File.separator);
+                if (lastIndexOf >= 0) {
+                    g = g.substring(0, lastIndexOf);
+                }
+                if (new File(i, g).exists()) {
+                    int lastIndexOf2 = g.lastIndexOf(File.separator);
+                    while (lastIndexOf2 >= 0) {
+                        g = g.substring(0, lastIndexOf2);
+                        if (new File(i, g + File.separator + "app.json").exists()) {
+                            if (a) {
+                                Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g);
+                            }
+                            m42Var.b = true;
+                            m42Var.c = g;
+                            m42Var.a = new File(i, g);
+                            return m42Var;
                         }
-                        return true;
-                    } else if (a) {
-                        Log.e("SubPkgDownloadUtil", "分包解压文件失败, file:" + file.getAbsolutePath() + " folder:" + file2.getAbsolutePath());
+                        lastIndexOf2 = g.lastIndexOf(File.separator);
                     }
+                    return null;
                 }
+                return null;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return (m42) invokeLL.objValue;
     }
 }

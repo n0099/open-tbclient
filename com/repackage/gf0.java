@@ -1,80 +1,158 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.business.inserting.NadImageInsertingView;
+import com.baidu.nadcore.business.inserting.NadInsertingBaseView;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.requester.NadRequester;
+import com.baidu.nadcore.requester.RequestParameters;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.if0;
+import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class gf0 implements if0 {
+public class gf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public if0.a b;
 
-    public gf0() {
+    /* loaded from: classes6.dex */
+    public static class a implements NadRequester.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ NadRequester.b a;
+
+        public a(NadRequester.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.nadcore.requester.NadRequester.b
+        public void a(@NonNull NadRequester.Error error) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
+                this.a.a(error);
+            }
+        }
+
+        @Override // com.baidu.nadcore.requester.NadRequester.b
+        public void b(@NonNull List<AdBaseModel> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                if (list.size() > 0 && list.get(0) != null) {
+                    AdBaseModel adBaseModel = (AdBaseModel) gx0.d(list, 0);
+                    if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
+                        hm0 hm0Var = (hm0) gx0.d(adBaseModel.f.k, 0);
+                        if (hm0Var != null && !TextUtils.isEmpty(hm0Var.a)) {
+                            s21.a().c(hm0Var.a);
+                        } else {
+                            this.a.a(new NadRequester.Error("大图模版数据校验失败，未下发图片"));
+                            return;
+                        }
+                    }
+                    this.a.b(list);
+                    return;
+                }
+                this.a.a(new NadRequester.Error("返回数据为空"));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ NadInsertingBaseView b;
+
+        public b(d dVar, NadInsertingBaseView nadInsertingBaseView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar, nadInsertingBaseView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+            this.b = nadInsertingBaseView;
+        }
+
+        @Override // com.repackage.gf0.c
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onFail();
+            }
+        }
+
+        @Override // com.repackage.gf0.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.a(this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void onFail();
+
+        void onSuccess();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        void a(@NonNull NadInsertingBaseView nadInsertingBaseView);
+
+        void onFail();
+    }
+
+    public static void a(String str, NadRequester.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, bVar) == null) {
+            RequestParameters.b bVar2 = new RequestParameters.b();
+            bVar2.o(str);
+            bVar2.n(1);
+            NadRequester.a(bVar2.m(), new a(bVar));
+        }
+    }
+
+    public static void b(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull List<AdBaseModel> list, @NonNull ff0 ff0Var, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, context, viewGroup, list, ff0Var, dVar) == null) {
+            if (gx0.k(list) < 1) {
+                dVar.onFail();
                 return;
             }
-        }
-        this.a = 0;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public abstract void b();
-
-    public void c(if0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.b = aVar;
-            if (aVar != null) {
-                aVar.a(a(), this);
-            }
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.a == i) {
-            return;
-        }
-        this.a = i;
-        if0.a aVar = this.b;
-        if (aVar != null) {
-            aVar.a(i, this);
-        }
-    }
-
-    public void e(if0.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            int i = this.a;
-            if (i != 0 && 3 != i && 2 != i) {
-                c(aVar);
-                return;
-            }
-            d(1);
-            c(aVar);
-            try {
-                b();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                d(3);
+            AdBaseModel adBaseModel = (AdBaseModel) gx0.d(list, 0);
+            if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
+                NadImageInsertingView nadImageInsertingView = new NadImageInsertingView(context, viewGroup, ff0Var);
+                nadImageInsertingView.setData(adBaseModel, new b(dVar, nadImageInsertingView));
             }
         }
     }

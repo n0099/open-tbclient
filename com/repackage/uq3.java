@@ -1,27 +1,27 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uq3 {
+public class uq3 implements mc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile tq3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized tq3 a() {
-        InterceptResult invokeV;
-        tq3 tq3Var;
+    public uq3(zq3 zq3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (uq3.class) {
-                if (a == null) {
-                    a = new tq3();
-                }
-                tq3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zq3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return tq3Var;
         }
-        return (tq3) invokeV.objValue;
     }
 }

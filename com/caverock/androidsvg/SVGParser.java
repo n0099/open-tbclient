@@ -34,8 +34,8 @@ import com.coremedia.iso.boxes.TrackReferenceBox;
 import com.faceunity.gles.GeneratedTexture;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.repackage.ae9;
-import com.repackage.zd9;
+import com.repackage.ta9;
+import com.repackage.ua9;
 import com.tachikoma.core.component.TKBase;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.BufferedInputStream;
@@ -1306,7 +1306,7 @@ public class SVGParser extends DefaultHandler2 {
         public String a;
         public int b;
         public int c;
-        public ae9 d;
+        public ua9 d;
 
         public f(String str) {
             Interceptable interceptable = $ic;
@@ -1325,7 +1325,7 @@ public class SVGParser extends DefaultHandler2 {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new ae9();
+            this.d = new ua9();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -1934,7 +1934,7 @@ public class SVGParser extends DefaultHandler2 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (str.charAt(0) == '#') {
-                zd9 b2 = zd9.b(str, 1, str.length());
+                ta9 b2 = ta9.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 == 7) {
@@ -2037,7 +2037,7 @@ public class SVGParser extends DefaultHandler2 {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i, i2)) == null) {
-            float b2 = new ae9().b(str, i, i2);
+            float b2 = new ua9().b(str, i, i2);
             if (Float.isNaN(b2)) {
                 throw new SAXException("Invalid float value: " + str);
             }

@@ -1,9 +1,20 @@
 package com.repackage;
 
-import com.baidu.bdtask.model.response.TaskResponseData;
+import android.app.Activity;
+import android.content.Context;
 /* loaded from: classes7.dex */
 public interface ur {
-    void a(TaskResponseData taskResponseData);
+    Activity a();
 
-    void onError(int i, String str);
+    vr b();
+
+    void c(Activity activity);
+
+    boolean d();
+
+    Context getAppContext();
+
+    String getAppVersion();
+
+    String getSdkVersion();
 }

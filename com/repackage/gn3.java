@@ -1,76 +1,51 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class gn3 implements hg4 {
+public class gn3 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755672315, "Lcom/repackage/gn3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755672315, "Lcom/repackage/gn3;");
-                return;
-            }
-        }
-        a = eh1.a;
-    }
-
-    public gn3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gn3(Context context) {
+        super(context, "swan_ad_download.db", (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.hg4
-    public boolean a(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
-            if (a) {
-                Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
-            }
-            ln3 ln3Var = new ln3();
-            HashMap hashMap = new HashMap(2);
-            hashMap.put("cuid", zf4.g().getDeviceId(AppRuntime.getApplication()));
-            hashMap.put("uuid", zf4.g().p(AppRuntime.getApplication()));
-            kn3.d().g(hashMap, jSONArray.toString().getBytes(), null, ln3Var);
-            if (a) {
-                Log.d("OpenBehaviorUploader", "errorCode : " + ln3Var.a);
-                Log.d("OpenBehaviorUploader", "errorMsg : " + ln3Var.b);
-            }
-            int i = ln3Var.a;
-            if (i == 1 || i == 2 || i == 4) {
-                sg4.a();
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL("create table if not exists ad_download(_id varchar(500) PRIMARY KEY NOT NULL,createAt long NOT NULL,uri varchar(255) NOT NULL,packagename varchar(255),path varchar(255) NOT NULL,size long NOT NULL,progress long NOT NULL,status integer NOT NULL);");
         }
-        return invokeL.booleanValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+        }
     }
 }

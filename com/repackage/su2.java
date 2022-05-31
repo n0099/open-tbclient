@@ -1,105 +1,93 @@
 package com.repackage;
 
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class su2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static boolean b;
-    public static final int c;
-    public static int d;
-    public static int e;
-    public static final boolean f;
-    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public Object c;
+    public boolean d;
+    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755308127, "Lcom/repackage/su2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755308127, "Lcom/repackage/su2;");
+    public su2(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = eh1.a;
-        d = -1;
-        e = -1;
-        b = f("swan_get_swan_id_cache");
-        bk2.g0().getSwitch("swan_pms_use_outback_switch", 0);
-        bk2.g0().getSwitch("swan_preload_game_strategy", 0);
-        c = 0;
-        f = f("swan_670_append_request_info");
-        bk2.g0().getSwitch("swan_description_online_control", 0);
-        zc4.a = 0;
-        bk2.g0().getSwitch("swan_bdtls_use_cache", false);
-        g = false;
+        this.d = false;
+        this.b = str;
     }
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == -1) {
-                bk2.g0().getSwitch("swan_use_extra_connect_pool", 0);
-                e = 0;
-            }
-            return e;
-        }
-        return invokeV.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == -1) {
-                bk2.g0().getSwitch("swan_upgrade_js_thread_priority", 0);
-                d = 0;
-            }
-            return d;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? g : invokeV.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c : invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? b : invokeV.booleanValue;
-    }
-
-    public static boolean f(String str) {
+    public static String a(ru2 ru2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            bk2.g0().getSwitch(str, 0);
-            if (a) {
-                Log.d("SwanApiCostOpt", str + " value : 0");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ru2Var)) == null) {
+            if (ru2Var == null) {
+                return "";
             }
-            return false;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("componentId", ru2Var.f);
+                jSONObject.put("pluginProvider", ru2Var.b);
+                jSONObject.put("args", ru2Var.g);
+                jSONObject.put("slaveId", ru2Var.e);
+            } catch (JSONException e) {
+                zu2.b(Log.getStackTraceString(e));
+            }
+            return jSONObject.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v0, types: [org.json.JSONObject, T] */
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            n92 n92Var = new n92();
+            ?? jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "functionPageFinished");
+                jSONObject.put("componentId", this.b);
+                jSONObject.put("isSuccess", this.d);
+                jSONObject.put("data", this.e);
+                if (this.c != null) {
+                    jSONObject.put("error", this.c.toString());
+                }
+            } catch (JSONException e) {
+                zu2.b(Log.getStackTraceString(e));
+            }
+            n92Var.c = jSONObject;
+            uk2.U().m(this.a, n92Var);
+            zu2.b("finish event, isSuccess = " + this.d);
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SwanPluginFunPageFinishEvent{eventType='functionPageFinished', componentId='" + this.b + "', error=" + this.c + ", isSuccess=" + this.d + ", resultData='" + this.e + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

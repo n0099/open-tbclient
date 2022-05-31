@@ -727,9 +727,9 @@ public class MethodImpl {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:21:0x0079  */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x007b A[Catch: all -> 0x0098, TryCatch #3 {all -> 0x0185, blocks: (B:5:0x000f, B:8:0x0025, B:10:0x002a, B:31:0x00a0, B:33:0x00aa, B:35:0x00af, B:72:0x015a, B:74:0x0162, B:76:0x016f, B:77:0x0173, B:79:0x0181, B:11:0x002f, B:13:0x0040, B:15:0x0045, B:23:0x007f, B:25:0x008b, B:26:0x008f, B:22:0x007b, B:16:0x0057, B:18:0x005c, B:36:0x00b4, B:38:0x00cd, B:39:0x00d0, B:41:0x00d3, B:43:0x00dd, B:45:0x00e5, B:47:0x00eb, B:49:0x00f8, B:48:0x00ee, B:50:0x00fb, B:53:0x0101, B:55:0x0109, B:57:0x0112, B:59:0x0127, B:67:0x014b, B:56:0x010e, B:61:0x012e, B:66:0x0145), top: B:91:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x008b A[Catch: all -> 0x0098, TryCatch #3 {all -> 0x0185, blocks: (B:5:0x000f, B:8:0x0025, B:10:0x002a, B:31:0x00a0, B:33:0x00aa, B:35:0x00af, B:72:0x015a, B:74:0x0162, B:76:0x016f, B:77:0x0173, B:79:0x0181, B:11:0x002f, B:13:0x0040, B:15:0x0045, B:23:0x007f, B:25:0x008b, B:26:0x008f, B:22:0x007b, B:16:0x0057, B:18:0x005c, B:36:0x00b4, B:38:0x00cd, B:39:0x00d0, B:41:0x00d3, B:43:0x00dd, B:45:0x00e5, B:47:0x00eb, B:49:0x00f8, B:48:0x00ee, B:50:0x00fb, B:53:0x0101, B:55:0x0109, B:57:0x0112, B:59:0x0127, B:67:0x014b, B:56:0x010e, B:61:0x012e, B:66:0x0145), top: B:91:0x000f }] */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x008f A[Catch: all -> 0x0098, TRY_LEAVE, TryCatch #3 {all -> 0x0185, blocks: (B:5:0x000f, B:8:0x0025, B:10:0x002a, B:31:0x00a0, B:33:0x00aa, B:35:0x00af, B:72:0x015a, B:74:0x0162, B:76:0x016f, B:77:0x0173, B:79:0x0181, B:11:0x002f, B:13:0x0040, B:15:0x0045, B:23:0x007f, B:25:0x008b, B:26:0x008f, B:22:0x007b, B:16:0x0057, B:18:0x005c, B:36:0x00b4, B:38:0x00cd, B:39:0x00d0, B:41:0x00d3, B:43:0x00dd, B:45:0x00e5, B:47:0x00eb, B:49:0x00f8, B:48:0x00ee, B:50:0x00fb, B:53:0x0101, B:55:0x0109, B:57:0x0112, B:59:0x0127, B:67:0x014b, B:56:0x010e, B:61:0x012e, B:66:0x0145), top: B:91:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x007b A[Catch: all -> 0x0098, TryCatch #2 {all -> 0x0186, blocks: (B:5:0x000f, B:8:0x0025, B:10:0x002a, B:31:0x00a0, B:33:0x00aa, B:35:0x00af, B:72:0x015b, B:74:0x0163, B:76:0x0170, B:77:0x0174, B:79:0x0182, B:11:0x002f, B:13:0x0040, B:15:0x0045, B:23:0x007f, B:25:0x008b, B:26:0x008f, B:22:0x007b, B:16:0x0057, B:18:0x005c, B:36:0x00b4, B:38:0x00cd, B:39:0x00d0, B:41:0x00d3, B:43:0x00dd, B:45:0x00e5, B:47:0x00eb, B:49:0x00f8, B:48:0x00ee, B:50:0x00fb, B:53:0x0101, B:55:0x010a, B:57:0x0113, B:59:0x0128, B:67:0x014c, B:56:0x010f, B:61:0x012f, B:63:0x013f), top: B:89:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x008b A[Catch: all -> 0x0098, TryCatch #2 {all -> 0x0186, blocks: (B:5:0x000f, B:8:0x0025, B:10:0x002a, B:31:0x00a0, B:33:0x00aa, B:35:0x00af, B:72:0x015b, B:74:0x0163, B:76:0x0170, B:77:0x0174, B:79:0x0182, B:11:0x002f, B:13:0x0040, B:15:0x0045, B:23:0x007f, B:25:0x008b, B:26:0x008f, B:22:0x007b, B:16:0x0057, B:18:0x005c, B:36:0x00b4, B:38:0x00cd, B:39:0x00d0, B:41:0x00d3, B:43:0x00dd, B:45:0x00e5, B:47:0x00eb, B:49:0x00f8, B:48:0x00ee, B:50:0x00fb, B:53:0x0101, B:55:0x010a, B:57:0x0113, B:59:0x0128, B:67:0x014c, B:56:0x010f, B:61:0x012f, B:63:0x013f), top: B:89:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x008f A[Catch: all -> 0x0098, TRY_LEAVE, TryCatch #2 {all -> 0x0186, blocks: (B:5:0x000f, B:8:0x0025, B:10:0x002a, B:31:0x00a0, B:33:0x00aa, B:35:0x00af, B:72:0x015b, B:74:0x0163, B:76:0x0170, B:77:0x0174, B:79:0x0182, B:11:0x002f, B:13:0x0040, B:15:0x0045, B:23:0x007f, B:25:0x008b, B:26:0x008f, B:22:0x007b, B:16:0x0057, B:18:0x005c, B:36:0x00b4, B:38:0x00cd, B:39:0x00d0, B:41:0x00d3, B:43:0x00dd, B:45:0x00e5, B:47:0x00eb, B:49:0x00f8, B:48:0x00ee, B:50:0x00fb, B:53:0x0101, B:55:0x010a, B:57:0x0113, B:59:0x0128, B:67:0x014c, B:56:0x010f, B:61:0x012f, B:63:0x013f), top: B:89:0x000f }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -888,12 +888,7 @@ public class MethodImpl {
                                     return invokeL.objValue;
                                 }
                             }, clsArr, objArr2);
-                            try {
-                                countDownLatch.await(Service.TRIGGER_INTERVAL, TimeUnit.MILLISECONDS);
-                            } catch (Throwable th) {
-                                bundle2.putInt("status", 3);
-                                CommonMethods.handleNuLException(th);
-                            }
+                            countDownLatch.await(Service.TRIGGER_INTERVAL, TimeUnit.MILLISECONDS);
                         }
                         bundle2.putParcelable("result", callArgs3);
                         return bundle2;
@@ -914,8 +909,8 @@ public class MethodImpl {
                     bundle2.putInt("status", 2);
                     return bundle2;
                 }
-            } catch (Throwable th2) {
-                CommonMethods.handleNuLException(th2);
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
             }
             bundle2.putInt("status", 10);
             return bundle2;

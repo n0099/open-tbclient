@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ck0;
-import com.repackage.ez0;
-import com.repackage.fz0;
-import com.repackage.ko0;
-import com.repackage.mz0;
-import com.repackage.rj0;
-import com.repackage.th0;
-import com.repackage.tn0;
+import com.repackage.ei0;
+import com.repackage.gg0;
+import com.repackage.gm0;
+import com.repackage.pi0;
+import com.repackage.rx0;
+import com.repackage.sx0;
+import com.repackage.xm0;
+import com.repackage.zx0;
 /* loaded from: classes2.dex */
 public abstract class AdBaseTailFrameView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
     public TextView d;
     public AdProgressButton e;
     public FrameLayout f;
-    public ck0 g;
+    public pi0 g;
     public d h;
     public e i;
     public View.OnClickListener j;
@@ -84,15 +84,15 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
-        public final /* synthetic */ ko0 b;
+        public final /* synthetic */ xm0 b;
         public final /* synthetic */ AdBaseTailFrameView c;
 
-        public b(AdBaseTailFrameView adBaseTailFrameView, boolean z, ko0 ko0Var) {
+        public b(AdBaseTailFrameView adBaseTailFrameView, boolean z, xm0 xm0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {adBaseTailFrameView, Boolean.valueOf(z), ko0Var};
+                Object[] objArr = {adBaseTailFrameView, Boolean.valueOf(z), xm0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -104,7 +104,7 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
             }
             this.c = adBaseTailFrameView;
             this.a = z;
-            this.b = ko0Var;
+            this.b = xm0Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -112,11 +112,11 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 Object tag = this.c.getTag();
-                if (tag instanceof ko0) {
-                    ko0 ko0Var = (ko0) tag;
+                if (tag instanceof xm0) {
+                    xm0 xm0Var = (xm0) tag;
                     if (!this.a) {
                         this.c.c(this.b, view2);
-                    } else if (!ko0Var.p) {
+                    } else if (!xm0Var.p) {
                         this.c.c(this.b, view2);
                     } else {
                         this.c.e.performClick();
@@ -162,42 +162,42 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         }
     }
 
-    public final void b(ko0 ko0Var) {
+    public final void b(xm0 xm0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ko0Var) == null) || ko0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, xm0Var) == null) || xm0Var == null) {
             return;
         }
         e eVar = this.i;
         if (eVar == null) {
-            fz0.b(ko0Var.k);
+            sx0.b(xm0Var.k);
         } else {
             eVar.a();
         }
     }
 
-    public final void c(ko0 ko0Var, View view2) {
+    public final void c(xm0 xm0Var, View view2) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ko0Var, view2) == null) || TextUtils.isEmpty(ko0Var.c)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xm0Var, view2) == null) || TextUtils.isEmpty(xm0Var.c)) {
             return;
         }
-        String str2 = ko0Var.c;
-        if (R.id.obfuscated_res_0x7f0900fb == view2.getId() && !TextUtils.isEmpty(ko0Var.d) && !"__BTN_SCHEME__".equals(ko0Var.d)) {
-            str2 = ko0Var.d;
+        String str2 = xm0Var.c;
+        if (R.id.obfuscated_res_0x7f0900fa == view2.getId() && !TextUtils.isEmpty(xm0Var.d) && !"__BTN_SCHEME__".equals(xm0Var.d)) {
+            str2 = xm0Var.d;
         }
-        th0.c(str2, getContext());
+        gg0.c(str2, getContext());
         int id = view2.getId();
-        if (id == R.id.obfuscated_res_0x7f0900f9) {
+        if (id == R.id.obfuscated_res_0x7f0900f8) {
             str = ClogBuilder.Area.ICON.type;
-        } else if (id == R.id.obfuscated_res_0x7f0900fd) {
+        } else if (id == R.id.obfuscated_res_0x7f0900fc) {
             str = ClogBuilder.Area.NAME.type;
-        } else if (id == R.id.obfuscated_res_0x7f0900fb) {
+        } else if (id == R.id.obfuscated_res_0x7f0900fa) {
             str = ClogBuilder.Area.BUTTON.type;
         } else {
             str = ClogBuilder.Area.HOTAREA.type;
         }
-        i(ClogBuilder.LogType.CLICK.type, str, ko0Var);
-        b(ko0Var);
+        i(ClogBuilder.LogType.CLICK.type, str, xm0Var);
+        b(xm0Var);
         j(view2);
         c cVar = this.l;
         if (cVar != null) {
@@ -216,15 +216,15 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(f(), this);
-            this.a = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0900fe);
-            this.b = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0900f9);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fd);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fb);
+            this.a = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0900fd);
+            this.b = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0900f8);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fc);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fa);
             this.d = textView;
-            mz0.b(textView, Font.F_F_X02);
-            this.e = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f0900fc);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900fa);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f092340);
+            zx0.b(textView, Font.F_F_X02);
+            this.e = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f0900fb);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f9);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0922e5);
             g();
         }
     }
@@ -237,31 +237,31 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         }
     }
 
-    public final void h(ko0 ko0Var) {
+    public final void h(xm0 xm0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, ko0Var) == null) || ko0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, xm0Var) == null) || xm0Var == null) {
             return;
         }
         d dVar = this.h;
         if (dVar == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.w(ClogBuilder.LogType.FREE_SHOW).s(ClogBuilder.Page.AD_TAIL).n(ko0Var.l);
-            ez0.c(clogBuilder);
+            clogBuilder.w(ClogBuilder.LogType.FREE_SHOW).s(ClogBuilder.Page.AD_TAIL).n(xm0Var.l);
+            rx0.c(clogBuilder);
             return;
         }
         dVar.a(ClogBuilder.LogType.FREE_SHOW.type, "");
     }
 
-    public final void i(String str, String str2, ko0 ko0Var) {
+    public final void i(String str, String str2, xm0 xm0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, ko0Var) == null) || ko0Var == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, xm0Var) == null) || xm0Var == null) {
             return;
         }
         d dVar = this.h;
         if (dVar == null) {
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.x(str).s(ClogBuilder.Page.AD_TAIL).h(str2).n(ko0Var.l);
-            ez0.c(clogBuilder);
+            clogBuilder.x(str).s(ClogBuilder.Page.AD_TAIL).h(str2).n(xm0Var.l);
+            rx0.c(clogBuilder);
             return;
         }
         dVar.a(str, str2);
@@ -276,41 +276,41 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
         onClickListener.onClick(view2);
     }
 
-    public boolean k(ko0 ko0Var) {
+    public boolean k(xm0 xm0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, ko0Var)) == null) {
-            if (ko0Var != null && ko0Var.i()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, xm0Var)) == null) {
+            if (xm0Var != null && xm0Var.i()) {
                 setVisibility(0);
-                if (!TextUtils.isEmpty(ko0Var.j)) {
-                    this.a.setImageURI(Uri.parse(ko0Var.j));
+                if (!TextUtils.isEmpty(xm0Var.j)) {
+                    this.a.setImageURI(Uri.parse(xm0Var.j));
                 }
-                if (!TextUtils.isEmpty(ko0Var.b)) {
+                if (!TextUtils.isEmpty(xm0Var.b)) {
                     this.b.setVisibility(0);
-                    this.b.n(ko0Var.b);
+                    this.b.n(xm0Var.b);
                 } else {
                     this.b.setVisibility(8);
                 }
-                if (!TextUtils.isEmpty(ko0Var.a)) {
+                if (!TextUtils.isEmpty(xm0Var.a)) {
                     this.c.setVisibility(0);
-                    ((UnifyTextView) this.c).setTextWithUnifiedPadding(ko0Var.a, TextView.BufferType.NORMAL);
+                    ((UnifyTextView) this.c).setTextWithUnifiedPadding(xm0Var.a, TextView.BufferType.NORMAL);
                 } else {
                     this.c.setVisibility(8);
                 }
-                boolean h = ko0Var.h();
+                boolean h = xm0Var.h();
                 if (h) {
                     this.d.setVisibility(8);
-                    tn0 tn0Var = ko0Var.m;
-                    if (tn0Var != null && tn0Var.e) {
+                    gm0 gm0Var = xm0Var.m;
+                    if (gm0Var != null && gm0Var.e) {
                         this.e.setVisibility(0);
-                        if (!TextUtils.isEmpty(ko0Var.e)) {
-                            this.e.setText(ko0Var.e);
+                        if (!TextUtils.isEmpty(xm0Var.e)) {
+                            this.e.setText(xm0Var.e);
                         } else {
-                            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0b63));
+                            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0b69));
                         }
-                        rj0 c2 = rj0.c(ko0Var.m, ko0Var.l, ko0Var.d);
+                        ei0 c2 = ei0.c(xm0Var.m, xm0Var.l, xm0Var.d);
                         c2.e = TextUtils.isEmpty(c2.d);
-                        this.g = new ck0(c2, this.e);
+                        this.g = new pi0(c2, this.e);
                         this.e.setOnClickListener(new a(this));
                     } else {
                         this.e.setVisibility(8);
@@ -322,23 +322,23 @@ public abstract class AdBaseTailFrameView extends FrameLayout {
                     }
                     this.e.setVisibility(8);
                     this.d.setVisibility(0);
-                    if (!TextUtils.isEmpty(ko0Var.e)) {
-                        this.d.setText(ko0Var.e);
+                    if (!TextUtils.isEmpty(xm0Var.e)) {
+                        this.d.setText(xm0Var.e);
                     } else {
-                        this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b54));
+                        this.d.setText(getResources().getText(R.string.obfuscated_res_0x7f0f0b5a));
                     }
                 }
-                b bVar = new b(this, h, ko0Var);
+                b bVar = new b(this, h, xm0Var);
                 this.b.setOnClickListener(bVar);
                 this.c.setOnClickListener(bVar);
                 this.d.setOnClickListener(bVar);
-                if (ko0Var.o) {
+                if (xm0Var.o) {
                     setOnClickListener(bVar);
                 } else {
                     setOnClickListener(null);
                 }
-                h(ko0Var);
-                setTag(ko0Var);
+                h(xm0Var);
+                setTag(xm0Var);
                 return true;
             }
             setVisibility(8);

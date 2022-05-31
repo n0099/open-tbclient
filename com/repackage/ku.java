@@ -1,17 +1,18 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.ctrl.SubTaskState;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ju;
 /* loaded from: classes6.dex */
-public class ku {
+public final class ku implements ju {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Handler a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public ku() {
@@ -28,47 +29,31 @@ public class ku {
         }
     }
 
-    public static Handler a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ju
+    public void a(SubTaskState subTaskState) {
+        vt d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (ku.class) {
-                    if (a == null) {
-                        a = new Handler(Looper.getMainLooper());
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
+            ju.a.c(this, subTaskState);
+            ut v = BDPTask.m.v();
+            if (v == null || (d = v.d()) == null) {
+                return;
             }
-            return a;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Looper.getMainLooper().getThread() == Thread.currentThread() : invokeV.booleanValue;
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                a().post(runnable);
-            } else {
-                runnable.run();
-            }
+            d.c(subTaskState.getTaskInfo().getActionId(), subTaskState.getTaskStatus().getCurStatusCodeMsg());
         }
     }
 
-    public static void d(Runnable runnable, long j) {
+    @Override // com.repackage.ju
+    public boolean b(TaskInfo taskInfo, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
-            if (j > 0) {
-                a().postDelayed(runnable, j);
-            } else {
-                c(runnable);
-            }
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) ? ju.a.b(this, taskInfo, i) : invokeLI.booleanValue;
+    }
+
+    public void c(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
+            ju.a.a(this, subTaskState);
         }
     }
 }

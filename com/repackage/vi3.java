@@ -1,44 +1,48 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.PostByteRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yz2;
-import java.util.Arrays;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.repackage.i64;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import okhttp3.Headers;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
 /* loaded from: classes7.dex */
-public class vi3 {
+public class vi3<T> extends wi3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
+    public String e;
+    public ResponseCallback<T> f;
+    public int g;
+    public i64.a h;
 
     /* loaded from: classes7.dex */
-    public static class a implements DialogInterface.OnClickListener {
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+        public T a;
+        public final /* synthetic */ vi3 b;
 
-        public a(b bVar) {
+        public a(vi3 vi3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {vi3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,123 +52,201 @@ public class vi3 {
                     return;
                 }
             }
-            this.a = bVar;
+            this.b = vi3Var;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            b bVar;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) || (bVar = this.a) == null) {
-                return;
-            }
-            bVar.onResult(i == -1);
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void onResult(boolean z);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755230255, "Lcom/repackage/vi3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755230255, "Lcom/repackage/vi3;");
-                return;
-            }
-        }
-        a = eh1.a;
-        b = new String[]{"BLA-AL00", "R7Plus"};
-    }
-
-    public static DialogInterface.OnClickListener a(b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) ? new a(bVar) : (DialogInterface.OnClickListener) invokeL.objValue;
-    }
-
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return NotificationManagerCompat.from(context).areNotificationsEnabled();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            String packageName = context.getPackageName();
-            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts("package", packageName, null));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            context.startActivity(intent);
-        }
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (!Arrays.asList(b).contains(Build.MODEL)) {
-                Intent intent = new Intent();
-                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
-                int i = Build.VERSION.SDK_INT;
-                if (i >= 26) {
-                    intent.putExtra("android.provider.extra.APP_PACKAGE", context.getPackageName());
-                    intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-                } else if (i >= 21) {
-                    intent.putExtra("app_package", context.getPackageName());
-                    intent.putExtra("app_uid", context.getApplicationInfo().uid);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (ci3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str);
                 }
-                try {
-                    context.startActivity(intent);
-                    return;
-                } catch (Exception e) {
-                    if (a) {
-                        Log.e("GuideHelper", "openNotificationSettingPages() Exception:" + e);
+                if (TextUtils.equals(str, "recovery")) {
+                    if (!ii3.l().m().b()) {
+                        this.b.f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                        return;
                     }
-                    c(context);
+                    ii3.l().m().a();
+                    this.b.i(true);
+                    this.b.p();
                     return;
                 }
+                ii3.l().m().k();
+                vi3 vi3Var = this.b;
+                if (!vi3Var.a) {
+                    if (vi3Var.f != null) {
+                        this.b.f.onSuccess(this.a, i);
+                        this.b.g = 0;
+                    }
+                } else if (vi3Var.b == 1) {
+                    hi3.a(MimeTypes.BASE_TYPE_APPLICATION);
+                    if (this.b.f != null) {
+                        this.b.f.onSuccess(this.a, i);
+                    }
+                    this.b.g = 0;
+                } else if (vi3.m(vi3Var) >= 3) {
+                    ResponseCallback responseCallback = this.b.f;
+                    responseCallback.onFail(new IOException("request fail : " + this.a));
+                    this.b.g = 0;
+                } else {
+                    vi3 vi3Var2 = this.b;
+                    vi3Var2.q(vi3Var2.d, this.b.e, this.b.f);
+                }
             }
-            c(context);
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                if (ci3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onFail=" + exc.getMessage());
+                }
+                if (this.b.f != null) {
+                    this.b.f.onFail(exc);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public String parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                Headers headers = response.headers();
+                String str = headers.get("Bdtls");
+                if (headers != null && TextUtils.equals(str, "recovery")) {
+                    ii3.l().m().s(0);
+                    return "recovery";
+                }
+                vi3 vi3Var = this.b;
+                if (!vi3Var.a) {
+                    if (vi3Var.f != null) {
+                        this.a = (T) this.b.f.parseResponse(response, i);
+                        return "";
+                    }
+                    return "";
+                }
+                ResponseBody body = response.body();
+                String g = this.b.g(body.bytes());
+                if (ci3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
+                }
+                if (this.b.b == 1) {
+                    Buffer buffer = new Buffer();
+                    buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
+                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                    if (this.b.f != null) {
+                        this.a = (T) this.b.f.parseResponse(build, i);
+                    }
+                }
+                return g;
+            }
+            return (String) invokeLI.objValue;
         }
     }
 
-    public static void e(Context context, b bVar) {
+    public vi3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, bVar) == null) {
-            if (!(context instanceof Activity)) {
-                if (a) {
-                    throw new IllegalArgumentException("context must be activity.");
-                }
-            } else if (bVar == null) {
-            } else {
-                DialogInterface.OnClickListener a2 = a(bVar);
-                yz2.a aVar = new yz2.a(context);
-                aVar.n(new cg3());
-                yz2 c = aVar.c();
-                aVar.U(R.string.obfuscated_res_0x7f0f1235);
-                aVar.x(context.getString(R.string.obfuscated_res_0x7f0f1234));
-                aVar.y();
-                aVar.J(bk2.M().a());
-                aVar.O(R.string.obfuscated_res_0x7f0f1236, a2);
-                aVar.B(R.string.obfuscated_res_0x7f0f1233, a2);
-                aVar.a();
-                c.setCancelable(false);
-                c.show();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = null;
+        this.e = null;
+        this.f = null;
+    }
+
+    public static /* synthetic */ int m(vi3 vi3Var) {
+        int i = vi3Var.g;
+        vi3Var.g = i + 1;
+        return i;
+    }
+
+    @Override // com.repackage.wi3
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.wi3
+    public void e(IOException iOException) {
+        ResponseCallback<T> responseCallback;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) || (responseCallback = this.f) == null) {
+            return;
+        }
+        responseCallback.onFail(iOException);
+    }
+
+    @Override // com.repackage.wi3
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (ci3.a) {
+                Log.d("BDTLS", "onRequestError=" + i);
+            }
+            ResponseCallback<T> responseCallback = this.f;
+            if (responseCallback != null) {
+                responseCallback.onFail(new Exception("request error  code : " + i));
+            }
+        }
+    }
+
+    @Override // com.repackage.wi3
+    public void h(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            String str = this.d;
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                hashMap.put("Bdtls", "Bdtls");
+            }
+            if (ci3.a) {
+                Log.d("BDTLS", "BdtlsPostRequest url=" + str);
+            }
+            j43 a2 = oi2.q().a();
+            PostByteRequest.PostByteRequestBuilder postByteRequest = j64.g().postByteRequest();
+            i64.a aVar = this.h;
+            if (aVar != null) {
+                postByteRequest.connectionTimeout(aVar.a).readTimeout(this.h.b).writeTimeout(this.h.c);
+            }
+            postByteRequest.mediaType("application/json").url(str).cookieManager(a2).headers(hashMap).content(bArr).build().executeAsync(new a(this));
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            q(this.d, this.e, this.f);
+        }
+    }
+
+    public void q(String str, String str2, ResponseCallback<T> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, responseCallback) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.d = str;
+        this.e = str2;
+        this.f = responseCallback;
+        if (ci3.a) {
+            Log.d("BDTLS", "requestPost url=" + str);
+            Log.d("BDTLS", "requestPost body=" + str2);
+        }
+        a(this.e);
     }
 }

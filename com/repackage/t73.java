@@ -1,19 +1,17 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rl2;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class t73 extends w73 {
+public class t73 extends r73 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
 
     public t73() {
         Interceptable interceptable = $ic;
@@ -25,36 +23,44 @@ public class t73 extends w73 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.k = "";
     }
 
-    @Override // com.repackage.w73
-    public JSONObject f() {
-        InterceptResult invokeV;
-        u03 D;
+    @Override // com.repackage.r73
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle b(q73 q73Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
-            if (TextUtils.isEmpty(this.k) && (D = hm2.U().D()) != null) {
-                rl2.a X = D.X();
-                this.k = X != null ? X.T() : "";
-            }
-            try {
-                this.h.put("source", this.k);
-                String b = uu2.b();
-                if (b != null) {
-                    this.h.put("launchid", b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q73Var)) == null) {
+            p73 b = v73.b(q73Var.a);
+            if (b == null) {
+                if (!r73.a) {
+                    return Bundle.EMPTY;
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                throw new IllegalArgumentException("illegal sp.");
             }
-            return super.f();
+            int i = q73Var.b;
+            if (i == 1) {
+                b.putInt(q73Var.c, Integer.parseInt(q73Var.d));
+            } else if (i == 2) {
+                b.putLong(q73Var.c, Long.parseLong(q73Var.d));
+            } else if (i == 3) {
+                b.putBoolean(q73Var.c, Boolean.parseBoolean(q73Var.d));
+            } else if (i == 4) {
+                b.putString(q73Var.c, q73Var.d);
+            } else if (i != 5) {
+                if (r73.a) {
+                    throw new IllegalArgumentException("wrong info params.");
+                }
+            } else {
+                b.putFloat(q73Var.c, Float.parseFloat(q73Var.d));
+            }
+            if (r73.a) {
+                Log.d("SwanAppSpDelegation", "Put: " + q73Var);
+            }
+            return Bundle.EMPTY;
         }
-        return (JSONObject) invokeV.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

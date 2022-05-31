@@ -1,130 +1,216 @@
 package com.repackage;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ManagerElection;
 /* loaded from: classes6.dex */
 public class ks7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public List<String> c;
-    public List<String> d;
+    public a25 a;
+    public TbPageContext b;
+    public RelativeLayout c;
+    public PbFakeFloorModel d;
     public String e;
-    public boolean f;
-    public int g;
-    public int h;
+    public String f;
+    public NewWriteModel.e g;
+    public kp7 h;
+    public View.OnClickListener i;
 
-    public ks7() {
+    public ks7(TbPageContext tbPageContext, PbFakeFloorModel pbFakeFloorModel, RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, pbFakeFloorModel, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = tbPageContext;
+        this.c = relativeLayout;
+        this.d = pbFakeFloorModel;
     }
 
-    public static ks7 i(ManagerElection managerElection) {
-        InterceptResult invokeL;
+    public final void a() {
+        a25 a25Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, managerElection)) == null) {
-            if (managerElection == null) {
-                return null;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null || (a25Var = this.a) == null || a25Var.a() == null) {
+            return;
+        }
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+        layoutParams.addRule(12);
+        this.c.addView(this.a.a(), layoutParams);
+        h(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public a25 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (a25) invokeV.objValue;
+    }
+
+    public void c() {
+        a25 a25Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (a25Var = this.a) == null) {
+            return;
+        }
+        a25Var.y();
+        if (StringUtils.isNull(this.e)) {
+            this.a.D();
+        }
+        this.a.a().y();
+    }
+
+    public void d() {
+        a25 a25Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (a25Var = this.a) == null || a25Var.a() == null) {
+            return;
+        }
+        this.a.a().q();
+    }
+
+    public final void e(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && this.c != null && this.a == null) {
+            b25 b25Var = new b25(z);
+            b25Var.i(str);
+            a25 a25Var = (a25) b25Var.a(this.b.getPageActivity());
+            this.a = a25Var;
+            a25Var.N(this.b);
+            this.a.a0(this.d);
+            this.a.O(1);
+            kp7 kp7Var = this.h;
+            if (kp7Var != null) {
+                this.a.c0(kp7Var.O());
             }
-            ks7 ks7Var = new ks7();
-            managerElection.begin_vote_time.intValue();
-            ks7Var.a = managerElection.can_vote.intValue() == 1;
-            ks7Var.b = managerElection.vote_num.intValue();
-            ks7Var.f = managerElection.is_show_distribute.intValue() == 1;
-            ks7Var.g = managerElection.remainder_time.intValue();
-            ks7Var.h = managerElection.status.intValue();
-            ks7Var.e = managerElection.tail_text;
-            List<String> list = managerElection.vote_condition_pic;
-            ks7Var.c = managerElection.vote_condition_title;
-            ks7Var.d = managerElection.vote_condition;
-            return ks7Var;
-        }
-        return (ks7) invokeL.objValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public List<String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
-    public List<String> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.a = z;
+            this.a.a().C(true);
+            this.a.a().setOnCancelClickListener(this.i);
+            this.a.z(this.b);
+            a();
+            this.a.Q(this.g);
         }
     }
 
-    public void k(int i) {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.h = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            a25 a25Var = this.a;
+            if (a25Var == null || a25Var.a() == null) {
+                return false;
+            }
+            return this.a.a().u();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(int i, int i2, Intent intent) {
+        a25 a25Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) || (a25Var = this.a) == null) {
+            return;
+        }
+        a25Var.C(i, i2, intent);
+    }
+
+    public void h(int i) {
+        a25 a25Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (a25Var = this.a) == null || a25Var.a() == null) {
+            return;
+        }
+        this.a.a().w(i);
+    }
+
+    public void i() {
+        a25 a25Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (a25Var = this.a) == null) {
+            return;
+        }
+        a25Var.E();
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void k(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
+            this.i = onClickListener;
         }
     }
 
     public void l(int i) {
+        a25 a25Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.b = i;
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (a25Var = this.a) == null) {
+            return;
+        }
+        a25Var.P(i);
+    }
+
+    public void m(kp7 kp7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, kp7Var) == null) {
+            this.h = kp7Var;
+        }
+    }
+
+    public void n(NewWriteModel.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) {
+            this.g = eVar;
+            a25 a25Var = this.a;
+            if (a25Var != null) {
+                a25Var.Q(eVar);
+            }
+        }
+    }
+
+    public void o(String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            this.e = str2;
+            a25 a25Var = this.a;
+            if (a25Var == null) {
+                e(str3, z);
+            } else {
+                a25Var.a0(this.d);
+                if (StringUtils.isNull(this.e)) {
+                    this.a.z(this.b);
+                }
+            }
+            this.a.W(str);
+            this.a.V(str2, "");
+            this.a.p(this.f);
+            if (this.a.x()) {
+                this.a.v(null);
+            }
         }
     }
 }

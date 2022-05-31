@@ -1,232 +1,93 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.Button;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tieba.R;
-import com.baidu.tieba.im.data.BlackListItemData;
-import com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class x97 extends BaseAdapter {
+public class x97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IMBlackListActivity a;
-    public ArrayList<BlackListItemData> b;
-    public View.OnClickListener c;
+    public v97 a;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x97 a;
+    }
 
-        public a(x97 x97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static x97 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(86227421, "Lcom/repackage/x97$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(86227421, "Lcom/repackage/x97$b;");
                     return;
                 }
             }
-            this.a = x97Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Object tag;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (tag = view2.getTag()) != null && (tag instanceof BlackListItemData)) {
-                this.a.a.handler(view2, (BlackListItemData) tag);
-            }
+            a = new x97(null);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public HeadImageView b;
-        public TextView c;
-        public Button d;
+    public /* synthetic */ x97(a aVar) {
+        this();
+    }
 
-        public b(x97 x97Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x97Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static x97 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (x97) invokeV.objValue;
+    }
+
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            v97 v97Var = this.a;
+            if (v97Var != null) {
+                v97Var.cancel();
+                this.a = null;
             }
-        }
-
-        public /* synthetic */ b(x97 x97Var, a aVar) {
-            this(x97Var);
+            v97 v97Var2 = new v97(z);
+            this.a = v97Var2;
+            v97Var2.execute(new String[0]);
         }
     }
 
-    public x97(IMBlackListActivity iMBlackListActivity) {
+    public void c() {
+        v97 v97Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (v97Var = this.a) == null) {
+            return;
+        }
+        v97Var.cancel();
+        this.a = null;
+    }
+
+    public x97() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iMBlackListActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new a(this);
-        this.a = iMBlackListActivity;
-    }
-
-    public final b b(Object obj, BlackListItemData blackListItemData) {
-        InterceptResult invokeLL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, blackListItemData)) == null) {
-            if (obj == null) {
-                bVar = c();
-            } else {
-                bVar = (b) obj;
-            }
-            d(bVar, blackListItemData.y());
-            bVar.c.setText(blackListItemData.z());
-            bVar.d.setTag(blackListItemData);
-            this.a.getLayoutMode().j(bVar.a);
-            return bVar;
-        }
-        return (b) invokeLL.objValue;
-    }
-
-    public final b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = new b(this, null);
-            View inflate = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d03be, (ViewGroup) null);
-            bVar.a = inflate;
-            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090d3b);
-            bVar.b = headImageView;
-            headImageView.setIsRound(true);
-            bVar.c = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f0922f3);
-            bVar.d = (Button) bVar.a.findViewById(R.id.obfuscated_res_0x7f091a81);
-            bVar.a.setTag(bVar);
-            bVar.d.setOnClickListener(this.c);
-            return bVar;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public final void d(b bVar, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, str) == null) || str == null) {
-            return;
-        }
-        bVar.b.setTag(str);
-        bVar.b.K(str, 12, false);
-    }
-
-    public void e(BlackListItemData blackListItemData) {
-        ArrayList<BlackListItemData> arrayList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, blackListItemData) == null) || (arrayList = this.b) == null) {
-            return;
-        }
-        arrayList.remove(blackListItemData);
-    }
-
-    public void f(ArrayList<BlackListItemData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.b = arrayList;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList<BlackListItemData> arrayList = this.b;
-            if (arrayList != null) {
-                return arrayList.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            ArrayList<BlackListItemData> arrayList = this.b;
-            if (arrayList != null) {
-                return arrayList.get(i);
-            }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            BlackListItemData blackListItemData = (BlackListItemData) getItem(i);
-            if (blackListItemData != null) {
-                bVar = b(view2 != null ? view2.getTag() : null, blackListItemData);
-            } else {
-                bVar = null;
-            }
-            if (bVar != null) {
-                return bVar.a;
-            }
-            return null;
-        }
-        return (View) invokeILL.objValue;
     }
 }

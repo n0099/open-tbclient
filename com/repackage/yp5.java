@@ -1,306 +1,117 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
+import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView;
-import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerRecyclerAdapter;
-import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerRecyclerView;
-import com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yp5 extends uw5<po5> {
+public abstract class yp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlaBannerRecyclerView i;
-    public AlaBannerRecyclerAdapter j;
-    public View k;
-    public View l;
-    public TextView m;
-    public int n;
-    public int o;
-    public int[] p;
-    public boolean q;
-    public xr5 r;
+    public int a;
+    public int b;
+    public TbPageContext c;
+    public mp5 d;
+    public View e;
 
-    /* loaded from: classes7.dex */
-    public class a implements xr5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yp5 a;
-
-        /* renamed from: com.repackage.yp5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0563a extends AlaBannerViewHolder<SdkLiveInfoData> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public View a;
-            public View b;
-            public TabLiveStageLiveView c;
-            public int d;
-            public int e;
-            public final /* synthetic */ a f;
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0563a(a aVar, View view2) {
-                super(view2);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, view2};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((View) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f = aVar;
-            }
-
-            @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
-            public void b(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                    this.c = (TabLiveStageLiveView) view2.findViewById(R.id.obfuscated_res_0x7f091dd7);
-                    this.a = view2.findViewById(R.id.obfuscated_res_0x7f091a2e);
-                    this.b = view2.findViewById(R.id.obfuscated_res_0x7f091a2f);
-                }
-            }
-
-            @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
-            public void c(int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                    this.c.c();
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
-            /* renamed from: d */
-            public void a(int i, SdkLiveInfoData sdkLiveInfoData) {
-                String str;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(1048579, this, i, sdkLiveInfoData) == null) {
-                    this.c.setData(sdkLiveInfoData, 102);
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
-                    LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                    if (i == 0) {
-                        if (this.f.a.q) {
-                            layoutParams.width = this.f.a.b.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                            layoutParams2.width = this.f.a.b.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                            this.b.setVisibility(0);
-                        } else {
-                            layoutParams.width = this.f.a.b.getResources().getDimensionPixelSize(R.dimen.tbds44);
-                            this.b.setVisibility(8);
-                        }
-                    } else {
-                        layoutParams.width = this.f.a.b.getResources().getDimensionPixelSize(R.dimen.tbds12);
-                        if (this.f.a.j.getItemCount() - 1 == i) {
-                            this.b.setVisibility(0);
-                        } else {
-                            this.b.setVisibility(8);
-                        }
-                    }
-                    this.a.setLayoutParams(layoutParams);
-                    this.b.setLayoutParams(layoutParams2);
-                    e();
-                    StatisticItem statisticItem = new StatisticItem("c13558");
-                    if (sdkLiveInfoData != null) {
-                        SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
-                        if (alaLiveInfo != null) {
-                            int a = io5.a(alaLiveInfo);
-                            SdkLiveInfoData.YYExt yYExt = sdkLiveInfoData.liveInfo.yyExt;
-                            if (yYExt != null) {
-                                TiebaStaticHelper.addYYParam(statisticItem, io5.k(yYExt, sdkLiveInfoData.roomId));
-                                str = TiebaStatic.YYValues.YY_LIVE;
-                            } else {
-                                str = "";
-                            }
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, a);
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str);
-                        }
-                        statisticItem.param("nid", sdkLiveInfoData.nid);
-                        statisticItem.param(TiebaStatic.Params.LOGID, sdkLiveInfoData.logid);
-                    }
-                    statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
-                    TiebaStatic.log(statisticItem);
-                }
-            }
-
-            public final void e() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                    this.d = this.f.a.x();
-                    this.e = this.f.a.w();
-                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-                    if (layoutParams == null) {
-                        layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(this.d, this.e);
-                    } else {
-                        layoutParams.width = this.d;
-                        layoutParams.height = this.e;
-                    }
-                    layoutParams.gravity = 1;
-                    this.c.setLayoutParams(layoutParams);
-                }
-            }
-        }
-
-        public a(yp5 yp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yp5Var;
-        }
-
-        @Override // com.repackage.xr5
-        public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) ? new C0563a(this, LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07e6, viewGroup, false)) : (AlaBannerViewHolder) invokeLI.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yp5(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public yp5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = false;
-        this.r = new a(this);
-        this.q = false;
-        int k = (int) (mi.k(getContext()) * 0.76d);
-        this.n = k;
-        this.o = (int) ((k * 9.0d) / 16.0d);
-        this.p = io5.b(this.c);
-        y();
+        this.c = tbPageContext;
+        int k = li.k(tbPageContext.getPageActivity());
+        this.a = k;
+        this.b = (int) ((k * 9.0d) / 16.0d);
     }
 
-    public final void A() {
+    public void a(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int w = w();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.i.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = (LinearLayout.LayoutParams) new ViewGroup.LayoutParams(-1, w);
-            } else {
-                layoutParams.width = -1;
-                layoutParams.height = w;
-            }
-            this.i.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.repackage.uw5
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d07e5 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.uw5
-    public void m(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-        }
-    }
-
-    public final int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.q ? this.p[1] : this.o : invokeV.intValue;
-    }
-
-    public final int x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.q ? this.p[0] : this.n : invokeV.intValue;
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.k = k().findViewById(R.id.obfuscated_res_0x7f091a2d);
-            this.m = (TextView) k().findViewById(R.id.obfuscated_res_0x7f091a30);
-            this.l = k().findViewById(R.id.obfuscated_res_0x7f091a2c);
-            this.i = (AlaBannerRecyclerView) k().findViewById(R.id.obfuscated_res_0x7f091a67);
-            this.i.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-            A();
-            AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = new AlaBannerRecyclerAdapter(getContext(), this.r, false);
-            this.j = alaBannerRecyclerAdapter;
-            this.i.setAdapter(alaBannerRecyclerAdapter);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uw5
-    /* renamed from: z */
-    public void l(po5 po5Var) {
-        qo5 qo5Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, po5Var) == null) || po5Var == null || (qo5Var = po5Var.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        this.q = ListUtils.getCount(qo5Var.a) == 1;
-        A();
-        this.j.setData(po5Var.a.a);
-        this.j.notifyDataSetChanged();
+        viewGroup.removeAllViews();
+        viewGroup.addView(c());
     }
+
+    public void b(mp5 mp5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mp5Var) == null) {
+            this.d = mp5Var;
+        }
+    }
+
+    public abstract View c();
+
+    public abstract void d();
+
+    public View e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.e = new View(this.c.getPageActivity());
+            this.e.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.b));
+            this.e.setBackgroundDrawable(new ColorDrawable(this.c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
+            return this.e;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public abstract boolean f(mp5 mp5Var);
+
+    public abstract void g(boolean z);
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            int k = li.k(this.c.getPageActivity());
+            this.a = k;
+            this.b = (int) ((k * 9.0d) / 16.0d);
+            View view2 = this.e;
+            if (view2 != null) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+                layoutParams.width = this.a;
+                layoutParams.height = this.b;
+                this.e.setLayoutParams(layoutParams);
+            }
+        }
+    }
+
+    public abstract void i(int i);
+
+    public abstract void j();
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    public abstract void m();
+
+    public abstract void n();
 }

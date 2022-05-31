@@ -1,159 +1,172 @@
 package com.repackage;
 
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class n13 {
+public class n13 extends l13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755522399, "Lcom/repackage/n13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements bb2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hz2 a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ UnitedSchemeEntity c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ n13 e;
+
+        public a(n13 n13Var, hz2 hz2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n13Var, hz2Var, callbackHandler, unitedSchemeEntity, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755522399, "Lcom/repackage/n13;");
+            this.e = n13Var;
+            this.a = hz2Var;
+            this.b = callbackHandler;
+            this.c = unitedSchemeEntity;
+            this.d = str;
+        }
+
+        @Override // com.repackage.bb2
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.e.d) {
+                    zy2 f = zy2.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f1317);
+                    f.l(2);
+                    f.G();
+                }
+                this.e.n(this.c, this.b, this.d);
+            }
+        }
+
+        @Override // com.repackage.bb2
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("success", "1");
+                } catch (JSONException e) {
+                    if (rf1.a) {
+                        e.printStackTrace();
+                    }
+                }
+                if (this.e.d) {
+                    l13.m("0", "btn", "success");
+                    zy2 f = zy2.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f010d);
+                    f.l(2);
+                    f.G();
+                }
+                UnitedSchemeUtility.safeCallback(this.b, this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.d);
+            }
+        }
+
+        @Override // com.repackage.bb2
+        public void c(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+                if (this.e.d && !z) {
+                    zy2 f = zy2.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f010c);
+                    f.l(2);
+                    f.G();
+                }
+                this.e.n(this.c, this.b, this.d);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n13(e03 e03Var) {
+        super(e03Var, "/swanAPI/deleteFavor");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e03Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((e03) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = eh1.a;
     }
 
-    public static r13 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
-        InterceptResult invokeL;
+    @Override // com.repackage.l13
+    public boolean j(hz2 hz2Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
-            r13 r13Var = new r13();
-            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", r13Var);
-            bk2.s().a(r13Var);
-            r13Var.b(new h43(r13Var));
-            r13Var.b(new g43(r13Var));
-            r13Var.b(new n43(r13Var));
-            r13Var.b(new l43(r13Var));
-            r13Var.b(new k43(r13Var));
-            r13Var.b(new e43(r13Var));
-            r13Var.b(new x33(r13Var));
-            r13Var.b(new w33(r13Var));
-            r13Var.b(new v33(r13Var));
-            r13Var.b(new y33(r13Var));
-            r13Var.b(new c43(r13Var));
-            r13Var.b(new b43(r13Var));
-            r13Var.b(new p43(r13Var));
-            r13Var.b(new r43(r13Var));
-            r13Var.b(new q43(r13Var));
-            r13Var.b(new z13(r13Var));
-            r13Var.b(new s33(r13Var));
-            r13Var.b(new ut1(r13Var));
-            r13Var.b(new xt1(r13Var));
-            r13Var.b(new zt1(r13Var));
-            r13Var.b(new st1(r13Var));
-            r13Var.b(new vt1(r13Var));
-            r13Var.b(new yt1(r13Var));
-            r13Var.b(new zn2(r13Var));
-            r13Var.b(new yn2(r13Var));
-            r13Var.b(new vp2(r13Var));
-            r13Var.b(new oz1(r13Var));
-            r13Var.b(new iy1(r13Var));
-            r13Var.b(new p83(r13Var));
-            r13Var.b(new i83(r13Var));
-            r13Var.b(new j83(r13Var));
-            r13Var.b(new m83(r13Var));
-            r13Var.b(new cs2(r13Var));
-            r13Var.b(new jj2(r13Var));
-            r13Var.b(new gj2(r13Var));
-            r13Var.b(new kj2(r13Var));
-            r13Var.b(new yb3(r13Var));
-            r13Var.b(new zb3(r13Var));
-            r13Var.b(new ac3(r13Var));
-            r13Var.b(new bc3(r13Var));
-            r13Var.b(new cc3(r13Var));
-            r13Var.b(new dc3(r13Var));
-            r13Var.b(new ec3(r13Var));
-            r13Var.b(new fc3(r13Var));
-            r13Var.b(new cn2(r13Var));
-            r13Var.b(new ft1(r13Var));
-            r13Var.b(new kt1(r13Var));
-            r13Var.b(new gt1(r13Var));
-            r13Var.b(new jt1(r13Var));
-            r13Var.b(new ht1(r13Var));
-            r13Var.b(new it1(r13Var));
-            r13Var.b(new ww1(r13Var));
-            r13Var.b(new xw1(r13Var));
-            r13Var.b(new nd2(r13Var));
-            r13Var.b(new mh1(r13Var));
-            r13Var.b(new jh1(r13Var));
-            r13Var.b(new hb3(r13Var));
-            r13Var.b(new ib3(r13Var));
-            r13Var.b(new ra3(r13Var));
-            r13Var.b(new fg3(r13Var));
-            r13Var.b(new ys1(r13Var));
-            r13Var.b(new do2(r13Var));
-            r13Var.b(new eo2(r13Var));
-            r13Var.b(new co2(r13Var));
-            r13Var.b(new h83(r13Var));
-            r13Var.b(new dz1(r13Var));
-            r13Var.b(new lc3(r13Var));
-            r13Var.b(new kc3(r13Var));
-            r13Var.b(new mc3(r13Var));
-            r13Var.b(new bb3(r13Var));
-            r13Var.b(new q33(r13Var));
-            r13Var.b(new n33(r13Var));
-            r13Var.b(new j23(r13Var));
-            if (a) {
-                r13Var.b(new o43(r13Var));
-                r13Var.b(new sy1(r13Var));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, hz2Var, unitedSchemeEntity)) == null) {
+            String param = unitedSchemeEntity.getParam("params");
+            if (TextUtils.isEmpty(param)) {
+                return false;
             }
-            r13Var.b(new m23(r13Var));
-            r13Var.b(new d23(r13Var));
-            r13Var.b(new u13(r13Var));
-            r13Var.b(new f23(r13Var));
-            r13Var.b(new tt1(r13Var));
-            r13Var.b(new wt1(r13Var));
-            r13Var.b(new rw1(r13Var));
-            r13Var.b(new x23(r13Var));
-            r13Var.b(new a33(r13Var));
-            r13Var.b(new b33(r13Var));
-            r13Var.b(new z23(r13Var));
-            r13Var.b(new c33(r13Var));
-            r13Var.b(new i43(r13Var));
-            r13Var.b(new on1(r13Var));
-            r13Var.b(new eb2(r13Var));
-            r13Var.b(new v23(r13Var));
-            r13Var.b(new w23(r13Var));
-            r13Var.b(new u33(r13Var));
-            r13Var.b(new d33(r13Var));
-            r13Var.b(new q23(r13Var));
-            r13Var.b(new w13(r13Var));
-            r13Var.b(new mq2(r13Var));
-            r13Var.b(new e23(r13Var));
-            r13Var.b(new kh2(r13Var));
-            r13Var.b(new mh2(r13Var));
-            r13Var.b(new i33(r13Var));
-            r13Var.b(new j33(r13Var));
-            r13Var.b(new gq2(r13Var));
-            r13Var.b(new rh1(r13Var));
-            r13Var.b(new et2(r13Var));
-            r13Var.b(new vn1(r13Var));
-            r13Var.b(new zn1(r13Var));
-            r13Var.b(new xn1(r13Var));
-            r13Var.b(new ao1(r13Var));
-            r13Var.b(new yn1(r13Var));
-            r13Var.b(new j53(r13Var));
-            r13Var.b(new mn1(r13Var));
-            r13Var.b(new nn1(r13Var));
-            r13Var.b(new tn1(r13Var));
-            bk2.Y().a(r13Var);
-            return r13Var;
+            try {
+                String N = this.d ? hz2Var.N() : new JSONObject(param).optString("appid");
+                this.c = N;
+                return !TextUtils.isEmpty(N);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-        return (r13) invokeL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.l13
+    public void k(hz2 hz2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hz2Var, unitedSchemeEntity, callbackHandler, str) == null) {
+            if (this.d) {
+                l13.m("0", "btn", "invoke");
+            } else {
+                l13.m("0", RetrieveTaskManager.KEY, "invoke");
+            }
+            SwanFavorDataManager h = SwanFavorDataManager.h();
+            String str2 = this.c;
+            a aVar = new a(this, hz2Var, callbackHandler, unitedSchemeEntity, str);
+            c92 l = c92.l();
+            l.n(3);
+            h.c(str2, aVar, l.k());
+        }
+    }
+
+    @Override // com.repackage.l13
+    public void l(hz2 hz2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        wj1 l0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, hz2Var, unitedSchemeEntity, callbackHandler, str) == null) && this.d && (l0 = oi2.l0()) != null) {
+            l0.e(hz2Var);
+        }
     }
 }

@@ -210,7 +210,7 @@ public class b {
 
     /* renamed from: com.kwad.sdk.collector.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0288b implements com.kwad.sdk.collector.a {
+    public static class C0289b implements com.kwad.sdk.collector.a {
         @Override // com.kwad.sdk.collector.a
         public List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
             ArrayList arrayList = new ArrayList();
@@ -255,6 +255,6 @@ public class b {
     }
 
     public static com.kwad.sdk.collector.a a() {
-        return com.kwad.sdk.core.config.b.ai() ? new C0288b() : new a();
+        return com.kwad.sdk.core.config.b.ai() ? new C0289b() : new a();
     }
 }

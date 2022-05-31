@@ -1,170 +1,164 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.graphics.drawable.ShapeDrawable;
+import android.widget.EditText;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kz;
-import com.repackage.vz;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 /* loaded from: classes5.dex */
-public class ch6 extends pc6<br4, ThreadCardViewHolder<ThreadData>> implements sx5, jo6, ij5, tx5, bp {
+public class ch6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
-    public int u;
-    public int v;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ch6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a extends ShapeDrawable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+
+        public a(int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i3;
+            this.b = i4;
+            setDither(false);
+            getPaint().setColor(i);
+            setIntrinsicWidth(i2);
+        }
+
+        @Override // android.graphics.drawable.Drawable
+        public void setBounds(int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
+                super.setBounds(i, i2 + this.a, i3, i4 + this.b);
             }
         }
-        this.u = 3;
-        this.k = tbPageContext;
-        this.e = bdUniqueId2;
     }
 
-    @Override // com.repackage.sx5
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.bp
-    public void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (roVar instanceof br4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-            ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-            ThreadData threadData = ((br4) roVar).s;
-            threadData.objType = 1;
-            if (threadData == null) {
-                return;
-            }
-            ThreadCardUtils.jumpToPB((zn4) threadData, view2.getContext(), this.u, false);
-            threadCardViewHolder.c().o(new vz.a(1));
-            go6.e(threadData, 1, this.e, jo6.f0, a0());
-            FrsViewData frsViewData = this.j;
-            if (frsViewData == null || frsViewData.getForum() == null) {
-                return;
-            }
-            go6.c(threadData, this.j.getForum().getId());
-        }
-    }
-
-    @Override // com.repackage.ij5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.t = str;
-        }
-    }
-
-    @Override // com.repackage.jo6
-    public ho6 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? jo6.f0 : (ho6) invokeV.objValue;
-    }
-
-    @Override // com.repackage.tx5
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: l0 */
-    public ThreadCardViewHolder<ThreadData> M(ViewGroup viewGroup) {
+    public static long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            kz.b bVar = new kz.b(this.k.getPageActivity(), false);
-            bVar.h(new gz(this.k.getPageActivity()));
-            ky kyVar = new ky(this.k.getPageActivity());
-            kyVar.t();
-            kyVar.v(this.v);
-            bVar.h(kyVar);
-            kz k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.m);
-            k.r(3);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.k(this.e);
-            threadCardViewHolder.q(false);
-            V(this);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.pc6, com.repackage.eo
-    /* renamed from: m0 */
-    public View S(int i, View view2, ViewGroup viewGroup, br4 br4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, br4Var, threadCardViewHolder})) == null) {
-            super.S(i, view2, viewGroup, br4Var, threadCardViewHolder);
-            if (br4Var == null || threadCardViewHolder == null || threadCardViewHolder.b() == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return 0L;
             }
-            threadCardViewHolder.c().b(this.t);
-            threadCardViewHolder.c().q(i);
-            threadCardViewHolder.g(br4Var.s);
-            threadCardViewHolder.c().onChangeSkinType(this.k, TbadkCoreApplication.getInst().getSkinType());
-            br4Var.s.updateShowStatus();
-            return threadCardViewHolder.b();
+            try {
+                Date parse = new SimpleDateFormat("yyyy.MM.dd").parse(str);
+                return (parse != null ? parse.getTime() : 0L) / 1000;
+            } catch (ParseException e) {
+                e.printStackTrace();
+                return 0L;
+            }
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.longValue;
     }
 
-    public void n0(int i) {
+    public static int b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.v = i;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            if (j < 0) {
+                return -1;
+            }
+            return (int) (j / 86400);
+        }
+        return invokeJ.intValue;
+    }
+
+    public static void c(int i, int i2, EditText editText) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65538, null, i, i2, editText) == null) {
+            try {
+                Method declaredMethod = TextView.class.getDeclaredMethod("createEditorIfNeeded", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(editText, new Object[0]);
+                Field declaredField = TextView.class.getDeclaredField("mEditor");
+                Field declaredField2 = Class.forName("android.widget.Editor").getDeclaredField("mCursorDrawable");
+                declaredField.setAccessible(true);
+                declaredField2.setAccessible(true);
+                Object obj = declaredField2.get(declaredField.get(editText));
+                Array.set(obj, 0, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+                Array.set(obj, 1, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
+            } catch (Exception unused) {
+            }
         }
     }
 
-    @Override // com.repackage.sx5
-    public void r(int i) {
+    public static String d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.u = i;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "一";
+                case 2:
+                    return "二";
+                case 3:
+                    return "三";
+                case 4:
+                    return "四";
+                case 5:
+                    return "五";
+                case 6:
+                    return "六";
+                case 7:
+                    return "七";
+                case 8:
+                    return "八";
+                case 9:
+                    return "九";
+                case 10:
+                    return "十";
+                case 11:
+                    return "十一";
+                case 12:
+                    return "十二";
+                case 13:
+                    return "十三";
+                case 14:
+                    return "十四";
+                case 15:
+                    return "十五";
+                case 16:
+                    return "十六";
+                case 17:
+                    return "十七";
+                case 18:
+                    return "十八";
+                case 19:
+                    return "十九";
+                case 20:
+                    return "二十";
+                default:
+                    return "";
+            }
         }
-    }
-
-    @Override // com.repackage.pc6
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-        }
+        return (String) invokeI.objValue;
     }
 }

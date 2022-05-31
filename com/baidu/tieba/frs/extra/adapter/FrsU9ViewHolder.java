@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cr4;
-import com.repackage.er4;
 import com.repackage.f9;
-import com.repackage.ij8;
-import com.repackage.mi;
+import com.repackage.jg8;
+import com.repackage.li;
+import com.repackage.sp4;
+import com.repackage.up4;
 /* loaded from: classes3.dex */
 public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -43,8 +43,8 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TextView h;
     public View i;
     public TextView j;
-    public cr4 k;
-    public er4 l;
+    public sp4 k;
+    public up4 l;
     public ImageView m;
     public View n;
     public int o;
@@ -77,7 +77,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) && mi.C()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) && li.D()) {
                 if (view2 == this.a.b) {
                     if (this.a.k == null || TextUtils.isEmpty(this.a.k.b())) {
                         return;
@@ -114,45 +114,45 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.o = 3;
         this.p = new a(this);
         this.a = tbPageContext;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092291);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092290);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0920ed);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092236);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092235);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f092093);
         this.d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e9);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920ea);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920e6);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0920ec);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f092292);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091585);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09208f);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092090);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09208c);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092092);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f092237);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091543);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091586);
-        this.n = view2.findViewById(R.id.obfuscated_res_0x7f090b75);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091544);
+        this.n = view2.findViewById(R.id.obfuscated_res_0x7f090b5e);
         SkinManager.setBackgroundResource(this.h, R.drawable.frs_star_btn_like);
         SkinManager.setViewTextColor(this.h, (int) R.drawable.frs_text_color_selector);
         j();
     }
 
-    public void h(ij8 ij8Var) {
+    public void h(jg8 jg8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ij8Var) == null) || ij8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jg8Var) == null) || jg8Var == null) {
             return;
         }
-        cr4 e = ij8Var.e();
-        er4 g = ij8Var.g();
+        sp4 e = jg8Var.e();
+        up4 g = jg8Var.g();
         this.k = e;
         this.l = g;
-        if (ij8Var.i()) {
+        if (jg8Var.i()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        cr4 cr4Var = this.k;
-        if (cr4Var == null) {
+        sp4 sp4Var = this.k;
+        if (sp4Var == null) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
-        } else if (StringUtils.isNull(cr4Var.g())) {
+        } else if (StringUtils.isNull(sp4Var.g())) {
             this.b.setVisibility(8);
             this.i.setVisibility(8);
         } else {
@@ -175,7 +175,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (StringUtils.isNull(this.k.h())) {
                     this.f.setVisibility(8);
                 } else {
-                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1487) + this.k.h();
+                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f149b) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.f.setText(spannableString);
@@ -184,7 +184,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 if (e.d() <= 0) {
                     this.g.setVisibility(8);
                 } else {
-                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1488) + this.k.d();
+                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f149c) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
                     this.g.setText(spannableString2);

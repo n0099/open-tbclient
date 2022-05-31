@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hk0;
-import com.repackage.m11;
-import com.repackage.rj0;
+import com.repackage.ei0;
+import com.repackage.ui0;
+import com.repackage.zz0;
 /* loaded from: classes2.dex */
-public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements hk0<NadMiniVideoDownloadView> {
+public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements ui0<NadMiniVideoDownloadView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AdProgressButton g;
@@ -112,7 +112,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
         g();
     }
 
-    @Override // com.repackage.hk0
+    @Override // com.repackage.ui0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
@@ -124,11 +124,11 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
     }
 
     @DrawableRes
-    public int f(@NonNull rj0 rj0Var) {
+    public int f(@NonNull ei0 ei0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rj0Var)) == null) {
-            int i = a.a[rj0Var.c.ordinal()];
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ei0Var)) == null) {
+            int i = a.a[ei0Var.c.ordinal()];
             if (i != 1) {
                 if (i != 3) {
                     if (i != 4) {
@@ -136,15 +136,15 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
                             if (i != 6) {
                                 return -1;
                             }
-                            return R.drawable.obfuscated_res_0x7f080ddf;
+                            return R.drawable.obfuscated_res_0x7f080df0;
                         }
-                        return R.drawable.obfuscated_res_0x7f080de1;
+                        return R.drawable.obfuscated_res_0x7f080df2;
                     }
-                    return R.drawable.obfuscated_res_0x7f080de0;
+                    return R.drawable.obfuscated_res_0x7f080df1;
                 }
-                return R.drawable.obfuscated_res_0x7f080de2;
+                return R.drawable.obfuscated_res_0x7f080df3;
             }
-            return R.drawable.obfuscated_res_0x7f080ddf;
+            return R.drawable.obfuscated_res_0x7f080df0;
         }
         return invokeL.intValue;
     }
@@ -153,10 +153,10 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(getLayoutId(), (ViewGroup) this, true);
-            this.h = (NadRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f091435);
-            this.i = (AdImageView) findViewById(R.id.obfuscated_res_0x7f091434);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091436);
-            this.g = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f091433);
+            this.h = (NadRoundProgressBar) findViewById(R.id.obfuscated_res_0x7f0913f5);
+            this.i = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0913f4);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0913f6);
+            this.g = (AdProgressButton) findViewById(R.id.obfuscated_res_0x7f0913f3);
             h();
         }
     }
@@ -164,7 +164,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d05b4 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d05aa : invokeV.intValue;
     }
 
     public int getMax() {
@@ -174,7 +174,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hk0
+    @Override // com.repackage.ui0
     @Nullable
     public NadMiniVideoDownloadView getRealView() {
         InterceptResult invokeV;
@@ -194,7 +194,7 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
             } else {
                 this.g.setForeground(getResources().getColor(R.color.obfuscated_res_0x7f060837));
             }
-            this.h.setRoundWidth(m11.c.a(getContext(), 1.0f));
+            this.h.setRoundWidth(zz0.c.a(getContext(), 1.0f));
             this.h.setCircleColor(getResources().getColor(R.color.obfuscated_res_0x7f060836));
             this.h.setCircleProgressColor(getResources().getColor(R.color.obfuscated_res_0x7f060836));
             this.j.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060836));
@@ -334,16 +334,16 @@ public class NadMiniVideoDownloadView extends RoundCornerFrameLayout implements 
         textView.setTextSize(1, f);
     }
 
-    @Override // com.repackage.hk0
-    public void update(String str, @NonNull rj0 rj0Var) {
+    @Override // com.repackage.ui0
+    public void update(String str, @NonNull ei0 ei0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, str, rj0Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048599, this, str, ei0Var) == null) {
             this.m = str;
-            if (rj0Var.c == AdDownloadStatus.DOWNLOADING) {
+            if (ei0Var.c == AdDownloadStatus.DOWNLOADING) {
                 this.m = "已下载 : " + this.m;
-                setProgress((int) (rj0Var.i * 100.0f));
+                setProgress((int) (ei0Var.i * 100.0f));
             } else {
-                setStateImageRes(f(rj0Var));
+                setStateImageRes(f(ei0Var));
             }
             setText(this.m);
             postInvalidate();

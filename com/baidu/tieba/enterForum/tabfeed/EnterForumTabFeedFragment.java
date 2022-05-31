@@ -17,21 +17,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a66;
-import com.repackage.ki;
-import com.repackage.mi;
-import com.repackage.nx5;
-import com.repackage.p66;
-import com.repackage.p85;
-import com.repackage.r66;
+import com.repackage.b56;
+import com.repackage.d56;
+import com.repackage.gw5;
+import com.repackage.i75;
+import com.repackage.ji;
+import com.repackage.li;
+import com.repackage.m46;
 /* loaded from: classes3.dex */
-public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
+public class EnterForumTabFeedFragment extends BaseFragment implements m46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public EnterForumTabFeedNetModel c;
-    public r66 d;
+    public d56 d;
     public ViewGroup e;
     public int f;
 
@@ -49,7 +49,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         }
     }
 
-    public void C0(boolean z) {
+    public void E0(boolean z) {
         EnterForumTabFeedNetModel enterForumTabFeedNetModel;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (enterForumTabFeedNetModel = this.c) == null) {
@@ -67,47 +67,47 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         this.c.refresh();
     }
 
-    public int D0() {
+    public int F0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0276 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0271 : invokeV.intValue;
     }
 
-    public String E0() {
+    public String G0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public boolean F0() {
+    public boolean H0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                return r66Var.k();
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                return d56Var.k();
             }
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.a66
-    public void R(int i, int i2) {
+    @Override // com.repackage.m46
+    public void S(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             if (!this.c.a()) {
                 showNoDataRefreshView(this.e, false);
                 return;
             }
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                r66Var.o(i, i2);
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                d56Var.o(i, i2);
             }
         }
     }
 
-    @Override // com.repackage.a66
+    @Override // com.repackage.m46
     public void c() {
         EnterForumTabFeedNetModel enterForumTabFeedNetModel;
         Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         enterForumTabFeedNetModel.loadMore();
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.m85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -125,17 +125,17 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public p85 getPageStayDurationItem() {
+    public i75 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            p85 pageStayDurationItem = super.getPageStayDurationItem();
+            i75 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.s = this.a;
             }
             return pageStayDurationItem;
         }
-        return (p85) invokeV.objValue;
+        return (i75) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -143,9 +143,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             super.hideLoadingView(view2);
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                r66Var.r(true);
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                d56Var.r(true);
             }
         }
     }
@@ -155,9 +155,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
             super.hideNetRefreshView(view2);
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                r66Var.r(true);
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                d56Var.r(true);
             }
         }
     }
@@ -181,9 +181,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             super.onChangeSkinType(i);
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                r66Var.l(i);
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                d56Var.l(i);
             }
         }
     }
@@ -208,10 +208,10 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048589, this, layoutInflater, viewGroup, bundle)) == null) {
-            ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(D0(), (ViewGroup) null);
+            ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(F0(), (ViewGroup) null);
             this.e = viewGroup2;
-            this.d = new r66(this, this, viewGroup2, this.a);
-            this.f = (mi.i(getContext()) - mi.f(getContext(), R.dimen.tbds304)) / 2;
+            this.d = new d56(this, this, viewGroup2, this.a);
+            this.f = (li.i(getContext()) - li.f(getContext(), R.dimen.tbds304)) / 2;
             return this.e;
         }
         return (View) invokeLLL.objValue;
@@ -222,7 +222,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
-            nx5.b().e(false);
+            gw5.b().e(false);
             EnterForumTabFeedNetModel enterForumTabFeedNetModel = this.c;
             if (enterForumTabFeedNetModel != null) {
                 enterForumTabFeedNetModel.destory();
@@ -235,7 +235,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onLazyLoad();
-            if (ki.z()) {
+            if (ji.z()) {
                 showLoadingView(this.e);
                 EnterForumTabFeedNetModel enterForumTabFeedNetModel = this.c;
                 if (enterForumTabFeedNetModel != null) {
@@ -248,21 +248,21 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         }
     }
 
-    @Override // com.repackage.pu4.g
+    @Override // com.repackage.ft4.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            C0(false);
+            E0(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && ki.z()) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && ji.z()) {
             hideNetRefreshView(this.e);
             showLoadingView(this.e);
-            C0(false);
+            E0(false);
         }
     }
 
@@ -271,7 +271,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onPause();
-            nx5.b().e(false);
+            gw5.b().e(false);
         }
     }
 
@@ -281,21 +281,21 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onPrimary();
             if (isAdded() && isPrimary()) {
-                r66 r66Var = this.d;
-                if (r66Var != null) {
-                    r66Var.p();
+                d56 d56Var = this.d;
+                if (d56Var != null) {
+                    d56Var.p();
                     return;
                 }
                 return;
             }
-            r66 r66Var2 = this.d;
-            if (r66Var2 != null) {
-                r66Var2.n();
+            d56 d56Var2 = this.d;
+            if (d56Var2 != null) {
+                d56Var2.n();
             }
         }
     }
 
-    @Override // com.repackage.a66
+    @Override // com.repackage.m46
     public void onServerError(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, errorData) == null) {
@@ -304,31 +304,31 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f08a9);
+                    showToast(R.string.obfuscated_res_0x7f0f08af);
                 }
             }
             if (!this.c.a()) {
-                showNetRefreshView(this.e, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c2c, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
+                showNetRefreshView(this.e, errorData != null ? getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c32, errorData.error_msg, Integer.valueOf(errorData.error_code)) : null, true);
             }
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                r66Var.q(false);
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                d56Var.q(false);
             }
         }
     }
 
-    @Override // com.repackage.a66
-    public void p0(p66 p66Var) {
+    @Override // com.repackage.m46
+    public void r0(b56 b56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, p66Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, b56Var) == null) {
             hideLoadingView(this.e);
             if (!this.c.a()) {
                 showNoDataRefreshView(this.e, false);
                 return;
             }
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                r66Var.m(p66Var);
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                d56Var.m(b56Var);
             }
         }
     }
@@ -337,9 +337,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
     public void showLoadingView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, view2) == null) {
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                r66Var.r(false);
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                d56Var.r(false);
             }
             super.showLoadingView(view2, false, this.f);
         }
@@ -349,12 +349,12 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
     public void showNetRefreshView(View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048599, this, view2, str, z) == null) {
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                r66Var.r(false);
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                d56Var.r(false);
             }
-            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0f84), str, null, z, getNetRefreshListener());
-            setNetRefreshViewTopMargin(mi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ae));
+            super.showNetRefreshView(view2, getString(R.string.obfuscated_res_0x7f0f0f95), str, null, z, getNetRefreshListener());
+            setNetRefreshViewTopMargin(li.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ae));
         }
     }
 
@@ -362,12 +362,12 @@ public class EnterForumTabFeedFragment extends BaseFragment implements a66 {
     public void showNoDataRefreshView(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048600, this, view2, z) == null) {
-            r66 r66Var = this.d;
-            if (r66Var != null) {
-                r66Var.r(false);
+            d56 d56Var = this.d;
+            if (d56Var != null) {
+                d56Var.r(false);
             }
             super.showNoDataRefreshView(view2, z);
-            setNetRefreshViewTopMargin(mi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ae));
+            setNetRefreshViewTopMargin(li.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702ae));
         }
     }
 }

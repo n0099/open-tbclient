@@ -1,123 +1,49 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.collection.ArraySet;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zz2 extends tz2 {
+public class zz2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final b a;
-        public final zz2 b;
-        public Context c;
-        public boolean d;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ String b;
 
-        /* renamed from: com.repackage.zz2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class View$OnClickListenerC0576a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DialogInterface.OnClickListener a;
-            public final /* synthetic */ a b;
-
-            public View$OnClickListenerC0576a(a aVar, DialogInterface.OnClickListener onClickListener) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, onClickListener};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = onClickListener;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    this.b.b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.a;
-                    if (onClickListener != null) {
-                        onClickListener.onClick(this.b.b, -1);
-                    }
-                }
-            }
-        }
-
-        /* loaded from: classes7.dex */
-        public class b implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ DialogInterface.OnClickListener a;
-            public final /* synthetic */ a b;
-
-            public b(a aVar, DialogInterface.OnClickListener onClickListener) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, onClickListener};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = onClickListener;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    this.b.b.dismiss();
-                    DialogInterface.OnClickListener onClickListener = this.a;
-                    if (onClickListener != null) {
-                        onClickListener.onClick(this.b.b, -2);
-                    }
-                }
-            }
-        }
-
-        public a(Context context) {
+        public a(d dVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {dVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -127,157 +53,34 @@ public class zz2 extends tz2 {
                     return;
                 }
             }
-            this.d = false;
-            zz2 b2 = b(context);
-            this.b = b2;
-            b2.d(this);
-            this.a = new b((ViewGroup) this.b.getWindow().getDecorView());
-            this.c = context;
+            this.a = dVar;
+            this.b = str;
         }
 
-        public zz2 a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.b.setOnCancelListener(this.a.f);
-                this.b.setOnDismissListener(this.a.g);
-                this.b.setOnShowListener(this.a.h);
-                this.b.d(this);
-                return this.b;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hw1.k("WebSafeWhiteListMgr", "async read webDomains");
+                zz2.o(this.a, this.b);
             }
-            return (zz2) invokeV.objValue;
-        }
-
-        public abstract zz2 b(Context context);
-
-        public a c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.b.setCanceledOnTouchOutside(z);
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a d(int i, DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, onClickListener)) == null) {
-                e(this.c.getText(i), onClickListener);
-                return this;
-            }
-            return (a) invokeIL.objValue;
-        }
-
-        public a e(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, charSequence, onClickListener)) == null) {
-                this.a.b.setText(charSequence);
-                this.a.b.setOnClickListener(new b(this, onClickListener));
-                return this;
-            }
-            return (a) invokeLL.objValue;
-        }
-
-        public a f(DialogInterface.OnCancelListener onCancelListener) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, onCancelListener)) == null) {
-                this.a.f = onCancelListener;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.a.c.setText(str);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a h(int i, DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i, onClickListener)) == null) {
-                i(this.c.getText(i), onClickListener);
-                return this;
-            }
-            return (a) invokeIL.objValue;
-        }
-
-        public a i(CharSequence charSequence, DialogInterface.OnClickListener onClickListener) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
-                this.a.a.setText(charSequence);
-                this.a.a.setOnClickListener(new View$OnClickListenerC0576a(this, onClickListener));
-                return this;
-            }
-            return (a) invokeLL.objValue;
-        }
-
-        public a j(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, view2)) == null) {
-                this.a.e.removeAllViews();
-                this.a.e.addView(view2);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public zz2 k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                zz2 a = a();
-                if (this.d) {
-                    a.getWindow().setType(2003);
-                }
-                try {
-                    a.show();
-                } catch (WindowManager.BadTokenException unused) {
-                }
-                return a;
-            }
-            return (zz2) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TextView c;
-        public View d;
-        public FrameLayout e;
-        public DialogInterface.OnCancelListener f;
-        public DialogInterface.OnDismissListener g;
-        public DialogInterface.OnShowListener h;
-        public FrameLayout i;
-        public FrameLayout j;
-        public View k;
-        public ViewGroup l;
-        public RelativeLayout m;
-        public LinearLayout n;
-        public View o;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
 
-        @SuppressLint({"CutPasteId"})
-        public b(ViewGroup viewGroup) {
+        public b(d dVar, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {viewGroup};
+                Object[] objArr = {dVar, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -287,63 +90,473 @@ public class zz2 extends tz2 {
                     return;
                 }
             }
-            this.l = viewGroup;
-            this.j = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b9);
-            this.c = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092094);
-            this.a = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0918f5);
-            this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09154f);
-            this.d = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907a7);
-            this.e = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907a8);
-            this.m = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f091c8f);
-            this.n = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09042c);
-            this.o = viewGroup.findViewById(R.id.obfuscated_res_0x7f0907a7);
-            this.i = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0907b9);
-            this.k = viewGroup.findViewById(R.id.obfuscated_res_0x7f091595);
+            this.a = dVar;
+            this.b = str;
+            this.c = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hw1.k("WebSafeWhiteListMgr", "async read serverDomains");
+                zz2.p(this.a, this.b, this.c);
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zz2(Context context, int i) {
-        super(context, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ String b;
+
+        public c(d dVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hw1.k("WebSafeWhiteListMgr", "async read webActions");
+                zz2.o(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public List<String> b;
+        public long c;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = new CopyOnWriteArrayList();
+        }
+
+        @NonNull
+        public static List<String> d(JSONArray jSONArray) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
+                ArrayList arrayList = new ArrayList();
+                if (jSONArray != null && jSONArray.length() > 0) {
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        arrayList.add(jSONArray.optString(i));
+                    }
+                }
+                return arrayList;
+            }
+            return (List) invokeL.objValue;
+        }
+
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+                return;
+            }
+            this.a = jSONObject.optString("token");
+            this.b.addAll(d(jSONObject.optJSONArray("data")));
+        }
+
+        public void b(JSONObject jSONObject, String str) {
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+                return;
+            }
+            this.b.addAll(d(optJSONObject.optJSONArray(str)));
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.b.clear();
+            }
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return "WebSafeData{token='" + this.a + "', data=" + this.b + ", lastModifiedTime=" + this.c + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755094785, "Lcom/repackage/zz2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755094785, "Lcom/repackage/zz2;");
                 return;
             }
         }
-        c();
+        a = rf1.a;
     }
 
-    public a b() {
+    @NonNull
+    public static String c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            String path = AppRuntime.getAppContext().getFilesDir().getPath();
+            if (TextUtils.isEmpty(str)) {
+                return path + File.separator + str2 + File.separator + str3;
+            }
+            return path + File.separator + str2 + File.separator + str + "_" + str3;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static List<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (a) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("swanAPI/installApp4Ad");
+            arrayList.add("swanAPI/openApp4Ad");
+            arrayList.add("swanAPI/checkAppInstalled");
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 
-    public void c() {
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d07cd);
-            getWindow().setLayout(-1, -2);
-            getWindow().setGravity(80);
-            a(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + "aiapps_folder/cloud_config";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static if4 f(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return v73.b(str + "_domain_config");
+        }
+        return (if4) invokeL.objValue;
+    }
+
+    @Nullable
+    public static Set<String> g(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) ? f(str).getStringSet("prelink", null) : (Set) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void h(boolean z, String str, String str2, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), str, str2, dVar}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.w("WebSafeWhiteListMgr", "get serverDomains: appId is empty");
+                }
+            } else if (dVar == null) {
+                if (a) {
+                    throw new RuntimeException("Please init webSafeData first!");
+                }
+            } else {
+                String i = i(str);
+                if (z) {
+                    ExecutorUtilsExt.postOnElastic(new b(dVar, i, str2), "load-ServerDomains", 2);
+                } else {
+                    p(dVar, i, str2);
+                }
+            }
         }
     }
 
-    public void d(a aVar) {
+    @NonNull
+    public static String i(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.b = aVar;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? c(str, "aiapps_folder/cloud_config", "server_domains.json") : (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? c("", "aiapps_folder/cloud_config", "global_web_actions.json") : (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void k(boolean z, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65547, null, z, dVar) == null) {
+            if (dVar == null) {
+                if (a) {
+                    throw new RuntimeException("Please init webSafeData first!");
+                }
+                return;
+            }
+            String j = j();
+            if (z) {
+                ExecutorUtilsExt.postOnElastic(new c(dVar, j), "load-WebActions", 2);
+            } else {
+                o(dVar, j);
+            }
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void l(boolean z, String str, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Boolean.valueOf(z), str, dVar}) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    Log.w("WebSafeWhiteListMgr", "getWebDomains: appId is empty");
+                }
+            } else if (dVar == null) {
+                if (a) {
+                    throw new RuntimeException("Please init webSafeData first!");
+                }
+            } else {
+                String m = m(str);
+                if (z) {
+                    ExecutorUtilsExt.postOnElastic(new a(dVar, m), "load-WebDomains", 2);
+                } else {
+                    o(dVar, m);
+                }
+            }
+        }
+    }
+
+    @NonNull
+    public static String m(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) ? c(str, "aiapps_folder/cloud_config", "web_domains.json") : (String) invokeL.objValue;
+    }
+
+    public static boolean n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) ? new File(m(str)).exists() : invokeL.booleanValue;
+    }
+
+    public static void o(@NonNull d dVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, dVar, str) == null) {
+            if (dVar == null) {
+                hw1.k("WebSafeWhiteListMgr", "webSafeData == null");
+                return;
+            }
+            hw1.k("WebSafeWhiteListMgr", "update webSafeData(before): " + dVar);
+            try {
+                dVar.a(new JSONObject(q(str)));
+                v(dVar, str);
+                hw1.k("WebSafeWhiteListMgr", "update webSafeData(after): " + dVar);
+            } catch (Exception e) {
+                hw1.k("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    public static void p(d dVar, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65552, null, dVar, str, str2) == null) {
+            if (dVar == null) {
+                hw1.k("WebSafeWhiteListMgr", "webSafeData == null");
+                return;
+            }
+            hw1.k("WebSafeWhiteListMgr", "update webSafeData(before): " + dVar);
+            try {
+                dVar.b(new JSONObject(q(str)), str2);
+                v(dVar, str);
+                hw1.k("WebSafeWhiteListMgr", "update webSafeData(after): " + dVar);
+            } catch (Exception e) {
+                hw1.k("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    public static String q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
+            hw1.k("WebSafeWhiteListMgr", "read data from: " + str);
+            return ki2.a(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void r(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65554, null, str, str2) == null) {
+            JSONArray optJSONArray = hc3.d(str2).optJSONArray("prelink");
+            if (optJSONArray != null) {
+                ArraySet arraySet = new ArraySet();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    String optString = optJSONArray.optString(i);
+                    if (!TextUtils.isEmpty(optString)) {
+                        arraySet.add(optString);
+                    }
+                }
+                w(str, arraySet);
+            }
+            if (a) {
+                Log.d("WebSafeWhiteListMgr", "saveDomainConfig appId=" + str + ", domainConfig=" + str2);
+            }
+        }
+    }
+
+    public static boolean s(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, str, jSONObject)) == null) {
+            if (!TextUtils.isEmpty(str) && jSONObject != null) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("data", jSONObject);
+                    String i = i(str);
+                    boolean b2 = ki2.b(i, jSONObject2.toString(), false);
+                    hw1.k("WebSafeWhiteListMgr", "save serverDomains: result=" + b2 + " filePath=" + i + " appId= " + str + " data=" + jSONObject);
+                    return b2;
+                } catch (JSONException e) {
+                    if (a) {
+                        Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+                    }
+                    return false;
+                }
+            }
+            if (a) {
+                Log.d("WebSafeWhiteListMgr", "save serverDomains: appId or data is empty");
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean t(String str, JSONArray jSONArray) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, null, str, jSONArray)) == null) {
+            if (jSONArray == null) {
+                if (a) {
+                    Log.w("WebSafeWhiteListMgr", "saveWebActions: data is empty");
+                }
+                return false;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("token", str);
+                }
+                jSONObject.put("data", jSONArray);
+                String j = j();
+                boolean b2 = ki2.b(j, jSONObject.toString(), false);
+                hw1.k("WebSafeWhiteListMgr", "save webActions: result=" + b2 + " filePath=" + j + " token=" + str + " data=" + jSONArray);
+                return b2;
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean u(String str, String str2, JSONArray jSONArray) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65557, null, str, str2, jSONArray)) == null) {
+            if (!TextUtils.isEmpty(str) && jSONArray != null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    if (!TextUtils.isEmpty(str2)) {
+                        jSONObject.put("token", str2);
+                    }
+                    jSONObject.put("data", jSONArray);
+                    String m = m(str);
+                    boolean b2 = ki2.b(m, jSONObject.toString(), false);
+                    hw1.k("WebSafeWhiteListMgr", "save WebDomains: result=" + b2 + " filePath=" + m + " appId= " + str + " token=" + str2 + " data=" + jSONArray);
+                    return b2;
+                } catch (JSONException e) {
+                    if (a) {
+                        Log.e("WebSafeWhiteListMgr", Log.getStackTraceString(e));
+                    }
+                    return false;
+                }
+            }
+            if (a) {
+                Log.w("WebSafeWhiteListMgr", "saveWebDomains: appId or data is empty");
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void v(@NonNull d dVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65558, null, dVar, str) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                dVar.c = file.lastModified();
+            }
+        }
+    }
+
+    public static void w(@NonNull String str, @Nullable Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65559, null, str, set) == null) {
+            if (set != null) {
+                ArrayList arrayList = new ArrayList(set.size());
+                ArraySet arraySet = new ArraySet(set.size());
+                for (String str2 : set) {
+                    String e = wo1.e(str2);
+                    if (e != null && !arrayList.contains(e)) {
+                        arraySet.add(str2);
+                        arrayList.add(e);
+                    }
+                }
+                set = arraySet;
+            }
+            f(str).putStringSet("prelink", set);
         }
     }
 }

@@ -1,65 +1,62 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ro8 extends CustomMessageListener {
+public abstract class ro8<T> extends qo8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final tm8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ro8(MainTabActivity mainTabActivity, tm8 tm8Var) {
-        super(2001304);
+    public ro8(String str, T t, String str2) {
+        super(str, t, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, tm8Var};
+            Object[] objArr = {str, t, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = tm8Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        tm8 tm8Var;
+    @Override // com.repackage.qo8
+    public long e(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer) || (tm8Var = this.b) == null || tm8Var.z() == null) {
-            return;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) ? ys4.k().m(str, j) : invokeLJ.longValue;
+    }
+
+    @Override // com.repackage.qo8
+    public void g(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            ys4.k().x(str, j);
         }
-        int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-        int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
-        boolean z = false;
-        if ((intValue == 2 || oldSkinType == 2) ? false : true) {
-            return;
-        }
-        if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-            z = true;
-        }
-        if (z) {
-            this.b.z().f(1);
-        } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-            this.b.z().f(2);
-        } else {
-            this.b.z().f(1);
+    }
+
+    public int l(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) ? ys4.k().l(str, i) : invokeLI.intValue;
+    }
+
+    public void m(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            ys4.k().w(str, i);
         }
     }
 }

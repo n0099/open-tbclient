@@ -2,113 +2,73 @@ package com.repackage;
 
 import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
+import android.widget.LinearLayout;
+import com.baidu.audiorecorder.lib.voice.SendVoiceView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lo<V extends TypeAdapter.ViewHolder> extends eo<ko, V> {
+public class lo extends e05 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int t;
     public transient /* synthetic */ FieldHolder $fh;
-    public eo<ro, V> i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964034334, "Lcom/repackage/lo;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964034334, "Lcom/repackage/lo;");
+                return;
+            }
+        }
+        t = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds26);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lo(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(context, bdUniqueId, bdUniqueId2);
+    public lo(Context context) {
+        super(context, (String) null, 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId, bdUniqueId2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.repackage.eo
-    public V M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) ? N(viewGroup, new ko()) : (V) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: Z */
-    public V N(ViewGroup viewGroup, ko koVar) {
-        InterceptResult invokeLL;
-        V M;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewGroup, koVar)) == null) {
-            eo<ro, V> eoVar = this.i;
-            if (eoVar == null) {
-                return null;
-            }
-            if (this.d == eoVar.y()) {
-                M = this.i.L(viewGroup, koVar.e());
-            } else if (this.d == this.i.w()) {
-                M = this.i.J(viewGroup, koVar.e());
-            } else if (this.d == this.i.x()) {
-                M = this.i.K(viewGroup, koVar.e());
-            } else if (this.d == this.i.v()) {
-                M = this.i.I(viewGroup, koVar.e());
-            } else {
-                M = this.i.M(viewGroup);
-            }
-            if (M != null) {
-                V(this.i.A());
-                return M;
-            }
-            throw new NullPointerException("Order error or holder created is NullPointerException");
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, ko koVar, V v) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, koVar, v})) == null) {
-            eo<ro, V> eoVar = this.i;
-            if (eoVar == null) {
-                return null;
-            }
-            if (this.d == eoVar.y()) {
-                return this.i.R(i, view2, viewGroup, koVar.e(), v);
-            }
-            if (this.d == this.i.w()) {
-                return this.i.P(i, view2, viewGroup, koVar.e(), v);
-            }
-            if (this.d == this.i.x()) {
-                return this.i.Q(i, view2, viewGroup, koVar.e(), v);
-            }
-            if (this.d == this.i.v()) {
-                return this.i.O(i, view2, viewGroup, koVar.e(), v);
-            }
-            return this.i.S(i, view2, viewGroup, koVar.e(), v);
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void b0(eo eoVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, eoVar) == null) {
-            this.i = eoVar;
-        }
+        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1349);
+        this.d = R.drawable.obfuscated_res_0x7f08099f;
+        this.f = R.color.CAM_X0105;
+        this.i = false;
+        this.j = true;
+        this.o = true;
+        this.n = 5;
+        this.m = new SendVoiceView(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(0, -2);
+        int i3 = t;
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = i3;
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = i3;
+        ((LinearLayout.LayoutParams) layoutParams).weight = 1.0f;
+        ((View) this.m).setLayoutParams(layoutParams);
+        this.p = new int[0];
     }
 }

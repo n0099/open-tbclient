@@ -1,129 +1,245 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.kwad.sdk.api.KsAdVideoPlayConfig;
-import com.kwad.sdk.api.KsImage;
-import com.kwad.sdk.api.KsNativeAd;
-import com.repackage.dj9;
-import java.util.ArrayList;
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.Message;
+import com.squareup.wire2.Message.a;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.WireField;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class oj9 extends BaseFunNativeAd {
+public final class oj9<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context b;
-    public final KsNativeAd c;
-    public final dj9 d;
+    public final Class<M> a;
+    public final Class<B> b;
+    public final Map<Integer, jj9<M, B>> c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oj9(Context context, KsNativeAd ksNativeAd, String str, Ssp.Pid pid, dj9 dj9Var) {
-        super(str, pid);
+    public oj9(Class<M> cls, Class<B> cls2, Map<Integer, jj9<M, B>> map) {
+        super(FieldEncoding.LENGTH_DELIMITED, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, ksNativeAd, str, pid, dj9Var};
+            Object[] objArr = {cls, cls2, map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.c = ksNativeAd;
-        this.d = dj9Var;
+        this.a = cls;
+        this.b = cls2;
+        this.c = map;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> oj9<M, B> a(Class<M> cls) {
+        InterceptResult invokeL;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ChannelNativeAds.createKs(this.c) : (ChannelNativeAds) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c.getAdDescription() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.getAppIconUrl() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<KsImage> imageList = this.c.getImageList();
-            if (imageList == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
+            Class e = e(cls);
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            for (Field field : cls.getDeclaredFields()) {
+                WireField wireField = (WireField) field.getAnnotation(WireField.class);
+                if (wireField != null) {
+                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new jj9(wireField, field, e));
+                }
             }
-            ArrayList arrayList = new ArrayList();
-            for (KsImage ksImage : imageList) {
-                arrayList.add(ksImage.getImageUrl());
+            return new oj9<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
+        }
+        return (oj9) invokeL.objValue;
+    }
+
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            try {
+                return (Class<B>) Class.forName(cls.getName() + "$Builder");
+            } catch (ClassNotFoundException unused) {
+                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
             }
-            return arrayList;
         }
-        return (List) invokeV.objValue;
+        return (Class) invokeL.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public M decode(lj9 lj9Var) throws IOException {
+        InterceptResult invokeL;
+        ProtoAdapter<?> i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, lj9Var)) != null) {
+            return (M) invokeL.objValue;
+        }
+        B f = f();
+        long c = lj9Var.c();
+        while (true) {
+            int f2 = lj9Var.f();
+            if (f2 != -1) {
+                jj9<M, B> jj9Var = this.c.get(Integer.valueOf(f2));
+                if (jj9Var != null) {
+                    try {
+                        if (jj9Var.f()) {
+                            i = jj9Var.a();
+                        } else {
+                            i = jj9Var.i();
+                        }
+                        jj9Var.j(f, i.decode(lj9Var));
+                    } catch (ProtoAdapter.EnumConstantNotFoundException e) {
+                        f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
+                    }
+                } else {
+                    FieldEncoding g = lj9Var.g();
+                    f.addUnknownField(f2, g, g.rawProtoAdapter().decode(lj9Var));
+                }
+            } else {
+                lj9Var.d(c);
+                return (M) f.build();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public void encode(mj9 mj9Var, M m) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mj9Var, m) == null) {
+            for (jj9<M, B> jj9Var : this.c.values()) {
+                Object b = jj9Var.b(m);
+                if (b != null) {
+                    jj9Var.a().encodeWithTag(mj9Var, jj9Var.c, b);
+                }
+            }
+            mj9Var.k(m.unknownFields());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: d */
+    public int encodedSize(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
+            int i = m.cachedSerializedSize;
+            if (i != 0) {
+                return i;
+            }
+            int i2 = 0;
+            for (jj9<M, B> jj9Var : this.c.values()) {
+                Object b = jj9Var.b(m);
+                if (b != null) {
+                    i2 += jj9Var.a().encodedSizeWithTag(jj9Var.c, b);
+                }
+            }
+            int size = i2 + m.unknownFields().size();
+            m.cachedSerializedSize = size;
+            return size;
+        }
+        return invokeL.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? (obj instanceof oj9) && ((oj9) obj).a == this.a : invokeL.booleanValue;
+    }
+
+    public B f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int interactionType = this.c.getInteractionType();
-            return interactionType != 1 ? interactionType != 2 ? FunNativeAd.InteractionType.TYPE_UNKNOW : FunNativeAd.InteractionType.TYPE_BROWSE : FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            try {
+                return this.b.newInstance();
+            } catch (IllegalAccessException | InstantiationException e) {
+                throw new AssertionError(e);
+            }
         }
-        return (FunNativeAd.InteractionType) invokeV.objValue;
+        return (B) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: g */
+    public M redact(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
+            Message.a<M, B> newBuilder = m.newBuilder();
+            for (jj9<M, B> jj9Var : this.c.values()) {
+                if (jj9Var.f && jj9Var.a == WireField.Label.REQUIRED) {
+                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", jj9Var.b, this.javaType.getName()));
+                }
+                boolean isAssignableFrom = Message.class.isAssignableFrom(jj9Var.i().javaType);
+                if (!jj9Var.f && (!isAssignableFrom || jj9Var.a.isRepeated())) {
+                    if (isAssignableFrom && jj9Var.a.isRepeated()) {
+                        qj9.k((List) jj9Var.e(newBuilder), jj9Var.i());
+                    }
+                } else {
+                    Object e = jj9Var.e(newBuilder);
+                    if (e != null) {
+                        jj9Var.h(newBuilder, jj9Var.a().redact(e));
+                    }
+                }
+            }
+            newBuilder.clearUnknownFields();
+            return newBuilder.build();
+        }
+        return (M) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: h */
+    public String toString(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (jj9<M, B> jj9Var : this.c.values()) {
+                Object b = jj9Var.b(m);
+                if (b != null) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(jj9Var.b);
+                    sb.append('=');
+                    if (jj9Var.f) {
+                        b = "██";
+                    }
+                    sb.append(b);
+                }
+            }
+            sb.replace(0, 2, this.a.getSimpleName() + '{');
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c.getAppName() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c.getVideoView(this.b, new KsAdVideoPlayConfig.Builder().videoSoundEnable(FunAdSdk.getFunAdConfig().isVideoSoundEnable).dataFlowAutoStart(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart).build()) : (View) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
-    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
-            dj9 dj9Var = this.d;
-            KsNativeAd ksNativeAd = this.c;
-            dj9Var.f(ksNativeAd, this.mSid, viewGroup, list, new dj9.b(dj9Var, ksNativeAd), funAdInteractionListener);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.hashCode() : invokeV.intValue;
     }
 }

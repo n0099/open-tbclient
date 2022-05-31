@@ -1,49 +1,77 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
-public class jc4 extends bc4 {
+public class jc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jc4() {
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
+        return (String) invokeLLZ.objValue;
     }
 
-    @Override // com.repackage.bc4
-    public JSONObject d() {
-        InterceptResult invokeV;
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ic4 c = ic4.c();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("version", c.a());
-                jSONObject.put("ceres_info", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("version", c.b());
-                jSONObject.put("global_info", jSONObject3);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) != null) {
+            return (String) invokeLZ.objValue;
         }
-        return (JSONObject) invokeV.objValue;
+        FileInputStream fileInputStream2 = null;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.reset();
+            fileInputStream = new FileInputStream(file);
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read > 0) {
+                        messageDigest.update(bArr, 0, read);
+                    } else {
+                        String a = a(messageDigest.digest(), "", z);
+                        kf4.d(fileInputStream);
+                        return a;
+                    }
+                }
+            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
+                kf4.d(fileInputStream);
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream2 = fileInputStream;
+                kf4.d(fileInputStream2);
+                throw th;
+            }
+        } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 }

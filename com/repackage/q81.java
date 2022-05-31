@@ -1,30 +1,191 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.widget.ImageView;
+import android.app.Activity;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.statistics.exception.SdkException;
+import com.baidu.poly.wallet.paychannel.IChannelPay;
+import com.baidu.poly.widget.ChannelListView;
+import com.baidu.poly.widget.PayChannelEntity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class q81 implements s81 {
+public class q81 {
     public static /* synthetic */ Interceptable $ic;
-    public static q81 b;
-    public static u81 c;
-    public static y81 d;
-    public static x81 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public Activity a;
+    public IChannelPay b;
 
-    public q81(Context context) {
+    /* loaded from: classes6.dex */
+    public class a extends r61<Map<String, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ChannelListView b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ q81 d;
+
+        public a(q81 q81Var, String str, ChannelListView channelListView, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q81Var, str, channelListView, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = q81Var;
+            this.a = str;
+            this.b = channelListView;
+            this.c = str2;
+        }
+
+        @Override // com.repackage.r61
+        public void b(Throwable th, String str) {
+            String message;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
+                if (str != null) {
+                    message = str;
+                } else {
+                    message = th != null ? th.getMessage() : null;
+                }
+                ChannelListView channelListView = this.b;
+                channelListView.S(n81.a().getString(R.string.obfuscated_res_0x7f0f0d67) + message, str);
+                x71 x71Var = new x71("1");
+                x71Var.b(new SdkException("pay_platform error --> " + str, th).getStackMessage());
+                a81.e(x71Var);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.r61
+        /* renamed from: d */
+        public void c(Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("exceptionCode", "0");
+                if (!TextUtils.isEmpty(this.a)) {
+                    hashMap.put("isFoldChannel", this.a);
+                }
+                w71.c("8", hashMap);
+                this.b.W();
+                this.d.f("STEP_INNER", map, this.c, this.b, null);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements v81 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ ChannelListView c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ q81 g;
+
+        public b(q81 q81Var, String str, Map map, ChannelListView channelListView, String str2, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q81Var, str, map, channelListView, str2, str3, str4};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = q81Var;
+            this.a = str;
+            this.b = map;
+            this.c = channelListView;
+            this.d = str2;
+            this.e = str3;
+            this.f = str4;
+        }
+
+        @Override // com.repackage.v81
+        public void onResult(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                j81.g("WalletChannel->thirdPay onResult statusCode = " + i + " msg = " + str);
+                if (TextUtils.equals(this.a, "DIRECT_OUTTER")) {
+                    this.g.e(i, str, this.b, this.c, this.d);
+                    return;
+                }
+                this.c.c0(i, g81.a(i, this.e, str), "1", this.a, this.b, this.f);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends r61<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(q81 q81Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.r61
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.r61
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            }
+        }
+    }
+
+    public q81(Activity activity, IChannelPay iChannelPay) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {activity, iChannelPay};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,70 +195,87 @@ public class q81 implements s81 {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
-        d = new y81();
-        e = new x81(context);
-        c = new u81();
+        this.a = activity;
+        this.b = iChannelPay;
     }
 
-    public static x81 b(Context context) {
+    public void b(Bundle bundle, PayChannelEntity payChannelEntity, String str, ChannelListView channelListView) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, bundle, payChannelEntity, str, channelListView) == null) || payChannelEntity == null) {
+            return;
+        }
+        String payChannel = payChannelEntity.getPayChannel();
+        String installmentPeriod = payChannelEntity.getInstallmentPeriod();
+        if (TextUtils.isEmpty(payChannel)) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        jSONObject.put(z61.b, payChannel);
+        if (!TextUtils.isEmpty(installmentPeriod)) {
+            jSONObject.put(z61.c, installmentPeriod);
+        }
+        bundle.putString("reqData", jSONObject.toString());
+        z61.j().u(bundle, new a(this, str, channelListView, payChannel));
+    }
+
+    public JSONObject c(Map<String, String> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (e == null) {
-                e = new x81(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            if (TextUtils.isEmpty(map.get("payInfo"))) {
+                return null;
             }
-            return e;
+            try {
+                return new JSONObject(new String(Base64.decode(map.get("payInfo"), 0)));
+            } catch (JSONException unused) {
+                return null;
+            }
         }
-        return (x81) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static y81 c() {
+    public void d(Map<String, String> map, PayChannelEntity payChannelEntity, String str, ChannelListView channelListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, map, payChannelEntity, str, channelListView) == null) {
+            try {
+                b(k81.a(map), payChannelEntity, str, channelListView);
+            } catch (Throwable th) {
+                String message = th.getMessage();
+                channelListView.S("third pay error msg is " + message, null);
+            }
+        }
+    }
+
+    public final void e(int i, String str, Map<String, String> map, ChannelListView channelListView, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, map, channelListView, str2}) == null) {
+            if (!TextUtils.isEmpty(str2) && i == 0) {
+                new x61().d(str2, new t61(), new c(this));
+            }
+            channelListView.b0(i, f81.a(map.get("orderId"), map.get("payInfo"), str), "1");
+        }
+    }
+
+    public void f(String str, Map<String, String> map, String str2, ChannelListView channelListView, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, str, map, str2, channelListView, str3) == null) {
+            w81 w81Var = new w81();
+            w81Var.b = c(map);
+            w81Var.a = str2;
+            String str4 = map.get("payOrderNo");
+            a81.f = str4;
+            if (this.b != null) {
+                w71.d();
+                this.b.pay(this.a, w81Var, new b(this, str, map, channelListView, str3, str4, str2));
+                j81.g("WalletChannel->thirdPay setIsPreparePaying()");
+                channelListView.setIsPreparePaying(false);
+            }
+        }
+    }
+
+    public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                d = new y81();
-            }
-            return d;
-        }
-        return (y81) invokeV.objValue;
-    }
-
-    public static q81 d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (b == null) {
-                synchronized (q81.class) {
-                    if (b == null) {
-                        b = new q81(context);
-                    }
-                }
-            }
-            return b;
-        }
-        return (q81) invokeL.objValue;
-    }
-
-    @Override // com.repackage.s81
-    public void a(ImageView imageView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
-            e(imageView, str, 0, 0);
-        }
-    }
-
-    public void e(ImageView imageView, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, i, i2) == null) {
-            imageView.setTag(str);
-            Bitmap c2 = d.c(str);
-            if (c2 != null) {
-                imageView.setImageBitmap(c2);
-            } else {
-                o91.a(new w81(this.a, c, str, imageView, i, i2));
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (Activity) invokeV.objValue;
     }
 }

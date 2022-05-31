@@ -1,75 +1,171 @@
 package com.repackage;
 
-import android.animation.AnimatorInflater;
-import android.animation.ObjectAnimator;
-import android.animation.StateListAnimator;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewOutlineProvider;
-import androidx.annotation.RequiresApi;
-import com.baidu.tieba.R;
+import android.graphics.SurfaceTexture;
+import android.util.Log;
+import android.view.Surface;
+import android.view.SurfaceHolder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RequiresApi(21)
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ab0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "ab0";
     public transient /* synthetic */ FieldHolder $fh;
+    public cb0 a;
+    public List<bb0> b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755862686, "Lcom/repackage/ab0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755862686, "Lcom/repackage/ab0;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755862686, "Lcom/repackage/ab0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755862686, "Lcom/repackage/ab0;");
+        }
+    }
+
+    public ab0(Object obj, List<ob0> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj, list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = new int[]{16843848};
+        this.c = 0;
+        b(obj, list);
     }
 
-    public static void a(View view2) {
+    public void a(long j) {
+        List<bb0> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
-            view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
+        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || this.a == null || (list = this.b) == null || list.size() == 0) {
+            return;
         }
-    }
-
-    public static void b(View view2, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65538, null, view2, f) == null) {
-            int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0005);
-            StateListAnimator stateListAnimator = new StateListAnimator();
-            long j = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f0405cf, -2130970064}, ObjectAnimator.ofFloat(view2, "elevation", 0.0f).setDuration(j));
-            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, "elevation", f).setDuration(j));
-            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, "elevation", 0.0f).setDuration(0L));
-            view2.setStateListAnimator(stateListAnimator);
-        }
-    }
-
-    public static void c(View view2, AttributeSet attributeSet, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, view2, attributeSet, i, i2) == null) {
-            Context context = view2.getContext();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a, i, i2);
-            try {
-                if (obtainStyledAttributes.hasValue(0)) {
-                    view2.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));
-                }
-            } finally {
-                obtainStyledAttributes.recycle();
+        synchronized (this) {
+            for (bb0 bb0Var : this.b) {
+                this.a.b(bb0Var.c());
+                bb0Var.b(j);
             }
+            notifyAll();
+        }
+        this.a.d(j);
+        this.a.e();
+    }
+
+    public final void b(Object obj, List<ob0> list) {
+        bb0 bb0Var;
+        cb0 cb0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, list) == null) || list == null || list.size() == 0) {
+            return;
+        }
+        List<bb0> list2 = this.b;
+        if (list2 == null) {
+            this.b = new ArrayList();
+        } else {
+            list2.clear();
+        }
+        for (int i = 0; i < list.size(); i++) {
+            try {
+                this.b.add(new bb0(list.get(i)));
+                if (list.get(i).k()) {
+                    this.c = i;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        int size = this.b.size();
+        int i2 = this.c;
+        if (size > i2) {
+            if (obj != null) {
+                if (obj instanceof Surface) {
+                    this.a = new cb0(this.b.get(this.c).c(), (Surface) obj, true);
+                } else if (obj instanceof SurfaceTexture) {
+                    this.a = new cb0(this.b.get(this.c).c(), (SurfaceTexture) obj);
+                } else if (obj instanceof SurfaceHolder) {
+                    this.a = new cb0(this.b.get(this.c).c(), (SurfaceHolder) obj);
+                }
+            } else {
+                List<bb0> list3 = this.b;
+                if (list3 != null && list3 != null && (bb0Var = list3.get(i2)) != null && (cb0Var = this.a) != null) {
+                    cb0Var.f(bb0Var.c());
+                }
+            }
+        }
+        for (bb0 bb0Var2 : this.b) {
+            cb0 cb0Var2 = this.a;
+            if (cb0Var2 != null) {
+                cb0Var2.b(bb0Var2.c());
+                bb0Var2.f();
+            }
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            cb0 cb0Var = this.a;
+            if (cb0Var != null) {
+                cb0Var.g();
+                this.a = null;
+            }
+            List<bb0> list = this.b;
+            if (list != null) {
+                for (bb0 bb0Var : list) {
+                    bb0Var.e();
+                }
+                this.b.clear();
+                this.b = null;
+            }
+        }
+    }
+
+    public void d(hb0 hb0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, hb0Var) == null) {
+            for (bb0 bb0Var : this.b) {
+                cb0 cb0Var = this.a;
+                if (cb0Var != null) {
+                    cb0Var.b(bb0Var.c());
+                    bb0Var.g(hb0Var);
+                }
+            }
+        }
+    }
+
+    public void e(List<ob0> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            Log.d(d, "updateSurfaceDrawer !!!");
+            this.a.c();
+            for (bb0 bb0Var : this.b) {
+                bb0Var.e();
+            }
+            this.b.clear();
+            b(null, list);
         }
     }
 }

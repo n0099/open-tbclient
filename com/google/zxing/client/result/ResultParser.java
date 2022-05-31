@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class ResultParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern AMPERSAND;

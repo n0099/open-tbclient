@@ -69,10 +69,10 @@ public class PersonCreatorCenterFunView extends LinearLayout implements View.OnC
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06b1, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06a6, (ViewGroup) this, true);
             inflate.setOnClickListener(this);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0917f0);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917f2);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0917a5);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917a7);
         }
     }
 
@@ -100,17 +100,17 @@ public class PersonCreatorCenterFunView extends LinearLayout implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             String charSequence = ((PersonCreatorCenterFunView) view2).b.getText().toString();
-            if (view2.getId() == R.id.obfuscated_res_0x7f0917fa) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0917af) {
                 TiebaStatic.log(new StatisticItem("c14149").param("obj_locate", "1"));
                 TiebaStatic.log(new StatisticItem("c14149").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "CreateCenterPage", new HashMap())));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0917fb) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0917b0) {
                 d("1", "1", "");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "VideoWorkListPage", new HashMap())));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0917f9) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0917ae) {
                 d("2", "1", "");
                 c(this.c);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0917f8) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0917ad) {
                 if ("大神认证".equals(charSequence)) {
                     d("1", "2", "");
                     c(TbConfig.URL_GOD_AUTH);
@@ -118,10 +118,10 @@ public class PersonCreatorCenterFunView extends LinearLayout implements View.OnC
                 }
                 d("1", "2", "");
                 c(TbConfig.URL_GOD_EXAMINE);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0917fc) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0917b1) {
                 d("2", "2", "");
                 c(this.d);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091800 || view2.getId() == R.id.obfuscated_res_0x7f0917fe || view2.getId() == R.id.obfuscated_res_0x7f0917f7 || view2.getId() == R.id.obfuscated_res_0x7f0917fd) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0917b5 || view2.getId() == R.id.obfuscated_res_0x7f0917b3 || view2.getId() == R.id.obfuscated_res_0x7f0917ac || view2.getId() == R.id.obfuscated_res_0x7f0917b2) {
                 WorkPublishGuideActivityConfig workPublishGuideActivityConfig = new WorkPublishGuideActivityConfig(getContext());
                 workPublishGuideActivityConfig.setRequestCode(25064);
                 workPublishGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);

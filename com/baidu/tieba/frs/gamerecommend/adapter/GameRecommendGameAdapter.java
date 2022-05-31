@@ -20,17 +20,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ag;
 import com.repackage.bg;
-import com.repackage.cg;
-import com.repackage.mi;
-import com.repackage.pc6;
-import com.repackage.u26;
+import com.repackage.f16;
+import com.repackage.fb6;
+import com.repackage.li;
 /* loaded from: classes3.dex */
-public class GameRecommendGameAdapter extends pc6<u26, CardFrsGameRecommendGameHolder> {
+public class GameRecommendGameAdapter extends fb6<f16, CardFrsGameRecommendGameHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String t;
-    public bg<CardFrsGameRecommendGameItemView> u;
+    public ag<CardFrsGameRecommendGameItemView> u;
 
     /* loaded from: classes3.dex */
     public class CardFrsGameRecommendGameHolder extends TypeAdapter.ViewHolder {
@@ -61,20 +61,20 @@ public class GameRecommendGameAdapter extends pc6<u26, CardFrsGameRecommendGameH
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09052e);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c43);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c42);
-            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c41);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090528);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c27);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c26);
+            CardFrsGameRecommendGameLayout cardFrsGameRecommendGameLayout = (CardFrsGameRecommendGameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c25);
             this.d = cardFrsGameRecommendGameLayout;
-            cardFrsGameRecommendGameLayout.setItemSpace(mi.f(view2.getContext(), R.dimen.tbds27));
-            this.d.setItemWidth(mi.f(view2.getContext(), R.dimen.tbds192));
-            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907f5);
-            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907f6);
+            cardFrsGameRecommendGameLayout.setItemSpace(li.f(view2.getContext(), R.dimen.tbds27));
+            this.d.setItemWidth(li.f(view2.getContext(), R.dimen.tbds192));
+            this.e = view2.findViewById(R.id.obfuscated_res_0x7f0907d9);
+            this.f = view2.findViewById(R.id.obfuscated_res_0x7f0907da);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class a implements cg<CardFrsGameRecommendGameItemView> {
+    public class a implements bg<CardFrsGameRecommendGameItemView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ GameRecommendGameAdapter a;
@@ -99,7 +99,7 @@ public class GameRecommendGameAdapter extends pc6<u26, CardFrsGameRecommendGameH
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.cg
+        @Override // com.repackage.bg
         public /* bridge */ /* synthetic */ CardFrsGameRecommendGameItemView a(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
             CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView2 = cardFrsGameRecommendGameItemView;
             e(cardFrsGameRecommendGameItemView2);
@@ -108,7 +108,7 @@ public class GameRecommendGameAdapter extends pc6<u26, CardFrsGameRecommendGameH
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.cg
+        @Override // com.repackage.bg
         public /* bridge */ /* synthetic */ CardFrsGameRecommendGameItemView c(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
             CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView2 = cardFrsGameRecommendGameItemView;
             h(cardFrsGameRecommendGameItemView2);
@@ -122,7 +122,7 @@ public class GameRecommendGameAdapter extends pc6<u26, CardFrsGameRecommendGameH
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cg
+        @Override // com.repackage.bg
         /* renamed from: f */
         public void b(CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView) {
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class GameRecommendGameAdapter extends pc6<u26, CardFrsGameRecommendGameH
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cg
+        @Override // com.repackage.bg
         /* renamed from: g */
         public CardFrsGameRecommendGameItemView d() {
             InterceptResult invokeV;
@@ -170,18 +170,18 @@ public class GameRecommendGameAdapter extends pc6<u26, CardFrsGameRecommendGameH
                 return;
             }
         }
-        this.u = new bg<>(new a(this), 10, 0);
+        this.u = new ag<>(new a(this), 10, 0);
         this.t = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: n0 */
     public CardFrsGameRecommendGameHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d018d, viewGroup, false));
+            CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder = new CardFrsGameRecommendGameHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d018a, viewGroup, false));
             cardFrsGameRecommendGameHolder.d.setViewPool(this.u);
             return cardFrsGameRecommendGameHolder;
         }
@@ -189,18 +189,18 @@ public class GameRecommendGameAdapter extends pc6<u26, CardFrsGameRecommendGameH
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.pc6, com.repackage.eo
+    @Override // com.repackage.fb6, com.repackage.wm
     /* renamed from: o0 */
-    public View S(int i, View view2, ViewGroup viewGroup, u26 u26Var, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, f16 f16Var, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u26Var, cardFrsGameRecommendGameHolder})) == null) {
-            if (u26Var != null && u26Var.a() != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f16Var, cardFrsGameRecommendGameHolder})) == null) {
+            if (f16Var != null && f16Var.a() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameRecommendGameHolder.b.setText(u26Var.a().title);
+                cardFrsGameRecommendGameHolder.b.setText(f16Var.a().title);
                 cardFrsGameRecommendGameHolder.b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
                 cardFrsGameRecommendGameHolder.d.setPageContext(this.k);
-                cardFrsGameRecommendGameHolder.d.setData(u26Var.a().sub_nodes);
+                cardFrsGameRecommendGameHolder.d.setData(f16Var.a().sub_nodes);
                 cardFrsGameRecommendGameHolder.c.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.d.getChildItemWidth());
                 cardFrsGameRecommendGameHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0201));
                 SkinManager.setBackgroundResource(cardFrsGameRecommendGameHolder.e, R.color.CAM_X0205);

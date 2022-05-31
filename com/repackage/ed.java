@@ -53,7 +53,7 @@ public class ed implements id {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return di.e(String.valueOf(this.a), 0);
+                                                    return ci.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                     return null;

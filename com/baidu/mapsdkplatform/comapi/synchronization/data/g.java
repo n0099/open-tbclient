@@ -20,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -232,7 +233,7 @@ public final class g {
         LatLng latLng;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, this, str, syncResponseResult) == null) {
-            String[] split = str.split(";");
+            String[] split = str.split(ParamableElem.DIVIDE_PARAM);
             if (split.length == 0) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "There's no section route data");
                 return;
@@ -284,7 +285,7 @@ public final class g {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "No position info data");
                 return;
             }
-            String[] split = optString.split(";");
+            String[] split = optString.split(ParamableElem.DIVIDE_PARAM);
             if (split.length == 0) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "Position info array is empty");
                 return;
@@ -470,7 +471,7 @@ public final class g {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65555, this, str, syncResponseResult) == null) {
-            String[] split = str.split(";");
+            String[] split = str.split(ParamableElem.DIVIDE_PARAM);
             if (split.length == 0) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "There's no section traffic data");
                 return;
@@ -534,7 +535,7 @@ public final class g {
     private void c(String str, SyncResponseResult syncResponseResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65558, this, str, syncResponseResult) == null) {
-            String[] split = str.split(";");
+            String[] split = str.split(ParamableElem.DIVIDE_PARAM);
             if (2 != split.length) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The travelled data is null or invalid");
                 return;
@@ -573,7 +574,7 @@ public final class g {
     private void d(String str, SyncResponseResult syncResponseResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65561, this, str, syncResponseResult) == null) {
-            String[] split = str.split(";");
+            String[] split = str.split(ParamableElem.DIVIDE_PARAM);
             if (2 != split.length) {
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "The remain data is null or invalid: ");
                 return;

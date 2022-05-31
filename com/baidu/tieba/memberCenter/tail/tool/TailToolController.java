@@ -22,19 +22,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dl7;
-import com.repackage.il7;
-import com.repackage.j15;
-import com.repackage.jl7;
-import com.repackage.w05;
+import com.repackage.f05;
+import com.repackage.li7;
+import com.repackage.qi7;
+import com.repackage.ri7;
+import com.repackage.sz4;
 /* loaded from: classes3.dex */
-public class TailToolController extends NoPressedLinearLayout implements j15 {
+public class TailToolController extends NoPressedLinearLayout implements f05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public jl7 b;
-    public il7 c;
-    public dl7 d;
+    public ri7 b;
+    public qi7 c;
+    public li7 d;
     public Context e;
     public EditorTools f;
     public CustomMessageListener g;
@@ -177,7 +177,7 @@ public class TailToolController extends NoPressedLinearLayout implements j15 {
         i(context);
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -186,24 +186,24 @@ public class TailToolController extends NoPressedLinearLayout implements j15 {
         }
     }
 
-    @Override // com.repackage.j15
-    public void g(w05 w05Var) {
+    @Override // com.repackage.f05
+    public void g(sz4 sz4Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w05Var) == null) || (editorTools = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sz4Var) == null) || (editorTools = this.f) == null) {
             return;
         }
-        editorTools.A(w05Var);
+        editorTools.A(sz4Var);
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -215,15 +215,15 @@ public class TailToolController extends NoPressedLinearLayout implements j15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.e = context;
-            this.b = new jl7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fe, (ViewGroup) this, true));
-            this.c = new il7(context);
-            dl7 dl7Var = new dl7(context, this.c, this.i);
-            this.d = dl7Var;
-            this.b.a(dl7Var);
+            this.b = new ri7((ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07f1, (ViewGroup) this, true));
+            this.c = new qi7(context);
+            li7 li7Var = new li7(context, this.c, this.i);
+            this.d = li7Var;
+            this.b.a(li7Var);
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -250,9 +250,9 @@ public class TailToolController extends NoPressedLinearLayout implements j15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             if (z) {
-                g(new w05(2, 16, " "));
+                g(new sz4(2, 16, " "));
             } else {
-                g(new w05(2, 16, null));
+                g(new sz4(2, 16, null));
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (currentAccountObj != null) {
@@ -270,10 +270,10 @@ public class TailToolController extends NoPressedLinearLayout implements j15 {
         m(currentAccountObj.getIsSelectTail());
     }
 
-    @Override // com.repackage.x05
-    public void onAction(w05 w05Var) {
+    @Override // com.repackage.tz4
+    public void onAction(sz4 sz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, w05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, sz4Var) == null) {
         }
     }
 
@@ -288,7 +288,7 @@ public class TailToolController extends NoPressedLinearLayout implements j15 {
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
@@ -306,7 +306,7 @@ public class TailToolController extends NoPressedLinearLayout implements j15 {
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, editorTools) == null) {
@@ -314,7 +314,7 @@ public class TailToolController extends NoPressedLinearLayout implements j15 {
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {

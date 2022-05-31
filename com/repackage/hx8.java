@@ -1,44 +1,56 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.R;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.core.ImageLoader;
-import com.repackage.dx8;
-import com.repackage.fx8;
-import java.io.File;
 import java.util.List;
-import java.util.Vector;
 /* loaded from: classes6.dex */
 public class hx8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hx8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public fx8 a;
-    public List<mx8> b;
+    public int a;
+    public BdUniqueId b;
+    public final String c;
+    public b d;
+    public List<String> e;
+    public HttpMessageListener f;
 
     /* loaded from: classes6.dex */
-    public class a implements lx8 {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ hx8 a;
 
-        public a(hx8 hx8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hx8 hx8Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hx8Var};
+                Object[] objArr = {hx8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -47,25 +59,67 @@ public class hx8 {
             this.a = hx8Var;
         }
 
-        @Override // com.repackage.lx8
-        public void a(dx8.b bVar) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                dx8.a().c(bVar);
-                if (ab9.e(this.a.b)) {
-                    return;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) || httpResponsedMessage == null || this.a.d == null) {
+                return;
+            }
+            if (httpResponsedMessage.getOrginalMessage() == null || httpResponsedMessage.getOrginalMessage().getTag() == this.a.b) {
+                RelevanceItemSearchData responseData = httpResponsedMessage instanceof RelevanceItemSearchResponse ? ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData() : null;
+                if (responseData != null && responseData.getData() != null) {
+                    if (!ListUtils.equalList(this.a.e, responseData.getData().getTab_option())) {
+                        this.a.e = responseData.getData().getTab_option();
+                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.e));
+                    }
+                    if (httpResponsedMessage.getError() != 0) {
+                        this.a.d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                        this.a.l();
+                        return;
+                    } else if (ListUtils.isEmpty(responseData.getData().getItem_list())) {
+                        if (this.a.a == 1) {
+                            this.a.d.a();
+                            return;
+                        } else {
+                            this.a.d.d();
+                            return;
+                        }
+                    } else if (responseData != null) {
+                        this.a.d.c(responseData);
+                        if (this.a.a == 1 && responseData.getData().getItem_list().size() < 20) {
+                            this.a.d.d();
+                        }
+                        hx8.f(this.a);
+                        return;
+                    } else {
+                        return;
+                    }
                 }
-                hx8 hx8Var = this.a;
-                hx8Var.h((mx8) ab9.c(hx8Var.b, 0));
-                ab9.g(this.a.b, 0);
+                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
+                this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c33));
+                this.a.l();
             }
         }
     }
 
-    public hx8() {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+
+        void c(RelevanceItemSearchData relevanceItemSearchData);
+
+        void d();
+
+        void onError(int i, String str);
+    }
+
+    public hx8(BdUniqueId bdUniqueId, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,111 +129,85 @@ public class hx8 {
                 return;
             }
         }
-        this.b = new Vector();
-        this.a = new fx8.b().d();
+        this.a = 1;
+        a aVar = new a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+        this.f = aVar;
+        this.b = bdUniqueId;
+        this.c = str;
+        aVar.setTag(bdUniqueId);
+        k();
+        MessageManager.getInstance().registerListener(this.f);
     }
 
-    public static hx8 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (hx8.class) {
-                    if (c == null) {
-                        c = new hx8();
-                    }
-                }
-            }
-            return c;
-        }
-        return (hx8) invokeV.objValue;
+    public static /* synthetic */ int f(hx8 hx8Var) {
+        int i = hx8Var.a;
+        hx8Var.a = i + 1;
+        return i;
     }
 
-    public final void c() {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
-            throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            l();
+            i(str);
         }
     }
 
-    public Bitmap d(String str) {
-        InterceptResult invokeL;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            Bitmap a2 = g().a(str);
-            if (a2 == null || a2.isRecycled()) {
-                Bitmap a3 = e().a(str);
-                if (a3 == null || a3.isRecycled()) {
-                    return null;
-                }
-                return a3;
-            }
-            return a2;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public ax8 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c();
-            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-            if (!TextUtils.equals(this.a.c.b(), str)) {
-                this.a.c.d(str);
-            }
-            return this.a.c;
-        }
-        return (ax8) invokeV.objValue;
-    }
-
-    public kx8 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c();
-            return this.a.b;
-        }
-        return (kx8) invokeV.objValue;
-    }
-
-    public final void h(mx8 mx8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mx8Var) == null) {
-            c();
-            dx8.b b = dx8.a().b();
-            if (b != null) {
-                b.p(this.a.a);
-                b.setDataSource(mx8Var.a);
-                b.h(mx8Var, new a(this));
-                return;
-            }
-            this.b.add(mx8Var);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void i(nx8 nx8Var, ex8 ex8Var) {
+    public final void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, nx8Var, ex8Var) == null) {
-            List<mx8> c2 = jx8.c(nx8Var, ex8Var);
-            if (ab9.e(c2)) {
-                return;
-            }
-            for (mx8 mx8Var : c2) {
-                h(mx8Var);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam("keyword", str);
+            httpMessage.addParam(Config.PACKAGE_NAME, this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public void j(ox8 ox8Var, ex8 ex8Var) {
-        mx8 b;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, ox8Var, ex8Var) == null) || (b = jx8.b(ox8Var, ex8Var)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().removeMessage(this.b);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
-        h(b);
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
+            tbHttpMessageTask.setPriority(4);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a = 1;
+        }
+    }
+
+    public void m(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.d = bVar;
+        }
     }
 }

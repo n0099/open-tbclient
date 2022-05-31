@@ -63,9 +63,7 @@ public final class PersonalChatActivityStaticAutoGenerateUrlCollectorImpl implem
             arrayList.add("MessageCenterActivityConfig");
             arrayList.add("AtMeActivityConfig");
             arrayList.add("AtMessageActivityConfig");
-            arrayList.add("InviteFriendListActivityConfig");
             arrayList.add("PersonalTalkSettingActivityConfig");
-            arrayList.add("SelectFriendActivityConfig");
             arrayList.add("StrangerListActivityConfig");
             arrayList.add("AddFriendActivityConfig");
             arrayList.add("ReplyMeActivityConfig");

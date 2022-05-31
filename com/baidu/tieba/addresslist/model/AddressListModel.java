@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.hk5;
-import com.repackage.wy4;
-import com.repackage.yy4;
+import com.repackage.bj5;
+import com.repackage.px4;
+import com.repackage.rx4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hk5 a;
+    public bj5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
@@ -40,7 +40,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.a = hk5.d();
+        this.a = bj5.d();
     }
 
     public void A(long j) {
@@ -50,7 +50,7 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public List<wy4> B() {
+    public List<px4> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c() : (List) invokeV.objValue;
@@ -70,21 +70,21 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void E(hk5.a aVar) {
+    public void E(bj5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.a.f(aVar);
         }
     }
 
-    public void F(List<wy4> list) {
+    public void F(List<px4> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a.g(list);
         }
     }
 
-    public void G(hk5.a aVar) {
+    public void G(bj5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             this.a.h(aVar);
@@ -111,22 +111,22 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return invokeV.booleanValue;
     }
 
-    public void y(wy4 wy4Var) {
+    public void y(px4 px4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, wy4Var) == null) {
-            this.a.a(wy4Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, px4Var) == null) {
+            this.a.a(px4Var);
         }
     }
 
     public int z(String str) {
         InterceptResult invokeL;
-        List<wy4> c;
+        List<px4> c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (yy4.a(str) && (c = this.a.c()) != null) {
-                for (wy4 wy4Var : c) {
-                    if (str.equals(wy4Var.a())) {
-                        return c.indexOf(wy4Var);
+            if (rx4.a(str) && (c = this.a.c()) != null) {
+                for (px4 px4Var : c) {
+                    if (str.equals(px4Var.a())) {
+                        return c.indexOf(px4Var);
                     }
                 }
                 return -1;

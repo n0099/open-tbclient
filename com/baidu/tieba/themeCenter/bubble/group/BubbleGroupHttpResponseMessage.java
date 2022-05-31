@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jq8;
-import com.repackage.xp8;
+import com.repackage.ln8;
+import com.repackage.zm8;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +21,8 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<xp8> mBubbleGroupList;
-    public jq8 mRecommand;
+    public List<zm8> mBubbleGroupList;
+    public ln8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupHttpResponseMessage(int i) {
@@ -44,16 +44,16 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<xp8> getGroupList() {
+    public List<zm8> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBubbleGroupList : (List) invokeV.objValue;
     }
 
-    public jq8 getRecommand() {
+    public ln8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (jq8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (ln8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,17 +72,17 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         DataRes dataRes = getBubbleByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                jq8 jq8Var = new jq8();
-                this.mRecommand = jq8Var;
-                jq8Var.d(getBubbleByCategoryResIdl.data.recommend);
+                ln8 ln8Var = new ln8();
+                this.mRecommand = ln8Var;
+                ln8Var.d(getBubbleByCategoryResIdl.data.recommend);
             }
             if (getBubbleByCategoryResIdl.data.bubbles != null) {
                 this.mBubbleGroupList = new ArrayList();
                 for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                     if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                        xp8 xp8Var = new xp8();
-                        xp8Var.c(themeBubbleInMain);
-                        this.mBubbleGroupList.add(xp8Var);
+                        zm8 zm8Var = new zm8();
+                        zm8Var.c(themeBubbleInMain);
+                        this.mBubbleGroupList.add(zm8Var);
                     }
                 }
             }

@@ -26,14 +26,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ao7;
 import com.repackage.b9;
-import com.repackage.bo7;
-import com.repackage.mi;
-import com.repackage.ng;
-import com.repackage.po7;
-import com.repackage.uo7;
-import com.repackage.yn7;
+import com.repackage.dm7;
+import com.repackage.gl7;
+import com.repackage.jl7;
+import com.repackage.kl7;
+import com.repackage.li;
+import com.repackage.mg;
+import com.repackage.yl7;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +42,7 @@ import org.json.JSONArray;
 public class MyEmotionManagerModel extends NativeManageEmotionModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uo7 a;
+    public dm7 a;
     public List<String> b;
     public List<EmotionPackageData> c;
     public TbPageContext<BaseFragmentActivity> d;
@@ -165,7 +165,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.P();
-                List<MyEmotionGroupData> f = ao7.i().f();
+                List<MyEmotionGroupData> f = jl7.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f != null && !f.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -213,7 +213,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.P();
-                List<MyEmotionGroupData> f = ao7.i().f();
+                List<MyEmotionGroupData> f = jl7.i().f();
                 JSONArray jSONArray = new JSONArray();
                 if (f != null && !f.isEmpty()) {
                     for (MyEmotionGroupData myEmotionGroupData : f) {
@@ -224,7 +224,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
                     }
                 }
                 MyEmotionManagerModel myEmotionManagerModel = this.a;
-                ng.a().post(new g(myEmotionManagerModel, myEmotionManagerModel, jSONArray));
+                mg.a().post(new g(myEmotionManagerModel, myEmotionManagerModel, jSONArray));
             }
         }
     }
@@ -259,8 +259,8 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a == null) {
                 return;
             }
-            this.a.a.c0();
-            if (po7.b().a()) {
+            this.a.a.d0();
+            if (yl7.b().a()) {
                 return;
             }
             this.a.M();
@@ -295,7 +295,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ao7.i().j(this.a.I(), true);
+                jl7.i().j(this.a.I(), true);
             }
         }
     }
@@ -474,7 +474,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            yn7.b().a(new c(this));
+            gl7.b().a(new c(this));
         }
     }
 
@@ -493,10 +493,10 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
     public final void M() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (bo7.m().o()) {
-                mi.M(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f05db);
+            if (kl7.o().q()) {
+                li.N(this.d.getPageActivity(), R.string.obfuscated_res_0x7f0f05e2);
             } else {
-                yn7.b().a(new f(this));
+                gl7.b().a(new f(this));
             }
         }
     }
@@ -517,7 +517,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
     public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ng.a().post(new e(this));
+            mg.a().post(new e(this));
         }
     }
 
@@ -530,10 +530,10 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         }
     }
 
-    public void Q(uo7 uo7Var) {
+    public void Q(dm7 dm7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, uo7Var) == null) {
-            this.a = uo7Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, dm7Var) == null) {
+            this.a = dm7Var;
         }
     }
 
@@ -561,7 +561,7 @@ public class MyEmotionManagerModel extends NativeManageEmotionModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            yn7.b().a(new d(this));
+            gl7.b().a(new d(this));
             return false;
         }
         return invokeV.booleanValue;

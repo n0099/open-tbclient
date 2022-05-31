@@ -18,12 +18,12 @@ public class x2 {
 
         /* renamed from: com.repackage.x2$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0547a implements Runnable {
+        public class RunnableC0554a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0547a(a aVar) {
+            public RunnableC0554a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -72,7 +72,7 @@ public class x2 {
         public void onSystemUiVisibilityChange(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.getHandler().post(new RunnableC0547a(this));
+                this.a.getHandler().post(new RunnableC0554a(this));
             }
         }
     }

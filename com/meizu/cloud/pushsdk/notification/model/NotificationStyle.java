@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.repackage.tl9;
+import com.repackage.ni9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -57,7 +57,7 @@ public class NotificationStyle implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e) {
-                tl9.b(TAG, "parse json string error " + e.getMessage());
+                ni9.b(TAG, "parse json string error " + e.getMessage());
             }
             return parse(jSONObject);
         }
@@ -91,7 +91,7 @@ public class NotificationStyle implements Parcelable {
             return notificationStyle;
         }
         str = "no such tag notification_style";
-        tl9.b(TAG, str);
+        ni9.b(TAG, str);
         return notificationStyle;
     }
 

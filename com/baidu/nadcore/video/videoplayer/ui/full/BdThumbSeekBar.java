@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l21;
+import com.repackage.y01;
 /* loaded from: classes2.dex */
 public class BdThumbSeekBar extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -292,7 +292,7 @@ public class BdThumbSeekBar extends View {
                 return;
             }
         }
-        y = l21.d(0.0f);
+        y = y01.d(0.0f);
         z = BdSeekBarStyle.LINE;
     }
 
@@ -905,9 +905,9 @@ public class BdThumbSeekBar extends View {
         this.q = 0;
         if (this.c != null) {
             if (this.k == null) {
-                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e24);
+                this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080e35);
             }
-            this.l = l21.a(0.0f);
+            this.l = y01.a(0.0f);
         }
         if (this.m == null) {
             f(1.5f);

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ai;
+import com.repackage.yh;
 import com.repackage.zh;
 /* loaded from: classes2.dex */
 public class InitAbi64WebViewCompatTask extends LaunchTask {
@@ -35,13 +35,13 @@ public class InitAbi64WebViewCompatTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
             if (TbadkSettings.getInst().isContains("key_last_running_in_64_bit")) {
-                if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != ai.a()) {
-                    zh.b(context);
+                if (TbadkSettings.getInst().loadBoolean("key_last_running_in_64_bit", false) != zh.a()) {
+                    yh.b(context);
                 }
             } else {
-                zh.b(context);
+                yh.b(context);
             }
-            TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", ai.a());
+            TbadkSettings.getInst().saveBoolean("key_last_running_in_64_bit", zh.a());
         }
     }
 

@@ -1,24 +1,19 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.live.LiveFeedPageSdk;
+import android.content.Context;
+import android.graphics.Color;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public final class ta0 {
+public class ta0 extends ra0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, List<sa0>> a;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,70 +29,64 @@ public final class ta0 {
                 return;
             }
         }
-        a = new ConcurrentHashMap<>();
+        b = new HashMap<>();
     }
 
-    @JvmStatic
-    @JvmOverloads
-    public static final sa0 a(String str) {
-        InterceptResult invokeL;
+    public ta0() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (sa0) invokeL.objValue;
-    }
-
-    @JvmStatic
-    @JvmOverloads
-    public static final sa0 b(String str, String pageId) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, pageId)) == null) {
-            Intrinsics.checkNotNullParameter(pageId, "pageId");
-            LiveFeedPageSdk.n("LiveFeedPlayerPool", "getPlayer pageId= " + pageId + WebvttCueParser.CHAR_SPACE + a.size());
-            List<sa0> list = a.get(pageId);
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (!list.isEmpty() && list.size() >= 2) {
-                sa0 sa0Var = list.get(0);
-                Collections.swap(list, 0, 1);
-                if (sa0Var.isPlaying()) {
-                    sa0Var.detachFromContainer();
-                    sa0Var.stop();
-                }
-                LiveFeedPageSdk.n("LiveFeedPlayerPool", "getPlayer " + sa0Var);
-                return sa0Var;
-            }
-            sa0 sa0Var2 = new sa0(new ua0(str, 0, null, null, 14, null));
-            list.add(sa0Var2);
-            a.put(pageId, list);
-            return sa0Var2;
-        }
-        return (sa0) invokeLL.objValue;
-    }
-
-    public static /* synthetic */ sa0 c(String str, String str2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            str = "";
-        }
-        return b(str, str2);
-    }
-
-    @JvmStatic
-    public static final void d(String pageId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pageId) == null) {
-            Intrinsics.checkNotNullParameter(pageId, "pageId");
-            LiveFeedPageSdk.n("LiveFeedPlayerPool", "release playerMap= " + a.size());
-            List<sa0> list = a.get(pageId);
-            if (list == null || list.isEmpty()) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            for (sa0 sa0Var : list) {
-                sa0Var.detachFromContainer();
-                sa0Var.release();
-            }
-            list.clear();
-            a.remove(pageId);
         }
+        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_F5F5F51", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F52", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F53", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
+        b.put("color_858585", new String[]{"#858585", "", "", ""});
+        b.put("color_525252", new String[]{"#525252", "", "", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
+        b.put("color_8585852", new String[]{"#858585", "", "", ""});
+        b.put("color_5252522", new String[]{"#525252", "", "", ""});
+        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
+        b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
+    }
+
+    @Override // com.repackage.ra0
+    public int a(Context context, boolean z, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
+            if (b.containsKey(str)) {
+                String str2 = b.get(str)[0];
+                if (z) {
+                    str2 = b.get(str)[3];
+                }
+                if (ka0.a(str2)) {
+                    return -16777216;
+                }
+                try {
+                    return Color.parseColor(str2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return -16777216;
+                }
+            }
+            return -16777216;
+        }
+        return invokeCommon.intValue;
     }
 }

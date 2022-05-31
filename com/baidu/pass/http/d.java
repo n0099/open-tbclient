@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.net.HttpCookie;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -118,7 +119,7 @@ public class d {
                     return;
                 }
                 String str3 = "";
-                String[] split = TextUtils.isEmpty(cookie) ? null : cookie.split(";");
+                String[] split = TextUtils.isEmpty(cookie) ? null : cookie.split(ParamableElem.DIVIDE_PARAM);
                 if (split != null && split.length > 0) {
                     for (String str4 : split) {
                         if (!TextUtils.isEmpty(str4)) {
@@ -132,7 +133,7 @@ public class d {
                                     }
                                 }
                                 if (!httpCookie.hasExpired()) {
-                                    str3 = str3 + httpCookie.getName() + "=" + httpCookie.getValue() + ";";
+                                    str3 = str3 + httpCookie.getName() + "=" + httpCookie.getValue() + ParamableElem.DIVIDE_PARAM;
                                 }
                                 String str5 = a;
                                 StringBuilder sb4 = new StringBuilder();
@@ -148,7 +149,7 @@ public class d {
                 if (list != null) {
                     for (HttpCookie httpCookie3 : list) {
                         if (a(passHttpParamDTO.url, httpCookie3)) {
-                            str3 = str3 + httpCookie3.getName() + "=" + httpCookie3.getValue() + ";";
+                            str3 = str3 + httpCookie3.getName() + "=" + httpCookie3.getValue() + ParamableElem.DIVIDE_PARAM;
                         }
                     }
                 }

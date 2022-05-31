@@ -1,13 +1,20 @@
 package com.repackage;
 
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import android.webkit.WebView;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes6.dex */
 public interface nw8 {
-    void displayLoading(boolean z);
+    void a(boolean z);
 
-    void displayNoDataView(boolean z);
+    boolean b(WebView webView, String str);
 
-    void setPresenter(mw8 mw8Var);
+    void c(NewWriteModel.e eVar);
 
-    void showCloudMusicWithTagData(CloudMusicData cloudMusicData);
+    void d();
+
+    void e(boolean z, String str);
+
+    void onDestroy();
+
+    void onPageFinished(WebView webView, String str);
 }

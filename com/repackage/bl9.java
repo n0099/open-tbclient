@@ -1,40 +1,38 @@
 package com.repackage;
 
+import android.util.Log;
+import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import java.util.concurrent.atomic.AtomicReference;
+import com.xiaomi.mipush.sdk.MiPushClient;
 /* loaded from: classes5.dex */
-public class bl9 implements ArCoreApk.a {
+public class bl9 implements ViewTreeObserver.OnTouchModeChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicReference a;
 
-    public bl9(AtomicReference atomicReference) {
+    public bl9(ml9 ml9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {atomicReference};
+            Object[] objArr = {ml9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = atomicReference;
     }
 
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
+    @Override // android.view.ViewTreeObserver.OnTouchModeChangeListener
+    public void onTouchModeChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            this.a.set(availability);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            Log.e(MiPushClient.COMMAND_REGISTER, "onTouchModeChanged:" + z);
         }
     }
 }

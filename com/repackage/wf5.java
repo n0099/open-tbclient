@@ -1,145 +1,83 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TimerTask;
 /* loaded from: classes7.dex */
-public class wf5 extends BitmapDrawable {
+public final class wf5 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Context b;
-    public Rect c;
-    public String d;
-    public Matrix e;
-    public int f;
-    public int g;
-    public float h;
-    public float i;
+    public float a;
+    public final float b;
+    public final WheelView c;
 
-    public wf5(Context context, int i) {
+    public wf5(WheelView wheelView, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {wheelView, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0.9f;
-        this.i = 0.75f;
-        this.b = context;
-        this.a = i;
-        this.d = String.valueOf(i);
+        this.c = wheelView;
+        this.b = f;
+        this.a = 2.1474836E9f;
     }
 
-    @Override // android.graphics.drawable.BitmapDrawable, android.graphics.drawable.Drawable
-    public void draw(Canvas canvas) {
-        String str;
-        String str2;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.a <= 0 || this.b == null) {
-            return;
-        }
-        Paint paint = new Paint();
-        ColorMatrix colorMatrix = new ColorMatrix();
-        y35 k = y35.k();
-        co m = (k == null || (str2 = this.d) == null) ? null : k.m(str2);
-        if (m == null) {
-            Bitmap resBitmap = BitmapHelper.getResBitmap(this.b, this.a);
-            if (resBitmap != null) {
-                m = new co(resBitmap, false, (String) null);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == 2.1474836E9f) {
+                if (Math.abs(this.b) > 2000.0f) {
+                    this.a = this.b <= 0.0f ? -2000.0f : 2000.0f;
+                } else {
+                    this.a = this.b;
+                }
             }
-            if (k != null && m != null && (str = this.d) != null) {
-                k.d(str, m);
-            }
-        }
-        if (m != null) {
-            int r = m.r();
-            int m2 = m.m();
-            if (r <= 0 || m2 <= 0 || this.c == null) {
+            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
+                this.c.b();
+                this.c.getHandler().sendEmptyMessage(2000);
                 return;
             }
-            canvas.save();
-            canvas.clipRect(super.getBounds());
-            if (m2 <= 0 && r <= 0 && this.f == 0 && this.g == 0) {
-                m.e(canvas, 0.0f, 0.0f, null);
-            } else {
-                if (this.e == null) {
-                    Matrix matrix = new Matrix();
-                    this.e = matrix;
-                    matrix.postTranslate(this.f, this.g);
-                    Rect rect = this.c;
-                    float f = (rect.right - rect.left) / r;
-                    float f2 = (rect.bottom - rect.top) / m2;
-                    if (f >= f2) {
-                        f = f2;
-                    }
-                    if (f < 1.0f) {
-                        this.e.postScale(f, f);
-                    }
+            WheelView wheelView = this.c;
+            float f = (int) (this.a / 100.0f);
+            wheelView.setTotalScrollY(wheelView.getTotalScrollY() - f);
+            if (!this.c.i()) {
+                float itemHeight = this.c.getItemHeight();
+                float f2 = (-this.c.getInitPosition()) * itemHeight;
+                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
+                double d = itemHeight * 0.25d;
+                if (this.c.getTotalScrollY() - d < f2) {
+                    f2 = this.c.getTotalScrollY() + f;
+                } else if (this.c.getTotalScrollY() + d > itemsCount) {
+                    itemsCount = this.c.getTotalScrollY() + f;
                 }
-                if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    float f3 = this.i;
-                    colorMatrix.setScale(f3, f3, f3, 1.0f);
-                    paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-                    m.f(canvas, this.e, paint);
-                } else if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    float f4 = this.h;
-                    colorMatrix.setScale(f4, f4, f4, 1.0f);
-                    paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-                    m.f(canvas, this.e, paint);
-                } else {
-                    m.f(canvas, this.e, null);
+                if (this.c.getTotalScrollY() <= f2) {
+                    this.a = 40.0f;
+                    this.c.setTotalScrollY((int) f2);
+                } else if (this.c.getTotalScrollY() >= itemsCount) {
+                    this.c.setTotalScrollY((int) itemsCount);
+                    this.a = -40.0f;
                 }
             }
-            canvas.restore();
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
-            this.c = new Rect(i, i2, i3, i4);
-            this.e = null;
-            super.setBounds(i, i2, i3, i4);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setBounds(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect) == null) {
-            this.c = new Rect(rect);
-            this.e = null;
-            super.setBounds(rect);
+            float f3 = this.a;
+            if (f3 < 0.0f) {
+                this.a = f3 + 20.0f;
+            } else {
+                this.a = f3 - 20.0f;
+            }
+            this.c.getHandler().sendEmptyMessage(1000);
         }
     }
 }

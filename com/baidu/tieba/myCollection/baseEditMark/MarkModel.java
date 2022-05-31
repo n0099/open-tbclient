@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.lh8;
-import com.repackage.rm7;
-import com.repackage.tm7;
-import com.repackage.xl4;
-import com.repackage.xt4;
+import com.repackage.bk7;
+import com.repackage.kk4;
+import com.repackage.me8;
+import com.repackage.ns4;
+import com.repackage.zj7;
 /* loaded from: classes3.dex */
 public class MarkModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public xl4.a d;
+    public kk4.a d;
 
     /* loaded from: classes3.dex */
     public class a extends BdAsyncTask<Boolean, Integer, Boolean> {
@@ -39,7 +39,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public tm7 c;
+        public bk7 c;
         public final /* synthetic */ MarkModel d;
 
         public a(MarkModel markModel, boolean z) {
@@ -62,7 +62,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new tm7();
+            this.c = new bk7();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -74,9 +74,9 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, boolArr)) == null) {
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    rm7 rm7Var = new rm7();
-                    rm7Var.j(this.d.b);
-                    this.a.addPostData("data", rm7Var.E(0, 1));
+                    zj7 zj7Var = new zj7();
+                    zj7Var.j(this.d.b);
+                    this.a.addPostData("data", zj7Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;
@@ -121,14 +121,14 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 try {
                     if (this.c != null) {
-                        xt4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
+                        ns4.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
                     }
                     if (bool.booleanValue()) {
                         if (this.d.d != null) {
                             this.d.d.a(true, this.b, null);
                             if (TbadkCoreApplication.isLogin() && TbSingleton.getInstance().showStampMissionDialog && UbsABTestHelper.isStampMissionDialogABTestB()) {
-                                lh8.r().A(0, 3);
-                                lh8.r().G();
+                                me8.r().A(0, 3);
+                                me8.r().G();
                             }
                         }
                     } else if (this.d.d != null) {
@@ -238,7 +238,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void I(xl4.a aVar) {
+    public void I(kk4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
             this.d = aVar;

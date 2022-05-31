@@ -20,13 +20,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.tw8;
+import com.repackage.vt8;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class CloudMusicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tw8<CloudMusicData.MusicTagList> a;
+    public vt8<CloudMusicData.MusicTagList> a;
     public int b;
     public final HttpMessageListener c;
 
@@ -141,9 +141,9 @@ public class CloudMusicListModel extends BdBaseModel {
         return i;
     }
 
-    public void A(int i, tw8<CloudMusicData.MusicTagList> tw8Var) {
+    public void A(int i, vt8<CloudMusicData.MusicTagList> vt8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, tw8Var) == null) || tw8Var == null || i < 0) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, vt8Var) == null) || vt8Var == null || i < 0) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_LIST);
@@ -153,7 +153,7 @@ public class CloudMusicListModel extends BdBaseModel {
         httpMessage.addParam("rn", 10);
         httpMessage.addParam(TiebaStatic.Params.TAG_ID, i);
         sendMessage(httpMessage);
-        this.a = tw8Var;
+        this.a = vt8Var;
     }
 
     public final void B() {

@@ -16,6 +16,7 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.annotations.DoNotParseDetail;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -179,11 +180,11 @@ public class FileTypeBox extends AbstractBox {
             sb.append("FileTypeBox[");
             sb.append("majorBrand=");
             sb.append(getMajorBrand());
-            sb.append(";");
+            sb.append(ParamableElem.DIVIDE_PARAM);
             sb.append("minorVersion=");
             sb.append(getMinorVersion());
             for (String str : this.compatibleBrands) {
-                sb.append(";");
+                sb.append(ParamableElem.DIVIDE_PARAM);
                 sb.append("compatibleBrand=");
                 sb.append(str);
             }

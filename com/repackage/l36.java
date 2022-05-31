@@ -1,39 +1,76 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ApkDetail;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.ForumPopupInfo;
 /* loaded from: classes6.dex */
 public class l36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public long c;
+    public long d;
+    public List<String> e;
 
-    public static void a(a36 a36Var) {
-        ItemData itemData;
+    public l36() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, a36Var) == null) || a36Var == null || (itemData = a36Var.a) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public List<String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (List) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public void f(ForumPopupInfo forumPopupInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, forumPopupInfo) == null) || forumPopupInfo == null) {
             return;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
-        httpMessage.addParam("item_id", itemData.itemId);
-        httpMessage.addParam("app_name", itemData.mTitle);
-        httpMessage.addParam("source_type", a36Var.b);
-        httpMessage.addParam("icon_url", itemData.mIconUrl);
-        httpMessage.addParam("score", Double.valueOf(itemData.mScore));
-        httpMessage.addParam("tags", itemData.mTags);
-        httpMessage.addParam("apk_name", itemData.pkgName);
-        ApkDetail apkDetail = itemData.apkDetail;
-        if (apkDetail != null) {
-            httpMessage.addParam("developer", apkDetail.developer);
-            httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
-            httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
-            httpMessage.addParam("version", itemData.apkDetail.version);
-            httpMessage.addParam("version_code", itemData.apkDetail.version_code);
-        }
-        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        this.a = forumPopupInfo.forum_id.intValue();
+        this.c = forumPopupInfo.mem_count_static.intValue();
+        this.d = forumPopupInfo.thread_count_static.intValue();
+        this.e = forumPopupInfo.forum_names;
+        this.b = forumPopupInfo.forum_name;
     }
 }

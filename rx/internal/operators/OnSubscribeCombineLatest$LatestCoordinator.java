@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cy9;
-import com.repackage.dy9;
-import com.repackage.l0a;
-import com.repackage.qy9;
-import com.repackage.ry9;
-import com.repackage.uy9;
-import com.repackage.wx9;
-import com.repackage.yx9;
+import com.repackage.fx9;
+import com.repackage.kv9;
+import com.repackage.lv9;
+import com.repackage.ov9;
+import com.repackage.qu9;
+import com.repackage.su9;
+import com.repackage.wu9;
+import com.repackage.xu9;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Queue;
@@ -25,24 +25,24 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
 /* loaded from: classes8.dex */
-public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends AtomicInteger implements yx9, dy9 {
+public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends AtomicInteger implements su9, xu9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object MISSING;
     public static final long serialVersionUID = 8567835998786448817L;
     public transient /* synthetic */ FieldHolder $fh;
     public int active;
-    public final cy9<? super R> actual;
+    public final wu9<? super R> actual;
     public final int bufferSize;
     public volatile boolean cancelled;
-    public final qy9<? extends R> combiner;
+    public final kv9<? extends R> combiner;
     public int complete;
     public final boolean delayError;
     public volatile boolean done;
     public final AtomicReference<Throwable> error;
     public final Object[] latest;
-    public final l0a<Object> queue;
+    public final fx9<Object> queue;
     public final AtomicLong requested;
-    public final uy9<T, R>[] subscribers;
+    public final ov9<T, R>[] subscribers;
 
     static {
         InterceptResult invokeClinit;
@@ -60,12 +60,12 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         MISSING = new Object();
     }
 
-    public OnSubscribeCombineLatest$LatestCoordinator(cy9<? super R> cy9Var, qy9<? extends R> qy9Var, int i, int i2, boolean z) {
+    public OnSubscribeCombineLatest$LatestCoordinator(wu9<? super R> wu9Var, kv9<? extends R> kv9Var, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cy9Var, qy9Var, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {wu9Var, kv9Var, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -75,15 +75,15 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                 return;
             }
         }
-        this.actual = cy9Var;
-        this.combiner = qy9Var;
+        this.actual = wu9Var;
+        this.combiner = kv9Var;
         this.bufferSize = i2;
         this.delayError = z;
         Object[] objArr2 = new Object[i];
         this.latest = objArr2;
         Arrays.fill(objArr2, MISSING);
-        this.subscribers = new uy9[i];
-        this.queue = new l0a<>(i2);
+        this.subscribers = new ov9[i];
+        this.queue = new fx9<>(i2);
         this.requested = new AtomicLong();
         this.error = new AtomicReference<>();
     }
@@ -92,16 +92,16 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, queue) == null) {
             queue.clear();
-            for (uy9<T, R> uy9Var : this.subscribers) {
-                uy9Var.unsubscribe();
+            for (ov9<T, R> ov9Var : this.subscribers) {
+                ov9Var.unsubscribe();
             }
         }
     }
 
-    public boolean checkTerminated(boolean z, boolean z2, cy9<?> cy9Var, Queue<?> queue, boolean z3) {
+    public boolean checkTerminated(boolean z, boolean z2, wu9<?> wu9Var, Queue<?> queue, boolean z3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), cy9Var, queue, Boolean.valueOf(z3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), wu9Var, queue, Boolean.valueOf(z3)})) == null) {
             if (this.cancelled) {
                 cancel(queue);
                 return true;
@@ -110,9 +110,9 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                     if (z2) {
                         Throwable th = this.error.get();
                         if (th != null) {
-                            cy9Var.onError(th);
+                            wu9Var.onError(th);
                         } else {
-                            cy9Var.onCompleted();
+                            wu9Var.onCompleted();
                         }
                         return true;
                     }
@@ -121,10 +121,10 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                 Throwable th2 = this.error.get();
                 if (th2 != null) {
                     cancel(queue);
-                    cy9Var.onError(th2);
+                    wu9Var.onError(th2);
                     return true;
                 } else if (z2) {
-                    cy9Var.onCompleted();
+                    wu9Var.onCompleted();
                     return true;
                 } else {
                     return false;
@@ -140,7 +140,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, obj, i) == null) {
-            uy9<T, R> uy9Var = this.subscribers[i];
+            ov9<T, R> ov9Var = this.subscribers[i];
             synchronized (this) {
                 int length = this.latest.length;
                 Object obj2 = this.latest[i];
@@ -164,13 +164,13 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                 if (z2) {
                     this.done = true;
                 } else if (obj != null && z) {
-                    this.queue.l(uy9Var, this.latest.clone());
+                    this.queue.l(ov9Var, this.latest.clone());
                 } else if (obj == null && this.error.get() != null && (obj2 == MISSING || !this.delayError)) {
                     this.done = true;
                 }
             }
             if (!z && obj != null) {
-                uy9Var.g(1L);
+                ov9Var.g(1L);
             } else {
                 drain();
             }
@@ -182,12 +182,12 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         long j;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getAndIncrement() == 0) {
-            l0a<Object> l0aVar = this.queue;
-            cy9<? super R> cy9Var = this.actual;
+            fx9<Object> fx9Var = this.queue;
+            wu9<? super R> wu9Var = this.actual;
             boolean z = this.delayError;
             AtomicLong atomicLong = this.requested;
             int i = 1;
-            while (!checkTerminated(this.done, l0aVar.isEmpty(), cy9Var, l0aVar, z)) {
+            while (!checkTerminated(this.done, fx9Var.isEmpty(), wu9Var, fx9Var, z)) {
                 long j2 = atomicLong.get();
                 long j3 = 0;
                 while (true) {
@@ -196,37 +196,37 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                         break;
                     }
                     boolean z2 = this.done;
-                    uy9 uy9Var = (uy9) l0aVar.peek();
-                    boolean z3 = uy9Var == null;
+                    ov9 ov9Var = (ov9) fx9Var.peek();
+                    boolean z3 = ov9Var == null;
                     long j4 = j3;
-                    if (checkTerminated(z2, z3, cy9Var, l0aVar, z)) {
+                    if (checkTerminated(z2, z3, wu9Var, fx9Var, z)) {
                         return;
                     }
                     if (z3) {
                         j = j4;
                         break;
                     }
-                    l0aVar.poll();
-                    Object[] objArr = (Object[]) l0aVar.poll();
+                    fx9Var.poll();
+                    Object[] objArr = (Object[]) fx9Var.poll();
                     if (objArr == null) {
                         this.cancelled = true;
-                        cancel(l0aVar);
-                        cy9Var.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
+                        cancel(fx9Var);
+                        wu9Var.onError(new IllegalStateException("Broken queue?! Sender received but not the array."));
                         return;
                     }
                     try {
-                        cy9Var.onNext((R) this.combiner.call(objArr));
-                        uy9Var.g(1L);
+                        wu9Var.onNext((R) this.combiner.call(objArr));
+                        ov9Var.g(1L);
                         j3 = j4 + 1;
                     } catch (Throwable th) {
                         this.cancelled = true;
-                        cancel(l0aVar);
-                        cy9Var.onError(th);
+                        cancel(fx9Var);
+                        wu9Var.onError(th);
                         return;
                     }
                 }
                 if (j != 0 && j2 != Long.MAX_VALUE) {
-                    ry9.g(atomicLong, j);
+                    lv9.g(atomicLong, j);
                 }
                 i = addAndGet(-i);
                 if (i == 0) {
@@ -236,7 +236,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         }
     }
 
-    @Override // com.repackage.dy9
+    @Override // com.repackage.xu9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -264,7 +264,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         }
     }
 
-    @Override // com.repackage.yx9
+    @Override // com.repackage.su9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
@@ -272,30 +272,30 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
             if (i < 0) {
                 throw new IllegalArgumentException("n >= required but it was " + j);
             } else if (i != 0) {
-                ry9.b(this.requested, j);
+                lv9.b(this.requested, j);
                 drain();
             }
         }
     }
 
-    public void subscribe(wx9<? extends T>[] wx9VarArr) {
+    public void subscribe(qu9<? extends T>[] qu9VarArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, wx9VarArr) == null) {
-            uy9<T, R>[] uy9VarArr = this.subscribers;
-            int length = uy9VarArr.length;
+        if (interceptable == null || interceptable.invokeL(1048583, this, qu9VarArr) == null) {
+            ov9<T, R>[] ov9VarArr = this.subscribers;
+            int length = ov9VarArr.length;
             for (int i = 0; i < length; i++) {
-                uy9VarArr[i] = new uy9<>(this, i);
+                ov9VarArr[i] = new ov9<>(this, i);
             }
             lazySet(0);
             this.actual.b(this);
             this.actual.f(this);
             for (int i2 = 0; i2 < length && !this.cancelled; i2++) {
-                wx9VarArr[i2].u(uy9VarArr[i2]);
+                qu9VarArr[i2].u(ov9VarArr[i2]);
             }
         }
     }
 
-    @Override // com.repackage.dy9
+    @Override // com.repackage.xu9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.cancelled) {

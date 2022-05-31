@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cf6;
-import com.repackage.ef6;
+import com.repackage.td6;
+import com.repackage.vd6;
 /* loaded from: classes3.dex */
 public class AchievementActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cf6 inviteLetter;
+    public td6 inviteLetter;
     public View.OnClickListener onShareClickListener;
-    public ef6 thanksLetter;
+    public vd6 thanksLetter;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -103,13 +103,13 @@ public class AchievementActivity extends BaseActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0027);
-            ef6 ef6Var = new ef6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911fe));
-            this.thanksLetter = ef6Var;
-            ef6Var.h(true);
+            vd6 vd6Var = new vd6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911c0));
+            this.thanksLetter = vd6Var;
+            vd6Var.h(true);
             this.thanksLetter.j(this.onShareClickListener);
-            cf6 cf6Var = new cf6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911e8));
-            this.inviteLetter = cf6Var;
-            cf6Var.h(false);
+            td6 td6Var = new td6(getPageContext(), findViewById(R.id.obfuscated_res_0x7f0911aa));
+            this.inviteLetter = td6Var;
+            td6Var.h(false);
         }
     }
 }

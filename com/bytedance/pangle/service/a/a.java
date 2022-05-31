@@ -30,19 +30,19 @@ public class a extends d.a {
     public final Handler a;
     public final HashMap<ComponentName, IBinder> c;
     public final HashMap<ComponentName, b> d;
-    public final C0261a<Intent> e;
+    public final C0262a<Intent> e;
     public final HashMap<ComponentName, com.bytedance.pangle.service.a> f;
     public final HashSet<ComponentName> g;
     public final HashSet<ComponentName> h;
 
     /* renamed from: com.bytedance.pangle.service.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C0261a<T> extends HashMap<f, T> {
+    public class C0262a<T> extends HashMap<f, T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0261a(a aVar) {
+        public C0262a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -212,7 +212,7 @@ public class a extends d.a {
         }
         this.c = new HashMap<>();
         this.d = new HashMap<>();
-        this.e = new C0261a<>(this);
+        this.e = new C0262a<>(this);
         this.f = new HashMap<>();
         this.g = new HashSet<>();
         this.h = new HashSet<>();
@@ -279,7 +279,7 @@ public class a extends d.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, intent, str)) == null) {
             ComponentName component = intent.getComponent();
-            Plugin plugin2 = PluginManager.getInstance().getPlugin(str);
+            Plugin plugin = PluginManager.getInstance().getPlugin(str);
             try {
                 z = Zeus.loadPlugin(str);
             } catch (Exception e) {
@@ -287,8 +287,8 @@ public class a extends d.a {
                 z = false;
             }
             try {
-                com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) plugin2.mClassLoader.loadClass(component.getClassName()).newInstance();
-                aVar.attach(plugin2);
+                com.bytedance.pangle.service.a aVar = (com.bytedance.pangle.service.a) plugin.mClassLoader.loadClass(component.getClassName()).newInstance();
+                aVar.attach(plugin);
                 return aVar;
             } catch (Exception e2) {
                 e = e2;

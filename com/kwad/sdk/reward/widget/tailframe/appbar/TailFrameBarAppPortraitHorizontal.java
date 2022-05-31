@@ -146,26 +146,26 @@ public class TailFrameBarAppPortraitHorizontal extends LinearLayout {
     }
 
     private void a(LinearLayout linearLayout, String str) {
-        TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0451, (ViewGroup) linearLayout, false);
+        TextView textView = (TextView) LayoutInflater.from(linearLayout.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0447, (ViewGroup) linearLayout, false);
         textView.setText(str);
         this.h.addView(textView);
     }
 
     private void c() {
-        this.m = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d046e, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09103f);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091041);
-        this.c = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091042);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09103e);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091040);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091072);
+        this.m = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0464, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091001);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091003);
+        this.c = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091004);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091000);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091002);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091034);
         this.f = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.a.kwai.a.a(getContext(), 16.0f));
         this.f.setTextColor(-1);
-        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0910f6);
-        this.j = (Button) findViewById(R.id.obfuscated_res_0x7f0910f0);
-        this.k = (Button) findViewById(R.id.obfuscated_res_0x7f0910f2);
-        this.i = findViewById(R.id.obfuscated_res_0x7f0910f1);
+        this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0910b5);
+        this.j = (Button) findViewById(R.id.obfuscated_res_0x7f0910af);
+        this.k = (Button) findViewById(R.id.obfuscated_res_0x7f0910b1);
+        this.i = findViewById(R.id.obfuscated_res_0x7f0910b0);
     }
 
     private void d() {

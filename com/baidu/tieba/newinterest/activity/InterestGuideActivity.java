@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aq7;
-import com.repackage.iu4;
+import com.repackage.jn7;
+import com.repackage.ys4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
@@ -23,7 +23,7 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<Integer> mClassIds;
     public String[] mCustomTitle;
-    public aq7 mGuideView;
+    public jn7 mGuideView;
     public boolean mOnlyShowInterestedForum;
     public int mScene;
 
@@ -56,14 +56,14 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
-            String q = iu4.k().q("key_interest_guide_show", "");
+            String q = ys4.k().q("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(q);
             sb.append(StringUtils.isNull(q) ? "" : ",");
             String sb2 = sb.toString();
-            iu4 k = iu4.k();
+            ys4 k = ys4.k();
             k.y("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            iu4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
+            ys4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 
@@ -96,9 +96,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             initData();
-            aq7 aq7Var = new aq7(this, this.mScene, this.mOnlyShowInterestedForum, this.mClassIds, this.mCustomTitle);
-            this.mGuideView = aq7Var;
-            setContentView(aq7Var.d());
+            jn7 jn7Var = new jn7(this, this.mScene, this.mOnlyShowInterestedForum, this.mClassIds, this.mCustomTitle);
+            this.mGuideView = jn7Var;
+            setContentView(jn7Var.d());
             setInterestGuideConf();
         }
     }

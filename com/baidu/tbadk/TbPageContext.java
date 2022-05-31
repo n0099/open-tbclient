@@ -11,14 +11,14 @@ import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.repackage.b9;
-import com.repackage.dn4;
+import com.repackage.sl4;
 import com.repackage.wa;
 /* loaded from: classes2.dex */
 public interface TbPageContext<T> extends b9<T> {
     @Override // com.repackage.b9
     /* synthetic */ Context getContext();
 
-    dn4 getLayoutMode();
+    sl4 getLayoutMode();
 
     @Override // com.repackage.b9
     /* synthetic */ T getOrignalPage();

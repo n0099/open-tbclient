@@ -1,71 +1,40 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.provider.FontsContractCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebChromeClient;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class qk0 {
+public class qk0 implements na1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        double d;
+    public qk0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, str4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            uy0.f(jSONObject, "downStatus", str);
-            try {
-                d = Double.parseDouble(str2) * 100.0d;
-            } catch (Exception unused) {
-                d = 0.0d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            uy0.e(jSONObject, "process", Math.round(d));
-            uy0.f(jSONObject, "uri", str3);
-            uy0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str4);
-            return jSONObject.toString();
         }
-        return (String) invokeLLLL.objValue;
     }
 
-    public static void b(@Nullable ci0 ci0Var, boolean z, @Nullable Map<String, String> map) {
+    @Override // com.repackage.na1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{ci0Var, Boolean.valueOf(z), map}) == null) || ci0Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new qf0());
+            arrayList.add(new vr0());
+            return arrayList;
         }
-        if (map == null) {
-            map = new HashMap<>();
-        }
-        vy0.e(map, "status", z ? "0" : "202");
-        vy0.e(map, "message", z ? "调用成功" : "");
-        ci0Var.a(z, map);
-    }
-
-    public static void c(@Nullable ci0 ci0Var, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65538, null, ci0Var, str, str2, str3, str4) == null) || ci0Var == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, str);
-        JSONObject jSONObject = new JSONObject();
-        uy0.f(jSONObject, "uri", str2);
-        uy0.f(jSONObject, FontsContractCompat.Columns.FILE_ID, str3);
-        uy0.f(jSONObject, "downStatus", str4);
-        hashMap.put("data", jSONObject.toString());
-        b(ci0Var, true, hashMap);
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) ? "" : uy0.c(str).optString("bt_info") : (String) invokeL.objValue;
+        return invokeV.objValue;
     }
 }

@@ -1,49 +1,36 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 /* loaded from: classes6.dex */
-public class g50 {
+public class g50 implements i50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
+    public g50() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLI(65536, null, inputStream, outputStream, i) != null) {
-            return;
-        }
-        byte[] bArr = new byte[i];
-        while (true) {
-            int read = inputStream.read(bArr);
-            if (read <= 0) {
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            outputStream.write(bArr, 0, read);
         }
     }
 
-    public static String b(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
+    @Override // com.repackage.i50
+    public HttpURLConnection a(URL url) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) != null) {
-            return (String) invokeLL.objValue;
-        }
-        CharArrayWriter charArrayWriter = new CharArrayWriter();
-        InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-        char[] cArr = new char[8192];
-        while (true) {
-            int read = inputStreamReader.read(cArr);
-            if (read > 0) {
-                charArrayWriter.write(cArr, 0, read);
-            } else {
-                return charArrayWriter.toString();
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) ? (HttpURLConnection) url.openConnection() : (HttpURLConnection) invokeL.objValue;
     }
 }

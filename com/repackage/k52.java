@@ -1,326 +1,178 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiWebView;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import com.repackage.m52;
-import com.repackage.p52;
+import dalvik.system.DexFile;
+import dalvik.system.PathClassLoader;
 import java.io.File;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+@SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
 /* loaded from: classes6.dex */
-public class k52 extends i52 implements d52 {
+public class k52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a52 b;
-    public x42 c;
-    public File d;
-    public b e;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ k52 d;
-
-        public a(k52 k52Var, String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k52Var, str, Integer.valueOf(i), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = k52Var;
-            this.a = str;
-            this.b = i;
-            this.c = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.e.onError(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onError(String str, int i, String str2);
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements m52.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public x42 a;
-        public String b;
-
-        /* loaded from: classes6.dex */
-        public class a implements y42 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ File a;
-
-            public a(c cVar, File file) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, file};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = file;
-            }
-
-            @Override // com.repackage.y42
-            public void a() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    xg4.L(this.a);
-                }
-            }
-        }
-
-        public c(k52 k52Var, x42 x42Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k52Var, x42Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x42Var;
-            this.b = str;
-        }
-
-        @Override // com.repackage.m52.a
-        public void a(File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
-                try {
-                    this.a.a(this.b, file, new a(this, file));
-                } catch (Exception e) {
-                    if (d52.a) {
-                        Log.d("HybridIntercept", Log.getStackTraceString(e));
-                    }
-                }
-            }
-        }
-
-        @Override // com.repackage.m52.a
-        public void b(File file) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && d52.a) {
-                Log.e("HybridIntercept", "writer file fail, file = " + file);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k52(@NonNull Context context, x42 x42Var) {
-        super(context, x42Var);
+    public static void a(Context context, String str) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, x42Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (x42) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            Object e = e((PathClassLoader) context.getClassLoader());
+            Field declaredField = e.getClass().getDeclaredField("nativeLibraryDirectories");
+            declaredField.setAccessible(true);
+            File[] fileArr = (File[]) declaredField.get(e);
+            Object newInstance = Array.newInstance(File.class, fileArr.length + 1);
+            Array.set(newInstance, 0, new File(str));
+            for (int i = 1; i < fileArr.length + 1; i++) {
+                Array.set(newInstance, i, fileArr[i - 1]);
             }
-        }
-        this.b = z42.a().f();
-        this.d = new File(z42.a().b(), "image_temp");
-        this.c = x42Var;
-        if (x42Var == null) {
-            h(context);
+            declaredField.set(e, newInstance);
         }
     }
 
-    @Override // com.repackage.p52
-    public WebResourceResponse a(@NonNull p52.a aVar) {
-        InterceptResult invokeL;
-        int i;
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static void b(Context context, String str) throws IllegalAccessException, NoSuchFieldException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            String d = aVar.d();
-            if (!i(aVar)) {
-                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
-            }
-            String f = f(d);
-            InputStream inputStream = null;
-            x42 x42Var = this.c;
-            if (x42Var != null && !x42Var.isClosed()) {
-                inputStream = this.c.get(f);
-            }
-            if (inputStream != null) {
-                if (d52.a) {
-                    Log.d("HybridIntercept", "adopt cached image, url = " + f);
-                }
-                return new WebResourceResponse(aVar.getMimeType(), "UTF-8", inputStream);
-            }
-            j52 a2 = n52.a(f, g(aVar));
-            if (a2 != null && (i = a2.a) >= 400 && this.e != null) {
-                d(f, i, a2.b);
-            }
-            WebResourceResponse c2 = c(a2);
-            if (c2 != null && c2.getData() != null) {
-                c2.setData(new o52(c2.getData(), new m52(new File(this.d, z42.a().d().a(f)), new c(this, this.c, f))));
-            }
-            if (d52.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("download image, response = ");
-                sb.append(c2 != null);
-                sb.append(" ; url = ");
-                sb.append(f);
-                Log.e("HybridIntercept", sb.toString());
-            }
-            return c2;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) || Build.VERSION.SDK_INT < 21) {
+            return;
         }
-        return (WebResourceResponse) invokeL.objValue;
+        Object e = e((PathClassLoader) context.getClassLoader());
+        Field declaredField = e.getClass().getDeclaredField("systemNativeLibraryDirectories");
+        declaredField.setAccessible(true);
+        List list = (List) declaredField.get(e);
+        list.add(new File(str));
+        declaredField.set(e, list);
+        Field declaredField2 = e.getClass().getDeclaredField("nativeLibraryDirectories");
+        declaredField2.setAccessible(true);
+        ArrayList arrayList = (ArrayList) declaredField2.get(e);
+        arrayList.add(new File(str));
+        declaredField2.set(e, arrayList);
+        Class<?> cls = Class.forName("dalvik.system.DexPathList$Element");
+        Constructor<?> constructor = cls.getConstructor(File.class, Boolean.TYPE, File.class, DexFile.class);
+        Field declaredField3 = e.getClass().getDeclaredField("nativeLibraryPathElements");
+        declaredField3.setAccessible(true);
+        Object[] objArr = (Object[]) declaredField3.get(e);
+        Object newInstance = Array.newInstance(cls, objArr.length + 1);
+        if (constructor != null) {
+            try {
+                Array.set(newInstance, 0, constructor.newInstance(new File(str), Boolean.TRUE, null, null));
+                for (int i = 1; i < objArr.length + 1; i++) {
+                    Array.set(newInstance, i, objArr[i - 1]);
+                }
+                declaredField3.set(e, newInstance);
+            } catch (IllegalArgumentException unused) {
+                Method declaredMethod = e.getClass().getDeclaredMethod("makePathElements", List.class);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(null, arrayList);
+                Field declaredField4 = e.getClass().getDeclaredField("nativeLibraryPathElements");
+                declaredField4.setAccessible(true);
+                declaredField4.set(e, invoke);
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+            }
+        }
     }
 
-    public final WebResourceResponse c(j52 j52Var) {
+    public static void c(Context context, String str) throws NoSuchFieldException, IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            PathClassLoader pathClassLoader = (PathClassLoader) context.getClassLoader();
+            Field declaredField = pathClassLoader.getClass().getDeclaredField("mLibPaths");
+            declaredField.setAccessible(true);
+            String[] strArr = (String[]) declaredField.get(pathClassLoader);
+            Object newInstance = Array.newInstance(String.class, strArr.length + 1);
+            Array.set(newInstance, 0, str);
+            for (int i = 1; i < strArr.length + 1; i++) {
+                Array.set(newInstance, i, strArr[i - 1]);
+            }
+            declaredField.set(pathClassLoader, newInstance);
+        }
+    }
+
+    public static Object d(Object obj, Class cls, String str) throws NoSuchFieldException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, cls, str)) == null) {
+            Field declaredField = cls.getDeclaredField(str);
+            declaredField.setAccessible(true);
+            return declaredField.get(obj);
+        }
+        return invokeLLL.objValue;
+    }
+
+    public static Object e(Object obj) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j52Var)) == null) {
-            if (j52Var == null) {
-                return null;
-            }
-            String str = j52Var.e;
-            if (str != null && str.toLowerCase().contains("html")) {
-                j52Var.e = SapiWebView.DATA_MIME_TYPE;
-                j52Var.d = "UTF-8";
-            }
-            if (bd3.f()) {
-                return new WebResourceResponse(j52Var.e, j52Var.d, j52Var.a, j52Var.b, j52Var.c, j52Var.f);
-            }
-            return new WebResourceResponse(j52Var.e, "UTF-8", j52Var.f);
-        }
-        return (WebResourceResponse) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) ? d(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList") : invokeL.objValue;
     }
 
-    public final void d(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) {
-            oe3.q().post(new a(this, str, i, str2));
-        }
-    }
-
-    public String e() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "image" : (String) invokeV.objValue;
-    }
-
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            try {
+                Class.forName("dalvik.system.BaseDexClassLoader");
+                return true;
+            } catch (ClassNotFoundException unused) {
+                return false;
             }
-            if (str.startsWith("intercept") && str.length() > 9) {
-                str = str.substring(9);
-            }
-            if (d52.a) {
-                Log.d("HybridIntercept", "remote request url = " + str);
-            }
-            return str;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public Map<String, String> g(@NonNull p52.a aVar) {
-        InterceptResult invokeL;
+    public static void g(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
-            Map<String, String> requestHeaders = aVar.getRequestHeaders();
-            if (requestHeaders == null) {
-                requestHeaders = new HashMap<>();
-            }
-            String f = q93.l().f(f(aVar.d()), requestHeaders.get("Cookie"));
-            if (!TextUtils.isEmpty(f)) {
-                requestHeaders.put("Cookie", f);
-                if (d52.a) {
-                    Log.d("HybridIntercept", "addCookiesToHeader cookie: " + f);
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
+            if (f()) {
+                try {
+                    try {
+                        a(context, str);
+                        return;
+                    } catch (Exception unused) {
+                        b(context, str);
+                        return;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
                 }
             }
-            return requestHeaders;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final void h(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            File b2 = z42.a().b();
-            String e = e();
-            if (!TextUtils.isEmpty(e)) {
-                b2 = new File(b2, e);
+            try {
+                c(context, str);
+            } catch (Exception unused2) {
             }
-            if (d52.a) {
-                Log.d("HybridIntercept", "init default disk cache provider, path = " + b2);
-            }
-            xg4.l(b2);
-            this.c = bk2.U().b(context, b2, z42.a().g());
         }
     }
 
-    public boolean i(@NonNull p52.a aVar) {
-        InterceptResult invokeL;
-        Map<String, String> requestHeaders;
-        String str;
+    public static boolean h(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
-            if (aVar.c()) {
-                return this.b.a(aVar) && (requestHeaders = aVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, str, str2, z)) == null) {
+            if (!z) {
+                try {
+                    System.loadLibrary(str);
+                    return true;
+                } catch (Throwable unused) {
+                }
             }
-            return true;
+            try {
+                System.load(str2 + File.separator + "lib" + str + ".so");
+                return true;
+            } catch (Throwable unused2) {
+                return false;
+            }
         }
-        return invokeL.booleanValue;
+        return invokeLLZ.booleanValue;
     }
 }

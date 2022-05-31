@@ -24,11 +24,11 @@ import com.faceunity.FaceUnityUtils;
 import com.faceunity.gles.FullFrameRect;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.wrapper.faceunity;
-import com.repackage.fs8;
-import com.repackage.ls8;
-import com.repackage.ng;
-import com.repackage.tl7;
-import com.repackage.zl7;
+import com.repackage.bj7;
+import com.repackage.hj7;
+import com.repackage.hp8;
+import com.repackage.mg;
+import com.repackage.np8;
 import java.util.ArrayList;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
@@ -40,7 +40,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public e b;
     public int c;
     public int d;
-    public zl7 e;
+    public hj7 e;
     public MediaPlayer.OnVideoSizeChangedListener f;
     public MediaPlayer.OnPreparedListener g;
     public MediaPlayer.OnPreparedListener h;
@@ -243,7 +243,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, bitmap, z) == null) || this.a.j == null) {
                 return;
             }
-            ng.a().post(new a(this, bitmap, z));
+            mg.a().post(new a(this, bitmap, z));
         }
     }
 
@@ -300,8 +300,8 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ArrayList<fs8.a> f = fs8.f(this.a);
-                    byte[] e = fs8.e(this.a);
+                    ArrayList<hp8.a> f = hp8.f(this.a);
+                    byte[] e = hp8.e(this.a);
                     for (int i = 0; i < 3; i++) {
                         int length = e.length;
                         byte[] bArr = new byte[length];
@@ -312,8 +312,8 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                         int width = this.a.getWidth();
                         int height = this.a.getHeight();
                         faceunity.fuRenderToNV21Image(bArr, width, height, 0, this.b.n, 0);
-                        Bitmap b = fs8.b(bArr, width, height);
-                        boolean a = fs8.a(b, f);
+                        Bitmap b = hp8.b(bArr, width, height);
+                        boolean a = hp8.a(b, f);
                         if (a) {
                             this.b.r.k.onGenMaskCoverFinish(b, true);
                             this.a.recycle();
@@ -440,12 +440,12 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             }
         }
 
-        public void n(ls8 ls8Var) {
+        public void n(np8 np8Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, ls8Var) == null) || ls8Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, np8Var) == null) || np8Var == null) {
                 return;
             }
-            this.o = ls8Var.c;
+            this.o = np8Var.c;
             this.b.requestRender();
         }
 
@@ -732,13 +732,13 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         }
     }
 
-    public void setFilter(ls8 ls8Var) {
+    public void setFilter(np8 np8Var) {
         e eVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, ls8Var) == null) || (eVar = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, np8Var) == null) || (eVar = this.b) == null) {
             return;
         }
-        eVar.n(ls8Var);
+        eVar.n(np8Var);
     }
 
     public void setGenMaskCoverListener(f fVar) {
@@ -763,10 +763,10 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
         }
     }
 
-    public void setPostMonitorManager(zl7 zl7Var) {
+    public void setPostMonitorManager(hj7 hj7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, zl7Var) == null) {
-            this.e = zl7Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, hj7Var) == null) {
+            this.e = hj7Var;
         }
     }
 
@@ -778,9 +778,9 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
                 this.a.prepare();
             } catch (Exception e2) {
                 e2.printStackTrace();
-                zl7 zl7Var = this.e;
-                if (zl7Var != null) {
-                    zl7Var.a(204, tl7.a(e2));
+                hj7 hj7Var = this.e;
+                if (hj7Var != null) {
+                    hj7Var.a(204, bj7.a(e2));
                 }
             }
         }
@@ -804,9 +804,9 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
             mediaPlayer.stop();
             this.a.release();
         } catch (Throwable th) {
-            zl7 zl7Var = this.e;
-            if (zl7Var != null) {
-                zl7Var.a(205, tl7.a(th));
+            hj7 hj7Var = this.e;
+            if (hj7Var != null) {
+                hj7Var.a(205, bj7.a(th));
             }
         }
         this.a = null;
@@ -826,7 +826,7 @@ public class MaskVideoView extends GLSurfaceView implements MediaController.Medi
     public final void w(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
-            ng.a().postDelayed(new c(this, i), 500L);
+            mg.a().postDelayed(new c(this, i), 500L);
         }
     }
 

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o58;
+import com.repackage.v28;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
@@ -14,7 +14,7 @@ import tbclient.GetRecommendGodList.GetRecommendGodListResIdl;
 public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o58 recommendGodData;
+    public v28 recommendGodData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendGodSocketResponseMessage() {
@@ -50,8 +50,8 @@ public class RecommendGodSocketResponseMessage extends SocketResponsedMessage {
             }
             setErrorString(getRecommendGodListResIdl.error.usermsg);
         }
-        o58 o58Var = new o58();
-        this.recommendGodData = o58Var;
-        o58Var.b(getRecommendGodListResIdl.data);
+        v28 v28Var = new v28();
+        this.recommendGodData = v28Var;
+        v28Var.b(getRecommendGodListResIdl.data);
     }
 }

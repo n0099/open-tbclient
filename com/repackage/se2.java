@@ -1,105 +1,79 @@
 package com.repackage;
 
-import android.view.KeyEvent;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ue2;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class se2 extends pe2<ue2> {
+public class se2 extends bd2<sf2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ue2.f h;
 
-    /* loaded from: classes7.dex */
-    public class a implements ue2.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ se2 a;
-
-        public a(se2 se2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {se2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = se2Var;
-        }
-
-        @Override // com.repackage.ue2.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.onCallback(this.a, "onCustomKeyboardHide", null);
-        }
-
-        @Override // com.repackage.ue2.f
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.onCallback(this.a, "onCustomKeyboardShow", Integer.valueOf(i));
-        }
-
-        @Override // com.repackage.ue2.f
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.onCallback(this.a, "committext", str);
-        }
-
-        @Override // com.repackage.ue2.f
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a.b == null) {
-                return;
-            }
-            this.a.b.onCallback(this.a, "deletebutton", new KeyEvent(0, 67));
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public se2(@NonNull ue2 ue2Var) {
-        super(ue2Var);
+    public se2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ue2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((re2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        a aVar = new a(this);
-        this.h = aVar;
-        ue2Var.D0(aVar);
-        this.a.a(new ze2());
-        this.a.a(new ve2());
-        this.a.a(new ye2());
-        this.a.a(new xe2());
-        this.a.a(new we2());
+    }
+
+    @Override // com.repackage.bd2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteAudioLevels" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.bd2
+    public void c(@NonNull ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            command.obj = new JSONObject();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bd2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull sf2 sf2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, sf2Var) == null) {
+            ArrayList<uf2> v = sf2Var.v();
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            if (v != null) {
+                Iterator<uf2> it = v.iterator();
+                while (it.hasNext()) {
+                    uf2 next = it.next();
+                    JSONObject a = next == null ? null : next.a();
+                    if (a != null) {
+                        jSONArray.put(a);
+                    }
+                }
+            }
+            try {
+                jSONObject.put("audioLevels", jSONArray);
+            } catch (JSONException unused) {
+            }
+            command.obj = jSONObject;
+            String str = command.what;
+            d(sf2Var, str, "" + command.obj, true);
+        }
     }
 }

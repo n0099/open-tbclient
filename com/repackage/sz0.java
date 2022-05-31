@@ -1,23 +1,17 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public final class sz0 {
+public class sz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> T a(Class<T> cls) {
-        InterceptResult invokeL;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
-            try {
-                return cls.getConstructor(new Class[0]).newInstance(new Object[0]);
-            } catch (Exception e) {
-                throw new RuntimeException(cls + " can't init new instance by default constructor.", e);
-            }
-        }
-        return (T) invokeL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) ? (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || !str.contains(str3)) ? str : str.replace(str3, str2) : (String) invokeLLL.objValue;
     }
 }

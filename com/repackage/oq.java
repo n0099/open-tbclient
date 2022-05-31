@@ -1,89 +1,105 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import kotlin.Pair;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class oq {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<mq> a;
+    public final Set<Pair<Class<? extends kq>, lq<? extends kq>>> b;
+    public TaskInfo c;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final vq a(rt<TaskBuoyViewData, TaskBuoyViewModel> rtVar, wq wqVar, TaskInfo taskInfo) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, rtVar, wqVar, taskInfo)) == null) ? new vq(rtVar, wqVar, taskInfo) : (vq) invokeLLL.objValue;
-        }
-
-        @JvmStatic
-        public final yq b(rt<TaskBuoyViewData, TaskBuoyViewModel> rtVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rtVar, taskBuoyViewModel, taskInfo)) == null) ? new yq(rtVar, taskBuoyViewModel, taskInfo) : (yq) invokeLLL.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964031389, "Lcom/repackage/oq;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964031389, "Lcom/repackage/oq;");
+    public oq(TaskInfo taskInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {taskInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        this.c = taskInfo;
+        this.a = new HashSet();
+        this.b = new HashSet();
     }
 
-    @JvmStatic
-    public static final vq a(rt<TaskBuoyViewData, TaskBuoyViewModel> rtVar, wq wqVar, TaskInfo taskInfo) {
-        InterceptResult invokeLLL;
+    public final Set<mq> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, rtVar, wqVar, taskInfo)) == null) ? a.a(rtVar, wqVar, taskInfo) : (vq) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CollectionsKt___CollectionsKt.toSet(this.a) : (Set) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final yq b(rt<TaskBuoyViewData, TaskBuoyViewModel> rtVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-        InterceptResult invokeLLL;
+    public final void b(lq<? extends kq> lqVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, rtVar, taskBuoyViewModel, taskInfo)) == null) ? a.b(rtVar, taskBuoyViewModel, taskInfo) : (yq) invokeLLL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lqVar) == null) || lqVar == null) {
+            return;
+        }
+        Iterator<Pair<Class<? extends kq>, lq<? extends kq>>> it = this.b.iterator();
+        while (it.hasNext()) {
+            if (Intrinsics.areEqual(it.next().getSecond(), lqVar)) {
+                it.remove();
+            }
+        }
+    }
+
+    public final void c(mq mqVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mqVar) == null) || mqVar == null) {
+            return;
+        }
+        this.a.add(mqVar);
+    }
+
+    public final void d(TaskInfo taskInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, taskInfo) == null) {
+            this.c = taskInfo;
+        }
+    }
+
+    public final <T extends kq> void e(Class<T> cls, lq<T> lqVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, cls, lqVar) == null) || lqVar == null) {
+            return;
+        }
+        this.b.add(new Pair<>(cls, lqVar));
+    }
+
+    public final Set<Pair<Class<? extends kq>, lq<? extends kq>>> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? CollectionsKt___CollectionsKt.toSet(this.b) : (Set) invokeV.objValue;
+    }
+
+    public final void g(mq mqVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, mqVar) == null) || mqVar == null) {
+            return;
+        }
+        this.a.remove(mqVar);
+    }
+
+    public final TaskInfo h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (TaskInfo) invokeV.objValue;
     }
 }

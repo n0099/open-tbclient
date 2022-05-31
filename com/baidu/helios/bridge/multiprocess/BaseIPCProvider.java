@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c30;
-import com.repackage.d30;
-import com.repackage.x20;
+import com.repackage.k10;
+import com.repackage.p10;
+import com.repackage.q10;
 /* loaded from: classes.dex */
 public abstract class BaseIPCProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
@@ -34,17 +34,17 @@ public abstract class BaseIPCProvider extends ContentProvider {
     public class a extends e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public d30 f;
+        public q10 f;
         public final /* synthetic */ BaseIPCProvider g;
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.BaseIPCProvider$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class C0094a implements x20.c<String> {
+        public class C0093a implements k10.c<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
 
-            public C0094a(a aVar, f fVar) {
+            public C0093a(a aVar, f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -62,7 +62,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
                 this.a = fVar;
             }
 
-            @Override // com.repackage.x20.c
+            @Override // com.repackage.k10.c
             public void a(int i, Exception exc, Bundle bundle) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
@@ -74,7 +74,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.x20.c
+            @Override // com.repackage.k10.c
             /* renamed from: b */
             public void onResult(String str, Bundle bundle) {
                 Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
                 }
             }
             this.g = baseIPCProvider;
-            this.f = new d30(this.g.getContext().getApplicationContext());
+            this.f = new q10(this.g.getContext().getApplicationContext());
         }
 
         @Override // com.baidu.helios.bridge.multiprocess.e
@@ -111,7 +111,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bundle)) == null) {
-                x20.d g = this.f.a().g(str, bundle);
+                k10.d g = this.f.a().g(str, bundle);
                 if (g == null) {
                     return null;
                 }
@@ -132,7 +132,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
         public void a(String str, Bundle bundle, f fVar) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle, fVar) == null) {
-                this.f.a().a(str, bundle, new C0094a(this, fVar));
+                this.f.a().a(str, bundle, new C0093a(this, fVar));
             }
         }
 
@@ -261,7 +261,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             a();
             Bundle bundle = new Bundle();
             g.n(bundle, this.a.asBinder());
-            return new c30(bundle);
+            return new p10(bundle);
         }
         return (Cursor) invokeLLLLL.objValue;
     }

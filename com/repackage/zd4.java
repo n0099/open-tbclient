@@ -1,379 +1,336 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.graphics.Paint;
+import android.os.Build;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ETAG;
-import com.repackage.mb4;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class zd4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final k a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static PMSAppInfo a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            PMSAppInfo pMSAppInfo = new PMSAppInfo();
-            pMSAppInfo.appKey = jSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-            pMSAppInfo.appName = jSONObject.optString("app_name");
-            pMSAppInfo.description = jSONObject.optString("app_desc");
-            pMSAppInfo.appStatus = jSONObject.optInt("app_status");
-            pMSAppInfo.statusDetail = jSONObject.optString("status_detail");
-            pMSAppInfo.statusDesc = jSONObject.optString("status_desc");
-            pMSAppInfo.resumeDate = jSONObject.optString("resume_date");
-            pMSAppInfo.subjectInfo = jSONObject.optString("subject_info");
-            pMSAppInfo.maxAge = jSONObject.optLong("max_age");
-            pMSAppInfo.appCategory = jSONObject.optInt("sub_category");
-            pMSAppInfo.iconUrl = jSONObject.optString("icon_url");
-            pMSAppInfo.serviceCategory = jSONObject.optString("service_category");
-            pMSAppInfo.webViewDomains = jSONObject.optString("webview_domains");
-            pMSAppInfo.domainConfig = jSONObject.optString("domain_config");
-            pMSAppInfo.webAction = jSONObject.optString("web_action");
-            pMSAppInfo.domains = jSONObject.optString("domains");
-            pMSAppInfo.serverExt = jSONObject.optString("ext");
-            pMSAppInfo.appSign = jSONObject.optLong("app_sign");
-            pMSAppInfo.payProtected = jSONObject.optInt("pay_protected", PMSConstants.PayProtected.NO_PAY_PROTECTED.type);
-            pMSAppInfo.customerService = jSONObject.optInt("customer_service", PMSConstants.CustomerService.NO_CUSTOMER_SERVICE.type);
-            pMSAppInfo.globalNotice = jSONObject.optInt("global_notice", PMSConstants.CloudSwitch.NO_DISPLAY.value);
-            pMSAppInfo.globalPrivate = jSONObject.optInt("global_private", PMSConstants.CloudSwitch.NO_DISPLAY.value);
-            pMSAppInfo.paNumber = jSONObject.optString("pa_number");
-            String optString = p(pMSAppInfo.serverExt).optString("quick_app_key");
-            if (!TextUtils.isEmpty(optString)) {
-                pMSAppInfo.quickAppKey = optString;
-            }
-            JSONObject optJSONObject = p(pMSAppInfo.serverExt).optJSONObject(SwanAppBearInfo.BEAR_INFO);
-            if (optJSONObject != null) {
-                pMSAppInfo.bearInfo = optJSONObject.toString();
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("plugins");
-            if (optJSONArray != null) {
-                pMSAppInfo.pluginInfo = optJSONArray.toString();
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject(Constants.PHONE_BRAND);
-            if (optJSONObject2 != null) {
-                pMSAppInfo.brandsInfo = optJSONObject2.toString();
-            }
-            d84.b().k(jSONObject.optJSONArray("ban_page"), jSONObject.optString("ban_tips"), pMSAppInfo.appKey);
-            d84.b().s(pMSAppInfo, jSONObject.optJSONObject("scope_list"), jSONObject.optInt("service_degrade", 0) != 0);
-            pMSAppInfo.webUrl = jSONObject.optString("web_url");
-            pMSAppInfo.rank = jSONObject.optInt("rank");
-            pMSAppInfo.webPermit = jSONObject.optInt("web_permit");
-            pMSAppInfo.csProtocolVersion = PMSConstants.a.a();
-            pMSAppInfo.userActionApis = jSONObject.optString("user_action_apis");
-            return pMSAppInfo;
-        }
-        return (PMSAppInfo) invokeL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class a implements k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? jSONObject != null && 1 == jSONObject.optInt("reset_env", 0) : invokeL.booleanValue;
-    }
-
-    public static n94 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return (n94) j(jSONObject, new n94());
-        }
-        return (n94) invokeL.objValue;
-    }
-
-    public static p94 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return (p94) j(jSONObject, new p94());
-        }
-        return (p94) invokeL.objValue;
-    }
-
-    public static lb4 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            lb4 lb4Var = new lb4();
-            JSONArray optJSONArray = jSONObject.optJSONArray("list");
-            List<t94> l = l(optJSONArray);
-            lb4Var.c = l;
-            if (l != null && l.contains(null)) {
-                k(lb4Var, optJSONArray);
-            } else {
-                lb4Var.a = 0;
-            }
-            return lb4Var;
-        }
-        return (lb4) invokeL.objValue;
-    }
-
-    public static mb4 f(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            mb4 mb4Var = new mb4();
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("list");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    mb4.a aVar = new mb4.a();
-                    aVar.a = optJSONObject.optInt("errno");
-                    aVar.b = optJSONObject.optString("bundle_id");
-                    aVar.c = optJSONObject.optInt("category");
-                    aVar.d = m(optJSONObject.optJSONObject("main"));
-                    aVar.e = n(optJSONObject.optJSONArray("sub"));
-                    aVar.f = l(optJSONObject.optJSONArray("dep"));
-                    aVar.g = a(optJSONObject.optJSONObject("app_info"));
-                    d84.b().p(aVar.b, optJSONObject, aVar.d, aVar.e);
-                    arrayList.add(aVar);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            mb4Var.a = arrayList;
-            return mb4Var;
         }
-        return (mb4) invokeL.objValue;
     }
 
-    public static nb4 g(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public static class b extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            nb4 nb4Var = new nb4();
-            JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
-            if (optJSONObject != null) {
-                nb4Var.a = m(optJSONObject.optJSONObject("main"));
-                nb4Var.b = n(optJSONObject.optJSONArray("sub"));
-                nb4Var.c = l(optJSONObject.optJSONArray("dep"));
-                d84.b().p(str, optJSONObject, nb4Var.a, nb4Var.b);
-            }
-            nb4Var.d = d(jSONObject.optJSONObject("framework"));
-            nb4Var.f = c(jSONObject.optJSONObject(ETAG.KEY_EXTENSION));
-            nb4Var.e = a(jSONObject.optJSONObject("app_info"));
-            return nb4Var;
         }
-        return (nb4) invokeLL.objValue;
     }
 
-    public static ob4 h(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public static class c extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            ob4 ob4Var = new ob4();
-            ob4Var.a = o(jSONObject);
-            return ob4Var;
         }
-        return (ob4) invokeL.objValue;
     }
 
-    public static pb4 i(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public static class d extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            pb4 pb4Var = new pb4();
-            JSONObject optJSONObject = jSONObject.optJSONObject("pkg");
-            if (optJSONObject != null) {
-                pb4Var.a = n(optJSONObject.optJSONArray("sub"));
-                d84.b().p(str, optJSONObject, null, pb4Var.a);
-            }
-            return pb4Var;
         }
-        return (pb4) invokeLL.objValue;
+
+        @Override // com.repackage.zd4.k
+        public int a(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? ae4.a(view2) : invokeL.intValue;
+        }
+
+        @Override // com.repackage.zd4.k
+        public void c(View view2, int i, Paint paint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, paint) == null) {
+                ae4.b(view2, i, paint);
+            }
+        }
+
+        @Override // com.repackage.zd4.k
+        public void d(View view2, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, view2, z) == null) {
+                ae4.c(view2, z);
+            }
+        }
     }
 
-    public static <T extends q94> T j(JSONObject jSONObject, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jSONObject, t)) == null) {
-            if (jSONObject == null || t == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public static class e extends d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            t.g = jSONObject.optString("bundle_id");
-            t.h = jSONObject.optInt("category");
-            t.j = jSONObject.optString("version_name");
-            t.i = jSONObject.optLong("version_code");
-            t.k = jSONObject.optLong("size");
-            t.l = jSONObject.optString(PackageTable.MD5);
-            t.m = jSONObject.optString("sign");
-            t.n = jSONObject.optString("download_url");
-            return t;
         }
-        return (T) invokeLL.objValue;
+
+        @Override // com.repackage.zd4.k
+        public boolean b(View view2, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, view2, i)) == null) ? be4.a(view2, i) : invokeLI.booleanValue;
+        }
     }
 
-    public static void k(lb4 lb4Var, JSONArray jSONArray) {
-        int optInt;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, lb4Var, jSONArray) == null) || jSONArray == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static class f extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        int length = jSONArray.length();
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            if (optJSONObject != null && (optInt = optJSONObject.optInt("errno", 0)) != 0) {
-                String optString = optJSONObject.optString("bundle_id");
-                lb4Var.a = optInt;
-                lb4Var.b = String.format("%s : Not Exist.", optString);
+
+        @Override // com.repackage.zd4.k
+        public boolean e(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? ce4.a(view2) : invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class g extends f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class h extends g {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public h() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class i extends h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public i() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class j extends i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public j() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface k {
+        int a(View view2);
+
+        boolean b(View view2, int i);
+
+        void c(View view2, int i, Paint paint);
+
+        void d(View view2, boolean z);
+
+        boolean e(View view2);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755115865, "Lcom/repackage/zd4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755115865, "Lcom/repackage/zd4;");
                 return;
             }
         }
+        if (Build.VERSION.SDK_INT >= 21) {
+            a = new j();
+        } else {
+            a = new i();
+        }
     }
 
-    public static List<t94> l(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        int length;
+    public zd4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONArray)) == null) {
-            if (jSONArray != null && (length = jSONArray.length()) > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        JSONObject optJSONObject2 = optJSONObject.optJSONObject("main");
-                        JSONObject optJSONObject3 = optJSONObject.optJSONObject("app_info");
-                        t94 o = o(optJSONObject2);
-                        if (o != null && optJSONObject3 != null) {
-                            o.r = optJSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                            o.s = optJSONObject3.optString("app_name");
-                            o.q = optJSONObject3.optString("domains");
-                        }
-                        arrayList.add(o);
-                    }
-                }
-                return arrayList;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return null;
         }
-        return (List) invokeL.objValue;
     }
 
-    public static r94 m(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static boolean a(View view2, int i2) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            r94 r94Var = (r94) j(jSONObject, new r94());
-            r94Var.o = jSONObject.optInt("pkg_type");
-            r94Var.p = jSONObject.optString("ext");
-            return r94Var;
-        }
-        return (r94) invokeL.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, view2, i2)) == null) ? a.b(view2, i2) : invokeLI.booleanValue;
     }
 
-    public static List<s94> n(JSONArray jSONArray) {
+    public static int b(View view2) {
         InterceptResult invokeL;
-        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, jSONArray)) == null) {
-            if (jSONArray != null && (length = jSONArray.length()) > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    s94 s94Var = (s94) j(optJSONObject, new s94());
-                    s94Var.q = optJSONObject.optInt("pkg_type");
-                    s94Var.p = optJSONObject.optString("sub_path");
-                    s94Var.r = optJSONObject.optBoolean("independent");
-                    s94Var.s = optJSONObject.optString("ext");
-                    arrayList.add(s94Var);
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) ? a.a(view2) : invokeL.intValue;
     }
 
-    public static t94 o(JSONObject jSONObject) {
+    public static boolean c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            t94 t94Var = new t94();
-            j(jSONObject, t94Var);
-            long optLong = jSONObject.optLong("max_age");
-            if (optLong < 0) {
-                optLong = 0;
-            }
-            t94Var.o = optLong;
-            return t94Var;
-        }
-        return (t94) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? a.e(view2) : invokeL.booleanValue;
     }
 
-    public static JSONObject p(String str) {
-        InterceptResult invokeL;
+    public static void d(View view2, int i2, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
-            }
-            try {
-                return new JSONObject(str);
-            } catch (JSONException unused) {
-                return new JSONObject();
-            }
+        if (interceptable == null || interceptable.invokeLIL(65541, null, view2, i2, paint) == null) {
+            a.c(view2, i2, paint);
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public static qb4 q(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void e(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            qb4 qb4Var = new qb4();
-            qb4Var.a = jSONObject.optLong("max_age");
-            long optLong = jSONObject.optLong("lastsynctime");
-            if (optLong > 0) {
-                yc4.c = optLong;
-            }
-            qb4Var.b = jSONObject;
-            return qb4Var;
+        if (interceptable == null || interceptable.invokeLZ(65542, null, view2, z) == null) {
+            a.d(view2, z);
         }
-        return (qb4) invokeL.objValue;
     }
 }

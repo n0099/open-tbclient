@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes4.dex */
 public class BottomShadowLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -64,8 +64,8 @@ public class BottomShadowLinearLayout extends LinearLayout {
             this.f.setAntiAlias(true);
             this.f.setStyle(Paint.Style.FILL);
             this.f.setDither(true);
-            this.c = mi.f(context, R.dimen.obfuscated_res_0x7f0701d5);
-            this.d = mi.f(context, R.dimen.obfuscated_res_0x7f07028a);
+            this.c = li.f(context, R.dimen.obfuscated_res_0x7f0701d5);
+            this.d = li.f(context, R.dimen.obfuscated_res_0x7f07028a);
             setLayerType(1, this.e);
             b();
         }

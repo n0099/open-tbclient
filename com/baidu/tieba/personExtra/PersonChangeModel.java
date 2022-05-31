@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.kg;
-import com.repackage.ki;
+import com.repackage.jg;
+import com.repackage.ji;
 import com.repackage.wa;
 import tbclient.AlaUserInfo;
 import tbclient.BirthdayInfo;
@@ -157,7 +157,8 @@ public class PersonChangeModel extends BdBaseModel {
                 this.a.setNickNameLeftDays(nicknameInfo.left_days.intValue());
             }
             if (user != null) {
-                this.a.setName(user.name_show);
+                this.a.setName(user.name);
+                this.a.setNameShow(user.name_show);
                 this.a.setSex(user.sex.intValue());
                 this.a.setIntro(user.intro);
                 this.a.setForumAge(user.tb_age);
@@ -178,6 +179,9 @@ public class PersonChangeModel extends BdBaseModel {
                     Integer num = businessAccountInfo.is_business_account;
                     personChangeData.setIsBusinessAccount(num != null ? num.toString() : "0");
                 }
+                PersonChangeData personChangeData2 = this.a;
+                personChangeData2.nickNameInVerifying = user.editing_nickname;
+                personChangeData2.isNickNameInVerifying = user.is_nickname_editing.intValue() == 1;
             }
         }
     }
@@ -210,14 +214,14 @@ public class PersonChangeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!ki.A()) {
-                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2d));
+            if (!ji.A()) {
+                this.b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c33));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
             } else {
                 ProfileRequestMessage profileRequestMessage = new ProfileRequestMessage();
-                profileRequestMessage.set_uid(Long.valueOf(kg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
+                profileRequestMessage.set_uid(Long.valueOf(jg.g(TbadkCoreApplication.getCurrentAccount(), 0L)));
                 profileRequestMessage.set_pn(1);
                 profileRequestMessage.set_rn(1);
                 profileRequestMessage.set_has_plist(1);

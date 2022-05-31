@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dg5;
+import com.repackage.xe5;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements dg5 {
+public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements xe5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<a> a;
@@ -73,7 +73,7 @@ public class EnterForumTabPagerAdapter extends FragmentPagerAdapter implements d
         this.a = list;
     }
 
-    @Override // com.repackage.dg5
+    @Override // com.repackage.xe5
     public boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;

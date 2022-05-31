@@ -1,67 +1,43 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.widget.AdImageView;
+import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
+import com.baidu.sdk.container.filedownloader.MaterialLoader;
+import com.baidu.sdk.container.widget.AdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.util.HashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
-@SuppressLint({"LongLogTag"})
 /* loaded from: classes7.dex */
-public class yb1 extends ub1 {
+public class yb1 extends wb1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView X;
+    public Bitmap Y;
 
     /* loaded from: classes7.dex */
-    public class a implements rb1 {
+    public class a implements ac1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yb1 a;
 
-        public a(yb1 yb1Var, qb1 qb1Var) {
+        public a(yb1 yb1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yb1Var, qb1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ei0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean[] a;
-
-        public b(yb1 yb1Var, boolean[] zArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yb1Var, zArr};
+                Object[] objArr = {yb1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,209 +47,300 @@ public class yb1 extends ub1 {
                     return;
                 }
             }
-            this.a = zArr;
+            this.a = yb1Var;
         }
 
-        @Override // com.repackage.ei0
-        public void onResult(boolean z) {
+        @Override // com.repackage.ac1
+        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                this.a[0] = z;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
+                yb1 yb1Var = this.a;
+                yb1Var.G("StaticImage Load Failed: " + materialLoadErrorCode.toString());
+            }
+        }
+
+        @Override // com.repackage.ac1
+        public void b(String str, View view2, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
+                this.a.Y = bitmap;
+                this.a.Q();
+                this.a.H();
+            }
+        }
+
+        @Override // com.repackage.ac1
+        public void onLoadingStarted(String str, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755147671, "Lcom/repackage/yb1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yb1 a;
+
+        public b(yb1 yb1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755147671, "Lcom/repackage/yb1;");
-                return;
+            this.a = yb1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.F();
             }
         }
-        a = new String[]{"deeplink", "open", "mnprogram"};
-        b = wi0.a().a();
     }
 
-    public yb1() {
+    /* loaded from: classes7.dex */
+    public class c implements ac1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yb1 a;
+
+        public c(yb1 yb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yb1Var;
+        }
+
+        @Override // com.repackage.ac1
+        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
+                yb1 yb1Var = this.a;
+                yb1Var.G("Get Static Image error: " + materialLoadErrorCode.getMessage());
+            }
+        }
+
+        @Override // com.repackage.ac1
+        public void b(String str, View view2, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
+                this.a.Y = bitmap;
+            }
+        }
+
+        @Override // com.repackage.ac1
+        public void onLoadingStarted(String str, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yb1(Context context, JSONObject jSONObject) {
+        super(context, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.r = "image";
+    }
+
+    @Override // com.repackage.wb1
+    public void B() {
+        RelativeLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b == 2) {
+            return;
+        }
+        try {
+            layoutParams = new RelativeLayout.LayoutParams(-1, -1);
+            AdImageView adImageView = new AdImageView(this.a);
+            this.X = adImageView;
+            adImageView.setVisibility(0);
+            this.X.setOnClickListener(new b(this));
+            this.X.setLayoutParams(layoutParams);
+            U();
+        } catch (Exception e) {
+            G(wb1.W + " exception=" + Log.getStackTraceString(e));
+        }
+        if (this.Y == null) {
+            G("bitmap is null!!!");
+            return;
+        }
+        this.X.setDrawingCacheEnabled(true);
+        this.X.setImageBitmap(this.Y);
+        j(this.X, layoutParams);
+        this.X.requestLayout();
+        super.B();
+        this.X.requestFocus();
+        J();
+    }
+
+    @Override // com.repackage.wb1
+    public void C() {
+        AdView adView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ImageView imageView = this.X;
+            if (imageView != null && (adView = this.k) != null && adView.indexOfChild(imageView) >= 0) {
+                if (this.X.getDrawingCache() != null) {
+                    this.X.getDrawingCache().recycle();
+                }
+                this.k.removeAllViews();
+            }
+            Bitmap bitmap = this.Y;
+            if (bitmap == null || bitmap.isRecycled()) {
+                return;
+            }
+            this.Y.recycle();
+            this.Y = null;
+        }
+    }
+
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ImageView imageView = this.X;
+            if (imageView != null) {
+                imageView.setScaleType(this.F == 17 ? ImageView.ScaleType.CENTER_CROP : ImageView.ScaleType.FIT_XY);
+            }
+            if (this.Y != null) {
+                return;
+            }
+            this.Y = this.h.a(this.t, new c(this));
+        }
+    }
+
+    @Override // com.repackage.wb1, com.repackage.hc1
+    public void a(ic1 ic1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ic1Var) == null) {
+            super.a(ic1Var);
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+        }
+    }
+
+    @Override // com.repackage.wb1, com.repackage.hc1
+    public void c(gc1 gc1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gc1Var) == null) {
+            super.c(gc1Var);
+        }
+    }
+
+    @Override // com.repackage.wb1, com.repackage.hc1
+    public View getAdView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? super.getAdView() : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.wb1, com.repackage.hc1
+    public void load() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.load();
+            if (this.h.c(this.t, MaterialLoader.MaterialCacheType.PICTURE)) {
+                Q();
+                H();
+                return;
+            }
+            try {
+                MaterialLoader.k(this.a).f(this.t, new a(this));
+            } catch (Exception e) {
+                G("StaticImage,Exception: " + e.toString());
             }
         }
     }
 
-    @Override // com.repackage.ub1
-    public void a(HashMap<String, String> hashMap) {
-        String[] strArr;
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            for (String str : a) {
-                hashMap.put("splash/ad/" + str, "splash_ad/" + str);
-            }
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    @Override // com.repackage.ub1
-    @SuppressLint({"LongLogTag"})
-    public boolean c(Context context, wb1 wb1Var, qb1 qb1Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, wb1Var, qb1Var)) == null) {
-            String d = wb1Var.d(true);
-            if (!TextUtils.isEmpty(d) && context != null) {
-                if (wb1Var.e()) {
-                    return true;
-                }
-                char c = 65535;
-                int hashCode = d.hashCode();
-                if (hashCode != -1317819965) {
-                    if (hashCode != 3417674) {
-                        if (hashCode == 629233382 && d.equals("deeplink")) {
-                            c = 0;
-                        }
-                    } else if (d.equals("open")) {
-                        c = 1;
-                    }
-                } else if (d.equals("mnprogram")) {
-                    c = 2;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (c != 2) {
-                            return false;
-                        }
-                        return f(context, wb1Var, qb1Var);
-                    }
-                    return g(wb1Var, qb1Var);
-                }
-                return e(context, wb1Var, qb1Var);
-            }
-            wb1Var.i = zb1.h(201);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            R();
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, keyEvent)) == null) {
             return false;
         }
-        return invokeLLL.booleanValue;
+        return invokeIL.booleanValue;
     }
 
-    public final boolean e(@NonNull Context context, @NonNull wb1 wb1Var, qb1 qb1Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, wb1Var, qb1Var)) == null) {
-            String str = wb1Var.c().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString(DeepLinkItem.DEEPLINK_APPURL_KEY);
-                String optString2 = jSONObject.optString("webUrl");
-                String optString3 = jSONObject.optString("pkgName");
-                if (!TextUtils.isEmpty(optString)) {
-                    boolean[] zArr = new boolean[1];
-                    gi0.a(context, optString, optString3, new b(this, zArr), false);
-                    if (zArr[0]) {
-                        BaseVM.f("APP");
-                        return true;
-                    }
-                }
-                if (!TextUtils.isEmpty(optString3) && gi0.b(context, optString3)) {
-                    BaseVM.f("APP");
-                    return true;
-                } else if (TextUtils.isEmpty(optString2)) {
-                    return false;
-                } else {
-                    BaseVM.f("URL");
-                    return h(optString2, qb1Var);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
         }
-        return invokeLLL.booleanValue;
     }
 
-    public final boolean f(Context context, wb1 wb1Var, qb1 qb1Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, wb1Var, qb1Var)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                if (qb1Var != null) {
-                    qb1Var.handleSchemeDispatchCallback(String.valueOf(303), null);
-                }
-                return false;
-            }
-            String str = wb1Var.c().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (TextUtils.isEmpty(jSONObject.optString("mnProgramType"))) {
-                    if (qb1Var != null) {
-                        qb1Var.handleSchemeDispatchCallback(String.valueOf(202), null);
-                    }
-                    return false;
-                }
-                WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
-                req.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-                req.path = jSONObject.optString("path");
-                req.miniprogramType = jSONObject.optInt("mnProgramType");
-                boolean sendReq = WXAPIFactory.createWXAPI(context, b).sendReq(req);
-                if (!sendReq) {
-                    return h(jSONObject.optString("webUrl"), qb1Var);
-                }
-                qb1Var.handleSchemeDispatchCallback(String.valueOf(0), null);
-                return sendReq;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
         }
-        return invokeLLL.booleanValue;
     }
 
-    public final boolean g(wb1 wb1Var, qb1 qb1Var) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.wb1
+    public void y() {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, wb1Var, qb1Var)) == null) {
-            String str = wb1Var.c().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("webUrl");
-                if (TextUtils.isEmpty(optString)) {
-                    optString = jSONObject.optString("innerUrl");
-                }
-                return h(optString, qb1Var);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (imageView = this.X) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean h(@NonNull String str, qb1 qb1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, qb1Var)) == null) {
-            boolean a2 = za1.b().a(str, new a(this, qb1Var));
-            return (a2 || qb1Var == null) ? a2 : qb1Var.d(str);
-        }
-        return invokeLL.booleanValue;
+        imageView.setOnClickListener(null);
     }
 }

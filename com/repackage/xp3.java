@@ -1,226 +1,79 @@
 package com.repackage;
 
-import android.content.Context;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.webkit.WebSettings;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.UUID;
-import org.apache.http.cookie.ClientCookie;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xp3 extends wp3 {
+public class xp3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int q;
-    public int r;
-    public int s;
-    public String t;
+    public DownloadState a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xp3(Context context, up3 up3Var, int i, int i2) {
-        super(context, up3Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, up3Var, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (up3) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755163946, "Lcom/repackage/xp3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755163946, "Lcom/repackage/xp3;");
                 return;
             }
         }
-        this.q = 1;
-        this.r = 1;
-        this.s = 1;
-        this.r = i;
-        this.s = i2;
+        boolean z = rf1.a;
     }
 
-    @Override // com.repackage.wp3
-    public HashMap<String, String> a() {
+    public xp3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = DownloadState.NOT_START;
+        this.d = Integer.parseInt("0");
+    }
+
+    public static xp3 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            xp3 xp3Var = new xp3();
+            xp3Var.b = str;
+            xp3Var.c = str2;
+            return xp3Var;
+        }
+        return (xp3) invokeLL.objValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (HashMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.wp3
-    public String e() {
-        InterceptResult invokeV;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.e = str;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.wp3
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://powerful.xdplt.com/api/v1/front/ltc" : (String) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                String a = yl3.b.a(this.b);
-                return TextUtils.isEmpty(a) ? UUID.randomUUID().toString() : a;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public JSONObject i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("id", String.valueOf(System.currentTimeMillis()));
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("id", this.i.e());
-                jSONObject2.put("name", lp3.b().a());
-                jSONObject2.put("bundle", mq3.k());
-                jSONObject2.put("version", mq3.l());
-                jSONObject.put("app", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("ua", l());
-                jSONObject3.put("imei", lp3.b().s());
-                jSONObject3.put(HttpRequest.ANDROID_ID, h());
-                jSONObject3.put("ip", j(true));
-                jSONObject3.put("type", 1);
-                jSONObject3.put("os", 1);
-                jSONObject3.put(HttpConstants.OS_VERSION, mq3.f());
-                jSONObject3.put("make", mq3.g());
-                jSONObject3.put("model", mq3.e());
-                jSONObject3.put("language", this.b.getResources().getConfiguration().locale.getLanguage());
-                jSONObject3.put("connection_type", NetworkUtils.c(true));
-                jSONObject3.put("carrier", k(this.b));
-                jSONObject3.put("mac", NetworkUtils.e(this.b));
-                jSONObject3.put("screen_width", mq3.i(this.b));
-                jSONObject3.put("screen_height", mq3.h(this.b));
-                jSONObject3.put("screen_orientation", this.b.getResources().getConfiguration().orientation);
-                jSONObject.put(Config.DEVICE_PART, jSONObject3);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("sid", this.i.b());
-                jSONObject4.put("ad_count", this.q);
-                jSONObject4.put(TiebaStatic.Params.AD_TYPE, this.r);
-                jSONObject4.put("pos", this.s);
-                jSONObject4.put("width", this.i.d());
-                jSONObject4.put("height", this.i.a());
-                jSONObject4.put(ClientCookie.SECURE_ATTR, 1);
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(jSONObject4);
-                jSONObject.put("imps", jSONArray);
-                return jSONObject;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0032, code lost:
-        r0 = r3.getHostAddress().toString();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final String j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            String str = null;
-            try {
-                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-                loop0: while (true) {
-                    if (!networkInterfaces.hasMoreElements()) {
-                        break;
-                    }
-                    Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
-                    while (inetAddresses.hasMoreElements()) {
-                        InetAddress nextElement = inetAddresses.nextElement();
-                        if (!z || !(nextElement instanceof Inet6Address)) {
-                            if (!nextElement.isLoopbackAddress()) {
-                                break loop0;
-                            }
-                        }
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return TextUtils.isEmpty(str) ? "" : str;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public int k(Context context) {
-        InterceptResult invokeL;
-        TelephonyManager telephonyManager;
-        String simOperator;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
-                return 0;
-            }
-            if ("46000".equals(simOperator) || "46002".equals(simOperator) || "46007".equals(simOperator)) {
-                return 1;
-            }
-            if ("46001".equals(simOperator)) {
-                return 2;
-            }
-            return "46003".equals(simOperator) ? 3 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (TextUtils.isEmpty(this.t)) {
-                try {
-                    try {
-                        this.t = WebSettings.getDefaultUserAgent(this.b);
-                    } catch (Exception unused) {
-                        this.t = "";
-                    }
-                } catch (Exception unused2) {
-                    this.t = System.getProperty("http.agent");
-                }
-            }
-            return this.t;
-        }
-        return (String) invokeV.objValue;
     }
 }

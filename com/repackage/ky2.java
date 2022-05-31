@@ -1,57 +1,59 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+import android.widget.RelativeLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ly2;
 /* loaded from: classes6.dex */
-public class ky2 {
+public class ky2 extends ly2.a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context f;
 
-    public ky2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ky2(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = context;
     }
 
-    public static int a(Context context, int i) {
-        InterceptResult invokeLI;
+    @Override // com.repackage.ly2.a
+    public ly2 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) ? c(context).getInt("softinput.height", i) : invokeLI.intValue;
-    }
-
-    public static boolean b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) ? c(context).edit().putInt("softinput.height", i).commit() : invokeLI.booleanValue;
-    }
-
-    public static SharedPreferences c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a == null) {
-                synchronized (ky2.class) {
-                    if (a == null) {
-                        a = new h93("swan.publisher", false);
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.e = this.f.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f7);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.e);
+            layoutParams.addRule(12);
+            this.a.t.setLayoutParams(layoutParams);
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.f.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f5));
+            layoutParams2.addRule(2, this.a.t.getId());
+            this.a.h.setLayoutParams(layoutParams2);
+            o(R.color.obfuscated_res_0x7f060381);
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
+            layoutParams3.addRule(2, this.a.h.getId());
+            this.a.u.setLayoutParams(layoutParams3);
+            return super.c();
         }
-        return (SharedPreferences) invokeL.objValue;
+        return (ly2) invokeV.objValue;
     }
 }

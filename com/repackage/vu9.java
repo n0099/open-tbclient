@@ -2,14 +2,14 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class vu9 {
+public abstract class vu9<T> implements xu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int[] b;
+    public final bx9 a;
 
     public vu9() {
         Interceptable interceptable = $ic;
@@ -21,27 +21,35 @@ public final class vu9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new bx9();
+    }
+
+    public final void a(xu9 xu9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, xu9Var) == null) {
+            this.a.a(xu9Var);
         }
     }
 
-    public static void a(vu9 vu9Var, int i) {
+    public abstract void b(Throwable th);
+
+    public abstract void c(T t);
+
+    @Override // com.repackage.xu9
+    public final boolean isUnsubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, vu9Var, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = vu9Var.b;
-                byte[] bArr = vu9Var.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
     }
 
-    public static void b(vu9 vu9Var, byte[] bArr, int[] iArr) {
+    @Override // com.repackage.xu9
+    public final void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, vu9Var, bArr, iArr) == null) {
-            vu9Var.a = bArr;
-            vu9Var.b = iArr;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.unsubscribe();
         }
     }
 }

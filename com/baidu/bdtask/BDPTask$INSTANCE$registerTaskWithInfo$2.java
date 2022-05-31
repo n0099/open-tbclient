@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mq;
+import com.repackage.zo;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -17,16 +17,16 @@ public final class BDPTask$INSTANCE$registerTaskWithInfo$2 extends Lambda implem
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String $rawTaskStr;
-    public final /* synthetic */ mq $taskCallback;
+    public final /* synthetic */ zo $taskCallback;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$INSTANCE$registerTaskWithInfo$2(String str, mq mqVar) {
+    public BDPTask$INSTANCE$registerTaskWithInfo$2(String str, zo zoVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, mqVar};
+            Object[] objArr = {str, zoVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,7 +38,7 @@ public final class BDPTask$INSTANCE$registerTaskWithInfo$2 extends Lambda implem
             }
         }
         this.$rawTaskStr = str;
-        this.$taskCallback = mqVar;
+        this.$taskCallback = zoVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

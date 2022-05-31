@@ -1,192 +1,292 @@
 package com.repackage;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.Constants;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ze4<D> {
+public class ze4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public b<D> b;
-    public a<D> c;
-    public Context d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public a a;
+    public b b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
 
     /* loaded from: classes7.dex */
-    public interface a<D> {
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public int e;
+        public String f;
+        public String g;
+        public int h;
+
+        public a(ze4 ze4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = "Android";
+            this.b = Build.VERSION.RELEASE;
+            this.c = Build.MANUFACTURER;
+            this.e = Build.VERSION.SDK_INT;
+            this.f = Build.MODEL;
+            Context appContext = AppRuntime.getAppContext();
+            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
+            this.g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
+            this.h = appContext.getResources().getDisplayMetrics().densityDpi;
+        }
     }
 
     /* loaded from: classes7.dex */
-    public interface b<D> {
+    public final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public b(ze4 ze4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = me4.g().v(AppRuntime.getAppContext());
+        }
     }
 
-    public String a(D d) {
-        InterceptResult invokeL;
+    public ze4(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d)) == null) {
-            StringBuilder sb = new StringBuilder(64);
-            cf4.a(d, sb);
-            sb.append("}");
-            return sb.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new a(this);
+        this.b = new b(this);
+        this.i = df4.c();
+        this.o = "";
+        Context appContext = AppRuntime.getAppContext();
+        try {
+            PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
+            this.c = packageInfo.versionName;
+            this.e = packageInfo.packageName;
+        } catch (PackageManager.NameNotFoundException unused) {
+        }
+        TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
+        if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission("android.permission.READ_PHONE_STATE") == 0)) {
+            this.j = telephonyManager.getSimOperator();
+        }
+        this.f = me4.g().getDeviceId(appContext);
+        this.g = me4.g().p(appContext);
+        this.h = me4.g().a();
+        this.n = me4.g().b();
+        this.q = me4.g().t();
+        this.r = str;
+    }
+
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) {
+            JSONObject e = new ze4(jSONObject.optString("bizId")).e();
+            Iterator<String> keys = e.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!jSONObject.has(next)) {
+                    try {
+                        jSONObject.putOpt(next, e.opt(next));
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+        }
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (me4.g() == null) {
+                return str;
+            }
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(str);
+                }
+                return c(jSONObject);
+            } catch (JSONException unused) {
+                return str;
+            }
         }
         return (String) invokeL.objValue;
     }
 
-    public void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    public static String c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fileDescriptor, printWriter, strArr) == null) {
-            printWriter.print(str);
-            printWriter.print("mId=");
-            printWriter.print(this.a);
-            printWriter.print(" mListener=");
-            printWriter.println(this.b);
-            if (this.e || this.h || this.i) {
-                printWriter.print(str);
-                printWriter.print("mStarted=");
-                printWriter.print(this.e);
-                printWriter.print(" mContentChanged=");
-                printWriter.print(this.h);
-                printWriter.print(" mProcessingChange=");
-                printWriter.println(this.i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            te4 g = me4.g();
+            String str = "";
+            if (jSONObject == null || g == null) {
+                return "";
             }
-            if (this.f || this.g) {
-                printWriter.print(str);
-                printWriter.print("mAbandoned=");
-                printWriter.print(this.f);
-                printWriter.print(" mReset=");
-                printWriter.println(this.g);
+            try {
+                if (g.l() == 0) {
+                    str = "swan";
+                } else if (g.l() == 1) {
+                    str = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.putOpt("smartAppId", g.getAppId());
+                jSONObject2.putOpt("smartAppVersion", g.getAppVersion());
+                jSONObject2.putOpt("swanCoreVersion", g.n());
+                jSONObject2.putOpt("swanNativeVersion", g.b());
+                jSONObject2.putOpt("swanType", str);
+                jSONObject.putOpt(DI.APP_INFO_NAME, jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("source", g.k());
+                jSONObject.put("propagation", jSONObject3);
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return jSONObject.toString();
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) || jSONArray == null || jSONArray.length() < 1) {
+            return;
+        }
+        for (int i = 0; i < jSONArray.length(); i++) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
+                JSONObject jSONObject3 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
+                Iterator<String> keys = jSONObject3.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    jSONObject.putOpt(next, jSONObject3.optString(next));
+                }
+                jSONObject2.remove(DI.APP_INFO_NAME);
+            } catch (JSONException unused) {
             }
         }
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void f(int i, b<D> bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bVar) == null) {
-            if (this.b == null) {
-                this.b = bVar;
-                this.a = i;
-                return;
-            }
-            throw new IllegalStateException("There is already a listener registered");
-        }
-    }
-
-    public void g(a<D> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            if (this.c == null) {
-                this.c = aVar;
-                return;
-            }
-            throw new IllegalStateException("There is already a listener registered");
-        }
-    }
-
-    public Context getContext() {
+    public JSONObject e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (Context) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c();
-            this.g = true;
-            this.e = false;
-            this.f = false;
-            this.h = false;
-            this.i = false;
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.e = true;
-            this.g = false;
-            this.f = false;
-            d();
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.e = false;
-            e();
-        }
-    }
-
-    public void k(b<D> bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            b<D> bVar2 = this.b;
-            if (bVar2 == null) {
-                throw new IllegalStateException("No listener register");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.putOpt("os", this.a.a);
+                jSONObject2.putOpt("osversion", this.a.b);
+                jSONObject2.putOpt("model", this.a.f);
+                jSONObject2.putOpt("deviceType", this.a.d);
+                jSONObject2.putOpt("sdk", this.a.e + "");
+                jSONObject2.putOpt(Constants.PHONE_BRAND, this.a.c);
+                jSONObject2.putOpt("screen", this.a.g);
+                jSONObject2.putOpt("density", this.a.h + "");
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.putOpt("passId", this.b.a);
+                jSONObject.putOpt("userInfo", jSONObject3);
+                jSONObject.putOpt("system", jSONObject2);
+                jSONObject.putOpt("appVersion", this.c);
+                jSONObject.putOpt("appBranch", this.d);
+                jSONObject.putOpt("appPackageName", this.e);
+                jSONObject.putOpt("cuid", this.f);
+                jSONObject.putOpt("uuid", this.g);
+                jSONObject.putOpt("hostName", this.h);
+                jSONObject.putOpt("net", this.i);
+                jSONObject.putOpt("operator", this.j);
+                jSONObject.putOpt("smartAppId", this.k);
+                jSONObject.putOpt("smartAppVersion", this.l);
+                jSONObject.putOpt("swanCoreVersion", this.m);
+                jSONObject.putOpt("swanNativeVersion", this.n);
+                jSONObject.putOpt("swanType", this.o);
+                jSONObject.putOpt("swanId", this.p);
+                jSONObject.putOpt("bizId", this.r);
+                jSONObject.putOpt("eventType", this.s);
+                jSONObject.putOpt("eventName", this.t);
+                jSONObject.putOpt("content", this.u);
+                if (!TextUtils.isEmpty(this.q)) {
+                    jSONObject.putOpt("appClientId", this.q);
+                }
+            } catch (JSONException unused) {
             }
-            if (bVar2 == bVar) {
-                this.b = null;
-                return;
-            }
-            throw new IllegalArgumentException("Attempting to unregister the wrong listener");
+            return jSONObject;
         }
-    }
-
-    public void l(a<D> aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            a<D> aVar2 = this.c;
-            if (aVar2 == null) {
-                throw new IllegalStateException("No listener register");
-            }
-            if (aVar2 == aVar) {
-                this.c = null;
-                return;
-            }
-            throw new IllegalArgumentException("Attempting to unregister the wrong listener");
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            StringBuilder sb = new StringBuilder(64);
-            cf4.a(this, sb);
-            sb.append(" id=");
-            sb.append(this.a);
-            sb.append("}");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

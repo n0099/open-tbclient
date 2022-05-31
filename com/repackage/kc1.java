@@ -1,189 +1,359 @@
 package com.repackage;
 
-import android.os.IBinder;
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.RemoteException;
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileDescriptor;
-import java.util.ArrayList;
-import java.util.HashSet;
+import com.baidubce.http.Headers;
+import java.io.BufferedWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
-public abstract class kc1 implements IBinder, IBinder.DeathRecipient {
+public class kc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile IBinder a;
-    public HashSet<IBinder.DeathRecipient> b;
-    public Object c;
+    public HttpURLConnection a;
+    public b b;
+    public c c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public int i;
+    public boolean j;
+    public Uri.Builder k;
+    public int l;
 
-    public kc1() {
+    /* loaded from: classes6.dex */
+    public class a extends vc1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kc1 c;
+
+        public a(kc1 kc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = kc1Var;
+        }
+
+        @Override // com.repackage.vc1
+        public Object b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.c.i();
+                this.c.e();
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(String str, int i);
+
+        void onSuccess(String str, String str2);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(String str, int i);
+
+        void b(InputStream inputStream, String str);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public kc1(int i, String str) {
+        this(i, str, "GET");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new HashSet<>();
-        this.c = new Object();
     }
 
-    public static void b(String str, Exception exc) {
+    public void c(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, exc) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public final IBinder a() throws RemoteException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.c) {
-                IBinder iBinder = this.a;
-                if (iBinder != null) {
-                    return iBinder;
-                }
-                IBinder c = c();
-                this.a = c;
-                if (c != null) {
-                    c.linkToDeath(this, 0);
-                    return c;
-                }
-                throw new RemoteException();
-            }
-        }
-        return (IBinder) invokeV.objValue;
-    }
-
-    @Override // android.os.IBinder.DeathRecipient
-    public void binderDied() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.c) {
-                IBinder iBinder = this.a;
-                if (iBinder != null) {
-                    iBinder.unlinkToDeath(this, 0);
-                    this.a = null;
-                }
-                ArrayList<IBinder.DeathRecipient> arrayList = new ArrayList();
-                synchronized (this.b) {
-                    arrayList.addAll(this.b);
-                }
-                for (IBinder.DeathRecipient deathRecipient : arrayList) {
-                    deathRecipient.binderDied();
-                }
-            }
-        }
-    }
-
-    public abstract IBinder c() throws RemoteException;
-
-    @Override // android.os.IBinder
-    public void dump(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, fileDescriptor, strArr) == null) {
-            a().dump(fileDescriptor, strArr);
-        }
-    }
-
-    @Override // android.os.IBinder
-    public void dumpAsync(FileDescriptor fileDescriptor, String[] strArr) throws RemoteException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, fileDescriptor, strArr) == null) {
-            a().dumpAsync(fileDescriptor, strArr);
-        }
-    }
-
-    @Override // android.os.IBinder
-    public String getInterfaceDescriptor() throws RemoteException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? a().getInterfaceDescriptor() : (String) invokeV.objValue;
-    }
-
-    @Override // android.os.IBinder
-    public boolean isBinderAlive() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
-                return a().isBinderAlive();
-            } catch (RemoteException e) {
-                b("MultiProcess", e);
-                return false;
+                if (this.l == 1) {
+                    wc1.a().c(new a(this));
+                } else {
+                    wc1.a().c(new a(this));
+                }
+            } catch (Exception unused) {
             }
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // android.os.IBinder
-    public void linkToDeath(IBinder.DeathRecipient deathRecipient, int i) throws RemoteException {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
+    public final void e() {
+        HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, deathRecipient, i) == null) {
-            synchronized (this.b) {
-                this.b.add(deathRecipient);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                try {
+                    this.a.connect();
+                    int responseCode = this.a.getResponseCode();
+                    if (responseCode == 302 || responseCode == 301) {
+                        this.a.setInstanceFollowRedirects(false);
+                        HttpURLConnection g = g(this.a);
+                        this.a = g;
+                        responseCode = g.getResponseCode();
+                    }
+                    if (responseCode / 100 != 2) {
+                        if (this.b != null) {
+                            this.b.a(this.a.getResponseMessage(), responseCode);
+                        }
+                        if (this.c != null) {
+                            this.c.a(this.a.getResponseMessage(), responseCode);
+                        }
+                    } else {
+                        String a2 = uc1.a(this.d);
+                        if (this.b != null) {
+                            this.b.onSuccess(f(), a2);
+                        }
+                        if (this.c != null) {
+                            this.c.b(this.a.getInputStream(), a2);
+                        }
+                    }
+                    httpURLConnection = this.a;
+                    if (httpURLConnection == null) {
+                        return;
+                    }
+                } catch (Exception e) {
+                    if (this.b != null) {
+                        b bVar = this.b;
+                        bVar.a("Net Connect RuntimeError: " + e.toString(), 0);
+                    }
+                    if (this.c != null) {
+                        c cVar = this.c;
+                        cVar.a("Net Connect RuntimeError: " + e.toString(), 0);
+                    }
+                    httpURLConnection = this.a;
+                    if (httpURLConnection == null) {
+                        return;
+                    }
+                }
+                httpURLConnection.disconnect();
+            } catch (Throwable th) {
+                HttpURLConnection httpURLConnection2 = this.a;
+                if (httpURLConnection2 != null) {
+                    httpURLConnection2.disconnect();
+                }
+                throw th;
             }
         }
     }
 
-    @Override // android.os.IBinder
-    public boolean pingBinder() {
+    public String f() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            InputStream inputStream = null;
             try {
-                return a().pingBinder();
-            } catch (RemoteException e) {
-                b("MultiProcess", e);
-                return false;
+                inputStream = this.a.getInputStream();
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                byte[] bArr = new byte[128];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    byteArrayOutputStream.write(bArr, 0, read);
+                }
+                byteArrayOutputStream.flush();
+                return byteArrayOutputStream.toString();
+            } finally {
+                if (inputStream != null) {
+                    inputStream.close();
+                }
             }
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.os.IBinder
-    public IInterface queryLocalInterface(String str) {
+    public final HttpURLConnection g(HttpURLConnection httpURLConnection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, httpURLConnection)) != null) {
+            return (HttpURLConnection) invokeL.objValue;
+        }
+        while (true) {
             try {
-                return a().queryLocalInterface(str);
-            } catch (RemoteException e) {
-                b("MultiProcess", e);
-                return null;
+                int responseCode = httpURLConnection.getResponseCode();
+                if (responseCode != 302 && responseCode != 301) {
+                    return httpURLConnection;
+                }
+                HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(httpURLConnection.getHeaderField(Headers.LOCATION)).openConnection();
+                try {
+                    httpURLConnection2.setConnectTimeout(httpURLConnection2.getConnectTimeout());
+                    httpURLConnection2.setInstanceFollowRedirects(false);
+                    httpURLConnection2.setRequestProperty("Range", "bytes=0-");
+                    httpURLConnection = httpURLConnection2;
+                } catch (Exception unused) {
+                    return httpURLConnection2;
+                }
+            } catch (Exception unused2) {
+                return httpURLConnection;
             }
         }
-        return (IInterface) invokeL.objValue;
     }
 
-    @Override // android.os.IBinder
-    public boolean transact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
-        InterceptResult invokeCommon;
+    public final void h(String str, HttpURLConnection httpURLConnection) throws IOException {
+        OutputStream outputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) ? a().transact(i, parcel, parcel2, i2) : invokeCommon.booleanValue;
-    }
-
-    @Override // android.os.IBinder
-    public boolean unlinkToDeath(IBinder.DeathRecipient deathRecipient, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, deathRecipient, i)) == null) {
-            synchronized (this.b) {
-                this.b.remove(deathRecipient);
-            }
-            return this.a != null;
+        if (interceptable != null && interceptable.invokeLL(1048581, this, str, httpURLConnection) != null) {
+            return;
         }
-        return invokeLI.booleanValue;
+        BufferedWriter bufferedWriter = null;
+        try {
+            outputStream = httpURLConnection.getOutputStream();
+            try {
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                try {
+                    bufferedWriter2.write(str);
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
+                    if (outputStream != null) {
+                        outputStream.close();
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedWriter = bufferedWriter2;
+                    if (bufferedWriter != null) {
+                        bufferedWriter.close();
+                    }
+                    if (outputStream != null) {
+                        outputStream.close();
+                    }
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } catch (Throwable th3) {
+            th = th3;
+            outputStream = null;
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || TextUtils.isEmpty(this.d)) {
+            return;
+        }
+        try {
+            HttpURLConnection b2 = uc1.b(new URL(this.d));
+            this.a = b2;
+            b2.setConnectTimeout(this.h);
+            this.a.setReadTimeout(this.i);
+            if (Integer.parseInt(Build.VERSION.SDK) < 8) {
+                System.setProperty("http.keepAlive", "false");
+            }
+            this.a.setRequestMethod(this.e);
+            this.a.setUseCaches(this.j);
+            if (!TextUtils.isEmpty(this.f)) {
+                this.a.setRequestProperty("User-Agent", this.f);
+            }
+            this.a.setRequestProperty("Content-type", this.g);
+            this.a.setRequestProperty(HTTP.CONN_DIRECTIVE, "keep-alive");
+            this.a.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
+            if (this.e.equals("POST")) {
+                this.a.setDoInput(true);
+                this.a.setDoOutput(true);
+                if (this.k != null) {
+                    h(this.k.build().getEncodedQuery(), this.a);
+                }
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.a("Net Create RuntimeError: " + e.toString(), 0);
+            }
+            c cVar = this.c;
+            if (cVar != null) {
+                cVar.a("Net Create RuntimeError: " + e.toString(), 0);
+            }
+        } catch (Throwable th) {
+            b bVar2 = this.b;
+            if (bVar2 != null) {
+                bVar2.a("Net Create RuntimeError: " + th.toString(), 0);
+            }
+            c cVar2 = this.c;
+            if (cVar2 != null) {
+                cVar2.a("Net Create RuntimeError: " + th.toString(), 0);
+            }
+        }
+    }
+
+    public kc1(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.c = null;
+        this.g = "text/plain";
+        this.h = 10000;
+        this.i = 10000;
+        this.j = false;
+        this.k = null;
+        this.l = i;
+        this.d = str;
+        this.e = str2;
     }
 }

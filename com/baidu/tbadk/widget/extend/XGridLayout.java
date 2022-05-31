@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ue5;
+import com.repackage.od5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class XGridLayout extends AdapterLayout {
@@ -57,12 +57,12 @@ public class XGridLayout extends AdapterLayout {
     }
 
     public void e() {
-        ue5 ue5Var;
+        od5 od5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ue5Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (od5Var = this.a) == null) {
             return;
         }
-        ue5Var.c();
+        od5Var.c();
     }
 
     @Override // android.view.ViewGroup, android.view.View

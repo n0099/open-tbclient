@@ -1,89 +1,41 @@
 package com.repackage;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.text.method.Touch;
-import android.text.style.ClickableSpan;
-import android.view.MotionEvent;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class r51 extends LinkMovementMethod {
+/* loaded from: classes6.dex */
+public class r51 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(TextView textView, MotionEvent motionEvent);
-
-        void b(TextView textView, MotionEvent motionEvent);
-    }
-
-    public r51() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755399453, "Lcom/repackage/r51;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755399453, "Lcom/repackage/r51;");
         }
     }
 
-    public void a(a aVar) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = aVar;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.booleanValue;
     }
 
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, spannable, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action != 1 && action != 0) {
-                return Touch.onTouchEvent(textView, spannable, motionEvent);
-            }
-            int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-            int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-            int scrollX = x + textView.getScrollX();
-            int scrollY = y + textView.getScrollY();
-            Layout layout = textView.getLayout();
-            int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-            Object[] objArr = (ClickableSpan[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, ClickableSpan.class);
-            if (objArr.length != 0) {
-                if (action == 1) {
-                    objArr[0].onClick(textView);
-                } else if (action == 0) {
-                    Selection.setSelection(spannable, spannable.getSpanStart(objArr[0]), spannable.getSpanEnd(objArr[0]));
-                }
-                a aVar = this.a;
-                if (aVar != null) {
-                    aVar.a(textView, motionEvent);
-                }
-                return true;
-            }
-            a aVar2 = this.a;
-            if (aVar2 != null) {
-                aVar2.b(textView, motionEvent);
-            }
-            Selection.removeSelection(spannable);
-            super.onTouchEvent(textView, spannable, motionEvent);
-            return false;
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+            a = z;
         }
-        return invokeLLL.booleanValue;
     }
 }

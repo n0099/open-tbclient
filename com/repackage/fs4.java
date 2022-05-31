@@ -1,28 +1,21 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.LinearGradient;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.PointF;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.graphics.Shader;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.FloatRange;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
+import androidx.print.PrintHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.Direction;
-import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.tbadk.core.hybrid.BridgeWebView;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,91 +23,141 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Objects;
-/* loaded from: classes6.dex */
-public class fs4 extends Drawable implements Cloneable {
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.sina.weibo.sdk.constant.WBConstants;
+import java.io.InputStream;
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class fs4 extends as4 implements xr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int[] k;
+    public static final int[] l;
+    public static final int[] m;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnLayoutChangeListener A;
-    public int B;
-    public int a;
-    public View b;
-    public Paint c;
-    public Paint d;
-    public Paint e;
-    public float f;
-    public int g;
-    public float h;
-    public float i;
+    public final ur4 c;
+    public final rr4 d;
+    public final d e;
+    public final HashMap<String, wr4> f;
+    public final HashMap<String, bs4> g;
+    public String h;
+    public int i;
     public int j;
-    public int k;
-    public int l;
-    public float[] m;
-    public float[] n;
-    public int o;
-    public int p;
-    public int[] q;
-    public LinearGradient r;
-    public float[] s;
-    public float[] t;
-    public Direction u;
-    public RectF v;
-    public RectF w;
-    public Path x;
-    public Path y;
-    public Path z;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnLayoutChangeListener {
+    /* loaded from: classes5.dex */
+    public class a implements zr4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fs4 a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ fs4 b;
 
-        /* renamed from: com.repackage.fs4$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class RunnableC0414a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ View a;
-            public final /* synthetic */ ViewGroup.MarginLayoutParams b;
-            public final /* synthetic */ a c;
-
-            public RunnableC0414a(a aVar, View view2, ViewGroup.MarginLayoutParams marginLayoutParams) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, view2, marginLayoutParams};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = view2;
-                this.b = marginLayoutParams;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.setLayoutParams(this.b);
-                }
-            }
-        }
-
-        public a(fs4 fs4Var) {
+        public a(fs4 fs4Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fs4Var};
+                Object[] objArr = {fs4Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = fs4Var;
+            this.a = i;
+        }
+
+        @Override // com.repackage.zr4
+        public void a(bs4 bs4Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, bs4Var, jSONObject) == null) {
+                this.b.t(bs4Var, this.a);
+            }
+        }
+
+        @Override // com.repackage.zr4
+        public void b(int i, Throwable th) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, th) == null) && i == 1) {
+                if (this.a < fs4.m.length) {
+                    this.b.u();
+                }
+                int i2 = this.a;
+                if (i2 >= 0 && i2 < fs4.m.length) {
+                    this.b.x(String.valueOf(fs4.m[this.a]), "");
+                    return;
+                }
+                BdLog.e("pingIndex " + this.a + " out of bounds.");
+                String s = this.b.s();
+                tr4.b(s, TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, "ping timeout for index " + this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b extends as4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ b(WebView webView, a aVar) {
+            this(webView);
+        }
+
+        @Override // com.repackage.as4
+        public void c(bs4 bs4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bs4Var) == null) {
+                bs4Var.g(4, null);
+            }
+        }
+
+        @Override // com.repackage.as4
+        public void e(String str, sr4 sr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, sr4Var) == null) {
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(WebView webView) {
+            super(webView, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {webView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((WebView) objArr2[0], (qr4) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c implements wr4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final as4 a;
+        public final String b;
+
+        public c(as4 as4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {as4Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -124,750 +167,440 @@ public class fs4 extends Drawable implements Cloneable {
                     return;
                 }
             }
-            this.a = fs4Var;
+            this.a = as4Var;
+            this.b = str;
         }
 
-        @Override // android.view.View.OnLayoutChangeListener
-        public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+        @Override // com.repackage.wr4
+        public void a(String str, JSONObject jSONObject, JSONObject jSONObject2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-                if (view2.getBackground() instanceof fs4) {
-                    fs4 fs4Var = (fs4) view2.getBackground();
-                    this.a.j = fs4Var.j;
-                    this.a.o = fs4Var.o;
-                    this.a.p = fs4Var.p;
-                    this.a.n = fs4Var.n;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, jSONObject, jSONObject2) == null) {
+                String optString = jSONObject2.optString(WBConstants.SHARE_CALLBACK_ID);
+                if (TextUtils.isEmpty(optString)) {
+                    tr4.a("scope " + this.b + " not found!");
+                    return;
                 }
-                float[] u = this.a.u();
-                if (this.a.l == 1) {
-                    u[0] = (this.a.B & 1) == 1 ? u[0] : 0.0f;
-                    u[1] = (this.a.B & 16) == 16 ? u[1] : 0.0f;
-                    u[2] = (this.a.B & 256) == 256 ? u[2] : 0.0f;
-                    u[3] = (this.a.B & 4096) == 4096 ? u[3] : 0.0f;
-                }
-                ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    marginLayoutParams.leftMargin -= (int) u[0];
-                    marginLayoutParams.topMargin -= (int) u[1];
-                    marginLayoutParams.rightMargin -= (int) u[2];
-                    marginLayoutParams.bottomMargin -= (int) u[3];
-                    marginLayoutParams.width = (i3 - i) + ((int) u[0]) + ((int) u[2]);
-                    marginLayoutParams.height = (i4 - i2) + ((int) u[1]) + ((int) u[3]);
-                    view2.post(new RunnableC0414a(this, view2, marginLayoutParams));
-                }
-                view2.removeOnLayoutChangeListener(this);
+                HashMap hashMap = new HashMap(4);
+                hashMap.put("errNo", TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP);
+                hashMap.put(StatConstants.KEY_EXT_ERR_MSG, "cmd " + this.b + " not found");
+                this.a.c(bs4.k(optString, hashMap));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class b {
+    /* loaded from: classes5.dex */
+    public static final class d extends Handler {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<xr4> a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-375622452, "Lcom/repackage/fs4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-375622452, "Lcom/repackage/fs4$b;");
+        public d(xr4 xr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xr4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[Direction.values().length];
-            a = iArr;
-            try {
-                iArr[Direction.TOP.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[Direction.BOTTOM.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[Direction.RIGHT.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[Direction.LEFT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+            this.a = new WeakReference<>(xr4Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                xr4 xr4Var = this.a.get();
+                if (xr4Var == null) {
+                    tr4.a("TimeHandler got null bridge reference.");
+                    return;
+                }
+                int i = message.what;
+                if (i == 1) {
+                    xr4Var.b();
+                } else if (i == 2) {
+                    xr4Var.a((String) message.obj);
+                } else {
+                    throw new IllegalArgumentException("Invalid message.");
+                }
             }
         }
     }
 
-    public fs4() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755697270, "Lcom/repackage/fs4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755697270, "Lcom/repackage/fs4;");
+                return;
+            }
+        }
+        k = new int[]{1500, 2000, PrintHelper.MAX_PRINT_SIZE, 4600, 6000, 8000};
+        l = new int[]{201, 202, 203};
+        m = new int[]{501, 502, 503};
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public fs4(WebView webView, qr4 qr4Var) {
+        this(webView, new ur4(), new rr4(), qr4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView, qr4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((WebView) objArr2[0], (ur4) objArr2[1], (rr4) objArr2[2], (qr4) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.f = 1.0f;
-        this.g = 0;
-        this.h = 1.0f;
-        this.i = 0.0f;
-        this.l = 1;
-        this.m = new float[8];
-        this.n = new float[8];
-        this.q = new int[]{0};
-        this.s = new float[]{0.0f, 1.0f};
-        this.t = new float[]{0.0f, 1.0f};
-        this.u = Direction.BOTTOM;
-        this.v = new RectF();
-        this.w = new RectF();
-        this.x = new Path();
-        this.y = new Path();
-        this.z = new Path();
-        this.A = new a(this);
-        this.B = ShadowDrawable.ALL;
-        Paint paint = new Paint();
-        this.d = paint;
-        paint.setColor(0);
-        this.d.setAntiAlias(true);
-        this.d.setShadowLayer(this.j, this.o, this.p, this.k);
-        this.d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_ATOP));
-        Paint paint2 = new Paint();
-        this.c = paint2;
-        paint2.setAntiAlias(true);
-        Paint paint3 = new Paint();
-        this.e = paint3;
-        paint3.setColor(this.g);
-        this.e.setAlpha((int) (this.h * 255.0f));
-        this.e.setStrokeWidth(this.i);
-        this.e.setStyle(Paint.Style.STROKE);
-        this.e.setAntiAlias(true);
     }
 
-    public static fs4 y() {
-        InterceptResult invokeV;
+    public static as4 m(boolean z, WebView webView, WebViewClient webViewClient, WebChromeClient webChromeClient, qr4 qr4Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? new fs4() : (fs4) invokeV.objValue;
-    }
-
-    public fs4 A(@FloatRange(from = 0.0d, to = 1.0d) float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            if (this.f != f) {
-                this.f = f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{Boolean.valueOf(z), webView, webViewClient, webChromeClient, qr4Var})) == null) {
+            if (!z) {
+                return new b(webView, null);
             }
-            return this;
-        }
-        return (fs4) invokeF.objValue;
-    }
-
-    public fs4 B(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int[] iArr = this.q;
-            if (iArr.length == 1 && iArr[0] == i) {
-                return this;
-            }
-            this.q = r0;
-            int[] iArr2 = {i};
-            return this;
-        }
-        return (fs4) invokeI.objValue;
-    }
-
-    public fs4 C(int[] iArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iArr)) == null) {
-            if (Arrays.equals(this.q, iArr)) {
-                return this;
-            }
-            this.q = iArr;
-            return this;
-        }
-        return (fs4) invokeL.objValue;
-    }
-
-    public fs4 D(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            if (this.h == f) {
-                return this;
-            }
-            this.h = f;
-            return this;
-        }
-        return (fs4) invokeF.objValue;
-    }
-
-    public fs4 E(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (this.g == i) {
-                return this;
-            }
-            this.g = i;
-            return this;
-        }
-        return (fs4) invokeI.objValue;
-    }
-
-    public fs4 F(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (this.i == f) {
-                return this;
-            }
-            this.i = f;
-            return this;
-        }
-        return (fs4) invokeF.objValue;
-    }
-
-    public fs4 G(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (this.a == i) {
-                return this;
-            }
-            this.a = i;
-            Q();
-            return this;
-        }
-        return (fs4) invokeI.objValue;
-    }
-
-    public fs4 H(Direction direction) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, direction)) == null) {
-            if (this.u.equals(direction)) {
-                return this;
-            }
-            this.u = direction;
-            return this;
-        }
-        return (fs4) invokeL.objValue;
-    }
-
-    public fs4 I(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (this.o == i) {
-                return this;
-            }
-            this.o = i;
-            this.d.setShadowLayer(this.j, i, this.p, this.k);
-            return this;
-        }
-        return (fs4) invokeI.objValue;
-    }
-
-    public fs4 J(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            int i2 = this.o;
-            if (i2 == i) {
-                return this;
-            }
-            this.p = i;
-            this.d.setShadowLayer(this.j, i2, i, this.k);
-            return this;
-        }
-        return (fs4) invokeI.objValue;
-    }
-
-    public fs4 K(float[] fArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, fArr)) == null) {
-            if (Arrays.equals(this.s, fArr)) {
-                return this;
-            }
-            this.s = fArr;
-            return this;
-        }
-        return (fs4) invokeL.objValue;
-    }
-
-    public fs4 L(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            if (this.k == i) {
-                return this;
-            }
-            this.k = i;
-            this.d.setShadowLayer(this.j, this.o, this.p, i);
-            return this;
-        }
-        return (fs4) invokeI.objValue;
-    }
-
-    public fs4 M(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            if (this.j == i) {
-                return this;
-            }
-            this.j = i;
-            this.d.setShadowLayer(i, this.o, this.p, this.k);
-            return this;
-        }
-        return (fs4) invokeI.objValue;
-    }
-
-    public fs4 N(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            if (this.B == i) {
-                return this;
-            }
-            this.B = i;
-            return this;
-        }
-        return (fs4) invokeI.objValue;
-    }
-
-    public fs4 O(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            if (this.l == i) {
-                return this;
-            }
-            this.l = i;
-            return this;
-        }
-        return (fs4) invokeI.objValue;
-    }
-
-    public fs4 P(float[] fArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, fArr)) == null) {
-            if (Arrays.equals(this.m, fArr)) {
-                return this;
-            }
-            System.arraycopy(fArr, 0, this.m, 0, Math.min(fArr.length, 8));
-            Q();
-            return this;
-        }
-        return (fs4) invokeL.objValue;
-    }
-
-    public final void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            float[] fArr = this.m;
-            float[] fArr2 = this.n;
-            System.arraycopy(fArr, 0, fArr2, 0, Math.min(fArr2.length, 8));
-            int i = this.a;
-            if (i == 1) {
-                for (int i2 = 4; i2 < 8; i2++) {
-                    this.n[i2] = 0.0f;
-                }
-            } else if (i == 2) {
-                for (int i3 = 0; i3 < 4; i3++) {
-                    this.n[i3] = 0.0f;
-                }
-            }
-        }
-    }
-
-    public Object clone() {
-        fs4 fs4Var;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            try {
-                fs4Var = (fs4) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                fs4Var = null;
-            }
-            if (fs4Var == null) {
-                return this;
-            }
-            fs4Var.O(this.l);
-            fs4Var.N(this.B);
-            fs4Var.G(this.a);
-            fs4Var.P((float[]) this.m.clone());
-            fs4Var.L(this.k);
-            fs4Var.M(this.j);
-            fs4Var.I(this.o);
-            fs4Var.J(this.p);
-            fs4Var.C((int[]) this.q.clone());
-            fs4Var.K((float[]) this.s.clone());
-            fs4Var.H(this.u);
-            fs4Var.E(this.g);
-            fs4Var.D(this.h);
-            fs4Var.F(this.i);
-            fs4Var.A(this.f);
+            fs4 fs4Var = new fs4(webView, qr4Var);
+            fs4Var.c.b(webViewClient);
+            fs4Var.d.d(webChromeClient);
             return fs4Var;
         }
-        return invokeV.objValue;
+        return (as4) invokeCommon.objValue;
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
+    public static as4 n(boolean z, BridgeWebView bridgeWebView, qr4 qr4Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, canvas) == null) {
-            int[] q = q();
-            if (q != null) {
-                if (q.length == 1) {
-                    this.c.setColor(q[0]);
-                } else {
-                    PointF w = w(this.v, this.u);
-                    PointF v = v(this.v, this.u);
-                    LinearGradient linearGradient = new LinearGradient(w.x, w.y, v.x, v.y, q, this.t, Shader.TileMode.CLAMP);
-                    this.r = linearGradient;
-                    this.c.setShader(linearGradient);
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), bridgeWebView, qr4Var})) == null) {
+            if (!z) {
+                return new b(bridgeWebView, null);
             }
-            this.e.setColor(di8.a(this.g, this.f));
-            this.e.setAlpha((int) (this.h * 255.0f));
-            this.e.setStrokeWidth(this.i);
-            int i = this.l;
-            if (i == 1) {
-                p(canvas);
-                canvas.drawPath(this.y, this.c);
-                o(canvas);
-            } else if (i == 2) {
-                canvas.drawCircle(this.v.centerX(), this.v.centerY(), Math.min(this.v.width(), this.v.height()) / 2.0f, this.d);
-                canvas.drawCircle(this.v.centerX(), this.v.centerY(), Math.min(this.v.width(), this.v.height()) / 2.0f, this.c);
-                canvas.drawCircle(this.v.centerX(), this.v.centerY(), (Math.min(this.v.width(), this.v.height()) / 2.0f) - (this.i * 0.5f), this.e);
-            } else {
-                canvas.drawRect(this.v, this.c);
-            }
+            WebViewClient webViewClient = bridgeWebView.webViewClient;
+            WebChromeClient webChromeClient = bridgeWebView.chromeClient;
+            fs4 fs4Var = new fs4(bridgeWebView, qr4Var);
+            fs4Var.c.b(webViewClient);
+            fs4Var.d.d(webChromeClient);
+            return fs4Var;
         }
+        return (as4) invokeCommon.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.repackage.xr4
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || fs4.class != obj.getClass()) {
-                return false;
-            }
-            fs4 fs4Var = (fs4) obj;
-            return hashCode() == fs4Var.hashCode() && this.a == fs4Var.a && this.j == fs4Var.j && this.k == fs4Var.k && this.l == fs4Var.l && this.o == fs4Var.o && this.p == fs4Var.p && this.B == fs4Var.B && Arrays.equals(this.m, fs4Var.m) && Arrays.equals(this.n, fs4Var.n) && Arrays.equals(this.q, fs4Var.q) && Arrays.equals(this.s, fs4Var.s) && this.u.equals(fs4Var.u) && this.g == fs4Var.g && this.h == fs4Var.h && this.i == fs4Var.i && this.f == fs4Var.f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return -3;
-        }
-        return invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? (((((((Objects.hash(Integer.valueOf(this.a), Integer.valueOf(this.j), Integer.valueOf(this.k), Integer.valueOf(this.l), Integer.valueOf(this.o), Integer.valueOf(this.p), this.u, Integer.valueOf(this.B), Integer.valueOf(this.g), Float.valueOf(this.h), Float.valueOf(this.i), Float.valueOf(this.f)) * 31) + Arrays.hashCode(this.m)) * 31) + Arrays.hashCode(this.n)) * 31) + Arrays.hashCode(this.q)) * 31) + Arrays.hashCode(this.s) : invokeV.intValue;
-    }
-
-    public GradientDrawable l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            int length = this.n.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                float[] fArr = this.n;
-                if (fArr[i2] > 0.0f && fArr[i2] < 1.0f) {
-                    fArr[i2] = fArr[i2] * i;
-                }
-            }
-            gradientDrawable.setCornerRadii(this.n);
-            gradientDrawable.setAlpha((int) (this.f * 255.0f));
-            return gradientDrawable;
-        }
-        return (GradientDrawable) invokeI.objValue;
-    }
-
-    public final void m(float[] fArr, float[] fArr2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, fArr, fArr2) == null) {
-            int i = b.a[this.u.ordinal()];
-            if (i == 1) {
-                RectF rectF = this.v;
-                float f = rectF.top;
-                float height = rectF.height();
-                float[] fArr3 = this.s;
-                rectF.bottom = f + (height * fArr3[fArr3.length - 1]);
-                fArr[4] = 0.0f;
-                fArr[5] = 0.0f;
-                fArr[6] = 0.0f;
-                fArr[7] = 0.0f;
-            } else if (i == 2) {
-                RectF rectF2 = this.v;
-                float f2 = rectF2.bottom;
-                float height2 = rectF2.height();
-                float[] fArr4 = this.s;
-                rectF2.top = f2 - (height2 * fArr4[fArr4.length - 1]);
-                fArr[0] = 0.0f;
-                fArr[1] = 0.0f;
-                fArr[2] = 0.0f;
-                fArr[3] = 0.0f;
-            } else if (i == 3) {
-                RectF rectF3 = this.v;
-                float f3 = rectF3.right;
-                float width = rectF3.width();
-                float[] fArr5 = this.s;
-                rectF3.left = f3 - (width * fArr5[fArr5.length - 1]);
-                fArr[0] = 0.0f;
-                fArr[1] = 0.0f;
-                fArr[6] = 0.0f;
-                fArr[7] = 0.0f;
-            } else if (i == 4) {
-                RectF rectF4 = this.v;
-                float f4 = rectF4.left;
-                float width2 = rectF4.width();
-                float[] fArr6 = this.s;
-                rectF4.right = f4 + (width2 * fArr6[fArr6.length - 1]);
-                fArr[2] = 0.0f;
-                fArr[3] = 0.0f;
-                fArr[4] = 0.0f;
-                fArr[5] = 0.0f;
-            }
-            fArr2[fArr2.length - 1] = 1.0f;
-        }
-    }
-
-    public fs4 n(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, view2)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            this.b = view2;
-            if (equals(view2.getBackground())) {
-                return null;
-            }
-            this.b.removeOnLayoutChangeListener(this.A);
-            this.b.addOnLayoutChangeListener(this.A);
-            return this;
-        }
-        return (fs4) invokeL.objValue;
-    }
-
-    public void o(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048601, this, canvas) == null) || this.i == 0.0f || this.h == 0.0f || this.g == 0) {
-            return;
-        }
-        canvas.drawPath(this.z, this.e);
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, rect) == null) {
-            super.onBoundsChange(rect);
-            int length = this.n.length;
-            for (int i = 0; i < length; i++) {
-                float[] fArr = this.n;
-                if (fArr[i] > 0.0f && fArr[i] < 1.0f) {
-                    fArr[i] = fArr[i] * rect.height();
-                }
-            }
-            float[] u = u();
-            this.v = new RectF(rect.left + u[0], rect.top + u[1], rect.right - u[2], rect.bottom - u[3]);
-            this.x.reset();
-            this.x.addRoundRect(this.v, this.n, Path.Direction.CW);
-            this.t = (float[]) this.s.clone();
-            float[] fArr2 = (float[]) this.n.clone();
-            int[] iArr = this.q;
-            if (iArr != null && iArr.length > 1 && x()) {
-                m(fArr2, this.t);
-            }
-            this.y.reset();
-            this.y.addRoundRect(this.v, fArr2, Path.Direction.CW);
-            float f = this.i * 0.5f;
-            float[] fArr3 = (float[]) this.n.clone();
-            for (int i2 = 0; i2 < fArr3.length; i2++) {
-                fArr3[i2] = fArr3[i2] - this.i;
-                if (fArr3[i2] < 0.0f) {
-                    fArr3[i2] = 0.0f;
-                }
-            }
-            RectF rectF = this.v;
-            this.w = new RectF(rectF.left + f, rectF.top + f, rectF.right - f, rectF.bottom - f);
-            this.z.reset();
-            this.z.addRoundRect(this.w, fArr3, Path.Direction.CW);
-        }
-    }
-
-    public void p(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, canvas) == null) {
-            if (this.j == 0 && this.o == 0 && this.p == 0) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (TextUtils.isEmpty(str)) {
+                tr4.a("invalid callbackId.");
                 return;
             }
-            canvas.drawPath(this.x, this.d);
-        }
-    }
-
-    public final int[] q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            int[] iArr = this.q;
-            if (iArr == null) {
-                return iArr;
+            bs4 remove = this.g.remove(str);
+            if (remove != null) {
+                tr4.a("(" + remove.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + remove.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + str + ") timeout.");
+                remove.g(1, null);
             }
-            int length = iArr.length;
-            int[] iArr2 = new int[length];
-            for (int i = 0; i < length; i++) {
-                iArr2[i] = di8.a(this.q[i], this.f);
-            }
-            return iArr2;
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    public float r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.h : invokeV.floatValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
-            this.d.setAlpha(i);
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(@Nullable ColorFilter colorFilter) {
+    @Override // com.repackage.xr4
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, colorFilter) == null) {
-            this.d.setColorFilter(colorFilter);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.j + 1;
+            this.j = i;
+            HashMap hashMap = new HashMap();
+            hashMap.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "android");
+            hashMap.put("version", "1.0");
+            hashMap.put("logid", s());
+            int[] iArr = k;
+            l(bs4.i(hashMap, iArr[this.j % iArr.length], new a(this, i)), true);
+            x("100", "");
         }
     }
 
-    public float t() {
-        InterceptResult invokeV;
+    @Override // com.repackage.as4
+    public void c(bs4 bs4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.i : invokeV.floatValue;
-    }
-
-    public final float[] u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
-            float[] fArr = new float[4];
-            int i = this.l;
-            if (i == 1) {
-                fArr[0] = (this.B & 1) == 1 ? this.j - this.o : -this.n[0];
-                fArr[1] = (this.B & 16) == 16 ? this.j - this.p : -this.n[2];
-                fArr[2] = (this.B & 256) == 256 ? this.j + this.o : -this.n[4];
-                fArr[3] = (this.B & 4096) == 4096 ? this.j + this.p : -this.n[6];
-            } else if (i == 2) {
-                Arrays.fill(fArr, this.j);
-            }
-            return fArr;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bs4Var) == null) {
+            l(bs4Var, bs4Var.e == 3);
         }
-        return (float[]) invokeV.objValue;
     }
 
-    public final PointF v(RectF rectF, Direction direction) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.as4
+    public void e(String str, sr4 sr4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048611, this, rectF, direction)) == null) {
-            int i = b.a[direction.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return new PointF();
-                        }
-                        return new PointF(rectF.right, rectF.height() / 2.0f);
-                    }
-                    return new PointF(rectF.left, rectF.height() / 2.0f);
-                }
-                return new PointF(rectF.width() / 2.0f, rectF.top);
-            }
-            return new PointF(rectF.width() / 2.0f, rectF.bottom);
-        }
-        return (PointF) invokeLL.objValue;
-    }
-
-    public final PointF w(RectF rectF, Direction direction) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, rectF, direction)) == null) {
-            int i = b.a[direction.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return new PointF();
-                        }
-                        return new PointF(rectF.left, rectF.height() / 2.0f);
-                    }
-                    return new PointF(rectF.right, rectF.height() / 2.0f);
-                }
-                return new PointF(rectF.width() / 2.0f, rectF.bottom);
-            }
-            return new PointF(rectF.width() / 2.0f, rectF.top);
-        }
-        return (PointF) invokeLL.objValue;
-    }
-
-    public final boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            float[] fArr = this.s;
-            return fArr != null && fArr.length >= 1 && fArr[fArr.length - 1] < 1.0f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void z() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || (view2 = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, sr4Var) == null) || this.f.put(str, sr4Var) == null) {
             return;
         }
-        view2.removeOnLayoutChangeListener(this.A);
-        this.b.setLayerType(0, null);
-        this.b = null;
+        throw new IllegalArgumentException("handler " + str + " exists.");
+    }
+
+    public final StringBuilder k() throws JSONException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder("window.HYBRID_INITIAL_DATA=");
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, "android");
+            jSONObject.put("version", "1.0");
+            jSONObject.put("logid", s());
+            sb.append(jSONObject.toString());
+            sb.append(WebvttCueParser.CHAR_SEMI_COLON);
+            return sb;
+        }
+        return (StringBuilder) invokeV.objValue;
+    }
+
+    public final void l(bs4 bs4Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, bs4Var, z) == null) {
+            if (!z) {
+                if (this.i != 0) {
+                    String s = s();
+                    tr4.b(s, "101", "(" + bs4Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + bs4Var.b + ") is called before bridge ready");
+                }
+                if (TextUtils.isEmpty(bs4Var.a) || TextUtils.isEmpty(bs4Var.b)) {
+                    tr4.b(s(), "102", "the alias class or method is empty");
+                    bs4Var.g(3, new IllegalArgumentException("cmd or method is illegal."));
+                    return;
+                }
+            }
+            if (!TextUtils.isEmpty(bs4Var.f)) {
+                if (bs4Var.e != 3) {
+                    this.g.put(bs4Var.f, bs4Var);
+                    if (bs4Var.g > 0) {
+                        d dVar = this.e;
+                        dVar.sendMessageDelayed(Message.obtain(dVar, 2, bs4Var.f), bs4Var.g);
+                    } else if (bs4Var.a != null || bs4Var.b != null) {
+                        tr4.a("ignore timeout check for method call (" + bs4Var.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + bs4Var.b + ").");
+                    }
+                } else {
+                    tr4.a("ignore timeout check for response method, callbackId " + bs4Var.f);
+                }
+            }
+            try {
+                String b2 = bs4Var.b();
+                if (Build.VERSION.SDK_INT >= 19) {
+                    this.a.evaluateJavascript(b2, null);
+                } else {
+                    this.a.loadUrl(b2);
+                }
+                tr4.a(b2);
+            } catch (NullPointerException e) {
+                x("500", e.getMessage());
+            } catch (JSONException e2) {
+                if (z) {
+                    x("102", e2.getMessage());
+                } else {
+                    tr4.a(e2.getMessage());
+                }
+                bs4Var.g(2, e2);
+            }
+        }
+    }
+
+    public String o(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
+            tr4.a("got js prompt in url:" + str + " with content:" + str2);
+            try {
+                JSONObject jSONObject = new JSONObject(str2);
+                String optString = jSONObject.optString("messageType");
+                if ("ping".equals(optString)) {
+                    v(jSONObject.optString(WBConstants.SHARE_CALLBACK_ID), jSONObject.optJSONObject("outputData"));
+                } else if ("request".equals(optString)) {
+                    w(jSONObject.optString("cmd"), jSONObject.optString("method"), jSONObject.optJSONObject("inputData"), jSONObject);
+                } else if ("response".equals(optString)) {
+                    v(jSONObject.optString(WBConstants.SHARE_CALLBACK_ID), jSONObject.optJSONObject("outputData"));
+                } else {
+                    String s = s();
+                    tr4.b(s, TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN, "invalid message type " + optString);
+                }
+                return null;
+            } catch (JSONException e) {
+                tr4.b(s(), TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP, e.getMessage());
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.j = -1;
+            int i = this.i;
+            if (i != 2 && i != 1) {
+                tr4.a("current status " + this.i + ", broken because url changed to " + str);
+                this.i = 2;
+            }
+            if (es4.b(str) && es4.a(str)) {
+                tr4.a("current status " + this.i + ", constructing bridge for " + str);
+                qr4 qr4Var = this.b;
+                if (qr4Var != null) {
+                    qr4Var.b();
+                }
+                r(this.a);
+                qr4 qr4Var2 = this.b;
+                if (qr4Var2 != null) {
+                    qr4Var2.a();
+                }
+            }
+        }
+    }
+
+    @SuppressLint({"SetJavaScriptEnabled"})
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (this.i == -1) {
+                this.a.getSettings().setJavaScriptEnabled(true);
+                this.a.setWebViewClient(this.c);
+                this.a.setWebChromeClient(this.d);
+                this.a.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.i = 1;
+                return;
+            }
+            throw new IllegalStateException("Can't init bridge more than once.");
+        }
+    }
+
+    public final void r(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, webView) == null) {
+            this.h = String.valueOf(System.currentTimeMillis());
+            try {
+                InputStream open = webView.getContext().getAssets().open("bridge.dist.min.js");
+                byte[] bArr = new byte[open.available()];
+                open.read(bArr);
+                open.close();
+                StringBuilder k2 = k();
+                k2.append(new String(bArr));
+                webView.loadUrl("javascript:" + k2.toString());
+                this.e.sendEmptyMessageDelayed(1, 0L);
+            } catch (Throwable th) {
+                x("102", th.getMessage());
+                tr4.a(th.toString());
+            }
+        }
+    }
+
+    public final String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public final void t(bs4 bs4Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048587, this, bs4Var, i) == null) {
+            this.i = 0;
+            long currentTimeMillis = System.currentTimeMillis();
+            if (i >= 0) {
+                int[] iArr = l;
+                if (i < iArr.length) {
+                    x(String.valueOf(iArr[i]), String.valueOf(currentTimeMillis - bs4Var.h));
+                    return;
+                }
+            }
+            BdLog.e("pingIndex " + i + " out of bounds.");
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            tr4.a("reInject for pingIndex " + this.j);
+            r(this.a);
+        }
+    }
+
+    public final void v(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048589, this, str, jSONObject) == null) {
+            if (TextUtils.isEmpty(str)) {
+                tr4.a("invalid callbackId.");
+                return;
+            }
+            this.e.removeMessages(2, str);
+            bs4 remove = this.g.remove(str);
+            if (remove != null) {
+                remove.h(jSONObject);
+            }
+        }
+    }
+
+    public final void w(String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, jSONObject, jSONObject2) == null) {
+            if (this.i != 0) {
+                tr4.b(s(), TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT, "bridge is not ready");
+            }
+            wr4 wr4Var = this.f.get(str);
+            if (wr4Var == null) {
+                wr4Var = new c(this, str);
+                String s = s();
+                tr4.b(s, TbEnum.SystemMessage.EVENT_ID_DISMISS_GROUP, "cmd " + str + " not found");
+            }
+            wr4Var.a(str2, jSONObject, jSONObject2);
+        }
+    }
+
+    public final void x(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, str, str2) == null) {
+            tr4.c(s(), str, str2);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fs4(WebView webView, ur4 ur4Var, rr4 rr4Var, qr4 qr4Var) {
+        super(webView, qr4Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView, ur4Var, rr4Var, qr4Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((WebView) objArr2[0], (qr4) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.h = String.valueOf(System.currentTimeMillis());
+        this.i = -1;
+        this.j = -1;
+        this.c = ur4Var;
+        this.d = rr4Var;
+        rr4Var.c(this);
+        this.c.a(this);
+        this.e = new d(this);
+        this.f = new HashMap<>(16);
+        this.g = new HashMap<>(8);
+        q();
     }
 }

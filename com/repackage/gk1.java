@@ -1,7 +1,19 @@
 package com.repackage;
 
-import android.content.Context;
+import java.io.File;
 /* loaded from: classes6.dex */
-public interface gk1 {
-    void a(Context context);
+public interface gk1 extends ys2 {
+    File a();
+
+    void e(String str, String str2);
+
+    void e(String str, String str2, Throwable th);
+
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

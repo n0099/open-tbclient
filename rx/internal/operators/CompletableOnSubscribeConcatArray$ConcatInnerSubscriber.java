@@ -5,27 +5,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dy9;
-import com.repackage.s2a;
-import com.repackage.ux9;
-import com.repackage.vx9;
+import com.repackage.mz9;
+import com.repackage.ou9;
+import com.repackage.pu9;
+import com.repackage.xu9;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements vx9 {
+public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements pu9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7965400327305809232L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vx9 actual;
+    public final pu9 actual;
     public int index;
-    public final s2a sd;
-    public final ux9[] sources;
+    public final mz9 sd;
+    public final ou9[] sources;
 
-    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(vx9 vx9Var, ux9[] ux9VarArr) {
+    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(pu9 pu9Var, ou9[] ou9VarArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vx9Var, ux9VarArr};
+            Object[] objArr = {pu9Var, ou9VarArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,23 +35,23 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
                 return;
             }
         }
-        this.actual = vx9Var;
-        this.sources = ux9VarArr;
-        this.sd = new s2a();
+        this.actual = pu9Var;
+        this.sources = ou9VarArr;
+        this.sd = new mz9();
     }
 
     public void next() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isUnsubscribed() && getAndIncrement() == 0) {
-            ux9[] ux9VarArr = this.sources;
+            ou9[] ou9VarArr = this.sources;
             while (!this.sd.isUnsubscribed()) {
                 int i = this.index;
                 this.index = i + 1;
-                if (i == ux9VarArr.length) {
+                if (i == ou9VarArr.length) {
                     this.actual.onCompleted();
                     return;
                 }
-                ux9VarArr[i].j(this);
+                ou9VarArr[i].j(this);
                 if (decrementAndGet() == 0) {
                     return;
                 }
@@ -59,7 +59,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.repackage.vx9
+    @Override // com.repackage.pu9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -67,7 +67,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.repackage.vx9
+    @Override // com.repackage.pu9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -75,11 +75,11 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.repackage.vx9
-    public void onSubscribe(dy9 dy9Var) {
+    @Override // com.repackage.pu9
+    public void onSubscribe(xu9 xu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dy9Var) == null) {
-            this.sd.a(dy9Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, xu9Var) == null) {
+            this.sd.a(xu9Var);
         }
     }
 }

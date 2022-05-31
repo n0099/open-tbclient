@@ -1,296 +1,141 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes6.dex */
-public class kw {
+public final class kw {
     public static /* synthetic */ Interceptable $ic;
+    public static final String d;
+    public static kw e;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public WindowManager b;
-    public volatile int c;
-    public View d;
-    public View e;
-    public WindowManager.LayoutParams f;
-    public Handler g;
-    public Runnable h;
-    public Runnable i;
-    public boolean j;
-    public View k;
-    public View l;
+    public WebView b;
+    public boolean c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kw a;
-
-        public a(kw kwVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964035047, "Lcom/repackage/kw;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kwVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = kwVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.d != null) {
-                    if (this.a.d.getParent() != null) {
-                        this.a.b.removeView(this.a.d);
-                    }
-                    this.a.d = null;
-                }
-                if (this.a.k != null) {
-                    if (this.a.k.getParent() != null) {
-                        this.a.b.removeView(this.a.k);
-                    }
-                    this.a.k = null;
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964035047, "Lcom/repackage/kw;");
+                return;
             }
         }
+        d = BdSailor.class.getName();
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kw a;
-
-        public b(kw kwVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kwVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kwVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.j) {
-                        if (this.a.k != null && (this.a.k.getParent() instanceof ViewGroup)) {
-                            ((ViewGroup) this.a.k.getParent()).removeView(this.a.k);
-                        }
-                        WindowManager.LayoutParams m = this.a.m();
-                        this.a.l = new FrameLayout(this.a.a);
-                        this.a.l.setClickable(true);
-                        this.a.b.addView(this.a.l, m);
-                        this.a.k = this.a.l;
-                    }
-                    if (this.a.e != null && (this.a.e.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) this.a.e.getParent()).removeView(this.a.e);
-                    }
-                    this.a.b.addView(this.a.e, this.a.f);
-                    this.a.d = this.a.e;
-                    this.a.g.postDelayed(this.a.i, this.a.c * 1000);
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kw a;
-
-        public c(kw kwVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kwVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kwVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.d != null) {
-                        if (this.a.d.getParent() != null) {
-                            this.a.b.removeViewImmediate(this.a.d);
-                        }
-                        this.a.d = null;
-                    }
-                    if (this.a.k != null) {
-                        if (this.a.k.getParent() != null) {
-                            this.a.b.removeViewImmediate(this.a.k);
-                        }
-                        this.a.k = null;
-                    }
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public kw(Context context) {
+    public kw() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = context;
-        this.b = (WindowManager) context.getSystemService("window");
-        this.g = new Handler(Looper.getMainLooper());
-        this.i = new a(this);
-        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-        this.f = layoutParams;
-        layoutParams.height = -2;
-        layoutParams.width = -2;
-        layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100410;
-        layoutParams.type = 2005;
-        layoutParams.setTitle("Toast");
-        WindowManager.LayoutParams layoutParams2 = this.f;
-        layoutParams2.flags = com.kuaishou.weapon.un.w0.d0;
-        layoutParams2.gravity = 81;
-        layoutParams2.y = -30;
-        this.c = 2;
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Runnable runnable = this.h;
-            if (runnable != null) {
-                this.g.removeCallbacks(runnable);
-            }
-            b bVar = new b(this);
-            this.h = bVar;
-            this.g.post(bVar);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i <= 0) {
-                i = 2;
-            }
-            this.c = i;
-        }
-    }
-
-    public void e(int i, int i2, int i3) {
-        WindowManager.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3) == null) || (layoutParams = this.f) == null) {
-            return;
-        }
-        layoutParams.gravity = i;
-        layoutParams.x = i2;
-        layoutParams.y = i3;
-    }
-
-    public void f(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-            this.e = view2;
-            view2.setClickable(true);
-        }
-    }
-
-    public void i() {
-        Handler handler;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (handler = this.g) == null) {
-            return;
-        }
-        handler.post(new c(this));
-        this.g.removeCallbacks(this.i);
-    }
-
-    public void j(int i) {
-        WindowManager.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (layoutParams = this.f) == null) {
-            return;
-        }
-        layoutParams.windowAnimations = i;
-    }
-
-    public final WindowManager.LayoutParams m() {
+    public static kw a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-            layoutParams.verticalMargin = hw.m(this.a);
-            layoutParams.flags = 2176;
-            layoutParams.type = 2005;
-            return layoutParams;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            kw kwVar = e;
+            if (kwVar == null) {
+                e = new kw();
+            } else if (kwVar.b != null && (kwVar.c ^ BdZeusUtil.isWebkitLoaded())) {
+                Log.d(d, "BdWebViewSingleton, re-new instance need because of the kernel changed");
+                e.f();
+                e.e();
+            }
+            return e;
         }
-        return (WindowManager.LayoutParams) invokeV.objValue;
+        return (kw) invokeV.objValue;
     }
 
-    public void n(int i) {
-        WindowManager.LayoutParams layoutParams;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (layoutParams = this.f) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            kw a = a();
+            a.f();
+            a.a = null;
+            e = null;
         }
-        layoutParams.type = i;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Log.d(d, "BdWebViewSingleton pauseTimer");
+            try {
+                e();
+                this.b.pauseTimers();
+                return true;
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Log.d(d, "BdWebViewSingleton resumeTimer");
+            try {
+                e();
+                this.b.resumeTimers();
+                return true;
+            } catch (Exception e2) {
+                Log.printStackTrace(e2);
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b == null && this.a != null) {
+            if (BdZeusUtil.isWebkitLoaded()) {
+                this.c = true;
+            } else {
+                this.c = false;
+                Log.d(d, "BdWebViewSingleton init system webview,zeus was not load complete");
+            }
+            this.b = new WebView(this.a);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Log.w(d, "BdWebViewSingleton, old instance has been destroyed");
+            WebView webView = this.b;
+            if (webView != null) {
+                webView.destroy();
+                this.b = null;
+            }
+        }
     }
 }

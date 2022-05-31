@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.in;
-import com.repackage.mi;
+import com.repackage.am;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class AiAppGuideActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -92,13 +92,13 @@ public class AiAppGuideActivity extends BaseActivity {
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
             setContentView(R.layout.obfuscated_res_0x7f0d0029);
-            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f0923f4);
+            GifView gifView = (GifView) findViewById(R.id.obfuscated_res_0x7f092399);
             this.mGifView = gifView;
-            gifView.setGifFile(in.b("aiapp_guide.gif"));
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb1);
+            gifView.setGifFile(am.b("aiapp_guide.gif"));
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e76);
             this.mImgClose = imageView;
             imageView.setOnClickListener(this.mOnClickListener);
-            int k = mi.k(getActivity()) - (mi.f(getActivity(), R.dimen.tbds44) * 2);
+            int k = li.k(getActivity()) - (li.f(getActivity(), R.dimen.tbds44) * 2);
             ViewGroup.LayoutParams layoutParams = this.mGifView.getLayoutParams();
             layoutParams.width = k;
             layoutParams.height = (int) (((k * GIF_HEIGHT) * 1.0f) / 760.0f);

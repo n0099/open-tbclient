@@ -190,7 +190,7 @@ public final class DataExt {
                         if (b(asNumber.toString()) || (valueOfByType = NumberType.valueOfByType(type)) == null) {
                             return null;
                         }
-                        int i = b.a[valueOfByType.ordinal()];
+                        int i = c.a[valueOfByType.ordinal()];
                         if (i != 1) {
                             if (i != 2) {
                                 if (i != 3) {
@@ -380,7 +380,54 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class b {
+    public static class b implements ParameterizedType {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.reflect.ParameterizedType
+        @NonNull
+        public Type[] getActualTypeArguments() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new Type[]{GsonWidget.a} : (Type[]) invokeV.objValue;
+        }
+
+        @Override // java.lang.reflect.ParameterizedType
+        @Nullable
+        public Type getOwnerType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return null;
+            }
+            return (Type) invokeV.objValue;
+        }
+
+        @Override // java.lang.reflect.ParameterizedType
+        @NonNull
+        public Type getRawType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? List.class : (Type) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -388,13 +435,13 @@ public final class DataExt {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(988613424, "Lcom/baidu/tbadk/util/DataExt$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(988613455, "Lcom/baidu/tbadk/util/DataExt$c;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(988613424, "Lcom/baidu/tbadk/util/DataExt$b;");
+                    classClinitInterceptable.invokePostClinit(988613455, "Lcom/baidu/tbadk/util/DataExt$c;");
                     return;
                 }
             }
@@ -508,6 +555,13 @@ public final class DataExt {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) ? (Map) GSON.fromJson(str, GsonWidget.a) : (Map) invokeL.objValue;
+    }
+
+    @NonNull
+    public static List<Map<String, Object>> toMapList(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? (List) Objects.requireNonNull(GSON.fromJson(str, new b())) : (List) invokeL.objValue;
     }
 
     @NonNull

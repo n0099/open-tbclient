@@ -18,24 +18,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a83;
-import com.repackage.bo2;
-import com.repackage.eh1;
-import com.repackage.oe3;
-import com.repackage.un2;
-import com.repackage.wk1;
+import com.repackage.bd3;
+import com.repackage.hm2;
+import com.repackage.jj1;
+import com.repackage.n63;
+import com.repackage.om2;
+import com.repackage.rf1;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class DefaultSwanAppBgMusicPlayer implements wk1 {
+public class DefaultSwanAppBgMusicPlayer implements jj1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean h;
     public static volatile DefaultSwanAppBgMusicPlayer i;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer a;
     public PlayerStatus b;
-    public bo2 c;
+    public om2 c;
     public AudioManager d;
     public boolean e;
     public b f;
@@ -181,7 +181,7 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
         public void onAudioFocusChange(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                oe3.e0(new a(this, i));
+                bd3.e0(new a(this, i));
             }
         }
 
@@ -252,7 +252,7 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
                 if (DefaultSwanAppBgMusicPlayer.h) {
                     Log.d("AudioPlayerListener", "--onError -> what: " + i + " extra: " + i2);
                 }
-                a83.b("audio", 2008, "--onError -> what: " + i + " extra: " + i2, -1, "");
+                n63.b("audio", 2008, "--onError -> what: " + i + " extra: " + i2, -1, "");
                 return true;
             }
             return invokeLII.booleanValue;
@@ -346,7 +346,7 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
                 return;
             }
         }
-        h = eh1.a;
+        h = rf1.a;
     }
 
     public DefaultSwanAppBgMusicPlayer() {
@@ -381,17 +381,17 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
         return (DefaultSwanAppBgMusicPlayer) invokeV.objValue;
     }
 
-    @Override // com.repackage.wk1
-    public void a(String str, bo2 bo2Var) {
+    @Override // com.repackage.jj1
+    public void a(String str, om2 om2Var) {
         String str2;
-        un2 b2;
+        hm2 b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bo2Var) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, om2Var) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.c = bo2Var;
+        this.c = om2Var;
         try {
-            b2 = un2.b(new JSONObject(str), new un2());
+            b2 = hm2.b(new JSONObject(str), new hm2());
             str2 = b2.c;
         } catch (IOException | JSONException e) {
             e = e;
@@ -407,12 +407,12 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
             play();
         } catch (IOException e2) {
             e = e2;
-            a83.b("audio", 1001, "audio src error, src is" + str2, -1, "");
+            n63.b("audio", 1001, "audio src error, src is" + str2, -1, "");
             e.printStackTrace();
             this.c.onInvokeFailed();
         } catch (JSONException e3) {
             e = e3;
-            a83.b("audio", 1001, "audio src error, src is" + str2, -1, "");
+            n63.b("audio", 1001, "audio src error, src is" + str2, -1, "");
             e.printStackTrace();
             this.c.onInvokeFailed();
         }
@@ -435,14 +435,14 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
         }
     }
 
-    @Override // com.repackage.wk1
+    @Override // com.repackage.jj1
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k().getDuration() : invokeV.intValue;
     }
 
-    @Override // com.repackage.wk1
+    @Override // com.repackage.jj1
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -503,7 +503,7 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
         }
     }
 
-    @Override // com.repackage.wk1
+    @Override // com.repackage.jj1
     public void onRelease() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -519,7 +519,7 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
         }
     }
 
-    @Override // com.repackage.wk1
+    @Override // com.repackage.jj1
     public void pause() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && k().isPlaying()) {
@@ -532,7 +532,7 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
         }
     }
 
-    @Override // com.repackage.wk1
+    @Override // com.repackage.jj1
     public void play() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -551,7 +551,7 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
         }
     }
 
-    @Override // com.repackage.wk1
+    @Override // com.repackage.jj1
     public void seek(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
@@ -559,7 +559,7 @@ public class DefaultSwanAppBgMusicPlayer implements wk1 {
         }
     }
 
-    @Override // com.repackage.wk1
+    @Override // com.repackage.jj1
     public void stop() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.b == PlayerStatus.PREPARED) {

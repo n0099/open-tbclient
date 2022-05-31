@@ -1,293 +1,304 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
 import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class wb0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String f = "wb0";
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public Window c;
-    public View d;
+    public HandlerThread a;
+    public Handler b;
+    public yb0 c;
+    public cc0 d;
+    public volatile boolean e;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
+        public ByteBuffer a;
+        public int b;
+        public long c;
 
-        public a(wb0 wb0Var, View view2) {
+        public a(wb0 wb0Var, ByteBuffer byteBuffer, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wb0Var, view2};
+                Object[] objArr = {wb0Var, byteBuffer, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = view2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View view2 = this.a;
-                view2.setPadding(view2.getPaddingLeft(), this.a.getPaddingTop() + wb0.b(this.a.getContext()), this.a.getPaddingRight(), this.a.getPaddingBottom());
-                this.a.getLayoutParams().height += wb0.b(this.a.getContext());
-            }
+            this.a = byteBuffer;
+            this.b = i;
+            this.c = j;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static final class b {
+    public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Window a;
-        public boolean b;
-        public boolean c;
-        public View d;
+        public final /* synthetic */ wb0 a;
 
-        public b() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(wb0 wb0Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wb0Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = false;
-            this.c = false;
+            this.a = wb0Var;
         }
 
-        public boolean b() {
-            InterceptResult invokeV;
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new wb0(this.a, this.b, this.c, this.d).d() : invokeV.booleanValue;
-        }
-
-        public b c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.b = z;
-                return this;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                switch (message.what) {
+                    case 1001:
+                        this.a.k((bc0) message.obj);
+                        return;
+                    case 1002:
+                        this.a.l();
+                        return;
+                    case 1003:
+                        a aVar = (a) message.obj;
+                        this.a.h(aVar.a, aVar.b, aVar.c);
+                        return;
+                    case 1004:
+                        this.a.m();
+                        return;
+                    case 1005:
+                        this.a.j();
+                        return;
+                    case 1006:
+                        this.a.i();
+                        return;
+                    default:
+                        return;
+                }
             }
-            return (b) invokeZ.objValue;
-        }
-
-        public b d(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.c = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public final b e(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-                this.a = activity.getWindow();
-                return this;
-            }
-            return (b) invokeL.objValue;
         }
     }
 
-    public wb0(Window window, boolean z, boolean z2, View view2) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755207284, "Lcom/repackage/wb0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755207284, "Lcom/repackage/wb0;");
+        }
+    }
+
+    public wb0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {window, Boolean.valueOf(z), Boolean.valueOf(z2), view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = z;
-        this.b = z2;
-        this.c = window;
-        this.d = view2;
+        this.e = false;
     }
 
-    public static b a(Activity activity) {
-        InterceptResult invokeL;
+    public void g(ByteBuffer byteBuffer, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            b bVar = new b();
-            bVar.e(activity);
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        int identifier;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (!c() && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) > 0) {
-                return context.getResources().getDimensionPixelSize(identifier);
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Build.VERSION.SDK_INT < 19 : invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (j() || h()) {
-                if (i == 19) {
-                    g();
-                }
-                e(this.d);
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || view2 == null || !this.b || c()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || byteBuffer == null || i <= 0) {
             return;
         }
-        view2.post(new a(this, view2));
+        a aVar = new a(this, byteBuffer, i, j);
+        if (this.b == null || !this.e) {
+            return;
+        }
+        Handler handler = this.b;
+        handler.sendMessage(handler.obtainMessage(1003, aVar));
     }
 
-    public final boolean f(boolean z) {
-        InterceptResult invokeZ;
+    public final void h(ByteBuffer byteBuffer, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            WindowManager.LayoutParams attributes = this.c.getAttributes();
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) || Build.VERSION.SDK_INT < 18) {
+            return;
+        }
+        this.c.a(false, byteBuffer, i, j);
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+                this.b = null;
+            }
+            HandlerThread handlerThread = this.a;
+            if (handlerThread != null) {
+                handlerThread.quit();
+                this.a = null;
+            }
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || Build.VERSION.SDK_INT < 18) {
+            return;
+        }
+        yb0 yb0Var = this.c;
+        if (yb0Var != null) {
+            yb0Var.i();
+            this.c.e();
+        }
+        this.c = null;
+        this.d = null;
+    }
+
+    public final void k(bc0 bc0Var) {
+        yb0 yb0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bc0Var) == null) || Build.VERSION.SDK_INT < 18 || (yb0Var = this.c) == null) {
+            return;
+        }
+        yb0Var.k(bc0Var, this.d);
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || Build.VERSION.SDK_INT < 18) {
+            return;
+        }
+        this.c.h();
+    }
+
+    public final void m() {
+        yb0 yb0Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || Build.VERSION.SDK_INT < 18 || (yb0Var = this.c) == null) {
+            return;
+        }
+        yb0Var.a(true, null, 0, 0L);
+    }
+
+    public final void n(cc0 cc0Var, ac0 ac0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, cc0Var, ac0Var) == null) {
+            HandlerThread handlerThread = new HandlerThread("AudioRecorderThread");
+            this.a = handlerThread;
+            handlerThread.start();
+            this.b = new b(this, this.a.getLooper());
             try {
-                Class<?> cls = Class.forName("android.view.WindowManager$LayoutParams");
-                int i = cls.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON").getInt(attributes);
-                Field declaredField = cls.getDeclaredField("meizuFlags");
-                declaredField.setAccessible(true);
-                int i2 = declaredField.getInt(attributes);
-                if (z) {
-                    declaredField.set(attributes, Integer.valueOf(i2 | i));
-                } else {
-                    declaredField.set(attributes, Integer.valueOf((~i) & i2));
+                this.c = new yb0();
+            } catch (VerifyError unused) {
+                Log.e(f, "initRecorder verifyError");
+                if (this.c == null) {
+                    return;
                 }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
             }
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @TargetApi(19)
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            WindowManager.LayoutParams attributes = this.c.getAttributes();
-            if (this.b) {
-                attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
-            } else {
-                attributes.flags &= -67108865;
+            this.d = cc0Var;
+            if (Build.VERSION.SDK_INT >= 18) {
+                this.c.f(ac0Var);
             }
-            this.c.setAttributes(attributes);
         }
     }
 
-    @TargetApi(21)
-    public final boolean h() {
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                return false;
-            }
-            int systemUiVisibility = this.c.getDecorView().getSystemUiVisibility();
-            if (this.a) {
-                systemUiVisibility |= -2147475456;
-            }
-            if (this.b) {
-                systemUiVisibility |= 1280;
-            }
-            this.c.getDecorView().setSystemUiVisibility(systemUiVisibility);
-            this.c.setStatusBarColor(0);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HandlerThread handlerThread = this.a;
+            return handlerThread != null && handlerThread.isAlive();
         }
         return invokeV.booleanValue;
     }
 
-    public final boolean i(boolean z) {
-        InterceptResult invokeZ;
+    public void p() {
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            Class<?> cls = this.c.getClass();
-            try {
-                Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
-                Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
-                Window window = this.c;
-                Object[] objArr = new Object[2];
-                objArr[0] = Integer.valueOf(z ? i : 0);
-                objArr[1] = Integer.valueOf(i);
-                method.invoke(window, objArr);
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (handler = this.b) == null) {
+            return;
         }
-        return invokeZ.booleanValue;
+        handler.removeCallbacksAndMessages(null);
+        Handler handler2 = this.b;
+        handler2.sendMessage(handler2.obtainMessage(1005));
+        Handler handler3 = this.b;
+        handler3.sendMessage(handler3.obtainMessage(1006));
     }
 
-    public boolean j() {
-        InterceptResult invokeV;
+    public boolean q(bc0 bc0Var, cc0 cc0Var, ac0 ac0Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f(this.a) || i(this.a) : invokeV.booleanValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, bc0Var, cc0Var, ac0Var)) == null) {
+            if (o()) {
+                Log.e(f, "setupRecorder error! As last audio recorder thread is alive!");
+                return false;
+            }
+            n(cc0Var, ac0Var);
+            Handler handler = this.b;
+            handler.sendMessage(handler.obtainMessage(1001, bc0Var));
+            this.e = true;
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public void r() {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (handler = this.b) == null) {
+            return;
+        }
+        handler.sendMessage(handler.obtainMessage(1002));
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.b != null && this.e) {
+            this.e = false;
+            Handler handler = this.b;
+            handler.sendMessage(handler.obtainMessage(1004));
+        }
     }
 }

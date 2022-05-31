@@ -26,11 +26,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hk0;
-import com.repackage.m11;
-import com.repackage.rj0;
+import com.repackage.ei0;
+import com.repackage.ui0;
+import com.repackage.zz0;
 /* loaded from: classes2.dex */
-public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
+public class AdDownloadViewLP extends View implements ui0<AdDownloadViewLP> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Paint a;
@@ -207,13 +207,13 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         i();
     }
 
-    @Override // com.repackage.hk0
+    @Override // com.repackage.ui0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams.width = (int) (m11.c.e(getContext()) * m11.c.h(R.dimen.obfuscated_res_0x7f0704ca));
-            layoutParams.height = (int) (m11.c.c(getContext()) * m11.c.h(R.dimen.obfuscated_res_0x7f0704c8));
+            layoutParams.width = (int) (zz0.c.e(getContext()) * zz0.c.h(R.dimen.obfuscated_res_0x7f0704ca));
+            layoutParams.height = (int) (zz0.c.c(getContext()) * zz0.c.h(R.dimen.obfuscated_res_0x7f0704c8));
             layoutParams.addRule(13, -1);
             viewGroup.addView(this, layoutParams);
             viewGroup.setVisibility(0);
@@ -309,7 +309,7 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.hk0
+    @Override // com.repackage.ui0
     @NonNull
     public AdDownloadViewLP getRealView() {
         InterceptResult invokeV;
@@ -437,15 +437,15 @@ public class AdDownloadViewLP extends View implements hk0<AdDownloadViewLP> {
         }
     }
 
-    @Override // com.repackage.hk0
-    public void update(String str, @NonNull rj0 rj0Var) {
+    @Override // com.repackage.ui0
+    public void update(String str, @NonNull ei0 ei0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, str, rj0Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048594, this, str, ei0Var) == null) {
             this.l = str;
-            if (rj0Var.c == AdDownloadStatus.DOWNLOADING) {
+            if (ei0Var.c == AdDownloadStatus.DOWNLOADING) {
                 this.l = "已下载 : " + this.l;
             }
-            setProgress((int) rj0Var.i);
+            setProgress((int) ei0Var.i);
             postInvalidate();
         }
     }

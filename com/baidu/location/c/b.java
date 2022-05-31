@@ -29,6 +29,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.LinkedList;
@@ -420,14 +421,14 @@ public class b {
                                     sb.append(a2.b);
                                     sb.append("|");
                                     sb.append(a2.h);
-                                    sb.append(";");
+                                    sb.append(ParamableElem.DIVIDE_PARAM);
                                 } else {
                                     sb = new StringBuilder();
                                     sb.append("|");
                                     sb.append(a2.b);
                                     sb.append("|");
                                     sb.append(a2.h);
-                                    sb.append(";");
+                                    sb.append(ParamableElem.DIVIDE_PARAM);
                                 }
                                 sb2.append(sb.toString());
                             }
@@ -674,7 +675,7 @@ public class b {
                             }
                             stringBuffer.append("|");
                             stringBuffer.append((System.currentTimeMillis() - aVar2.g) / 1000);
-                            stringBuffer.append(";");
+                            stringBuffer.append(ParamableElem.DIVIDE_PARAM);
                         }
                     }
                 }

@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eh1;
-import com.repackage.m63;
+import com.repackage.rf1;
+import com.repackage.z43;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,8 +57,8 @@ public final class SoUtils {
                 return;
             }
         }
-        DEBUG = eh1.a;
-        sUbcImpl = new m63();
+        DEBUG = rf1.a;
+        sUbcImpl = new z43();
         uris = new String[]{"lib/armeabi", "lib/arm64-v8a"};
     }
 

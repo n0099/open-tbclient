@@ -55,11 +55,8 @@ public final class FRSExtraStaticAutoGenerateUrlCollectorImpl implements ICmdRou
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add("VideoEasterEggActivityConfig");
-            arrayList.add("GameShareActivityConfig");
             arrayList.add("VideoAggregationActivityConfig");
             arrayList.add("VideoMiddlePageActivityConfig");
-            arrayList.add("FrsGameCommentActivityConfig");
-            arrayList.add("FrsGameSubPbActivityConfig");
             arrayList.add("FrsProfessionIntroActivityConfig");
             arrayList.add("FrsMoreFeedForumsConfig");
             arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_VIDEO_MIDDLE_PAGE);

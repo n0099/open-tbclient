@@ -21,9 +21,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.f9;
-import com.repackage.mi;
-import com.repackage.ni5;
-import com.repackage.wp4;
+import com.repackage.hh5;
+import com.repackage.li;
+import com.repackage.lo4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class NEGFeedBackView extends AppCompatImageView {
@@ -36,7 +36,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public ni5 h;
+    public hh5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
@@ -80,11 +80,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, wp4 wp4Var);
+        void a(ArrayList<Integer> arrayList, String str, lo4 lo4Var);
 
-        void b(wp4 wp4Var, CompoundButton compoundButton, boolean z);
+        void b(lo4 lo4Var, CompoundButton compoundButton, boolean z);
 
-        void c(wp4 wp4Var);
+        void c(lo4 lo4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,7 +106,7 @@ public class NEGFeedBackView extends AppCompatImageView {
             }
         }
         this.b = 0L;
-        this.f = R.drawable.obfuscated_res_0x7f080901;
+        this.f = R.drawable.obfuscated_res_0x7f080908;
         this.g = R.color.CAM_X0111;
         this.i = new a(this);
         this.a = tbPageContext.getPageActivity();
@@ -142,7 +142,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public void r(ViewGroup viewGroup, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, i2) == null) {
-            int f = mi.f(this.a, R.dimen.tbds24);
+            int f = li.f(this.a, R.dimen.tbds24);
             setPadding(i2, 0, i2, 0);
             if (viewGroup instanceof RelativeLayout) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, i);
@@ -184,10 +184,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(wp4 wp4Var) {
+    public void setData(lo4 lo4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, wp4Var) == null) {
-            this.h.v(wp4Var);
+        if (interceptable == null || interceptable.invokeL(1048583, this, lo4Var) == null) {
+            this.h.v(lo4Var);
         }
     }
 
@@ -269,7 +269,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void t(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, tbPageContext) == null) {
-            this.h = new ni5(tbPageContext, this);
+            this.h = new hh5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             u();

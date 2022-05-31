@@ -1,24 +1,43 @@
 package com.repackage;
 
-import android.util.Log;
-import android.view.ViewTreeObserver;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.MiPushClient;
+import com.win.opensdk.core.Info;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class bo9 implements ViewTreeObserver.OnWindowFocusChangeListener {
+public class bo9 implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ so9 a;
+    public final qn9 a;
+    public boolean b;
+    public long c;
+    public float d;
+    public float e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public long n;
+    public int o;
+    public int p;
+    public long q;
 
-    public bo9(so9 so9Var) {
+    public bo9(Info info, qn9 qn9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {so9Var};
+            Object[] objArr = {info, qn9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,18 +47,86 @@ public class bo9 implements ViewTreeObserver.OnWindowFocusChangeListener {
                 return;
             }
         }
-        this.a = so9Var;
+        this.b = false;
+        this.c = 0L;
+        this.a = qn9Var;
     }
 
-    @Override // android.view.ViewTreeObserver.OnWindowFocusChangeListener
-    public void onWindowFocusChanged(boolean z) {
+    public HashMap a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            Log.e(MiPushClient.COMMAND_REGISTER, "onWindowFocusChanged:" + z);
-            if (this.a.c != null) {
-                Log.e(MiPushClient.COMMAND_REGISTER, "FocusChange000");
-                this.a.c.a(z);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("dx", Integer.valueOf(this.f));
+            hashMap.put("dy", Integer.valueOf(this.g));
+            hashMap.put("dts", Long.valueOf(this.n));
+            hashMap.put("ux", Integer.valueOf(this.o));
+            hashMap.put("uy", Integer.valueOf(this.p));
+            hashMap.put("uts", Long.valueOf(this.q));
+            ll9.j(hashMap, this.h, this.i, this.j, this.k, this.l, this.m);
+            return hashMap;
         }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // android.view.View.OnTouchListener
+    public boolean onTouch(View view2, MotionEvent motionEvent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
+            int action = motionEvent.getAction();
+            if (action == 0) {
+                this.b = true;
+                this.c = System.currentTimeMillis();
+                this.d = motionEvent.getX();
+                this.e = motionEvent.getY();
+                this.h = (int) motionEvent.getX();
+                this.i = (int) motionEvent.getY();
+                this.f = (int) motionEvent.getRawX();
+                this.g = (int) motionEvent.getRawY();
+                if (this.l <= 0 || this.m <= 0) {
+                    this.m = view2.getHeight();
+                    this.l = view2.getWidth();
+                }
+                this.n = System.currentTimeMillis();
+            } else if (action == 1) {
+                this.o = (int) motionEvent.getRawX();
+                this.p = (int) motionEvent.getRawY();
+                this.j = (int) motionEvent.getX();
+                this.k = (int) motionEvent.getY();
+                this.q = System.currentTimeMillis();
+                boolean z = Math.abs(motionEvent.getX() - this.d) < 51.0f;
+                boolean z2 = Math.abs(motionEvent.getY() - this.e) < 51.0f;
+                boolean z3 = System.currentTimeMillis() - this.c < 2000;
+                if (z && z2 && z3 && this.b) {
+                    String str = null;
+                    try {
+                        str = a().toString();
+                        lk9 lk9Var = this.a.a.b;
+                        if (lk9Var != null) {
+                            lk9Var.a(str);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    qn9 qn9Var = this.a;
+                    qn9Var.a.d = true;
+                    qn9Var.a.e = str;
+                    return false;
+                } else if (this.a != null) {
+                    try {
+                        String hashMap = a().toString();
+                        lk9 lk9Var2 = this.a.a.b;
+                        if (lk9Var2 != null) {
+                            lk9Var2.a(hashMap);
+                        }
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

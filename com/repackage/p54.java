@@ -1,61 +1,19 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.model.LatLng;
+import android.util.SparseArray;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c64;
+import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class p54 extends f54<jn2> {
+public class p54 {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseArray<n54> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements c64.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jn2 a;
-        public final /* synthetic */ dn2 b;
-
-        public a(p54 p54Var, jn2 jn2Var, dn2 dn2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p54Var, jn2Var, dn2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jn2Var;
-            this.b = dn2Var;
-        }
-
-        @Override // com.repackage.c64.b
-        public void onAnimationEnd() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.a.y)) {
-                    this.b.c(this.a.y, null);
-                }
-                ux1.i("map", "TranslateMarkerAction animation end");
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,77 +28,86 @@ public class p54 extends f54<jn2> {
                 return;
             }
         }
-        boolean z = eh1.a;
+        SparseArray<n54> sparseArray = new SparseArray<>();
+        a = sparseArray;
+        sparseArray.put(5, new n54(5, R.string.obfuscated_res_0x7f0f00f5, R.drawable.obfuscated_res_0x7f0800f5, true));
+        a.put(35, new n54(35, R.string.obfuscated_res_0x7f0f00e8, R.drawable.obfuscated_res_0x7f0800d5, true));
+        a.put(39, new n54(39, R.string.obfuscated_res_0x7f0f00ef, R.drawable.obfuscated_res_0x7f0800f8, true));
+        a.put(4, new n54(4, R.string.obfuscated_res_0x7f0f00f6, R.drawable.obfuscated_res_0x7f0800fb, true));
+        a.put(37, new n54(37, R.string.obfuscated_res_0x7f0f00ea, R.drawable.obfuscated_res_0x7f0800d8, true));
+        a.put(38, new n54(38, R.string.obfuscated_res_0x7f0f00f3, R.drawable.obfuscated_res_0x7f0800d4, true));
+        a.put(42, new n54(42, R.string.obfuscated_res_0x7f0f00eb, R.drawable.obfuscated_res_0x7f0800f8, true));
+        a.put(49, new n54(49, R.string.obfuscated_res_0x7f0f1256, R.drawable.obfuscated_res_0x7f08114c, true));
+        a.put(50, new n54(50, R.string.obfuscated_res_0x7f0f12da, R.drawable.obfuscated_res_0x7f08114b, true));
+        a.put(43, new n54(43, R.string.obfuscated_res_0x7f0f00e9, R.drawable.obfuscated_res_0x7f0800d9, true));
+        a.put(9, new n54(9, R.string.obfuscated_res_0x7f0f00f4, R.drawable.obfuscated_res_0x7f0800e5, true));
+        a.put(46, new n54(46, R.string.obfuscated_res_0x7f0f00ec, R.drawable.obfuscated_res_0x7f0800ea, true));
+        a.put(47, new n54(47, R.string.obfuscated_res_0x7f0f00ed, R.drawable.obfuscated_res_0x7f0800ed, true));
     }
 
-    public p54() {
+    public static n54 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? n54.k(a.get(i)) : (n54) invokeI.objValue;
     }
 
-    public static p54 e() {
-        InterceptResult invokeV;
+    public static List<n54> b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new p54() : (p54) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.f54
-    /* renamed from: d */
-    public boolean b(Context context, jn2 jn2Var, dn2 dn2Var, u03 u03Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jn2Var, dn2Var, u03Var, jSONObject)) == null) ? f(context, jn2Var, dn2Var, u03Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final boolean f(Context context, jn2 jn2Var, dn2 dn2Var, u03 u03Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, jn2Var, dn2Var, u03Var)) == null) {
-            ux1.i("map", "TranslateMarkerAction start");
-            cn1 A = hm2.U().A(jn2Var.c);
-            if (!(A instanceof an1)) {
-                ux1.c("map", "WebViewManager is null");
-                return false;
-            }
-            d64 d = c54.b().c((an1) A).d(jn2Var.b);
-            if (d == null) {
-                ux1.c("map", "can not find map by id " + jn2Var.b);
-                return false;
-            }
-            return g(jn2Var, d, dn2Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean g(jn2 jn2Var, d64 d64Var, dn2 dn2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, jn2Var, d64Var, dn2Var)) == null) {
-            if (jn2Var.isValid()) {
-                nn2 nn2Var = jn2Var.A;
-                LatLng latLng = new LatLng(nn2Var.a, nn2Var.b);
-                List<c64> I = d64Var.I(jn2Var.z);
-                ux1.i("map", "TranslateMarkerAction animation start");
-                if (I != null) {
-                    for (c64 c64Var : I) {
-                        c64Var.c(d64Var, latLng, jn2Var, new a(this, jn2Var, dn2Var));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (i != 0) {
+                if (i != 12) {
+                    if (i != 13) {
+                        switch (i) {
+                            case 16:
+                                arrayList.add(n54.k(a.get(5)));
+                                break;
+                            case 17:
+                            case 18:
+                                arrayList.add(n54.k(a.get(38)));
+                                arrayList.add(n54.k(a.get(4)));
+                                arrayList.add(n54.k(a.get(39)));
+                                arrayList.add(n54.k(a.get(35)));
+                                arrayList.add(n54.k(a.get(5)));
+                                arrayList.add(n54.k(a.get(49)));
+                                break;
+                            case 19:
+                                arrayList.add(n54.l(a.get(38), false));
+                                arrayList.add(n54.l(a.get(4), false));
+                                arrayList.add(n54.k(a.get(39)));
+                                arrayList.add(n54.l(a.get(35), false));
+                                arrayList.add(n54.k(a.get(5)));
+                                arrayList.add(n54.l(a.get(49), false));
+                                break;
+                            case 20:
+                                arrayList.add(n54.k(a.get(38)));
+                                arrayList.add(n54.k(a.get(4)));
+                                arrayList.add(n54.k(a.get(39)));
+                                arrayList.add(n54.k(a.get(35)));
+                                arrayList.add(n54.k(a.get(5)));
+                                arrayList.add(n54.k(a.get(49)));
+                                break;
+                        }
+                    } else {
+                        arrayList.add(n54.k(a.get(43)));
                     }
                 }
-                ux1.i("map", "TranslateMarkerAction end");
-                return true;
+                arrayList.add(n54.k(a.get(38)));
+                arrayList.add(n54.k(a.get(4)));
+                arrayList.add(n54.k(a.get(39)));
+                arrayList.add(n54.k(a.get(35)));
+                arrayList.add(n54.k(a.get(5)));
+                arrayList.add(n54.k(a.get(49)));
+            } else {
+                arrayList.add(n54.k(a.get(38)));
+                arrayList.add(n54.k(a.get(5)));
+                arrayList.add(n54.k(a.get(4)));
+                arrayList.add(n54.k(a.get(35)));
+                arrayList.add(n54.k(a.get(42)));
             }
-            return false;
+            return arrayList;
         }
-        return invokeLLL.booleanValue;
+        return (List) invokeI.objValue;
     }
 }

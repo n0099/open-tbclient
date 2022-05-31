@@ -1,29 +1,35 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.frs.TabMenuPopView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.vm6;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class xm6 {
+public class xm6 implements rm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
-    public final String b;
-    public LikeModel c;
-    public an6 d;
+    public Context a;
+    public vm6.e b;
+    public List<ad6> c;
+    public View d;
+    public View e;
+    public TabMenuPopView f;
+    public vm6 g;
+    public TabMenuPopView.c h;
 
     /* loaded from: classes7.dex */
-    public class a extends a9 {
+    public class a implements TabMenuPopView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ xm6 a;
@@ -46,29 +52,22 @@ public class xm6 {
             this.a = xm6Var;
         }
 
-        @Override // com.repackage.a9
-        public void c(Object obj) {
+        @Override // com.baidu.tieba.frs.TabMenuPopView.c
+        public void a(View view2, ad6 ad6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!(obj instanceof zi8) || this.a.c.getErrorCode() != 0) {
-                    if (AntiHelper.m(this.a.c.getErrorCode(), this.a.c.getErrorString())) {
-                        AntiHelper.u(this.a.a.getPageActivity(), this.a.c.getErrorString());
-                    } else {
-                        this.a.a.showToast(this.a.c.getErrorString());
-                    }
-                } else if (this.a.d != null) {
-                    this.a.d.a();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, ad6Var) == null) {
+                if (this.a.g != null) {
+                    this.a.g.c();
                 }
+                this.a.b.a(ad6Var.b);
             }
         }
     }
 
-    public xm6(TbPageContext<?> tbPageContext, String str) {
+    public xm6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,90 +77,57 @@ public class xm6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = str;
+        this.h = new a(this);
     }
 
-    public void d() {
-        LikeModel likeModel;
+    @Override // com.repackage.rm6
+    public void a(Context context, vm6 vm6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (likeModel = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, vm6Var) == null) || context == null || vm6Var == null) {
             return;
         }
-        likeModel.L();
+        this.a = context;
+        this.g = vm6Var;
+        this.b = vm6Var.d();
+        View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07dc, (ViewGroup) null);
+        this.d = inflate;
+        this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0920a7);
+        TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f0905a5);
+        this.f = tabMenuPopView;
+        tabMenuPopView.setOnItemClickCallBack(this.h);
     }
 
-    public final void e(ni8 ni8Var, int i, an6 an6Var) {
+    @Override // com.repackage.rm6
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ni8Var, i, an6Var) == null) || this.a == null || ni8Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.d.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
+            return this.d.getMeasuredHeight();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.rm6
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.rm6
+    public void setData(List<ad6> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || list == null) {
             return;
         }
-        this.d = an6Var;
-        if (this.c == null) {
-            f();
-        }
-        if (this.c.N()) {
-            TbPageContext<?> tbPageContext = this.a;
-            tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0037));
-            return;
-        }
-        this.c.P(ni8Var.c, ni8Var.a);
-        k(i + 1);
-    }
-
-    public final void f() {
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tbPageContext = this.a) == null) {
-            return;
-        }
-        LikeModel likeModel = new LikeModel(tbPageContext);
-        this.c = likeModel;
-        likeModel.setLoadDataCallBack(new a(this));
-    }
-
-    public void g(ni8 ni8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, ni8Var) == null) || this.a == null || ni8Var == null) {
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(ni8Var.c, null)));
-        j();
-    }
-
-    public void h(ni8 ni8Var, int i, an6 an6Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048580, this, ni8Var, i, an6Var) == null) || ni8Var == null || ni8Var.e) {
-            return;
-        }
-        e(ni8Var, i, an6Var);
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ym6.a(3, -1);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ym6.a(2, -1);
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            ym6.a(1, i);
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            ym6.b(this.b, i);
-        }
+        this.c = list;
+        ad6 ad6Var = new ad6();
+        ad6Var.b = 0;
+        ad6Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0263);
+        ad6Var.c = false;
+        SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
+        this.f.setData(this.c, ad6Var);
     }
 }

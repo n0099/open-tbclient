@@ -1,18 +1,22 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public final class at1 {
+public class at1 extends ns1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dl2 a;
+    public String a;
+    public int b;
+    public int c;
 
     public at1() {
         Interceptable interceptable = $ic;
@@ -24,25 +28,46 @@ public final class at1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new dl2();
     }
 
-    public void a(Activity activity) {
+    @Override // com.repackage.ns1
+    public void a(os1 os1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.a.a(activity);
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, os1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
+            return;
         }
+        TextPaint textPaint = os1Var.e;
+        int i = os1Var.k;
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        float f = fontMetrics.top;
+        int i2 = this.c;
+        float f2 = i2 + f;
+        float f3 = fontMetrics.ascent + i2;
+        float f4 = fontMetrics.bottom;
+        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
+        int alpha = textPaint.getAlpha();
+        os1Var.c(textPaint);
+        canvas.drawText(this.a, this.b, f5, textPaint);
+        textPaint.setAlpha(alpha);
     }
 
-    public void b(c82 c82Var, Context context) {
+    @Override // com.repackage.ns1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c82Var, context) == null) {
-            UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
-            this.a.e(c82Var, context, c82Var, unitedSchemeMainDispatcher);
-            n13.a(unitedSchemeMainDispatcher);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = yc3.g((float) jSONArray.optDouble(1));
+                    this.c = yc3.g((float) jSONArray.optDouble(2));
+                }
+            } catch (Exception e) {
+                if (rf1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

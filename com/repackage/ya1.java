@@ -1,45 +1,50 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.pangle.provider.ContentProviderManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public interface ya1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "splash.host");
-    public static final ya1 b = new a();
+public class ya1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static va1 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements ya1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static JSONObject a(Exception exc) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(ContentProviderManager.PLUGIN_PROCESS_NAME, sa1.b());
+                jSONObject.put("stack_trace", Log.getStackTraceString(exc));
+                jSONObject.put("process_info", sa1.a());
+                jSONObject.put("report_time", System.currentTimeMillis());
+            } catch (JSONException unused) {
             }
+            return jSONObject;
         }
-
-        @Override // com.repackage.ya1
-        public boolean a(String str, rb1 rb1Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, rb1Var)) == null) {
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
+        return (JSONObject) invokeL.objValue;
     }
 
-    boolean a(String str, rb1 rb1Var);
+    public static void b(Exception exc) {
+        va1 va1Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, exc) == null) || (va1Var = a) == null) {
+            return;
+        }
+        va1Var.a(a(exc).toString());
+    }
+
+    public static void c(String str) {
+        va1 va1Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (va1Var = a) == null) {
+            return;
+        }
+        va1Var.a(str);
+    }
 }

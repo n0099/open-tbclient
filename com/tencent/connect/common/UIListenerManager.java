@@ -19,14 +19,14 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UIListenerManager {
     public static /* synthetic */ Interceptable $ic;
     public static UIListenerManager a;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, ApiTask> b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class ApiTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

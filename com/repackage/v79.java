@@ -1,131 +1,66 @@
 package com.repackage;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.plugin.capture.download.utils.LogUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class v79 implements d89 {
+public class v79 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public i79 a;
-    public float b;
-    public boolean c;
 
-    public v79() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755278119, "Lcom/repackage/v79;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = 1.0f;
-        this.c = true;
-    }
-
-    @Override // com.repackage.d89
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            i79 i79Var = this.a;
-            if (i79Var == null || !i79Var.putBytes(bArr, i)) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.repackage.d89
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.d89
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (i79) lb9.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
-            }
-            i79 i79Var = this.a;
-            if (i79Var != null) {
-                i79Var.init(i3, i2);
-                this.a.setSpeed(1.0f);
-                return false;
-            }
-            return false;
-        }
-        return invokeIIII.booleanValue;
-    }
-
-    @Override // com.repackage.d89
-    public byte[] a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            i79 i79Var = this.a;
-            return i79Var != null ? i79Var.getOutPutBytes() : new byte[0];
-        }
-        return (byte[]) invokeI.objValue;
-    }
-
-    public void b(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.b = f;
-            i79 i79Var = this.a;
-            if (i79Var != null) {
-                i79Var.setSpeed(f);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755278119, "Lcom/repackage/v79;");
         }
     }
 
-    @Override // com.repackage.d89
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.d89
-    public void c() {
-        i79 i79Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (i79Var = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a) {
+            Log.d(str, str2);
         }
-        i79Var.flush();
     }
 
-    @Override // com.repackage.d89
-    public void d() {
-        i79 i79Var;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (i79Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            c(LogUtils.TAG, str);
         }
-        i79Var.close();
-        this.a = null;
     }
 
-    @Override // com.repackage.d89
-    public void e() {
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && a) {
+            Log.e(str, str2);
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            e(LogUtils.TAG, str);
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && a) {
+            Log.w(str, str2);
         }
     }
 }

@@ -64,27 +64,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.di8;
-import com.repackage.fc6;
-import com.repackage.fd5;
-import com.repackage.fo4;
-import com.repackage.fr7;
-import com.repackage.fx5;
-import com.repackage.fz4;
-import com.repackage.g85;
-import com.repackage.gc6;
-import com.repackage.gs4;
-import com.repackage.l85;
+import com.repackage.ay5;
+import com.repackage.e75;
+import com.repackage.ef8;
+import com.repackage.gb6;
+import com.repackage.hc6;
+import com.repackage.ht4;
+import com.repackage.j45;
+import com.repackage.ki;
 import com.repackage.li;
-import com.repackage.mi;
-import com.repackage.n55;
-import com.repackage.pz5;
-import com.repackage.qc6;
-import com.repackage.rd6;
-import com.repackage.ru4;
-import com.repackage.vx5;
-import com.repackage.yh8;
-import com.repackage.yq4;
+import com.repackage.np4;
+import com.repackage.oo7;
+import com.repackage.ow5;
+import com.repackage.um4;
+import com.repackage.va6;
+import com.repackage.wa6;
+import com.repackage.wq4;
+import com.repackage.yv5;
+import com.repackage.yx4;
+import com.repackage.z65;
+import com.repackage.zb5;
+import com.repackage.ze8;
 import java.net.URLEncoder;
 import java.text.MessageFormat;
 import java.util.ArrayList;
@@ -147,7 +147,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public CustomMessageListener o0;
     public ImageView p;
     public View q;
-    public vx5 r;
+    public ow5 r;
     public LinearLayout s;
     public ImageView t;
     public EMTextView u;
@@ -506,7 +506,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 return;
             }
         }
-        mi.f(TbadkApplication.getInst(), R.dimen.tbds84);
+        li.f(TbadkApplication.getInst(), R.dimen.tbds84);
         this.a = 11;
         this.d = true;
         this.E = false;
@@ -651,26 +651,26 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             return;
         }
         boolean z = true;
-        if (!this.B.isMarkToDel() && gc6.f().i()) {
-            if (gc6.f().a(this.B)) {
+        if (!this.B.isMarkToDel() && wa6.f().i()) {
+            if (wa6.f().a(this.B)) {
                 this.B.setMarkToDel(true);
             }
-        } else if (!this.B.isMarkToMove() && fc6.h().j()) {
-            if (fc6.h().a(this.B)) {
+        } else if (!this.B.isMarkToMove() && va6.h().j()) {
+            if (va6.h().a(this.B)) {
                 this.B.setMarkToMove(true);
             }
         } else {
-            gc6.f().l(this.B);
+            wa6.f().l(this.B);
             this.B.setMarkToDel(false);
-            fc6.h().l(this.B);
+            va6.h().l(this.B);
             this.B.setMarkToMove(false);
         }
         if (!this.B.isMarkToDel() && !this.B.isMarkToMove()) {
-            gs4.d(this.z).x(R.color.CAM_X0107);
-            WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f08091e, R.color.CAM_X0107, null);
+            wq4.d(this.z).x(R.color.CAM_X0107);
+            WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f080929, R.color.CAM_X0107, null);
         } else {
             SkinManager.setViewTextColor(this.z, (int) R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f08091a, R.color.CAM_X0304, null);
+            WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f080925, R.color.CAM_X0304, null);
         }
         j jVar = this.j0;
         if (jVar != null) {
@@ -789,110 +789,110 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             String k = k(this.B);
             parse = k != null ? null : Uri.parse(k);
             String str9 = this.B.getAbstract();
-            String string = getResources().getString(R.string.obfuscated_res_0x7f0f1131);
-            String string2 = getResources().getString(R.string.obfuscated_res_0x7f0f0489);
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f1142);
+            String string2 = getResources().getString(R.string.obfuscated_res_0x7f0f0490);
             if (!this.B.isUgcThreadType() && this.B.getAuthor() != null) {
-                format = (TextUtils.isEmpty(this.B.getTitle()) || TextUtils.isEmpty(str9)) ? MessageFormat.format(string2, this.B.getAuthor().getName_show(), getResources().getString(R.string.obfuscated_res_0x7f0f048a)) : str9;
+                format = (TextUtils.isEmpty(this.B.getTitle()) || TextUtils.isEmpty(str9)) ? MessageFormat.format(string2, this.B.getAuthor().getName_show(), getResources().getString(R.string.obfuscated_res_0x7f0f0491)) : str9;
             } else if (!z) {
-                StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1559));
+                StringBuilder sb = new StringBuilder(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1570));
                 if (this.B.getForumData() != null && !StringUtils.isNull(this.B.getForumData().b)) {
-                    sb.insert(0, String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f155a), this.B.getForumData().b));
+                    sb.insert(0, String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1571), this.B.getForumData().b));
                 }
                 format = sb.toString();
             } else {
                 format = MessageFormat.format(string, str5, str9);
             }
-            int k2 = fz4.k(this.B);
-            String cutString = li.cutString(str5, 100);
-            String cutString2 = li.cutString(format, 100);
+            int k2 = yx4.k(this.B);
+            String cutString = ki.cutString(str5, 100);
+            String cutString2 = ki.cutString(format, 100);
             shareItem = new ShareItem();
-            shareItem.t = cutString;
-            shareItem.u = cutString2;
+            shareItem.u = cutString;
+            shareItem.v = cutString2;
             if (!this.B.isUgcThreadType()) {
-                shareItem.T = -1L;
-                shareItem.F = cutString2;
+                shareItem.U = -1L;
+                shareItem.G = cutString2;
             } else {
                 if (k2 == 2 && this.B.getThreadVideoInfo() != null) {
-                    shareItem.T = this.B.getThreadVideoInfo().play_count.intValue();
+                    shareItem.U = this.B.getThreadVideoInfo().play_count.intValue();
                 } else if (k2 == 1) {
-                    shareItem.T = this.B.getView_num();
+                    shareItem.U = this.B.getView_num();
                 }
-                shareItem.F = str9;
+                shareItem.G = str9;
             }
-            shareItem.v = str2;
-            shareItem.s = str7;
-            shareItem.L = str4;
-            shareItem.r = str3;
-            shareItem.M = str7;
+            shareItem.w = str2;
+            shareItem.t = str7;
+            shareItem.M = str4;
+            shareItem.s = str3;
+            shareItem.N = str7;
             shareItem.f = true;
-            shareItem.q = this.P;
-            shareItem.G = getShareObjSource();
-            shareItem.O = k2;
-            shareItem.H = 3;
-            shareItem.I = l(this.B);
+            shareItem.r = this.P;
+            shareItem.H = getShareObjSource();
+            shareItem.P = k2;
+            shareItem.I = 3;
+            shareItem.J = l(this.B);
             if (parse != null) {
-                shareItem.x = parse;
+                shareItem.y = parse;
             }
             if (this.B.isUgcThreadType()) {
                 z2 = false;
             }
-            shareItem.q0 = z2;
+            shareItem.r0 = z2;
             if (z2) {
-                shareItem.o0 = this.B.getShareImageUrl();
+                shareItem.p0 = this.B.getShareImageUrl();
             }
             g();
             generateShareInfo = OriginalThreadInfo.ShareInfo.generateShareInfo(this.B);
-            shareItem.V = generateShareInfo;
+            shareItem.W = generateShareInfo;
             if (StringUtils.isNull(generateShareInfo.showText, true)) {
                 if (StringUtils.isNull(this.B.getTitle(), true)) {
                     OriginalThreadInfo originalThreadInfo = this.B.originalThreadData;
                     if (originalThreadInfo != null) {
-                        shareItem.V.showText = originalThreadInfo.g;
+                        shareItem.W.showText = originalThreadInfo.g;
                     }
                 } else {
-                    shareItem.V.showText = this.B.getTitle();
+                    shareItem.W.showText = this.B.getTitle();
                 }
             }
-            if (StringUtils.isNull(shareItem.V.showText, true)) {
-                shareItem.V.showText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d06);
+            if (StringUtils.isNull(shareItem.W.showText, true)) {
+                shareItem.W.showText = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d0a);
             }
             if (this.O != 13) {
-                shareItem.Y = ShareItem.ForwardInfo.generateForwardInfo(this.B, 2);
+                shareItem.Z = ShareItem.ForwardInfo.generateForwardInfo(this.B, 2);
             } else {
-                shareItem.Y = ShareItem.ForwardInfo.generateForwardInfo(this.B);
+                shareItem.Z = ShareItem.ForwardInfo.generateForwardInfo(this.B);
             }
-            threadData2 = shareItem.V.threadData;
+            threadData2 = shareItem.W.threadData;
             if (threadData2 != null && threadData2.getForumData() == null) {
-                yq4 yq4Var = new yq4();
-                yq4Var.k(this.B.getForum_name());
-                yq4Var.a = String.valueOf(this.B.getFid());
-                yq4Var.c = this.B.getForumAvatar();
-                shareItem.V.threadData.setForumData(yq4Var);
+                np4 np4Var = new np4();
+                np4Var.k(this.B.getForum_name());
+                np4Var.a = String.valueOf(this.B.getFid());
+                np4Var.c = this.B.getForumAvatar();
+                shareItem.W.threadData.setForumData(np4Var);
             }
             TbadkCoreApplication.getInst().setShareItem(shareItem);
             Bundle bundle = new Bundle();
-            bundle.putInt("obj_param1", shareItem.H);
-            bundle.putInt("obj_type", shareItem.O);
-            bundle.putString("fid", shareItem.L);
-            bundle.putString("tid", shareItem.M);
-            bundle.putInt("obj_source", shareItem.q);
-            if (shareItem.q == 11) {
+            bundle.putInt("obj_param1", shareItem.I);
+            bundle.putInt("obj_type", shareItem.P);
+            bundle.putString("fid", shareItem.M);
+            bundle.putString("tid", shareItem.N);
+            bundle.putInt("obj_source", shareItem.r);
+            if (shareItem.r == 11) {
                 bundle.putInt("source", 14);
             }
-            if (shareItem.q == 12) {
+            if (shareItem.r == 12) {
                 bundle.putInt("source", 15);
             }
             shareItem.k(bundle);
             if (UbsABTestHelper.isShareH5CardOptimizeABTestA()) {
-                shareItem.C0 = fz4.j(this.B, k2);
-                shareItem.D0 = fz4.i(this.B, k2, str3, shareItem.T, "", "");
+                shareItem.D0 = yx4.j(this.B, k2);
+                shareItem.E0 = yx4.i(this.B, k2, str3, shareItem.U, "", "");
             }
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.C, shareItem, true, true);
             boolean z3 = this.B.getThreadType() != 49 || this.B.getThreadType() == 60 || this.B.getThreadType() == 69;
             shareDialogConfig.mIsVoiceRoom = z;
             shareDialogConfig.setIsAlaLive(z3);
             d(shareDialogConfig);
-            pz5.c().l(shareDialogConfig);
+            ay5.c().l(shareDialogConfig);
         }
         z2 = true;
         if (this.B.getThreadAlaInfo() != null) {
@@ -903,65 +903,65 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         if (k3 != null) {
         }
         String str92 = this.B.getAbstract();
-        String string3 = getResources().getString(R.string.obfuscated_res_0x7f0f1131);
-        String string22 = getResources().getString(R.string.obfuscated_res_0x7f0f0489);
+        String string3 = getResources().getString(R.string.obfuscated_res_0x7f0f1142);
+        String string22 = getResources().getString(R.string.obfuscated_res_0x7f0f0490);
         if (!this.B.isUgcThreadType()) {
         }
         if (!z) {
         }
-        int k22 = fz4.k(this.B);
-        String cutString3 = li.cutString(str5, 100);
-        String cutString22 = li.cutString(format, 100);
+        int k22 = yx4.k(this.B);
+        String cutString3 = ki.cutString(str5, 100);
+        String cutString22 = ki.cutString(format, 100);
         shareItem = new ShareItem();
-        shareItem.t = cutString3;
-        shareItem.u = cutString22;
+        shareItem.u = cutString3;
+        shareItem.v = cutString22;
         if (!this.B.isUgcThreadType()) {
         }
-        shareItem.v = str2;
-        shareItem.s = str7;
-        shareItem.L = str4;
-        shareItem.r = str3;
-        shareItem.M = str7;
+        shareItem.w = str2;
+        shareItem.t = str7;
+        shareItem.M = str4;
+        shareItem.s = str3;
+        shareItem.N = str7;
         shareItem.f = true;
-        shareItem.q = this.P;
-        shareItem.G = getShareObjSource();
-        shareItem.O = k22;
-        shareItem.H = 3;
-        shareItem.I = l(this.B);
+        shareItem.r = this.P;
+        shareItem.H = getShareObjSource();
+        shareItem.P = k22;
+        shareItem.I = 3;
+        shareItem.J = l(this.B);
         if (parse != null) {
         }
         if (this.B.isUgcThreadType()) {
         }
-        shareItem.q0 = z2;
+        shareItem.r0 = z2;
         if (z2) {
         }
         g();
         generateShareInfo = OriginalThreadInfo.ShareInfo.generateShareInfo(this.B);
-        shareItem.V = generateShareInfo;
+        shareItem.W = generateShareInfo;
         if (StringUtils.isNull(generateShareInfo.showText, true)) {
         }
-        if (StringUtils.isNull(shareItem.V.showText, true)) {
+        if (StringUtils.isNull(shareItem.W.showText, true)) {
         }
         if (this.O != 13) {
         }
-        threadData2 = shareItem.V.threadData;
+        threadData2 = shareItem.W.threadData;
         if (threadData2 != null) {
-            yq4 yq4Var2 = new yq4();
-            yq4Var2.k(this.B.getForum_name());
-            yq4Var2.a = String.valueOf(this.B.getFid());
-            yq4Var2.c = this.B.getForumAvatar();
-            shareItem.V.threadData.setForumData(yq4Var2);
+            np4 np4Var2 = new np4();
+            np4Var2.k(this.B.getForum_name());
+            np4Var2.a = String.valueOf(this.B.getFid());
+            np4Var2.c = this.B.getForumAvatar();
+            shareItem.W.threadData.setForumData(np4Var2);
         }
         TbadkCoreApplication.getInst().setShareItem(shareItem);
         Bundle bundle2 = new Bundle();
-        bundle2.putInt("obj_param1", shareItem.H);
-        bundle2.putInt("obj_type", shareItem.O);
-        bundle2.putString("fid", shareItem.L);
-        bundle2.putString("tid", shareItem.M);
-        bundle2.putInt("obj_source", shareItem.q);
-        if (shareItem.q == 11) {
+        bundle2.putInt("obj_param1", shareItem.I);
+        bundle2.putInt("obj_type", shareItem.P);
+        bundle2.putString("fid", shareItem.M);
+        bundle2.putString("tid", shareItem.N);
+        bundle2.putInt("obj_source", shareItem.r);
+        if (shareItem.r == 11) {
         }
-        if (shareItem.q == 12) {
+        if (shareItem.r == 12) {
         }
         shareItem.k(bundle2);
         if (UbsABTestHelper.isShareH5CardOptimizeABTestA()) {
@@ -972,7 +972,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         shareDialogConfig2.mIsVoiceRoom = z;
         shareDialogConfig2.setIsAlaLive(z3);
         d(shareDialogConfig2);
-        pz5.c().l(shareDialogConfig2);
+        ay5.c().l(shareDialogConfig2);
     }
 
     public void F(ThreadData threadData) {
@@ -989,7 +989,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             if (eMTextView != null) {
                 int i2 = threadData.collectNum;
                 if (i2 <= 0) {
-                    eMTextView.setText(R.string.obfuscated_res_0x7f0f0a87);
+                    eMTextView.setText(R.string.obfuscated_res_0x7f0f0a8e);
                 } else {
                     eMTextView.setText(StringHelper.numFormatOverWanNa(i2));
                 }
@@ -1001,7 +1001,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ru4.b(this.k0);
+            ht4.b(this.k0);
         }
     }
 
@@ -1017,7 +1017,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         }
         if (this.K && ((linearLayout = this.A) == null || linearLayout.getVisibility() == 8)) {
             this.q.setVisibility(0);
-            String string = this.C.getString(R.string.obfuscated_res_0x7f0f0a7d);
+            String string = this.C.getString(R.string.obfuscated_res_0x7f0f0a84);
             this.o.setText(string);
             this.o.setContentDescription(string);
             this.E = true;
@@ -1048,10 +1048,10 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                     updateReplyStateUI();
                     this.f.setText(numFormatOverWan);
                 } else {
-                    this.f.setText(String.format(this.C.getString(R.string.obfuscated_res_0x7f0f0faf), numFormatOverWan));
+                    this.f.setText(String.format(this.C.getString(R.string.obfuscated_res_0x7f0f0fbf), numFormatOverWan));
                 }
                 EMTextView eMTextView = this.f;
-                eMTextView.setContentDescription(this.C.getString(R.string.obfuscated_res_0x7f0f0fae) + numFormatOverWan);
+                eMTextView.setContentDescription(this.C.getString(R.string.obfuscated_res_0x7f0f0fbe) + numFormatOverWan);
                 this.E = true;
                 return;
             } else if (this.H) {
@@ -1099,7 +1099,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 view2.setVisibility(8);
             }
             this.A.setVisibility(8);
-        } else if (this.L && !t(128) && (gc6.f().i() || fc6.h().j())) {
+        } else if (this.L && !t(128) && (wa6.f().i() || va6.h().j())) {
             if (this.h0 == null) {
                 View view3 = new View(getContext());
                 this.h0 = view3;
@@ -1109,7 +1109,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 this.h0.setOnTouchListener(new e(this));
                 this.h0.setOnClickListener(new f(this));
             }
-            int k = mi.k(getContext());
+            int k = li.k(getContext());
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.h0.getLayoutParams();
             if (layoutParams == null) {
                 this.h0.setLayoutParams(new FrameLayout.LayoutParams(k, -1));
@@ -1118,11 +1118,11 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 requestLayout();
             }
             if (!this.B.isMarkToDel() && !this.B.isMarkToMove()) {
-                gs4.d(this.z).x(R.color.CAM_X0107);
-                WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f08091e, R.color.CAM_X0107, null);
+                wq4.d(this.z).x(R.color.CAM_X0107);
+                WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f080929, R.color.CAM_X0107, null);
             } else {
                 SkinManager.setViewTextColor(this.z, (int) R.color.CAM_X0304);
-                WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f08091a, R.color.CAM_X0304, null);
+                WebPManager.setPureDrawable(this.y, R.drawable.obfuscated_res_0x7f080925, R.color.CAM_X0304, null);
             }
             this.h0.setVisibility(0);
             this.A.setVisibility(8);
@@ -1147,7 +1147,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             if ((threadData.isLiveThread() || threadData.isSharedLiveThread()) && threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().share_info != null) {
                 shareNum = threadData.getThreadAlaInfo().share_info.share_count;
             }
-            String string = this.C.getString(R.string.obfuscated_res_0x7f0f1129);
+            String string = this.C.getString(R.string.obfuscated_res_0x7f0f113a);
             if (shareNum > 0) {
                 string = StringHelper.numFormatOverWan(shareNum);
             }
@@ -1178,13 +1178,13 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             return;
         }
         if (!this.M || (this.e.getAgreeFlag() && !this.e.E())) {
-            fr7 fr7Var = new fr7(getContext());
+            oo7 oo7Var = new oo7(getContext());
             int[] iArr = new int[2];
             this.e.getImgAgree().getLocationInWindow(iArr);
             int i2 = iArr[0];
             int i3 = iArr[1];
-            int f2 = this.M ? mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds774) : mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds600);
-            int f3 = this.M ? mi.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070724) : mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1080);
+            int f2 = this.M ? li.f(TbadkCoreApplication.getInst(), R.dimen.tbds774) : li.f(TbadkCoreApplication.getInst(), R.dimen.tbds600);
+            int f3 = this.M ? li.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070724) : li.f(TbadkCoreApplication.getInst(), R.dimen.tbds1080);
             int i4 = (int) ((f3 * 1) / 1.45d);
             if (i2 > i4) {
                 width = ((i2 - i4) + (this.e.getImgAgree().getWidth() / 2)) - 10;
@@ -1193,11 +1193,11 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             }
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f3, f2);
             layoutParams.leftMargin = width;
-            layoutParams.topMargin = this.M ? mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds36) : mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X008);
-            fr7Var.j(f2);
-            fr7Var.i(layoutParams);
-            fr7Var.h(false);
-            fr7Var.l(this.N, this.D.getPageActivity().findViewById(16908290), 0, i3 - 10, this.B.getTid(), String.valueOf(this.B.getFid()));
+            layoutParams.topMargin = this.M ? li.f(TbadkCoreApplication.getInst(), R.dimen.tbds36) : li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X008);
+            oo7Var.j(f2);
+            oo7Var.i(layoutParams);
+            oo7Var.h(false);
+            oo7Var.l(this.N, this.D.getPageActivity().findViewById(16908290), 0, i3 - 10, this.B.getTid(), String.valueOf(this.B.getFid()));
         }
     }
 
@@ -1252,10 +1252,10 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 statisticItem.param("fid", this.B.getFid());
                 statisticItem.param("obj_locate", this.O);
                 statisticItem.param("obj_id", i2);
-                if (!li.isEmpty(this.R)) {
+                if (!ki.isEmpty(this.R)) {
                     statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.R);
                 }
-                if (!li.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+                if (!ki.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getTaskId());
                 }
                 statisticItem.param("nid", this.B.getNid());
@@ -1264,10 +1264,10 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 statisticItem.param("ab_tag", this.B.mRecomAbTag);
                 statisticItem.param("weight", this.B.mRecomWeight);
                 statisticItem.param("extra", this.B.mRecomExtra);
-                if (this.B.getBaijiahaoData() != null && !li.isEmpty(this.B.getBaijiahaoData().oriUgcVid)) {
+                if (this.B.getBaijiahaoData() != null && !ki.isEmpty(this.B.getBaijiahaoData().oriUgcVid)) {
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, this.B.getBaijiahaoData().oriUgcVid);
                 }
-                g85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+                z65 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
                 if (findPageExtraByView != null) {
                     statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
                 }
@@ -1323,10 +1323,10 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             statisticItem.param("obj_locate", i2);
             statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.S);
-            if (!li.isEmpty(this.R)) {
+            if (!ki.isEmpty(this.R)) {
                 statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.R);
             }
-            if (!li.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
+            if (!ki.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
             }
             if (this.B.getThreadAlaInfo() != null && this.B.getThreadAlaInfo().user_info != null && this.B.getThreadAlaInfo().user_info.is_official == 2) {
@@ -1386,7 +1386,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             }
             TbPageContext tbPageContext = this.D;
             if (tbPageContext != null) {
-                l85.b(tbPageContext.getPageActivity(), statisticItem);
+                e75.b(tbPageContext.getPageActivity(), statisticItem);
             }
             statisticItem.param("nid", this.B.getNid());
             return statisticItem;
@@ -1401,7 +1401,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             Context context = this.C;
-            if ((context instanceof rd6) && ((rd6) context).isInScoreTab() && (threadData = this.B) != null && threadData.getItem() == null && (itemInfo = ((rd6) this.C).getItemInfo()) != null) {
+            if ((context instanceof hc6) && ((hc6) context).isInScoreTab() && (threadData = this.B) != null && threadData.getItem() == null && (itemInfo = ((hc6) this.C).getItemInfo()) != null) {
                 Item.Builder builder = new Item.Builder();
                 builder.item_id = Long.valueOf(itemInfo.id.longValue());
                 builder.item_name = itemInfo.name;
@@ -1457,7 +1457,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         }
         int id = view2.getId();
         int i2 = 3;
-        int i3 = id == R.id.obfuscated_res_0x7f091ff4 ? 3 : id == R.id.obfuscated_res_0x7f091d0b ? 4 : id == R.id.obfuscated_res_0x7f090ea1 ? 1 : id == R.id.obfuscated_res_0x7f090eb7 ? 2 : 0;
+        int i3 = id == R.id.obfuscated_res_0x7f091f99 ? 3 : id == R.id.obfuscated_res_0x7f091cb6 ? 4 : id == R.id.obfuscated_res_0x7f090e66 ? 1 : id == R.id.obfuscated_res_0x7f090e7c ? 2 : 0;
         int i4 = this.O;
         if (i4 == 1) {
             i2 = 1;
@@ -1473,7 +1473,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         if (i3 <= 0 || i2 <= 0) {
             return;
         }
-        TiebaStatic.log(yh8.l("c13694", threadData, i2, i3));
+        TiebaStatic.log(ze8.l("c13694", threadData, i2, i3));
     }
 
     public void hideDisagree() {
@@ -1523,7 +1523,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public View j(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0602, (ViewGroup) this, true) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05f8, (ViewGroup) this, true) : (View) invokeL.objValue;
     }
 
     public final String k(ThreadData threadData) {
@@ -1621,7 +1621,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         String str = i2 == 2 ? "frs" : (i2 == 4 || i2 == 9 || i2 == 1) ? "index" : "";
         videoItemData.buildWithThreadData(threadData);
         arrayList.add(videoItemData);
-        fd5.e(context, arrayList, threadData.getBaijiahaoData() != null ? threadData.getBaijiahaoData().oriUgcNid : null, videoItemData.isVerticalVideo == 1, 0, null, "from_nani_video", "personalize_page", "", str, str, true, threadData.isJumpToFrsVideoTabPlay, true);
+        zb5.e(context, arrayList, threadData.getBaijiahaoData() != null ? threadData.getBaijiahaoData().oriUgcNid : null, videoItemData.isVerticalVideo == 1, 0, null, "from_nani_video", "personalize_page", "", str, str, true, threadData.isJumpToFrsVideoTabPlay, true);
     }
 
     public final void n() {
@@ -1651,7 +1651,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             } else if (context instanceof BaseFragmentActivity) {
                 this.D = ((BaseFragmentActivity) context).getPageContext();
             }
-            mi.f(this.C, R.dimen.tbds84);
+            li.f(this.C, R.dimen.tbds84);
             q();
         }
     }
@@ -1683,9 +1683,9 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         updateCollectStateUI(this.B);
         updateShareStateUI(this.B);
         updateManagerUI();
-        vx5 vx5Var = this.r;
-        if (vx5Var != null) {
-            vx5Var.e0();
+        ow5 ow5Var = this.r;
+        if (ow5Var != null) {
+            ow5Var.e0();
         }
         AgreeView agreeView = this.e;
         if (agreeView != null) {
@@ -1732,12 +1732,12 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     }
 
     public void onDestroy() {
-        vx5 vx5Var;
+        ow5 ow5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048617, this) == null) || (vx5Var = this.r) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048617, this) == null) || (ow5Var = this.r) == null) {
             return;
         }
-        vx5Var.U();
+        ow5Var.U();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -1760,23 +1760,23 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
     public void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, view2) == null) {
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff3);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ffd);
-            this.k0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fe7);
-            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff7);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f98);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091fa2);
+            this.k0 = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f8c);
+            EMTextView eMTextView = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f9c);
             this.f = eMTextView;
-            gs4.d(eMTextView).A(R.string.F_X01);
-            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ff6);
-            this.h = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff5);
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091ff4);
-            EMTextView eMTextView2 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091d0a);
+            wq4.d(eMTextView).A(R.string.F_X01);
+            this.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f9b);
+            this.h = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f9a);
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091f99);
+            EMTextView eMTextView2 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091cb5);
             this.j = eMTextView2;
-            gs4.d(eMTextView2).A(R.string.F_X01);
-            this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d0c);
-            this.l = view2.findViewById(R.id.obfuscated_res_0x7f091d0b);
-            this.m = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090411);
-            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090410);
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09155e);
+            wq4.d(eMTextView2).A(R.string.F_X01);
+            this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091cb7);
+            this.l = view2.findViewById(R.id.obfuscated_res_0x7f091cb6);
+            this.m = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09040c);
+            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09040b);
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f09151c);
             if (findViewById != null) {
                 AgreeView agreeView = (AgreeView) findViewById;
                 this.e = agreeView;
@@ -1784,32 +1784,32 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 this.e.setAfterClickListener(new a(this));
                 this.e.setUseLikeDefaultRes(this.d);
             }
-            this.q = view2.findViewById(R.id.obfuscated_res_0x7f091395);
-            EMTextView eMTextView3 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091ffa);
+            this.q = view2.findViewById(R.id.obfuscated_res_0x7f091357);
+            EMTextView eMTextView3 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091f9f);
             this.o = eMTextView3;
-            gs4.d(eMTextView3).A(R.string.F_X01);
-            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ff9);
-            this.y = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091392);
-            EMTextView eMTextView4 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091393);
+            wq4.d(eMTextView3).A(R.string.F_X01);
+            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f9e);
+            this.y = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091354);
+            EMTextView eMTextView4 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091355);
             this.z = eMTextView4;
-            gs4.d(eMTextView4).A(R.string.F_X01);
-            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091391);
+            wq4.d(eMTextView4).A(R.string.F_X01);
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091353);
             this.A = linearLayout;
             linearLayout.setOnTouchListener(new b(this));
             this.z.setOnClickListener(new c(this));
-            this.s = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919db);
-            this.t = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919dc);
-            EMTextView eMTextView5 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0919dd);
+            this.s = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09198f);
+            this.t = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091990);
+            EMTextView eMTextView5 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f091991);
             this.u = eMTextView5;
             if (eMTextView5 != null) {
-                gs4.d(eMTextView5).A(R.string.F_X01);
+                wq4.d(eMTextView5).A(R.string.F_X01);
             }
-            this.v = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09067d);
-            this.w = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09067e);
-            EMTextView eMTextView6 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09067f);
+            this.v = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09065e);
+            this.w = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09065f);
+            EMTextView eMTextView6 = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090660);
             this.x = eMTextView6;
             if (eMTextView6 != null) {
-                gs4.d(eMTextView6).A(R.string.F_X01);
+                wq4.d(eMTextView6).A(R.string.F_X01);
             }
             this.A.setOnClickListener(new d(this));
             this.i.setOnClickListener(this);
@@ -1849,13 +1849,13 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         }
     }
 
-    public void setAgreeStatisticData(fo4 fo4Var) {
+    public void setAgreeStatisticData(um4 um4Var) {
         AgreeView agreeView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048624, this, fo4Var) == null) || (agreeView = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048624, this, um4Var) == null) || (agreeView = this.e) == null) {
             return;
         }
-        agreeView.setStatisticData(fo4Var);
+        agreeView.setStatisticData(um4Var);
     }
 
     public void setAgreeViewType(ThreadData threadData) {
@@ -2228,9 +2228,9 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             return;
         }
         if (threadData != null && threadData.getIsMarked() != 0) {
-            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080947, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080953, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
         } else {
-            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080946, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.w, R.drawable.obfuscated_res_0x7f080952, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -2238,11 +2238,11 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         int color;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048666, this) == null) {
-            WebPManager.setPureDrawable(this.p, R.drawable.obfuscated_res_0x7f0808fc, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            WebPManager.setPureDrawable(this.p, R.drawable.obfuscated_res_0x7f080903, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             EMTextView eMTextView = this.o;
             ThreadData threadData = this.B;
             if (threadData != null && threadData.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                color = di8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
+                color = ef8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
             } else {
                 color = SkinManager.getColor(R.color.CAM_X0107);
             }
@@ -2274,7 +2274,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048668, this) == null) {
             if (this.H) {
-                WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080900, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+                WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080907, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             }
             ImageView imageView = this.g;
             ThreadData threadData = this.B;
@@ -2282,41 +2282,41 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             EMTextView eMTextView = this.f;
             ThreadData threadData2 = this.B;
             if (threadData2 != null && threadData2.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                color = di8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
+                color = ef8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE);
             } else {
                 color = SkinManager.getColor(R.color.CAM_X0107);
             }
             eMTextView.setTextColor(color);
-            ru4.a(this.g, R.drawable.obfuscated_res_0x7f0808ff);
-            ru4.e(this.f);
+            ht4.a(this.g, R.drawable.obfuscated_res_0x7f080906);
+            ht4.e(this.f);
         }
     }
 
     public void updateShareStateUI(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048669, this, threadData) == null) {
-            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f080904, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
+            WebPManager.setPureDrawable(this.k, R.drawable.obfuscated_res_0x7f08090b, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
             if (AntiHelper.o(threadData)) {
                 setShareClickable(true);
-                this.j.setTextColor(di8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.j.setTextColor(ef8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
             } else {
                 if (threadData != null && threadData.originalThreadData != null) {
                     ThreadData threadData2 = this.B;
                     if (threadData2.originalThreadData.m || threadData2.shouldShowBlockedState()) {
                         setShareClickable(false);
-                        this.j.setTextColor(di8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+                        this.j.setTextColor(ef8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
                     }
                 }
                 setShareClickable(true);
-                gs4.d(this.j).x(R.color.CAM_X0107);
+                wq4.d(this.j).x(R.color.CAM_X0107);
             }
             ThreadData threadData3 = this.B;
             if (threadData3 != null && threadData3.getType() == ThreadData.TYPE_FAKE_VIDEO) {
                 this.k.setEnabled(false);
-                this.j.setTextColor(di8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+                this.j.setTextColor(ef8.a(SkinManager.getColor(R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
             }
-            ru4.a(this.k, R.drawable.obfuscated_res_0x7f080903);
-            ru4.e(this.j);
+            ht4.a(this.k, R.drawable.obfuscated_res_0x7f08090a);
+            ht4.e(this.j);
         }
     }
 
@@ -2332,7 +2332,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         if (!(interceptable == null || interceptable.invokeL(1048671, this, view2) == null) || (threadData = this.B) == null || this.C == null) {
             return;
         }
-        fx5.a(threadData.getTid());
+        yv5.a(threadData.getTid());
         StatisticItem statisticItem = new StatisticItem("c12942");
         statisticItem.param("obj_locate", this.O);
         statisticItem.param("obj_type", getThreadType());
@@ -2343,7 +2343,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             statisticItem.param("fid", this.B.getFid());
             statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.T);
         }
-        g85 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
+        z65 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(this);
         if (findPageExtraByView != null) {
             statisticItem.param(TiebaStatic.Params.OBJ_CUR_PAGE, findPageExtraByView.a());
         }
@@ -2352,7 +2352,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         }
         TiebaStatic.log(statisticItem);
         if (this.B.getVoiceRoomData() != null && this.B.getVoiceRoomData().room_id.longValue() > 0 && !StringUtils.isNull(this.B.getVoiceRoomData().room_name)) {
-            ((n55) ServiceManager.getService(n55.a.a())).a(this.D, this.B.getVoiceRoomData().room_id.longValue());
+            ((j45) ServiceManager.getService(j45.a.a())).a(this.D, this.B.getVoiceRoomData().room_id.longValue());
         } else if (this.B.getThreadVideoInfo() != null && !TextUtils.isEmpty(this.B.getThreadVideoInfo().video_url)) {
             m(this.C, this.B);
         } else {
@@ -2370,7 +2370,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
             }
             if (TbSingleton.getInstance().isPbPreloadSwitchOn() && s(this.B)) {
                 addLocateParam.setNeedPreLoad(true);
-                qc6.update(this.B);
+                gb6.update(this.B);
             }
             if (this.B.isQualityReplyThread) {
                 addLocateParam.setFromHomePageQuality(true);
@@ -2402,7 +2402,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048673, this, view2) == null) {
             if (this.r == null) {
-                this.r = new vx5(this.D, t(16));
+                this.r = new ow5(this.D, t(16));
             }
             this.r.g0(this.B);
             this.r.m();
@@ -2444,7 +2444,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 return;
             }
         }
-        mi.f(TbadkApplication.getInst(), R.dimen.tbds84);
+        li.f(TbadkApplication.getInst(), R.dimen.tbds84);
         this.a = 11;
         this.d = true;
         this.E = false;
@@ -2486,7 +2486,7 @@ public class ThreadCommentAndPraiseInfoLayout extends FrameLayout implements Vie
                 return;
             }
         }
-        mi.f(TbadkApplication.getInst(), R.dimen.tbds84);
+        li.f(TbadkApplication.getInst(), R.dimen.tbds84);
         this.a = 11;
         this.d = true;
         this.E = false;

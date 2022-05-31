@@ -1,138 +1,305 @@
 package com.repackage;
 
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hb4 extends y94<nb4> {
-    public static /* synthetic */ Interceptable $ic;
+public class hb4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String c = "PageTipsManager";
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
+    public c a;
+    public Map<String, String> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hb4(String str, n84 n84Var, yb4 yb4Var) {
-        super(n84Var, yb4Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, n84Var, yb4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((n84) objArr2[0], (yb4) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = str;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.repackage.y94
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final hb4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-334064007, "Lcom/repackage/hb4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-334064007, "Lcom/repackage/hb4$b;");
+                    return;
+                }
+            }
+            a = new hb4(null);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends qf4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super("updatecore_node_page_tips");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755654025, "Lcom/repackage/hb4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755654025, "Lcom/repackage/hb4;");
+        }
+    }
+
+    public /* synthetic */ hb4(a aVar) {
+        this();
+    }
+
+    public static String a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return str + "_btn_cmd";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return str + "_btn_text";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return str + "_btn_cmd_btn_url";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            return str + "_tips";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static hb4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? b.a : (hb4) invokeV.objValue;
+    }
+
+    @NonNull
+    public static JSONObject j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (JSONException e) {
+                if (d) {
+                    Log.w(c, "JSONObject parsed error!!", e);
+                }
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String l(@NonNull Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, map, str)) == null) ? map == null ? "" : map.get(a(str)) : (String) invokeLL.objValue;
+    }
+
+    public static String m(@NonNull Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, map, str)) == null) ? map == null ? "" : map.get(b(str)) : (String) invokeLL.objValue;
+    }
+
+    public static String n(@NonNull Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, map, str)) == null) ? map == null ? "" : map.get(c(str)) : (String) invokeLL.objValue;
+    }
+
+    public static String o(@NonNull Map<String, String> map, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, map, str)) == null) ? map == null ? "" : map.get(d(str)) : (String) invokeLL.objValue;
+    }
+
+    public final void e() {
+        Map<String, String> map;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (map = this.b) == null) {
+            return;
+        }
+        map.clear();
+        this.b = null;
+    }
+
+    public Map<String, String> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Map<String, String> map = this.b;
+            if (map == null || map.size() < 1) {
+                p();
+            }
+            return this.b;
+        }
+        return (Map) invokeV.objValue;
+    }
+
     public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: v */
-    public boolean f(nb4 nb4Var) {
-        InterceptResult invokeL;
-        List<s94> list;
+    public final void i(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, nb4Var)) == null) {
-            if (nb4Var == null) {
-                return false;
-            }
-            if (nb4Var.a == null && (((list = nb4Var.b) == null || list.isEmpty()) && nb4Var.d == null && nb4Var.f == null && nb4Var.e == null)) {
-                return false;
-            }
-            r94 r94Var = nb4Var.a;
-            if (r94Var == null || r94Var.a()) {
-                List<s94> list2 = nb4Var.b;
-                if (list2 != null) {
-                    for (s94 s94Var : list2) {
-                        if (!s94Var.a()) {
-                            return false;
-                        }
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.b = new HashMap();
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            JSONObject optJSONObject = jSONObject.optJSONObject(next);
+            if (optJSONObject != null) {
+                this.b.put(d(next), optJSONObject.optString("tips"));
+                JSONObject optJSONObject2 = optJSONObject.optJSONObject(NativeConstants.ID_BUTTON);
+                if (optJSONObject2 != null) {
+                    String optString = optJSONObject2.optString("cmd");
+                    if (!TextUtils.isEmpty(optString)) {
+                        this.b.put(a(next), optString);
+                    }
+                    String optString2 = optJSONObject2.optString("text");
+                    if (!TextUtils.isEmpty(optString2)) {
+                        this.b.put(b(next), optString2);
+                    }
+                    String optString3 = optJSONObject2.optString("url");
+                    if (!TextUtils.isEmpty(optString3)) {
+                        this.b.put(c(next), optString3);
                     }
                 }
-                p94 p94Var = nb4Var.d;
-                if (p94Var == null || p94Var.a()) {
-                    n94 n94Var = nb4Var.f;
-                    if (n94Var == null || n94Var.a()) {
-                        PMSAppInfo pMSAppInfo = nb4Var.e;
-                        return pMSAppInfo == null || pMSAppInfo.checkValid();
-                    }
-                    return false;
-                }
-                return false;
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: w */
-    public boolean s(nb4 nb4Var, int i) {
-        InterceptResult invokeLI;
+    public void k(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, nb4Var, i)) == null) {
-            if (nb4Var != null) {
-                r(nb4Var.e);
-                return false;
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeLI.booleanValue;
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+            return;
+        }
+        e();
+        i(optJSONObject);
+        q(optJSONObject.toString(), optString);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: x */
-    public m94 t(nb4 nb4Var) {
-        InterceptResult invokeL;
+    public synchronized void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, nb4Var)) == null) {
-            this.a.F();
-            ae4 ae4Var = new ae4();
-            o(nb4Var.a, ae4Var);
-            p(nb4Var.b, ae4Var);
-            n(g(nb4Var.c), ae4Var);
-            m(nb4Var.d, ae4Var);
-            l(nb4Var.f, ae4Var);
-            r(nb4Var.e);
-            if (ae4Var.n() == 0) {
-                this.a.G();
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                JSONObject j = j(this.a.getString("page_error_tips", ""));
+                e();
+                i(j);
             }
-            this.a.H(ae4Var);
-            da4.b(nb4Var, this.a);
-            return null;
         }
-        return (m94) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: y */
-    public nb4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void q(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject)) == null) ? zd4.g(this.d, jSONObject) : (nb4) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || str == null || str.isEmpty() || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        SharedPreferences.Editor edit = this.a.edit();
+        edit.clear();
+        edit.putString("version", str2);
+        edit.putString("page_error_tips", str);
+        edit.apply();
+        if (d) {
+            Log.d(c, "write success");
+        }
+    }
+
+    public hb4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new c();
     }
 }

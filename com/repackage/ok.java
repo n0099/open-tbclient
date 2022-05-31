@@ -1,101 +1,77 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.widget.ImageView;
-import com.baidu.adp.newwidget.ImageView.DrawerArgs;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ok extends mk {
+public class ok {
     public static /* synthetic */ Interceptable $ic;
+    public static ok a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect q;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964031575, "Lcom/repackage/ok;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964031575, "Lcom/repackage/ok;");
+                return;
+            }
+        }
+        a = new ok();
+    }
 
     public ok() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.q = new Rect();
-    }
-
-    @Override // com.repackage.mk
-    public void a(pk pkVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, pkVar, imageView) == null) {
-            DrawerArgs drawerArgs = this.k;
-            if (drawerArgs.c) {
-                float f = drawerArgs.d / 2.0f;
-                if (!drawerArgs.g) {
-                    this.g.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
-                    return;
-                }
-                int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
-                int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
-                RectF rectF = this.f;
-                PointF b = b(rectF.left, rectF.top, this.e);
-                RectF rectF2 = this.f;
-                PointF b2 = b(rectF2.right, rectF2.bottom, this.e);
-                this.g.set(Math.max((int) b.x, 0) + f, Math.max((int) b.y, 0) + f, Math.min((int) b2.x, width) - f, Math.min((int) b2.y, height) - f);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.mk
-    public void f(Canvas canvas, ImageView imageView) {
+    public static ok b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) == null) && this.k.c) {
-            canvas.drawRect(this.g, this.c);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (ok) invokeV.objValue;
     }
 
-    @Override // com.repackage.mk
-    public void h(Canvas canvas, pk pkVar, ImageView imageView) {
+    public kk a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, pkVar, imageView) == null) {
-            Matrix matrix = this.e;
-            if (matrix != null) {
-                canvas.concat(matrix);
-            }
-            if (pkVar.e()) {
-                Bitmap bitmap = pkVar.a.getBitmap();
-                this.q.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.q, this.f, this.b);
-            } else if (pkVar.d()) {
-                this.q.set(0, 0, pkVar.b(), pkVar.a());
-                pkVar.b.g(canvas, this.q, this.f, this.b);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            switch (i) {
+                case 0:
+                    return new mk();
+                case 1:
+                    return new uk();
+                case 2:
+                    return new qk();
+                case 3:
+                    return new wk();
+                case 4:
+                    return new vk();
+                case 5:
+                    return new pk();
+                case 6:
+                    return new sk();
+                default:
+                    return new mk();
             }
         }
-    }
-
-    @Override // com.repackage.mk
-    public void i(Canvas canvas, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, canvas, imageView) == null) || this.k.m == 0) {
-            return;
-        }
-        int scrollX = imageView.getScrollX();
-        int scrollY = imageView.getScrollY();
-        canvas.translate(scrollX, scrollY);
-        this.n.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-        this.d.setColor(this.k.m);
-        canvas.drawRect(this.n, this.d);
-        canvas.translate(-scrollX, -scrollY);
+        return (kk) invokeI.objValue;
     }
 }

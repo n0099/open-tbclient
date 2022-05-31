@@ -1,34 +1,24 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.Q;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import javax.net.ssl.HttpsURLConnection;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes6.dex */
-public class np9 implements Runnable {
+public class np9 implements qo9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public tp9 d;
-    public ap9 e;
-    public boolean f;
-    public long g;
+    public final /* synthetic */ ImageView a;
 
-    public np9(String str, String str2, tp9 tp9Var) {
+    public np9(vl9 vl9Var, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, tp9Var};
+            Object[] objArr = {vl9Var, imageView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,57 +28,30 @@ public class np9 implements Runnable {
                 return;
             }
         }
-        this.a = 0;
-        this.f = false;
-        this.b = str;
-        this.c = str2;
-        this.d = tp9Var;
-        this.e = new ap9(this);
-        this.f = true;
+        this.a = imageView;
     }
 
-    public final void a() {
+    @Override // com.repackage.qo9
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || Thread.currentThread().isInterrupted()) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.qo9
+    public void a(Bitmap bitmap) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) || (imageView = this.a) == null || bitmap == null) {
             return;
         }
-        try {
-            URL url = new URL(this.b);
-            HttpURLConnection httpURLConnection = url.toString().startsWith("https://") ? (HttpsURLConnection) url.openConnection() : (HttpURLConnection) url.openConnection();
-            httpURLConnection.setConnectTimeout(3000);
-            httpURLConnection.setReadTimeout(3000);
-            httpURLConnection.setRequestMethod("GET");
-            httpURLConnection.setRequestProperty("Range", "bytes=" + this.a + "-");
-            httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            httpURLConnection.connect();
-            this.g = (long) httpURLConnection.getContentLength();
-            if (Thread.currentThread().isInterrupted()) {
-                return;
-            }
-            if (this.e != null && this.g > 10) {
-                this.e.c(httpURLConnection.getInputStream());
-            } else if (this.d != null) {
-                this.d.a();
-            }
-        } catch (IOException e) {
-            if (!Thread.currentThread().isInterrupted()) {
-                throw e;
-            }
-        }
+        imageView.setImageBitmap(bitmap);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Override // com.repackage.qo9
+    public void a(com.win.opensdk.k0 k0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                a();
-            } catch (Exception unused) {
-                ap9 ap9Var = this.e;
-                if (ap9Var != null) {
-                    ap9Var.d(ap9Var.a(1, new Object[]{Q.b}));
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k0Var) == null) {
         }
     }
 }

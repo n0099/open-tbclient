@@ -39,8 +39,8 @@ public class a implements d {
     }
 
     private void a(ViewGroup viewGroup) {
-        this.d = viewGroup.findViewById(R.id.obfuscated_res_0x7f091147);
-        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091149);
+        this.d = viewGroup.findViewById(R.id.obfuscated_res_0x7f091109);
+        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09110b);
         this.j = new com.kwad.sdk.widget.f(this.d.getContext(), this.d, this);
         a(e.a(this.e, this.f, this.k));
     }

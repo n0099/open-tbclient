@@ -1,19 +1,22 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bd4 {
+public abstract class bd4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bd4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onBackStackChanged();
+    }
 
     public bd4() {
         Interceptable interceptable = $ic;
@@ -29,52 +32,15 @@ public class bd4 {
         }
     }
 
-    public static bd4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (bd4.class) {
-                    if (b == null) {
-                        b = new bd4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (bd4) invokeV.objValue;
-    }
+    public abstract dd4 a();
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                this.a = d84.b().i().getString("extract_js_url", null);
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
+    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d84.b().i().getString("tts_node_version", "0") : (String) invokeV.objValue;
-    }
+    public abstract boolean c();
 
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
-            return;
-        }
-        String optString2 = optJSONObject.optString("extract_js_url");
-        d84.b().i().putString("tts_node_version", optString);
-        d84.b().i().putString("extract_js_url", optString2);
-    }
+    public abstract List<Fragment> d();
+
+    public abstract void e(int i, int i2);
+
+    public abstract boolean f();
 }

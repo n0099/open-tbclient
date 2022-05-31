@@ -1,26 +1,34 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.win.opensdk.bridge.JsBridge;
+import com.win.opensdk.bridge.JsInvokeJavaScope;
+import com.win.opensdk.bridge.core.JsBridgeWebChromeClient;
+import com.win.opensdk.core.Info;
 /* loaded from: classes7.dex */
-public final class yn9 implements Runnable {
+public class yn9 implements hk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ byte[] a;
-    public final /* synthetic */ String b;
+    public tk9 a;
+    public lk9 b;
+    public WebView c;
+    public boolean d;
+    public String e;
 
-    public yn9(byte[] bArr, String str) {
+    public yn9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,68 +38,31 @@ public final class yn9 implements Runnable {
                 return;
             }
         }
-        this.a = bArr;
-        this.b = str;
+        WebView webView = new WebView(context);
+        this.c = webView;
+        webView.setScrollContainer(false);
+        webView.setVerticalScrollBarEnabled(false);
+        webView.setHorizontalScrollBarEnabled(false);
+        ll9.m(webView);
+        this.c.getSettings().setJavaScriptEnabled(true);
+        JsBridge.getInstance().clazz(JsInvokeJavaScope.class).inject();
+        this.c.setWebChromeClient(new JsBridgeWebChromeClient());
+        this.c.setWebViewClient(new un9(this));
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        FileOutputStream fileOutputStream;
+    public void a(String str, Info info) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.a;
-            String str = this.b;
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            File file = new File(str);
-            String substring = str.substring(0, str.lastIndexOf("/"));
-            if (!file.exists()) {
-                new File(substring).mkdir();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, info) == null) {
+            if ((!TextUtils.isEmpty(str) && (str.startsWith("http") || str.startsWith("https"))) || str.startsWith(ImageSource.FILE_SCHEME)) {
+                this.c.loadUrl(str);
+            } else {
+                this.c.loadDataWithBaseURL("http://abcd/", str, SapiWebView.DATA_MIME_TYPE, "UTF-8", null);
             }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return;
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
+            tk9 tk9Var = this.a;
+            if (tk9Var != null) {
+                tk9Var.a();
             }
-            try {
-                byte[] bArr2 = new byte[1024];
-                while (true) {
-                    int read = byteArrayInputStream.read(bArr2);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr2, 0, read);
-                }
-                fileOutputStream.flush();
-                fileOutputStream.close();
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
+            this.c.setOnTouchListener(new bo9(info, new qn9(this)));
         }
     }
 }

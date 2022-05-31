@@ -43,10 +43,13 @@ public final class FaceshopStaticAutoGenerateUrlCollectorImpl implements ICmdRou
             hashMap.put("2004611", "com.baidu.tieba.faceshop.FaceshopStatic");
             hashMap.put("2001141", "com.baidu.tieba.faceshop.FaceshopStatic");
             hashMap.put("2902013", "com.baidu.tieba.faceshop.FaceshopStatic");
+            hashMap.put("2921702", "com.baidu.tieba.faceshop.FaceshopStatic");
             hashMap.put("2902011", "com.baidu.tieba.faceshop.FaceshopStatic");
             hashMap.put("2902012", "com.baidu.tieba.faceshop.FaceshopStatic");
             hashMap.put("2902015", "com.baidu.tieba.faceshop.FaceshopStatic");
             hashMap.put("2902014", "com.baidu.tieba.faceshop.FaceshopStatic");
+            hashMap.put("2921701", "com.baidu.tieba.faceshop.FaceshopStatic");
+            hashMap.put("2921704", "com.baidu.tieba.faceshop.FaceshopStatic");
             hashMap.put("3001000", "com.baidu.tieba.faceshop.FaceshopStatic");
             return hashMap;
         }

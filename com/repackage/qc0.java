@@ -1,33 +1,29 @@
 package com.repackage;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLExt;
-import android.opengl.EGLSurface;
-import android.util.Log;
-import android.view.Surface;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Environment;
+import android.os.Process;
+import android.os.StatFs;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import org.webrtc.EglBase10;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public final class qc0 {
+public class qc0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "qc0";
+    public static volatile int a = -1;
+    public static volatile String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public EGLDisplay a;
-    public EGLContext b;
-    public EGLConfig c;
 
     static {
         InterceptResult invokeClinit;
@@ -44,202 +40,194 @@ public final class qc0 {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public qc0(EGLContext eGLContext, int i) {
-        this(eGLContext, i, false);
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((EGLContext) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                if ("mounted".equals(Environment.getExternalStorageState())) {
+                    String path = Environment.getExternalStorageDirectory().getPath();
+                    if (path == null || path.length() <= 0) {
+                        nc0.d("sdk_Utils", "External path is null, so SDCard no free space");
+                        return -1L;
+                    }
+                    StatFs statFs = new StatFs(path);
+                    return statFs.getBlockSize() * statFs.getAvailableBlocks();
+                }
+                return -1L;
+            } catch (Exception unused) {
+                nc0.d("sdk_Utils", "SDCard no free space");
+                return -1L;
             }
         }
+        return invokeV.longValue;
     }
 
-    public final void a(String str) {
-        int eglGetError;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (eglGetError = EGL14.eglGetError()) == 12288) {
-            return;
-        }
-        throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
-    }
-
-    public EGLSurface b(Object obj) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (!(obj instanceof Surface) && !(obj instanceof SurfaceTexture)) {
-                throw new RuntimeException("invalid surface: " + obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String str = null;
+            try {
+                if (e(context)) {
+                    str = Environment.getExternalStorageDirectory().getAbsolutePath();
+                } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
+                    str = context.getExternalCacheDir().getPath();
+                }
+            } catch (Exception unused) {
             }
-            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.a, this.c, obj, new int[]{12344}, 0);
-            a("eglCreateWindowSurface");
-            if (eglCreateWindowSurface != null) {
-                return eglCreateWindowSurface;
-            }
-            throw new RuntimeException("surface was null");
+            return str;
         }
-        return (EGLSurface) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final EGLConfig c(int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    public static String c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int[] iArr = {MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12325, z ? 16 : 0, 12326, 0, 12352, i2 >= 3 ? 68 : 4, 12344, 0, 12344};
-            if ((i & 1) != 0) {
-                iArr[14] = 12610;
-                iArr[15] = 1;
-            }
-            EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            if (!EGL14.eglChooseConfig(this.a, iArr, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                String str = d;
-                Log.w(str, "unable to find RGB8888 / " + i2 + " EGLConfig");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String str = null;
+            if (context == null) {
+                nc0.e("sdk_Utils", "getVideoStatisticsPath ctx = null");
                 return null;
             }
-            return eGLConfigArr[0];
+            String b2 = b(context);
+            if (!TextUtils.isEmpty(b2)) {
+                str = b2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+            }
+            String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
+            nc0.c("sdk_Utils", "Utils.getExternalStorageSpace():" + a());
+            if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
+                str = str2;
+            }
+            new File(str).mkdirs();
+            if (!f()) {
+                str = str + File.separator + "remote";
+            }
+            nc0.c("sdk_Utils", "getVideoStatisticsPath folder:" + str);
+            return str;
         }
-        return (EGLConfig) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean d(EGLSurface eGLSurface) {
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = g();
+                if (TextUtils.isEmpty(b)) {
+                    b = h();
+                }
+                return b;
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e(Context context) {
         InterceptResult invokeL;
+        PackageManager packageManager;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eGLSurface)) == null) ? this.b.equals(EGL14.eglGetCurrentContext()) && eGLSurface.equals(EGL14.eglGetCurrentSurface(12377)) : invokeL.booleanValue;
-    }
-
-    public void e(EGLSurface eGLSurface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eGLSurface) == null) {
-            if (this.a == EGL14.EGL_NO_DISPLAY) {
-                Log.d(d, "NOTE: makeCurrent w/o display");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (context != null && (packageManager = context.getPackageManager()) != null) {
+                try {
+                    if (packageManager.checkPermission("android.permission.READ_EXTERNAL_STORAGE", context.getPackageName()) == 0) {
+                        return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
+                    }
+                    return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            if (!EGL14.eglMakeCurrent(this.a, eGLSurface, eGLSurface, this.b)) {
-                throw new RuntimeException("eglMakeCurrent failed");
-            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void f() {
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            EGLDisplay eGLDisplay = this.a;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
-                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
-                EGL14.eglDestroyContext(this.a, this.b);
-                EGL14.eglReleaseThread();
-                EGL14.eglTerminate(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (a < 0) {
+                Context a2 = lc0.a();
+                if (a2 == null || a2.getPackageName().equals(d())) {
+                    a = 1;
+                } else {
+                    a = 0;
+                }
             }
-            this.a = EGL14.EGL_NO_DISPLAY;
-            this.b = EGL14.EGL_NO_CONTEXT;
-            this.c = null;
+            return a == 1;
         }
+        return invokeV.booleanValue;
     }
 
-    public void finalize() {
+    public static String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            int myPid = Process.myPid();
             try {
-                if (this.a != EGL14.EGL_NO_DISPLAY) {
-                    Log.w(d, "WARNING: EGLCore was not explicitly released -- state may be leaked");
-                    f();
-                }
-            } finally {
-                super.finalize();
-            }
-        }
-    }
-
-    public void g(EGLSurface eGLSurface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eGLSurface) == null) {
-            EGL14.eglDestroySurface(this.a, eGLSurface);
-        }
-    }
-
-    public void h(EGLSurface eGLSurface, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, eGLSurface, j) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.a, eGLSurface, j);
-        }
-    }
-
-    public boolean i(EGLSurface eGLSurface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eGLSurface)) == null) ? EGL14.eglSwapBuffers(this.a, eGLSurface) : invokeL.booleanValue;
-    }
-
-    public qc0(EGLContext eGLContext, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        EGLDisplay eGLDisplay = EGL14.EGL_NO_DISPLAY;
-        this.a = eGLDisplay;
-        this.b = EGL14.EGL_NO_CONTEXT;
-        this.c = null;
-        if (eGLDisplay == EGL14.EGL_NO_DISPLAY) {
-            eGLContext = eGLContext == null ? EGL14.EGL_NO_CONTEXT : eGLContext;
-            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.a = eglGetDisplay;
-            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-                int[] iArr = new int[2];
-                if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                    if ((i & 2) != 0) {
-                        Log.d(d, "Trying GLES 3");
-                        EGLConfig c = c(i, 3, z);
-                        if (c != null) {
-                            EGLContext eglCreateContext = EGL14.eglCreateContext(this.a, c, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, 12344}, 0);
-                            if (EGL14.eglGetError() == 12288) {
-                                this.c = c;
-                                this.b = eglCreateContext;
-                            }
+                ActivityManager activityManager = (ActivityManager) lc0.a().getSystemService("activity");
+                if (activityManager != null) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
+                        if (runningAppProcessInfo.pid == myPid) {
+                            return runningAppProcessInfo.processName;
                         }
                     }
-                    if (this.b == EGL14.EGL_NO_CONTEXT) {
-                        Log.d(d, "Trying GLES 2");
-                        EGLConfig c2 = c(i, 2, z);
-                        if (c2 != null) {
-                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.a, c2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
-                            a("eglCreateContext");
-                            this.c = c2;
-                            this.b = eglCreateContext2;
-                        } else {
-                            throw new RuntimeException("Unable to find a suitable EGLConfig");
-                        }
-                    }
-                    int[] iArr2 = new int[1];
-                    EGL14.eglQueryContext(this.a, this.b, EglBase10.EGL_CONTEXT_CLIENT_VERSION, iArr2, 0);
-                    String str = d;
-                    Log.d(str, "EGLContext created, client version " + iArr2[0]);
-                    return;
+                    return null;
                 }
-                this.a = null;
-                throw new RuntimeException("unable to initialize EGL14");
+                return null;
+            } catch (Exception unused) {
+                return null;
             }
-            throw new RuntimeException("unable to get EGL14 display");
         }
-        throw new RuntimeException("EGL already set up");
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65544, null)) != null) {
+            return (String) invokeV.objValue;
+        }
+        BufferedReader bufferedReader2 = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader("/proc/" + Process.myPid() + "/cmdline"));
+            try {
+                String readLine = bufferedReader.readLine();
+                if (!TextUtils.isEmpty(readLine)) {
+                    readLine = readLine.trim();
+                }
+                try {
+                    bufferedReader.close();
+                } catch (IOException unused) {
+                }
+                return readLine;
+            } catch (Exception unused2) {
+                if (bufferedReader != null) {
+                    try {
+                        bufferedReader.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException unused4) {
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception unused5) {
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 }

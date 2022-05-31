@@ -2287,10 +2287,10 @@ public abstract class GenerateProxyAppCompatActivity extends AppCompatActivity i
     }
 
     @Override // com.bytedance.pangle.activity.b
-    public void setPlugin(Plugin plugin2) {
+    public void setPlugin(Plugin plugin) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048755, this, plugin2) == null) {
-            this.mPlugin = plugin2;
+        if (interceptable == null || interceptable.invokeL(1048755, this, plugin) == null) {
+            this.mPlugin = plugin;
         }
     }
 

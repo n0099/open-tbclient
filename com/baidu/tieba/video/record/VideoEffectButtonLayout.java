@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qt8;
+import com.repackage.sq8;
 /* loaded from: classes4.dex */
-public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, qt8.b {
+public class VideoEffectButtonLayout extends LinearLayout implements View.OnClickListener, sq8.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -61,14 +61,14 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         b();
     }
 
-    @Override // com.repackage.qt8.b
+    @Override // com.repackage.sq8.b
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 1) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080ade);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080aeb);
             } else {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080adf);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080aec);
             }
         }
     }
@@ -76,15 +76,15 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04df, this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911f1);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911fd);
-            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911c7);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911df);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ecf);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ee3);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea5);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb9);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04d5, this);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911b3);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911bf);
+            this.g = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091189);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911a1);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e94);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea8);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6a);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e7e);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
@@ -107,16 +107,16 @@ public class VideoEffectButtonLayout extends LinearLayout implements View.OnClic
         int id = view2.getId();
         this.j = view2;
         StatisticItem statisticItem = new StatisticItem("c12495");
-        if (id == R.id.obfuscated_res_0x7f090ecf) {
+        if (id == R.id.obfuscated_res_0x7f090e94) {
             this.i.onClickMusic();
             statisticItem.param("obj_type", 6);
-        } else if (id == R.id.obfuscated_res_0x7f090ee3) {
+        } else if (id == R.id.obfuscated_res_0x7f090ea8) {
             this.i.onClickSticker();
             statisticItem.param("obj_type", 4);
-        } else if (id == R.id.obfuscated_res_0x7f090ea5) {
+        } else if (id == R.id.obfuscated_res_0x7f090e6a) {
             this.i.onClickBeauty();
             statisticItem.param("obj_type", 3);
-        } else if (id == R.id.obfuscated_res_0x7f090eb9) {
+        } else if (id == R.id.obfuscated_res_0x7f090e7e) {
             this.i.onClickFilter();
             statisticItem.param("obj_type", 2);
         }

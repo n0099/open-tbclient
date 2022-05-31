@@ -1,220 +1,326 @@
 package com.repackage;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.pms.PMSDownloadType;
-import com.baidu.swan.apps.event.SwanJSVersionUpdateEvent;
-import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ea3;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import com.repackage.c42;
+import com.repackage.z32;
+import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class x32 extends c42 {
+public class x32 extends v32 implements q32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean k;
+    public n32 b;
+    public k32 c;
+    public File d;
+    public b e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755222598, "Lcom/repackage/x32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ x32 d;
+
+        public a(x32 x32Var, String str, int i, String str2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x32Var, str, Integer.valueOf(i), str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755222598, "Lcom/repackage/x32;");
-                return;
+            this.d = x32Var;
+            this.a = str;
+            this.b = i;
+            this.c = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.e.onError(this.a, this.b, this.c);
             }
         }
-        l = eh1.a;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public x32(nf3<Exception> nf3Var) {
-        this(nf3Var, false);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void onError(String str, int i, String str2);
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements z32.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public k32 a;
+        public String b;
+
+        /* loaded from: classes7.dex */
+        public class a implements l32 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ File a;
+
+            public a(c cVar, File file) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, file};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = file;
+            }
+
+            @Override // com.repackage.l32
+            public void a() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    kf4.L(this.a);
+                }
+            }
+        }
+
+        public c(x32 x32Var, k32 k32Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x32Var, k32Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k32Var;
+            this.b = str;
+        }
+
+        @Override // com.repackage.z32.a
+        public void a(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+                try {
+                    this.a.a(this.b, file, new a(this, file));
+                } catch (Exception e) {
+                    if (q32.a) {
+                        Log.d("HybridIntercept", Log.getStackTraceString(e));
+                    }
+                }
+            }
+        }
+
+        @Override // com.repackage.z32.a
+        public void b(File file) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && q32.a) {
+                Log.e("HybridIntercept", "writer file fail, file = " + file);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x32(@NonNull Context context, k32 k32Var) {
+        super(context, k32Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nf3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, k32Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((nf3) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                super((Context) objArr2[0], (k32) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = m32.a().f();
+        this.d = new File(m32.a().b(), "image_temp");
+        this.c = k32Var;
+        if (k32Var == null) {
+            h(context);
+        }
     }
 
-    @Override // com.repackage.n84
-    public Map<String, String> C() {
-        InterceptResult invokeV;
+    @Override // com.repackage.c42
+    public WebResourceResponse a(@NonNull c42.a aVar) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Map<String, String> C = super.C();
-            if (this.k && yc4.a) {
-                if (C == null) {
-                    C = new HashMap<>();
-                }
-                C.put("hb_type", "1");
-                C.put("lastsynctime", String.valueOf(yc4.c));
-                C.put("SWAN-TIMEOUT-SETTING", String.valueOf(yc4.b(60) * 1000));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            String d = aVar.d();
+            if (!i(aVar)) {
+                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
             }
-            return C;
+            String f = f(d);
+            InputStream inputStream = null;
+            k32 k32Var = this.c;
+            if (k32Var != null && !k32Var.isClosed()) {
+                inputStream = this.c.get(f);
+            }
+            if (inputStream != null) {
+                if (q32.a) {
+                    Log.d("HybridIntercept", "adopt cached image, url = " + f);
+                }
+                return new WebResourceResponse(aVar.getMimeType(), "UTF-8", inputStream);
+            }
+            w32 a2 = a42.a(f, g(aVar));
+            if (a2 != null && (i = a2.a) >= 400 && this.e != null) {
+                d(f, i, a2.b);
+            }
+            WebResourceResponse c2 = c(a2);
+            if (c2 != null && c2.getData() != null) {
+                c2.setData(new b42(c2.getData(), new z32(new File(this.d, m32.a().d().a(f)), new c(this, this.c, f))));
+            }
+            if (q32.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("download image, response = ");
+                sb.append(c2 != null);
+                sb.append(" ; url = ");
+                sb.append(f);
+                Log.e("HybridIntercept", sb.toString());
+            }
+            return c2;
         }
-        return (Map) invokeV.objValue;
+        return (WebResourceResponse) invokeL.objValue;
     }
 
-    @Override // com.repackage.c42
-    public int V() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.c42
-    public PMSDownloadType W() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PMSDownloadType.SWAN_APP_UPDATE_CORE : (PMSDownloadType) invokeV.objValue;
-    }
-
-    @Override // com.repackage.c42
-    public String X() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? m42.d() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.c42
-    public String Y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? m42.h() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.c42
-    public nc3 c0(n94 n94Var) {
+    public final WebResourceResponse c(w32 w32Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, n94Var)) == null) {
-            if (n94Var == null) {
-                nc3 nc3Var = new nc3();
-                nc3Var.k(14L);
-                nc3Var.b(2908L);
-                nc3Var.d("小程序Extension包 Extension null");
-                return nc3Var;
-            }
-            ac2 ac2Var = new ac2();
-            ac2Var.b = n94Var.i;
-            ac2Var.a = n94Var.j;
-            ac2Var.c = n94Var.a;
-            ac2Var.d = n94Var.m;
-            if (db2.b(0, ac2Var) == null) {
-                if (l) {
-                    Log.i("SwanAppUpdateCore", "小程序Extension包解压成功");
-                }
-                boolean m = bk2.g0().m();
-                if (l) {
-                    Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: extension js 热应用实验开关 " + m);
-                }
-                if (m) {
-                    if (l) {
-                        Log.d("SwanAppUpdateCore", "onExtensionDownloadFinish: 命中 extension js 热应用实验");
-                    }
-                    gb2 f = db2.f(0);
-                    if (f == null) {
-                        return null;
-                    }
-                    long g = f.f().g();
-                    if (g > 0) {
-                        if (l) {
-                            Log.d("SwanAppUpdateCore", "发送extension core更新事件");
-                        }
-                        SwanAppMessengerService.sendMessageWithDataToAllClient(121, g);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w32Var)) == null) {
+            if (w32Var == null) {
                 return null;
             }
-            nc3 nc3Var2 = new nc3();
-            nc3Var2.k(14L);
-            nc3Var2.b(2908L);
-            nc3Var2.d("小程序Extension包更新失败");
-            return nc3Var2;
+            String str = w32Var.e;
+            if (str != null && str.toLowerCase().contains("html")) {
+                w32Var.e = SapiWebView.DATA_MIME_TYPE;
+                w32Var.d = "UTF-8";
+            }
+            if (ob3.f()) {
+                return new WebResourceResponse(w32Var.e, w32Var.d, w32Var.a, w32Var.b, w32Var.c, w32Var.f);
+            }
+            return new WebResourceResponse(w32Var.e, "UTF-8", w32Var.f);
         }
-        return (nc3) invokeL.objValue;
+        return (WebResourceResponse) invokeL.objValue;
     }
 
-    @Override // com.repackage.c42
-    public nc3 d0(p94 p94Var) {
+    public final void d(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) == null) {
+            bd3.q().post(new a(this, str, i, str2));
+        }
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "image" : (String) invokeV.objValue;
+    }
+
+    public String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, p94Var)) == null) {
-            if (l) {
-                Log.d("SwanAppUpdateCore", "onFrameworkDownloadFinish framework = " + p94Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            if (p94Var == null) {
-                nc3 nc3Var = new nc3();
-                nc3Var.k(13L);
-                nc3Var.b(2907L);
-                nc3Var.d("小程序Core包 Framework null");
-                return nc3Var;
+            if (str.startsWith("intercept") && str.length() > 9) {
+                str = str.substring(9);
             }
-            ea3.b c = ea3.c(p94Var, 0);
-            ux1.k("SwanAppUpdateCore", "SwanCore RemoteCoreUpdateStatus: " + c);
-            xg4.k(p94Var.a);
-            if (c.c()) {
-                long e = ea3.e(0);
-                if (e > 0) {
-                    SwanJSVersionUpdateEvent.sendEvent(e);
-                    SwanAppMessengerService.sendMessageWithDataToAllClient(114, e);
-                    return null;
-                }
-                return null;
+            if (q32.a) {
+                Log.d("HybridIntercept", "remote request url = " + str);
             }
-            nc3 nc3Var2 = new nc3();
-            nc3Var2.k(13L);
-            nc3Var2.b(2907L);
-            nc3Var2.d("小程序Core包更新失败");
-            return nc3Var2;
+            return str;
         }
-        return (nc3) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x32(nf3<Exception> nf3Var, boolean z) {
-        super(nf3Var);
+    public Map<String, String> g(@NonNull c42.a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nf3Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((nf3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, aVar)) == null) {
+            Map<String, String> requestHeaders = aVar.getRequestHeaders();
+            if (requestHeaders == null) {
+                requestHeaders = new HashMap<>();
             }
+            String f = d83.l().f(f(aVar.d()), requestHeaders.get("Cookie"));
+            if (!TextUtils.isEmpty(f)) {
+                requestHeaders.put("Cookie", f);
+                if (q32.a) {
+                    Log.d("HybridIntercept", "addCookiesToHeader cookie: " + f);
+                }
+            }
+            return requestHeaders;
         }
-        this.k = z;
+        return (Map) invokeL.objValue;
+    }
+
+    public final void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
+            File b2 = m32.a().b();
+            String e = e();
+            if (!TextUtils.isEmpty(e)) {
+                b2 = new File(b2, e);
+            }
+            if (q32.a) {
+                Log.d("HybridIntercept", "init default disk cache provider, path = " + b2);
+            }
+            kf4.l(b2);
+            this.c = oi2.U().b(context, b2, m32.a().g());
+        }
+    }
+
+    public boolean i(@NonNull c42.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> requestHeaders;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
+            if (aVar.c()) {
+                return this.b.a(aVar) && (requestHeaders = aVar.getRequestHeaders()) != null && requestHeaders.containsKey("Accept") && (str = requestHeaders.get("Accept")) != null && str.startsWith("image");
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

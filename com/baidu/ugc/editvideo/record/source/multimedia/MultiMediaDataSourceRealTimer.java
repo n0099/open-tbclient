@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bb9;
+import com.repackage.v79;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -367,7 +367,7 @@ public class MultiMediaDataSourceRealTimer {
                     long currentTimeMillis = System.currentTimeMillis();
                     if (this.this$0.mBeginTime == 0) {
                         String str = MultiMediaDataSourceRealTimer.TAG;
-                        bb9.a(str, "TimerTask thread : " + Thread.currentThread().getName());
+                        v79.a(str, "TimerTask thread : " + Thread.currentThread().getName());
                         this.this$0.mBeginTime = currentTimeMillis;
                     }
                     long j = currentTimeMillis + this.this$0.mCurrentPlayTime;

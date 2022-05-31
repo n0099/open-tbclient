@@ -1,153 +1,104 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ta3;
-import com.repackage.xo1;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class er1 extends ar1 {
+import com.kwad.v8.NodeJS;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes5.dex */
+public class er1 implements dr1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, ps2> a;
 
-    /* loaded from: classes6.dex */
-    public class a implements xo1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ er1 a;
-
-        /* renamed from: com.repackage.er1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0409a implements ta3.c {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ mr1 a;
-            public final /* synthetic */ a b;
-
-            public C0409a(a aVar, mr1 mr1Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, mr1Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = mr1Var;
-            }
-
-            @Override // com.repackage.ta3.c
-            public void a(float f, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("direction", f);
-                        jSONObject.put("accuracy", ta3.h(i));
-                        this.a.d(this.b.a, jSONObject);
-                    } catch (JSONException e) {
-                        ux1.c("CompassApi", "handle compass,json error，" + e.toString());
-                        this.a.f(this.b.a, "Json error");
-                    }
-                }
-            }
-        }
-
-        public a(er1 er1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755728115, "Lcom/repackage/er1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {er1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = er1Var;
-        }
-
-        @Override // com.repackage.xo1.a
-        public us1 a(u03 u03Var, JSONObject jSONObject, @Nullable String str) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, u03Var, jSONObject, str)) == null) {
-                mr1 mr1Var = new mr1("compassChange", jSONObject, str);
-                ta3 i = ta3.i();
-                i.l(this.a.getContext());
-                i.o(new C0409a(this, mr1Var));
-                ux1.i("CompassApi", "start listen compass");
-                i.p();
-                mr1Var.b(this.a);
-                return us1.f();
-            }
-            return (us1) invokeLLL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public er1(@NonNull vo1 vo1Var) {
-        super(vo1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vo1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((vo1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755728115, "Lcom/repackage/er1;");
                 return;
             }
         }
+        b = rf1.a;
     }
 
-    @Override // com.repackage.xo1
-    public String j() {
-        InterceptResult invokeV;
+    public er1() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CompassApi" : (String) invokeV.objValue;
-    }
-
-    public us1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#startCompass", true);
-            return l(str, true, new a(this));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (us1) invokeL.objValue;
+        this.a = new ConcurrentHashMap();
     }
 
-    public us1 z() {
-        InterceptResult invokeV;
+    @Override // com.repackage.dr1
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            q("#stopCompass", true);
-            ta3.i().q();
-            return us1.f();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.containsKey(str)) {
+            return;
         }
-        return (us1) invokeV.objValue;
+        if (b) {
+            Log.d("Api-FirstRecorder", "markStart: " + str);
+        }
+        ps2 ps2Var = new ps2();
+        this.a.put(str, ps2Var);
+        ps2Var.i(System.currentTimeMillis());
+        ps2Var.f(str);
+    }
+
+    @Override // com.repackage.dr1
+    @SuppressLint({"BDThrowableCheck"})
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            ps2 ps2Var = this.a.get(str);
+            if (ps2Var == null) {
+                if (b) {
+                    throw new RuntimeException(str + " markEnd before markStart");
+                }
+            } else if (ps2Var.d() > 0) {
+            } else {
+                ps2Var.h(System.currentTimeMillis());
+                if (b) {
+                    Log.d("Api-FirstRecorder", str + " first called cost " + ps2Var.c());
+                }
+                if (TextUtils.equals(str, "request")) {
+                    if (b) {
+                        Log.d("Api-FirstRecorder", "record first request api called " + ps2Var.toString());
+                    }
+                    HybridUbcFlow p = ms2.p(NodeJS.STARTUP_SCRIPT_NAME);
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
+                    ubcFlowEvent.h(ps2Var.e());
+                    p.F(ubcFlowEvent);
+                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
+                    ubcFlowEvent2.h(ps2Var.d());
+                    p.F(ubcFlowEvent2);
+                }
+            }
+        }
     }
 }

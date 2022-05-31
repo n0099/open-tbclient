@@ -58,8 +58,8 @@ public class cc extends XMPushService.i {
         fm fmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m.m670a((Context) this.a);
-            av.a().m643a("5");
+            m.m669a((Context) this.a);
+            av.a().m642a("5");
             com.xiaomi.push.ab.a(this.b);
             fmVar = this.a.f825a;
             fmVar.c(fm.a());

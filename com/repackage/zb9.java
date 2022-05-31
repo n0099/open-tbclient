@@ -1,490 +1,156 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zb9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String c = "UnionIDHelper";
-    public static boolean d;
-    public static final String e;
-    public static final String f;
-    public static final Object g;
-    public static zb9 h;
+public class zb9 extends BaseAdRipper {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile cc9 a;
-    public AtomicBoolean b;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ zb9 c;
-
-        public a(zb9 zb9Var, Context context, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zb9Var, context, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = zb9Var;
-            this.a = context;
-            this.b = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (zb9.d) {
-                    Log.d(zb9.c, "asyncRequest, Thread runn！");
-                }
-                ac9 m = this.c.m(this.a);
-                if (zb9.d) {
-                    String str = zb9.c;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("asyncRequest, cachedBean == null ？");
-                    sb.append(m == null);
-                    Log.d(str, sb.toString());
-                }
-                if (m == null || this.c.q(m)) {
-                    if (zb9.d) {
-                        Log.d(zb9.c, "asyncRequest, requestFromManufacturer");
-                    }
-                    this.c.r();
-                    if (zb9.d) {
-                        Log.d(zb9.c, "asyncRequest, trySaveFiles！");
-                    }
-                    this.c.b.set(this.c.t(this.a));
-                    if (zb9.d) {
-                        Log.d(zb9.c, "asyncRequest, trySaveFiles done");
-                    }
-                }
-                if (zb9.d) {
-                    Log.d(zb9.c, "asyncRequest, send  innerHandler message");
-                }
-                this.b.obtainMessage(100, this.c.a).sendToTarget();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public bc9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper, bc9 bc9Var) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper, bc9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bc9Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what != 100) {
-                    return;
-                }
-                cc9 cc9Var = (cc9) message.obj;
-                if (zb9.d) {
-                    String str = zb9.c;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("handleMessage ，what：");
-                    sb.append(cc9Var == null ? "" : cc9Var.getOAID());
-                    Log.d(str, sb.toString());
-                }
-                bc9 bc9Var = this.a;
-                if (bc9Var != null) {
-                    bc9Var.a(cc9Var);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755117632, "Lcom/repackage/zb9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755117632, "Lcom/repackage/zb9;");
-                return;
-            }
-        }
-        d = vb9.e();
-        e = j(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, BaseNCodec.PAD_DEFAULT}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, BaseNCodec.PAD_DEFAULT});
-        f = j(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, BaseNCodec.PAD_DEFAULT}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, BaseNCodec.PAD_DEFAULT});
-        g = new Object();
-    }
-
-    public zb9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zb9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new AtomicBoolean(false);
-        this.b = new AtomicBoolean(false);
     }
 
-    public static String j(byte[]... bArr) {
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00cb A[Catch: Exception -> 0x0130, TryCatch #1 {Exception -> 0x0130, blocks: (B:5:0x0007, B:7:0x0010, B:14:0x001f, B:25:0x004a, B:27:0x005b, B:29:0x0063, B:31:0x0077, B:33:0x0086, B:39:0x0098, B:41:0x00a0, B:47:0x00cb, B:49:0x00d3, B:50:0x00db, B:42:0x00b2, B:44:0x00ba, B:17:0x0028, B:19:0x0030, B:20:0x0037, B:22:0x0041), top: B:62:0x0007, inners: #0 }] */
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        boolean z;
+        Object invoke;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        String optString;
+        String str5;
+        JSONObject optJSONObject;
+        JSONObject optJSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte[] bArr2 : bArr) {
-                sb.append(new String(jc9.a(bArr2)));
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                return new String(hc9.a(e, f, jc9.a(str.getBytes())));
-            } catch (Exception e2) {
-                if (d) {
-                    String str2 = c;
-                    Log.d(str2, "getCacheObject ，decryptUnionID：" + e2.getMessage());
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return jc9.c(hc9.b(e, f, str.getBytes()), IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException | Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static zb9 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (h == null) {
-                synchronized (zb9.class) {
-                    if (h == null) {
-                        h = new zb9();
+                Object findField = ReflectionUtils.findField("com.bytedance.sdk.openadsdk.core.o.r", obj);
+                if (findField == null) {
+                    findField = ReflectionUtils.findField("com.bytedance.sdk.openadsdk.core.q.v", obj);
+                    z = true;
+                    if (findField == null) {
+                        return null;
                     }
+                } else {
+                    z = false;
                 }
-            }
-            return h;
-        }
-        return (zb9) invokeV.objValue;
-    }
-
-    public synchronized void i(Context context, @NonNull Looper looper, @Nullable bc9 bc9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, looper, bc9Var) == null) {
-            synchronized (this) {
-                if (looper != null) {
-                    b bVar = new b(looper, bc9Var);
-                    if (p()) {
-                        bVar.obtainMessage(100, null).sendToTarget();
-                        return;
-                    }
-                    if (this.a != null && this.b.get()) {
-                        if (d) {
-                            String str = c;
-                            Log.d(str, "asyncRequest, mIUnionId.getOAID：" + this.a.getOAID());
-                            String str2 = c;
-                            Log.d(str2, "asyncRequest, mIUnionId.isTrackLimited：" + this.a.c());
-                            String str3 = c;
-                            Log.d(str3, "asyncRequest, mIUnionId.getStatusCode：" + this.a.getStatusCode());
+                if (z) {
+                    try {
+                        invoke = ReflectionUtils.invoke(findField, "bI", null, new Object[0]);
+                        if (invoke == null) {
+                            invoke = ReflectionUtils.invoke(findField, "bO", null, new Object[0]);
+                        } else {
+                            new JSONObject(invoke.toString());
                         }
-                        bVar.obtainMessage(100, this.a).sendToTarget();
-                    } else {
-                        if (!this.b.get()) {
-                            this.a = new xb9(context).a;
+                    } catch (JSONException unused) {
+                        invoke = ReflectionUtils.invoke(findField, "bO", null, new Object[0]);
+                    }
+                } else {
+                    invoke = ReflectionUtils.invoke(findField, "bt", null, new Object[0]);
+                }
+                if (invoke == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject(invoke.toString());
+                JSONObject optJSONObject3 = jSONObject.optJSONObject("icon");
+                String optString2 = optJSONObject3 != null ? optJSONObject3.optString("url") : null;
+                String combineStrWithComma = RippedAd.combineStrWithComma(jSONObject.optJSONArray("image"), xb9.a);
+                JSONObject optJSONObject4 = jSONObject.optJSONObject("video");
+                if (optJSONObject4 != null) {
+                    str2 = optJSONObject4.optString("video_url");
+                    str = optJSONObject4.optString("cover_url");
+                } else {
+                    str = null;
+                    str2 = null;
+                }
+                int optInt = jSONObject.optInt("interaction_type", -1);
+                if (optInt == 3) {
+                    JSONObject optJSONObject5 = jSONObject.optJSONObject("deep_link");
+                    if (optJSONObject5 != null) {
+                        str3 = null;
+                        str4 = null;
+                        optString = optJSONObject5.optString("deeplink_url");
+                        str5 = null;
+                        if (str3 == null) {
                         }
-                        new Thread(new a(this, context, bVar)).start();
+                        RippedAd.Builder builder = new RippedAd.Builder();
+                        builder.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                        return builder.build();
                     }
-                    return;
+                    str5 = null;
+                    optString = null;
+                    str3 = null;
+                    str4 = null;
+                    if (str3 == null) {
+                    }
+                    RippedAd.Builder builder2 = new RippedAd.Builder();
+                    builder2.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder2.build();
                 }
-                throw new NullPointerException("param looper not null");
-            }
-        }
-    }
-
-    public final ac9 m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
-            if (!file.exists()) {
-                if (d) {
-                    Log.d(c, "getCacheObject dir 不存在 , 首次需要创建");
+                if (optInt == 4 && (optJSONObject2 = jSONObject.optJSONObject("app")) != null) {
+                    String optString3 = optJSONObject2.optString("app_name");
+                    String optString4 = optJSONObject2.optString("package_name");
+                    str5 = optJSONObject2.optString("download_url");
+                    str4 = optString4;
+                    str3 = optString3;
+                    optString = null;
+                    if (str3 == null && (optJSONObject = jSONObject.optJSONObject("app_manage")) != null) {
+                        str3 = optJSONObject.optString("app_name");
+                        str4 = optJSONObject.optString("package_name");
+                    }
+                    RippedAd.Builder builder22 = new RippedAd.Builder();
+                    builder22.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                    return builder22.build();
                 }
-                return null;
-            }
-            File file2 = new File(file, ".bd_un_info.so");
-            if (!file2.exists()) {
-                if (d) {
-                    Log.d(c, "getCacheObject  file 不存在, 首次需要创建");
+                str5 = null;
+                optString = null;
+                str3 = null;
+                str4 = null;
+                if (str3 == null) {
+                    str3 = optJSONObject.optString("app_name");
+                    str4 = optJSONObject.optString("package_name");
                 }
-                return null;
-            }
-            String a2 = lc9.a(file2, g);
-            if (d) {
-                String str = c;
-                Log.d(str, "getCacheObject ，content：" + a2);
-            }
-            if (TextUtils.isEmpty(a2)) {
-                return null;
-            }
-            String k = k(a2);
-            if (d) {
-                String str2 = c;
-                Log.d(str2, "getCacheObject ，json：" + k);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(k);
-                ac9 ac9Var = new ac9();
-                s(ac9Var, jSONObject);
-                return ac9Var;
-            } catch (Exception e2) {
-                if (d) {
-                    String str3 = c;
-                    Log.d(str3, "getCacheObject , " + e2.getMessage());
-                }
+                RippedAd.Builder builder222 = new RippedAd.Builder();
+                builder222.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str3).setAppPkg(str4).setAppUrl(str5).setIconUrl(optString2).setImageUrl(combineStrWithComma).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
+                return builder222.build();
+            } catch (Exception e) {
+                LogPrinter.e(e);
                 return null;
             }
         }
-        return (ac9) invokeL.objValue;
-    }
-
-    public final long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? vb9.a(wb9.a()) * 60 * 1000 : invokeV.longValue;
-    }
-
-    public final boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? vb9.d(wb9.a()) : invokeV.booleanValue;
-    }
-
-    public final boolean q(@NonNull ac9 ac9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ac9Var)) == null) {
-            if (Math.abs(System.currentTimeMillis() - ac9Var.a) > n()) {
-                if (d) {
-                    Log.d(c, "isExpireTime ：超过缓存有效期");
-                    return true;
-                }
-                return true;
-            } else if (d) {
-                Log.d(c, "isExpireTime ：没有超过缓存有效期");
-                return false;
-            } else {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = this.a.d();
-            if (d) {
-                String str = c;
-                Log.d(str, "asyncRequest, requestFromManufacturer done :" + this.a.getOAID());
-            }
-        }
-    }
-
-    public final boolean s(ac9 ac9Var, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, ac9Var, jSONObject)) == null) {
-            try {
-                long optLong = jSONObject.optLong(new String(jc9.a("dGltZQ==".getBytes())));
-                ac9Var.a = optLong;
-                if (d) {
-                    String str = c;
-                    Log.d(str, "tryParseCacheJsonObject ，time：" + optLong);
-                    String str2 = c;
-                    Log.d(str2, "tryParseCacheJsonObject ，System.currentTimeMillis() - time：" + (System.currentTimeMillis() - optLong));
-                }
-                String str3 = new String(jc9.a("dW5pb25JRG9iag==".getBytes()));
-                if (d) {
-                    String str4 = c;
-                    Log.d(str4, "tryParseCacheJsonObject objKey：" + str3);
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject(str3);
-                if (d) {
-                    String str5 = c;
-                    Log.d(str5, "tryParseCacheJsonObject ，jsonObject：" + optJSONObject);
-                }
-                if (optJSONObject != null) {
-                    String str6 = new String(jc9.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
-                    String str7 = new String(jc9.a("aXNTdXBwb3J0".getBytes()));
-                    String str8 = new String(jc9.a("c3RhdHVzY29kZQ==".getBytes()));
-                    String str9 = new String(jc9.a("b2FpZA==".getBytes()));
-                    String str10 = new String(jc9.a("YWFpZA==".getBytes()));
-                    String str11 = new String(jc9.a("dmFpZA==".getBytes()));
-                    boolean optBoolean = optJSONObject.optBoolean(str6);
-                    boolean optBoolean2 = optJSONObject.optBoolean(str7);
-                    int optInt = optJSONObject.optInt(str8);
-                    String optString = optJSONObject.optString(str9);
-                    String optString2 = optJSONObject.optString(str10);
-                    String optString3 = optJSONObject.optString(str11);
-                    this.a.h(optBoolean);
-                    this.a.e(optBoolean2);
-                    this.a.a(optInt);
-                    this.a.g(optString);
-                    this.a.f(optString2);
-                    this.a.b(optString3);
-                    ac9Var.b = this.a;
-                    return true;
-                }
-                ac9Var.b = null;
-                if (d) {
-                    Log.d(c, "tryParseCacheJsonObject return cause null：");
-                }
-                return false;
-            } catch (Exception e2) {
-                if (d) {
-                    String str12 = c;
-                    Log.d(str12, "tryParseCacheJsonObject ：" + e2.getMessage());
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final boolean t(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
-            try {
-                if (this.a != null && !TextUtils.isEmpty(this.a.getOAID())) {
-                    File file = new File(context.getFilesDir().getAbsolutePath() + "/bdunionid/");
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    File file2 = new File(file, ".bd_un_info.so");
-                    String str = new String(jc9.a("dGltZQ==".getBytes()));
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(str, System.currentTimeMillis());
-                    String str2 = new String(jc9.a("dW5pb25JRG9iag==".getBytes()));
-                    JSONObject optJSONObject = jSONObject.optJSONObject(str2);
-                    if (optJSONObject == null) {
-                        optJSONObject = new JSONObject();
-                    }
-                    String str3 = new String(jc9.a("aXNUcmFja0xpbWl0ZWQ=".getBytes()));
-                    String str4 = new String(jc9.a("aXNTdXBwb3J0".getBytes()));
-                    String str5 = new String(jc9.a("c3RhdHVzY29kZQ==".getBytes()));
-                    String str6 = new String(jc9.a("b2FpZA==".getBytes()));
-                    String str7 = new String(jc9.a("YWFpZA==".getBytes()));
-                    String str8 = new String(jc9.a("dmFpZA==".getBytes()));
-                    optJSONObject.put(str3, this.a.c());
-                    optJSONObject.put(str4, this.a.isSupport());
-                    optJSONObject.put(str5, this.a.getStatusCode());
-                    optJSONObject.put(str6, this.a.getOAID());
-                    optJSONObject.put(str7, this.a.getAAID());
-                    optJSONObject.put(str8, this.a.getVAID());
-                    jSONObject.put(str2, optJSONObject);
-                    lc9.b(l(jSONObject.toString()), file2, false, g);
-                    if (d) {
-                        String str9 = c;
-                        Log.d(str9, "trySaveFiles, app: " + jSONObject.toString());
-                        return true;
-                    }
-                    return true;
-                }
-                return false;
-            } catch (Exception e2) {
-                if (d) {
-                    String str10 = c;
-                    Log.d(str10, "trySaveFiles, error " + e2.getMessage());
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

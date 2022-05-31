@@ -2,29 +2,31 @@ package com.repackage;
 
 import android.content.Context;
 import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.activitys.H5OpenActivity;
 import com.win.opensdk.core.Info;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class do9 extends WebViewClient {
+public class do9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ H5OpenActivity a;
+    public Context a;
+    public Info b;
+    public Handler c;
 
-    public do9(H5OpenActivity h5OpenActivity) {
+    public do9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {h5OpenActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,39 +36,48 @@ public class do9 extends WebViewClient {
                 return;
             }
         }
-        this.a = h5OpenActivity;
+        this.c = new wn9(this, Looper.getMainLooper());
     }
 
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        InterceptResult invokeLL;
+    public static boolean b(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-            Context applicationContext = this.a.getApplicationContext();
-            Uri parse = Uri.parse(str);
-            String scheme = parse.getScheme();
-            if ((TextUtils.isEmpty(scheme) || scheme.equals("http") || scheme.equals("https")) ? false : true) {
-                try {
-                    tq9 a = xq9.a(applicationContext);
-                    a.i(new br9(this.a.d), parse.toString(), 0);
-                    a.m();
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("__SCHEME__", parse.toString());
-                    Info info = this.a.d;
-                    if (info != null) {
-                        ro9.K(ro9.i((String) info.getEvents().get(600, ""), "", info.isHo_c_sw(), hashMap));
-                    }
-                    yq9.b(applicationContext, parse);
-                    return true;
-                } catch (Exception e) {
-                    tq9 a2 = xq9.a(applicationContext);
-                    a2.i(new br9(this.a.d), e.getMessage(), 2);
-                    a2.m();
-                    e.printStackTrace();
-                }
-            }
-            return false;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) ? "appmarket".equalsIgnoreCase(uri.getScheme()) : invokeL.booleanValue;
+    }
+
+    public static boolean c(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            String scheme = uri.getScheme();
+            String host = uri.getHost();
+            return "market".equalsIgnoreCase(scheme) || "market.android.com".equalsIgnoreCase(host) || "play.google.com".equalsIgnoreCase(host);
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public void a(Context context, String str, Info info) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, info) == null) {
+            this.a = context;
+            this.b = info;
+            WebView webView = new WebView(context);
+            WebSettings settings = webView.getSettings();
+            settings.setAllowContentAccess(true);
+            settings.setJavaScriptEnabled(true);
+            if (Build.VERSION.SDK_INT >= 11) {
+                webView.removeJavascriptInterface("searchBoxJavaBridge_");
+                webView.removeJavascriptInterface("accessibility");
+                webView.removeJavascriptInterface("accessibilityTraversal");
+            }
+            webView.setWebViewClient(new ao9(this, context, info, str));
+            HashMap hashMap = new HashMap();
+            hashMap.put("X-Requested-With", "");
+            webView.loadUrl(str, hashMap);
+            Message obtain = Message.obtain();
+            obtain.what = 11;
+            obtain.obj = str;
+            this.c.sendMessageDelayed(obtain, 5000L);
+        }
     }
 }

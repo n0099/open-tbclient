@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.caverock.androidsvg.CSSParser;
 import com.google.android.material.internal.StaticLayoutBuilderCompat;
-import com.repackage.be9;
-import com.repackage.ce9;
+import com.repackage.va9;
+import com.repackage.wa9;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class SVG {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d0 a;
-    public ce9 b;
+    public wa9 b;
     public float c;
     public CSSParser.e d;
     public Map<String, j0> e;
@@ -2806,10 +2806,10 @@ public class SVG {
         return (l0) invokeL.objValue;
     }
 
-    public ce9 e() {
+    public wa9 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (ce9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (wa9) invokeV.objValue;
     }
 
     public d0 j() {
@@ -2852,7 +2852,7 @@ public class SVG {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
             Picture picture = new Picture();
-            new be9(picture.beginRecording(i2, i3), new b(0.0f, 0.0f, i2, i3), this.c).G0(this, null, null, false);
+            new va9(picture.beginRecording(i2, i3), new b(0.0f, 0.0f, i2, i3), this.c).G0(this, null, null, false);
             picture.endRecording();
             return picture;
         }
@@ -2950,12 +2950,12 @@ public class SVG {
             return invokeF.floatValue;
         }
 
-        public float c(be9 be9Var) {
+        public float c(va9 va9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, be9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, va9Var)) == null) {
                 if (this.b == Unit.percent) {
-                    b W = be9Var.W();
+                    b W = va9Var.W();
                     if (W == null) {
                         return this.a;
                     }
@@ -2966,46 +2966,46 @@ public class SVG {
                     }
                     return (this.a * ((float) (Math.sqrt((f * f) + (f2 * f2)) / 1.414213562373095d))) / 100.0f;
                 }
-                return e(be9Var);
+                return e(va9Var);
             }
             return invokeL.floatValue;
         }
 
-        public float d(be9 be9Var, float f) {
+        public float d(va9 va9Var, float f) {
             InterceptResult invokeLF;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, be9Var, f)) == null) {
+            if (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, va9Var, f)) == null) {
                 if (this.b == Unit.percent) {
                     return (this.a * f) / 100.0f;
                 }
-                return e(be9Var);
+                return e(va9Var);
             }
             return invokeLF.floatValue;
         }
 
-        public float e(be9 be9Var) {
+        public float e(va9 va9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, be9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, va9Var)) == null) {
                 switch (a.a[this.b.ordinal()]) {
                     case 1:
                         return this.a;
                     case 2:
-                        return this.a * be9Var.U();
+                        return this.a * va9Var.U();
                     case 3:
-                        return this.a * be9Var.V();
+                        return this.a * va9Var.V();
                     case 4:
-                        return this.a * be9Var.X();
+                        return this.a * va9Var.X();
                     case 5:
-                        return (this.a * be9Var.X()) / 2.54f;
+                        return (this.a * va9Var.X()) / 2.54f;
                     case 6:
-                        return (this.a * be9Var.X()) / 25.4f;
+                        return (this.a * va9Var.X()) / 25.4f;
                     case 7:
-                        return (this.a * be9Var.X()) / 72.0f;
+                        return (this.a * va9Var.X()) / 72.0f;
                     case 8:
-                        return (this.a * be9Var.X()) / 6.0f;
+                        return (this.a * va9Var.X()) / 6.0f;
                     case 9:
-                        b W = be9Var.W();
+                        b W = va9Var.W();
                         if (W == null) {
                             return this.a;
                         }
@@ -3017,18 +3017,18 @@ public class SVG {
             return invokeL.floatValue;
         }
 
-        public float f(be9 be9Var) {
+        public float f(va9 va9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, be9Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, va9Var)) == null) {
                 if (this.b == Unit.percent) {
-                    b W = be9Var.W();
+                    b W = va9Var.W();
                     if (W == null) {
                         return this.a;
                     }
                     return (this.a * W.d) / 100.0f;
                 }
-                return e(be9Var);
+                return e(va9Var);
             }
             return invokeL.floatValue;
         }

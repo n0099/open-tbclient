@@ -1,8 +1,7 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface lk1 {
-    boolean a(@NonNull JSONObject jSONObject);
+    void a(String str, ip2 ip2Var, Context context);
 }

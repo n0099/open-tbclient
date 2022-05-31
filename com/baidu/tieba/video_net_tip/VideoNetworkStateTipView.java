@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fm4;
+import com.repackage.sk4;
 /* loaded from: classes4.dex */
 public class VideoNetworkStateTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -53,7 +53,7 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                fm4.x(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06bc), TbConfig.URL_BAIDU_SINGKIL);
+                sk4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06c3), TbConfig.URL_BAIDU_SINGKIL);
             }
         }
     }
@@ -83,12 +83,12 @@ public class VideoNetworkStateTipView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0547, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0918a7);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090aa1);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d053d, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09185c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090a8f);
             this.c = textView;
             textView.setOnClickListener(new a(this));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0918b5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09186a);
             b(TbadkApplication.getInst().getSkinType());
         }
     }
@@ -100,11 +100,11 @@ public class VideoNetworkStateTipView extends RelativeLayout {
         }
         this.a = i;
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080fc7);
+        SkinManager.setBackgroundResource(this.b, R.drawable.obfuscated_res_0x7f080fd9);
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f08031c);
+        SkinManager.setBackgroundResource(this.c, R.drawable.obfuscated_res_0x7f08031b);
         SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f080fc7);
+        SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f080fd9);
     }
 
     public void setHasAgreeToPlay(boolean z) {

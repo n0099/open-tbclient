@@ -1,51 +1,37 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.view.BdTopToast;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class o05 {
+public class o05 extends e05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(DownloadData downloadData) {
-        Activity currentActivity;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o05(Context context, int i) {
+        super(context, (String) null, 11);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-        bdTopToast.i(false);
-        bdTopToast.h(currentActivity.getString(R.string.obfuscated_res_0x7f0f096d));
-        bdTopToast.j((ViewGroup) currentActivity.findViewById(16908290));
-    }
-
-    public static void b(DownloadData downloadData) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
-            return;
-        }
-        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-        bdTopToast.i(false);
-        bdTopToast.h(currentActivity.getString(R.string.obfuscated_res_0x7f0f096f));
-        bdTopToast.j((ViewGroup) currentActivity.findViewById(16908290));
-    }
-
-    public static void c(DownloadData downloadData) {
-        Activity currentActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, downloadData) == null) || (currentActivity = TbadkApplication.getInst().getCurrentActivity()) == null || currentActivity.isDestroyed()) {
-            return;
-        }
-        BdTopToast bdTopToast = new BdTopToast(currentActivity, 2000);
-        bdTopToast.i(true);
-        bdTopToast.h(currentActivity.getString(R.string.obfuscated_res_0x7f0f0974));
-        bdTopToast.j((ViewGroup) currentActivity.findViewById(16908290));
+        this.o = true;
+        this.n = 6;
+        this.m = p05.a(context, i);
+        this.p = new int[]{12, 13, 9};
     }
 }

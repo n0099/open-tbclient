@@ -1,308 +1,215 @@
 package com.repackage;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.repackage.m43;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wf1 {
+public class wf1 extends e13 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wf1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public Context b;
+    public String c;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements ae3<k43<m43.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ hz2 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ boolean c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ UnitedSchemeEntity f;
+        public final /* synthetic */ wf1 g;
 
-    /* loaded from: classes7.dex */
-    public class b extends SQLiteOpenHelper {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ b(wf1 wf1Var, Context context, a aVar) {
-            this(wf1Var, context);
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onCreate(SQLiteDatabase sQLiteDatabase) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-                try {
-                    sQLiteDatabase.execSQL("create table if not exists rp_tb(id integer primary key autoincrement, a text, c integer, d integer);");
-                } catch (Throwable th) {
-                    fg1.d(th);
-                }
-            }
-        }
-
-        @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(wf1 wf1Var, Context context) {
-            super(context, "sso.db", (SQLiteDatabase.CursorFactory) null, 1);
+        public a(wf1 wf1Var, hz2 hz2Var, Context context, boolean z, String str, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wf1Var, context};
+                Object[] objArr = {wf1Var, hz2Var, context, Boolean.valueOf(z), str, callbackHandler, unitedSchemeEntity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.g = wf1Var;
+            this.a = hz2Var;
+            this.b = context;
+            this.c = z;
+            this.d = str;
+            this.e = callbackHandler;
+            this.f = unitedSchemeEntity;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ae3
+        /* renamed from: a */
+        public void onCallback(k43<m43.e> k43Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, k43Var) == null) {
+                boolean e = this.a.M().e(this.b);
+                if (!f43.h(k43Var)) {
+                    if (!e && !this.c) {
+                        a63.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 4, this.d);
+                    }
+                    f43.q(k43Var, this.e, this.g.c);
+                    return;
+                }
+                if (e && !this.c) {
+                    a63.S("success", 4, this.d);
+                }
+                this.g.l(this.b, this.f, this.e, this.a, this.d);
+            }
         }
     }
 
-    public wf1(Context context) {
+    /* loaded from: classes7.dex */
+    public class b implements xf1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ wf1 c;
+
+        public b(wf1 wf1Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf1Var, callbackHandler, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = wf1Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+        }
+
+        @Override // com.repackage.xf1
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1002, "user cancel this operation").toString(), this.c.c);
+                } else {
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1003, "close failed").toString(), this.c.c);
+                }
+            }
+        }
+
+        @Override // com.repackage.xf1
+        public void b(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString(), this.c.c);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wf1(e03 e03Var) {
+        super(e03Var, "/swanAPI/chooseAddress");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {e03Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.a = new b(this, this.b, null);
     }
 
-    public static wf1 a(Context context) {
+    @Override // com.repackage.e13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
+            if (hz2Var == null) {
+                hw1.i("ChooseAddress", "swanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            } else if (hz2Var.m0()) {
+                if (e13.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                JSONObject m = m(unitedSchemeEntity.getParam("params"));
+                String optString = m.optString("cb");
+                this.c = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    hw1.i("ChooseAddress", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String optString2 = m.optString("invokeFrom");
+                boolean e = hz2Var.M().e(context);
+                if (!e) {
+                    a63.S("show", 4, optString2);
+                }
+                hz2Var.d0().h(context, "mapp_choose_address", f43.j(m), new a(this, hz2Var, context, e, optString2, callbackHandler, unitedSchemeEntity));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
+            }
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void l(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, hz2Var, str) == null) {
+            oi2.j0().a(context, hz2Var.b, hz2Var.N(), new b(this, callbackHandler, unitedSchemeEntity));
+        }
+    }
+
+    public final JSONObject m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (c == null) {
-                synchronized (wf1.class) {
-                    if (c == null) {
-                        c = new wf1(context);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
             }
-            return c;
-        }
-        return (wf1) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public ArrayList<xf1> b(String str) {
-        InterceptResult invokeL;
-        Throwable th;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, str)) != null) {
-            return (ArrayList) invokeL.objValue;
-        }
-        try {
-            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
-            StringBuilder sb = new StringBuilder();
-            sb.append("SELECT * FROM rp_tb WHERE c IN (");
-            sb.append(str);
-            sb.append(") LIMIT 100");
-            cursor = writableDatabase.rawQuery(sb.toString(), null);
-            if (cursor != null) {
-                try {
-                    if (cursor.getCount() != 0) {
-                        ArrayList<xf1> arrayList = new ArrayList<>();
-                        while (cursor.moveToNext()) {
-                            xf1 xf1Var = new xf1();
-                            xf1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            xf1Var.c(hg1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
-                            xf1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
-                            xf1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
-                            arrayList.add(xf1Var);
-                        }
-                        return arrayList;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        fg1.d(th);
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th3) {
-                                fg1.d(th3);
-                            }
-                        }
-                        return null;
-                    } finally {
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th4) {
-                                fg1.d(th4);
-                            }
-                        }
-                    }
-                }
-            }
-            if (cursor != null) {
-                try {
-                    if (!cursor.isClosed()) {
-                        cursor.close();
-                    }
-                } catch (Throwable th5) {
-                    fg1.d(th5);
-                }
-            }
-            return null;
-        } catch (Throwable th6) {
-            th = th6;
-            cursor = null;
-        }
-    }
-
-    public void c(xf1 xf1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xf1Var) == null) || xf1Var == null) {
-            return;
-        }
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("a", hg1.b(this.b, xf1Var.d().getBytes()));
-            contentValues.put("c", Integer.valueOf(xf1Var.h()));
-            contentValues.put("d", Integer.valueOf(xf1Var.f()));
-            this.a.getWritableDatabase().insert("rp_tb", null, contentValues);
-        } catch (Throwable th) {
-            fg1.d(th);
-        }
-    }
-
-    public void d(ArrayList<xf1> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) || arrayList == null) {
-            return;
-        }
-        try {
-            if (arrayList.size() == 0) {
-                return;
-            }
-            for (int i = 0; i < arrayList.size(); i++) {
-                f(arrayList.get(i));
-            }
-        } catch (Throwable th) {
-            fg1.d(th);
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public ArrayList<xf1> e(String str) {
-        InterceptResult invokeL;
-        Throwable th;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
-            return (ArrayList) invokeL.objValue;
-        }
-        try {
-            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
-            StringBuilder sb = new StringBuilder();
-            sb.append("SELECT * FROM rp_tb WHERE c IN (");
-            sb.append(str);
-            sb.append(") and ");
-            sb.append("d");
-            sb.append("=");
-            sb.append(2);
-            sb.append(" LIMIT 100");
-            cursor = writableDatabase.rawQuery(sb.toString(), null);
-            if (cursor != null) {
-                try {
-                    if (cursor.getCount() != 0) {
-                        ArrayList<xf1> arrayList = new ArrayList<>();
-                        while (cursor.moveToNext()) {
-                            xf1 xf1Var = new xf1();
-                            xf1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
-                            xf1Var.c(hg1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
-                            xf1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
-                            xf1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
-                            arrayList.add(xf1Var);
-                        }
-                        return arrayList;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    try {
-                        fg1.d(th);
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th3) {
-                                fg1.d(th3);
-                            }
-                        }
-                        return null;
-                    } finally {
-                        if (cursor != null) {
-                            try {
-                                if (!cursor.isClosed()) {
-                                    cursor.close();
-                                }
-                            } catch (Throwable th4) {
-                                fg1.d(th4);
-                            }
-                        }
-                    }
-                }
-            }
-            if (cursor != null) {
-                try {
-                    if (!cursor.isClosed()) {
-                        cursor.close();
-                    }
-                } catch (Throwable th5) {
-                    fg1.d(th5);
-                }
-            }
-            return null;
-        } catch (Throwable th6) {
-            th = th6;
-            cursor = null;
-        }
-    }
-
-    public final void f(xf1 xf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xf1Var) == null) {
             try {
-                this.a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(xf1Var.a())});
-            } catch (Throwable th) {
-                System.currentTimeMillis();
-                fg1.d(th);
+                return new JSONObject(str);
+            } catch (JSONException e) {
+                if (e13.b) {
+                    Log.w("SwanAppAction", "JSONObject parsed error!!", e);
+                }
+                return new JSONObject();
             }
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

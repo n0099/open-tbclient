@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.zv4;
+import com.repackage.li;
+import com.repackage.pu4;
 /* loaded from: classes4.dex */
-public class FollowUserSpinnerBtn extends LinearLayout implements zv4 {
+public class FollowUserSpinnerBtn extends LinearLayout implements pu4 {
     public static /* synthetic */ Interceptable $ic;
     public static final int p;
     public static final int q;
@@ -106,9 +106,9 @@ public class FollowUserSpinnerBtn extends LinearLayout implements zv4 {
                 return;
             }
         }
-        p = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
-        q = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
-        r = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
+        p = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds224);
+        q = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds58);
+        r = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -132,14 +132,14 @@ public class FollowUserSpinnerBtn extends LinearLayout implements zv4 {
         }
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -147,7 +147,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements zv4 {
         }
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -155,7 +155,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements zv4 {
         }
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
@@ -179,7 +179,7 @@ public class FollowUserSpinnerBtn extends LinearLayout implements zv4 {
         }
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -190,17 +190,17 @@ public class FollowUserSpinnerBtn extends LinearLayout implements zv4 {
     public final void g(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029a, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0296, this);
             setOrientation(0);
-            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091213);
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091adb);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092071);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a1);
+            this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0911d5);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091a8b);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092017);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f09029e);
             Paint paint = new Paint(1);
             this.e = paint;
             paint.setStyle(Paint.Style.STROKE);
             this.e.setStrokeCap(Paint.Cap.ROUND);
-            this.e.setStrokeWidth(mi.f(context, R.dimen.tbds3));
+            this.e.setStrokeWidth(li.f(context, R.dimen.tbds3));
             this.h = new RectF();
             this.i = new Path();
             this.f = R.color.CAM_X0105;
@@ -233,11 +233,11 @@ public class FollowUserSpinnerBtn extends LinearLayout implements zv4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f0636);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f063d);
                 this.f = R.color.CAM_X0101;
                 this.g = R.color.CAM_X0904;
             } else {
-                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f02a2);
+                this.j = getResources().getString(R.string.obfuscated_res_0x7f0f02a4);
                 this.f = R.color.CAM_X0105;
                 this.g = R.color.CAM_X0901;
             }

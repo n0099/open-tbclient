@@ -1,50 +1,141 @@
 package com.repackage;
 
+import android.app.Application;
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.CriusLoader;
-import com.baidu.searchbox.crius.parser.CriusData;
+import com.baidu.nadcore.download.proxy.IAdDownloader;
+import com.baidu.searchbox.bddownload.DownloadTask;
+import com.baidu.searchbox.bddownload.SpeedCalculator;
+import com.baidu.searchbox.bddownload.StatusUtil;
+import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.searchbox.bddownload.core.breakpoint.BlockInfo;
+import com.baidu.searchbox.bddownload.core.breakpoint.BreakpointInfo;
+import com.baidu.searchbox.bddownload.core.cause.EndCause;
+import com.baidu.searchbox.bddownload.core.listener.DownloadSpeedListener;
+import com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend;
+import com.baidu.searchbox.common.runtime.AppRuntimeInit;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zi0 {
+public class zi0 implements IAdDownloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public Map<String, a> b;
+    public final HashMap<Integer, DownloadTask> a;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public static class a extends DownloadSpeedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public CriusData a;
+        public long a;
+        public String b;
+        public long c;
+        public yi0 d;
 
-        public a() {
+        public a(yi0 yi0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yi0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.d = yi0Var;
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void blockEnd(@NonNull DownloadTask downloadTask, int i, BlockInfo blockInfo, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(1048576, this, downloadTask, i, blockInfo, speedCalculator) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{downloadTask, Integer.valueOf(i), Integer.valueOf(i2), map}) == null) {
+                String str = "Connect End " + i;
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i, map) == null) {
+                String str = "Connect Start " + i;
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void infoReady(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, boolean z, @NonNull ListenerSpeedAssistExtend.Listener4SpeedModel listener4SpeedModel) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{downloadTask, breakpointInfo, Boolean.valueOf(z), listener4SpeedModel}) == null) {
+                long totalLength = breakpointInfo.getTotalLength();
+                this.a = totalLength;
+                this.b = Util.humanReadableBytes(totalLength, true);
+                this.d.b(this.a, downloadTask.getFile());
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void progress(@NonNull DownloadTask downloadTask, long j, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{downloadTask, Long.valueOf(j), speedCalculator}) == null) {
+                String str = (Util.humanReadableBytes(j, true) + "/" + this.b) + "(" + speedCalculator.speed() + SmallTailInfo.EMOTION_SUFFIX;
+                this.c = j;
+                this.d.a(downloadTask.getId(), j, this.a);
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void progressBlock(@NonNull DownloadTask downloadTask, int i, long j, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j), speedCalculator}) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerSpeedAssistExtend.Listener4SpeedCallback
+        public void taskEnd(@NonNull DownloadTask downloadTask, @NonNull EndCause endCause, @Nullable Exception exc, @NonNull SpeedCalculator speedCalculator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048582, this, downloadTask, endCause, exc, speedCalculator) == null) {
+                downloadTask.removeTag();
+                if (endCause == EndCause.COMPLETED) {
+                    this.d.onSuccess(downloadTask.getId());
+                } else if (endCause == EndCause.CANCELED) {
+                    this.d.c(downloadTask.getId(), (int) ((this.c / this.a) * 100.0d));
+                } else if (endCause == EndCause.ERROR) {
+                    this.d.onError();
+                } else {
+                    this.d.onError();
+                }
+                if (!oe0.a || exc == null) {
+                    return;
+                }
+                Context b = xg0.b();
+                Toast.makeText(b, "下载失败！原因：" + exc, 0).show();
+            }
+        }
+
+        @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
+        public void taskStart(@NonNull DownloadTask downloadTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, downloadTask) == null) {
             }
         }
     }
@@ -59,160 +150,59 @@ public class zi0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        AppRuntimeInit.onApplicationattachBaseContext((Application) xg0.b());
     }
 
-    public static zi0 b(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            zi0 zi0Var = new zi0();
-            zi0Var.i(jSONObject);
-            return zi0Var;
-        }
-        return (zi0) invokeL.objValue;
-    }
-
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            CriusLoader.init(context);
-            CriusLoader.registerComponentFactory(new xi0());
-            CriusLoader.registerNativeRenderFactory(new yi0());
-        }
-    }
-
-    public final Map<String, String> c(@NonNull JSONObject jSONObject, @NonNull String str) {
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public int a(String str, yi0 yi0Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str)) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject(str);
-            if (optJSONObject != null) {
-                HashMap hashMap = new HashMap();
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys != null && keys.hasNext()) {
-                    String next = keys.next();
-                    String optString = optJSONObject.optString(next);
-                    if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
-                        hashMap.put(next, optString);
-                    }
-                }
-                return hashMap;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, yi0Var)) == null) {
+            DownloadTask build = new DownloadTask.Builder(str, ej0.a(xg0.b())).setPassIfAlreadyCompleted(false).build();
+            a aVar = new a(yi0Var);
+            if (build.getTag() != null) {
+                build.cancel();
             }
-            return null;
+            build.enqueue(aVar);
+            build.setTag("mark-task-started");
+            ix0.e(this.a, Integer.valueOf(build.getId()), build);
+            return build.getId();
         }
-        return (Map) invokeLL.objValue;
+        return invokeLL.intValue;
     }
 
-    public a d(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull Map<String, String> map) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void b(int i) {
+        DownloadTask downloadTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, map)) == null) {
-            a aVar = new a();
-            String optString = jSONObject.optString(str);
-            if (h()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    if (!TextUtils.isEmpty(entry.getKey()) && !TextUtils.isEmpty(entry.getValue()) && optString != null) {
-                        optString = optString.replaceAll(entry.getKey(), Uri.encode(entry.getValue()));
-                    }
-                }
-            }
-            if (CriusLoader.isCriusNone()) {
-                a(ki0.b());
-            }
-            if (CriusLoader.isCriusOk()) {
-                try {
-                    aVar.a = e(new JSONObject(optString));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                CriusData criusData = aVar.a;
-                if (criusData != null && criusData.getImageUrls() != null) {
-                    g(aVar.a.getImageUrls());
-                }
-                return aVar;
-            }
-            return aVar;
-        }
-        return (a) invokeLLL.objValue;
-    }
-
-    public CriusData e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            try {
-                return new CriusData(ki0.b(), jSONObject, true, null);
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (CriusData) invokeL.objValue;
-    }
-
-    public final Map<String, a> f(@NonNull JSONObject jSONObject, @NonNull List<String> list, @NonNull Map<String, String> map) {
-        InterceptResult invokeLLL;
-        a d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, jSONObject, list, map)) == null) {
-            HashMap hashMap = null;
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str) && (d = d(jSONObject, str, map)) != null) {
-                    if (hashMap == null) {
-                        hashMap = new HashMap();
-                    }
-                    hashMap.put(str, d);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    public final void g(Set<String> set) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, set) == null) || set == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (downloadTask = (DownloadTask) ix0.b(this.a, Integer.valueOf(i))) == null || downloadTask.getTag() == null) {
             return;
         }
-        for (String str : set) {
-            om0.a().c(str);
-        }
+        downloadTask.cancel();
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void c(int i, String str, yi0 yi0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public zi0 i(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, jSONObject)) == null) {
-            j(jSONObject, "cmd_map", Arrays.asList("crius", "crius_pop", "crius_content"));
-            return this;
-        }
-        return (zi0) invokeL.objValue;
-    }
-
-    public zi0 j(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull List<String> list) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, str, list)) == null) {
-            Map<String, String> c = c(jSONObject, str);
-            this.a = c;
-            if (c != null) {
-                this.b = f(jSONObject, list, c);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, yi0Var) == null) {
+            DownloadTask downloadTask = (DownloadTask) ix0.b(this.a, Integer.valueOf(i));
+            if (downloadTask != null && StatusUtil.getStatus(downloadTask) == StatusUtil.Status.IDLE) {
+                downloadTask.setTag("mark-task-started");
+                downloadTask.enqueue(new a(yi0Var));
+                return;
             }
-            return this;
+            a(str, yi0Var);
         }
-        return (zi0) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.nadcore.download.proxy.IAdDownloader
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        }
     }
 }

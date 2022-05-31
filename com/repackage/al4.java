@@ -1,9 +1,17 @@
 package com.repackage;
 
-import java.util.HashMap;
+import android.webkit.WebView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Deprecated
 /* loaded from: classes5.dex */
-public interface al4 {
-    void a(Object obj, HashMap<String, String> hashMap, String str, a9 a9Var);
+public class al4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    cl4 b(Object obj, HashMap<String, String> hashMap, String str);
+    public static void a(String str, WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, webView) == null) {
+        }
+    }
 }

@@ -24,9 +24,9 @@ import com.baidu.ugc.editvideo.record.processor.observer.EffectChangeObserver;
 import com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver;
 import com.baidu.ugc.editvideo.record.renderer.MediaGLRenderer;
 import com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener;
-import com.repackage.kb9;
-import com.repackage.nb9;
-import com.repackage.sf0;
+import com.repackage.e89;
+import com.repackage.fe0;
+import com.repackage.h89;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -285,10 +285,10 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.OnDrawUpdateTextureListener
-    public sf0 getVlogCore() {
+    public fe0 getVlogCore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRenderer.getVlogEdit() : (sf0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRenderer.getVlogEdit() : (fe0) invokeV.objValue;
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.observer.MediaTrackChangeObserver
@@ -516,11 +516,11 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                         PointF pointF2 = new PointF(this.mLastDownX1, this.mLastDownY1);
                         PointF pointF3 = new PointF(realX, realY);
                         PointF pointF4 = new PointF(realX2, realY2);
-                        if (kb9.c(pointF, pointF3) + kb9.c(pointF2, pointF4) >= 5.0f) {
-                            PointF d = kb9.d(pointF2, pointF);
-                            PointF d2 = kb9.d(pointF4, pointF3);
-                            float a = kb9.a(d, d2);
-                            float e = kb9.e(d, d2);
+                        if (e89.c(pointF, pointF3) + e89.c(pointF2, pointF4) >= 5.0f) {
+                            PointF d = e89.d(pointF2, pointF);
+                            PointF d2 = e89.d(pointF4, pointF3);
+                            float a = e89.a(d, d2);
+                            float e = e89.e(d, d2);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter != null) {
                                 multiMediaDataSourceViewAdapter.onTouchMove(0.0f, 0.0f, e, a);
@@ -534,10 +534,10 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                         if (stickerCenterPoint != null) {
                             PointF pointF5 = new PointF(this.mLastDownX, this.mLastDownY);
                             PointF pointF6 = new PointF(realX, realY);
-                            PointF d3 = kb9.d(stickerCenterPoint, pointF5);
-                            PointF d4 = kb9.d(stickerCenterPoint, pointF6);
-                            float a2 = kb9.a(d3, d4);
-                            float e2 = kb9.e(d3, d4);
+                            PointF d3 = e89.d(stickerCenterPoint, pointF5);
+                            PointF d4 = e89.d(stickerCenterPoint, pointF6);
+                            float a2 = e89.a(d3, d4);
+                            float e2 = e89.e(d3, d4);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter3 = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter3 != null) {
                                 multiMediaDataSourceViewAdapter3.onTouchMove(realX - this.mLastDownX, realY - this.mLastDownY, e2, a2);
@@ -626,7 +626,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                     iEffectProcessor.setPreviewSize(i, i2);
                 }
             }
-            nb9.a().post(new Runnable(this, i, i2, z) { // from class: com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView.4
+            h89.a().post(new Runnable(this, i, i2, z) { // from class: com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GLMediaPreviewView this$0;

@@ -27,36 +27,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a37;
-import com.repackage.aq4;
-import com.repackage.b37;
-import com.repackage.dn7;
-import com.repackage.e37;
-import com.repackage.en7;
-import com.repackage.kg;
-import com.repackage.u27;
-import com.repackage.w27;
+import com.repackage.c17;
+import com.repackage.d17;
+import com.repackage.e17;
+import com.repackage.h17;
+import com.repackage.jg;
+import com.repackage.lk7;
+import com.repackage.mk7;
+import com.repackage.po4;
+import com.repackage.x07;
 import com.repackage.x8;
-import com.repackage.z27;
+import com.repackage.z07;
 import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes3.dex */
-public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements dn7, BdListView.p {
+public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements lk7, BdListView.p {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
     public transient /* synthetic */ FieldHolder $fh;
     public long fid;
     public String firstDir;
-    public u27 hotTopicShareModel;
+    public x07 hotTopicShareModel;
     public String mFrom;
     public boolean mIsFromSchema;
     public boolean mIsFromYunPush;
     public HotTopicDetailModel mModel;
     public long mTid;
-    public en7 mView;
+    public mk7 mView;
     public String secondDir;
     public String topicId;
     public long topicIdLong;
@@ -94,7 +94,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.a.topicIdLong = kg.g(str, -1L);
+                this.a.topicIdLong = jg.g(str, -1L);
             }
         }
     }
@@ -124,7 +124,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && this.mIsFromYunPush) {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this).createNormalCfg(2);
-            createNormalCfg.setSubTabName(getString(R.string.obfuscated_res_0x7f0f134e));
+            createNormalCfg.setSubTabName(getString(R.string.obfuscated_res_0x7f0f1360));
             sendMessage(new CustomMessage(2015002, createNormalCfg));
         }
     }
@@ -180,7 +180,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                         substring = decode.substring(i);
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.topicIdLong = kg.g(substring, -1L);
+                        this.topicIdLong = jg.g(substring, -1L);
                     }
                 }
             } else {
@@ -191,20 +191,20 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         return invokeL.booleanValue;
     }
 
-    private void loadMoreCallback(int i, z27 z27Var, boolean z) {
+    private void loadMoreCallback(int i, c17 c17Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), z27Var, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), c17Var, Boolean.valueOf(z)}) == null) {
             int l = this.mView.l();
-            if (z27Var != null) {
-                l = z27Var.d;
+            if (c17Var != null) {
+                l = c17Var.d;
             }
             this.mView.s(l);
-            if (i == 0 && z27Var != null && !ListUtils.isEmpty(z27Var.e)) {
-                en7 en7Var = this.mView;
-                if (!z && en7Var.p(l).b != null) {
+            if (i == 0 && c17Var != null && !ListUtils.isEmpty(c17Var.e)) {
+                mk7 mk7Var = this.mView;
+                if (!z && mk7Var.p(l).b != null) {
                     r1 = false;
                 }
-                en7Var.t(z27Var, r1, l);
+                mk7Var.t(c17Var, r1, l);
             } else if (this.mView.p(l).b == null) {
                 this.mView.j(i != 0, l);
             }
@@ -214,12 +214,12 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     private void resetTopicId(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, str, str2) == null) {
-            if ((TextUtils.isEmpty(str) || kg.g(str, 0L) <= 0) && TextUtils.isEmpty(str2)) {
+            if ((TextUtils.isEmpty(str) || jg.g(str, 0L) <= 0) && TextUtils.isEmpty(str2)) {
                 return;
             }
             this.topicId = str;
             this.topicName = str2;
-            this.mModel.N(kg.g(str, 0L), str2);
+            this.mModel.N(jg.g(str, 0L), str2);
         }
     }
 
@@ -246,7 +246,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.m85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -273,53 +273,53 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public void loadMoreFeedData(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            z27 p = this.mView.p(i);
-            aq4 aq4Var = p.b;
-            if (aq4Var == null) {
+            c17 p = this.mView.p(i);
+            po4 po4Var = p.b;
+            if (po4Var == null) {
                 refreshFeedData(i);
-            } else if (aq4Var.b() != 0) {
+            } else if (po4Var.b() != 0) {
                 this.mModel.A(i, p.b, p.c);
             }
         }
     }
 
-    @Override // com.repackage.dn7
-    public void netCallback(int i, a37 a37Var) {
+    @Override // com.repackage.lk7
+    public void netCallback(int i, d17 d17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, a37Var) == null) {
-            if (a37Var != null && a37Var.p == -1) {
-                this.mView.d(a37Var);
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, d17Var) == null) {
+            if (d17Var != null && d17Var.p == -1) {
+                this.mView.d(d17Var);
                 return;
             }
             this.mView.q();
             this.mView.m();
-            if (i == 0 && a37Var != null) {
-                if (a37Var.e() != null) {
-                    resetTopicId(a37Var.e().a, a37Var.e().b);
+            if (i == 0 && d17Var != null) {
+                if (d17Var.e() != null) {
+                    resetTopicId(d17Var.e().a, d17Var.e().b);
                 }
-                if (a37Var.e() != null && a37Var.e().k) {
+                if (d17Var.e() != null && d17Var.e().k) {
                     this.mView.b(true);
                     return;
                 }
                 this.mView.b(false);
-                this.mView.n(a37Var);
+                this.mView.n(d17Var);
                 this.mView.r();
-                loadMoreCallback(i, a37Var.k, true);
+                loadMoreCallback(i, d17Var.k, true);
             } else if (this.mView.h() == null) {
                 this.mView.f(false);
             }
         }
     }
 
-    @Override // com.repackage.dn7
-    public void netLoadMoreCallback(int i, z27 z27Var) {
+    @Override // com.repackage.lk7
+    public void netLoadMoreCallback(int i, c17 c17Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, z27Var) == null) {
-            loadMoreCallback(i, z27Var, false);
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, c17Var) == null) {
+            loadMoreCallback(i, c17Var, false);
         }
     }
 
-    @Override // com.repackage.dn7
+    @Override // com.repackage.lk7
     public void netPkCallback(int i, long j, long j2, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) || i != 0 || j <= 0 || i2 < 0) {
@@ -376,7 +376,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            if ((TextUtils.isEmpty(this.topicId) || kg.g(this.topicId, 0L) <= 0) && TextUtils.isEmpty(this.topicName)) {
+            if ((TextUtils.isEmpty(this.topicId) || jg.g(this.topicId, 0L) <= 0) && TextUtils.isEmpty(this.topicName)) {
                 finish();
                 return;
             }
@@ -384,7 +384,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             this.mView = new HotTopicDetailView(getPageContext(), this, bundle);
             this.mModel.setFrom(this.mFrom);
             resetTopicId(this.topicId, this.topicName);
-            this.hotTopicShareModel = new u27(this);
+            this.hotTopicShareModel = new x07(this);
             setContentView(this.mView.getRootView());
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
@@ -398,9 +398,9 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            en7 en7Var = this.mView;
-            if (en7Var != null) {
-                en7Var.destroy();
+            mk7 mk7Var = this.mView;
+            if (mk7Var != null) {
+                mk7Var.destroy();
             }
             checkBackToHotRank();
         }
@@ -449,7 +449,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // com.repackage.dn7
+    @Override // com.repackage.lk7
     public void refreshFullData(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
@@ -469,23 +469,23 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    public boolean sendBlessData(w27 w27Var) {
+    public boolean sendBlessData(z07 z07Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, w27Var)) == null) ? this.mModel.K(w27Var) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, z07Var)) == null) ? this.mModel.K(z07Var) : invokeL.booleanValue;
     }
 
-    public boolean sendPkData(e37 e37Var, int i) {
+    public boolean sendPkData(h17 h17Var, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, e37Var, i)) == null) ? this.mModel.L(e37Var, i) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, h17Var, i)) == null) ? this.mModel.L(h17Var, i) : invokeLI.booleanValue;
     }
 
-    @Override // com.repackage.dn7
-    public void shareTopic(a37 a37Var) {
-        b37 e;
+    @Override // com.repackage.lk7
+    public void shareTopic(d17 d17Var) {
+        e17 e;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, a37Var) == null) || a37Var == null || (e = a37Var.e()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048596, this, d17Var) == null) || d17Var == null || (e = d17Var.e()) == null) {
             return;
         }
         String str = "http://tieba.baidu.com/mo/q/newtopic/detail?topic_id=" + this.topicId;

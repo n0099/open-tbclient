@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc4;
-import com.repackage.ec4;
-import com.repackage.id4;
-import com.repackage.jc4;
-import com.repackage.jd4;
-import com.repackage.kc4;
-import com.repackage.nc4;
-import com.repackage.nd4;
-import com.repackage.oc4;
-import com.repackage.od4;
+import com.repackage.ab4;
+import com.repackage.ac4;
+import com.repackage.bb4;
+import com.repackage.bc4;
+import com.repackage.qa4;
+import com.repackage.ra4;
+import com.repackage.vb4;
+import com.repackage.wa4;
+import com.repackage.wb4;
+import com.repackage.xa4;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes2.dex */
 public final class Node {
@@ -33,8 +33,8 @@ public final class Node {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mIsDataArray;
     public String mName;
-    public Class<? extends ec4> mParamsProvider;
-    public Class<? extends dc4> mProcessor;
+    public Class<? extends ra4> mParamsProvider;
+    public Class<? extends qa4> mProcessor;
 
     static {
         InterceptResult invokeClinit;
@@ -49,10 +49,10 @@ public final class Node {
                 return;
             }
         }
-        HOST = new Node("HOST", 0, "host", id4.class, jd4.class);
-        PACKAGE = new Node("PACKAGE", 1, "package", nd4.class, od4.class, true);
-        CERES = new Node("CERES", 2, "ceres", jc4.class, kc4.class);
-        Node node = new Node("COMMON", 3, "common", nc4.class, oc4.class);
+        HOST = new Node("HOST", 0, "host", vb4.class, wb4.class);
+        PACKAGE = new Node("PACKAGE", 1, "package", ac4.class, bc4.class, true);
+        CERES = new Node("CERES", 2, "ceres", wa4.class, xa4.class);
+        Node node = new Node("COMMON", 3, "common", ab4.class, bb4.class);
         COMMON = node;
         $VALUES = new Node[]{HOST, PACKAGE, CERES, node};
     }
@@ -96,9 +96,9 @@ public final class Node {
         return (Node) invokeL.objValue;
     }
 
-    public static ec4 getProvider(Node node) {
+    public static ra4 getProvider(Node node) {
         InterceptResult invokeL;
-        Class<? extends ec4> paramsProvider;
+        Class<? extends ra4> paramsProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, node)) == null) {
             if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
@@ -110,7 +110,7 @@ public final class Node {
                 return null;
             }
         }
-        return (ec4) invokeL.objValue;
+        return (ra4) invokeL.objValue;
     }
 
     public static Node valueOf(String str) {
@@ -131,13 +131,13 @@ public final class Node {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
-    public Class<? extends ec4> getParamsProvider() {
+    public Class<? extends ra4> getParamsProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mParamsProvider : (Class) invokeV.objValue;
     }
 
-    public Class<? extends dc4> getProcessor() {
+    public Class<? extends qa4> getProcessor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProcessor : (Class) invokeV.objValue;

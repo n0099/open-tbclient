@@ -6,6 +6,7 @@ import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -80,7 +81,7 @@ public final class SClient {
     public static ReentrantLock writeLock;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001B'\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\t\u0010\u0013\u001a\u00020\u0003HÆ\u0003J\u000b\u0010\u0014\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\t\u0010\u0015\u001a\u00020\u0007HÆ\u0003J\t\u0010\u0016\u001a\u00020\tHÆ\u0003J3\u0010\u0017\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\tHÆ\u0001J\u0013\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u001b\u001a\u00020\u0007HÖ\u0001J\t\u0010\u001c\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u0013\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010R\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012¨\u0006\u001d"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClient$ConnectResult;", "", "address", "", "socket", "Ljava/net/Socket;", "status", "", "connectTime", "", "(Ljava/lang/String;Ljava/net/Socket;IJ)V", "getAddress", "()Ljava/lang/String;", "getConnectTime", "()J", "getSocket", "()Ljava/net/Socket;", "getStatus", "()I", "component1", "component2", "component3", "component4", "copy", "equals", "", "other", TTDownloadField.TT_HASHCODE, "toString", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    @Metadata(d1 = {"\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\t\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001B'\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\t¢\u0006\u0002\u0010\nJ\t\u0010\u0013\u001a\u00020\u0003HÆ\u0003J\u000b\u0010\u0014\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\t\u0010\u0015\u001a\u00020\u0007HÆ\u0003J\t\u0010\u0016\u001a\u00020\tHÆ\u0003J3\u0010\u0017\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00052\b\b\u0002\u0010\u0006\u001a\u00020\u00072\b\b\u0002\u0010\b\u001a\u00020\tHÆ\u0001J\u0013\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00010\u0001HÖ\u0003J\t\u0010\u001b\u001a\u00020\u0007HÖ\u0001J\t\u0010\u001c\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\b\u001a\u00020\t¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u0013\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010R\u0011\u0010\u0006\u001a\u00020\u0007¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012¨\u0006\u001d"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClient$ConnectResult;", "", "address", "", "socket", "Ljava/net/Socket;", "status", "", "connectTime", "", "(Ljava/lang/String;Ljava/net/Socket;IJ)V", "getAddress", "()Ljava/lang/String;", "getConnectTime", "()J", "getSocket", "()Ljava/net/Socket;", "getStatus", "()I", "component1", "component2", "component3", "component4", "copy", "equals", "", ImageViewerConfig.FROM_OTHER, TTDownloadField.TT_HASHCODE, "toString", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes4.dex */
     public static final class ConnectResult {
         public static /* synthetic */ Interceptable $ic;
@@ -440,13 +441,13 @@ public final class SClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJL(65564, this, j, sClientPacket) == null) {
             LogTo logTo = LogTo.INSTANCE;
-            logTo.d("*****", "[SClient " + j + "] read socket packet all:" + ((Object) UInt.m828toStringimpl(sClientPacket.m82getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m88cmd2StrWZ4Q5Ns(sClientPacket.m83getCommandpVg5ArA()));
-            int m83getCommandpVg5ArA = sClientPacket.m83getCommandpVg5ArA();
-            if (m83getCommandpVg5ArA == 0) {
+            logTo.d("*****", "[SClient " + j + "] read socket packet all:" + ((Object) UInt.m827toStringimpl(sClientPacket.m81getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m87cmd2StrWZ4Q5Ns(sClientPacket.m82getCommandpVg5ArA()));
+            int m82getCommandpVg5ArA = sClientPacket.m82getCommandpVg5ArA();
+            if (m82getCommandpVg5ArA == 0) {
                 byte[] array = sClientPacket.getBody().array();
                 Intrinsics.checkNotNullExpressionValue(array, "packet.getBody().array()");
-                byte[] sliceArray = ArraysKt___ArraysKt.sliceArray(array, new IntRange(0, sClientPacket.m82getBodyLengthpVg5ArA() - 1));
-                sClientPacket.getBody().get(sliceArray, 0, sClientPacket.m82getBodyLengthpVg5ArA());
+                byte[] sliceArray = ArraysKt___ArraysKt.sliceArray(array, new IntRange(0, sClientPacket.m81getBodyLengthpVg5ArA() - 1));
+                sClientPacket.getBody().get(sliceArray, 0, sClientPacket.m81getBodyLengthpVg5ArA());
                 Charset defaultCharset = Charset.defaultCharset();
                 Intrinsics.checkNotNullExpressionValue(defaultCharset, "defaultCharset()");
                 String str = new String(sliceArray, defaultCharset);
@@ -471,13 +472,13 @@ public final class SClient {
                     return;
                 }
                 function12.invoke(Boolean.FALSE);
-            } else if (m83getCommandpVg5ArA == 1) {
+            } else if (m82getCommandpVg5ArA == 1) {
                 LogTo logTo3 = LogTo.INSTANCE;
-                logTo3.d("*****", "[CMD_IP_PACKET " + j + "] len: " + sClientPacket.m82getBodyLengthpVg5ArA());
-                Tun.INSTANCE.write(sClientPacket.getBody(), sClientPacket.m82getBodyLengthpVg5ArA());
-            } else if (m83getCommandpVg5ArA == 2) {
-                byte[] bArr = new byte[sClientPacket.m82getBodyLengthpVg5ArA()];
-                sClientPacket.getBody().get(bArr, 0, sClientPacket.m82getBodyLengthpVg5ArA());
+                logTo3.d("*****", "[CMD_IP_PACKET " + j + "] len: " + sClientPacket.m81getBodyLengthpVg5ArA());
+                Tun.INSTANCE.write(sClientPacket.getBody(), sClientPacket.m81getBodyLengthpVg5ArA());
+            } else if (m82getCommandpVg5ArA == 2) {
+                byte[] bArr = new byte[sClientPacket.m81getBodyLengthpVg5ArA()];
+                sClientPacket.getBody().get(bArr, 0, sClientPacket.m81getBodyLengthpVg5ArA());
                 Charset defaultCharset2 = Charset.defaultCharset();
                 Intrinsics.checkNotNullExpressionValue(defaultCharset2, "defaultCharset()");
                 String str2 = new String(bArr, defaultCharset2);
@@ -490,15 +491,15 @@ public final class SClient {
                     TornadoLiteRuntime.INSTANCE.onEvent$tun2tornadolite_release(61L, sClientEvent.getData().getMessage_cn());
                     looping = false;
                 }
-            } else if (m83getCommandpVg5ArA != 3) {
+            } else if (m82getCommandpVg5ArA != 3) {
             } else {
                 byte[] array2 = sClientPacket.getBody().array();
                 Intrinsics.checkNotNullExpressionValue(array2, "packet.getBody().array()");
-                byte[] sliceArray2 = ArraysKt___ArraysKt.sliceArray(array2, new IntRange(0, sClientPacket.m82getBodyLengthpVg5ArA() - 1));
-                int m783constructorimpl = UInt.m783constructorimpl(UInt.m783constructorimpl(UInt.m783constructorimpl(UByte.m707constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m783constructorimpl(UByte.m707constructorimpl(sliceArray2[1]) & 255));
-                int m783constructorimpl2 = UInt.m783constructorimpl(UInt.m783constructorimpl(UInt.m783constructorimpl(UByte.m707constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m783constructorimpl(UByte.m707constructorimpl(sliceArray2[3]) & 255));
-                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m783constructorimpl);
-                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m783constructorimpl2);
+                byte[] sliceArray2 = ArraysKt___ArraysKt.sliceArray(array2, new IntRange(0, sClientPacket.m81getBodyLengthpVg5ArA() - 1));
+                int m782constructorimpl = UInt.m782constructorimpl(UInt.m782constructorimpl(UInt.m782constructorimpl(UByte.m706constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m782constructorimpl(UByte.m706constructorimpl(sliceArray2[1]) & 255));
+                int m782constructorimpl2 = UInt.m782constructorimpl(UInt.m782constructorimpl(UInt.m782constructorimpl(UByte.m706constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m782constructorimpl(UByte.m706constructorimpl(sliceArray2[3]) & 255));
+                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m782constructorimpl);
+                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m782constructorimpl2);
                 int latencyFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient();
                 int lossRateFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient();
                 if (TornadoLiteRuntime.INSTANCE.getLossRateFromSClientToRemote() + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() >= 100) {
@@ -516,9 +517,9 @@ public final class SClient {
                 sb.append("[CMD_HEART_BEAT ");
                 sb.append(j);
                 sb.append("] remote_latency:");
-                sb.append((Object) UInt.m828toStringimpl(m783constructorimpl));
+                sb.append((Object) UInt.m827toStringimpl(m782constructorimpl));
                 sb.append(" remote_lossRate:");
-                sb.append((Object) UInt.m828toStringimpl(m783constructorimpl2));
+                sb.append((Object) UInt.m827toStringimpl(m782constructorimpl2));
                 sb.append(" local_latency:");
                 int i2 = i;
                 sb.append(i2);
@@ -613,7 +614,7 @@ public final class SClient {
                         byte[] bytes = str.getBytes(Charsets.UTF_8);
                         Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
                         bodyBuffer.put(bytes);
-                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m783constructorimpl(bytes.length), null);
+                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m782constructorimpl(bytes.length), null);
                         sClientPacket.encodeHeader2Buffer(headerBuffer);
                         sClientPacket.writeBodyBuffer(bodyBuffer);
                         write(sClientPacket);
@@ -899,7 +900,7 @@ public final class SClient {
                     outputStream.write(packet.getHeader().array(), 0, 4);
                     OutputStream outputStream2 = output;
                     Intrinsics.checkNotNull(outputStream2);
-                    outputStream2.write(packet.getBody().array(), 0, packet.m82getBodyLengthpVg5ArA());
+                    outputStream2.write(packet.getBody().array(), 0, packet.m81getBodyLengthpVg5ArA());
                     Unit unit = Unit.INSTANCE;
                     reentrantLock.unlock();
                 }

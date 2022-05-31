@@ -246,29 +246,29 @@ public class ReportDb {
                                 arrayList.add(reportItemInfo);
                             }
                         }
+                        if (cursor != null) {
+                            cursor.close();
+                        }
                     } catch (Exception e2) {
                         CommonMethods.handleNuLException(e2);
                         if (cursor != null) {
                             cursor.close();
                         }
                     }
-                    if (cursor != null) {
-                        cursor.close();
-                    }
-                } catch (Throwable th) {
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception e3) {
-                            CommonMethods.handleNuLException(e3);
-                        }
-                    }
-                    throw th;
+                } catch (Exception e3) {
+                    CommonMethods.handleNuLException(e3);
                 }
-            } catch (Exception e4) {
-                CommonMethods.handleNuLException(e4);
+                return arrayList;
+            } catch (Throwable th) {
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception e4) {
+                        CommonMethods.handleNuLException(e4);
+                    }
+                }
+                throw th;
             }
-            return arrayList;
         }
         return (List) invokeV.objValue;
     }
@@ -321,27 +321,27 @@ public class ReportDb {
                                 arrayList.add(reportItemInfo);
                             }
                         }
-                    } catch (Throwable th) {
                         if (cursor != null) {
-                            try {
-                                cursor.close();
-                            } catch (Exception e2) {
-                                CommonMethods.handleNuLException(e2);
-                            }
+                            cursor.close();
                         }
-                        throw th;
+                    } catch (Exception e2) {
+                        CommonMethods.handleNuLException(e2);
                     }
-                } catch (Exception e3) {
-                    CommonMethods.handleNuLException(e3);
+                } catch (Throwable th) {
+                    if (0 != 0) {
+                        try {
+                            cursor.close();
+                        } catch (Exception e3) {
+                            CommonMethods.handleNuLException(e3);
+                        }
+                    }
+                    throw th;
                 }
             } catch (Exception e4) {
                 CommonMethods.handleNuLException(e4);
                 if (cursor != null) {
                     cursor.close();
                 }
-            }
-            if (cursor != null) {
-                cursor.close();
             }
             return arrayList;
         }

@@ -1,9 +1,16 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.publisher.PublishParams;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,87 +18,107 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ly2;
+import com.repackage.qy1;
+import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class qw2 extends pw2 implements Cloneable {
+/* loaded from: classes6.dex */
+public final class qw2 extends e13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final h13<qw2> h;
-    public static final i13<qw2> i;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String g;
 
-    /* loaded from: classes7.dex */
-    public static class a extends h13<qw2> {
+    /* loaded from: classes6.dex */
+    public static final class a implements jw2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ Context d;
 
-        public a() {
+        public a(String str, qw2 qw2Var, hz2 hz2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, qw2Var, hz2Var, unitedSchemeEntity, callbackHandler, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = unitedSchemeEntity;
+            this.c = callbackHandler;
+            this.d = context;
+        }
+
+        @Override // com.repackage.jw2
+        public void a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+                if (jSONObject != null) {
+                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.a);
+                } else {
+                    UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1, "empty post data").toString(), this.a);
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.h13
-        /* renamed from: b */
-        public qw2 a(@NonNull zj2 zj2Var) throws Exception {
-            InterceptResult invokeL;
+        @Override // com.repackage.jw2
+        public void onCancel() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zj2Var)) == null) {
-                qw2 qw2Var = new qw2();
-                qw2Var.g = zj2Var.g();
-                qw2Var.b = zj2Var.g();
-                qw2Var.c = zj2Var.readLong();
-                qw2Var.a = zj2Var.g();
-                qw2Var.d = zj2Var.readInt();
-                qw2Var.e = zj2Var.g();
-                qw2Var.f = zj2Var.g();
-                return qw2Var;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "user cancel").toString(), this.a);
             }
-            return (qw2) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b extends i13<qw2> {
+    /* loaded from: classes6.dex */
+    public static final class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
+        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-57067289, "Lcom/repackage/qw2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-57067289, "Lcom/repackage/qw2$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
 
         public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.i13
-        /* renamed from: b */
-        public void a(@NonNull qw2 qw2Var, @NonNull ak2 ak2Var) throws Exception {
+        @Override // android.content.DialogInterface.OnClickListener
+        public final void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qw2Var, ak2Var) == null) {
-                ak2Var.f(qw2Var.g);
-                ak2Var.f(qw2Var.b);
-                ak2Var.writeLong(qw2Var.c);
-                ak2Var.f(qw2Var.a);
-                ak2Var.writeInt(qw2Var.d);
-                ak2Var.f(qw2Var.e);
-                ak2Var.f(qw2Var.f);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
             }
         }
     }
@@ -109,68 +136,106 @@ public class qw2 extends pw2 implements Cloneable {
                 return;
             }
         }
-        h = new a();
-        i = new b();
+        c = rf1.a;
     }
 
-    public qw2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.a) && (this.c >= 0 || !TextUtils.isEmpty(this.b)) : invokeV.booleanValue;
-    }
-
-    public Object clone() throws CloneNotSupportedException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? super.clone() : invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "SwanPluginModel{pluginAlias='" + this.g + "', versionName='" + this.b + "', versionCode='" + this.c + "', libName='" + this.a + "', category=" + this.d + ", libPath='" + this.e + "', libConfig='" + this.f + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public qw2(JSONObject jSONObject, int i2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qw2(e03 dispatcher) {
+        super(dispatcher, "/swanAPI/community/openCommunityEditor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {dispatcher};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (jSONObject == null) {
-            return;
+        Intrinsics.checkNotNullParameter(dispatcher, "dispatcher");
+    }
+
+    @Override // com.repackage.e13
+    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, hz2 hz2Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, hz2Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            if (hz2Var != null) {
+                if (hz2Var.m0()) {
+                    if (c) {
+                        Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                    }
+                    entity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                    return false;
+                }
+                uk2 U = uk2.U();
+                Intrinsics.checkNotNullExpressionValue(U, "SwanAppController.getInstance()");
+                qy1 V = U.V();
+                if (V != null && (V.m() instanceof lw2)) {
+                    entity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                    return true;
+                }
+                JSONObject d = hc3.d(entity.getParam("params"));
+                Intrinsics.checkNotNullExpressionValue(d, "SwanAppJSONUtils.parseString(params)");
+                String optString = d.optString("cb");
+                if (optString == null || optString.length() == 0) {
+                    entity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                if (c) {
+                    Log.d("OpenPublisherAction", "调起参数:" + d);
+                }
+                a aVar = new a(optString, this, hz2Var, entity, callbackHandler, context);
+                PublishParams a2 = kw2.a(d);
+                if (a2 != null) {
+                    lw2 lw2Var = new lw2();
+                    lw2Var.C3(aVar);
+                    Bundle bundle = new Bundle();
+                    bundle.putParcelable("params", a2);
+                    lw2Var.i1(bundle);
+                    uk2 controller = uk2.U();
+                    Intrinsics.checkNotNullExpressionValue(controller, "controller");
+                    qy1 V2 = controller.V();
+                    if (V2 != null) {
+                        qy1.b i = V2.i("navigateTo");
+                        i.n(qy1.g, qy1.i);
+                        i.j(lw2Var);
+                        i.a();
+                        UnitedSchemeUtility.callCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        return true;
+                    }
+                    UnitedSchemeUtility.safeCallback(callbackHandler, entity, UnitedSchemeUtility.wrapCallbackParams(1, "can get fragment manager").toString(), optString);
+                    return false;
+                }
+                if (c) {
+                    Log.d("OpenPublisherAction", "解析调起参数失败");
+                }
+                j(context);
+                return false;
+            }
+            entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal app info");
+            return false;
         }
-        this.b = jSONObject.optString("version");
-        this.c = jSONObject.optLong("version_code", -1L);
-        this.a = jSONObject.optString("provider");
-        this.e = jSONObject.optString("path");
-        this.f = jSONObject.optString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
-        this.d = i2;
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            ly2.a aVar = new ly2.a(context);
+            aVar.m(false);
+            aVar.U(R.string.obfuscated_res_0x7f0f12eb);
+            aVar.v(R.string.obfuscated_res_0x7f0f12ef);
+            aVar.O(R.string.obfuscated_res_0x7f0f0113, b.a);
+            aVar.X();
+        }
     }
 }

@@ -1,7 +1,13 @@
 package com.repackage;
 
-import com.repackage.dx8;
+import android.graphics.Bitmap;
 /* loaded from: classes6.dex */
 public interface lx8 {
-    void a(dx8.b bVar);
+    void a();
+
+    void b();
+
+    boolean c(Bitmap bitmap);
+
+    void d();
 }

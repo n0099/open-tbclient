@@ -42,7 +42,7 @@ public class c extends g implements View.OnClickListener {
 
     private void a(final WebpAnimationImageView webpAnimationImageView, final String str) {
         if (at.a(str) || !FrameSequence.isEnable()) {
-            webpAnimationImageView.setImageResource(R.drawable.obfuscated_res_0x7f080cb5);
+            webpAnimationImageView.setImageResource(R.drawable.obfuscated_res_0x7f080cc6);
         } else if (str.equals(webpAnimationImageView.getTag())) {
         } else {
             KSImageLoader.loadImage(str, ((g) this).a.g, KSImageLoader.IMGOPTION_ENTRY, new SimpleImageLoadingListener() { // from class: com.kwad.sdk.reward.presenter.a.a.c.3
@@ -165,16 +165,16 @@ public class c extends g implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f091087);
-        this.c = (ImageView) a(R.id.obfuscated_res_0x7f091086);
-        this.d = (WebpAnimationImageView) a(R.id.obfuscated_res_0x7f091088);
-        this.e = (WebpAnimationImageView) a(R.id.obfuscated_res_0x7f091089);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f091049);
+        this.c = (ImageView) a(R.id.obfuscated_res_0x7f091048);
+        this.d = (WebpAnimationImageView) a(R.id.obfuscated_res_0x7f09104a);
+        this.e = (WebpAnimationImageView) a(R.id.obfuscated_res_0x7f09104b);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 == this.c || view2 == this.d || view2 == this.e) {
-            com.kwad.sdk.core.download.a.a.a(new a.C0295a(view2.getContext()).a(((g) this).a.g).a(((g) this).a.l).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.a.a.c.4
+            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(((g) this).a.g).a(((g) this).a.l).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.a.a.c.4
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     c.this.i();

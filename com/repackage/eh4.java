@@ -1,105 +1,159 @@
 package com.repackage;
 
+import android.net.Uri;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class eh4<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<hh4<T>> a;
+public interface eh4 {
 
-    public eh4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList(6);
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements eh4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final eh4 a;
 
-    public void a(hh4<T> hh4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hh4Var) == null) || hh4Var == null || this.a.contains(hh4Var)) {
-            return;
-        }
-        this.a.add(hh4Var);
-    }
-
-    public T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<hh4> arrayList = new ArrayList();
-            Iterator<hh4<T>> it = this.a.iterator();
-            T t = null;
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                hh4<T> next = it.next();
-                T t2 = next.get();
-                if (c(t2)) {
-                    t = t2;
-                    break;
-                }
-                arrayList.add(next);
-                t = t2;
-            }
-            if (arrayList.size() > 0) {
-                for (hh4 hh4Var : arrayList) {
-                    hh4Var.put(t);
+        public a(eh4 delegation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {delegation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return t;
+            Intrinsics.checkNotNullParameter(delegation, "delegation");
+            this.a = delegation;
         }
-        return (T) invokeV.objValue;
+
+        @Override // com.repackage.eh4
+        public String a(String url) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
+                Intrinsics.checkNotNullParameter(url, "url");
+                return this.a.a(url);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.repackage.eh4
+        public WebResourceResponse b(Uri url) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
+                Intrinsics.checkNotNullParameter(url, "url");
+                return this.a.b(url);
+            }
+            return (WebResourceResponse) invokeL.objValue;
+        }
+
+        @Override // com.repackage.eh4
+        public <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> transform) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webResourceResponse, transform)) == null) {
+                Intrinsics.checkNotNullParameter(transform, "transform");
+                return (Target) this.a.c(webResourceResponse, transform);
+            }
+            return (Target) invokeLL.objValue;
+        }
     }
 
-    public final boolean c(T t) {
-        InterceptResult invokeL;
-        char[] charArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t != null && (t instanceof String)) {
-                String str = (String) t;
-                if (str.length() != 32) {
-                    return false;
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Inject
+        public qa1<eh4> a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                for (char c : str.toCharArray()) {
-                    if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
-                        return false;
-                    }
-                }
-                return true;
             }
-            return false;
+            b();
         }
-        return invokeL.booleanValue;
+
+        public final qa1<eh4> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                qa1<eh4> qa1Var = this.a;
+                if (qa1Var == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("impl");
+                }
+                return qa1Var;
+            }
+            return (qa1) invokeV.objValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                oa1 b = oa1.b();
+                this.a = b;
+                b.a(new fh4());
+            }
+        }
     }
 
-    public void d(T t) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
-            return;
-        }
-        for (hh4<T> hh4Var : this.a) {
-            if (hh4Var.a()) {
-                hh4Var.put(t);
+    /* loaded from: classes5.dex */
+    public static class c extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Illegal instructions before constructor call */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public c(b ioc) {
+            super(r7);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ioc};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((eh4) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            Intrinsics.checkNotNullParameter(ioc, "ioc");
+            eh4 eh4Var = ioc.a().get();
+            Intrinsics.checkNotNullExpressionValue(eh4Var, "ioc.impl.get()");
         }
     }
+
+    String a(String str);
+
+    WebResourceResponse b(Uri uri);
+
+    <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> function1);
 }

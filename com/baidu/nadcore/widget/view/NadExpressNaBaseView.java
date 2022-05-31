@@ -17,21 +17,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l51;
-import com.repackage.lo0;
-import com.repackage.m51;
-import com.repackage.u51;
-import com.repackage.v51;
+import com.repackage.h41;
+import com.repackage.i41;
+import com.repackage.y31;
+import com.repackage.ym0;
+import com.repackage.z31;
 /* loaded from: classes2.dex */
 public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final v51 i;
+    public final i41 i;
     @Nullable
     public TextView j;
     @Nullable
-    public u51 k;
+    public h41 k;
     @Nullable
     public NadExpressBottomView l;
 
@@ -61,17 +61,17 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.c();
-            u51 u51Var = this.k;
-            if (u51Var != null) {
-                u51Var.e();
+            h41 h41Var = this.k;
+            if (h41Var != null) {
+                h41Var.e();
             }
         }
     }
 
-    public u51 getOperateBar() {
+    public h41 getOperateBar() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (u51) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : (h41) invokeV.objValue;
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
@@ -84,32 +84,32 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     public void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0914d7);
-            this.l = (NadExpressBottomView) findViewById(R.id.obfuscated_res_0x7f0914d2);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091496);
+            this.l = (NadExpressBottomView) findViewById(R.id.obfuscated_res_0x7f091491);
             k(context);
         }
     }
 
-    public abstract void j(LayoutInflater layoutInflater, lo0 lo0Var);
+    public abstract void j(LayoutInflater layoutInflater, ym0 ym0Var);
 
     public abstract void k(Context context);
 
     public void l(AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) {
-            u51 c = this.i.c(adBaseModel);
+            h41 c = this.i.c(adBaseModel);
             this.k = c;
             if (c != null) {
                 c.i(0);
                 this.k.update(adBaseModel, this);
                 this.k.j();
-                l51 l51Var = this.c;
-                if (l51Var != null) {
-                    this.k.h(l51Var);
+                y31 y31Var = this.c;
+                if (y31Var != null) {
+                    this.k.h(y31Var);
                 }
-                m51 m51Var = this.a;
-                if (m51Var != null) {
-                    this.k.f(m51Var);
+                z31 z31Var = this.a;
+                if (z31Var != null) {
+                    this.k.f(z31Var);
                 }
             }
         }
@@ -124,8 +124,8 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, adBaseModel) == null) || adBaseModel == null || this.j == null) {
             return;
         }
-        lo0 lo0Var = adBaseModel.p;
-        if (lo0Var == null || lo0Var.l) {
+        ym0 ym0Var = adBaseModel.p;
+        if (ym0Var == null || ym0Var.l) {
             int i = adBaseModel.b ? R.color.obfuscated_res_0x7f060281 : R.color.obfuscated_res_0x7f060251;
             TextView textView = this.j;
             textView.setTextColor(textView.getContext().getResources().getColor(i));
@@ -180,25 +180,25 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewDownloadListener(l51 l51Var) {
+    public void setViewDownloadListener(y31 y31Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, l51Var) == null) {
-            super.setViewDownloadListener(l51Var);
-            u51 u51Var = this.k;
-            if (u51Var != null) {
-                u51Var.h(l51Var);
+        if (interceptable == null || interceptable.invokeL(1048591, this, y31Var) == null) {
+            super.setViewDownloadListener(y31Var);
+            h41 h41Var = this.k;
+            if (h41Var != null) {
+                h41Var.h(y31Var);
             }
         }
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(m51 m51Var) {
+    public void setViewStatChangeListener(z31 z31Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, m51Var) == null) {
-            super.setViewStatChangeListener(m51Var);
-            u51 u51Var = this.k;
-            if (u51Var != null) {
-                u51Var.f(m51Var);
+        if (interceptable == null || interceptable.invokeL(1048592, this, z31Var) == null) {
+            super.setViewStatChangeListener(z31Var);
+            h41 h41Var = this.k;
+            if (h41Var != null) {
+                h41Var.f(z31Var);
             }
         }
     }
@@ -257,7 +257,7 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (lo0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (ym0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -266,13 +266,13 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadExpressNaBaseView(Context context, AttributeSet attributeSet, int i, @Nullable lo0 lo0Var) {
+    public NadExpressNaBaseView(Context context, AttributeSet attributeSet, int i, @Nullable ym0 ym0Var) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), lo0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), ym0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -284,8 +284,8 @@ public abstract class NadExpressNaBaseView extends AdFeedBaseView {
                 return;
             }
         }
-        j(LayoutInflater.from(context), lo0Var);
+        j(LayoutInflater.from(context), ym0Var);
         i(context);
-        this.i = new v51(this);
+        this.i = new i41(this);
     }
 }

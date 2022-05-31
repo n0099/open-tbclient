@@ -36,7 +36,7 @@ public class a {
     public boolean a;
     public boolean b;
     public int e;
-    public ArrayList<C0098a> g;
+    public ArrayList<C0097a> g;
     public boolean h;
     public BDLocation i;
     public BDLocation j;
@@ -47,7 +47,7 @@ public class a {
 
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0098a {
+    public class C0097a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
@@ -56,7 +56,7 @@ public class a {
         public int d;
         public final /* synthetic */ a e;
 
-        public C0098a(a aVar, Message message) {
+        public C0097a(a aVar, Message message) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -290,24 +290,24 @@ public class a {
         this.g = new ArrayList<>();
     }
 
-    private C0098a a(Messenger messenger) {
+    private C0097a a(Messenger messenger) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, messenger)) == null) {
-            ArrayList<C0098a> arrayList = this.g;
+            ArrayList<C0097a> arrayList = this.g;
             if (arrayList == null) {
                 return null;
             }
-            Iterator<C0098a> it = arrayList.iterator();
+            Iterator<C0097a> it = arrayList.iterator();
             while (it.hasNext()) {
-                C0098a next = it.next();
+                C0097a next = it.next();
                 if (next.b.equals(messenger)) {
                     return next;
                 }
             }
             return null;
         }
-        return (C0098a) invokeL.objValue;
+        return (C0097a) invokeL.objValue;
     }
 
     public static a a() {
@@ -322,19 +322,19 @@ public class a {
         return (a) invokeV.objValue;
     }
 
-    private void a(C0098a c0098a) {
+    private void a(C0097a c0097a) {
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, c0098a) == null) || c0098a == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, c0097a) == null) || c0097a == null) {
             return;
         }
-        if (a(c0098a.b) != null) {
+        if (a(c0097a.b) != null) {
             i = 14;
         } else {
-            this.g.add(c0098a);
+            this.g.add(c0097a);
             i = 13;
         }
-        c0098a.a(i);
+        c0097a.a(i);
     }
 
     private void b(String str) {
@@ -360,11 +360,11 @@ public class a {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            Iterator<C0098a> it = this.g.iterator();
+            Iterator<C0097a> it = this.g.iterator();
             boolean z = false;
             boolean z2 = false;
             while (it.hasNext()) {
-                C0098a next = it.next();
+                C0097a next = it.next();
                 if (next.c.openGps) {
                     z2 = true;
                 }
@@ -383,10 +383,10 @@ public class a {
     public void a(Bundle bundle, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, bundle, i) == null) {
-            Iterator<C0098a> it = this.g.iterator();
+            Iterator<C0097a> it = this.g.iterator();
             while (it.hasNext()) {
                 try {
-                    C0098a next = it.next();
+                    C0097a next = it.next();
                     next.a(i, bundle);
                     if (next.d > 4) {
                         it.remove();
@@ -406,7 +406,7 @@ public class a {
         c = System.currentTimeMillis();
         this.a = true;
         com.baidu.location.c.i.a().b();
-        a(new C0098a(this, message));
+        a(new C0097a(this, message));
         e();
         if (this.l) {
             b("start");
@@ -448,7 +448,7 @@ public class a {
     public void b(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, message) == null) {
-            C0098a a = a(message.replyTo);
+            C0097a a = a(message.replyTo);
             if (a != null) {
                 this.g.remove(a);
             }
@@ -467,9 +467,9 @@ public class a {
         if (interceptable == null || interceptable.invokeL(1048583, this, bDLocation) == null) {
             try {
                 if (bDLocation == null || bDLocation.getLocType() != 161 || com.baidu.location.a.a.a().b()) {
-                    Iterator<C0098a> it = this.g.iterator();
+                    Iterator<C0097a> it = this.g.iterator();
                     while (it.hasNext()) {
-                        C0098a next = it.next();
+                        C0097a next = it.next();
                         next.a(bDLocation);
                         if (next.d > 4) {
                             it.remove();
@@ -481,9 +481,9 @@ public class a {
                         this.j = bDLocation3;
                         bDLocation3.setLocType(505);
                     }
-                    Iterator<C0098a> it2 = this.g.iterator();
+                    Iterator<C0097a> it2 = this.g.iterator();
                     while (it2.hasNext()) {
-                        C0098a next2 = it2.next();
+                        C0097a next2 = it2.next();
                         next2.a(this.j);
                         if (next2.d > 4) {
                             it2.remove();
@@ -524,14 +524,14 @@ public class a {
             if (this.g.isEmpty()) {
                 return "&prod=" + com.baidu.location.e.b.f + ":" + com.baidu.location.e.b.e;
             }
-            C0098a c0098a = this.g.get(0);
-            String str = c0098a.c.prodName;
+            C0097a c0097a = this.g.get(0);
+            String str = c0097a.c.prodName;
             if (str != null) {
                 stringBuffer.append(str);
             }
-            if (c0098a.a != null) {
+            if (c0097a.a != null) {
                 stringBuffer.append(":");
-                stringBuffer.append(c0098a.a);
+                stringBuffer.append(c0097a.a);
                 stringBuffer.append("|");
             }
             String stringBuffer2 = stringBuffer.toString();
@@ -567,7 +567,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, message)) == null) {
-            C0098a a = a(message.replyTo);
+            C0097a a = a(message.replyTo);
             boolean z = false;
             if (a == null) {
                 return false;
@@ -622,7 +622,7 @@ public class a {
     public int d(Message message) {
         InterceptResult invokeL;
         Messenger messenger;
-        C0098a a;
+        C0097a a;
         LocationClientOption locationClientOption;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, message)) == null) {
@@ -637,7 +637,7 @@ public class a {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            Iterator<C0098a> it = this.g.iterator();
+            Iterator<C0097a> it = this.g.iterator();
             while (it.hasNext()) {
                 it.next().a();
             }
@@ -647,7 +647,7 @@ public class a {
     public int e(Message message) {
         InterceptResult invokeL;
         Messenger messenger;
-        C0098a a;
+        C0097a a;
         LocationClientOption locationClientOption;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, message)) == null) {

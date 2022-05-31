@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kg;
-/* loaded from: classes3.dex */
+import com.repackage.jg;
+/* loaded from: classes2.dex */
 public class MyGiftListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AccountTypeForum = 1;
@@ -115,7 +115,7 @@ public class MyGiftListActivityConfig extends IntentConfig {
         }
         if (uri != null) {
             getIntent().putExtra("id", uri.getQueryParameter("id"));
-            getIntent().putExtra("sex", kg.e(uri.getQueryParameter("sex"), 0));
+            getIntent().putExtra("sex", jg.e(uri.getQueryParameter("sex"), 0));
             getIntent().putExtra("user_name", uri.getQueryParameter("user_name"));
             getIntent().putExtra("name_show", uri.getQueryParameter("name_show"));
         }

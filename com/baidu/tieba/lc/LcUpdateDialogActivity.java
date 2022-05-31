@@ -93,7 +93,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
                 if ("com.baidu.clientupdate.download.PROGRESS_CHANGE".equals(intent.getAction())) {
                     int intExtra = intent.getIntExtra("progress", 0);
                     this.this$0.mProgressView.setVisibility(0);
-                    this.this$0.mProgressView.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09d5), String.valueOf(intExtra)));
+                    this.this$0.mProgressView.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09dc), String.valueOf(intExtra)));
                 } else if ("com.baidu.clientupdate.download.STATUS_CHANGE".equals(intent.getAction())) {
                     LcUpdateDialogActivity lcUpdateDialogActivity2 = this.this$0;
                     TbadkCoreApplication.saveClientId(lcUpdateDialogActivity2, String.valueOf(lcUpdateDialogActivity2.mClientId));
@@ -157,15 +157,15 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mTransBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09120e);
-            this.mBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091206);
-            this.mTitleView = (TextView) findViewById(R.id.obfuscated_res_0x7f09120d);
-            this.mDescView = (TextView) findViewById(R.id.obfuscated_res_0x7f09120b);
-            this.mContentLineView = findViewById(R.id.obfuscated_res_0x7f09120a);
-            this.mCancelView = (TextView) findViewById(R.id.obfuscated_res_0x7f091208);
-            this.mButtonLineView = findViewById(R.id.obfuscated_res_0x7f091207);
-            this.mConfirmView = (TextView) findViewById(R.id.obfuscated_res_0x7f091209);
-            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f09120c);
+            this.mTransBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911d0);
+            this.mBgView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0911c8);
+            this.mTitleView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911cf);
+            this.mDescView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911cd);
+            this.mContentLineView = findViewById(R.id.obfuscated_res_0x7f0911cc);
+            this.mCancelView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ca);
+            this.mButtonLineView = findViewById(R.id.obfuscated_res_0x7f0911c9);
+            this.mConfirmView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911cb);
+            this.mProgressView = (TextView) findViewById(R.id.obfuscated_res_0x7f0911ce);
             this.mTransBgView.setBackgroundColor(Color.parseColor("#A8000000"));
             ClientUpdateInfo clientUpdateInfo = this.mClientUpdateInfo;
             if (clientUpdateInfo != null) {
@@ -259,7 +259,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             if (view2 == this.mCancelView) {
                 finish();
             } else if (view2 == this.mConfirmView && update()) {
-                showToast(R.string.obfuscated_res_0x7f0f04f2);
+                showToast(R.string.obfuscated_res_0x7f0f04f9);
                 finish();
             }
         }
@@ -271,7 +271,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0041);
+            setContentView(R.layout.obfuscated_res_0x7f0d003f);
             initData(bundle);
             initView();
             registerReceiver();

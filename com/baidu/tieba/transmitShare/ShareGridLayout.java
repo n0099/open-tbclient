@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lq8;
-import com.repackage.mi;
+import com.repackage.li;
+import com.repackage.nn8;
 /* loaded from: classes4.dex */
-public class ShareGridLayout extends ViewGroup implements lq8 {
+public class ShareGridLayout extends ViewGroup implements nn8 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class ShareGridLayout extends ViewGroup implements lq8 {
                 return;
             }
         }
-        f = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        f = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -65,14 +65,14 @@ public class ShareGridLayout extends ViewGroup implements lq8 {
         c(context);
     }
 
-    @Override // com.repackage.lq8
+    @Override // com.repackage.nn8
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.lq8
+    @Override // com.repackage.nn8
     public void b(int i, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, view2) == null) {
@@ -84,7 +84,7 @@ public class ShareGridLayout extends ViewGroup implements lq8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             this.a = context;
-            d(0, mi.k(context) - (f * 2));
+            d(0, li.k(context) - (f * 2));
         }
     }
 
@@ -92,7 +92,7 @@ public class ShareGridLayout extends ViewGroup implements lq8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             int i3 = i2 - i;
-            if (mi.k(TbadkCoreApplication.getInst()) > 800 && this.b * 5 <= i3) {
+            if (li.k(TbadkCoreApplication.getInst()) > 800 && this.b * 5 <= i3) {
                 this.d = 5;
             } else {
                 this.d = 4;
@@ -110,7 +110,7 @@ public class ShareGridLayout extends ViewGroup implements lq8 {
         }
     }
 
-    @Override // com.repackage.lq8
+    @Override // com.repackage.nn8
     @NonNull
     public View getView() {
         InterceptResult invokeV;
@@ -169,7 +169,7 @@ public class ShareGridLayout extends ViewGroup implements lq8 {
         }
     }
 
-    @Override // com.repackage.lq8
+    @Override // com.repackage.nn8
     public void setItemParams(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {

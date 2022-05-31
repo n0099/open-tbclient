@@ -1,39 +1,27 @@
 package com.repackage;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class qr3 extends w73 {
+/* loaded from: classes6.dex */
+public class qr3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile pr3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qr3() {
+    public static synchronized pr3 a() {
+        InterceptResult invokeV;
+        pr3 pr3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (qr3.class) {
+                if (a == null) {
+                    a = new pr3();
+                }
+                pr3Var = a;
             }
+            return pr3Var;
         }
-    }
-
-    public void g(or3 or3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, or3Var) == null) || or3Var == null) {
-            return;
-        }
-        if (w73.j) {
-            Log.d("GamenowAppEvent", "setCommonData: " + or3Var.a());
-        }
-        this.a = or3Var.a;
-        this.f = or3Var.c;
-        this.c = or3Var.b;
+        return (pr3) invokeV.objValue;
     }
 }

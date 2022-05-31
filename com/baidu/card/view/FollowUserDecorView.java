@@ -18,15 +18,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aw4;
-import com.repackage.mi;
-import com.repackage.yu4;
+import com.repackage.li;
+import com.repackage.ot4;
+import com.repackage.qu4;
 /* loaded from: classes.dex */
 public class FollowUserDecorView extends FollowUserButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId r;
-    public aw4 s;
+    public qu4 s;
     public boolean t;
     public boolean u;
 
@@ -55,9 +55,9 @@ public class FollowUserDecorView extends FollowUserButton {
         if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
             if (threadData != null && threadData.getAuthor() != null) {
                 if (this.s == null) {
-                    aw4 aw4Var = new aw4(u(getContext()), this);
-                    this.s = aw4Var;
-                    aw4Var.l(this.r);
+                    qu4 qu4Var = new qu4(u(getContext()), this);
+                    this.s = qu4Var;
+                    qu4Var.l(this.r);
                 }
                 setVisibility(0);
                 this.s.r(true);
@@ -80,9 +80,9 @@ public class FollowUserDecorView extends FollowUserButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
             this.r = bdUniqueId;
-            aw4 aw4Var = this.s;
-            if (aw4Var != null) {
-                aw4Var.l(bdUniqueId);
+            qu4 qu4Var = this.s;
+            if (qu4Var != null) {
+                qu4Var.l(bdUniqueId);
             }
         }
     }
@@ -102,15 +102,15 @@ public class FollowUserDecorView extends FollowUserButton {
             if (!this.t || z) {
                 return;
             }
-            yu4 yu4Var = new yu4();
+            ot4 ot4Var = new ot4();
             if (this.u) {
-                yu4Var.i(R.drawable.obfuscated_res_0x7f080919, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                yu4Var.h(R.color.CAM_X0304);
-                yu4Var.g(mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
-                yu4Var.f(mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+                ot4Var.i(R.drawable.obfuscated_res_0x7f080924, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                ot4Var.h(R.color.CAM_X0304);
+                ot4Var.g(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
+                ot4Var.f(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
             }
-            yu4Var.r(R.color.CAM_X0304);
-            setConfig(yu4Var);
+            ot4Var.r(R.color.CAM_X0304);
+            setConfig(ot4Var);
         }
     }
 

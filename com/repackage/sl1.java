@@ -1,7 +1,8 @@
 package com.repackage;
 
-import android.content.Context;
+import android.app.Activity;
+import android.content.Intent;
 /* loaded from: classes7.dex */
 public interface sl1 {
-    void a(Context context);
+    void onActivityResult(Activity activity, int i, int i2, Intent intent);
 }

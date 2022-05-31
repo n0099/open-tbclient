@@ -1,7 +1,7 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes7.dex */
 public interface rv8 {
-    void a(View view2, h76 h76Var);
+    boolean a(ImageFileInfo imageFileInfo);
 }

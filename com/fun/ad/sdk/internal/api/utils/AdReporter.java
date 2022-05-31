@@ -15,16 +15,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.repackage.me9;
-import com.repackage.tj9;
-import com.repackage.ve9;
+import com.repackage.gb9;
+import com.repackage.ng9;
+import com.repackage.pb9;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class AdReporter {
     public static /* synthetic */ Interceptable $ic;
     public static final Reporter a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tj9 mAdIdent;
+    public final ng9 mAdIdent;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class AdReporter {
                 return;
             }
         }
-        a = ve9.a();
+        a = pb9.a();
     }
 
     public AdReporter() {
@@ -55,27 +55,27 @@ public class AdReporter {
                 return;
             }
         }
-        this.mAdIdent = new tj9();
+        this.mAdIdent = new ng9();
     }
 
-    public static void adEvent(tj9 tj9Var, Object obj, Object... objArr) {
+    public static void adEvent(ng9 ng9Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, tj9Var, obj, objArr) == null) {
-            report(LaunchStatsUtils.AD, tj9Var, obj, false, objArr);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, ng9Var, obj, objArr) == null) {
+            report(LaunchStatsUtils.AD, ng9Var, obj, false, objArr);
         }
     }
 
-    public static void adEvent(boolean z, tj9 tj9Var, Object obj, Object... objArr) {
+    public static void adEvent(boolean z, ng9 ng9Var, Object obj, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), tj9Var, obj, objArr}) == null) {
-            report(LaunchStatsUtils.AD, tj9Var, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), ng9Var, obj, objArr}) == null) {
+            report(LaunchStatsUtils.AD, ng9Var, obj, z, objArr);
         }
     }
 
-    public static void report(String str, tj9 tj9Var, Object obj, boolean z, Object... objArr) {
+    public static void report(String str, ng9 ng9Var, Object obj, boolean z, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, tj9Var, obj, Boolean.valueOf(z), objArr}) == null) {
-            report(str, tj9Var.a, tj9Var.b, tj9Var.d, tj9Var.e, tj9Var.c, obj, z, objArr);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, ng9Var, obj, Boolean.valueOf(z), objArr}) == null) {
+            report(str, ng9Var.a, ng9Var.b, ng9Var.d, ng9Var.e, ng9Var.c, obj, z, objArr);
         }
     }
 
@@ -168,17 +168,17 @@ public class AdReporter {
     public void recordLoadStart(FunAdSlot funAdSlot, Ssp.Pid pid) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, funAdSlot, pid) == null) {
-            int a2 = me9.a(funAdSlot.getSid(), pid);
-            tj9 tj9Var = this.mAdIdent;
+            int a2 = gb9.a(funAdSlot.getSid(), pid);
+            ng9 ng9Var = this.mAdIdent;
             String sid = funAdSlot.getSid();
             long currentTimeMillis = System.currentTimeMillis();
             String str = pid.pid;
             String str2 = pid.type;
-            tj9Var.a = sid;
-            tj9Var.b = a2;
-            tj9Var.c = currentTimeMillis;
-            tj9Var.d = str;
-            tj9Var.e = str2;
+            ng9Var.a = sid;
+            ng9Var.b = a2;
+            ng9Var.c = currentTimeMillis;
+            ng9Var.d = str;
+            ng9Var.e = str2;
             adEvent(this.mAdIdent, "ld_start", new Object[0]);
         }
     }

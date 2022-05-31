@@ -1,186 +1,249 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.Handler;
+import android.view.View;
+import android.widget.Scroller;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ym;
 /* loaded from: classes5.dex */
 public class bn {
     public static /* synthetic */ Interceptable $ic;
-    public static File a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public vn c;
+    public ym.a d;
+    public boolean e;
+    public b f;
+    public int g;
+    public View h;
+    public Handler i;
+    public Runnable j;
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bn a;
 
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
+        public a(bn bnVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
-                cn.a(cn.b(classLoader, "pathList").get(classLoader), "nativeLibraryDirectories", new File[]{file});
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bnVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = bnVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.a.f) == null) {
+                return;
+            }
+            bVar.b();
         }
     }
 
     /* loaded from: classes5.dex */
-    public static final class b {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public Scroller b;
+        public final /* synthetic */ bn c;
 
-        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
+        public b(bn bnVar, Context context) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
-                Object obj = cn.b(classLoader, "pathList").get(classLoader);
-                List list = (List) cn.b(obj, "nativeLibraryDirectories").get(obj);
-                if (list == null) {
-                    list = new ArrayList(2);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bnVar, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    if (file.equals((File) it.next()) || file.equals(bn.a)) {
-                        it.remove();
-                        break;
-                    }
-                    while (it.hasNext()) {
-                    }
+            }
+            this.c = bnVar;
+            this.b = new Scroller(context);
+        }
+
+        public final void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                bn bnVar = this.c;
+                bnVar.i.removeCallbacks(bnVar.j);
+                Scroller scroller = this.b;
+                if (scroller != null) {
+                    scroller.abortAnimation();
+                    this.b.forceFinished(true);
                 }
-                list.add(0, file);
-                Collection collection = (List) cn.b(obj, "systemNativeLibraryDirectories").get(obj);
-                if (collection == null) {
-                    collection = new ArrayList(2);
+                View view2 = this.c.h;
+                if (view2 != null) {
+                    view2.removeCallbacks(this);
                 }
-                Method c = cn.c(obj, "makePathElements", List.class, File.class, List.class);
-                ArrayList arrayList = new ArrayList();
-                list.addAll(collection);
-                Object[] objArr = {list, null, arrayList};
-                Field b = cn.b(obj, "nativeLibraryPathElements");
-                b.setAccessible(true);
-                b.set(obj, (Object[]) c.invoke(obj, objArr));
+                if (this.c.c != null) {
+                    this.c.c.onOver();
+                }
+            }
+        }
+
+        public final void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                bn bnVar = this.c;
+                Handler handler = bnVar.i;
+                if (handler != null) {
+                    handler.removeCallbacks(bnVar.j);
+                }
+                View view2 = this.c.h;
+                if (view2 != null) {
+                    view2.removeCallbacks(this);
+                }
+            }
+        }
+
+        public void d(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || this.c.h == null || this.b == null) {
+                return;
+            }
+            if (i == 0) {
+                i--;
+            }
+            c();
+            this.a = 0;
+            this.b.startScroll(0, 0, 0, i, i2);
+            this.c.h.post(this);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Scroller scroller;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.c.h == null || (scroller = this.b) == null) {
+                return;
+            }
+            boolean computeScrollOffset = scroller.computeScrollOffset();
+            boolean z = false;
+            if (this.b.timePassed() >= this.c.g) {
+                computeScrollOffset = false;
+            }
+            int currY = this.b.getCurrY();
+            int i = currY - this.a;
+            boolean z2 = true;
+            if (computeScrollOffset) {
+                if (i != 0) {
+                    z = !this.c.c(i);
+                    this.a = currY;
+                }
+                if (!z) {
+                    this.c.h.post(this);
+                }
+                z2 = z;
+            }
+            if (z2) {
+                bn bnVar = this.c;
+                bnVar.i.removeCallbacks(bnVar.j);
+                bn bnVar2 = this.c;
+                bnVar2.i.post(bnVar2.j);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: Removed duplicated region for block: B:10:0x002c  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public static void b(ClassLoader classLoader, File file) throws Throwable {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, classLoader, file) == null) {
-                Object obj = cn.b(classLoader, "pathList").get(classLoader);
-                List list = (List) cn.b(obj, "nativeLibraryDirectories").get(obj);
-                if (list == null) {
-                    list = new ArrayList(2);
-                }
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    if (file.equals((File) it.next()) || file.equals(bn.a)) {
-                        it.remove();
-                        break;
-                    }
-                    while (it.hasNext()) {
-                    }
-                }
-                list.add(0, file);
-                Collection collection = (List) cn.b(obj, "systemNativeLibraryDirectories").get(obj);
-                if (collection == null) {
-                    collection = new ArrayList(2);
-                }
-                Method c = cn.c(obj, "makePathElements", List.class);
-                list.addAll(collection);
-                Object[] objArr = {list};
-                Field b = cn.b(obj, "nativeLibraryPathElements");
-                b.setAccessible(true);
-                b.set(obj, (Object[]) c.invoke(obj, objArr));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964043975, "Lcom/repackage/bn;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public bn(Context context, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964043975, "Lcom/repackage/bn;");
+        this.a = 1;
+        this.e = true;
+        this.i = new Handler();
+        this.j = new a(this);
+        int abs = Math.abs(i - i2);
+        this.b = i2;
+        if (abs < this.a) {
+            this.e = false;
+        }
+        this.f = new b(this, context);
+        this.g = i3;
+    }
+
+    public final boolean c(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int paddingTop = this.h.getPaddingTop() - Math.abs(i);
+            int i2 = this.b;
+            if (paddingTop <= i2) {
+                paddingTop = i2;
+                z = false;
+            } else {
+                z = true;
+            }
+            View view2 = this.h;
+            view2.setPadding(view2.getPaddingLeft(), paddingTop, this.h.getPaddingRight(), this.h.getPaddingBottom());
+            ym.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(null, this.h.getPaddingLeft(), this.h.getPaddingRight(), this.h.getPaddingTop() - this.b, this.h.getPaddingBottom());
+            }
+            return z;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void d(vn vnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vnVar) == null) {
+            this.c = vnVar;
         }
     }
 
-    @TargetApi(23)
-    public static int b() {
-        InterceptResult invokeV;
+    public void e(ym.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                return Build.VERSION.PREVIEW_SDK_INT;
-            } catch (Throwable unused) {
-                return 1;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.d = aVar;
         }
-        return invokeV.intValue;
     }
 
-    public static synchronized boolean c(ClassLoader classLoader, File file) throws Throwable {
-        InterceptResult invokeLL;
+    public void f(View view2) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, classLoader, file)) == null) {
-            synchronized (bn.class) {
-                if (classLoader != null && file != null) {
-                    if (file.exists()) {
-                        int i = Build.VERSION.SDK_INT;
-                        if ((i == 25 && b() != 0) || i > 25) {
-                            c.b(classLoader, file);
-                        } else if (i >= 23) {
-                            b.b(classLoader, file);
-                        } else if (i >= 14) {
-                            a.b(classLoader, file);
-                        }
-                        a = file;
-                        return true;
-                    }
-                }
-                return false;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.e && (bVar = this.f) != null) {
+            this.h = view2;
+            bVar.d(Math.abs(this.b), this.g);
+            this.i.postDelayed(this.j, this.g);
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static synchronized boolean d(ClassLoader classLoader, String str) throws Throwable {
-        InterceptResult invokeLL;
-        boolean c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, classLoader, str)) == null) {
-            synchronized (bn.class) {
-                c2 = c(classLoader, new File(str));
-            }
-            return c2;
-        }
-        return invokeLL.booleanValue;
     }
 }

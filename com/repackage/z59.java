@@ -1,303 +1,339 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.provider.Settings;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.record.EncoderParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-import java.net.NetworkInterface;
-import java.util.Collections;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
-public final class z59 {
+public class z59 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
+    public int d;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public z59(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(c)) {
-                k(d59.h().getContext());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return c;
         }
-        return (String) invokeV.objValue;
+        this.a = 88200L;
+        this.b = str;
     }
 
-    public static String b(WifiManager wifiManager) throws Exception {
-        InterceptResult invokeL;
+    public final void a(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wifiManager)) == null) {
-            String str = "";
-            boolean z = 3 == wifiManager.getWifiState();
-            try {
-                wifiManager.setWifiEnabled(true);
-                FileInputStream fileInputStream = new FileInputStream(new File("/sys/class/net/wlan0/address"));
-                str = c(fileInputStream);
-                fileInputStream.close();
-            } catch (Exception e) {
-                m69.d(e);
-            }
-            wifiManager.setWifiEnabled(z);
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, inputStream)) != null) {
-            return (String) invokeL.objValue;
-        }
-        StringWriter stringWriter = new StringWriter();
-        char[] cArr = new char[2048];
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+        if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
+            int[] iArr = {96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, com.kuaishou.weapon.un.w0.X3, 11025, 8000, 7350};
+            int i2 = 0;
             while (true) {
-                int read = bufferedReader.read(cArr);
-                if (read != -1) {
-                    stringWriter.write(cArr, 0, read);
+                if (i2 >= 13) {
+                    i2 = 4;
+                    break;
+                } else if (iArr[i2] == this.c) {
+                    break;
                 } else {
-                    inputStream.close();
-                    return stringWriter.toString();
+                    i2++;
                 }
             }
-        } catch (Throwable th) {
-            inputStream.close();
+            bArr[0] = -1;
+            bArr[1] = -7;
+            bArr[2] = (byte) (64 + (i2 << 2) + 0);
+            bArr[3] = (byte) (128 + (i >> 11));
+            bArr[4] = (byte) ((i & RevenueServerConst.GetUserCouponStoreResponse) >> 3);
+            bArr[5] = (byte) (((i & 7) << 5) + 31);
+            bArr[6] = -4;
+        }
+    }
+
+    @TargetApi(16)
+    public final MediaCodec b() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
+            MediaFormat mediaFormat = new MediaFormat();
+            mediaFormat.setString("mime", "audio/mp4a-latm");
+            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
+            mediaFormat.setInteger("channel-count", this.d);
+            mediaFormat.setInteger("sample-rate", this.c);
+            mediaFormat.setInteger("aac-profile", 2);
+            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+            return createEncoderByType;
+        }
+        return (MediaCodec) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:101:0x0223 A[Catch: Exception -> 0x021f, TRY_LEAVE, TryCatch #1 {Exception -> 0x021f, blocks: (B:97:0x021b, B:101:0x0223), top: B:109:0x021b }] */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x021b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x0210 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:123:0x0189 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x01bf A[SYNTHETIC] */
+    @TargetApi(16)
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(String str) {
+        Throwable th;
+        FileInputStream fileInputStream;
+        FileOutputStream fileOutputStream;
+        ByteBuffer[] byteBufferArr;
+        long j;
+        long j2;
+        long j3;
+        long j4;
+        int dequeueInputBuffer;
+        boolean z;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) {
+            return;
+        }
+        MediaCodec mediaCodec = null;
+        try {
+            try {
+                if (this.c == 0) {
+                    this.c = 48000;
+                }
+                if (this.d == 0) {
+                    this.d = 1;
+                }
+                this.a = (this.c * 16) / 8;
+                fileInputStream = new FileInputStream(this.b);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return;
+            }
+        } catch (Exception e2) {
+            e = e2;
+            fileInputStream = null;
+            fileOutputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+            fileInputStream = null;
+            fileOutputStream = null;
+        }
+        try {
+            fileOutputStream = new FileOutputStream(str);
+            try {
+                try {
+                    mediaCodec = b();
+                    mediaCodec.start();
+                    ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
+                    ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
+                    MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                    byte[] bArr = new byte[4096];
+                    ByteBuffer[] byteBufferArr2 = outputBuffers;
+                    long j5 = 0;
+                    long j6 = 0;
+                    boolean z2 = false;
+                    int i2 = 0;
+                    boolean z3 = false;
+                    boolean z4 = false;
+                    int i3 = 0;
+                    while (!z3) {
+                        ByteBuffer[] byteBufferArr3 = byteBufferArr2;
+                        if (z4 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
+                            byteBufferArr = inputBuffers;
+                            j = j5;
+                            j2 = 10000;
+                        } else {
+                            ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
+                            byteBuffer.clear();
+                            int remaining = byteBuffer.remaining();
+                            if (remaining != bArr.length) {
+                                bArr = new byte[remaining];
+                            }
+                            byte[] bArr2 = bArr;
+                            if (z2 || (i2 = fileInputStream.read(bArr2)) != -1) {
+                                z = z2;
+                                i = i2;
+                            } else {
+                                i = i2;
+                                z = true;
+                            }
+                            if (z) {
+                                j = j5;
+                                mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                byteBufferArr = inputBuffers;
+                                bArr = bArr2;
+                                z2 = z;
+                                i2 = i;
+                                j2 = 10000;
+                                z4 = true;
+                            } else {
+                                j = j5;
+                                byteBuffer.put(bArr2, 0, i);
+                                int i4 = i3 + i;
+                                byteBufferArr = inputBuffers;
+                                mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, i, j6, 0);
+                                i3 = i4;
+                                j6 = (long) (((i4 / 2.0d) * 1000000.0d) / this.a);
+                                z2 = z;
+                                i2 = i;
+                                j2 = 10000;
+                                bArr = bArr2;
+                            }
+                        }
+                        int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, j2);
+                        if (dequeueOutputBuffer < 0) {
+                            j3 = j;
+                            if (dequeueOutputBuffer == -3) {
+                                j5 = j3;
+                                byteBufferArr2 = mediaCodec.getOutputBuffers();
+                                inputBuffers = byteBufferArr;
+                            } else {
+                                if (dequeueOutputBuffer == -2) {
+                                    p79.b("format change : " + mediaCodec.getOutputFormat());
+                                }
+                                j5 = j3;
+                                byteBufferArr2 = byteBufferArr3;
+                            }
+                        } else if ((bufferInfo.flags & 2) != 0) {
+                            p79.b("audio encoder: codec config buffer");
+                            mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
+                            j3 = j;
+                            j5 = j3;
+                            byteBufferArr2 = byteBufferArr3;
+                        } else {
+                            if (bufferInfo.size != 0) {
+                                ByteBuffer byteBuffer2 = byteBufferArr3[dequeueOutputBuffer];
+                                byteBuffer2.position(bufferInfo.offset);
+                                byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
+                                p79.b(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
+                                j4 = j;
+                                if (j4 < bufferInfo.presentationTimeUs) {
+                                    long j7 = bufferInfo.presentationTimeUs;
+                                    int i5 = bufferInfo.size;
+                                    int i6 = i5 + 7;
+                                    byteBuffer2.position(bufferInfo.offset);
+                                    byteBuffer2.limit(bufferInfo.offset + i5);
+                                    byte[] bArr3 = new byte[i6];
+                                    a(bArr3, i6);
+                                    byteBuffer2.get(bArr3, 7, i5);
+                                    fileOutputStream.write(bArr3, 0, i6);
+                                    p79.b(i6 + " bytes written.");
+                                    j5 = j7;
+                                    mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
+                                    byteBufferArr2 = byteBufferArr3;
+                                    if ((bufferInfo.flags & 4) == 0) {
+                                        inputBuffers = byteBufferArr;
+                                        z3 = true;
+                                    }
+                                } else {
+                                    p79.b("error sample! its presentationTimeUs should not lower than before. lastPTS = " + j4 + ", bufferPTS = " + bufferInfo.presentationTimeUs);
+                                }
+                            } else {
+                                j4 = j;
+                            }
+                            j5 = j4;
+                            mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
+                            byteBufferArr2 = byteBufferArr3;
+                            if ((bufferInfo.flags & 4) == 0) {
+                            }
+                        }
+                        inputBuffers = byteBufferArr;
+                    }
+                    p79.b("acc encode done");
+                    if (mediaCodec != null) {
+                        try {
+                            mediaCodec.release();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    fileInputStream.close();
+                    fileOutputStream.close();
+                } catch (Exception e4) {
+                    e = e4;
+                    e.printStackTrace();
+                    if (mediaCodec != null) {
+                        try {
+                            mediaCodec.release();
+                        } catch (Exception e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    if (fileInputStream != null) {
+                        fileInputStream.close();
+                    }
+                    if (fileOutputStream != null) {
+                        fileOutputStream.close();
+                    }
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                if (mediaCodec != null) {
+                    try {
+                        mediaCodec.release();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (Exception e7) {
+                        e7.printStackTrace();
+                        throw th;
+                    }
+                }
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+                throw th;
+            }
+        } catch (Exception e8) {
+            e = e8;
+            fileOutputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
+            fileOutputStream = null;
+            if (mediaCodec != null) {
+            }
+            if (fileInputStream != null) {
+            }
+            if (fileOutputStream != null) {
+            }
             throw th;
         }
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
-                        byte[] hardwareAddress = networkInterface.getHardwareAddress();
-                        if (hardwareAddress == null) {
-                            return "";
-                        }
-                        StringBuilder sb = new StringBuilder();
-                        int length = hardwareAddress.length;
-                        for (int i = 0; i < length; i++) {
-                            sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
-                        }
-                        if (sb.length() > 0) {
-                            sb.deleteCharAt(sb.length() - 1);
-                        }
-                        return sb.toString();
-                    }
-                }
-                return null;
-            } catch (Exception e) {
-                m69.d(e);
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                return Settings.System.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-            } catch (Exception e) {
-                m69.d(e);
-                return "NA";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int f(Context context) {
-        InterceptResult invokeL;
-        NetworkInfo activeNetworkInfo;
-        NetworkInfo.State state;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-                NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
-                if (networkInfo != null && (state = networkInfo.getState()) != null && (state == NetworkInfo.State.CONNECTED || state == NetworkInfo.State.CONNECTING)) {
-                    return 1;
-                }
-                NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-                if (networkInfo2 != null) {
-                    NetworkInfo.State state2 = networkInfo2.getState();
-                    String subtypeName = networkInfo2.getSubtypeName();
-                    if (state2 != null && (state2 == NetworkInfo.State.CONNECTED || state2 == NetworkInfo.State.CONNECTING)) {
-                        switch (activeNetworkInfo.getSubtype()) {
-                            case 1:
-                            case 2:
-                            case 4:
-                            case 7:
-                            case 11:
-                                return 2;
-                            case 3:
-                            case 5:
-                            case 6:
-                            case 8:
-                            case 9:
-                            case 10:
-                            case 12:
-                            case 14:
-                            case 15:
-                                return 3;
-                            case 13:
-                                return 4;
-                            default:
-                                return (subtypeName.equalsIgnoreCase("TD-SCDMA") || subtypeName.equalsIgnoreCase("WCDMA") || subtypeName.equalsIgnoreCase("CDMA2000")) ? 3 : 5;
-                        }
-                    }
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            try {
-                String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-                return deviceId == null ? "" : i69.a(deviceId);
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-            WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-            if (connectionInfo == null || !Config.DEF_MAC_ID.equals(connectionInfo.getMacAddress())) {
-                return (connectionInfo == null || connectionInfo.getMacAddress() == null) ? "" : i69.a(connectionInfo.getMacAddress());
-            }
-            try {
-                String d = d();
-                if (d != null) {
-                    return i69.a(d);
-                }
-                return i69.a(b(wifiManager));
-            } catch (Exception e) {
-                m69.d(e);
-                return i69.a(Config.DEF_MAC_ID);
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            int i = 0;
-            try {
-                i = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (PackageManager.NameNotFoundException e) {
-                m69.d(e);
-            }
-            return String.valueOf(i);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 1);
-                return packageInfo != null ? packageInfo.versionName == null ? StringUtil.NULL_STRING : packageInfo.versionName : "";
-            } catch (PackageManager.NameNotFoundException e) {
-                m69.d(e);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void k(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            a = String.valueOf(displayMetrics.widthPixels);
-            b = String.valueOf(displayMetrics.heightPixels);
-            c = String.valueOf(displayMetrics.density);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d = i;
         }
     }
 
-    public static String l(Context context) {
-        InterceptResult invokeL;
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            try {
-                return context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
-            } catch (PackageManager.NameNotFoundException e) {
-                m69.d(e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                k(d59.h().getContext());
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                k(d59.h().getContext());
-            }
-            return b;
-        }
-        return (String) invokeV.objValue;
     }
 }

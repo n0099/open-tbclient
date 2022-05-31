@@ -167,7 +167,7 @@ public class sb {
                     } catch (Exception e) {
                         BdLog.e(e.getMessage());
                         if (!z) {
-                            jg.d(outputStream);
+                            ig.d(outputStream);
                         }
                         this.c.unLock();
                         return false;
@@ -177,7 +177,7 @@ public class sb {
                 byte[] data = this.c.getData();
                 if ((buildFormatData == null && data == null) || this.b.get()) {
                     if (!z) {
-                        jg.d(outputStream);
+                        ig.d(outputStream);
                     }
                     this.c.unLock();
                     return false;
@@ -192,7 +192,7 @@ public class sb {
                 this.c.setFileInfo(fileInfo);
                 this.c.setSuccess(true);
                 if (!z) {
-                    jg.d(outputStream);
+                    ig.d(outputStream);
                 } else {
                     this.c.setOutputStream(outputStream);
                 }
@@ -200,7 +200,7 @@ public class sb {
                 return true;
             } catch (Throwable th) {
                 if (!z) {
-                    jg.d(outputStream);
+                    ig.d(outputStream);
                 }
                 this.c.unLock();
                 throw th;
@@ -389,24 +389,24 @@ public class sb {
                                     z = true;
                                 }
                             }
-                            jg.c(fileInputStream);
-                            jg.d(byteArrayOutputStream);
+                            ig.c(fileInputStream);
+                            ig.d(byteArrayOutputStream);
                             if (z) {
                                 this.c.setSuccess(true);
                             }
                         } catch (Exception e3) {
                             e = e3;
                             BdLog.e(e.getMessage());
-                            jg.c(fileInputStream);
-                            jg.d(byteArrayOutputStream);
+                            ig.c(fileInputStream);
+                            ig.d(byteArrayOutputStream);
                             this.c.unLock();
                             this.c.endLog();
                             return z;
                         }
                     } catch (Throwable th3) {
                         th = th3;
-                        jg.c(fileInputStream);
-                        jg.d(byteArrayOutputStream);
+                        ig.c(fileInputStream);
+                        ig.d(byteArrayOutputStream);
                         this.c.unLock();
                         throw th;
                     }
@@ -417,8 +417,8 @@ public class sb {
                     th = th4;
                     byteArrayOutputStream = null;
                     th = th;
-                    jg.c(fileInputStream);
-                    jg.d(byteArrayOutputStream);
+                    ig.c(fileInputStream);
+                    ig.d(byteArrayOutputStream);
                     this.c.unLock();
                     throw th;
                 }
@@ -426,8 +426,8 @@ public class sb {
                 this.c.endLog();
                 return z;
             }
-            jg.c(null);
-            jg.d(null);
+            ig.c(null);
+            ig.d(null);
             this.c.unLock();
             return false;
         }
@@ -478,7 +478,7 @@ public class sb {
                         if (z) {
                             c.delete();
                         } else {
-                            jg.d(null);
+                            ig.d(null);
                             this.c.unLock();
                             return true;
                         }
@@ -494,13 +494,13 @@ public class sb {
                                 e = e;
                                 fileOutputStream = fileOutputStream2;
                                 BdLog.e(e.getMessage());
-                                jg.d(fileOutputStream);
+                                ig.d(fileOutputStream);
                                 this.c.unLock();
                                 return false;
                             } catch (Throwable th) {
                                 th = th;
                                 fileOutputStream = fileOutputStream2;
-                                jg.d(fileOutputStream);
+                                ig.d(fileOutputStream);
                                 this.c.unLock();
                                 throw th;
                             }
@@ -509,14 +509,14 @@ public class sb {
                             fileOutputStream2.write(data);
                         }
                         fileOutputStream2.flush();
-                        jg.d(fileOutputStream2);
+                        ig.d(fileOutputStream2);
                         this.c.setFileInfo(c);
                         this.c.setSuccess(true);
                         this.c.unLock();
                         return true;
                     }
                 }
-                jg.d(null);
+                ig.d(null);
                 this.c.unLock();
                 return false;
             } catch (Throwable th2) {

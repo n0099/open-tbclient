@@ -26,15 +26,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a9;
-import com.repackage.bb6;
-import com.repackage.db6;
-import com.repackage.eb6;
-import com.repackage.fi8;
-import com.repackage.hj8;
-import com.repackage.kg;
-import com.repackage.ki;
-import com.repackage.s77;
-import com.repackage.zi8;
+import com.repackage.ag8;
+import com.repackage.gf8;
+import com.repackage.ig8;
+import com.repackage.jg;
+import com.repackage.ji;
+import com.repackage.q57;
+import com.repackage.r96;
+import com.repackage.t96;
+import com.repackage.u96;
 import tbclient.GetLevelInfo.DataRes;
 /* loaded from: classes3.dex */
 public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
@@ -43,15 +43,15 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public View.OnClickListener mCommonListener;
     public String mForumId;
     public String mForumName;
-    public bb6<TbTitleActivity> mGetLevelInfoModel;
-    public bb6.c mLevelInfoModelCallback;
+    public r96<TbTitleActivity> mGetLevelInfoModel;
+    public r96.c mLevelInfoModelCallback;
     public a9 mLikeCallback;
     public LikeModel mLikeModel;
     public NoNetworkView.b mNoNetworkChangeListener;
-    public eb6 mView;
+    public u96 mView;
 
     /* loaded from: classes3.dex */
-    public class a implements bb6.c {
+    public class a implements r96.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbTitleActivity a;
@@ -74,27 +74,27 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             this.a = tbTitleActivity;
         }
 
-        @Override // com.repackage.bb6.c
+        @Override // com.repackage.r96.c
         public void a(DataRes dataRes, boolean z, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
                 if (z) {
                     if (i != 0 || dataRes == null) {
-                        this.a.mGetLevelInfoModel.c(kg.e(this.a.mForumId, 0));
+                        this.a.mGetLevelInfoModel.c(jg.e(this.a.mForumId, 0));
                         return;
                     }
+                    this.a.mView.h();
                     this.a.mView.i();
-                    this.a.mView.j();
-                    this.a.mView.g(dataRes);
-                    this.a.mView.h(dataRes.level_info);
+                    this.a.mView.e(dataRes);
+                    this.a.mView.g(dataRes.level_info);
                 } else if (i != 0 || dataRes == null) {
-                    this.a.mView.i();
-                    this.a.mView.s(str);
+                    this.a.mView.h();
+                    this.a.mView.r(str);
                 } else {
+                    this.a.mView.h();
                     this.a.mView.i();
-                    this.a.mView.j();
-                    this.a.mView.g(dataRes);
-                    this.a.mView.h(dataRes.level_info);
+                    this.a.mView.e(dataRes);
+                    this.a.mView.g(dataRes.level_info);
                 }
             }
         }
@@ -127,11 +127,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091f4e && this.a.checkUpIsLogin()) {
-                if (ki.z()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091ef4 && this.a.checkUpIsLogin()) {
+                if (ji.z()) {
                     this.a.mLikeModel.P(this.a.mForumName, this.a.mForumId);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
                 }
             }
         }
@@ -174,7 +174,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                 if (TextUtils.isEmpty(this.a)) {
                     return null;
                 }
-                s77.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), this.b);
+                q57.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), this.b);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -210,10 +210,10 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    this.a.mView.r();
-                    this.a.mGetLevelInfoModel.d(kg.e(this.a.mForumId, 0));
+                    this.a.mView.q();
+                    this.a.mGetLevelInfoModel.d(jg.e(this.a.mForumId, 0));
                 }
-                this.a.mView.n(z);
+                this.a.mView.m(z);
             }
         }
     }
@@ -247,8 +247,8 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 boolean z = false;
-                if (obj != null && (obj instanceof zi8)) {
-                    fi8.i().n(this.a.mForumName, false);
+                if (obj != null && (obj instanceof ag8)) {
+                    gf8.i().n(this.a.mForumName, false);
                     z = true;
                 }
                 if (!z) {
@@ -261,22 +261,22 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                             return;
                         }
                     }
-                    this.a.getPageContext().showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f080b));
+                    this.a.getPageContext().showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0811));
                     return;
                 }
-                this.a.getPageContext().showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02b1));
+                this.a.getPageContext().showToast(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f02b3));
                 TbadkCoreApplication.getInst().addLikeForum(this.a.mForumName);
                 TbTitleActivity tbTitleActivity = this.a;
                 tbTitleActivity.saveAcceptNotify(true, tbTitleActivity.mForumId);
-                zi8 zi8Var = (zi8) obj;
-                if (zi8Var != null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, zi8Var));
+                ag8 ag8Var = (ag8) obj;
+                if (ag8Var != null) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, ag8Var));
                 }
                 if (this.a.mView.k != null) {
                     this.a.mView.k.setVisibility(8);
                 }
-                zi8Var.y(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, zi8Var));
+                ag8Var.y(1);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, ag8Var));
             }
         }
     }
@@ -312,9 +312,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     private void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            hj8.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
-            hj8.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
-            hj8.b(2003007, db6.class);
+            ig8.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
+            ig8.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
+            ig8.b(2003007, t96.class);
         }
     }
 
@@ -332,7 +332,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            this.mView.m(i);
+            this.mView.l(i);
         }
     }
 
@@ -341,11 +341,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            eb6 eb6Var = new eb6(this, this.mCommonListener);
-            this.mView = eb6Var;
-            eb6Var.q(this.mNoNetworkChangeListener);
+            u96 u96Var = new u96(this, this.mCommonListener);
+            this.mView = u96Var;
+            u96Var.o(this.mNoNetworkChangeListener);
             initLikeModel();
-            this.mGetLevelInfoModel = new bb6<>(this.mLevelInfoModelCallback, this);
+            this.mGetLevelInfoModel = new r96<>(this.mLevelInfoModelCallback, this);
             Intent intent = getIntent();
             if (intent != null) {
                 this.mForumId = intent.getStringExtra(TbTitleActivityConfig.FORUM_ID);
@@ -353,11 +353,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             }
             if (!TextUtils.isEmpty(this.mForumId) && !TextUtils.isEmpty(this.mForumName)) {
                 registerTask();
-                this.mView.r();
-                this.mGetLevelInfoModel.d(kg.e(this.mForumId, 0));
+                this.mView.q();
+                this.mGetLevelInfoModel.d(jg.e(this.mForumId, 0));
                 return;
             }
-            this.mView.s("");
+            this.mView.r("");
         }
     }
 
@@ -372,9 +372,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ki.z()) {
-            this.mView.r();
-            this.mGetLevelInfoModel.d(kg.e(this.mForumId, 0));
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ji.z()) {
+            this.mView.q();
+            this.mGetLevelInfoModel.d(jg.e(this.mForumId, 0));
         }
     }
 

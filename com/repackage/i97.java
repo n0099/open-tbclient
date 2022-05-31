@@ -1,146 +1,298 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AccountData;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.coreExtra.view.ImagePagerAdapter;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.image.ImageViewerActivity;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class i97 {
+public class i97 implements IAdBaseAsyncController.a, ImagePagerAdapter.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public List<String> c;
+    public d88 d;
+    public List<AdvertAppInfo> e;
+    public boolean f;
+    public w68 g;
+    public boolean h;
+    public long i;
+    public int j;
+    public boolean k;
+    public Map<String, ImageUrlData> l;
+    public TbPageContext<ImageViewerActivity> m;
 
-    /* loaded from: classes6.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.repackage.i97$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0430a extends sd5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
-
-            public C0430a(a aVar, boolean z) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Boolean.valueOf(z)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = z;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.repackage.sd5
-            public Integer doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (!this.a) {
-                        r57.a().b();
-                    }
-                    return 0;
-                }
-                return (Integer) invokeV.objValue;
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements zc5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.zc5
-            /* renamed from: a */
-            public void onReturnDataInUI(Integer num) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005018, null));
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
+    public i97(List<String> list, String str, String str2, boolean z, boolean z2, TbPageContext<ImageViewerActivity> tbPageContext, DragImageView.h hVar, @Nullable Map<String, ImageUrlData> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), tbPageContext, hVar, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
-            if (!isNull) {
-                ky4.h0().g0(new uy4());
-                ky4.h0().c0(0);
-                ky4.h0().a0(0);
-                ky4.h0().Z(0);
-                ky4.h0().d0(0);
-                ky4.h0().e0(0);
-                ky4.h0().a();
-                vd5.a();
-                c67.v().q();
-                b67.v().q();
+        }
+        this.k = false;
+        this.c = list;
+        this.a = str;
+        this.b = str2;
+        this.f = z2;
+        this.m = tbPageContext;
+        try {
+            d88 d88Var = (d88) q78.l().h(IAdBaseAsyncController.Type.PIC_PAGE, this);
+            this.d = d88Var;
+            d88Var.h(tbPageContext, hVar, z);
+        } catch (ClassCastException e) {
+            if (ul4.e()) {
+                throw new RuntimeException(e);
             }
-            vd5.c(new C0430a(this, isNull), new b(this));
+        }
+        this.l = map;
+    }
+
+    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
+    public View a(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i >= this.c.size()) {
+                return null;
+            }
+            String str = (String) db7.d(this.c, i);
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            boolean z = i == this.c.size() - 1;
+            this.k = z;
+            View b = this.d.b(str, z);
+            if (b == null) {
+                return null;
+            }
+            if (b.getParent() != null && (b.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) b.getParent()).removeView(b);
+            }
+            viewGroup.addView(b);
+            AdvertAppInfo d = this.d.d(str);
+            if (d != null && (this.m.getPageActivity() instanceof bg0)) {
+                d.r = dg0.b(d.r, (bg0) this.m.getPageActivity(), b);
+            }
+            return b;
+        }
+        return (View) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.recapp.async.IAdBaseAsyncController.a
+    public void b(@Nullable List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.e = list;
+            if (this.h) {
+                f(list);
+            }
         }
     }
 
-    public static void a() {
+    @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
+    public void c(ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            MessageManager.getInstance().registerListener(2005016, new a(0));
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i) == null) || i >= this.c.size()) {
+            return;
+        }
+        String str = (String) db7.d(this.c, i);
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        this.d.o(str);
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d.getAdCount() : invokeV.intValue;
+    }
+
+    public final void e(@NonNull AdvertAppInfo advertAppInfo, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{advertAppInfo, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && this.f) {
+            if (i < 0) {
+                this.d.k(advertAppInfo);
+                return;
+            }
+            boolean z2 = false;
+            int i2 = db7.i(this.c);
+            String f = u68.f(advertAppInfo);
+            if (i >= i2) {
+                if (!u68.j((String) db7.d(this.c, i2 - 1)) && (z || !this.d.n())) {
+                    this.k = true;
+                    i = i2;
+                    z2 = true;
+                } else {
+                    this.d.k(advertAppInfo);
+                    return;
+                }
+            }
+            advertAppInfo.position = z2 ? this.j + d() : (int) (i + this.i);
+            if (u68.l(advertAppInfo)) {
+                if (i >= i2) {
+                    this.d.k(advertAppInfo);
+                }
+                String str = (String) db7.d(this.c, i);
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                this.d.e(str, advertAppInfo);
+                return;
+            }
+            db7.b(this.c, f, i);
+            String str2 = (String) db7.d(this.c, i);
+            if (TextUtils.isEmpty(str2)) {
+                return;
+            }
+            this.d.e(str2, advertAppInfo);
+        }
+    }
+
+    public final void f(List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || db7.e(list) || db7.e(this.c)) {
+            return;
+        }
+        Iterator<AdvertAppInfo> it = list.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            AdvertAppInfo next = it.next();
+            if (next != null) {
+                if (d() == dg5.a().c() - 1 && dg5.a().g()) {
+                    if (!i()) {
+                        break;
+                    } else if (jg.e(next.f, -1) - 1 <= db7.i(this.c)) {
+                        g(next);
+                        break;
+                    }
+                }
+                e(next, jg.e(next.f, -1) - 1, false);
+                it.remove();
+            }
+        }
+        w68 w68Var = this.g;
+        if (w68Var != null) {
+            w68Var.onCallback(null);
+        }
+    }
+
+    public void g(@NonNull AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
+            e(advertAppInfo, db7.i(this.c), true);
+            w68 w68Var = this.g;
+            if (w68Var != null) {
+                w68Var.onCallback(null);
+            }
+        }
+    }
+
+    public boolean h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            String str = (String) db7.d(this.c, i);
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return this.d.f(str);
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            List<String> list = this.c;
+            String str = (String) db7.d(list, list.size() - 1);
+            Map<String, ImageUrlData> map = this.l;
+            ImageUrlData imageUrlData = (map == null || str == null) ? null : map.get(str);
+            return imageUrlData != null && imageUrlData.overAllIndex == ((long) this.j);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.d.onDestroy();
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.h = true;
+            f(this.e);
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            String str = (String) db7.d(this.c, i);
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            this.d.j(str);
+        }
+    }
+
+    public void n(@Nullable w68 w68Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, w68Var) == null) && this.f) {
+            AdvertAppInfo.s.set(true);
+            this.h = false;
+            this.g = w68Var;
+            this.d.l();
+            gb5 gb5Var = new gb5();
+            gb5Var.c = this.a;
+            gb5Var.d = this.b;
+            this.d.g(gb5Var);
+        }
+    }
+
+    public void o(long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.i = j - 1;
+            this.j = i;
         }
     }
 }

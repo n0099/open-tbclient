@@ -223,7 +223,7 @@ public abstract class gc {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             for (fz fzVar : this.f410a) {
                 if (str2 == null || str2.equals(fzVar.b())) {
-                    if (str.equals(fzVar.m373a())) {
+                    if (str.equals(fzVar.m372a())) {
                         return fzVar;
                     }
                 }
@@ -234,14 +234,14 @@ public abstract class gc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public gg m382a() {
+    public gg m381a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f409a : (gg) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Object m383a(String str) {
+    public synchronized Object m382a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
@@ -256,10 +256,10 @@ public abstract class gc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m384a();
+    public abstract String m383a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<fz> m385a() {
+    public synchronized Collection<fz> m384a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -450,41 +450,41 @@ public abstract class gc {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             synchronized (this) {
                 StringBuilder sb2 = new StringBuilder();
-                for (fz fzVar : m385a()) {
+                for (fz fzVar : m384a()) {
                     sb2.append(fzVar.d());
                 }
                 if (this.f411a != null && !this.f411a.isEmpty()) {
                     sb2.append("<properties xmlns=\"http://www.jivesoftware.com/xmlns/xmpp/properties\">");
                     for (String str2 : b()) {
-                        Object m383a = m383a(str2);
+                        Object m382a = m382a(str2);
                         sb2.append("<property>");
                         sb2.append("<name>");
                         sb2.append(gn.a(str2));
                         sb2.append("</name>");
                         sb2.append("<value type=\"");
-                        if (m383a instanceof Integer) {
+                        if (m382a instanceof Integer) {
                             sb2.append("integer\">");
-                            sb2.append(m383a);
+                            sb2.append(m382a);
                             str = "</value>";
-                        } else if (m383a instanceof Long) {
+                        } else if (m382a instanceof Long) {
                             sb2.append("long\">");
-                            sb2.append(m383a);
+                            sb2.append(m382a);
                             str = "</value>";
-                        } else if (m383a instanceof Float) {
+                        } else if (m382a instanceof Float) {
                             sb2.append("float\">");
-                            sb2.append(m383a);
+                            sb2.append(m382a);
                             str = "</value>";
-                        } else if (m383a instanceof Double) {
+                        } else if (m382a instanceof Double) {
                             sb2.append("double\">");
-                            sb2.append(m383a);
+                            sb2.append(m382a);
                             str = "</value>";
-                        } else if (m383a instanceof Boolean) {
+                        } else if (m382a instanceof Boolean) {
                             sb2.append("boolean\">");
-                            sb2.append(m383a);
+                            sb2.append(m382a);
                             str = "</value>";
-                        } else if (m383a instanceof String) {
+                        } else if (m382a instanceof String) {
                             sb2.append("string\">");
-                            sb2.append(gn.a((String) m383a));
+                            sb2.append(gn.a((String) m382a));
                             str = "</value>";
                         } else {
                             ObjectOutputStream objectOutputStream2 = null;
@@ -494,7 +494,7 @@ public abstract class gc {
                                     objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                                     try {
                                         try {
-                                            objectOutputStream.writeObject(m383a);
+                                            objectOutputStream.writeObject(m382a);
                                             sb2.append("java-object\">");
                                             sb2.append(gn.a(byteArrayOutputStream.toByteArray()));
                                             sb2.append("</value>");

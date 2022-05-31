@@ -78,12 +78,12 @@ public class k extends XMPushService.i {
                 next.a("uploadWay", "longXMPushService");
                 ib a3 = y.a(this.f941a, a, next, hf.i);
                 if (!TextUtils.isEmpty(this.b) && !TextUtils.equals(this.f941a, this.b)) {
-                    if (a3.m489a() == null) {
+                    if (a3.m488a() == null) {
                         hs hsVar = new hs();
                         hsVar.a("-1");
                         a3.a(hsVar);
                     }
-                    a3.m489a().b("ext_traffic_source_pkg", this.b);
+                    a3.m488a().b("ext_traffic_source_pkg", this.b);
                 }
                 byte[] a4 = ip.a(a3);
                 xMPushService = this.a.a;

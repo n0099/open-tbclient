@@ -1,322 +1,131 @@
 package com.repackage;
 
-import android.app.Activity;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ReplacementSpan;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UserTropicGiftBagActivityConfig;
-import com.baidu.tbadk.core.data.NewUserRedPackageData;
-import com.baidu.tbadk.mutiprocess.share.ShareEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fk4;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.MissionInfo;
 /* loaded from: classes6.dex */
-public class gu4 {
+public class gu4 extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
-    public static gu4 i;
-    public static CustomMessageListener j;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
     public int d;
-    public int e;
-    public NewUserRedPackageData f;
-    public CustomMessageListener g;
-    public final fg<co> h;
+    public Drawable e;
+    public Drawable f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public boolean o;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gu4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gu4 gu4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gu4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gu4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent) && ((ShareEvent) customResponsedMessage.getData()).status == 1) {
-                ez4.c(((ShareEvent) customResponsedMessage.getData()).channel);
-                this.a.k();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
-                TbSingleton.getInstance().setCanWebViewActivityShowProgress(((Boolean) customResponsedMessage.getData()).booleanValue());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends fg<co> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gu4 a;
-
-        public c(gu4 gu4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gu4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gu4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        public void onLoaded(co coVar, String str, int i) {
-            Activity currentActivity;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, coVar, str, i) == null) || coVar == null || this.a.f == null || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || this.a.d(currentActivity) == null) {
-                return;
-            }
-            TbSingleton.getInstance().setNewUserRedPackageData(this.a.f);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921532));
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755665557, "Lcom/repackage/gu4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755665557, "Lcom/repackage/gu4;");
-                return;
-            }
-        }
-        j = new b(2921440);
-    }
-
-    public gu4() {
+    public gu4(int i, int i2, int i3, int i4, int i5, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = new a(this, 2921406);
-        this.h = new c(this);
+        this.a = R.drawable.icon_pure_evaluation_star24_n;
+        this.b = R.color.CAM_X0112;
+        this.c = R.drawable.icon_pure_evaluation_star24_n;
+        this.d = R.color.CAM_X0305;
+        this.m = 5;
+        this.n = i;
+        this.g = i2;
+        this.h = i3;
+        this.i = i4;
+        this.k = i5;
+        this.o = z;
     }
 
-    public static gu4 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (i == null) {
-                synchronized (gu4.class) {
-                    if (i == null) {
-                        i = new gu4();
-                    }
-                }
-            }
-            return i;
-        }
-        return (gu4) invokeV.objValue;
-    }
-
-    public final void c() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            iu4.k().D("task_share_thread_success_data_total_limit");
-            iu4.k().D("task_share_thread_success_data_mission_id");
-            iu4.k().D("task_share_thread_success_data_action_id");
-            iu4.k().D("task_share_thread_success_data_specific_clear_time");
+            this.e = SvgManager.getInstance().getPureDrawable(this.a, this.b, null);
+            this.f = SvgManager.getInstance().getPureDrawable(this.c, this.d, null);
         }
     }
 
-    public final TbPageContext d(Activity activity) {
-        InterceptResult invokeL;
+    @Override // android.text.style.ReplacementSpan
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        int dimenPixelSize;
+        int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            if (activity instanceof BaseActivity) {
-                return ((BaseActivity) activity).getPageContext();
-            }
-            if (activity instanceof BaseFragmentActivity) {
-                return ((BaseFragmentActivity) activity).getPageContext();
-            }
-            return null;
-        }
-        return (TbPageContext) invokeL.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.g);
-            MessageManager.getInstance().registerListener(j);
-        }
-    }
-
-    public void g(MissionInfo missionInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, missionInfo) == null) || missionInfo == null || missionInfo.activityid.intValue() == 0 || missionInfo.missionid.intValue() == 0) {
-            return;
-        }
-        this.c = missionInfo.activityid.intValue();
-        this.a = missionInfo.missionid.intValue();
-        this.b = missionInfo.total_limit.intValue();
-        this.e = missionInfo.cleartype.intValue();
-        this.d = missionInfo.cleartime.intValue();
-        yi4 yi4Var = new yi4();
-        yi4Var.X(this.d);
-        yi4Var.Y(this.e);
-        iu4.k().w("task_share_thread_success_data_total_limit", this.b);
-        iu4.k().w("task_share_thread_success_data_mission_id", this.a);
-        iu4.k().w("task_share_thread_success_data_action_id", this.c);
-        iu4.k().x("task_share_thread_success_data_specific_clear_time", yi4Var.c());
-    }
-
-    public final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(5);
-            completeTaskReqMsg.completeId = str;
-            completeTaskReqMsg.setNetType(NetMessage.NetType.HTTP);
-            completeTaskReqMsg.extra = new fk4.g();
-            MessageManager.getInstance().sendMessage(completeTaskReqMsg);
-        }
-    }
-
-    public void i() {
-        Activity currentActivity;
-        TbPageContext d;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d = d(currentActivity)) == null || !x8.g().i("MainTabActivity")) {
-            return;
-        }
-        d.sendMessage(new CustomMessage(2002001, new UserTropicGiftBagActivityConfig(d.getPageActivity())));
-    }
-
-    public void j(yj4 yj4Var) {
-        Activity currentActivity;
-        TbPageContext d;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, yj4Var) == null) || yj4Var == null) {
-            return;
-        }
-        ActiveCenterData activeCenterData = yj4Var.g;
-        if (activeCenterData == null || !activeCenterData.is_new_window) {
-            if ((iu4.k().l("app_restart_times", 0) <= 1 && UbsABTestHelper.isRedPackageShowSecondTime()) || !yj4Var.b || StringUtils.isNull(yj4Var.c) || TbSingleton.getInstance().isNewUserRedPackageShowed() || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (d = d(currentActivity)) == null) {
-                return;
-            }
-            this.f = yj4Var.f;
-            gg.h().k(this.f.topPicUrl, 10, this.h, 0, 0, d.getUniqueId(), new Object[0]);
-        }
-    }
-
-    public void k() {
-        int l;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && TbadkCoreApplication.isLogin()) {
-            int l2 = iu4.k().l("task_share_thread_success_data_mission_id", 0);
-            int l3 = iu4.k().l("task_share_thread_success_data_action_id", 0);
-            long m = iu4.k().m("task_share_thread_success_data_specific_clear_time", 0L);
-            yi4 yi4Var = new yi4();
-            yi4Var.d0(m);
-            if (yi4Var.M()) {
-                c();
-            } else if (l3 == 0 || l2 == 0 || (l = iu4.k().l("task_share_thread_success_data_total_limit", 0)) <= 0) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            a();
+            this.j = (int) paint.getTextSize();
+            int i7 = ((int) f) + this.k;
+            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+            int i8 = 0;
+            if (yq4.b(charSequence)) {
+                yq4.a(fontMetricsInt, (int) paint.getTextSize());
+                dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
             } else {
-                iu4.k().w("task_share_thread_success_data_total_limit", l - 1);
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(String.valueOf(l3), String.valueOf(l2));
-                } catch (JSONException e) {
-                    e.printStackTrace();
+                dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
+            }
+            int max = dimenPixelSize + fontMetricsInt.ascent + i4 + Math.max(0, ((this.j - this.h) / 2) + (this.o ? (i5 - i4) / 2 : 0));
+            while (true) {
+                i6 = this.n;
+                if (i8 >= i6) {
+                    break;
                 }
-                h(jSONObject.toString());
+                Drawable drawable = this.f;
+                if (drawable != null) {
+                    int i9 = this.h;
+                    drawable.setBounds(i7, max, i7 + i9, i9 + max);
+                    this.f.draw(canvas);
+                    i7 += this.g + this.h;
+                }
+                i8++;
+            }
+            while (i6 < this.m) {
+                Drawable drawable2 = this.e;
+                if (drawable2 != null) {
+                    int i10 = this.h;
+                    drawable2.setBounds(i7, max, i7 + i10, i10 + max);
+                    this.e.draw(canvas);
+                    i7 += this.g + this.h;
+                }
+                i6++;
             }
         }
+    }
+
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            int i3 = this.m;
+            int i4 = (this.h * i3) + (this.g * (i3 - 1)) + this.i + this.k;
+            this.l = i4;
+            return i4;
+        }
+        return invokeCommon.intValue;
     }
 }

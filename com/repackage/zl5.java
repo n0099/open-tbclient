@@ -1,22 +1,17 @@
 package com.repackage;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class zl5 {
+public class zl5 extends ri1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public Map<String, String> e;
-    public String f;
-    public String g;
-    public String h;
 
     public zl5() {
         Interceptable interceptable = $ic;
@@ -29,6 +24,14 @@ public class zl5 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.repackage.ri1
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            yl5.c(z);
         }
     }
 }

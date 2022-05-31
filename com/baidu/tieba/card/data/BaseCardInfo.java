@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kp;
-import com.repackage.ro;
+import com.repackage.co;
+import com.repackage.jn;
 /* loaded from: classes3.dex */
-public abstract class BaseCardInfo implements ro {
+public abstract class BaseCardInfo implements jn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean forceNoTest;
@@ -22,7 +22,7 @@ public abstract class BaseCardInfo implements ro {
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public kp trigger;
+    public co trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -110,13 +110,13 @@ public abstract class BaseCardInfo implements ro {
         this.mSupportType = SupportType.NONE;
     }
 
-    public kp getTrigger() {
+    public co getTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (kp) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (co) invokeV.objValue;
     }
 
-    @Override // com.repackage.ro
+    @Override // com.repackage.jn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -169,10 +169,10 @@ public abstract class BaseCardInfo implements ro {
         }
     }
 
-    public void setTrigger(kp kpVar) {
+    public void setTrigger(co coVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, kpVar) == null) {
-            this.trigger = kpVar;
+        if (interceptable == null || interceptable.invokeL(1048585, this, coVar) == null) {
+            this.trigger = coVar;
         }
     }
 }

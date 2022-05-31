@@ -1,19 +1,20 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class yv3 {
+public class yv3 implements zn3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String packageName;
-    @V8JavascriptField
-    public int statusCode;
 
     public yv3() {
         Interceptable interceptable = $ic;
@@ -29,12 +30,95 @@ public class yv3 {
         }
     }
 
-    public String toString() {
+    @Override // com.repackage.zn3
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "DownloadResponseData{statusCode=" + this.statusCode + ", packageName='" + this.packageName + "'}";
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? t14.A().n() : invokeV.longValue;
+    }
+
+    @Override // com.repackage.zn3
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            es3.b(z ? "gdtvideo" : "video", null);
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zn3
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? t14.A().C() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.zn3
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? t14.A().B() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.zn3
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t14.A().v() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zn3
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? t14.A().o() : invokeV.longValue;
+    }
+
+    @Override // com.repackage.zn3
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? t14.A().z() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zn3
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? t14.A().p() : invokeV.longValue;
+    }
+
+    @Override // com.repackage.zn3
+    public Long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? t14.A().w() : (Long) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zn3
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? t14.A().q() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.zn3
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? t14.A().u() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.zn3
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? t14.A().x() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zn3
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? t14.A().y() : (String) invokeV.objValue;
     }
 }

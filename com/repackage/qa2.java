@@ -1,41 +1,23 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
-import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import androidx.annotation.NonNull;
+import java.io.File;
 /* loaded from: classes6.dex */
-public final class qa2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface qa2 {
+    @NonNull
+    String a();
 
-    public static void a(sz1 sz1Var, ua2 ua2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, sz1Var, ua2Var) == null) || sz1Var == null || ua2Var == null) {
-            return;
-        }
-        ua2Var.g(sz1Var);
-    }
+    @NonNull
+    String b();
 
-    public static String b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                return "";
-            }
-            String quote = JSONObject.quote(str3);
-            return str + "." + str2 + " = " + quote + ";";
-        }
-        return (String) invokeLLL.objValue;
-    }
+    int c();
 
-    public static String c(sz1 sz1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sz1Var)) == null) ? sz1Var.isWebView() ? ClearCacheUbcController.DOCUMENT : SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME : (String) invokeL.objValue;
-    }
+    @NonNull
+    String d();
+
+    @NonNull
+    String e();
+
+    @NonNull
+    File f();
 }

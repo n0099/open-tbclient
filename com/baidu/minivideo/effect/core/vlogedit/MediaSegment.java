@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.reflect.TypeToken;
-import com.repackage.h89;
+import com.repackage.b59;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -139,7 +139,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new h89().c(str, new b().getType());
+                return (List) new b59().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }
@@ -209,14 +209,14 @@ public class MediaSegment implements Parcelable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public MediaSegment m35clone() {
+    public MediaSegment m33clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 MediaSegment mediaSegment = (MediaSegment) super.clone();
                 if (this.mediaAEffect != null) {
-                    mediaSegment.mediaAEffect = this.mediaAEffect.m33clone();
+                    mediaSegment.mediaAEffect = this.mediaAEffect.m31clone();
                 }
                 return mediaSegment;
             } catch (Exception e) {

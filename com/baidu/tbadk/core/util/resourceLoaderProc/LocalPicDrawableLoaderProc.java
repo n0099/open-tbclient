@@ -9,9 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co;
-import com.repackage.kg;
-import com.repackage.y35;
+import com.repackage.jg;
+import com.repackage.u25;
+import com.repackage.um;
 /* loaded from: classes3.dex */
 public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -75,24 +75,24 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.hg
-    public co getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.gg
+    public um getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? SkinManager.nightSufix : "");
-            co m = y35.k().m(str3);
+            um m = u25.k().m(str3);
             if (m == null) {
-                Bitmap bitmap = SkinManager.getBitmap(kg.e(str2, 0));
+                Bitmap bitmap = SkinManager.getBitmap(jg.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
-                co coVar = new co(bitmap, false, str2);
-                y35.k().d(str3, coVar);
-                return coVar;
+                um umVar = new um(bitmap, false, str2);
+                u25.k().d(str3, umVar);
+                return umVar;
             }
             return m;
         }
-        return (co) invokeCommon.objValue;
+        return (um) invokeCommon.objValue;
     }
 }

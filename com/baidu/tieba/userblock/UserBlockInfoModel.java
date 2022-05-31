@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.hj8;
-import com.repackage.qm4;
+import com.repackage.el4;
+import com.repackage.ig8;
 import com.repackage.wa;
 import tbclient.GetUserBlackInfo.DataRes;
 /* loaded from: classes4.dex */
@@ -28,7 +28,7 @@ public class UserBlockInfoModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public qm4 b;
+    public el4 b;
     public wa c;
 
     /* loaded from: classes4.dex */
@@ -78,7 +78,7 @@ public class UserBlockInfoModel extends BdBaseModel {
                 return;
             }
             if (StringUtils.isNull(errorString)) {
-                errorString = this.a.C(R.string.obfuscated_res_0x7f0f05a5);
+                errorString = this.a.C(R.string.obfuscated_res_0x7f0f05ac);
             }
             this.a.b.onError(error, errorString);
         }
@@ -116,8 +116,8 @@ public class UserBlockInfoModel extends BdBaseModel {
     public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hj8.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
-            hj8.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
+            ig8.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
+            ig8.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);
@@ -134,10 +134,10 @@ public class UserBlockInfoModel extends BdBaseModel {
         }
     }
 
-    public void F(qm4 qm4Var) {
+    public void F(el4 el4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qm4Var) == null) {
-            this.b = qm4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, el4Var) == null) {
+            this.b = el4Var;
         }
     }
 

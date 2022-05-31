@@ -60,7 +60,7 @@ public class d extends g implements RewardActionBarControl.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.d = (KsLogoView) a(R.id.obfuscated_res_0x7f091029);
+        this.d = (KsLogoView) a(R.id.obfuscated_res_0x7f090feb);
     }
 
     @Override // com.kwad.sdk.reward.presenter.platdetail.actionbar.RewardActionBarControl.c

@@ -35,15 +35,15 @@ import org.json.JSONArray;
 public class a extends c {
     public static volatile Message a;
     public static AtomicBoolean d = new AtomicBoolean(false);
-    public HandlerC0287a b = new HandlerC0287a();
+    public HandlerC0288a b = new HandlerC0288a();
     public Messenger c = new Messenger(this.b);
 
     /* renamed from: com.kwad.sdk.collector.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class HandlerC0287a extends Handler {
+    public static class HandlerC0288a extends Handler {
         public WeakReference<Service> a;
 
-        public HandlerC0287a() {
+        public HandlerC0288a() {
         }
 
         public void a(@Nullable Service service) {

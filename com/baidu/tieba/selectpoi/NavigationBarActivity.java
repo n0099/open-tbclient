@@ -131,12 +131,12 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            super.setContentView(R.layout.obfuscated_res_0x7f0d05e5);
-            this.navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091534);
-            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091538);
+            super.setContentView(R.layout.obfuscated_res_0x7f0d05db);
+            this.navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f2);
+            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0914f6);
             this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (needNoNetWorkView()) {
-                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f0915ad)).inflate();
+                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09156d)).inflate();
             }
         }
     }
@@ -171,9 +171,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             if (needNoNetWorkView()) {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0915ac);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09156c);
             } else {
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0915ad);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09156d);
             }
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.contentRootView = relativeLayout;

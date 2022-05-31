@@ -18,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dx2;
-import com.repackage.eh1;
-import com.repackage.hs2;
-import com.repackage.hx2;
-import com.repackage.o72;
-import com.repackage.oe3;
+import com.repackage.b62;
+import com.repackage.bd3;
+import com.repackage.qv2;
+import com.repackage.rf1;
+import com.repackage.uq2;
+import com.repackage.uv2;
 import okhttp3.Call;
 import okhttp3.OkHttpClient;
 import org.json.JSONException;
@@ -108,7 +108,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements dx2<Bundle> {
+    public static class a implements qv2<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -132,7 +132,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.dx2
+        @Override // com.repackage.qv2
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -162,7 +162,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        a = eh1.a;
+        a = rf1.a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -192,7 +192,7 @@ public class SwanAppNetworkUtils {
     public static void b(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            hx2.a(hs2.class, null, new a(bVar));
+            uv2.a(uq2.class, null, new a(bVar));
         }
     }
 
@@ -329,7 +329,7 @@ public class SwanAppNetworkUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String f = oe3.f(o72.U().g0());
+            String f = bd3.f(b62.U().g0());
             return TextUtils.isEmpty(f) ? "" : f;
         }
         return (String) invokeV.objValue;

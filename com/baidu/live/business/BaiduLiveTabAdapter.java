@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q90;
-import com.repackage.rb0;
+import com.repackage.d80;
+import com.repackage.ea0;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public String b;
     public String c;
     public LiveFeedWrapData d;
-    public q90 e;
+    public d80 e;
     public List<b> f;
     public boolean g;
 
@@ -98,14 +98,14 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (d = d(i)) == null || (weakReference = d.b) == null || weakReference.get() == null) {
             return;
         }
-        d.b.get().c2(z, z2);
+        d.b.get().e2(z, z2);
     }
 
     public LiveTabEntity c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            b bVar = (b) rb0.b(this.f, i);
+            b bVar = (b) ea0.b(this.f, i);
             if (bVar != null) {
                 return bVar.a;
             }
@@ -142,7 +142,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (d = d(i)) == null || (weakReference = d.b) == null || weakReference.get() == null) {
             return;
         }
-        d.b.get().Y1();
+        d.b.get().a2();
     }
 
     public void f(int i) {
@@ -152,7 +152,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (d = d(i)) == null || (weakReference = d.b) == null || weakReference.get() == null) {
             return;
         }
-        d.b.get().Z1();
+        d.b.get().b2();
     }
 
     public void g(int i) {
@@ -162,7 +162,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (d = d(i)) == null || (weakReference = d.b) == null || weakReference.get() == null) {
             return;
         }
-        d.b.get().a2();
+        d.b.get().c2();
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -198,10 +198,10 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
                 bundle.putParcelable("tab_entity_item", this.f.get(i).a);
                 bundle.putString("source", this.b);
                 bundle.putString("scheme_def_tab_type", this.c);
-                LiveSubTabFragment V1 = LiveSubTabFragment.V1(bundle);
-                V1.L0(this.d);
-                V1.K0(this.e);
-                bVar.b = new WeakReference<>(V1);
+                LiveSubTabFragment X1 = LiveSubTabFragment.X1(bundle);
+                X1.N0(this.d);
+                X1.M0(this.e);
+                bVar.b = new WeakReference<>(X1);
             }
             return bVar.b.get();
         }
@@ -232,19 +232,19 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
     public void h(String str) {
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || rb0.c(this.f)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || ea0.c(this.f)) {
             return;
         }
         for (b bVar : this.f) {
             if (bVar != null && (weakReference = bVar.b) != null && weakReference.get() != null) {
-                bVar.b.get().W1(str);
+                bVar.b.get().Y1(str);
             }
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || rb0.c(this.f)) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || ea0.c(this.f)) {
             return;
         }
         this.f.clear();
@@ -275,7 +275,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (d = d(i)) == null || (weakReference = d.b) == null || weakReference.get() == null) {
             return;
         }
-        d.b.get().X1();
+        d.b.get().Z1();
     }
 
     public void k(int i) {
@@ -285,7 +285,7 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || (d = d(i)) == null || (weakReference = d.b) == null || weakReference.get() == null) {
             return;
         }
-        d.b.get().b2();
+        d.b.get().d2();
     }
 
     public void l(int i) {
@@ -296,16 +296,16 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || (list = this.f) == null || i < 0 || i >= list.size() || (bVar = this.f.get(i)) == null || (weakReference = bVar.b) == null || weakReference.get() == null) {
             return;
         }
-        bVar.b.get().F0(true);
+        bVar.b.get().H0(true);
     }
 
-    public void m(List<LiveTabEntity> list, LiveFeedWrapData liveFeedWrapData, q90 q90Var) {
+    public void m(List<LiveTabEntity> list, LiveFeedWrapData liveFeedWrapData, d80 d80Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048593, this, list, liveFeedWrapData, q90Var) == null) || rb0.c(list)) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048593, this, list, liveFeedWrapData, d80Var) == null) || ea0.c(list)) {
             return;
         }
         this.d = liveFeedWrapData;
-        this.e = q90Var;
+        this.e = d80Var;
         List<b> list2 = this.f;
         if (list2 != null) {
             list2.clear();
@@ -324,10 +324,10 @@ public class BaiduLiveTabAdapter extends FragmentStatePagerAdapter {
         b bVar;
         WeakReference<LiveSubTabFragment> weakReference;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048594, this, str, str2, i) == null) || rb0.c(this.f) || (bVar = (b) rb0.b(this.f, i)) == null || (weakReference = bVar.b) == null || weakReference.get() == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048594, this, str, str2, i) == null) || ea0.c(this.f) || (bVar = (b) ea0.b(this.f, i)) == null || (weakReference = bVar.b) == null || weakReference.get() == null) {
             return;
         }
-        bVar.b.get().l2(str, str2);
+        bVar.b.get().n2(str, str2);
     }
 
     @Override // androidx.fragment.app.FragmentStatePagerAdapter, androidx.viewpager.widget.PagerAdapter

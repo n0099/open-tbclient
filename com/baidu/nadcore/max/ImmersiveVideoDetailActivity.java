@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.en0;
+import com.repackage.rl0;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -148,8 +148,8 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
                 setSlideCancelActivityTransparent(true);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d05ab);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b2d);
+            setContentView(R.layout.obfuscated_res_0x7f0d05a1);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091adc);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.rootview)");
             this.rootView = (FrameLayout) findViewById;
             getWindow().setFormat(-3);
@@ -174,11 +174,11 @@ public final class ImmersiveVideoDetailActivity extends BaseActivity {
             if (componentArchManager3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("componentManager");
             }
-            en0 en0Var = (en0) componentArchManager3.q(en0.class);
-            if (en0Var != null) {
+            rl0 rl0Var = (rl0) componentArchManager3.q(rl0.class);
+            if (rl0Var != null) {
                 String str = ClogBuilder.LogType.VIDEO_LP_PV.type;
                 Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.VIDEO_LP_PV.type");
-                en0Var.a(str, "");
+                rl0Var.a(str, "");
             }
             setSlideCancelActivityTransparent(false);
         }

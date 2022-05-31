@@ -66,7 +66,10 @@ public class UrlSchemaHelper {
     public static final String PREFIX_MANGA = "manga:url=";
     public static final String REAL_NAME_AUTH_URL = "https://wappass.baidu.com/passport/realnamewidget?tpl=tieba&adapter=3&nomenu=1";
     public static final String REDIRECT_JUMP_KEY = "jump_webview_type=2";
+    public static final String SCHEMA_AGREE_ME = "com.baidu.tieba://unidispatch/agreemepage";
+    public static final String SCHEMA_AT_ME = "com.baidu.tieba://unidispatch/atmepage";
     public static final String SCHEMA_CHUSHOU_LIVE_SDK = "tiebachushou://";
+    public static final String SCHEMA_FANS_PAGE = "com.baidu.tieba://unidispatch/fanspage";
     public static final String SCHEMA_FORUM_BROADCAST_REVIEWED = "com.baidu.tieba://unidispatch/forumbroadcast/reviewed";
     public static final String SCHEMA_FORUM_BROADCAST_SINGLE_FEED = "com.baidu.tieba://unidispatch/forumbroadcast/singlefeed";
     public static final String SCHEMA_FORUM_DETAIL_FLUTTER = "com.baidu.tieba://unidispatch/forumDetail?forumId=";

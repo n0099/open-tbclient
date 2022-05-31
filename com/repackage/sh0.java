@@ -1,127 +1,151 @@
 package com.repackage;
 
-import android.content.Context;
+import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class sh0 {
+public class sh0 implements yi0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<uh0> d;
-    public static final List<wh0> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, uh0> a;
-    public final Map<String, wh0> b;
-    public final ArrayList<String> c;
+    public final ei0 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755320682, "Lcom/repackage/sh0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sh0 a;
+
+        public a(sh0 sh0Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sh0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755320682, "Lcom/repackage/sh0;");
-                return;
+            this.a = sh0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                cj0.c(this.a.a.h);
             }
         }
-        di0 di0Var = new di0();
-        d = di0Var.a.getList();
-        e = di0Var.b.getList();
     }
 
-    public sh0() {
+    public sh0(@NonNull ei0 ei0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ei0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = Collections.synchronizedMap(new LinkedHashMap());
-        this.c = new ArrayList<>();
-        synchronized (sh0.class) {
-            if (d != null && this.a.isEmpty()) {
-                for (uh0 uh0Var : d) {
-                    if (uh0Var != null) {
-                        if (vy0.b(this.a, uh0Var.a()) == null) {
-                            vy0.e(this.a, uh0Var.a(), uh0Var);
-                        }
-                        if (!TextUtils.isEmpty(uh0Var.a())) {
-                            ty0.b(this.c, uh0Var.a());
-                        }
-                    }
-                }
-            }
-            if (e != null && this.b.isEmpty()) {
-                for (wh0 wh0Var : e) {
-                    this.b.put(wh0Var.a(), wh0Var);
-                }
-            }
+        this.a = ei0Var;
+    }
+
+    @Override // com.repackage.yi0
+    public void a(int i, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || j < 0 || j2 <= 0 || j > j2) {
+            return;
+        }
+        this.a.i = (float) jx0.a(j, j2);
+        this.a.c = AdDownloadStatus.DOWNLOADING;
+        rh0.b().e(AdDownloadAction.PROGRESS_UPDATE, this.a);
+    }
+
+    @Override // com.repackage.yi0
+    public void b(long j, File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, file) == null) {
+            AdDownloadAction adDownloadAction = this.a.c == AdDownloadStatus.PAUSE ? AdDownloadAction.RESUME : AdDownloadAction.START;
+            this.a.l = System.currentTimeMillis();
+            ei0 ei0Var = this.a;
+            ei0Var.c = AdDownloadStatus.DOWNLOADING;
+            ei0Var.h = file;
+            ei0Var.q.d = j;
+            rh0.b().e(adDownloadAction, this.a);
+            uh0.a().update(this.a);
+            uh0.a().c(this.a);
         }
     }
 
-    public boolean a(@NonNull Context context, @NonNull yh0 yh0Var, @Nullable Map<String, Object> map, @Nullable ci0 ci0Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.yi0
+    public void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, yh0Var, map, ci0Var)) == null) {
-            if (b(context, yh0Var)) {
-                hi0.b(ci0Var, yh0Var, 403, false);
-                return false;
-            }
-            uh0 uh0Var = hi0.f(yh0Var.a()) ? (uh0) vy0.b(this.a, yh0Var.a()) : null;
-            if (hi0.g(yh0Var.c()) && uh0Var != null) {
-                yh0Var.f();
-                return uh0Var.b(context, yh0Var, map, ci0Var);
-            }
-            return zh0.a().a(context, yh0Var.b(), map, ci0Var);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c = AdDownloadStatus.PAUSE;
+            rh0.b().e(AdDownloadAction.PAUSE, this.a);
+            li0.f().h(this.a, "notify_type_pause");
+            uh0.a().c(this.a);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public boolean b(Context context, yh0 yh0Var) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.yi0
+    public void onError() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yh0Var)) == null) {
-            if (this.b.isEmpty()) {
-                return false;
-            }
-            wh0 wh0Var = null;
-            try {
-                for (Map.Entry<String, wh0> entry : this.b.entrySet()) {
-                    if (entry != null) {
-                        wh0Var = entry.getValue();
-                    }
-                    if (wh0Var != null && wh0Var.b(context, yh0Var)) {
-                        return true;
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ei0 ei0Var = this.a;
+            ei0Var.c = AdDownloadStatus.NONE;
+            ei0Var.i = 0.0f;
+            ei0Var.j = 0.0f;
+            rh0.b().e(AdDownloadAction.FAIL, this.a);
+            li0.f().h(this.a, "notify_type_stop");
+            uh0.a().c(this.a);
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.yi0
+    public void onSuccess(int i) {
+        PackageInfo packageArchiveInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a.m = System.currentTimeMillis();
+            if (TextUtils.isEmpty(this.a.d)) {
+                ei0 ei0Var = this.a;
+                ei0Var.d = cj0.a(ei0Var.h);
+            }
+            if (this.a.h != null && (packageArchiveInfo = xg0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128)) != null) {
+                ei0 ei0Var2 = this.a;
+                ei0Var2.o = packageArchiveInfo.versionName;
+                ei0Var2.n = packageArchiveInfo.versionCode;
+            }
+            AdAppStateManager.instance().register(this.a);
+            ei0 ei0Var3 = this.a;
+            ei0Var3.c = AdDownloadStatus.COMPLETED;
+            ei0Var3.i = 1.0f;
+            ei0Var3.j = 1.0f;
+            rh0.b().e(AdDownloadAction.COMPLETE, this.a);
+            bj0.a().b(this.a);
+            li0.f().i(this.a);
+            uh0.a().c(this.a);
+            py0.a(new a(this), "ad_auto_install", 3, 1000L);
+        }
     }
 }

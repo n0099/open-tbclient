@@ -57,9 +57,9 @@ public class a extends com.kwad.sdk.f.kwai.a implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09106a);
-        this.c = (ImageView) a(R.id.obfuscated_res_0x7f09106b);
-        this.d = (TextView) a(R.id.obfuscated_res_0x7f09106c);
+        this.b = (ViewGroup) a(R.id.obfuscated_res_0x7f09102c);
+        this.c = (ImageView) a(R.id.obfuscated_res_0x7f09102d);
+        this.d = (TextView) a(R.id.obfuscated_res_0x7f09102e);
     }
 
     @Override // android.view.View.OnClickListener

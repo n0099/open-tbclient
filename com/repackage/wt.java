@@ -1,13 +1,14 @@
 package com.repackage;
 
-import com.baidu.bdtask.framework.ui.dialog.TaskDialogData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.utils.UniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vt;
 /* loaded from: classes7.dex */
-public abstract class wt<VM extends vt<? extends TaskDialogData>> implements xt<TaskDialogData, VM> {
+public final class wt implements vt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,5 +24,35 @@ public abstract class wt<VM extends vt<? extends TaskDialogData>> implements xt<
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.repackage.vt
+    public void a(String str) {
+        BDPTask t;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (t = BDPTask.m.t()) == null) {
+            return;
+        }
+        t.C(str);
+    }
+
+    @Override // com.repackage.vt
+    public void b(String str, UniqueId uniqueId) {
+        BDPTask t;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, uniqueId) == null) || (t = BDPTask.m.t()) == null) {
+            return;
+        }
+        t.G(str, uniqueId);
+    }
+
+    @Override // com.repackage.vt
+    public void c(String str, String str2) {
+        BDPTask t;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || (t = BDPTask.m.t()) == null) {
+            return;
+        }
+        t.u0(str, str2);
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -43,8 +43,8 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.b = false;
-        this.mImageWidth = mi.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = mi.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageWidth = li.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = li.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = 0L;
     }
 
@@ -132,8 +132,8 @@ public class PersonGroupModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.b = false;
-        this.mImageWidth = mi.d(TbadkApplication.getInst().getContext(), 70.0f);
-        this.mImageHeight = mi.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageWidth = li.d(TbadkApplication.getInst().getContext(), 70.0f);
+        this.mImageHeight = li.d(TbadkApplication.getInst().getContext(), 70.0f);
         this.friendUid = j;
     }
 }

@@ -490,7 +490,7 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public VideoDraftBean m38clone() {
+    public VideoDraftBean m36clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

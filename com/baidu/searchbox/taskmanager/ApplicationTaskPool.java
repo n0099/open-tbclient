@@ -69,9 +69,13 @@ import com.baidu.searchbox.task.view.appcreate.CreatePersonalizeViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitBearAdViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorView2Task;
 import com.baidu.searchbox.task.view.appcreate.InitBottomIndicatorViewTask;
+import com.baidu.searchbox.task.view.appcreate.InitFragmentViewInAppTask;
+import com.baidu.searchbox.task.view.appcreate.InitNoNetworkViewTask;
 import com.baidu.searchbox.task.view.appcreate.InitPersonalizeChildViewTask;
 import com.baidu.searchbox.task.view.mainactivity.InitAdCardViewTask;
+import com.baidu.searchbox.task.view.mainactivity.InitFragmentViewInActivityTask;
 import com.baidu.searchbox.task.view.mainactivity.InitHomeTabBarViewTask;
+import com.baidu.searchbox.task.view.mainactivity.InitNavigationBarTask;
 import com.baidu.searchbox.task.view.mainactivity.InitPersonalizeViewTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
@@ -135,6 +139,8 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 }
                 arrayList.add(new InitUBCTask());
                 arrayList.add(new InitUaTask());
+                arrayList.add(new InitAppSettingTask());
+                arrayList.add(new InitViewConfigTask());
             }
             return arrayList;
         }
@@ -163,8 +169,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
                 arrayList.add(new InitAbi64WebViewCompatTask());
                 arrayList.add(new ApplicationAsyncTask());
             } else if (i == 1) {
-                arrayList.add(new InitAppSettingTask());
-                arrayList.add(new InitViewConfigTask());
                 arrayList.add(new InitBearTask());
                 arrayList.add(new InitCertVerifyTask());
                 arrayList.add(new InitLaunchSyncTask());
@@ -236,6 +240,8 @@ public class ApplicationTaskPool extends BaseTaskPool {
             arrayList.add(new InitHomeTabBarViewTask());
             arrayList.add(new InitPersonalizeViewTask());
             arrayList.add(new InitAdCardViewTask());
+            arrayList.add(new InitNavigationBarTask());
+            arrayList.add(new InitFragmentViewInActivityTask());
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -252,6 +258,8 @@ public class ApplicationTaskPool extends BaseTaskPool {
             arrayList.add(new InitBottomIndicatorView2Task());
             arrayList.add(new CreatePersonalizeViewTask());
             arrayList.add(new InitPersonalizeChildViewTask());
+            arrayList.add(new InitNoNetworkViewTask());
+            arrayList.add(new InitFragmentViewInAppTask());
             return arrayList;
         }
         return (List) invokeV.objValue;

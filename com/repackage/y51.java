@@ -1,273 +1,234 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadCode;
-import com.baidu.nadcore.download.view.IDownloadViewCreator;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
-import com.baidu.tieba.R;
+import android.content.pm.Signature;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
+import java.security.cert.Certificate;
+import java.util.Enumeration;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 /* loaded from: classes7.dex */
-public class y51 extends u51 {
+public class y51 {
     public static /* synthetic */ Interceptable $ic;
+    public static Object a;
+    public static WeakReference<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TextView f;
-    public final RelativeLayout g;
-    public final hk0<?> h;
-    public ck0 i;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y51 a;
-
-        public a(y51 y51Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755190916, "Lcom/repackage/y51;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y51Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = y51Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.i == null) {
-                return;
-            }
-            this.a.i.l();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ik0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ y51 b;
-
-        public b(y51 y51Var, AdBaseModel adBaseModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y51Var, adBaseModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = y51Var;
-            this.a = adBaseModel;
-        }
-
-        @Override // com.repackage.ik0
-        public void a(rj0 rj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, rj0Var) == null) {
-                y51 y51Var = this.b;
-                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
-                    return;
-                }
-                this.b.e.e(this.a);
-            }
-        }
-
-        @Override // com.repackage.ik0
-        public void b(rj0 rj0Var, AdDownloadCode adDownloadCode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rj0Var, adDownloadCode) == null) {
-                y51 y51Var = this.b;
-                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
-                    return;
-                }
-                this.b.e.c(this.a);
-            }
-        }
-
-        @Override // com.repackage.ik0
-        public void c(rj0 rj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rj0Var) == null) {
-                y51 y51Var = this.b;
-                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
-                    return;
-                }
-                this.b.e.a(this.a);
-            }
-        }
-
-        @Override // com.repackage.ik0
-        public void d(rj0 rj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, rj0Var) == null) {
-                y51 y51Var = this.b;
-                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
-                    return;
-                }
-                this.b.e.c(this.a);
-            }
-        }
-
-        @Override // com.repackage.ik0
-        public void e(rj0 rj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, rj0Var) == null) {
-                y51 y51Var = this.b;
-                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
-                    return;
-                }
-                this.b.e.a(this.a);
-            }
-        }
-
-        @Override // com.repackage.ik0
-        public void f(rj0 rj0Var, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048581, this, rj0Var, f) == null) {
-                y51 y51Var = this.b;
-                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
-                    return;
-                }
-                this.b.e.g(this.a, f);
-            }
-        }
-
-        @Override // com.repackage.ik0
-        public void g(rj0 rj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, rj0Var) == null) {
-                y51 y51Var = this.b;
-                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
-                    return;
-                }
-                this.b.e.b(this.a);
-            }
-        }
-
-        @Override // com.repackage.ik0
-        public void h(rj0 rj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, rj0Var) == null) {
-                y51 y51Var = this.b;
-                if (y51Var.e == null || !y51Var.n(rj0Var, this.a)) {
-                    return;
-                }
-                this.b.e.f(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y51(int i, View view2) {
-        super(i, view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755190916, "Lcom/repackage/y51;");
                 return;
             }
         }
-        this.f = (TextView) a(R.id.obfuscated_res_0x7f090982);
-        this.g = (RelativeLayout) a(R.id.obfuscated_res_0x7f0914d4);
-        view2.setBackgroundColor(0);
-        this.h = uk0.a(this.g, IDownloadViewCreator.ViewType.FEED_DOWNLOAD_VIEW);
-        this.g.setOnClickListener(new a(this));
-        m();
+        a = new Object();
     }
 
-    @Override // com.repackage.u51
-    public void e() {
-        ck0 ck0Var;
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0085, code lost:
+        r11 = com.repackage.y51.a;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0087, code lost:
+        monitor-enter(r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0088, code lost:
+        com.repackage.y51.b = r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x008a, code lost:
+        monitor-exit(r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x008b, code lost:
+        if (r4 == null) goto L90;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x008e, code lost:
+        if (r4.length <= 0) goto L90;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0090, code lost:
+        r11 = r4.length;
+        r1 = new android.content.pm.Signature[r4.length];
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x0094, code lost:
+        if (r6 >= r11) goto L85;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x0096, code lost:
+        r1[r6] = new android.content.pm.Signature(r4[r6].getEncoded());
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00a3, code lost:
+        r6 = r6 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00a6, code lost:
+        r0.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00aa, code lost:
+        r0.close();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Signature[] a(String str) {
+        InterceptResult invokeL;
+        JarFile jarFile;
+        byte[] bArr;
+        JarFile jarFile2;
+        Signature[] signatureArr;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ck0Var = this.i) == null) {
-            return;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
+            return (Signature[]) invokeL.objValue;
         }
-        ck0Var.j();
-        this.i = null;
-    }
-
-    public final void m() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (textView = this.f) == null) {
-            return;
-        }
-        textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060251));
-    }
-
-    public final boolean n(rj0 rj0Var, AdBaseModel adBaseModel) {
-        InterceptResult invokeLL;
-        tn0 tn0Var;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, rj0Var, adBaseModel)) == null) ? (rj0Var == null || adBaseModel == null || (tn0Var = adBaseModel.l) == null || !TextUtils.equals(rj0Var.g, tn0Var.c) || !TextUtils.equals(rj0Var.d(), tn0Var.d)) ? false : true : invokeLL.booleanValue;
-    }
-
-    public final void o(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) || this.f == null) {
-            return;
-        }
-        this.f.setTextColor(getResources().getColor(adBaseModel.b ? R.color.obfuscated_res_0x7f060281 : R.color.obfuscated_res_0x7f060251));
-    }
-
-    @Override // com.repackage.u51
-    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, adBaseModel, nadExpressNaBaseView) == null) {
-            super.update(adBaseModel, nadExpressNaBaseView);
-            if (u51.c(adBaseModel) && adBaseModel.h != null) {
-                m();
-                String str = adBaseModel.h.b.a;
-                if (!TextUtils.isEmpty(str) && (textView = this.f) != null) {
-                    textView.setText(str);
-                    o(adBaseModel);
-                }
-                if (TextUtils.isEmpty(adBaseModel.f.d)) {
-                    return;
-                }
-                this.i = new ck0(rj0.b(adBaseModel), this.h);
-                l51 l51Var = this.e;
-                if (l51Var != null) {
-                    l51Var.d(adBaseModel);
-                }
-                this.i.n(new b(this, adBaseModel));
-                return;
+        synchronized (a) {
+            WeakReference<byte[]> weakReference = b;
+            jarFile = null;
+            if (weakReference != null) {
+                b = null;
+                bArr = weakReference.get();
+            } else {
+                bArr = null;
             }
-            i(8);
+            if (bArr == null) {
+                bArr = new byte[8192];
+                weakReference = new WeakReference<>(bArr);
+            }
+        }
+        try {
+            jarFile2 = new JarFile(str);
+            try {
+                Enumeration<JarEntry> entries = jarFile2.entries();
+                Certificate[] certificateArr = null;
+                while (true) {
+                    int i = 0;
+                    if (!entries.hasMoreElements()) {
+                        break;
+                    }
+                    JarEntry nextElement = entries.nextElement();
+                    if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
+                        Certificate[] b2 = b(jarFile2, nextElement, bArr);
+                        if (b2 == null) {
+                            try {
+                                jarFile2.close();
+                            } catch (IOException unused) {
+                            }
+                            return null;
+                        } else if (certificateArr == null) {
+                            certificateArr = b2;
+                        } else {
+                            for (int i2 = 0; i2 < certificateArr.length; i2++) {
+                                int i3 = 0;
+                                while (true) {
+                                    if (i3 >= b2.length) {
+                                        z = false;
+                                        break;
+                                    } else if (certificateArr[i2] != null && certificateArr[i2].equals(b2[i3])) {
+                                        z = true;
+                                        break;
+                                    } else {
+                                        i3++;
+                                    }
+                                }
+                                if (!z || certificateArr.length != b2.length) {
+                                    try {
+                                        jarFile2.close();
+                                    } catch (IOException unused2) {
+                                    }
+                                    return null;
+                                }
+                            }
+                            continue;
+                        }
+                    }
+                }
+            } catch (Exception unused3) {
+                if (jarFile2 != null) {
+                    try {
+                        jarFile2.close();
+                    } catch (IOException unused4) {
+                    }
+                }
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                jarFile = jarFile2;
+                if (jarFile != null) {
+                    try {
+                        jarFile.close();
+                    } catch (IOException unused5) {
+                    }
+                }
+                throw th;
+            }
+        } catch (Exception unused6) {
+            jarFile2 = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+        return signatureArr;
+        return null;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0031, code lost:
+        if (r1 == null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0033, code lost:
+        r1.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0038, code lost:
+        if (r1 == null) goto L23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x003b, code lost:
+        return null;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Certificate[] b(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
+        InterceptResult invokeLLL;
+        BufferedInputStream bufferedInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, jarFile, jarEntry, bArr)) != null) {
+            return (Certificate[]) invokeLLL.objValue;
+        }
+        BufferedInputStream bufferedInputStream2 = null;
+        try {
+            bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
+            while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
+                try {
+                } catch (IOException unused) {
+                } catch (RuntimeException unused2) {
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedInputStream2 = bufferedInputStream;
+                    if (bufferedInputStream2 != null) {
+                        try {
+                            bufferedInputStream2.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
+            try {
+                bufferedInputStream.close();
+            } catch (IOException unused4) {
+            }
+            return certificates;
+        } catch (IOException unused5) {
+            bufferedInputStream = null;
+        } catch (RuntimeException unused6) {
+            bufferedInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 }

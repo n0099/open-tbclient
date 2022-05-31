@@ -1,143 +1,340 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tbadk.TbSingleton;
+import android.util.SparseArray;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.coreExtra.data.CombineDownload;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+@SuppressLint({"UseSparseArrays"})
 /* loaded from: classes5.dex */
-public class cj5 {
+public class cj5 extends BaseAdapter implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseArray<Integer> d;
+    public static HashMap<b, Integer> e;
+    public static HashMap<b, Integer> f;
     public transient /* synthetic */ FieldHolder $fh;
+    public NewFriendsActivity a;
+    public List<n37> b;
+    public c c;
 
-    public static String a() {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+
+        public b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z;
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                return obj != null && b.class == obj.getClass() && this.a == ((b) obj).a;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 31 + (this.a ? 1231 : 1237);
+            }
+            return invokeV.intValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(int i, int i2, View view2, n37 n37Var);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HeadImageView a;
+        public TextView b;
+        public TextView c;
+        public TextView d;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void a(n37 n37Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, n37Var) == null) {
+                boolean z = false;
+                this.a.K(n37Var.e(), 12, false);
+                this.b.setText(n37Var.d());
+                if (!TextUtils.isEmpty(n37Var.a())) {
+                    this.c.setText(n37Var.a());
+                } else {
+                    this.c.setText("");
+                }
+                int f = n37Var.f();
+                this.d.setText(((Integer) cj5.d.get(f)).intValue());
+                this.d.setEnabled((f == 0 || f == 1) ? true : true);
+            }
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755795261, "Lcom/repackage/cj5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755795261, "Lcom/repackage/cj5;");
+                return;
+            }
+        }
+        d = new SparseArray<>();
+        e = new HashMap<>();
+        f = new HashMap<>();
+        d.put(0, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00b8));
+        d.put(4, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f00d7));
+        d.put(1, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d27));
+        d.put(2, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f0d58));
+        d.put(3, Integer.valueOf((int) R.string.obfuscated_res_0x7f0f158d));
+        e.put(new b(false), Integer.valueOf((int) R.drawable.btn_pass));
+        e.put(new b(true), Integer.valueOf((int) R.drawable.btn_all_blue));
+        f.put(new b(false), Integer.valueOf((int) R.color.btn_pass_text_color));
+        f.put(new b(true), Integer.valueOf((int) R.color.btn_agree_text_color));
+    }
+
+    public cj5(NewFriendsActivity newFriendsActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {newFriendsActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = newFriendsActivity;
+    }
+
+    public final int b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            List<n37> list = this.b;
+            if (list != null) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (j == this.b.get(i).b()) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+            return -1;
+        }
+        return invokeJ.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public n37 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b.get(i) : (n37) invokeI.objValue;
+    }
+
+    public synchronized void d(n37 n37Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, n37Var) == null) {
+            synchronized (this) {
+                if (this.b != null) {
+                    this.b.remove(n37Var);
+                }
+            }
+        }
+    }
+
+    public void e(List<n37> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void f(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.c = cVar;
+        }
+    }
+
+    public void g(n37 n37Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, n37Var) == null) {
+            if (this.b == null) {
+                this.b = new ArrayList();
+            }
+            if (n37Var == null || n37Var.b() == 0) {
+                return;
+            }
+            int b2 = b(n37Var.b());
+            if (b2 != -1) {
+                this.b.remove(b2);
+                this.b.add(0, n37Var);
+                return;
+            }
+            this.b.add(0, n37Var);
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String q = iu4.k().q("version_name", "");
-                if (TextUtils.isEmpty(versionName)) {
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            List<n37> list = this.b;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        d dVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof d)) {
+                dVar = (d) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0076, (ViewGroup) null);
+                dVar = new d(null);
+                dVar.a = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a93);
+                dVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a95);
+                dVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a94);
+                dVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a91);
+                view2.setTag(dVar);
+            }
+            n37 item = getItem(i);
+            dVar.a(item);
+            dVar.d.setTag(Integer.valueOf(i));
+            dVar.d.setOnClickListener(this);
+            this.a.getLayoutMode().k(TbadkCoreApplication.getInst().getSkinType() == 1);
+            this.a.getLayoutMode().j(view2);
+            Integer num = e.get(new b(item.f() == 1));
+            if (num != null) {
+                SkinManager.setBackgroundResource(dVar.d, num.intValue());
+            }
+            Integer num2 = f.get(new b(item.f() == 1));
+            if (num2 != null) {
+                SkinManager.setViewTextColor(dVar.d, num2.intValue(), 1);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public void h(List<n37> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
+            if (this.b == null) {
+                this.b = new ArrayList();
+            }
+            if (list != null) {
+                for (n37 n37Var : list) {
+                    g(n37Var);
                 }
-                if (versionName.equals(q)) {
-                    return iu4.k().q("apk_md5", "");
-                }
-                iu4.k().y("version_name", versionName);
-                String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 0));
-                iu4.k().y("apk_md5", aPKMd5);
-                return aPKMd5;
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.detailException(e);
-                return null;
             }
         }
-        return (String) invokeV.objValue;
     }
 
-    public static void b(Context context, VersionData versionData) {
-        String str;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, versionData) == null) {
-            try {
-                str = TbMd5.creatSignInt(TbadkCoreApplication.getInst().getContext().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getContext().getPackageName(), 64));
-            } catch (PackageManager.NameNotFoundException e) {
-                BdLog.detailException(e);
-                str = "-1";
-                Intent intent = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-                intent.setFlags(268435488);
-                intent.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-                intent.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-                intent.putExtra("func", "11");
-                Bundle bundle = new Bundle();
-                bundle.putInt("versioncode", versionData.getNewVersionCode());
-                bundle.putLong("patch_size", kg.g(versionData.getPatchSize(), 0L));
-                bundle.putString("patch_url", versionData.getPatch());
-                bundle.putString("sname", context.getString(R.string.obfuscated_res_0x7f0f029e));
-                bundle.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-                bundle.putString("downurl", versionData.getUrl());
-                bundle.putString("versionname", versionData.getNewVersion());
-                bundle.putString("iconurl", versionData.getTiebaIconUrl());
-                bundle.putString("updatetime", li.getDateStringDay(new Date(System.currentTimeMillis())));
-                bundle.putString("size", versionData.getSize());
-                bundle.putString("signmd5", str);
-                bundle.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
-                intent.putExtra("extra_client_downloadinfo", bundle);
-                context.startActivity(intent);
-            } catch (NumberFormatException e2) {
-                BdLog.detailException(e2);
-                str = "-1";
-                Intent intent2 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-                intent2.setFlags(268435488);
-                intent2.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-                intent2.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-                intent2.putExtra("func", "11");
-                Bundle bundle2 = new Bundle();
-                bundle2.putInt("versioncode", versionData.getNewVersionCode());
-                bundle2.putLong("patch_size", kg.g(versionData.getPatchSize(), 0L));
-                bundle2.putString("patch_url", versionData.getPatch());
-                bundle2.putString("sname", context.getString(R.string.obfuscated_res_0x7f0f029e));
-                bundle2.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-                bundle2.putString("downurl", versionData.getUrl());
-                bundle2.putString("versionname", versionData.getNewVersion());
-                bundle2.putString("iconurl", versionData.getTiebaIconUrl());
-                bundle2.putString("updatetime", li.getDateStringDay(new Date(System.currentTimeMillis())));
-                bundle2.putString("size", versionData.getSize());
-                bundle2.putString("signmd5", str);
-                bundle2.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
-                intent2.putExtra("extra_client_downloadinfo", bundle2);
-                context.startActivity(intent2);
-            }
-            Intent intent22 = new Intent("com.baidu.appsearch.extinvoker.LAUNCH");
-            intent22.setFlags(268435488);
-            intent22.putExtra("id", TbadkCoreApplication.getInst().getContext().getPackageName());
-            intent22.putExtra(UnitedSchemeConstants.UNITED_SCHEME_BACKUP, "0");
-            intent22.putExtra("func", "11");
-            Bundle bundle22 = new Bundle();
-            bundle22.putInt("versioncode", versionData.getNewVersionCode());
-            bundle22.putLong("patch_size", kg.g(versionData.getPatchSize(), 0L));
-            bundle22.putString("patch_url", versionData.getPatch());
-            bundle22.putString("sname", context.getString(R.string.obfuscated_res_0x7f0f029e));
-            bundle22.putString("packagename", TbadkCoreApplication.getInst().getContext().getPackageName());
-            bundle22.putString("downurl", versionData.getUrl());
-            bundle22.putString("versionname", versionData.getNewVersion());
-            bundle22.putString("iconurl", versionData.getTiebaIconUrl());
-            bundle22.putString("updatetime", li.getDateStringDay(new Date(System.currentTimeMillis())));
-            bundle22.putString("size", versionData.getSize());
-            bundle22.putString("signmd5", str);
-            bundle22.putString("tj", str + context.getString(R.string.obfuscated_res_0x7f0f029e));
-            intent22.putExtra("extra_client_downloadinfo", bundle22);
-            context.startActivity(intent22);
-        }
-    }
-
-    public static boolean c(Context context, CombineDownload combineDownload) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, combineDownload)) == null) ? (combineDownload == null || dj8.b(context, combineDownload.getAppProc()) || TextUtils.isEmpty(combineDownload.getAppUrl())) ? false : true : invokeLL.booleanValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || TbSingleton.getInstance().getSyncModel() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, view2) == null) || this.c == null) {
             return;
         }
-        ty4 syncModel = TbSingleton.getInstance().getSyncModel();
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), TbSingleton.getInstance().getSyncModel().s(), syncModel.j())));
+        int id = view2.getId();
+        int intValue = ((Integer) view2.getTag()).intValue();
+        this.c.a(id, intValue, view2, getItem(intValue));
     }
 }

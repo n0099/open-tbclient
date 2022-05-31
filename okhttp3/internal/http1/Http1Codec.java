@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.EOFException;
 import java.io.IOException;
 import java.net.ProtocolException;
@@ -185,7 +186,7 @@ public final class Http1Codec implements HttpCodec {
                 try {
                     this.bytesRemainingInChunk = this.this$0.source.readHexadecimalUnsignedLong();
                     String trim = this.this$0.source.readUtf8LineStrict().trim();
-                    if (this.bytesRemainingInChunk >= 0 && (trim.isEmpty() || trim.startsWith(";"))) {
+                    if (this.bytesRemainingInChunk >= 0 && (trim.isEmpty() || trim.startsWith(ParamableElem.DIVIDE_PARAM))) {
                         if (this.bytesRemainingInChunk == 0) {
                             this.hasMoreChunks = false;
                             HttpHeaders.receiveHeaders(this.this$0.client.cookieJar(), this.url, this.this$0.readHeaders());

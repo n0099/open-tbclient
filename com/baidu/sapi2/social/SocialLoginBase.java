@@ -50,10 +50,10 @@ public class SocialLoginBase extends BaseActivity implements NoProguard {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04d4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04ca);
             } catch (Throwable unused) {
             }
-            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b2c);
+            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091adb);
         }
     }
 }

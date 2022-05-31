@@ -81,7 +81,7 @@ public class ComplianceTextView extends TextView {
         this.f = obtainStyledAttributes.getDimensionPixelOffset(1, Cea708Decoder.COMMAND_DF2);
         this.i = obtainStyledAttributes.getColor(0, getResources().getColor(R.color.obfuscated_res_0x7f060752));
         if (getBackground() == null) {
-            setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080bb6));
+            setBackground(ContextCompat.getDrawable(context, R.drawable.obfuscated_res_0x7f080bc7));
         }
         getViewTreeObserver().addOnGlobalLayoutListener(this.j);
         obtainStyledAttributes.recycle();
@@ -96,7 +96,7 @@ public class ComplianceTextView extends TextView {
             spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(@NonNull View view2) {
-                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0302a().a(str).b(ComplianceTextView.this.d).a(ComplianceTextView.this.h).a());
+                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0303a().a(str).b(ComplianceTextView.this.d).a(ComplianceTextView.this.h).a());
                 }
 
                 @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -116,7 +116,7 @@ public class ComplianceTextView extends TextView {
             spannableStringBuilder.setSpan(new ClickableSpan() { // from class: com.kwad.sdk.compliance.widget.ComplianceTextView.2
                 @Override // android.text.style.ClickableSpan
                 public void onClick(@NonNull View view2) {
-                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0302a().a(str2).b(ComplianceTextView.this.e).a(ComplianceTextView.this.h).a());
+                    AdWebViewActivityProxy.launch(ComplianceTextView.this.getContext(), new AdWebViewActivityProxy.a.C0303a().a(str2).b(ComplianceTextView.this.e).a(ComplianceTextView.this.h).a());
                 }
 
                 @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle

@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.android.exoplayer2.text.webvtt.WebvttDecoder;
 import com.google.zxing.Result;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
@@ -20,7 +21,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class VCardResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern BEGIN_VCARD;
@@ -54,7 +55,7 @@ public final class VCardResultParser extends ResultParser {
         NEWLINE_ESCAPE = Pattern.compile("\\\\[nN]");
         VCARD_ESCAPES = Pattern.compile("\\\\([,;\\\\])");
         EQUALS = Pattern.compile("=");
-        SEMICOLON = Pattern.compile(";");
+        SEMICOLON = Pattern.compile(ParamableElem.DIVIDE_PARAM);
         UNESCAPED_SEMICOLONS = Pattern.compile("(?<!\\\\);+");
         COMMA = Pattern.compile(",");
         SEMICOLON_OR_COMMA = Pattern.compile("[;,]");

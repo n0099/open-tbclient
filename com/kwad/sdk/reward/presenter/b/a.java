@@ -242,7 +242,7 @@ public abstract class a extends g {
         cVar.a(new c.a() { // from class: com.kwad.sdk.reward.presenter.b.a.4
             @Override // com.kwad.sdk.core.webview.a.c.a
             public void a(final com.kwad.sdk.core.webview.a.kwai.c cVar2) {
-                com.kwad.sdk.core.download.a.a.a(new a.C0295a(a.this.q()).a(((g) a.this).a.g).a(((g) a.this).a.l).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.b.a.4.1
+                com.kwad.sdk.core.download.a.a.a(new a.C0296a(a.this.q()).a(((g) a.this).a.g).a(((g) a.this).a.l).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.b.a.4.1
                     @Override // com.kwad.sdk.core.download.a.a.b
                     public void a() {
                         if (cVar2.a) {
@@ -259,7 +259,7 @@ public abstract class a extends g {
         dVar2.a(new d.a() { // from class: com.kwad.sdk.reward.presenter.b.a.5
             @Override // com.kwad.sdk.core.webview.a.d.a
             public void a() {
-                com.kwad.sdk.core.download.a.a.a(new a.C0295a(a.this.q()).a(((g) a.this).a.g).a(((g) a.this).a.l).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.b.a.5.1
+                com.kwad.sdk.core.download.a.a.a(new a.C0296a(a.this.q()).a(((g) a.this).a.g).a(((g) a.this).a.l).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.b.a.5.1
                     @Override // com.kwad.sdk.core.download.a.a.b
                     public void a() {
                         a.this.B();

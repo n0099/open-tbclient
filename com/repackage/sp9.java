@@ -1,38 +1,43 @@
 package com.repackage;
 
-import android.content.Context;
-import android.location.Location;
-import android.location.LocationManager;
-import android.os.Looper;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.image.gif2.GifImageView;
 /* loaded from: classes7.dex */
-public class sp9 {
+public class sp9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ GifImageView a;
 
-    public static void a(Context context) {
+    public sp9(GifImageView gifImageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            mp9 mp9Var = new mp9(null);
-            try {
-                LocationManager locationManager = (LocationManager) context.getSystemService("location");
-                List<String> providers = locationManager.getProviders(true);
-                String str = providers.contains("network") ? "network" : providers.contains("gps") ? "gps" : null;
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                Location lastKnownLocation = locationManager.getLastKnownLocation(str);
-                if (lastKnownLocation != null) {
-                    mp9Var.onLocationChanged(lastKnownLocation);
-                } else {
-                    locationManager.requestLocationUpdates(str, 1000L, 0.0f, mp9Var, Looper.getMainLooper());
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gifImageView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = gifImageView;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GifImageView gifImageView = this.a;
+            gifImageView.b = null;
+            gifImageView.a = null;
+            gifImageView.g = null;
+            gifImageView.f = false;
         }
     }
 }

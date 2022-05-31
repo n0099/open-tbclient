@@ -100,7 +100,7 @@ public class en extends Notification.Builder {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m328a() {
+    public void m327a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
@@ -111,7 +111,7 @@ public class en extends Notification.Builder {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            m328a();
+            m327a();
             return super.build();
         }
         return (Notification) invokeV.objValue;

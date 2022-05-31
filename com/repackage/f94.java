@@ -1,18 +1,17 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-/* loaded from: classes6.dex */
-public class f94 implements a94<s94> {
+/* loaded from: classes5.dex */
+public class f94 {
     public static /* synthetic */ Interceptable $ic;
+    public static f94 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public v84 a;
 
     public f94() {
         Interceptable interceptable = $ic;
@@ -24,37 +23,93 @@ public class f94 implements a94<s94> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new v84();
+    }
+
+    public static f94 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            f94 f94Var = b;
+            if (f94Var != null) {
+                return f94Var;
+            }
+            synchronized (f94.class) {
+                if (b == null) {
+                    b = new f94();
+                }
+            }
+            return b;
+        }
+        return (f94) invokeV.objValue;
+    }
+
+    public r84 a(h94 h94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h94Var)) == null) {
+            if (h94Var == null) {
+                return null;
+            }
+            return new m94(h94Var, false);
+        }
+        return (r84) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
+            }
+            return f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(d94 d94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, d94Var) == null) {
+            synchronized (this) {
+                this.a.c(d94Var);
             }
         }
     }
 
-    @Override // com.repackage.a94
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    public synchronized <T> void f(h94<T> h94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
+        if (interceptable == null || interceptable.invokeL(1048580, this, h94Var) == null) {
+            synchronized (this) {
+                h94Var.s(false);
+                this.a.h(h94Var);
+            }
         }
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public synchronized void g(d94 d94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT NOT NULL,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL,independent INT DEFAULT 0,sub_pkg_name TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0, UNIQUE (app_id,sub_pkg_name));";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "pkg_sub" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.a94
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, d94Var) == null) {
+            synchronized (this) {
+                this.a.i(d94Var);
+            }
         }
     }
 }

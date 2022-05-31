@@ -37,9 +37,9 @@ public final class GiftStaticAutoGenerateUrlCollectorImpl implements ICmdRouter 
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
             new ArrayList();
-            hashMap.put("2002001", "com.baidu.tieba.gift.buyGift.GiftStatic");
-            hashMap.put("2002003", "com.baidu.tieba.gift.buyGift.GiftStatic");
-            hashMap.put("3001000", "com.baidu.tieba.gift.buyGift.GiftStatic");
+            hashMap.put("2002001", "com.baidu.tieba.gift.giftTab.GiftStatic");
+            hashMap.put("2002003", "com.baidu.tieba.gift.giftTab.GiftStatic");
+            hashMap.put("3001000", "com.baidu.tieba.gift.giftTab.GiftStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -53,11 +53,10 @@ public final class GiftStaticAutoGenerateUrlCollectorImpl implements ICmdRouter 
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add("MyGiftListActivityConfig");
-            arrayList.add("BuyGiftActivityConfig");
             arrayList.add("GiftTabActivityConfig");
             arrayList.add(UrlSchemaHelper.HTTP_JUMP_TO_USER_GIFT);
             arrayList.add(UrlSchemaHelper.HTTPS_JUMP_TO_USER_GIFT);
-            hashMap.put("com.baidu.tieba.gift.buyGift.GiftStatic", arrayList);
+            hashMap.put("com.baidu.tieba.gift.giftTab.GiftStatic", arrayList);
             return hashMap;
         }
         return (Map) invokeV.objValue;

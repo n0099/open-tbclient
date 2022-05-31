@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.CommonReq;
 import tbclient.GetSugTopic.DataReq;
 import tbclient.GetSugTopic.GetSugTopicReqIdl;
@@ -55,7 +55,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1191common = getCommon();
+            builder.f1187common = getCommon();
             builder.fid = Long.valueOf(this.fid);
             String str = this.prefix;
             if (str != null) {
@@ -71,7 +71,7 @@ public class HotTopicSelectNetMessage extends NetMessage {
             }
             builder.is_video_topic = Integer.valueOf(this.isVideoTopic ? 1 : 0);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             GetSugTopicReqIdl.Builder builder2 = new GetSugTopicReqIdl.Builder();
             builder2.data = builder.build(false);

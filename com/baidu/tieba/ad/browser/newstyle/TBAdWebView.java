@@ -13,8 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kh5;
-import com.repackage.rj0;
+import com.repackage.dg5;
+import com.repackage.ei0;
 /* loaded from: classes3.dex */
 public class TBAdWebView extends BaseAdWebView {
     public static /* synthetic */ Interceptable $ic;
@@ -41,16 +41,16 @@ public class TBAdWebView extends BaseAdWebView {
     }
 
     @Override // com.baidu.tieba.ad.webview.BaseAdWebView
-    public void b(@NonNull rj0 rj0Var, boolean z) {
+    public void b(@NonNull ei0 ei0Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, rj0Var, z) == null) {
-            if (!kh5.a().f() && !PermissionUtil.checkWriteExternalStorage(this.b)) {
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, ei0Var, z) == null) {
+            if (!dg5.a().f() && !PermissionUtil.checkWriteExternalStorage(this.b)) {
                 PermissionUtil.requestWriteExternalStorage((Activity) this.b, 0);
                 return;
             }
             BaseAdWebView.d dVar = this.e;
             if (dVar != null) {
-                dVar.onDownloadStart(rj0Var);
+                dVar.onDownloadStart(ei0Var);
             }
         }
     }

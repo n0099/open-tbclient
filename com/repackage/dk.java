@@ -4,18 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class dk extends wj {
+public class dk extends uj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hj a;
+    public boolean a;
+    public Map<String, String> b;
 
-    public dk(hj hjVar) {
+    public dk(boolean z, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hjVar};
+            Object[] objArr = {Boolean.valueOf(z), map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,7 +27,7 @@ public class dk extends wj {
                 return;
             }
         }
-        this.a = null;
-        this.a = hjVar;
+        this.a = z;
+        this.b = map;
     }
 }

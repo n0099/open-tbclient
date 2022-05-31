@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,11 +47,11 @@ public class z {
                 StringBuilder sb = new StringBuilder();
                 sb.append(str);
                 if (!TextUtils.isEmpty(str2)) {
-                    sb.append(";" + str2);
+                    sb.append(ParamableElem.DIVIDE_PARAM + str2);
                 }
                 String b2 = x0.b("ro.product.cpu.abilist");
                 if (!TextUtils.isEmpty(b2)) {
-                    sb.append(";" + b2);
+                    sb.append(ParamableElem.DIVIDE_PARAM + b2);
                 }
                 return sb.toString();
             } catch (Throwable th) {

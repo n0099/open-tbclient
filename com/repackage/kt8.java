@@ -1,129 +1,185 @@
 package com.repackage;
 
-import android.hardware.Camera;
-import android.view.MotionEvent;
+import android.media.CamcorderProfile;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Objects;
 /* loaded from: classes6.dex */
-public class kt8 {
+public class kt8 implements Comparable<kt8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
+    public final int a;
+    public final int b;
     public int c;
-    public Camera d;
-    public qt8 e;
 
-    public kt8(Camera camera) {
+    public kt8(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {camera};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.d = camera;
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Camera camera = this.d;
-            if (camera == null) {
-                return -1;
-            }
-            Camera.Parameters parameters = camera.getParameters();
-            if (parameters.isZoomSupported()) {
-                if (parameters.getMaxZoom() > 40) {
-                    return 40;
-                }
-                return parameters.getMaxZoom();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean b(MotionEvent motionEvent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull kt8 kt8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            qt8 qt8Var = this.e;
-            if (qt8Var == null || !qt8Var.j()) {
-                int action = motionEvent.getAction() & 255;
-                if (action == 0) {
-                    this.a = 0;
-                } else if (action != 2) {
-                    if (action == 5) {
-                        this.a = 1;
-                        this.b = e(motionEvent);
-                    }
-                } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
-                    return true;
-                } else {
-                    float e = e(motionEvent);
-                    int i = (int) ((e - this.b) / 10.0f);
-                    if (i >= 1 || i <= -1) {
-                        int i2 = this.c + i;
-                        if (i2 > a()) {
-                            i2 = a();
-                        }
-                        d(i2 >= 0 ? i2 : 0);
-                        this.b = e;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kt8Var)) == null) {
+            int i = this.a;
+            int i2 = this.b;
+            int i3 = i * i2;
+            int i4 = kt8Var.a;
+            int i5 = kt8Var.b;
+            return i3 == i4 * i5 ? this.c - kt8Var.c : (i * i2) - (i4 * i5);
+        }
+        return invokeL.intValue;
+    }
+
+    public CamcorderProfile b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == 720 && this.b == 480) {
+                return CamcorderProfile.get(4);
+            }
+            if (this.a == 1280 && this.b == 720) {
+                return CamcorderProfile.get(5);
+            }
+            if (this.a == 1920 && this.b == 1080) {
+                return CamcorderProfile.get(6);
+            }
+            if (this.a == 3840 && this.b == 2160) {
+                return CamcorderProfile.get(8);
+            }
+            return CamcorderProfile.get(5);
+        }
+        return (CamcorderProfile) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (this == obj) {
                 return true;
             }
-            return true;
+            if (obj instanceof kt8) {
+                kt8 kt8Var = (kt8) obj;
+                return this.a == kt8Var.a && this.b == kt8Var.b && this.c == kt8Var.c;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public void c(qt8 qt8Var) {
+    public boolean f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qt8Var) == null) {
-            this.e = qt8Var;
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? g(this, i) : invokeI.booleanValue;
     }
 
-    public final void d(int i) {
-        Camera camera;
+    public boolean g(kt8 kt8Var, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (camera = this.d) == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, kt8Var, i)) == null) {
+            if (kt8Var.e() == 720 && kt8Var.d() == 480) {
+                return CamcorderProfile.hasProfile(i, 2002);
+            }
+            if (kt8Var.e() == 1280 && kt8Var.d() == 720) {
+                return CamcorderProfile.hasProfile(i, 2003);
+            }
+            if (kt8Var.e() == 1920 && kt8Var.d() == 1080) {
+                return CamcorderProfile.hasProfile(i, 2004);
+            }
+            if (kt8Var.e() == 3840 && kt8Var.d() == 2160) {
+                return CamcorderProfile.hasProfile(i, 2005);
+            }
+            return false;
         }
-        Camera.Parameters parameters = camera.getParameters();
-        if (parameters.isZoomSupported()) {
-            parameters.setZoom(i);
-            this.d.setParameters(parameters);
+        return invokeLI.booleanValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.c = i;
         }
     }
 
-    public final float e(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return 0.0f;
-            }
-            double x = motionEvent.getX(0) - motionEvent.getX(1);
-            double y = motionEvent.getY(0) - motionEvent.getY(1);
-            return (float) Math.sqrt((x * x) + (y * y));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? Objects.hash(Integer.valueOf(e()), Integer.valueOf(d()), Integer.valueOf(c())) : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.a + "x" + this.b + " " + this.c + "p";
         }
-        return invokeL.floatValue;
+        return (String) invokeV.objValue;
+    }
+
+    public kt8(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = 30;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 }

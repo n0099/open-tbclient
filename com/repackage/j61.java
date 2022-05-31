@@ -1,10 +1,16 @@
 package com.repackage;
 
-import android.app.Application;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IHostAppRuntime;
-import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.payment.PaymentManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,13 +18,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class j61 {
+public class j61 implements l61 {
     public static /* synthetic */ Interceptable $ic;
-    public static j61 b;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public dc1<IHostAppRuntime> a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +40,7 @@ public class j61 {
                 return;
             }
         }
-        b = new j61();
+        a = SchemeConfig.getSchemeHead() + "://swan/";
     }
 
     public j61() {
@@ -46,30 +53,111 @@ public class j61 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        c();
     }
 
-    public static j61 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.l61
+    public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (j61) invokeV.objValue;
-    }
-
-    public Application a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get().getApplication() : (Application) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            bc1 b2 = bc1.b();
-            this.a = b2;
-            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            oi2.S().a(activity, str, str2);
         }
+    }
+
+    @Override // com.repackage.l61
+    public void aLiAuth(Activity activity, String str, r61<JSONObject> r61Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, r61Var) == null) {
+            oi2.S().f(activity, str, r61Var);
+        }
+    }
+
+    @Override // com.repackage.l61
+    public boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? oi2.S().b(context) : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.l61
+    public void c(Activity activity, String str, g61 g61Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, g61Var) == null) {
+            oi2.S().c(activity, str, g61Var);
+        }
+    }
+
+    @Override // com.repackage.l61
+    public void d(Context context, JSONObject jSONObject, g61 g61Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, g61Var) == null) {
+            oi2.S().d(context, jSONObject, g61Var);
+        }
+    }
+
+    @Override // com.repackage.l61
+    public void e(Activity activity, String str, g61 g61Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, g61Var) == null) {
+            oi2.S().e(activity, str, g61Var);
+        }
+    }
+
+    @Override // com.repackage.l61
+    public void f(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
+            if (jSONObject == null) {
+                PaymentManager.i(3, "支付信息不能为空");
+                return;
+            }
+            String optString = jSONObject.optString("appKey");
+            String optString2 = jSONObject.optString("redirectUrl");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                SchemeRouter.invoke(context, a + optString + optString2);
+                return;
+            }
+            PaymentManager.i(3, "支付信息不能为空");
+        }
+    }
+
+    @Override // com.repackage.l61
+    public void g(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
+            String str = vr2.b().a;
+            if (TextUtils.isEmpty(str)) {
+                d61.a(bundle);
+                return;
+            }
+            xv2 e = xv2.e();
+            zv2 zv2Var = new zv2(119, bundle);
+            zv2Var.c(str);
+            zv2Var.p(true);
+            e.h(zv2Var);
+        }
+    }
+
+    @Override // com.repackage.l61
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            vr2.b().a = str;
+        }
+    }
+
+    @Override // com.repackage.l61
+    public void i(Activity activity, JSONObject jSONObject, g61 g61Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048585, this, activity, jSONObject, g61Var) == null) {
+        }
+    }
+
+    @Override // com.repackage.l61
+    public String j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? oi2.G0().a(context) : (String) invokeL.objValue;
     }
 }

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd9;
+import com.repackage.da9;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -92,44 +92,45 @@ public class ContentUtils {
 
     public static JSONObject createFetchReqContent(@NonNull FetchTaskObj fetchTaskObj) {
         InterceptResult invokeL;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, fetchTaskObj)) != null) {
-            return (JSONObject) invokeL.objValue;
-        }
-        JSONObject jSONObject = null;
-        try {
-            JSONObject jSONObject2 = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, fetchTaskObj)) == null) {
+            JSONObject jSONObject2 = null;
             try {
-                jSONObject2.put("type", fetchTaskObj.getType());
-                jSONObject2.put("value", fetchTaskObj.getValue());
-                jSONObject2.put("jobid", fetchTaskObj.getJobID());
-                jSONObject2.put("version", fetchTaskObj.getVersion());
-                if (!TextUtils.isEmpty(fetchTaskObj.getStatus())) {
-                    jSONObject2.put("status", fetchTaskObj.getStatus());
-                }
-                if (!TextUtils.isEmpty(fetchTaskObj.getOrigin())) {
-                    jSONObject2.put("origin", fetchTaskObj.getOrigin());
-                }
-                if (!TextUtils.isEmpty(fetchTaskObj.getFileMeta())) {
-                    jSONObject2.put(UploadConstant.FILEMETA, fetchTaskObj.getFileMeta());
-                }
-                if (!TextUtils.isEmpty(fetchTaskObj.getFileID())) {
-                    jSONObject2.put("fileid", fetchTaskObj.getFileID());
-                }
-                jSONObject2.put("timestamp", String.valueOf(System.currentTimeMillis() / TimeUnit.SECONDS.toMillis(1L)));
-                jSONObject2.put("sign", createSign(jSONObject2, "fetchlog"));
-                return jSONObject2;
+                jSONObject = new JSONObject();
             } catch (JSONException e) {
                 e = e;
-                jSONObject = jSONObject2;
+            }
+            try {
+                jSONObject.put("type", fetchTaskObj.getType());
+                jSONObject.put("value", fetchTaskObj.getValue());
+                jSONObject.put("jobid", fetchTaskObj.getJobID());
+                jSONObject.put("version", fetchTaskObj.getVersion());
+                if (!TextUtils.isEmpty(fetchTaskObj.getStatus())) {
+                    jSONObject.put("status", fetchTaskObj.getStatus());
+                }
+                if (!TextUtils.isEmpty(fetchTaskObj.getOrigin())) {
+                    jSONObject.put("origin", fetchTaskObj.getOrigin());
+                }
+                if (!TextUtils.isEmpty(fetchTaskObj.getFileMeta())) {
+                    jSONObject.put(UploadConstant.FILEMETA, fetchTaskObj.getFileMeta());
+                }
+                if (!TextUtils.isEmpty(fetchTaskObj.getFileID())) {
+                    jSONObject.put("fileid", fetchTaskObj.getFileID());
+                }
+                jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / TimeUnit.SECONDS.toMillis(1L)));
+                jSONObject.put("sign", createSign(jSONObject, "fetchlog"));
+                return jSONObject;
+            } catch (JSONException e2) {
+                e = e2;
+                jSONObject2 = jSONObject;
                 if (DEBUG) {
                     e.printStackTrace();
                 }
-                return jSONObject;
+                return jSONObject2;
             }
-        } catch (JSONException e2) {
-            e = e2;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
     public static FetchResult createResult(JSONObject jSONObject) {
@@ -198,7 +199,7 @@ public class ContentUtils {
                     stringBuffer.append((String) entry.getValue());
                 }
                 stringBuffer.append(str);
-                return jd9.c(stringBuffer.toString().getBytes(), false);
+                return da9.c(stringBuffer.toString().getBytes(), false);
             }
             return "";
         }

@@ -1,11 +1,13 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface ph6 {
-    void a(boolean z);
+    th6 a(int i);
 
-    void b(boolean z, boolean z2);
+    String b();
 
-    boolean c();
+    void c(int i, int i2);
 
-    void onChangeSkinType(int i);
+    void d(int i, int i2);
+
+    boolean e(int i, int i2);
 }

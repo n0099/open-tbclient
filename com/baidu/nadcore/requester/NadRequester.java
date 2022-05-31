@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki0;
-import com.repackage.sy0;
+import com.repackage.fx0;
+import com.repackage.xg0;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class NadRequester {
     public static /* synthetic */ Interceptable $ic;
-    public static final sy0 a;
+    public static final fx0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes2.dex */
@@ -101,7 +101,7 @@ public class NadRequester {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements sy0 {
+    public static class a implements fx0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -119,7 +119,7 @@ public class NadRequester {
             }
         }
 
-        @Override // com.repackage.sy0
+        @Override // com.repackage.fx0
         public void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
@@ -147,17 +147,17 @@ public class NadRequester {
                 return;
             }
         }
-        sy0 sy0Var = (sy0) ServiceManager.getService(sy0.a);
-        if (sy0Var == null) {
-            sy0Var = new a();
+        fx0 fx0Var = (fx0) ServiceManager.getService(fx0.a);
+        if (fx0Var == null) {
+            fx0Var = new a();
         }
-        a = sy0Var;
+        a = fx0Var;
     }
 
     public static void a(@NonNull RequestParameters requestParameters, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, requestParameters, bVar) == null) {
-            if (ki0.a().v()) {
+            if (xg0.a().v()) {
                 a.a(requestParameters, bVar);
             } else {
                 bVar.a(new Error("Blocked by client"));

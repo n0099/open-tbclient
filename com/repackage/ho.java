@@ -1,301 +1,274 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import android.media.AudioRecord;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class ho {
     public static /* synthetic */ Interceptable $ic;
+    public static ho e;
+    public static int[] f;
+    public static short[] g;
+    public static short[] h;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<c> a;
-    public ArrayList<c> b;
-    public a c;
+    public int a;
+    public short b;
+    public short c;
+    public int d;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onPreLoad();
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ho hoVar, View view2) {
-            super(view2);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964038178, "Lcom/repackage/ho;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hoVar, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964038178, "Lcom/repackage/ho;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public int b;
-        public TypeAdapter.ViewHolder c;
-        public Object d;
-        public boolean e;
-
-        public c(ho hoVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hoVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        f = new int[]{8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
+        g = new short[]{2, 3};
+        h = new short[]{2, 16, 12, 3};
     }
 
     public ho() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
+        this.d = -2;
     }
 
-    public void a(View view2, Object obj, boolean z, boolean z2, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || view2 == null) {
-            return;
-        }
-        c cVar = new c(this);
-        cVar.c = new TypeAdapter.ViewHolder(view2);
-        cVar.d = obj;
-        cVar.e = z2;
-        int id = BdUniqueId.gen().getId();
-        cVar.b = id;
-        cVar.a = id;
-        view2.setTag("FOOTER");
-        if (i >= 0 && i <= this.b.size()) {
-            this.b.add(i, cVar);
-        } else {
-            this.b.add(cVar);
-        }
-    }
-
-    public void b(View view2, Object obj, boolean z, boolean z2, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || view2 == null) {
-            return;
-        }
-        c cVar = new c(this);
-        cVar.c = new TypeAdapter.ViewHolder(view2);
-        cVar.d = obj;
-        cVar.e = z2;
-        int id = BdUniqueId.gen().getId();
-        cVar.b = id;
-        cVar.a = id;
-        view2.setTag("HEADER");
-        if (i >= 0 && i <= this.a.size()) {
-            this.a.add(i, cVar);
-        } else {
-            this.a.add(cVar);
-        }
-    }
-
-    public TypeAdapter.ViewHolder c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            TextView textView = new TextView(context);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0a33));
-            int d = mi.d(context, 15.0f);
-            textView.setPadding(d, d, d, d);
-            textView.setHeight(0);
-            return new b(this, textView);
-        }
-        return (TypeAdapter.ViewHolder) invokeL.objValue;
-    }
-
-    public int d(View view2) {
-        InterceptResult invokeL;
-        TypeAdapter.ViewHolder viewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            for (int i = 0; i < this.b.size(); i++) {
-                c cVar = this.b.get(i);
-                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public c e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            Iterator<c> it = this.b.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                if (next != null && i == next.b) {
-                    return next;
-                }
-            }
-            return null;
-        }
-        return (c) invokeI.objValue;
-    }
-
-    public int f(View view2) {
-        InterceptResult invokeL;
-        TypeAdapter.ViewHolder viewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            for (int i = 0; i < this.a.size(); i++) {
-                c cVar = this.a.get(i);
-                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    @Nullable
-    public View g(@NonNull Object obj) {
-        InterceptResult invokeL;
-        View view2;
-        Object tag;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            for (int i = 0; i < this.a.size(); i++) {
-                c cVar = this.a.get(i);
-                if (cVar != null && (tag = (view2 = cVar.c.itemView).getTag(R.id.obfuscated_res_0x7f090f6c)) != null && tag.equals(obj)) {
-                    return view2;
-                }
-            }
-            return null;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public c h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            Iterator<c> it = this.a.iterator();
-            while (it.hasNext()) {
-                c next = it.next();
-                if (next != null && i == next.b) {
-                    return next;
-                }
-            }
-            return null;
-        }
-        return (c) invokeI.objValue;
-    }
-
-    public int i() {
+    public static ho b() {
         InterceptResult invokeV;
+        ho hoVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            ho hoVar2 = e;
+            if (hoVar2 == null) {
+                synchronized (ho.class) {
+                    if (e == null) {
+                        e = new ho();
+                    }
+                    hoVar = e;
+                }
+                return hoVar;
+            }
+            return hoVar2;
+        }
+        return (ho) invokeV.objValue;
     }
 
-    public int j() {
+    /* JADX WARN: Removed duplicated region for block: B:125:0x011c A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0111  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public AudioRecord a() throws IllegalArgumentException {
         InterceptResult invokeV;
+        int[] iArr;
+        int i;
+        int i2;
+        short[] sArr;
+        short s;
+        int i3;
+        int i4;
+        int minBufferSize;
+        AudioRecord audioRecord;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.size() : invokeV.intValue;
-    }
-
-    public boolean k(View view2) {
-        InterceptResult invokeL;
-        TypeAdapter.ViewHolder viewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a > 0 && this.b > 0 && this.c > 0) {
+                return new AudioRecord(1, this.a, this.c, this.b, this.d);
             }
-            for (int i = 0; i < this.b.size(); i++) {
-                c cVar = this.b.get(i);
-                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
-                    this.b.remove(i);
-                    return true;
+            int[] iArr2 = f;
+            int length = iArr2.length;
+            AudioRecord audioRecord2 = null;
+            for (int i5 = 0; i5 < length; i5++) {
+                int i6 = iArr2[i5];
+                short[] sArr2 = g;
+                int length2 = sArr2.length;
+                int i7 = 0;
+                while (i7 < length2) {
+                    short s2 = sArr2[i7];
+                    short[] sArr3 = h;
+                    int length3 = sArr3.length;
+                    AudioRecord audioRecord3 = audioRecord2;
+                    int i8 = 0;
+                    while (i8 < length3) {
+                        short s3 = sArr3[i8];
+                        try {
+                            minBufferSize = AudioRecord.getMinBufferSize(i6, s3, s2);
+                            this.d = minBufferSize;
+                        } catch (Throwable th) {
+                            th = th;
+                            iArr = iArr2;
+                            i = i8;
+                            i2 = length3;
+                            sArr = sArr3;
+                            s = s2;
+                            i3 = i7;
+                            i4 = 1;
+                        }
+                        if (minBufferSize == -2) {
+                            if (audioRecord3 == null || audioRecord3.getState() == 1) {
+                                iArr = iArr2;
+                                i = i8;
+                                i2 = length3;
+                                sArr = sArr3;
+                                s = s2;
+                                i3 = i7;
+                            } else {
+                                audioRecord3.release();
+                                iArr = iArr2;
+                                i = i8;
+                                i2 = length3;
+                                sArr = sArr3;
+                                s = s2;
+                                i3 = i7;
+                                audioRecord3 = null;
+                            }
+                        } else {
+                            int min = Math.min(minBufferSize * 8, 4096);
+                            iArr = iArr2;
+                            i4 = 1;
+                            i = i8;
+                            i2 = length3;
+                            sArr = sArr3;
+                            short s4 = s2;
+                            i3 = i7;
+                            try {
+                                audioRecord = new AudioRecord(1, i6, s3, s2, min);
+                                try {
+                                } catch (Throwable th2) {
+                                    th = th2;
+                                    s = s4;
+                                }
+                            } catch (Throwable th3) {
+                                th = th3;
+                            }
+                            try {
+                                if (audioRecord.getState() == 1) {
+                                    try {
+                                        this.a = i6;
+                                        try {
+                                            this.b = s4;
+                                            this.c = s3;
+                                            this.d = min;
+                                            if (audioRecord.getState() != 1) {
+                                                audioRecord.release();
+                                            }
+                                            return audioRecord;
+                                        } catch (Throwable th4) {
+                                            th = th4;
+                                            audioRecord3 = audioRecord;
+                                            s = s4;
+                                        }
+                                    } catch (Throwable th5) {
+                                        th = th5;
+                                        audioRecord3 = audioRecord;
+                                        s = s4;
+                                        th.printStackTrace();
+                                        if (audioRecord3 != null) {
+                                        }
+                                        i8 = i + 1;
+                                        s2 = s;
+                                        length3 = i2;
+                                        iArr2 = iArr;
+                                        sArr3 = sArr;
+                                        i7 = i3;
+                                    }
+                                } else {
+                                    try {
+                                        audioRecord.release();
+                                    } catch (Throwable th6) {
+                                        th = th6;
+                                        s = s4;
+                                    }
+                                    try {
+                                        audioRecord3 = new AudioRecord(1, i6, s3, s4, this.d);
+                                        try {
+                                        } catch (Throwable th7) {
+                                            th = th7;
+                                            s = s4;
+                                        }
+                                    } catch (Throwable th8) {
+                                        th = th8;
+                                        s = s4;
+                                        audioRecord3 = audioRecord;
+                                        th.printStackTrace();
+                                        if (audioRecord3 != null) {
+                                        }
+                                        i8 = i + 1;
+                                        s2 = s;
+                                        length3 = i2;
+                                        iArr2 = iArr;
+                                        sArr3 = sArr;
+                                        i7 = i3;
+                                    }
+                                    if (audioRecord3.getState() == 1) {
+                                        this.a = i6;
+                                        s = s4;
+                                        try {
+                                            this.b = s;
+                                            this.c = s3;
+                                            if (audioRecord3.getState() != 1) {
+                                                audioRecord3.release();
+                                            }
+                                            return audioRecord3;
+                                        } catch (Throwable th9) {
+                                            th = th9;
+                                        }
+                                    } else {
+                                        s = s4;
+                                        if (audioRecord3.getState() == 1) {
+                                        }
+                                        audioRecord3.release();
+                                        audioRecord3 = null;
+                                    }
+                                }
+                                th.printStackTrace();
+                                if (audioRecord3 != null) {
+                                    if (audioRecord3.getState() == i4) {
+                                    }
+                                    audioRecord3.release();
+                                    audioRecord3 = null;
+                                }
+                            } catch (Throwable th10) {
+                                if (audioRecord3 != null && audioRecord3.getState() != i4) {
+                                    audioRecord3.release();
+                                }
+                                throw th10;
+                            }
+                        }
+                        i8 = i + 1;
+                        s2 = s;
+                        length3 = i2;
+                        iArr2 = iArr;
+                        sArr3 = sArr;
+                        i7 = i3;
+                    }
+                    i7++;
+                    audioRecord2 = audioRecord3;
                 }
             }
-            return false;
+            throw new IllegalArgumentException("getInstance() failed : no suitable audio configurations on this device.");
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean l(View view2) {
-        InterceptResult invokeL;
-        TypeAdapter.ViewHolder viewHolder;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                c cVar = this.a.get(i);
-                if (cVar != null && (viewHolder = cVar.c) != null && viewHolder.itemView == view2) {
-                    this.a.remove(i);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void m(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
-            this.c = aVar;
-        }
+        return (AudioRecord) invokeV.objValue;
     }
 }

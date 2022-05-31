@@ -1,101 +1,116 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.feedManager.FeedRecModel;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.DataRes;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class js4 {
+public class js4 extends cs4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile js4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeedRecModel a;
-    public DataRes b;
-    public FeedRecModel.b c;
+    public as4 c;
 
-    /* loaded from: classes6.dex */
-    public class a implements FeedRecModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ js4 a;
-
-        public a(js4 js4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {js4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = js4Var;
-        }
-
-        @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.b
-        public void a(DataRes dataRes, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                this.a.b = dataRes;
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.feedManager.FeedRecModel.b
-        public void onLoadError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.b = null;
-            }
-        }
-    }
-
-    public js4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public js4(as4 as4Var) {
+        super(as4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {as4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((as4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        FeedRecModel feedRecModel = new FeedRecModel();
-        this.a = feedRecModel;
-        feedRecModel.A(this.c);
+        this.c = as4Var;
     }
 
-    public static js4 b() {
+    @Override // com.repackage.cs4
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (js4.class) {
-                    if (d == null) {
-                        d = new js4();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Image" : (String) invokeV.objValue;
+    }
+
+    @ds4(isAsync = false, value = "scanBigImages")
+    public void sanBigImages(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("imageUrls");
+        int optInt = jSONObject.optInt("clickIndex");
+        int length = optJSONArray.length();
+        ArrayList<String> arrayList = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
+        for (int i = 0; i < length; i++) {
+            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+            if (jSONObject2 != null) {
+                String string = jSONObject2.getString("bigImageUrl");
+                String string2 = jSONObject2.getString("originImageUrl");
+                if (!TextUtils.isEmpty(string)) {
+                    arrayList.add(string);
+                    if (!TextUtils.isEmpty(string2)) {
+                        ImageUrlData imageUrlData = new ImageUrlData();
+                        imageUrlData.imageUrl = string;
+                        imageUrlData.originalUrl = string2;
+                        concurrentHashMap.put(string, imageUrlData);
                     }
                 }
             }
-            return d;
         }
-        return (js4) invokeV.objValue;
+        ImageViewerConfig.b bVar = new ImageViewerConfig.b();
+        bVar.x(arrayList);
+        bVar.B(optInt);
+        bVar.C(true);
+        bVar.J(arrayList.size() > 0 ? arrayList.get(0) : "");
+        bVar.F(true);
+        bVar.w(concurrentHashMap);
+        bVar.H(true);
+        c(new CustomMessage(2010000, bVar.v(this.c.getContext())));
     }
 
-    public DataRes c() {
-        InterceptResult invokeV;
+    @ds4("selectPhotos")
+    public void selectPhotos(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (DataRes) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
+            LinkedList<ImageFileInfo> linkedList = new LinkedList<>();
+            if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("selectPhotos")) != null && optJSONArray.length() > 0) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    ImageFileInfo imageFileInfo = new ImageFileInfo();
+                    imageFileInfo.setFilePath(((JSONObject) optJSONArray.get(i)).optString("filePath"));
+                    linkedList.add(imageFileInfo);
+                }
+            }
+            writeImagesInfo.setChosedFiles(linkedList);
+            writeImagesInfo.setMaxImagesAllowed(9);
+            AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig(getContext(), writeImagesInfo.toJsonString(), true, true);
+            albumActivityConfig.getIntent().putExtra(AlbumActivityConfig.CAMERA_REQUEST_FROM, 5);
+            albumActivityConfig.setRequestCode(12015);
+            c(new CustomMessage(2002001, albumActivityConfig));
+        }
     }
 }

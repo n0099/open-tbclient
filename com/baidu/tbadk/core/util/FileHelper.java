@@ -29,13 +29,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ei;
-import com.repackage.gi;
-import com.repackage.jg;
+import com.repackage.di;
+import com.repackage.fi;
+import com.repackage.ig;
+import com.repackage.ki;
 import com.repackage.li;
+import com.repackage.mg;
 import com.repackage.mi;
-import com.repackage.ng;
-import com.repackage.ni;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -319,7 +319,7 @@ public class FileHelper {
                     return new File(EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str).exists();
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    TiebaStatic.file(e, li.join("FileHelper", ".", "CheckFile", " ", str));
+                    TiebaStatic.file(e, ki.join("FileHelper", ".", "CheckFile", " ", str));
                     return false;
                 }
             }
@@ -340,7 +340,7 @@ public class FileHelper {
                 try {
                     return file.mkdirs();
                 } catch (Exception e) {
-                    TiebaStatic.file(e, li.join("FileHelper", ".", "CheckTempDir", " ", str));
+                    TiebaStatic.file(e, ki.join("FileHelper", ".", "CheckTempDir", " ", str));
                     return false;
                 }
             }
@@ -413,7 +413,7 @@ public class FileHelper {
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    TiebaStatic.file(e, li.join("FileHelper", ".", "CreateFile", " ", str));
+                    TiebaStatic.file(e, ki.join("FileHelper", ".", "CreateFile", " ", str));
                     return null;
                 }
             }
@@ -452,7 +452,7 @@ public class FileHelper {
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, li.join("FileHelper", ".", "CreateFileIfNotFound", " ", str));
+                TiebaStatic.file(e, ki.join("FileHelper", ".", "CreateFileIfNotFound", " ", str));
                 return null;
             }
         }
@@ -480,7 +480,7 @@ public class FileHelper {
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, li.join("FileHelper", ".", "CreateFileOutputStream", " ", str));
+                TiebaStatic.file(e, ki.join("FileHelper", ".", "CreateFileOutputStream", " ", str));
                 return null;
             }
         }
@@ -549,7 +549,7 @@ public class FileHelper {
                 return null;
             } catch (SecurityException e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, li.join("FileHelper", ".", "GetFile", " ", str));
+                TiebaStatic.file(e, ki.join("FileHelper", ".", "GetFile", " ", str));
                 return null;
             }
         }
@@ -657,13 +657,13 @@ public class FileHelper {
                     } catch (Exception e) {
                         e = e;
                         BdLog.e(e.getMessage());
-                        TiebaStatic.file(e, li.join("FileHelper", ".", "SaveGifFile", " ", str2));
+                        TiebaStatic.file(e, ki.join("FileHelper", ".", "SaveGifFile", " ", str2));
                         if (fileOutputStream != null) {
                             try {
                                 fileOutputStream.close();
                             } catch (Exception e2) {
                                 BdLog.e(e2.getMessage());
-                                TiebaStatic.file(e2, li.join("FileHelper", ".", "SaveGifFile", " ", str2));
+                                TiebaStatic.file(e2, ki.join("FileHelper", ".", "SaveGifFile", " ", str2));
                             }
                         }
                         return null;
@@ -676,7 +676,7 @@ public class FileHelper {
                             fileOutputStream2.close();
                         } catch (Exception e3) {
                             BdLog.e(e3.getMessage());
-                            TiebaStatic.file(e3, li.join("FileHelper", ".", "SaveGifFile", " ", str2));
+                            TiebaStatic.file(e3, ki.join("FileHelper", ".", "SaveGifFile", " ", str2));
                         }
                     }
                     throw th;
@@ -788,7 +788,7 @@ public class FileHelper {
     public static long checkImageFileSize(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65562, null, str, str2)) == null) {
             if (checkSD()) {
                 try {
                     if (new File(EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/" + str2).exists()) {
@@ -797,7 +797,7 @@ public class FileHelper {
                     return -1L;
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    TiebaStatic.file(e, li.join("FileHelper", ".", "checkImageFileSize", " ", str, "/", str2));
+                    TiebaStatic.file(e, ki.join("FileHelper", ".", "checkImageFileSize", " ", str, "/", str2));
                     return -1L;
                 }
             }
@@ -809,7 +809,7 @@ public class FileHelper {
     public static boolean checkIsCssFile(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) {
             if (str == null) {
                 return false;
             }
@@ -821,18 +821,18 @@ public class FileHelper {
     public static boolean checkIsHeifImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, str)) == null) ? str.endsWith(FILE_CACHE_HEIF) || str.endsWith(FILE_CACHE_HEIC) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) ? str.endsWith(FILE_CACHE_HEIF) || str.endsWith(FILE_CACHE_HEIC) : invokeL.booleanValue;
     }
 
     public static boolean checkIsLongImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, null, str)) == null) {
             int[] imageFileWH = getImageFileWH(str);
             if (imageFileWH[0] == 0 || imageFileWH[1] == 0) {
                 return false;
             }
-            float h = mi.h(TbadkCoreApplication.getInst());
+            float h = li.h(TbadkCoreApplication.getInst());
             float f = imageFileWH[1] / imageFileWH[0];
             return ((float) imageFileWH[0]) * h >= 100.0f && f >= 3.0f && f <= 50.0f;
         }
@@ -843,7 +843,7 @@ public class FileHelper {
         String str;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
             try {
                 str = Environment.getExternalStorageState();
             } catch (Exception unused) {
@@ -857,7 +857,7 @@ public class FileHelper {
     public static boolean cleanDirectory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) {
             try {
                 File file = new File(EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str);
                 if (file.exists()) {
@@ -878,7 +878,7 @@ public class FileHelper {
 
     public static void clearCacheDir(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65568, null, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeL(65569, null, str) == null) || str == null) {
             return;
         }
         deleteCacheDirFiles(new File(CACHE_DIR + "/" + str));
@@ -888,7 +888,7 @@ public class FileHelper {
         InterceptResult invokeCommon;
         File dataDirectory;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65569, null, new Object[]{str, bitmap, Float.valueOf(f), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{str, bitmap, Float.valueOf(f), Integer.valueOf(i)})) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -922,7 +922,7 @@ public class FileHelper {
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, li.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
+                TiebaStatic.file(e, ki.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
                 return null;
             }
         }
@@ -935,7 +935,7 @@ public class FileHelper {
         Throwable th;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65571, null, str, str2)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65572, null, str, str2)) != null) {
             return invokeLL.booleanValue;
         }
         try {
@@ -1029,7 +1029,7 @@ public class FileHelper {
         InterceptResult invokeLLZ;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65573, null, str, str2, z)) != null) {
+        if (interceptable != null && (invokeLLZ = interceptable.invokeLLZ(65574, null, str, str2, z)) != null) {
             return invokeLLZ.booleanValue;
         }
         String prefixPath = getPrefixPath(str, z);
@@ -1124,7 +1124,7 @@ public class FileHelper {
     public static int copyImageFile(String str, String str2, Context context) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65574, null, str, str2, context)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65575, null, str, str2, context)) == null) {
             if (str2 != null && str2.length() != 0 && context != null) {
                 try {
                     String str3 = isGifImage(str) ? ".gif" : ".jpg";
@@ -1137,7 +1137,7 @@ public class FileHelper {
                         str4 = nameMd5FromUrl + Math.round(Math.random() * 9.9999999E7d) + str3;
                     }
                     String str5 = getCacheDir() + str4;
-                    gi.f(new File(str), new File(str5));
+                    fi.f(new File(str), new File(str5));
                     new MediaScannerClient(context).saveImage(str5);
                     return 0;
                 } catch (Exception e) {
@@ -1152,7 +1152,7 @@ public class FileHelper {
     public static void deleteCacheDirFiles(File file) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65575, null, file) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+        if ((interceptable == null || interceptable.invokeL(65576, null, file) == null) && file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
             for (File file2 : listFiles) {
                 if (file2.isDirectory()) {
                     deleteCacheDirFiles(file2);
@@ -1167,7 +1167,7 @@ public class FileHelper {
     public static boolean deleteFile(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65576, null, file)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, file)) == null) {
             try {
                 return file.delete();
             } catch (Exception e) {
@@ -1180,7 +1180,7 @@ public class FileHelper {
 
     public static void deleteFileOrDir(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65577, null, file) == null) {
+        if (interceptable == null || interceptable.invokeL(65578, null, file) == null) {
             try {
                 if (file.exists()) {
                     if (file.isDirectory()) {
@@ -1206,14 +1206,14 @@ public class FileHelper {
     public static InputStream getAnimationInputStream(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65578, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65579, null, str, str2)) == null) {
             String animationPath = getAnimationPath();
             if (CheckTempDir(animationPath)) {
                 String str3 = animationPath + str + "/";
                 if (new File(str3).exists()) {
                     File file = new File(str3 + str2);
                     if (file.exists()) {
-                        return gi.w(file);
+                        return fi.v(file);
                     }
                     return null;
                 }
@@ -1227,7 +1227,7 @@ public class FileHelper {
     public static String getAnimationPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65579, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65580, null)) == null) {
             return TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.getTempDirName() + "/animation/";
         }
         return (String) invokeV.objValue;
@@ -1236,7 +1236,7 @@ public class FileHelper {
     public static PackageInfo getApkFileMetaData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -1254,7 +1254,7 @@ public class FileHelper {
         InterceptResult invokeL;
         PackageInfo packageArchiveInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65581, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -1272,7 +1272,7 @@ public class FileHelper {
         InterceptResult invokeV;
         String absolutePath;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65582, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
             if (checkSD()) {
                 absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             } else {
@@ -1290,7 +1290,7 @@ public class FileHelper {
     public static String getCacheDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65583, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65584, null)) == null) {
             return EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/";
         }
         return (String) invokeV.objValue;
@@ -1299,7 +1299,7 @@ public class FileHelper {
     public static String getCustomLoginCssFileName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65584, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, str)) == null) {
             Uri parse = Uri.parse(str);
             if (parse == null) {
                 return null;
@@ -1312,7 +1312,7 @@ public class FileHelper {
     public static String getCustomLoginCssStoragePath(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65585, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65586, null, str)) == null) {
             Uri parse = Uri.parse(str);
             if (parse == null) {
                 return null;
@@ -1325,13 +1325,13 @@ public class FileHelper {
     public static long getDirectorySize(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65587, null, str, z)) == null) ? getDirectorySize(new File(str), z) : invokeLZ.longValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65588, null, str, z)) == null) ? getDirectorySize(new File(str), z) : invokeLZ.longValue;
     }
 
     public static String getDownloadDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65588, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65589, null)) == null) {
             return EXTERNAL_STORAGE_DIRECTORY + "/tieba/download";
         }
         return (String) invokeV.objValue;
@@ -1340,7 +1340,7 @@ public class FileHelper {
     public static String getFileDireciory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65590, null, str)) == null) {
             if (str == null) {
                 return null;
             }
@@ -1352,7 +1352,7 @@ public class FileHelper {
     public static String getFilePath(String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65590, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65591, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (checkSD()) {
                 StringBuilder sb = new StringBuilder();
                 if (z) {
@@ -1371,7 +1371,7 @@ public class FileHelper {
     public static long getFileSize(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65592, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return 0L;
             }
@@ -1384,7 +1384,7 @@ public class FileHelper {
         InterceptResult invokeLL;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65594, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65595, null, str, str2)) == null) {
             if (str != null) {
                 str3 = EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/";
             } else {
@@ -1398,7 +1398,7 @@ public class FileHelper {
     public static int[] getImageFileWH(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65595, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65596, null, str)) == null) {
             int[] iArr = new int[2];
             if (StringUtils.isNull(str)) {
                 return iArr;
@@ -1414,7 +1414,7 @@ public class FileHelper {
                 FileInputStream fileInputStream2 = new FileInputStream(file);
                 try {
                     BitmapFactory.decodeStream(fileInputStream2, null, options);
-                    ni.e(fileInputStream2);
+                    mi.e(fileInputStream2);
                 } catch (Throwable th) {
                     th = th;
                     fileInputStream = fileInputStream2;
@@ -1424,7 +1424,7 @@ public class FileHelper {
                         iArr[1] = options.outHeight;
                         return iArr;
                     } finally {
-                        ni.e(fileInputStream);
+                        mi.e(fileInputStream);
                     }
                 }
             } catch (Throwable th2) {
@@ -1455,7 +1455,7 @@ public class FileHelper {
     public static String getImageRealPathFromUri(Context context, Uri uri) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65596, null, context, uri)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65597, null, context, uri)) != null) {
             return (String) invokeLL.objValue;
         }
         Cursor cursor = null;
@@ -1477,7 +1477,7 @@ public class FileHelper {
                         context = 0;
                     } catch (Throwable th) {
                         th = th;
-                        jg.a(cursor);
+                        ig.a(cursor);
                         throw th;
                     }
                     if (context != 0) {
@@ -1496,11 +1496,11 @@ public class FileHelper {
                             e = e2;
                             e.printStackTrace();
                             context = context;
-                            jg.a(context);
+                            ig.a(context);
                             return str;
                         }
                     }
-                    jg.a(context);
+                    ig.a(context);
                     return str;
                 }
                 return null;
@@ -1516,13 +1516,13 @@ public class FileHelper {
     public static String getPrefixByType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65597, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? "" : FILE_CACHE_BUBBLE : FILE_CACHE_EMOTION_PACKAGE : "voice" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65598, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? "" : FILE_CACHE_BUBBLE : FILE_CACHE_EMOTION_PACKAGE : "voice" : (String) invokeI.objValue;
     }
 
     public static String getPrefixPath(String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65598, null, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65599, null, str, z)) == null) {
             return (z && str.startsWith(EXTERNAL_STORAGE_DIRECTORY.toString())) ? str : EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str;
         }
         return (String) invokeLZ.objValue;
@@ -1531,18 +1531,18 @@ public class FileHelper {
     public static String getSdErrorString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65599, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65600, null)) == null) {
             String externalStorageState = Environment.getExternalStorageState();
             if (externalStorageState.equals("removed")) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f059c);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a3);
             }
             if (!externalStorageState.equals("unmounted") && !externalStorageState.equals("unmountable")) {
                 if (externalStorageState.equals(SwanKV.FLAVOR_SHARED)) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a1);
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a8);
                 }
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f059f);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a6);
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f059c);
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05a3);
         }
         return (String) invokeV.objValue;
     }
@@ -1550,7 +1550,7 @@ public class FileHelper {
     public static String getStoreFile(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65600, null, str, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65601, null, str, i)) == null) {
             if (str == null) {
                 return null;
             }
@@ -1568,13 +1568,13 @@ public class FileHelper {
     public static String getTempFilePath(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65601, null, i, str)) == null) ? getTempFilePath(i, str, false) : (String) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65602, null, i, str)) == null) ? getTempFilePath(i, str, false) : (String) invokeIL.objValue;
     }
 
     public static String getVideoTmpDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65603, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65604, null)) == null) {
             return EXTERNAL_STORAGE_DIRECTORY + "/tieba/" + FILE_CACHE_VIDEO;
         }
         return (String) invokeV.objValue;
@@ -1593,7 +1593,7 @@ public class FileHelper {
         Exception exc;
         String join;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65604, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65605, null, str, str2)) == null) {
             if (str != null) {
                 str3 = EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/";
             } else {
@@ -1606,7 +1606,7 @@ public class FileHelper {
                     try {
                         try {
                             byte[] bArr = new byte[7];
-                            z = fileInputStream2.read(bArr, 0, 6) == 6 ? mi.A(bArr) : false;
+                            z = fileInputStream2.read(bArr, 0, 6) == 6 ? li.B(bArr) : false;
                             try {
                                 fileInputStream2.close();
                                 if (0 != 0) {
@@ -1615,7 +1615,7 @@ public class FileHelper {
                                     } catch (Exception e) {
                                         exc = e;
                                         exc.printStackTrace();
-                                        join = li.join("FileHelper", ".", "isGif", " ", str, "/", str2);
+                                        join = ki.join("FileHelper", ".", "isGif", " ", str, "/", str2);
                                         TiebaStatic.file(exc, join);
                                         return z;
                                     }
@@ -1624,14 +1624,14 @@ public class FileHelper {
                                 e = e2;
                                 fileInputStream = fileInputStream2;
                                 e.printStackTrace();
-                                TiebaStatic.file(e, li.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                                TiebaStatic.file(e, ki.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e3) {
                                         exc = e3;
                                         exc.printStackTrace();
-                                        join = li.join("FileHelper", ".", "isGif", " ", str, "/", str2);
+                                        join = ki.join("FileHelper", ".", "isGif", " ", str, "/", str2);
                                         TiebaStatic.file(exc, join);
                                         return z;
                                     }
@@ -1641,14 +1641,14 @@ public class FileHelper {
                                 e = e4;
                                 fileInputStream = fileInputStream2;
                                 e.printStackTrace();
-                                TiebaStatic.file(e, li.join("FileHelper", "isGif", " ", str, "/", str2));
+                                TiebaStatic.file(e, ki.join("FileHelper", "isGif", " ", str, "/", str2));
                                 if (fileInputStream != null) {
                                     try {
                                         fileInputStream.close();
                                     } catch (Exception e5) {
                                         exc = e5;
                                         exc.printStackTrace();
-                                        join = li.join("FileHelper", ".", "isGif", " ", str, "/", str2);
+                                        join = ki.join("FileHelper", ".", "isGif", " ", str, "/", str2);
                                         TiebaStatic.file(exc, join);
                                         return z;
                                     }
@@ -1663,7 +1663,7 @@ public class FileHelper {
                                     fileInputStream.close();
                                 } catch (Exception e6) {
                                     e6.printStackTrace();
-                                    TiebaStatic.file(e6, li.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                                    TiebaStatic.file(e6, ki.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                                 }
                             }
                             throw th;
@@ -1673,7 +1673,7 @@ public class FileHelper {
                         fileInputStream = fileInputStream2;
                         z = false;
                         e.printStackTrace();
-                        TiebaStatic.file(e, li.join("FileHelper", ".", "isGif", " ", str, "/", str2));
+                        TiebaStatic.file(e, ki.join("FileHelper", ".", "isGif", " ", str, "/", str2));
                         if (fileInputStream != null) {
                         }
                         return z;
@@ -1682,7 +1682,7 @@ public class FileHelper {
                         fileInputStream = fileInputStream2;
                         z = false;
                         e.printStackTrace();
-                        TiebaStatic.file(e, li.join("FileHelper", "isGif", " ", str, "/", str2));
+                        TiebaStatic.file(e, ki.join("FileHelper", "isGif", " ", str, "/", str2));
                         if (fileInputStream != null) {
                         }
                         return z;
@@ -1702,27 +1702,27 @@ public class FileHelper {
 
     public static boolean isGifImage(String str) {
         InterceptResult invokeL;
-        InputStream w;
+        InputStream v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65605, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65606, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return false;
             }
             File file = new File(str);
-            if (file.exists() && !file.isDirectory() && (w = gi.w(file)) != null) {
+            if (file.exists() && !file.isDirectory() && (v = fi.v(file)) != null) {
                 try {
                     byte[] bArr = new byte[7];
-                    if (w.read(bArr, 0, 6) == 6) {
-                        boolean A = mi.A(bArr);
-                        jg.c(w);
-                        return A;
+                    if (v.read(bArr, 0, 6) == 6) {
+                        boolean B = li.B(bArr);
+                        ig.c(v);
+                        return B;
                     }
                 } catch (IOException unused) {
                 } catch (Throwable th) {
-                    jg.c(w);
+                    ig.c(v);
                     throw th;
                 }
-                jg.c(w);
+                ig.c(v);
             }
             return false;
         }
@@ -1732,7 +1732,7 @@ public class FileHelper {
     public static boolean isLocalFile(Uri uri) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65606, null, uri)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65607, null, uri)) == null) {
             if (uri == null) {
                 return false;
             }
@@ -1749,7 +1749,7 @@ public class FileHelper {
     public static boolean isLocalImagePath(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65607, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65608, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -1761,7 +1761,7 @@ public class FileHelper {
     public static void makeDirectory(String str) {
         String fileDireciory;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65608, null, str) == null) || (fileDireciory = getFileDireciory(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65609, null, str) == null) || (fileDireciory = getFileDireciory(str)) == null) {
             return;
         }
         try {
@@ -1777,7 +1777,7 @@ public class FileHelper {
 
     public static void makeRootDirectory(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65609, null, str) == null) {
+        if (interceptable == null || interceptable.invokeL(65610, null, str) == null) {
             try {
                 File file = new File(str);
                 if (file.exists()) {
@@ -1795,7 +1795,7 @@ public class FileHelper {
         String str5;
         String str6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65610, null, str, str2, str3, str4)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65611, null, str, str2, str3, str4)) == null) {
             if (str != null) {
                 str5 = EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/";
             } else {
@@ -1810,7 +1810,7 @@ public class FileHelper {
                 File file = new File(str5 + str2);
                 File file2 = new File(str6 + str4);
                 if (!file.renameTo(file2)) {
-                    TiebaStatic.file(li.join("renameTo", NotificationCompat.CATEGORY_ERROR), li.join("FileHelper", ".", "renameTo"));
+                    TiebaStatic.file(ki.join("renameTo", NotificationCompat.CATEGORY_ERROR), ki.join("FileHelper", ".", "renameTo"));
                     return null;
                 }
                 return file2.getAbsolutePath();
@@ -1823,7 +1823,7 @@ public class FileHelper {
     public static String saveBitmapByAbsolutelyPath(String str, String str2, Bitmap bitmap, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65612, null, str, str2, bitmap, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65613, null, str, str2, bitmap, i)) == null) {
             if (bitmap != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
                 File file = new File(str);
                 if (file.exists() && !file.isDirectory()) {
@@ -1844,7 +1844,7 @@ public class FileHelper {
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    TiebaStatic.file(e, li.join("FileHelper", ".", "saveFileToSDOrMemory", " ", file2.getAbsolutePath()));
+                    TiebaStatic.file(e, ki.join("FileHelper", ".", "saveFileToSDOrMemory", " ", file2.getAbsolutePath()));
                 }
             }
             return null;
@@ -1856,7 +1856,7 @@ public class FileHelper {
         InterceptResult invokeLLLI;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65613, null, str, str2, bitmap, i)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65614, null, str, str2, bitmap, i)) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -1878,7 +1878,7 @@ public class FileHelper {
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    TiebaStatic.file(e, li.join("FileHelper", ".", "SaveFile1", " '", str, "/", str2));
+                    TiebaStatic.file(e, ki.join("FileHelper", ".", "SaveFile1", " '", str, "/", str2));
                 }
             }
             return null;
@@ -1889,13 +1889,13 @@ public class FileHelper {
     public static String saveFileAsPNG(String str, String str2, Bitmap bitmap, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65614, null, str, str2, bitmap, i)) == null) ? saveFileAsPic(str, str2, bitmap, i, Bitmap.CompressFormat.PNG) : (String) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65615, null, str, str2, bitmap, i)) == null) ? saveFileAsPic(str, str2, bitmap, i, Bitmap.CompressFormat.PNG) : (String) invokeLLLI.objValue;
     }
 
     public static String saveFileAsPic(String str, String str2, Bitmap bitmap, int i, Bitmap.CompressFormat compressFormat) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65615, null, new Object[]{str, str2, bitmap, Integer.valueOf(i), compressFormat})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65616, null, new Object[]{str, str2, bitmap, Integer.valueOf(i), compressFormat})) == null) {
             if (bitmap != null && CheckTempDir(str) && bitmap != null) {
                 File file = new File(str + str2);
                 try {
@@ -1909,7 +1909,7 @@ public class FileHelper {
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e.getMessage());
-                    TiebaStatic.file(e, li.join("FileHelper", ".", "saveFileAsPNG", " '", str, "/", str2));
+                    TiebaStatic.file(e, ki.join("FileHelper", ".", "saveFileAsPNG", " '", str, "/", str2));
                 }
             }
             return null;
@@ -1920,7 +1920,7 @@ public class FileHelper {
     public static boolean saveFileByAbsolutePath(String str, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65616, null, str, bArr)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65617, null, str, bArr)) != null) {
             return invokeLL.booleanValue;
         }
         File file = new File(str);
@@ -1971,14 +1971,14 @@ public class FileHelper {
     public static String saveFileByBytes(String str, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65618, null, str, bArr)) == null) ? saveFileByBytes((String) null, str, bArr) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65619, null, str, bArr)) == null) ? saveFileByBytes((String) null, str, bArr) : (String) invokeLL.objValue;
     }
 
     public static String saveFileByStream(String str, String str2, InputStream inputStream) {
         InterceptResult invokeLLL;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65621, null, str, str2, inputStream)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65622, null, str, str2, inputStream)) == null) {
             if (str != null) {
                 str3 = EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/" + str + "/";
             } else {
@@ -1996,7 +1996,7 @@ public class FileHelper {
         InterceptResult invokeLLI;
         String absolutePath;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65622, null, str, bitmap, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65623, null, str, bitmap, i)) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -2014,7 +2014,7 @@ public class FileHelper {
         InterceptResult invokeLLL;
         String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65623, null, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65624, null, str, str2, str3)) == null) {
             if (StringUtils.isNull(str) || StringUtils.isNull(str3)) {
                 return null;
             }
@@ -2044,12 +2044,12 @@ public class FileHelper {
         InterceptResult invokeLLL;
         Bitmap decodeByteArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65624, null, str, bArr, context)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65625, null, str, bArr, context)) == null) {
             if (bArr != null && str != null && str.length() != 0 && context != null) {
                 try {
-                    String str2 = mi.A(bArr) ? ".gif" : ".jpg";
-                    if (mi.y(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
-                        bArr = ei.d().a(decodeByteArray, 100);
+                    String str2 = li.B(bArr) ? ".gif" : ".jpg";
+                    if (li.z(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
+                        bArr = di.d().a(decodeByteArray, 100);
                         decodeByteArray.recycle();
                     }
                     String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
@@ -2077,7 +2077,7 @@ public class FileHelper {
 
     public static void scanMediaFile(String[] strArr, MediaScanCallback mediaScanCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65625, null, strArr, mediaScanCallback) == null) {
+        if (interceptable == null || interceptable.invokeLL(65626, null, strArr, mediaScanCallback) == null) {
             if (strArr == null || strArr.length == 0) {
                 if (mediaScanCallback != null) {
                     mediaScanCallback.callBack(null);
@@ -2136,7 +2136,7 @@ public class FileHelper {
                             this.val$map.put(str3, uri.toString());
                         }
                         if (this.currentNumbers == this.val$numbers) {
-                            ng.a().post(new Runnable(this) { // from class: com.baidu.tbadk.core.util.FileHelper.1.1
+                            mg.a().post(new Runnable(this) { // from class: com.baidu.tbadk.core.util.FileHelper.1.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass1 this$0;
@@ -2198,7 +2198,7 @@ public class FileHelper {
         InterceptResult invokeLZ;
         long length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65586, null, file, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65587, null, file, z)) == null) {
             File[] listFiles = file.listFiles();
             long j = 0;
             if (listFiles == null) {
@@ -2220,7 +2220,7 @@ public class FileHelper {
     public static String getTempFilePath(int i, String str, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65602, null, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65603, null, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
             File file = CACHE_DIR;
             if (file == null) {
                 return null;
@@ -2245,7 +2245,7 @@ public class FileHelper {
     public static String saveFileByBytes(String str, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65619, null, str, bArr, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65620, null, str, bArr, i)) == null) {
             if (checkSD()) {
                 return saveFileByBytes((String) null, getFilePath(str, i, false), bArr);
             }
@@ -2257,7 +2257,7 @@ public class FileHelper {
     public static long getFileSize(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65591, null, file)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(65592, null, file)) != null) {
             return invokeL.longValue;
         }
         long j = 0;
@@ -2315,7 +2315,7 @@ public class FileHelper {
         String str3;
         Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65617, null, str, str2, bArr)) != null) {
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65618, null, str, str2, bArr)) != null) {
             return (String) invokeLLL.objValue;
         }
         if (str != null) {
@@ -2345,14 +2345,14 @@ public class FileHelper {
                     } catch (IOException e) {
                         e = e;
                         BdLog.e(e.getMessage());
-                        TiebaStatic.file(e, li.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                        TiebaStatic.file(e, ki.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                         if (fileOutputStream != null) {
                             try {
                                 fileOutputStream.close();
                                 return null;
                             } catch (Throwable th2) {
                                 BdLog.e(th2.getMessage());
-                                TiebaStatic.file(th2.getMessage(), li.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                                TiebaStatic.file(th2.getMessage(), ki.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                                 return null;
                             }
                         }
@@ -2374,7 +2374,7 @@ public class FileHelper {
                         fileOutputStream.close();
                     } catch (Throwable th4) {
                         BdLog.e(th4.getMessage());
-                        TiebaStatic.file(th4.getMessage(), li.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
+                        TiebaStatic.file(th4.getMessage(), ki.join("FileHelper", ".", "SaveFile", " ", str, "/", str2));
                     }
                 }
                 throw th;
@@ -2403,7 +2403,7 @@ public class FileHelper {
     public static boolean checkIsLongImage(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, bitmap)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, bitmap)) == null) {
             if (bitmap == null || bitmap.isRecycled()) {
                 return false;
             }
@@ -2414,7 +2414,7 @@ public class FileHelper {
             }
             float f = width;
             float f2 = height / f;
-            return f * mi.h(TbadkCoreApplication.getInst()) >= 100.0f && f2 >= 3.0f && f2 <= 50.0f;
+            return f * li.h(TbadkCoreApplication.getInst()) >= 100.0f && f2 >= 3.0f && f2 <= 50.0f;
         }
         return invokeL.booleanValue;
     }
@@ -2422,7 +2422,7 @@ public class FileHelper {
     public static Bitmap getImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65594, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
@@ -2431,12 +2431,12 @@ public class FileHelper {
                 options.inPreferredConfig = TbConfig.BitmapConfig;
                 return BitmapFactory.decodeFile(str, options);
             } catch (OutOfMemoryError e) {
-                TiebaStatic.file(e.getMessage(), li.join("FileHelper", ".", "getImage", " ", str));
+                TiebaStatic.file(e.getMessage(), ki.join("FileHelper", ".", "getImage", " ", str));
                 System.gc();
                 try {
                     return BitmapFactory.decodeFile(str);
                 } catch (OutOfMemoryError unused) {
-                    TiebaStatic.file(e.getMessage(), li.join("FileHelper", ".", "getImage", " ", str));
+                    TiebaStatic.file(e.getMessage(), ki.join("FileHelper", ".", "getImage", " ", str));
                     return null;
                 }
             }
@@ -2481,7 +2481,7 @@ public class FileHelper {
         InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65620, null, str, inputStream)) != null) {
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65621, null, str, inputStream)) != null) {
             return (String) invokeLL.objValue;
         }
         FileOutputStream fileOutputStream2 = null;
@@ -2498,10 +2498,10 @@ public class FileHelper {
         }
         try {
             if (file.exists() && !file.delete()) {
-                ni.f(null);
+                mi.f(null);
                 return null;
             } else if (!file.createNewFile()) {
-                ni.f(null);
+                mi.f(null);
                 return null;
             } else {
                 fileOutputStream = new FileOutputStream(file);
@@ -2515,7 +2515,7 @@ public class FileHelper {
                             } else {
                                 fileOutputStream.flush();
                                 String path = file.getPath();
-                                ni.f(fileOutputStream);
+                                mi.f(fileOutputStream);
                                 return path;
                             }
                         }
@@ -2523,13 +2523,13 @@ public class FileHelper {
                         e = e;
                         BdLog.e(e.getMessage());
                         TiebaStatic.file(e, "FileHelper.saveFile " + str);
-                        ni.f(fileOutputStream);
+                        mi.f(fileOutputStream);
                         return null;
                     }
                 } catch (Throwable th) {
                     th = th;
                     fileOutputStream2 = fileOutputStream;
-                    ni.f(fileOutputStream2);
+                    mi.f(fileOutputStream2);
                     throw th;
                 }
             }
@@ -2538,15 +2538,33 @@ public class FileHelper {
             fileOutputStream = null;
         } catch (Throwable th2) {
             th = th2;
-            ni.f(fileOutputStream2);
+            mi.f(fileOutputStream2);
             throw th;
         }
+    }
+
+    public static boolean checkFileSize(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, str, i)) == null) {
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    return file.length() < ((long) i) * 1024;
+                }
+                return false;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
+        }
+        return invokeLI.booleanValue;
     }
 
     public static boolean renameTo(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65611, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65612, null, str, str2)) == null) {
             File file = new File(str);
             File file2 = new File(str2);
             String parent = file2.getParent();
@@ -2568,7 +2586,7 @@ public class FileHelper {
         InterceptResult invokeCommon;
         File dataDirectory;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{str, str2, bitmap, Float.valueOf(f), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{str, str2, bitmap, Float.valueOf(f), Integer.valueOf(i)})) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -2613,7 +2631,7 @@ public class FileHelper {
                 return null;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                TiebaStatic.file(e, li.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
+                TiebaStatic.file(e, ki.join("FileHelper", ".", "compressBitmapToFile", " ", file.getAbsolutePath()));
                 return null;
             }
         }
@@ -2623,6 +2641,6 @@ public class FileHelper {
     public static boolean copyFileByRelativelyPath(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65572, null, str, str2)) == null) ? copyFileByRelativelyPath(str, str2, false) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65573, null, str, str2)) == null) ? copyFileByRelativelyPath(str, str2, false) : invokeLL.booleanValue;
     }
 }

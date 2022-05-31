@@ -1,27 +1,28 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class um5 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile tm5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadData a;
+    public int b;
 
-    public static synchronized tm5 a() {
-        InterceptResult invokeV;
-        tm5 tm5Var;
+    public um5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (um5.class) {
-                if (a == null) {
-                    a = new tm5();
-                }
-                tm5Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return tm5Var;
         }
-        return (tm5) invokeV.objValue;
     }
 }

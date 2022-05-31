@@ -26,7 +26,7 @@ import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AssistActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_INTENT = "openSDK_LOG.AssistActivity.ExtraIntent";
@@ -38,7 +38,7 @@ public class AssistActivity extends Activity {
     public QQStayReceiver e;
     public boolean f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class QQStayReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

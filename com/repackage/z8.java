@@ -63,16 +63,10 @@ public class z8<T> {
         }
     }
 
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
     public InputMethodManager getInputMethodManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mInputManager == null) {
                 this.mInputManager = (InputMethodManager) this.mContext.getContext().getSystemService("input_method");
             }
@@ -84,12 +78,12 @@ public class z8<T> {
     public b9<T> getPageContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mContext : (b9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mContext : (b9) invokeV.objValue;
     }
 
     public void setInputMethodManager(InputMethodManager inputMethodManager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, inputMethodManager) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, inputMethodManager) == null) {
             this.mInputManager = inputMethodManager;
         }
     }

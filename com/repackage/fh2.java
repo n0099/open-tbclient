@@ -1,79 +1,52 @@
 package com.repackage;
 
+import android.view.Surface;
 import androidx.annotation.NonNull;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
-public interface fh2 extends gh2 {
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+/* loaded from: classes5.dex */
+public class fh2 extends bd2<sh2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
+    public fh2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void D(int i);
+    @Override // com.repackage.bd2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
+    }
 
-    void E();
-
-    void F(long j);
-
-    void I(int i);
-
-    void J(int i);
-
-    void K(int i);
-
-    void M(boolean z);
-
-    void S();
-
-    void V(int i);
-
-    void Y(int i);
-
-    void Z(@NonNull a aVar);
-
-    void a0();
-
-    void d();
-
-    void d0(boolean z);
-
-    void e(int i);
-
-    void e0(long j, boolean z);
-
-    void exitRoom();
-
-    void f();
-
-    void g(boolean z);
-
-    ArrayList<jh2> h();
-
-    void i(boolean z);
-
-    void i0(String str);
-
-    void j(long j);
-
-    void l0(long j);
-
-    void m0(boolean z);
-
-    void n();
-
-    void p(long j, boolean z);
-
-    void r(String str);
-
-    void setCameraFace(boolean z);
-
-    void t(boolean z);
-
-    void u(ih2 ih2Var);
-
-    ArrayList<hh2> v();
-
-    void x(boolean z);
-
-    void y(boolean z);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bd2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull sh2 sh2Var) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sh2Var) == null) || (obj = command.obj) == null) {
+            return;
+        }
+        sh2Var.setSurface((Surface) obj);
+        String str = command.what;
+        d(sh2Var, str, "Surface:" + command.obj.hashCode(), false);
+    }
 }

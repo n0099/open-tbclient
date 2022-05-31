@@ -12,9 +12,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.hj8;
-import com.repackage.hp8;
-import com.repackage.jq8;
+import com.repackage.ig8;
+import com.repackage.jm8;
+import com.repackage.ln8;
 import com.repackage.wa;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -22,8 +22,8 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
-    public jq8 b;
-    public List<hp8> c;
+    public ln8 b;
+    public List<jm8> c;
     public wa d;
 
     /* loaded from: classes4.dex */
@@ -80,7 +80,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, jq8 jq8Var, List<hp8> list);
+        void a(int i, String str, ln8 ln8Var, List<jm8> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -106,7 +106,7 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
         registerListener(this.d);
     }
 
-    public List<hp8> D() {
+    public List<jm8> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (List) invokeV.objValue;
@@ -150,8 +150,8 @@ public class AvatarPendantModel extends BdBaseModel<AvatarPendantActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            hj8.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
-            hj8.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
+            ig8.h(309371, AvatarPendantListSocketResponseMessage.class, false, false);
+            ig8.c(309371, CmdConfigHttp.CMD_AVATAR_PENDANT_LIST, TbConfig.AVATAR_PENDANT, AvatarPendantListHttpResponseMessage.class, true, true, true, true);
         }
     }
 }

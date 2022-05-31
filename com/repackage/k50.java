@@ -1,312 +1,208 @@
 package com.repackage;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.Headers;
+import com.baidu.searchbox.network.outback.core.HttpMethod;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.ProxySelector;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSocketFactory;
 /* loaded from: classes6.dex */
-public class k50 {
+public class k50 implements h50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a b;
+    public f50 a;
+    public i50 b;
+    public e50 c;
 
-    public k50(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        c().mkdirs();
-    }
-
-    public static void a(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, file) == null) {
-            file.mkdirs();
-        }
-    }
-
-    public static String e(File file, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        FileInputStream fileInputStream;
-        Throwable th;
-        ByteArrayOutputStream byteArrayOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{file, str, str2, Boolean.valueOf(z)})) != null) {
-            return (String) invokeCommon.objValue;
-        }
-        a(file);
-        File file2 = new File(file, str);
-        FileInputStream fileInputStream2 = null;
-        try {
-            byteArrayOutputStream = new ByteArrayOutputStream();
-            try {
-                fileInputStream = new FileInputStream(file2);
-                try {
-                    byte[] bArr = new byte[8192];
-                    while (true) {
-                        int read = fileInputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    }
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    if (z) {
-                        byteArray = new s40().a(byteArray);
-                    }
-                    String str3 = new String(byteArray, str2);
-                    f50.b(fileInputStream);
-                    f50.b(byteArrayOutputStream);
-                    return str3;
-                } catch (Exception unused) {
-                    fileInputStream2 = fileInputStream;
-                    f50.b(fileInputStream2);
-                    f50.b(byteArrayOutputStream);
-                    return "";
-                } catch (Throwable th2) {
-                    th = th2;
-                    f50.b(fileInputStream);
-                    f50.b(byteArrayOutputStream);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-            } catch (Throwable th3) {
-                fileInputStream = null;
-                th = th3;
-            }
-        } catch (Exception unused3) {
-            byteArrayOutputStream = null;
-        } catch (Throwable th4) {
-            fileInputStream = null;
-            th = th4;
-            byteArrayOutputStream = null;
-        }
-    }
-
-    public static boolean f(File file, String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        FileOutputStream fileOutputStream;
-        Throwable th;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) != null) {
-            return invokeCommon.booleanValue;
-        }
-        a(file);
-        File file2 = new File(file, str);
-        FileOutputStream fileOutputStream2 = null;
-        try {
-            fileOutputStream = new FileOutputStream(file2);
-            try {
-                if (z) {
-                    fileOutputStream.write(new s40().b(str2.getBytes(str3)));
-                } else {
-                    fileOutputStream.write(str2.getBytes(str3));
-                }
-                f50.b(fileOutputStream);
-                return true;
-            } catch (Exception unused) {
-                fileOutputStream2 = fileOutputStream;
-                f50.b(fileOutputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                f50.b(fileOutputStream);
-                throw th;
-            }
-        } catch (Exception unused2) {
-        } catch (Throwable th3) {
-            fileOutputStream = null;
-            th = th3;
-        }
-    }
-
-    public File b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(this.a.getApplicationInfo().dataDir) : (File) invokeV.objValue;
-    }
-
-    public final File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new File(b(), ".helios") : (File) invokeV.objValue;
-    }
-
-    public synchronized a d() {
-        InterceptResult invokeV;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.b == null) {
-                    this.b = new a(this, ".helios", null);
-                }
-                aVar = this.b;
-            }
-            return aVar;
-        }
-        return (a) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes6.dex */
-    public final class a {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public File a;
-        public String b;
-        public a c;
-        public boolean d;
-        public final /* synthetic */ k50 e;
+        public e50 a;
 
-        public a(k50 k50Var, String str, a aVar) {
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public k50 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new k50(this, null) : (k50) invokeV.objValue;
+        }
+
+        public b c(e50 e50Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e50Var)) == null) {
+                this.a = e50Var;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k50Var, str, aVar};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.e = k50Var;
-            this.d = false;
-            this.b = str;
-            this.c = aVar;
-            this.d = false;
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b().mkdirs();
-            }
-        }
-
-        public File b() {
-            InterceptResult invokeV;
-            File file;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                File file2 = this.a;
-                if (file2 != null) {
-                    return file2;
-                }
-                if (this.c == null) {
-                    file = new File(this.e.b(), this.b);
-                } else {
-                    file = new File(this.c.b(), this.b);
-                }
-                this.a = file;
-                return file;
-            }
-            return (File) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-
-        public File d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? new File(this.a, str) : (File) invokeL.objValue;
-        }
-
-        public a e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (a) invokeV.objValue;
-        }
-
-        public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? new a(this.e, str, this) : (a) invokeL.objValue;
-        }
-
-        public String g(String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) ? k50.e(b(), str, "UTF-8", z) : (String) invokeLZ.objValue;
-        }
-
-        public a h(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
-                if (!this.d) {
-                    ArrayList arrayList = new ArrayList();
-                    a aVar = this;
-                    do {
-                        arrayList.add(aVar.c());
-                        aVar = aVar.e();
-                    } while (aVar != null);
-                    int size = arrayList.size() - 1;
-                    while (size >= 0) {
-                        size--;
-                        file = new File(file, (String) arrayList.get(size));
-                    }
-                    return new a(this.e, file);
-                }
-                throw new IllegalStateException("isolate session is not support");
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public boolean i(String str, String str2, boolean z) {
-            InterceptResult invokeLLZ;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, z)) == null) ? k50.f(b(), str, str2, "UTF-8", z) : invokeLLZ.booleanValue;
-        }
-
-        public a(k50 k50Var, File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k50Var, file};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.e = k50Var;
-            this.d = false;
-            this.d = true;
-            this.a = file;
-            this.b = file.getName();
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755608021, "Lcom/repackage/k50;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755608021, "Lcom/repackage/k50;");
+        }
+    }
+
+    public /* synthetic */ k50(b bVar, a aVar) {
+        this(bVar);
+    }
+
+    public static b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new b(null) : (b) invokeV.objValue;
+    }
+
+    @Override // com.repackage.h50
+    public f50 a(Request request) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
+            HttpURLConnection a2 = this.b.a(request.url().url());
+            boolean equals = "CronetHttpURLConnection".equals(a2.getClass().getSimpleName());
+            int i = !equals ? 4 : 5;
+            NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
+            if (networkStatRecord != null) {
+                networkStatRecord.netEngine = i;
+            }
+            if (request.getConnectionTimeout() > 0) {
+                a2.setConnectTimeout(request.getConnectionTimeout());
+            } else if (this.c.o() > 0) {
+                a2.setConnectTimeout(this.c.o());
+            }
+            if (request.getReadTimeout() > 0) {
+                a2.setReadTimeout(request.getReadTimeout());
+            } else if (this.c.w() > 0) {
+                a2.setReadTimeout(this.c.w());
+            }
+            a2.setInstanceFollowRedirects(request.isFollowRedirects());
+            if ("https".equalsIgnoreCase(request.url().scheme()) && !equals) {
+                SSLSocketFactory x = this.c.x();
+                if (x != null) {
+                    ((HttpsURLConnection) a2).setSSLSocketFactory(x);
+                }
+                HostnameVerifier q = this.c.q();
+                if (q != null) {
+                    ((HttpsURLConnection) a2).setHostnameVerifier(q);
+                }
+            }
+            String method = request.method();
+            a2.setRequestMethod(method);
+            a2.setDoInput(true);
+            boolean permitsRequestBody = HttpMethod.permitsRequestBody(method);
+            a2.setDoOutput(permitsRequestBody);
+            Headers headers = request.headers();
+            if (permitsRequestBody) {
+                long contentLength = request.body().contentLength();
+                int i2 = (contentLength > 0L ? 1 : (contentLength == 0L ? 0 : -1));
+                if (i2 < 0 && !"chunked".equals(headers.get("Transfer-Encoding"))) {
+                    throw new IOException("content length < 0 but transfer-encoding is not set to chunked");
+                }
+                if (i2 < 0 && "chunked".equals(headers.get("Transfer-Encoding"))) {
+                    a2.setChunkedStreamingMode(-1);
+                } else {
+                    a2.setFixedLengthStreamingMode((int) contentLength);
+                }
+            }
+            int size = headers.size();
+            for (int i3 = 0; i3 < size; i3++) {
+                a2.setRequestProperty(headers.name(i3), headers.value(i3));
+            }
+            if (permitsRequestBody) {
+                c(request, a2);
+            }
+            a2.connect();
+            j50 j50Var = new j50(a2);
+            this.a = j50Var;
+            j50Var.n(i);
+            return this.a;
+        }
+        return (f50) invokeL.objValue;
+    }
+
+    public final void c(Request request, HttpURLConnection httpURLConnection) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, httpURLConnection) == null) {
+            OutputStream outputStream = null;
+            try {
+                try {
+                    outputStream = httpURLConnection.getOutputStream();
+                    request.body().writeTo(outputStream);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    throw e;
+                }
+            } finally {
+                Util.closeQuietly(outputStream);
+            }
+        }
+    }
+
+    public k50(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        e50 e50Var = bVar.a;
+        this.c = e50Var;
+        ProxySelector.setDefault(e50Var.v());
+        this.b = this.c.r();
     }
 }

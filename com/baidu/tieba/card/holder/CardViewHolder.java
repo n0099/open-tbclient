@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uw5;
+import com.repackage.nv5;
 /* loaded from: classes3.dex */
-public class CardViewHolder<T extends uw5> extends TypeAdapter.ViewHolder {
+public class CardViewHolder<T extends nv5> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public T a;

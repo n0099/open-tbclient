@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.le3;
+import com.repackage.yc3;
 /* loaded from: classes2.dex */
 public class CommonTagView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +57,7 @@ public class CommonTagView extends TextView {
             this.c = obtainStyledAttributes.getColor(0, -16777216);
             this.d = obtainStyledAttributes.getDimensionPixelOffset(2, 3);
             obtainStyledAttributes.recycle();
-            setPadding(getPaddingLeft() == 0 ? le3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? le3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? le3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? le3.f(context, 1.0f) : getPaddingBottom());
+            setPadding(getPaddingLeft() == 0 ? yc3.f(context, 2.0f) : getPaddingLeft(), getPaddingTop() == 0 ? yc3.f(context, 1.0f) : getPaddingTop(), getPaddingRight() == 0 ? yc3.f(context, 2.0f) : getPaddingRight(), getPaddingBottom() == 0 ? yc3.f(context, 1.0f) : getPaddingBottom());
             b(context);
         }
     }

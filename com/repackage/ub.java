@@ -79,18 +79,18 @@ public class ub extends vb {
                     }
                     try {
                         this.a = BitmapFactory.decodeStream(byteArrayInputStream, this.f, this.b);
-                        jg.c(byteArrayInputStream);
+                        ig.c(byteArrayInputStream);
                     } catch (Error e2) {
                         e = e2;
                         byteArrayInputStream2 = byteArrayInputStream;
                         BdLog.e(e.getMessage());
-                        jg.c(byteArrayInputStream2);
+                        ig.c(byteArrayInputStream2);
                         if (this.a == null) {
                         }
                     } catch (Throwable th2) {
                         th = th2;
                         byteArrayInputStream2 = byteArrayInputStream;
-                        jg.c(byteArrayInputStream2);
+                        ig.c(byteArrayInputStream2);
                         throw th;
                     }
                     return this.a == null;

@@ -8,12 +8,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ReplyMeActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEY_FROM_MSG = 1;
     public static final int KEY_FROM_PUSH = 2;
     public static final String KEY_HIGH_LIGHT_POST_ID = "high_light_post_id";
+    public static final String KEY_REPLY_NUMBER = "reply_number";
+    public static final String LAST_PAGE_UNIQUE_ID = "last_page_unique_id";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,5 +54,23 @@ public class ReplyMeActivityConfig extends IntentConfig {
             return;
         }
         intent.putExtra("high_light_post_id", str);
+    }
+
+    public void setLastUniqueId(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra("last_page_unique_id", i);
+    }
+
+    public void setReplyNumber(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra(KEY_REPLY_NUMBER, i);
     }
 }

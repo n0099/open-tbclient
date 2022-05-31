@@ -1,213 +1,67 @@
 package com.repackage;
 
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class e11 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e11 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "browserDownload");
+    public static final e11 b = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755790580, "Lcom/repackage/e11;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a implements e11 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755790580, "Lcom/repackage/e11;");
-                return;
-            }
-        }
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        a = hashMap;
-        hashMap.put("__AD_EXTRA_PARAM_ENCODE_0__", 0);
-        a.put("__AD_EXTRA_PARAM_ENCODE_1__", 1);
-        a.put("__AD_EXTRA_PARAM_ENCODE_2__", 2);
-        a.put("__AD_EXTRA_PARAM_ENCODE_3__", 3);
-    }
-
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            if (i <= 0) {
-                return str;
-            }
-            for (int i2 = 0; i2 < i; i2++) {
-                str = Uri.encode(str);
-            }
-            return str;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String b(@NonNull AdBaseModel adBaseModel, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, adBaseModel, str)) == null) {
-            tn0 tn0Var = adBaseModel.l;
-            if (tn0Var == null || !tn0Var.e) {
-                return str;
-            }
-            String str2 = tn0Var.a;
-            if (TextUtils.isEmpty(str2)) {
-                return str;
-            }
-            boolean d = d(str2);
-            String str3 = tn0Var.b;
-            if (!d) {
-                str3 = "";
-            } else if (TextUtils.isEmpty(str3)) {
-                return str;
-            }
-            return TextUtils.isEmpty(str3) ? str : str3;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adBaseModel)) == null) {
-            if (adBaseModel == null || (str = adBaseModel.f.d) == null) {
-                return null;
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            try {
-                ki0.b().getPackageManager().getApplicationInfo(str, 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException | Exception unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, adBaseModel) == null) {
-            h(adBaseModel);
-            j(adBaseModel);
-        }
-    }
-
-    public static void f(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, adBaseModel) == null) && adBaseModel.d && !TextUtils.isEmpty(adBaseModel.h.d)) {
-            AdOperator adOperator = adBaseModel.h;
-            adOperator.d = g(adBaseModel, adOperator.d);
-        }
-    }
-
-    public static String g(@NonNull AdBaseModel adBaseModel, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, adBaseModel, str)) == null) {
-            if (m(str)) {
-                String c = c(adBaseModel);
-                return !TextUtils.isEmpty(c) ? l(str, c) : str;
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void h(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, adBaseModel) == null) {
-            i(adBaseModel);
-            f(adBaseModel);
-            k(adBaseModel);
-        }
-    }
-
-    public static void i(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, adBaseModel) == null) || TextUtils.isEmpty(adBaseModel.f.c)) {
-            return;
-        }
-        bo0 bo0Var = adBaseModel.f;
-        bo0Var.c = g(adBaseModel, bo0Var.c);
-    }
-
-    public static void j(@NonNull AdBaseModel adBaseModel) {
-        tn0 tn0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, adBaseModel) == null) && (tn0Var = adBaseModel.l) != null && tn0Var.e) {
-            String str = tn0Var.b;
-            if (str.contains("__AUTO_INVOKE__")) {
-                adBaseModel.l.b = str.replace("__AUTO_INVOKE__", d(adBaseModel.l.a) ? "0" : "1");
-            }
-        }
-    }
-
-    public static void k(AdBaseModel adBaseModel) {
-        tn0 tn0Var;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65547, null, adBaseModel) == null) || (tn0Var = adBaseModel.l) == null || (str = tn0Var.b) == null) {
-            return;
-        }
-        tn0Var.b = g(adBaseModel, str);
-    }
-
-    public static String l(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            if (str != null && str2 != null) {
-                for (Map.Entry<String, Integer> entry : a.entrySet()) {
-                    if (str.contains(entry.getKey())) {
-                        try {
-                            str = str.replaceAll(entry.getKey(), a(str2, entry.getValue().intValue()));
-                        } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException unused) {
-                        }
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return str;
         }
-        return (String) invokeLL.objValue;
+
+        @Override // com.repackage.e11
+        public void a(Object obj, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
+            }
+        }
+
+        @Override // com.repackage.e11
+        public void b(Context context, RelativeLayout relativeLayout, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, relativeLayout, str) == null) {
+            }
+        }
+
+        @Override // com.repackage.e11
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
     }
 
-    public static boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (Map.Entry<String, Integer> entry : a.entrySet()) {
-                if (str.contains(entry.getKey())) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(String str);
     }
+
+    void a(Object obj, b bVar);
+
+    void b(Context context, RelativeLayout relativeLayout, String str);
+
+    void release();
 }

@@ -7,10 +7,10 @@ import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ex5;
-import com.repackage.w68;
+import com.repackage.d48;
+import com.repackage.xv5;
 /* loaded from: classes3.dex */
-public class HomePageCardVideoViewHolder<T extends ex5> extends CardViewHolder<T> implements w68 {
+public class HomePageCardVideoViewHolder<T extends xv5> extends CardViewHolder<T> implements d48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,7 +23,7 @@ public class HomePageCardVideoViewHolder<T extends ex5> extends CardViewHolder<T
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (T) this.a : (T) invokeV.objValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -32,12 +32,12 @@ public class HomePageCardVideoViewHolder<T extends ex5> extends CardViewHolder<T
             if (t == 0) {
                 return 0;
             }
-            return ((ex5) t).getCurrentPosition();
+            return ((xv5) t).getCurrentPosition();
         }
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,12 +46,12 @@ public class HomePageCardVideoViewHolder<T extends ex5> extends CardViewHolder<T
             if (t == 0) {
                 return null;
             }
-            return ((ex5) t).v();
+            return ((xv5) t).v();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,12 +60,12 @@ public class HomePageCardVideoViewHolder<T extends ex5> extends CardViewHolder<T
             if (t == 0) {
                 return null;
             }
-            return ((ex5) t).w();
+            return ((xv5) t).w();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -75,7 +75,7 @@ public class HomePageCardVideoViewHolder<T extends ex5> extends CardViewHolder<T
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -84,12 +84,12 @@ public class HomePageCardVideoViewHolder<T extends ex5> extends CardViewHolder<T
             if (t == 0) {
                 return false;
             }
-            return ((ex5) t).E();
+            return ((xv5) t).E();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,28 +98,28 @@ public class HomePageCardVideoViewHolder<T extends ex5> extends CardViewHolder<T
             if (t == 0) {
                 return false;
             }
-            return ((ex5) t).isPlaying();
+            return ((xv5) t).isPlaying();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public void startPlay() {
         T t;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (t = this.a) == 0) {
             return;
         }
-        ((ex5) t).startPlay();
+        ((xv5) t).startPlay();
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public void stopPlay() {
         T t;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (t = this.a) == 0) {
             return;
         }
-        ((ex5) t).stopPlay();
+        ((xv5) t).stopPlay();
     }
 }

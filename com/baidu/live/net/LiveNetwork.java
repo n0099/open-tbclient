@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.ac0;
-import com.repackage.bc0;
-import com.repackage.cc0;
-import com.repackage.jc0;
-import com.repackage.zb0;
+import com.repackage.ma0;
+import com.repackage.na0;
+import com.repackage.oa0;
+import com.repackage.pa0;
+import com.repackage.wa0;
 import java.util.Map;
 import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
@@ -112,19 +112,19 @@ public final class LiveNetwork {
     }
 
     /* loaded from: classes2.dex */
-    public static final class b<T> implements bc0<a<ResponseDataT>> {
+    public static final class b<T> implements oa0<a<ResponseDataT>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveNetwork a;
         public final /* synthetic */ Map b;
-        public final /* synthetic */ zb0 c;
+        public final /* synthetic */ ma0 c;
 
-        public b(LiveNetwork liveNetwork, Map map, zb0 zb0Var) {
+        public b(LiveNetwork liveNetwork, Map map, ma0 ma0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {liveNetwork, map, zb0Var};
+                Object[] objArr = {liveNetwork, map, ma0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -136,11 +136,11 @@ public final class LiveNetwork {
             }
             this.a = liveNetwork;
             this.b = map;
-            this.c = zb0Var;
+            this.c = ma0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.bc0
+        @Override // com.repackage.oa0
         /* renamed from: b */
         public final a<ResponseDataT> a() {
             InterceptResult invokeV;
@@ -153,12 +153,12 @@ public final class LiveNetwork {
                 NetResponse res = iNetWork.postSync(this.b);
                 Object obj = null;
                 try {
-                    zb0 zb0Var = this.c;
-                    if (zb0Var != null) {
-                        obj = zb0Var.onParseResponseInBackground(res);
+                    ma0 ma0Var = this.c;
+                    if (ma0Var != null) {
+                        obj = ma0Var.onParseResponseInBackground(res);
                     }
                 } catch (Exception e) {
-                    jc0.e(e);
+                    wa0.e(e);
                 }
                 Intrinsics.checkExpressionValueIsNotNull(res, "res");
                 return new a<>(res, obj);
@@ -168,17 +168,17 @@ public final class LiveNetwork {
     }
 
     /* loaded from: classes2.dex */
-    public static final class c<T> implements cc0<a<ResponseDataT>> {
+    public static final class c<T> implements pa0<a<ResponseDataT>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zb0 a;
+        public final /* synthetic */ ma0 a;
 
-        public c(zb0 zb0Var) {
+        public c(ma0 ma0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zb0Var};
+                Object[] objArr = {ma0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -188,21 +188,21 @@ public final class LiveNetwork {
                     return;
                 }
             }
-            this.a = zb0Var;
+            this.a = ma0Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.repackage.zb0 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.repackage.ma0 */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.repackage.cc0
+        @Override // com.repackage.pa0
         /* renamed from: a */
         public final void onReturnDataInUI(a<ResponseDataT> aVar) {
-            zb0 zb0Var;
+            ma0 ma0Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (zb0Var = this.a) == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || (ma0Var = this.a) == 0) {
                 return;
             }
-            zb0Var.onNetResponse(aVar != 0 ? aVar.b() : null, aVar != 0 ? aVar.a() : null);
+            ma0Var.onNetResponse(aVar != 0 ? aVar.b() : null, aVar != 0 ? aVar.a() : null);
         }
     }
 
@@ -240,13 +240,13 @@ public final class LiveNetwork {
         this.b = networkAgentService != null ? networkAgentService.buildNetworkInstance() : null;
     }
 
-    public final <ResponseDataT> void b(Map<String, ? extends Object> map, zb0<ResponseDataT> zb0Var) {
+    public final <ResponseDataT> void b(Map<String, ? extends Object> map, ma0<ResponseDataT> ma0Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, map, zb0Var) == null) || (str = this.a) == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.b == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, map, ma0Var) == null) || (str = this.a) == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.b == null) {
             return;
         }
-        ac0.a(new b(this, map, zb0Var), new c(zb0Var));
+        na0.a(new b(this, map, ma0Var), new c(ma0Var));
     }
 
     public final void c(Map<String, ? extends Object> map) {

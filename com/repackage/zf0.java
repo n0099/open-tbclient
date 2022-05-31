@@ -1,61 +1,37 @@
 package com.repackage;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tachikoma.core.component.anim.AnimationProperty;
-import java.util.ArrayList;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class zf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static MediaOneAEffect a(long j) {
-        InterceptResult invokeJ;
+    public static String a(String str, Map<String, String> map, Map<String, String> map2, String str2) {
+        InterceptResult invokeLLLL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
-            mediaOneAEffect.start = 0L;
-            mediaOneAEffect.end = j;
-            ArrayList arrayList = new ArrayList();
-            mediaOneAEffect.aParams = arrayList;
-            arrayList.add(c());
-            return mediaOneAEffect;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, map, map2, str2)) == null) {
+            if (map != null) {
+                str3 = map.get(str);
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = map.get("default");
+                }
+            } else {
+                str3 = null;
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                str = str3;
+            }
+            String str4 = map2 != null ? map2.get(str) : null;
+            if (TextUtils.equals(str4, "__CMD_NONE__")) {
+                return null;
+            }
+            return TextUtils.isEmpty(str4) ? str2 : str4;
         }
-        return (MediaOneAEffect) invokeJ.objValue;
-    }
-
-    public static MediaAEffect b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            MediaAEffect mediaAEffect = new MediaAEffect();
-            mediaAEffect.name = "defaultScene";
-            mediaAEffect.duration = j;
-            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
-            mediaAEffect.effectType = "scene";
-            mediaAEffect.shaderConfigKey = ag0.b;
-            ArrayList arrayList = new ArrayList();
-            mediaAEffect.mediaOneAEffects = arrayList;
-            arrayList.add(a(j));
-            return mediaAEffect;
-        }
-        return (MediaAEffect) invokeJ.objValue;
-    }
-
-    public static ShaderParams c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ShaderParams shaderParams = new ShaderParams();
-            shaderParams.name = AnimationProperty.SCALE;
-            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
-            shaderParams.values = new float[]{1.0f, 1.2f};
-            return shaderParams;
-        }
-        return (ShaderParams) invokeV.objValue;
+        return (String) invokeLLLL.objValue;
     }
 }

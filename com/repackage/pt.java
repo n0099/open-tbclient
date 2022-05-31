@@ -1,104 +1,118 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.bdtask.model.ui.TaskUIBtn;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.bdtask.model.ui.TaskUIProgress;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class pt {
+public final class pt extends ft<TaskUIData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<? extends eu<? extends du<?>>> a;
-    public final Class<? extends du<?>> b;
-    public final boolean c;
 
-    public pt(Class<? extends eu<? extends du<?>>> cls, Class<? extends du<?>> cls2, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pt(ht htVar) {
+        super(htVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, Boolean.valueOf(z)};
+            Object[] objArr = {htVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ht) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cls;
-        this.b = cls2;
-        this.c = z;
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public final Class<? extends eu<? extends du<?>>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Class) invokeV.objValue;
-    }
-
-    public final Class<? extends du<?>> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (Class) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
+    public final TaskUIProgress b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof pt) {
-                    pt ptVar = (pt) obj;
-                    if (Intrinsics.areEqual(this.a, ptVar.a) && Intrinsics.areEqual(this.b, ptVar.b)) {
-                        if (this.c == ptVar.c) {
-                        }
-                    }
-                }
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new TaskUIProgress(null, null, 3, null);
             }
-            return true;
+            String optString = jSONObject.optString(TaskUIData.keyForeColor);
+            Intrinsics.checkExpressionValueIsNotNull(optString, "raw.optString(keyForeColor)");
+            String optString2 = jSONObject.optString(TaskUIData.keyBackColor);
+            Intrinsics.checkExpressionValueIsNotNull(optString2, "raw.optString(keyBackColor)");
+            return new TaskUIProgress(optString, optString2);
         }
-        return invokeL.booleanValue;
+        return (TaskUIProgress) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: boolean */
-    /* JADX WARN: Multi-variable type inference failed */
-    public int hashCode() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Class<? extends eu<? extends du<?>>> cls = this.a;
-            int hashCode = (cls != null ? cls.hashCode() : 0) * 31;
-            Class<? extends du<?>> cls2 = this.b;
-            int hashCode2 = (hashCode + (cls2 != null ? cls2.hashCode() : 0)) * 31;
-            boolean z = this.c;
-            int i = z;
-            if (z != 0) {
-                i = 1;
-            }
-            return hashCode2 + i;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "ui" : (String) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final TaskUIBtn d(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ToastPlugin(viewClass=" + this.a + ", viewModelClass=" + this.b + ", needSysToastFix=" + this.c + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new TaskUIBtn(null, null, null, null, null, 31, null);
+            }
+            String optString = jSONObject.optString("txt");
+            Intrinsics.checkExpressionValueIsNotNull(optString, "raw.optString(keyTxt)");
+            String optString2 = jSONObject.optString("color");
+            Intrinsics.checkExpressionValueIsNotNull(optString2, "raw.optString(keyColor)");
+            String optString3 = jSONObject.optString(TaskUIData.keyBgUrl);
+            Intrinsics.checkExpressionValueIsNotNull(optString3, "raw.optString(keyBgUrl)");
+            String optString4 = jSONObject.optString(TaskUIData.keyTxtColor);
+            Intrinsics.checkExpressionValueIsNotNull(optString4, "raw.optString(keyTxtColor)");
+            String optString5 = jSONObject.optString("schema");
+            Intrinsics.checkExpressionValueIsNotNull(optString5, "raw.optString(keySchema)");
+            return new TaskUIBtn(optString, optString2, optString3, optString4, optString5);
         }
-        return (String) invokeV.objValue;
+        return (TaskUIBtn) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ft
+    /* renamed from: e */
+    public TaskUIData a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String uiBackColor = jSONObject.optString(TaskUIData.keyBackColor);
+                String uiMessage = jSONObject.optString("message");
+                int optInt = jSONObject.optInt("duration");
+                String uiForeColor = jSONObject.optString(TaskUIData.keyForeColor);
+                String uiBgUrl = jSONObject.optString(TaskUIData.keyBgUrl);
+                String closeBg = jSONObject.optString(TaskUIData.keyCloseBg);
+                String uiTxtColor = jSONObject.optString(TaskUIData.keyTxtColor);
+                String extra = jSONObject.optString("extra");
+                TaskUIProgress b = b(jSONObject.optJSONObject("progress"));
+                TaskUIBtn d = d(jSONObject.optJSONObject(TaskUIData.keyBackBtn));
+                TaskUIBtn d2 = d(jSONObject.optJSONObject(TaskUIData.keyCancelBtn));
+                int optInt2 = jSONObject.optInt(TaskUIData.keyModalType);
+                Intrinsics.checkExpressionValueIsNotNull(uiBackColor, "uiBackColor");
+                Intrinsics.checkExpressionValueIsNotNull(uiMessage, "uiMessage");
+                Intrinsics.checkExpressionValueIsNotNull(uiForeColor, "uiForeColor");
+                Intrinsics.checkExpressionValueIsNotNull(uiBgUrl, "uiBgUrl");
+                Intrinsics.checkExpressionValueIsNotNull(uiTxtColor, "uiTxtColor");
+                Intrinsics.checkExpressionValueIsNotNull(closeBg, "closeBg");
+                Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
+                return new TaskUIData(uiBackColor, uiMessage, optInt, uiForeColor, uiBgUrl, uiTxtColor, b, d, d2, optInt2, closeBg, extra);
+            } catch (Exception unused) {
+                return new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+            }
+        }
+        return (TaskUIData) invokeL.objValue;
     }
 }

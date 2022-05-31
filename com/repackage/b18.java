@@ -1,21 +1,19 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
-import com.baidu.tieba.person.holder.PersonInfoUserPicViewHolder;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b18 extends eo<l05, PersonInfoUserPicViewHolder> {
+public class b18 extends wm<m28, CardViewHolder<o38>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext i;
@@ -44,27 +42,29 @@ public class b18 extends eo<l05, PersonInfoUserPicViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: Z */
-    public PersonInfoUserPicViewHolder M(ViewGroup viewGroup) {
+    public CardViewHolder<o38> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonInfoUserPicViewHolder(LayoutInflater.from(this.i.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0856, (ViewGroup) null)) : (PersonInfoUserPicViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new o38(this.i)) : (CardViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, l05 l05Var, PersonInfoUserPicViewHolder personInfoUserPicViewHolder) {
+    public View S(int i, View view2, ViewGroup viewGroup, m28 m28Var, CardViewHolder<o38> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, l05Var, personInfoUserPicViewHolder})) == null) {
-            if (personInfoUserPicViewHolder == null || l05Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m28Var, cardViewHolder})) == null) {
+            if (cardViewHolder == null || cardViewHolder.c() == null || m28Var == null) {
                 return null;
             }
-            personInfoUserPicViewHolder.f(this.j);
-            personInfoUserPicViewHolder.c(l05Var);
-            return personInfoUserPicViewHolder.b();
+            cardViewHolder.c().l(m28Var);
+            if (cardViewHolder.c().k() != null) {
+                cardViewHolder.c().k().setOnClickListener(this.j);
+            }
+            return cardViewHolder.c().k();
         }
         return (View) invokeCommon.objValue;
     }

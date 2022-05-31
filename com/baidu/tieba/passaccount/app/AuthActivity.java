@@ -27,7 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tq7;
+import com.repackage.co7;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -222,13 +222,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(65539, this, z, str) == null) {
             int i = this.type;
             if (i == 0) {
-                tq7.f().b(z, str);
+                co7.f().b(z, str);
             } else if (i == 1) {
-                tq7.f().e(z);
+                co7.f().e(z);
             } else if (i == 2) {
-                tq7.f().c(z);
+                co7.f().c(z);
             } else {
-                tq7.f().a(null);
+                co7.f().a(null);
             }
             finish();
         }
@@ -360,7 +360,7 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04d4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04ca);
                 PassManagerStatic.z();
                 init();
                 setupViews();
@@ -398,7 +398,7 @@ public class AuthActivity extends BaseActivity {
                 this.sapiWebView.setWebviewClientCallback(new c(this));
                 this.sapiWebView.loadUrl(getAuthUrl());
             } else if (i == 1) {
-                setTitleText(R.string.obfuscated_res_0x7f0f1074);
+                setTitleText(R.string.obfuscated_res_0x7f0f1084);
                 SapiAccountManager.getInstance().getAccountService().webLogin(this, this.bduss);
                 this.sapiWebView.loadUrl(getModifyPwdUrl(), getBindBdussCookies());
                 this.sapiWebView.setChangePwdCallback(new d(this));

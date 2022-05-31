@@ -1,147 +1,84 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.ContentValues;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-import java.util.Set;
 /* loaded from: classes6.dex */
-public class j92 {
+public class j92 extends i92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, Integer> b;
-    public static final Object c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public ContentValues d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755633906, "Lcom/repackage/j92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755633906, "Lcom/repackage/j92;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j92(@Nullable Map<String, String> map) {
+        super("lifecycle", map);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {map};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = eh1.a;
-        b = new HashMap();
-        c = new Object();
-        d = k92.a();
     }
 
-    public static void a() {
+    @Override // com.repackage.i92, com.repackage.h92
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "remove all exclude appIds");
-            }
-            synchronized (c) {
-                b.clear();
-            }
-        }
-    }
-
-    @NonNull
-    public static Set<String> b() {
-        InterceptResult invokeV;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!d) {
-                return Collections.emptySet();
-            }
-            synchronized (c) {
-                strArr = (String[]) b.keySet().toArray(new String[0]);
-            }
-            return ye3.a(strArr);
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (d && !TextUtils.isEmpty(str)) {
-                synchronized (c) {
-                    containsKey = b.containsKey(str);
-                }
-                if (a) {
-                    Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
-                }
-                return containsKey;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            synchronized (c) {
-                Integer num = b.get(str);
-                if (num == null) {
-                    b.put(str, 1);
-                } else {
-                    b.put(str, Integer.valueOf(num.intValue() + 1));
-                }
-            }
-        }
-    }
-
-    public static void e(ae4 ae4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, ae4Var) == null) && d && ae4Var != null) {
-            for (q94 q94Var : ae4Var.j()) {
-                if (q94Var instanceof r94) {
-                    d(q94Var.g);
-                } else if (q94Var instanceof s94) {
-                    d(((s94) q94Var).o);
-                }
-            }
-        }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && d) {
-            if (a) {
-                Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            synchronized (c) {
-                Integer num = b.get(str);
-                if (num != null) {
-                    int intValue = num.intValue() - 1;
-                    if (intValue <= 0) {
-                        b.remove(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            map.put("cuid", oi2.h0().i(oi2.c()));
+            map.put("mtjCuid", oi2.h0().i(oi2.c()));
+            ContentValues contentValues = this.d;
+            if (contentValues != null) {
+                for (String str : contentValues.keySet()) {
+                    Object obj = this.d.get(str);
+                    if (!(obj instanceof Number) && !(obj instanceof Boolean)) {
+                        map.put(str, String.valueOf(obj));
                     } else {
-                        b.put(str, Integer.valueOf(intValue));
+                        map.put(str, obj);
                     }
                 }
+                return;
+            }
+            for (Map.Entry<String, String> entry : this.c.entrySet()) {
+                map.put(entry.getKey(), entry.getValue());
             }
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j92(@NonNull ContentValues contentValues) {
+        super("lifecycle", null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {contentValues};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Map) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = contentValues;
     }
 }

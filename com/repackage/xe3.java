@@ -1,62 +1,45 @@
 package com.repackage;
 
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Queue;
 /* loaded from: classes7.dex */
 public class xe3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Runnable b;
 
-    public xe3() {
+    public static void a(@NonNull we3 we3Var, @NonNull np2 np2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, we3Var, np2Var) == null) {
+            we3Var.f(np2Var.d());
+            we3Var.g(np2Var.e());
+            if (np2Var.g()) {
+                we3Var.a(1);
+            } else {
+                we3Var.e(1);
             }
         }
-        this.a = new ArrayDeque();
-        this.b = null;
     }
 
-    public synchronized boolean a(Runnable runnable) {
-        InterceptResult invokeL;
-        boolean z;
+    public static FrameLayout.LayoutParams b(@NonNull ol1 ol1Var, @NonNull np2 np2Var) {
+        InterceptResult invokeLL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            synchronized (this) {
-                z = true;
-                boolean z2 = runnable == null;
-                if (!z2) {
-                    this.a.offer(runnable);
-                }
-                boolean z3 = this.b == null && !this.a.isEmpty();
-                if (z3) {
-                    while (!this.a.isEmpty()) {
-                        Runnable poll = this.a.poll();
-                        this.b = poll;
-                        if (poll != null) {
-                            poll.run();
-                        }
-                        this.b = null;
-                    }
-                }
-                z = (z2 || !z3) ? false : false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ol1Var, np2Var)) == null) {
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(np2Var.f(), np2Var.c());
+            int i2 = 0;
+            if (np2Var.g()) {
+                i2 = ol1Var.getWebViewScrollX();
+                i = ol1Var.getWebViewScrollY();
+            } else {
+                i = 0;
             }
-            return z;
+            layoutParams.leftMargin = np2Var.d() + i2;
+            layoutParams.topMargin = np2Var.e() + i;
+            return layoutParams;
         }
-        return invokeL.booleanValue;
+        return (FrameLayout.LayoutParams) invokeLL.objValue;
     }
 }

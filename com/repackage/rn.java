@@ -1,111 +1,77 @@
 package com.repackage;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.internal.util.Files;
-import com.baidu.titan.sdk.loader.LoaderHead;
-import com.baidu.titan.sdk.loader.LoaderManager;
-import com.baidu.titan.sdk.pm.PatchInstallInfo;
-import com.baidu.titan.sdk.pm.PatchMetaInfo;
-import com.baidu.titan.sdk.pm.TitanPaths;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.NoDataItemViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class rn implements ln {
+public class rn extends wm<sn, NoDataItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int i;
 
-    public rn() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rn(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), sn.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.i = 3;
     }
 
-    public JSONObject a(Context context) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.repackage.wm
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, sn snVar, NoDataItemViewHolder noDataItemViewHolder) {
+        a0(i, view2, viewGroup, snVar, noDataItemViewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: Z */
+    public NoDataItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                PatchInstallInfo currentPatchInfo = LoaderManager.getInstance().getCurrentPatchInfo();
-                if (currentPatchInfo != null) {
-                    jSONObject.put("info", PatchMetaInfo.createFromPatch(currentPatchInfo.getPatchFile()).toJson());
-                } else {
-                    jSONObject.put("error", "no-patch-loaded");
-                }
-            } catch (Exception e) {
-                try {
-                    jSONObject.put("error", Log.getStackTraceString(e));
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new NoDataItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0073, viewGroup, false)) : (NoDataItemViewHolder) invokeL.objValue;
+    }
+
+    public View a0(int i, View view2, ViewGroup viewGroup, sn snVar, NoDataItemViewHolder noDataItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, snVar, noDataItemViewHolder})) == null) {
+            noDataItemViewHolder.a.setText(snVar.a);
+            if (this.i != TbadkCoreApplication.getInst().getSkinType()) {
+                SkinManager.setImageResource(noDataItemViewHolder.b, snVar.b);
+                SkinManager.setViewTextColor(noDataItemViewHolder.a, (int) R.color.CAM_X0109);
+                this.i = TbadkCoreApplication.getInst().getSkinType();
             }
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                File headFile = TitanPaths.getHeadFile();
-                if (headFile.exists()) {
-                    String fileStringContent = Files.getFileStringContent(headFile);
-                    jSONObject2.put("head", new JSONObject(fileStringContent));
-                    LoaderHead createFromJson = LoaderHead.createFromJson(fileStringContent);
-                    if (createFromJson != null) {
-                        PatchMetaInfo createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile());
-                        if (createFromPatch == null) {
-                            jSONObject2.put("error", "patch file damage");
-                        } else {
-                            context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                            if (createFromPatch.versionInfo != null) {
-                                jSONObject2.put("info", createFromPatch.toJson());
-                            } else {
-                                jSONObject2.put("error", "version info dismiss");
-                            }
-                        }
-                    }
-                } else {
-                    jSONObject2.put("error", "no-patch-installed");
-                }
-            } catch (Exception e3) {
-                try {
-                    jSONObject2.put("error", Log.getStackTraceString(e3));
-                } catch (JSONException e4) {
-                    e4.printStackTrace();
-                }
-            }
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                un d = un.d();
-                d.g();
-                jSONObject3.put("info", d.k());
-            } catch (Exception e5) {
-                try {
-                    jSONObject3.put("error", Log.getStackTraceString(e5));
-                } catch (JSONException e6) {
-                    e6.printStackTrace();
-                }
-            }
-            JSONObject jSONObject4 = new JSONObject();
-            try {
-                jSONObject4.put("load", jSONObject);
-                jSONObject4.put("install", jSONObject2);
-                jSONObject4.put("update", jSONObject3);
-            } catch (JSONException e7) {
-                e7.printStackTrace();
-            }
-            return jSONObject4;
+            return view2;
         }
-        return (JSONObject) invokeL.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

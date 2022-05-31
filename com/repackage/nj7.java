@@ -1,21 +1,29 @@
 package com.repackage;
 
+import android.content.Context;
+import android.os.Handler;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
 public class nj7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public Handler b;
+    public RelativeLayout c;
+    public TextView d;
+    public Runnable e;
 
-    public nj7(VipSpecialItem vipSpecialItem) {
+    public nj7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialItem};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,14 +33,15 @@ public class nj7 {
                 return;
             }
         }
-        String str = vipSpecialItem.title;
-        String str2 = vipSpecialItem.desc;
-        String str3 = vipSpecialItem.img_url;
-        String str4 = vipSpecialItem.link;
-        String str5 = vipSpecialItem.update_time;
-        vipSpecialItem.id.intValue();
-        vipSpecialItem.type.intValue();
-        vipSpecialItem.task_id.intValue();
-        vipSpecialItem.is_finish.intValue();
+        this.a = context;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null || this.d == null) {
+            return;
+        }
+        this.b.removeCallbacks(this.e);
+        this.b.post(this.e);
     }
 }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.le3;
+import com.repackage.yc3;
 /* loaded from: classes2.dex */
 public class LoadingAnimView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -155,7 +155,7 @@ public class LoadingAnimView extends View {
             }
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            int f = le3.f(getContext(), 6.0f);
+            int f = yc3.f(getContext(), 6.0f);
             this.c.eraseColor(0);
             this.g.setStyle(Paint.Style.FILL);
             this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f0603d1));

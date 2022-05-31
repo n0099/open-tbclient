@@ -5,8 +5,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cy9;
-import com.repackage.d2a;
+import com.repackage.wu9;
+import com.repackage.xy9;
 import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes8.dex */
 public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFromEmitter$NoOverflowBaseEmitter<T> {
@@ -16,18 +16,18 @@ public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFro
     public boolean done;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OnSubscribeFromEmitter$ErrorEmitter(cy9<? super T> cy9Var) {
-        super(cy9Var);
+    public OnSubscribeFromEmitter$ErrorEmitter(wu9<? super T> wu9Var) {
+        super(wu9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cy9Var};
+            Object[] objArr = {wu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((cy9) newInitContext.callArgs[0]);
+                super((wu9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,7 +50,7 @@ public final class OnSubscribeFromEmitter$ErrorEmitter<T> extends OnSubscribeFro
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
             if (this.done) {
-                d2a.j(th);
+                xy9.j(th);
                 return;
             }
             this.done = true;

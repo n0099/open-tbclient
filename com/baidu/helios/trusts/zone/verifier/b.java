@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
-import com.repackage.a60;
-import com.repackage.f50;
+import com.repackage.n40;
+import com.repackage.s30;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -51,25 +51,25 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.helios.trusts.zone.verifier.b$b  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static final class C0096b implements c {
+    /* loaded from: classes.dex */
+    public static final class C0095b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteBuffer a;
 
-        public C0096b(ByteBuffer byteBuffer) {
+        public C0095b(ByteBuffer byteBuffer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,14 +113,14 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface c {
         long a();
 
         void a(MessageDigest[] messageDigestArr, long j, int i) throws IOException;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static final class d implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class f extends Exception {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long a = 1;
@@ -253,7 +253,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class g extends h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,7 +288,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class h extends X509Certificate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -535,9 +535,9 @@ public class b {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, byteBuffer, j)) == null) {
-            long j2 = a60.j(byteBuffer);
+            long j2 = n40.j(byteBuffer);
             if (j2 < j) {
-                if (a60.k(byteBuffer) + j2 == j) {
+                if (n40.k(byteBuffer) + j2 == j) {
                     return j2;
                 }
                 throw new f("ZIP Central Directory is not immediately followed by End of Central Directory");
@@ -590,7 +590,7 @@ public class b {
             Pair<ByteBuffer, Long> q = q(randomAccessFile);
             ByteBuffer byteBuffer = (ByteBuffer) q.first;
             long longValue = ((Long) q.second).longValue();
-            if (a60.g(randomAccessFile, longValue)) {
+            if (n40.g(randomAccessFile, longValue)) {
                 throw new f("ZIP64 APK not supported");
             }
             long c2 = c(byteBuffer, longValue);
@@ -691,29 +691,29 @@ public class b {
     }
 
     public static void k(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) throws SecurityException {
-        c c0096b;
-        c c0096b2;
+        c c0095b;
+        c c0095b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{map, randomAccessFile, fileDescriptor, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), byteBuffer}) == null) {
             if (map.isEmpty()) {
                 throw new SecurityException("No digests provided");
             }
             if (j > 1048576) {
-                c0096b = new d(randomAccessFile.getChannel(), 0L, j);
-                c0096b2 = new d(randomAccessFile.getChannel(), j2, j3 - j2);
+                c0095b = new d(randomAccessFile.getChannel(), 0L, j);
+                c0095b2 = new d(randomAccessFile.getChannel(), j2, j3 - j2);
             } else {
                 ByteBuffer allocate = ByteBuffer.allocate((int) j);
                 allocate.order(ByteOrder.LITTLE_ENDIAN);
                 try {
                     randomAccessFile.seek(0L);
                     randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-                    c0096b = new C0096b(allocate);
+                    c0095b = new C0095b(allocate);
                     ByteBuffer allocate2 = ByteBuffer.allocate((int) (j3 - j2));
                     allocate2.order(ByteOrder.LITTLE_ENDIAN);
                     try {
                         randomAccessFile.seek(j2);
                         randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
-                        c0096b2 = new C0096b(allocate2);
+                        c0095b2 = new C0095b(allocate2);
                     } catch (IOException e2) {
                         throw new SecurityException("Failed to get apk contents", e2);
                     }
@@ -723,8 +723,8 @@ public class b {
             }
             ByteBuffer duplicate = byteBuffer.duplicate();
             duplicate.order(ByteOrder.LITTLE_ENDIAN);
-            a60.f(duplicate, j);
-            C0096b c0096b3 = new C0096b(duplicate);
+            n40.f(duplicate, j);
+            C0095b c0095b3 = new C0095b(duplicate);
             int size = map.size();
             int[] iArr = new int[size];
             int i = 0;
@@ -733,7 +733,7 @@ public class b {
                 i++;
             }
             try {
-                byte[][] m = m(iArr, new c[]{c0096b, c0096b2, c0096b3});
+                byte[][] m = m(iArr, new c[]{c0095b, c0095b2, c0095b3});
                 for (int i2 = 0; i2 < size; i2++) {
                     int i3 = iArr[i2];
                     if (!MessageDigest.isEqual(map.get(Integer.valueOf(i3)), m[i2])) {
@@ -1013,7 +1013,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, randomAccessFile)) == null) {
-            Pair<ByteBuffer, Long> b = a60.b(randomAccessFile);
+            Pair<ByteBuffer, Long> b = n40.b(randomAccessFile);
             if (b != null) {
                 return b;
             }
@@ -1061,7 +1061,7 @@ public class b {
             try {
                 return v(randomAccessFile);
             } finally {
-                f50.c(randomAccessFile);
+                s30.c(randomAccessFile);
             }
         }
         return (X509Certificate[][]) invokeL.objValue;

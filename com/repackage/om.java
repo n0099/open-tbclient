@@ -1,188 +1,145 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.plugin.packageManager.PluginPackageManager;
-import com.baidu.adp.plugin.packageManager.status.PluginStatus;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.adp.titan.TitanDownloadService;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.titan.sdk.internal.util.Files;
+import com.baidu.titan.sdk.loader.LoaderHead;
+import com.baidu.titan.sdk.loader.LoaderManager;
+import com.baidu.titan.sdk.pm.PatchInstallInfo;
+import com.baidu.titan.sdk.pm.PatchManager;
+import com.baidu.titan.sdk.pm.PatchMetaInfo;
+import com.baidu.titan.sdk.pm.TitanPaths;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Locale;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class om {
     public static /* synthetic */ Interceptable $ic;
-    public static om b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<String, PluginStatus> a;
 
-    public om() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a implements PatchManager.PatchInstallObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ km a;
+        public final /* synthetic */ PackageInfo b;
+        public final /* synthetic */ boolean c;
+
+        public a(km kmVar, PackageInfo packageInfo, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kmVar, packageInfo, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = kmVar;
+            this.b = packageInfo;
+            this.c = z;
         }
-        this.a = new LinkedHashMap<>(10);
-    }
 
-    public static om a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (om.class) {
-                    if (b == null) {
-                        b = new om();
+        @Override // com.baidu.titan.sdk.pm.PatchManager.PatchInstallObserver
+        public void onPatchInstalled(int i, Bundle bundle) {
+            LoaderHead createFromJson;
+            PatchMetaInfo createFromPatch;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) {
+                int i2 = (i == 0 || i == 1) ? 0 : -1;
+                String str = "install-resut:" + i;
+                km kmVar = this.a;
+                if (kmVar != null) {
+                    kmVar.a(this.b.packageName, i2, str);
+                }
+                Log.d(TitanDownloadService.TAG, "patch install result code = " + i2);
+                if (i2 == 0) {
+                    om.c(this.b);
+                }
+                if (this.c) {
+                    return;
+                }
+                int loadState = LoaderManager.getInstance().getLoadState();
+                if (loadState == -4 || loadState == -1) {
+                    File headFile = TitanPaths.getHeadFile();
+                    if (!headFile.exists() || (createFromJson = LoaderHead.createFromJson(Files.getFileStringContent(headFile))) == null || (createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile())) == null || createFromPatch.loadPolicy != 1) {
+                        return;
                     }
+                    LoaderManager.getInstance().loadInTime();
                 }
             }
-            return b;
         }
-        return (om) invokeV.objValue;
     }
 
-    public PluginStatus b(String str) {
-        InterceptResult invokeL;
-        PluginStatus pluginStatus;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null || TextUtils.isEmpty(str)) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964031513, "Lcom/repackage/om;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            synchronized (this.a) {
-                pluginStatus = this.a.get(str);
-                if (pluginStatus == null) {
-                    pluginStatus = new PluginStatus();
-                    this.a.put(str, pluginStatus);
-                }
-            }
-            return pluginStatus;
-        }
-        return (PluginStatus) invokeL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:45:0x010f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(String str, String str2, String str3) {
-        String string;
-        String string2;
-        String str4;
-        String str5;
-        PluginStatus b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
-            int i = 1;
-            if ("rom_size".equals(str2)) {
-                str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea7);
-                str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea4);
-            } else if ("plugin_install_retry_timeout".equals(str2) || "plugin_install_timeout".equals(str2)) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964031513, "Lcom/repackage/om;");
                 return;
-            } else {
-                if (str3 != null) {
-                    String lowerCase = str3.toLowerCase(Locale.getDefault());
-                    if (!lowerCase.contains("no_space_left_on_device") && !lowerCase.contains("no space left on device")) {
-                        if (!lowerCase.contains("read-only_file_system") && !lowerCase.contains("read-only file system")) {
-                            if (!lowerCase.contains("permission_denied") && !lowerCase.contains("permission denied")) {
-                                if (!lowerCase.contains("fsync_failed") && !lowerCase.contains("fsync failed")) {
-                                    string = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0eaa);
-                                    string2 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea5);
-                                } else {
-                                    String string3 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0eaa);
-                                    str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea5);
-                                    str5 = string3;
-                                    i = 5;
-                                }
-                            } else {
-                                str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea6);
-                                str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea3);
-                                i = 4;
+            }
+        }
+        a = em.a;
+    }
+
+    public static void b(Context context, km kmVar, PackageInfo packageInfo, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, kmVar, packageInfo, Boolean.valueOf(z)}) == null) {
+            if (a) {
+                Log.d(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
+            }
+            PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(kmVar, packageInfo, z));
+        }
+    }
+
+    public static void c(PackageInfo packageInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, packageInfo) == null) {
+            mm d = mm.d();
+            if (packageInfo != null) {
+                long j = packageInfo.updateVersion;
+                if (j != 0) {
+                    d.j(j);
+                    Context appContext = AppRuntime.getAppContext();
+                    if (appContext != null) {
+                        try {
+                            android.content.pm.PackageInfo packageInfo2 = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
+                            if (packageInfo2 != null) {
+                                d.h(packageInfo2.versionCode);
                             }
-                        } else {
-                            str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea6);
-                            str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea3);
-                            i = 3;
+                        } catch (PackageManager.NameNotFoundException e) {
+                            e.printStackTrace();
                         }
-                        b2 = b(str);
-                        if (b2 == null) {
-                            b2 = new PluginStatus();
-                        }
-                        b2.a = PluginPackageManager.PluginStatus.ERROR;
-                        b2.c = str5;
-                        b2.d = str4;
-                        b2.b = i;
-                        b2.e = false;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, b2));
                     }
-                    str5 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea7);
-                    str4 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea4);
-                } else {
-                    string = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0eaa);
-                    string2 = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea5);
                 }
-                String str6 = string;
-                str4 = string2;
-                str5 = str6;
-                b2 = b(str);
-                if (b2 == null) {
+                int i = packageInfo.errNo;
+                if (i == 0 || i == -2) {
+                    d.i(System.currentTimeMillis());
                 }
-                b2.a = PluginPackageManager.PluginStatus.ERROR;
-                b2.c = str5;
-                b2.d = str4;
-                b2.b = i;
-                b2.e = false;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, b2));
             }
-            i = 2;
-            b2 = b(str);
-            if (b2 == null) {
-            }
-            b2.a = PluginPackageManager.PluginStatus.ERROR;
-            b2.c = str5;
-            b2.d = str4;
-            b2.b = i;
-            b2.e = false;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000991, b2));
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            PluginStatus b2 = a().b(str);
-            if (b2 != null) {
-                b2.a = PluginPackageManager.PluginStatus.NROMAL;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000992, b2));
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            PluginStatus b2 = b(str);
-            if (b2 == null) {
-                b2 = new PluginStatus();
-            }
-            b2.a = PluginPackageManager.PluginStatus.ERROR;
-            b2.b = 100;
-            b2.c = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0eaa);
-            b2.d = BdBaseApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ea5);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000990, b2));
+            d.l();
         }
     }
 }

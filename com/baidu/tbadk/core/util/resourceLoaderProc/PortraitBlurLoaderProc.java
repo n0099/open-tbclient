@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co;
+import com.repackage.um;
 /* loaded from: classes3.dex */
 public class PortraitBlurLoaderProc extends PortraitLoaderProc {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +35,7 @@ public class PortraitBlurLoaderProc extends PortraitLoaderProc {
     }
 
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc
-    public co decodeToResourceWithWH(byte[] bArr, int i, int i2) {
+    public um decodeToResourceWithWH(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
@@ -47,8 +47,8 @@ public class PortraitBlurLoaderProc extends PortraitLoaderProc {
             if (fastblur != p) {
                 p.recycle();
             }
-            return new co(fastblur);
+            return new um(fastblur);
         }
-        return (co) invokeLII.objValue;
+        return (um) invokeLII.objValue;
     }
 }

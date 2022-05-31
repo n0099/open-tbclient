@@ -1,60 +1,49 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qa2;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class s92 {
+public abstract class s92<T extends qa2> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile s92 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public T a;
 
-    public s92() {
+    public s92(@NonNull T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = t;
     }
 
-    public static s92 a() {
+    public File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (s92.class) {
-                    if (a == null) {
-                        a = new s92();
-                    }
-                }
-            }
-            return a;
-        }
-        return (s92) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.f() : (File) invokeV.objValue;
     }
 
-    public int b(int i) {
-        InterceptResult invokeI;
+    @NonNull
+    public File b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? y92.b(i) : invokeI.intValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ux1.k("SwanRecoveryManager", "RecoverPlatform");
-            aa2 aa2Var = new aa2();
-            aa2Var.a = 1;
-            q92.b(aa2Var);
-        }
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? new File(a(), String.valueOf(j)) : (File) invokeJ.objValue;
     }
 }

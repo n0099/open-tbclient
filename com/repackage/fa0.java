@@ -1,39 +1,50 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
-/* loaded from: classes6.dex */
+import java.security.MessageDigest;
+import java.util.Locale;
+/* loaded from: classes5.dex */
 public class fa0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context, int i) {
-        InterceptResult invokeLI;
-        String string;
-        Float valueOf;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
-            if (i < 0) {
-                return "";
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase(Locale.getDefault());
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
-            long j = i;
-            if (j < 10000) {
-                return i + context.getString(R.string.obfuscated_res_0x7f0f0a07);
-            }
-            if (j < 100000000) {
-                string = context.getString(R.string.obfuscated_res_0x7f0f0a05);
-                valueOf = Float.valueOf(i / 10000.0f);
-            } else {
-                string = context.getString(R.string.obfuscated_res_0x7f0f09ff);
-                valueOf = Float.valueOf(i / 1.0E8f);
-            }
-            DecimalFormat decimalFormat = new DecimalFormat("####.#");
-            return decimalFormat.format(valueOf) + string;
+            return sb.toString();
         }
-        return (String) invokeLI.objValue;
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return a(bArr, "", z);
+        }
+        return (String) invokeLZ.objValue;
     }
 }

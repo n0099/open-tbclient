@@ -46,8 +46,8 @@ public class KsToastView extends LinearLayout {
     }
 
     private void a(Context context) {
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d043a, this);
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091161);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0430, this);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091123);
     }
 
     public static /* synthetic */ int b(KsToastView ksToastView) {

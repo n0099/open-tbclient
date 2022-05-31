@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-import com.repackage.tl9;
+import com.repackage.ni9;
 /* loaded from: classes5.dex */
 public class e extends a<MessageV3> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
@@ -29,7 +29,7 @@ public class e extends a<MessageV3> {
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        tl9.d("AbstractMessageHandler", "start ThroughMessageHandler match");
+        ni9.d("AbstractMessageHandler", "start ThroughMessageHandler match");
         if (a(1, g(intent))) {
             if (PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction())) {
                 if ("message".equals(i(intent))) {

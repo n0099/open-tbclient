@@ -59,14 +59,14 @@ public interface c {
 
         public abstract a a(long j, int i);
 
-        public abstract AbstractC0282c a(long j);
+        public abstract AbstractC0283c a(long j);
 
         public abstract d a(int i);
     }
 
     /* renamed from: com.kwad.a.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static abstract class AbstractC0282c {
+    public static abstract class AbstractC0283c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
@@ -74,7 +74,7 @@ public interface c {
         public long c;
         public long d;
 
-        public AbstractC0282c() {
+        public AbstractC0283c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

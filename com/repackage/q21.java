@@ -1,40 +1,33 @@
 package com.repackage;
 
-import android.animation.ValueAnimator;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.v31;
 /* loaded from: classes6.dex */
-public class q21 extends Drawable {
+public class q21 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Paint a;
-    public final Bitmap b;
-    public final Bitmap c;
-    public final Rect d;
-    public final Rect e;
-    public final Rect f;
-    public int g;
-    public final ValueAnimator h;
-    public int i;
+    public final Context a;
+    public final String b;
+    public final String c;
+    public v31 d;
+    public TextView e;
+    public TextView f;
+    public f g;
+    public e h;
 
     /* loaded from: classes6.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public class a implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ q21 a;
@@ -57,202 +50,218 @@ public class q21 extends Drawable {
             this.a = q21Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // android.widget.TextView.OnEditorActionListener
+        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.k(((Integer) valueAnimator.getAnimatedValue()).intValue());
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
+                if (i == 6 || i == 0) {
+                    if (i == 0 && keyEvent != null && keyEvent.getAction() == 1) {
+                        return true;
+                    }
+                    this.a.f();
+                    return true;
+                }
+                return false;
             }
+            return invokeLIL.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755432127, "Lcom/repackage/q21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class b implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q21 a;
+
+        public b(q21 q21Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q21Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755432127, "Lcom/repackage/q21;");
+            this.a = q21Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.a.h == null) {
                 return;
             }
+            this.a.h.onCancel();
         }
-        j = new int[]{0, 18, 9};
     }
 
-    public q21(Bitmap bitmap, Bitmap bitmap2) {
+    /* loaded from: classes6.dex */
+    public class c implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q21 a;
+
+        public c(q21 q21Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q21Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q21Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) || this.a.h == null) {
+                return;
+            }
+            this.a.h.onCancel();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q21 a;
+
+        public d(q21 q21Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q21Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q21Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void onCancel();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface f {
+        void a(String str, String str2, String str3, String str4);
+    }
+
+    public q21(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, bitmap2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 2000;
-        this.i = 0;
-        this.a = new Paint(1);
-        this.b = bitmap;
-        this.c = bitmap2;
-        this.d = new Rect();
-        this.e = new Rect();
-        this.f = new Rect();
-        ValueAnimator ofInt = ValueAnimator.ofInt(j);
-        this.h = ofInt;
-        ofInt.setDuration(300L);
-        this.h.addUpdateListener(new a(this));
+        this.a = context;
+        this.b = str;
+        this.c = str2;
+        c();
     }
 
-    public void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.g == 2000) {
-                this.g = 1000;
-                this.h.start();
-                return;
-            }
-            this.g = 2000;
-            this.h.reverse();
+            View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d0587, null);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922c3);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09163b);
+            this.f = textView;
+            textView.setOnEditorActionListener(new a(this));
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0be1, this.b, this.c);
+            v31.a aVar = new v31.a(this.a);
+            aVar.r(string);
+            aVar.i(17301543);
+            aVar.s(inflate);
+            aVar.o(R.string.obfuscated_res_0x7f0f0baa, new d(this));
+            aVar.l(R.string.obfuscated_res_0x7f0f0ba9, new c(this));
+            aVar.n(new b(this));
+            v31 a2 = aVar.a();
+            this.d = a2;
+            a2.getWindow().setSoftInputMode(4);
         }
     }
 
-    public final void c(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawBitmap(this.c, (Rect) null, this.f, this.a);
-        }
-    }
-
-    public final void d(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            canvas.drawBitmap(this.b, this.d, this.e, this.a);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void draw(@NonNull Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            d(canvas);
-            c(canvas);
-        }
-    }
-
-    public final int e() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getBounds().height() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f.getText().toString() : (String) invokeV.objValue;
     }
 
-    public final int f() {
+    public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c.getHeight() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e.getText().toString() : (String) invokeV.objValue;
     }
 
-    public final int g() {
-        InterceptResult invokeV;
+    public final void f() {
+        f fVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c.getWidth() : invokeV.intValue;
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public int getOpacity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return -2;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fVar = this.g) == null) {
+            return;
         }
-        return invokeV.intValue;
+        fVar.a(this.b, this.c, e(), d());
     }
 
-    public final int h() {
-        InterceptResult invokeV;
+    public void g(e eVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b.getHeight() : invokeV.intValue;
-    }
-
-    public final int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b.getWidth() : invokeV.intValue;
-    }
-
-    public final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getBounds().width() : invokeV.intValue;
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            int i2 = i - this.i;
-            this.e.top += i2;
-            this.d.bottom -= i2;
-            this.i = i;
-            invalidateSelf();
+        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
+            this.h = eVar;
         }
     }
 
-    public void l(int i) {
+    public void h(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.g = i;
-            if (i == 1000) {
-                k(j[2]);
-            } else {
-                k(j[0]);
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
+            this.g = fVar;
         }
     }
 
-    @Override // android.graphics.drawable.Drawable
-    public void onBoundsChange(Rect rect) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, rect) == null) {
-            Rect rect2 = this.d;
-            rect2.top = 0;
-            rect2.left = 0;
-            rect2.right = i();
-            this.d.bottom = h();
-            this.e.top = (e() - ((h() + f()) + 10)) / 2;
-            this.e.left = (j() - i()) / 2;
-            Rect rect3 = this.e;
-            rect3.right = rect3.left + i();
-            Rect rect4 = this.e;
-            rect4.bottom = rect4.top + h();
-            this.f.top = ((e() - ((h() + f()) + 10)) / 2) + h();
-            this.f.left = (j() - g()) / 2;
-            Rect rect5 = this.f;
-            rect5.right = rect5.left + g();
-            Rect rect6 = this.f;
-            rect6.bottom = rect6.top + f();
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.a.setAlpha(i);
-        }
-    }
-
-    @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(@Nullable ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, colorFilter) == null) {
-            this.a.setColorFilter(colorFilter);
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            tz0.b(this.d);
+            this.e.requestFocus();
         }
     }
 }

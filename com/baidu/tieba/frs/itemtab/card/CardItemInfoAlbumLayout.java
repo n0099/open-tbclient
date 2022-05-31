@@ -34,16 +34,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cx;
 import com.repackage.f9;
-import com.repackage.gs4;
-import com.repackage.gv4;
-import com.repackage.mi;
-import com.repackage.py;
+import com.repackage.li;
+import com.repackage.wq4;
+import com.repackage.wt4;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlbumElement;
 /* loaded from: classes3.dex */
-public class CardItemInfoAlbumLayout extends LinearLayout implements py {
+public class CardItemInfoAlbumLayout extends LinearLayout implements cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerView a;
@@ -82,14 +82,14 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements py {
             if (interceptable == null || interceptable.invokeLIL(1048576, this, rect, i, recyclerView) == null) {
                 if (i != 0) {
                     if (i == this.a.c.size()) {
-                        rect.set(0, 0, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
+                        rect.set(0, 0, li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
                         return;
                     } else {
-                        rect.set(0, 0, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004), 0);
+                        rect.set(0, 0, li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004), 0);
                         return;
                     }
                 }
-                rect.set(mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004), 0);
+                rect.set(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0, li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004), 0);
             }
         }
     }
@@ -143,7 +143,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements py {
                 v.getIntent().putExtra("from", "index");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2010000, v));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new gv4(1, i + 1, albumElement.album_type.intValue())));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wt4(1, i + 1, albumElement.album_type.intValue())));
         }
     }
 
@@ -179,18 +179,18 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements py {
                         return;
                     }
                 }
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b3a);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b23);
                 this.a = tbImageView;
                 tbImageView.setConrers(15);
                 this.a.setRadiusById(R.string.J_X05);
                 this.a.setDrawCorner(true);
                 this.a.setPlaceHolder(3);
                 this.a.setPageId(f9.a(view2.getContext()).getUniqueId());
-                View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090b3b);
+                View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090b24);
                 this.b = findViewById;
-                gs4.d(findViewById).s(R.array.Mask_X001);
-                gs4.d(this.b).n(R.string.J_X05);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b3c);
+                wq4.d(findViewById).s(R.array.Mask_X001);
+                wq4.d(this.b).n(R.string.J_X05);
+                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b25);
             }
 
             public void a(AlbumElement albumElement) {
@@ -201,7 +201,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements py {
                 if (albumElement.album_type.intValue() != 1 && albumElement.album_height.intValue() > 0 && albumElement.album_width.intValue() > 0) {
                     this.a.getLayoutParams().width = (albumElement.album_width.intValue() * this.a.getLayoutParams().height) / albumElement.album_height.intValue();
                 } else {
-                    this.a.getLayoutParams().width = mi.f(this.itemView.getContext(), R.dimen.tbds580);
+                    this.a.getLayoutParams().width = li.f(this.itemView.getContext(), R.dimen.tbds580);
                 }
                 this.a.K(albumElement.album_thumb_url, 10, false);
                 b(albumElement.album_type.intValue() == 1);
@@ -259,7 +259,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements py {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
-                a aVar = new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0327, (ViewGroup) null));
+                a aVar = new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0320, (ViewGroup) null));
                 aVar.c(TbadkCoreApplication.getInst().getSkinType());
                 return aVar;
             }
@@ -311,7 +311,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements py {
             setOrientation(0);
             BdRecyclerView bdRecyclerView = new BdRecyclerView(getContext());
             this.a = bdRecyclerView;
-            bdRecyclerView.setPadding(0, mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), 0, 0);
+            bdRecyclerView.setPadding(0, li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), 0, 0);
             this.a.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
             this.a.addItemDecoration(new a(this));
             this.a.setNestedScrollingEnabled(false);
@@ -323,7 +323,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements py {
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

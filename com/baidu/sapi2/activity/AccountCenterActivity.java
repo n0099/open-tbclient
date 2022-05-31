@@ -269,7 +269,7 @@ public class AccountCenterActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d04d4);
+                setContentView(R.layout.obfuscated_res_0x7f0d04ca);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -796,7 +796,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
             });
             if (TextUtils.isEmpty(this.F)) {
-                setTitleText(R.string.obfuscated_res_0x7f0f1064);
+                setTitleText(R.string.obfuscated_res_0x7f0f1074);
                 loadAccountCenter(this.D);
             } else {
                 this.sapiWebView.loadUrl(this.F);

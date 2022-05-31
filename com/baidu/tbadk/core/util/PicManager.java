@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co;
-import com.repackage.mi;
-import com.repackage.y35;
+import com.repackage.li;
+import com.repackage.u25;
+import com.repackage.um;
 /* loaded from: classes3.dex */
 public class PicManager {
     public static /* synthetic */ Interceptable $ic;
@@ -110,10 +110,10 @@ public class PicManager {
         }
     }
 
-    public static void addPicMemoryCache(String str, co coVar) {
+    public static void addPicMemoryCache(String str, um umVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, coVar) == null) {
-            y35.k().d(str, coVar);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, umVar) == null) {
+            u25.k().d(str, umVar);
         }
     }
 
@@ -137,8 +137,8 @@ public class PicManager {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            int f = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds408);
-            int f2 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds174);
+            int f = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds408);
+            int f2 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds174);
             float f3 = (i * 1.0f) / i2;
             int i3 = (f3 > 1.0f ? 1 : (f3 == 1.0f ? 0 : -1));
             if (i3 == 0) {
@@ -262,7 +262,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    y35.k().i(imageSize);
+                    u25.k().i(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }
@@ -286,7 +286,7 @@ public class PicManager {
                 if (fixBitmap == null) {
                     return;
                 }
-                addPicMemoryCache(str, new co(fixBitmap, z2));
+                addPicMemoryCache(str, new um(fixBitmap, z2));
             } catch (Exception e) {
                 TiebaStatic.imgError(-1006, "addPicMemoryCache error: " + e.toString(), str);
             }

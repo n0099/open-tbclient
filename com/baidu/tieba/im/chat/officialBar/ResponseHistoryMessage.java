@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.mr4;
+import com.repackage.cq4;
+import com.repackage.ki;
 import com.repackage.qe;
 import com.squareup.wire.Wire;
 import java.util.Date;
@@ -28,10 +28,6 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public String c;
-        public int d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -96,10 +92,10 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                     if (msgInfo != null) {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
-                        aVar.a = li.getDateStringMouth(date);
-                        aVar.b = msgInfo.type.intValue();
-                        aVar.c = msgInfo.content;
-                        aVar.d = msgInfo.id.intValue();
+                        ki.getDateStringMouth(date);
+                        msgInfo.type.intValue();
+                        String str = msgInfo.content;
+                        msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }
@@ -107,8 +103,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            mr4.f();
-            qe<byte[]> d = mr4.d("tb.im_official_history");
+            cq4.f();
+            qe<byte[]> d = cq4.d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

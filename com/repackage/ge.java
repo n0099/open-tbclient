@@ -56,7 +56,7 @@ public class ge extends he<byte[]> {
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v12, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r0v12, types: [T, byte[]] */
     @Override // com.repackage.he
     public le<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         InterceptResult invokeLL;
@@ -69,7 +69,7 @@ public class ge extends he<byte[]> {
             Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
-                    jg.a(rawQuery);
+                    ig.a(rawQuery);
                     return null;
                 }
                 le<byte[]> leVar = new le<>();
@@ -78,12 +78,12 @@ public class ge extends he<byte[]> {
                 leVar.e = rawQuery.getLong(2);
                 leVar.f = rawQuery.getLong(3);
                 leVar.b = rawQuery.getBlob(4);
-                jg.a(rawQuery);
+                ig.a(rawQuery);
                 return leVar;
             } catch (Throwable th) {
                 th = th;
                 cursor = rawQuery;
-                jg.a(cursor);
+                ig.a(cursor);
                 throw th;
             }
         } catch (Throwable th2) {

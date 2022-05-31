@@ -277,12 +277,12 @@ public class a extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        KsAdWebView ksAdWebView = (KsAdWebView) a(R.id.obfuscated_res_0x7f091014);
+        KsAdWebView ksAdWebView = (KsAdWebView) a(R.id.obfuscated_res_0x7f090fd6);
         this.i = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.i.getBackground().setAlpha(0);
-        this.b = (ActionBarLandscapeVertical) a(R.id.obfuscated_res_0x7f091015);
-        this.c = (ActionBarPortraitHorizontal) a(R.id.obfuscated_res_0x7f091017);
+        this.b = (ActionBarLandscapeVertical) a(R.id.obfuscated_res_0x7f090fd7);
+        this.c = (ActionBarPortraitHorizontal) a(R.id.obfuscated_res_0x7f090fd9);
         this.d = new s();
         this.g = new Handler(Looper.getMainLooper());
     }

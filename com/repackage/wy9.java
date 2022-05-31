@@ -1,52 +1,60 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wx9;
 /* loaded from: classes7.dex */
-public final class wy9<T, R> implements wx9.a<R> {
+public abstract class wy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wx9.a<T> a;
-    public final wx9.b<? extends R, ? super T> b;
 
-    public wy9(wx9.a<T> aVar, wx9.b<? extends R, ? super T> bVar) {
+    public wy9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
     }
 
-    @Override // com.repackage.wx9.a, com.repackage.ky9
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((cy9) ((cy9) obj));
-    }
-
-    public void call(cy9<? super R> cy9Var) {
+    @Deprecated
+    public void a(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cy9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+        }
+    }
+
+    public final String b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             try {
-                cy9 cy9Var2 = (cy9) d2a.n(this.b).call(cy9Var);
-                cy9Var2.d();
-                this.a.call(cy9Var2);
+                return c(obj);
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                return obj.getClass().getName() + ".errorRendering";
             } catch (Throwable th) {
-                iy9.e(th);
-                cy9Var.onError(th);
+                cv9.e(th);
+                return obj.getClass().getName() + ".errorRendering";
             }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public String c(Object obj) throws InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

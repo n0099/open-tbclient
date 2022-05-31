@@ -1,44 +1,48 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.BdToken.backUser.BackUserHTTPResMsg;
+import com.baidu.tbadk.BdToken.backUser.BackUserReqMsg;
+import com.baidu.tbadk.BdToken.backUser.BackUserSocketResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
 /* loaded from: classes6.dex */
 public class oi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public LinearLayout b;
-    public TextView c;
-    public DecimalFormat d;
-    public String e;
+    public BdUniqueId a;
+    public wa b;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oi4 a;
 
-        public a(oi4 oi4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(oi4 oi4Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oi4Var};
+                Object[] objArr = {oi4Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -47,21 +51,32 @@ public class oi4 {
             this.a = oi4Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.b() != responsedMessage.getOrginalMessage().getTag() || responsedMessage.hasError() || responsedMessage.getError() != 0) {
+                return;
             }
+            ni4 ni4Var = null;
+            if (responsedMessage instanceof BackUserHTTPResMsg) {
+                ni4Var = ((BackUserHTTPResMsg) responsedMessage).getData();
+            } else if (responsedMessage instanceof BackUserSocketResMsg) {
+                ni4Var = ((BackUserSocketResMsg) responsedMessage).getData();
+            }
+            if (ni4Var == null || !ni4Var.a) {
+                return;
+            }
+            ys4.k().x(ys4.o("pref_key_last_request_mission"), System.currentTimeMillis());
+            ws4.e().i();
         }
     }
 
-    public oi4(Context context) {
+    public oi4(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,58 +86,42 @@ public class oi4 {
                 return;
             }
         }
-        this.a = context;
-        d();
+        this.b = new a(this, CmdConfigHttp.CMD_BACK_USER, 309689);
+        this.a = bdUniqueId;
+        c();
+        this.b.setTag(this.a);
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public LinearLayout a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (LinearLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(ys4.k().m(ys4.o("pref_key_last_request_mission"), 0L), System.currentTimeMillis()) : invokeV.booleanValue;
     }
 
-    public void b() {
+    public BdUniqueId b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f();
-            t03.L().postDelayed(new a(this), 3000L);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (BdUniqueId) invokeV.objValue;
     }
 
-    public void c() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.setVisibility(8);
+            ig8.h(309689, BackUserSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, ig8.a(TbConfig.URL_BACK_USER, 309689));
+            tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
-    public final void d() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d8, (ViewGroup) null);
-            this.b = linearLayout;
-            linearLayout.setVisibility(8);
-            this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091e61);
-            this.d = new DecimalFormat("0.0#");
-            this.e = this.a.getString(R.string.obfuscated_res_0x7f0f1317);
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            try {
-                this.c.setText(this.d.format(Float.parseFloat(str)) + this.e);
-                b();
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.setVisibility(0);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && a()) {
+            BackUserReqMsg backUserReqMsg = new BackUserReqMsg();
+            backUserReqMsg.setTag(this.a);
+            MessageManager.getInstance().sendMessage(backUserReqMsg);
         }
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sc1;
+import com.repackage.fb1;
 /* loaded from: classes2.dex */
 public class ServiceManager {
     public static /* synthetic */ Interceptable $ic;
@@ -28,6 +28,6 @@ public class ServiceManager {
     public static <T> T getService(ServiceReference serviceReference) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, serviceReference)) == null) ? (T) sc1.a(serviceReference) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, serviceReference)) == null) ? (T) fb1.a(serviceReference) : (T) invokeL.objValue;
     }
 }

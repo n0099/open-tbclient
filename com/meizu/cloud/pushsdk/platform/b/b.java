@@ -10,7 +10,7 @@ import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.RegisterStatus;
 import com.meizu.cloud.pushsdk.util.MzSystemUtils;
-import com.repackage.tl9;
+import com.repackage.ni9;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
@@ -61,7 +61,7 @@ public class b extends c<RegisterStatus> {
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     public boolean a() {
-        tl9.b("Strategy", "isBrandMeizu " + MzSystemUtils.isBrandMeizu(this.e));
+        ni9.b("Strategy", "isBrandMeizu " + MzSystemUtils.isBrandMeizu(this.e));
         return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g)) ? false : true;
     }
 
@@ -123,7 +123,7 @@ public class b extends c<RegisterStatus> {
                 com.meizu.cloud.pushsdk.b.a.c a2 = this.j.a(this.f, this.g, this.i);
                 if (a2.b()) {
                     registerStatus = new RegisterStatus((String) a2.a());
-                    tl9.b("Strategy", "registerStatus " + registerStatus);
+                    ni9.b("Strategy", "registerStatus " + registerStatus);
                     if (!TextUtils.isEmpty(registerStatus.getPushId())) {
                         com.meizu.cloud.pushsdk.util.b.g(this.e, registerStatus.getPushId(), this.h);
                         com.meizu.cloud.pushsdk.util.b.a(this.e, (int) ((System.currentTimeMillis() / 1000) + registerStatus.getExpireTime()), this.h);
@@ -131,14 +131,14 @@ public class b extends c<RegisterStatus> {
                 } else {
                     com.meizu.cloud.pushsdk.b.b.a c = a2.c();
                     if (c.a() != null) {
-                        tl9.b("Strategy", "status code=" + c.b() + " data=" + c.a());
+                        ni9.b("Strategy", "status code=" + c.b() + " data=" + c.a());
                     }
                     registerStatus.setCode(String.valueOf(c.b()));
                     registerStatus.setMessage(c.c());
-                    tl9.b("Strategy", "registerStatus " + registerStatus);
+                    ni9.b("Strategy", "registerStatus " + registerStatus);
                 }
             } else {
-                tl9.d("Strategy", "after " + (this.c * 10) + " seconds start register");
+                ni9.d("Strategy", "after " + (this.c * 10) + " seconds start register");
                 a((long) (this.c * 10));
                 this.c = this.c + 1;
                 registerStatus.setCode("20000");

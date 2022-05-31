@@ -1,84 +1,82 @@
 package com.repackage;
 
+import android.os.Build;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.crypto.ShortBufferException;
 /* loaded from: classes7.dex */
-public final class x00 implements y00 {
+public class x00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
-    public x00(int i) {
+    public x00() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        b();
     }
 
-    @Override // com.repackage.y00
-    public int a(int i) {
-        InterceptResult invokeI;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = this.a;
-            return i2 - (i % i2);
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.y00
-    public int a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
-            if (bArr == null || i2 == 0) {
-                return 0;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String str = Build.MODEL;
+            this.a = str;
+            if (TextUtils.isEmpty(str)) {
+                this.a = "NUL";
+            } else {
+                this.a = this.a.replace("_", "-");
             }
-            int i4 = i2 + i;
-            int i5 = bArr[i4 - 1];
-            int i6 = i5 & 255;
-            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
-                return -1;
+            String str2 = Build.MANUFACTURER;
+            this.b = str2;
+            if (TextUtils.isEmpty(str2)) {
+                this.b = "NUL";
+            } else {
+                this.b = this.b.replace("_", "-");
             }
-            for (int i7 = 0; i7 < i6; i7++) {
-                if (bArr[i3 + i7] != i5) {
-                    return -1;
-                }
+            String str3 = Build.VERSION.RELEASE;
+            this.c = str3;
+            if (TextUtils.isEmpty(str3)) {
+                this.c = "0.0";
+            } else {
+                this.c = this.c.replace("_", "-");
             }
-            return i3;
+            this.d = c();
         }
-        return invokeLII.intValue;
     }
 
-    @Override // com.repackage.y00
-    public void b(byte[] bArr, int i, int i2) throws ShortBufferException {
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) || bArr == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.a;
+            String str2 = this.c;
+            int i = Build.VERSION.SDK_INT;
+            String str3 = this.b;
+            return str + "_" + str2 + "_" + i + "_" + str3;
         }
-        if (i + i2 > bArr.length) {
-            throw new ShortBufferException("Buffer too small to hold padding");
-        }
-        byte b = (byte) (i2 & 255);
-        for (int i3 = 0; i3 < i2; i3++) {
-            bArr[i3 + i] = b;
-        }
+        return (String) invokeV.objValue;
     }
 }

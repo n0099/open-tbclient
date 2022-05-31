@@ -47,7 +47,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r70;
+import com.repackage.e60;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -319,13 +319,13 @@ public class ChatSessionManagerImpl {
                                     sb.append("FXF triggerChatSessionChange lastmsg is: ");
                                     sb.append(lastMsg);
                                     LogUtils.d(TAG, sb.toString());
-                                    next.onChatSessionUpdate(chatSession.m29clone(), z);
+                                    next.onChatSessionUpdate(chatSession.m27clone(), z);
                                 } else {
                                     int state2 = SyncAllMessage.getInstance(mContext).getState();
                                     if (state2 != 0) {
                                         z = false;
                                     }
-                                    next.onChatSessionUpdate(chatSession.m29clone(), z);
+                                    next.onChatSessionUpdate(chatSession.m27clone(), z);
                                     LogUtils.d(TAG, "FXF triggerChatSessionChange " + state2 + " " + z + " chattype: " + chatSession.getChatType() + " id is: " + chatSession.getContacter());
                                 }
                             } catch (CloneNotSupportedException e) {
@@ -814,7 +814,7 @@ public class ChatSessionManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, maxMsgid);
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             try {
-                r70.g(mContext).f(mContext, creatMethodIntent);
+                e60.g(mContext).f(mContext, creatMethodIntent);
             } catch (Exception e) {
                 onSyncDialogResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, addListener, maxMsgid, null);
                 LogUtils.e(TAG, "Exception ", e);

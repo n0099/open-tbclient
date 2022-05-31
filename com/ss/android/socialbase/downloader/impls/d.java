@@ -6,7 +6,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.util.SparseArray;
-import com.baidu.adp.plugin.PluginCenter;
 import com.ss.android.socialbase.downloader.downloader.c;
 import com.ss.android.socialbase.downloader.downloader.t;
 import com.ss.android.socialbase.downloader.exception.BaseException;
@@ -45,8 +44,8 @@ public class d implements com.ss.android.socialbase.downloader.downloader.j {
         this.f = null;
         if (com.ss.android.socialbase.downloader.g.a.c().a("fix_sigbus_downloader_db")) {
             if (!com.ss.android.socialbase.downloader.i.f.a() && com.ss.android.socialbase.downloader.downloader.c.S()) {
-                this.b = com.ss.android.socialbase.downloader.downloader.c.T().a(new c.a.InterfaceC0616a() { // from class: com.ss.android.socialbase.downloader.impls.d.2
-                    @Override // com.ss.android.socialbase.downloader.downloader.c.a.InterfaceC0616a
+                this.b = com.ss.android.socialbase.downloader.downloader.c.T().a(new c.a.InterfaceC0618a() { // from class: com.ss.android.socialbase.downloader.impls.d.2
+                    @Override // com.ss.android.socialbase.downloader.downloader.c.a.InterfaceC0618a
                     public void a() {
                         d.this.b = new com.ss.android.socialbase.downloader.b.e();
                         Log.e("DefaultDownloadCache", "rebind error,use backup sqlDownloadCache");
@@ -114,7 +113,7 @@ public class d implements com.ss.android.socialbase.downloader.downloader.j {
     public void h() {
         long j;
         if (com.ss.android.socialbase.downloader.g.a.c().a("task_resume_delay")) {
-            j = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+            j = 4000;
         } else {
             j = Build.VERSION.SDK_INT >= 23 ? 1000L : 5000L;
         }

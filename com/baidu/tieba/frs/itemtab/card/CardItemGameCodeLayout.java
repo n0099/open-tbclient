@@ -22,15 +22,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.gv4;
-import com.repackage.mi;
-import com.repackage.ol6;
-import com.repackage.py;
+import com.repackage.cx;
+import com.repackage.li;
+import com.repackage.uj6;
+import com.repackage.wq4;
+import com.repackage.wt4;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes3.dex */
-public class CardItemGameCodeLayout extends RelativeLayout implements py {
+public class CardItemGameCodeLayout extends RelativeLayout implements cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -71,7 +71,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements py {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ListUtils.isEmpty(this.a.g)) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new gv4(14)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wt4(14)));
             if (this.a.e == null) {
                 this.a.e = new GameCodeListDialog(view2.getContext());
             }
@@ -105,27 +105,27 @@ public class CardItemGameCodeLayout extends RelativeLayout implements py {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -2));
-            setPadding(mi.f(context, R.dimen.M_W_X006), mi.f(context, R.dimen.M_H_X005), mi.f(context, R.dimen.M_W_X006), mi.f(context, R.dimen.M_H_X005));
+            setPadding(li.f(context, R.dimen.M_W_X006), li.f(context, R.dimen.M_H_X005), li.f(context, R.dimen.M_W_X006), li.f(context, R.dimen.M_H_X005));
             ImageView imageView = new ImageView(context);
             this.a = imageView;
             imageView.setId(1);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(mi.f(context, R.dimen.tbds62), mi.f(context, R.dimen.tbds62));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(li.f(context, R.dimen.tbds62), li.f(context, R.dimen.tbds62));
             layoutParams.addRule(9);
             layoutParams.addRule(15);
             this.a.setLayoutParams(layoutParams);
             addView(this.a);
             this.b = new TextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -1);
-            layoutParams2.setMargins(mi.f(context, R.dimen.tbds23), 0, 0, 0);
+            layoutParams2.setMargins(li.f(context, R.dimen.tbds23), 0, 0, 0);
             layoutParams2.addRule(1, this.a.getId());
             layoutParams2.addRule(15);
             this.b.setLayoutParams(layoutParams2);
-            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0703));
+            this.b.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f070a));
             addView(this.b);
             ImageView imageView2 = new ImageView(context);
             this.d = imageView2;
             imageView2.setId(2);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(mi.f(context, R.dimen.tbds42), mi.f(context, R.dimen.tbds42));
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(li.f(context, R.dimen.tbds42), li.f(context, R.dimen.tbds42));
             layoutParams3.addRule(11);
             layoutParams3.addRule(15);
             this.d.setLayoutParams(layoutParams3);
@@ -140,17 +140,17 @@ public class CardItemGameCodeLayout extends RelativeLayout implements py {
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            gs4 d = gs4.d(this.b);
+            wq4 d = wq4.d(this.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X07);
-            gs4 d2 = gs4.d(this.c);
+            wq4 d2 = wq4.d(this.c);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X08);
-            gs4 d3 = gs4.d(this);
+            wq4 d3 = wq4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
             WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0807cd, WebPManager.ResourceStateType.NORMAL);
@@ -162,17 +162,17 @@ public class CardItemGameCodeLayout extends RelativeLayout implements py {
         }
     }
 
-    public void setData(ol6 ol6Var) {
+    public void setData(uj6 uj6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ol6Var) == null) || ol6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uj6Var) == null) || uj6Var == null) {
             return;
         }
-        this.f = ol6Var.g();
-        this.g = ol6Var.e();
+        this.f = uj6Var.g();
+        this.g = uj6Var.e();
         if (this.f != 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba), Integer.valueOf(this.f)));
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02bc), Integer.valueOf(this.f)));
         } else {
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1492));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14a6));
         }
     }
 

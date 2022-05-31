@@ -1,14 +1,20 @@
 package com.repackage;
 
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class u52 implements nf3<HybridUbcFlow> {
+public class u52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public UbcFlowEvent b;
+    public boolean c;
 
     public u52() {
         Interceptable interceptable = $ic;
@@ -24,17 +30,46 @@ public class u52 implements nf3<HybridUbcFlow> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nf3
-    /* renamed from: a */
-    public void onCallback(HybridUbcFlow hybridUbcFlow) {
+    public UbcFlowEvent a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("3334");
-            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.PREFETCH_NA);
-            hybridUbcFlow.E("from", "swan");
-            hybridUbcFlow.E("type", "unknown");
-            hybridUbcFlow.E("source", "unknown");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (UbcFlowEvent) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public void d(@NonNull UbcFlowEvent ubcFlowEvent, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, ubcFlowEvent, z) == null) {
+            if (this.b == null || z) {
+                this.b = ubcFlowEvent;
+            }
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void f(@NonNull String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
+            if (this.a == null || z) {
+                this.a = str;
+            }
         }
     }
 }

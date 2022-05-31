@@ -11,7 +11,7 @@ import com.tencent.connect.common.BaseApi;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.f;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UnionInfo extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_GET_UNION_ID = "https://openmobile.qq.com/oauth2.0/me";

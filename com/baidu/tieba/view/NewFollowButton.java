@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.a9;
-import com.repackage.jj8;
+import com.repackage.kg8;
+import com.repackage.ki;
 import com.repackage.li;
-import com.repackage.mi;
-import com.repackage.yu4;
+import com.repackage.ot4;
 /* loaded from: classes4.dex */
 public class NewFollowButton extends TBSpecificationBtn implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -32,10 +32,10 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean A;
     public int B;
     public boolean C;
-    public yu4 D;
-    public yu4 E;
+    public ot4 D;
+    public ot4 E;
     public LikeModel F;
-    public jj8 G;
+    public kg8 G;
     public b H;
     public boolean I;
     public Animation J;
@@ -45,7 +45,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public TBSpecificationButtonConfig r;
     public TBSpecificationButtonConfig s;
     public a9 t;
-    public jj8.a u;
+    public kg8.a u;
     public boolean v;
     public int w;
     public int x;
@@ -102,7 +102,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     }
 
     /* loaded from: classes4.dex */
-    public class b extends a9 implements jj8.a {
+    public class b extends a9 implements kg8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFollowButton a;
@@ -125,7 +125,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             this.a = newFollowButton;
         }
 
-        @Override // com.repackage.jj8.a
+        @Override // com.repackage.kg8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -136,7 +136,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
         }
 
-        @Override // com.repackage.jj8.a
+        @Override // com.repackage.kg8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -154,12 +154,12 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
                 if (this.a.F.getErrorCode() == 22) {
-                    mi.N(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f080b));
+                    li.O(this.a.q.getPageActivity(), this.a.q.getString(R.string.obfuscated_res_0x7f0f0811));
                     this.a.I = false;
                 } else if (obj == null) {
                     this.a.I = false;
                 } else if (this.a.F.getErrorCode() != 0) {
-                    mi.N(this.a.q.getPageActivity(), this.a.F.getErrorString());
+                    li.O(this.a.q.getPageActivity(), this.a.F.getErrorString());
                     this.a.I = false;
                 } else {
                     NewFollowButton newFollowButton = this.a;
@@ -203,8 +203,8 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.I || this.q == null) {
             return;
         }
-        if (!mi.C()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c2d));
+        if (!li.D()) {
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c33));
         } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
         } else {
             if (this.H == null) {
@@ -215,7 +215,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 this.F = likeModel;
                 likeModel.setLoadDataCallBack(this.H);
             }
-            if (li.isForumName(this.o)) {
+            if (ki.isForumName(this.o)) {
                 this.I = true;
                 this.F.L();
                 this.F.P(this.o, String.valueOf(this.p));
@@ -228,17 +228,17 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.I || this.q == null) {
             return;
         }
-        if (!mi.C()) {
-            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c2d));
+        if (!li.D()) {
+            UtilHelper.showToast(this.q.getPageActivity(), this.q.getString(R.string.obfuscated_res_0x7f0f0c33));
         } else if (StringUtils.isNull(this.o) || this.p <= 0 || !ViewHelper.checkUpIsLogin(this.q.getPageActivity())) {
         } else {
             if (this.H == null) {
                 this.H = new b(this, null);
             }
             if (this.G == null) {
-                jj8 jj8Var = new jj8();
-                this.G = jj8Var;
-                jj8Var.b(this.H);
+                kg8 kg8Var = new kg8();
+                this.G = kg8Var;
+                kg8Var.b(this.H);
             }
             this.I = true;
             this.G.c(this.o, this.p);
@@ -252,9 +252,9 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig = this.s;
                 if (tBSpecificationButtonConfig == null) {
                     if (this.E == null) {
-                        yu4 yu4Var = new yu4();
-                        this.E = yu4Var;
-                        yu4Var.t(R.color.CAM_X0109);
+                        ot4 ot4Var = new ot4();
+                        this.E = ot4Var;
+                        ot4Var.t(R.color.CAM_X0109);
                         this.E.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                     }
                     setConfig(this.E);
@@ -262,14 +262,14 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     setConfig(tBSpecificationButtonConfig);
                 }
                 setClickable(this.v);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f98));
             } else {
                 TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.r;
                 if (tBSpecificationButtonConfig2 == null) {
                     if (this.D == null) {
-                        yu4 yu4Var2 = new yu4();
-                        this.D = yu4Var2;
-                        yu4Var2.r(R.color.CAM_X0302);
+                        ot4 ot4Var2 = new ot4();
+                        this.D = ot4Var2;
+                        ot4Var2.r(R.color.CAM_X0302);
                         if (this.y) {
                             this.D.g(this.x);
                             this.D.i(this.z, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -281,7 +281,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                     setConfig(tBSpecificationButtonConfig2);
                 }
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a2));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
             }
             k();
             this.C = z;

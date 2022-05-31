@@ -1,313 +1,87 @@
 package com.repackage;
 
-import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.ICDNProblemUploader;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
+import com.baidu.tbadk.core.util.videoPreload.PreLoadVideoSwitchManager;
+import com.baidu.tbadk.core.voice.VoiceManager;
+import com.baidu.tbadk.coreExtra.data.BannerData;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.switchs.AdToMainTabActivitySwitch;
+import com.baidu.tbadk.switchs.AiAppsLazyInitSwitch;
+import com.baidu.tbadk.switchs.BigdaySwitch;
+import com.baidu.tbadk.switchs.CrabSdkSwitch;
+import com.baidu.tbadk.switchs.CsjPrivacySwitch;
+import com.baidu.tbadk.switchs.CustomPlayerSwitch;
+import com.baidu.tbadk.switchs.DelayPbTaskSwitch;
+import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
+import com.baidu.tbadk.switchs.FunAdSdkSwitch;
+import com.baidu.tbadk.switchs.FunAdServerRecordSwitch;
+import com.baidu.tbadk.switchs.FunAdSplashClickRegionSwitch;
+import com.baidu.tbadk.switchs.GdtPrivacySwitch;
+import com.baidu.tbadk.switchs.JPushSdkSwitch;
+import com.baidu.tbadk.switchs.JumpPbDirectSwitch;
+import com.baidu.tbadk.switchs.KsPrivacySwitch;
+import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
+import com.baidu.tbadk.switchs.LaunchUpSpeedSwitch;
+import com.baidu.tbadk.switchs.LaunchViewOptSwitch;
+import com.baidu.tbadk.switchs.LoginPassV6Switch;
+import com.baidu.tbadk.switchs.LooperBlockOptSwitch;
+import com.baidu.tbadk.switchs.MainTabDataSwitch;
+import com.baidu.tbadk.switchs.OpenStartSafeModeSwitch;
+import com.baidu.tbadk.switchs.PbLoadingViewOptimizeSwitch;
+import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
+import com.baidu.tbadk.switchs.PrefetchPbDataSwitch;
+import com.baidu.tbadk.switchs.QqShareH5Switch;
+import com.baidu.tbadk.switchs.ResetSplashAdConfigSwitch;
+import com.baidu.tbadk.switchs.SplashDealyTimeoutSwitch;
+import com.baidu.tbadk.switchs.StatSdkSwitch;
+import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
+import com.baidu.tbadk.switchs.VideoCardLazyInitSwitch;
+import com.baidu.tbadk.switchs.WeChatShareSmallAppToH5Switch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yr4;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
+import java.util.HashMap;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class aw4 implements View.OnClickListener {
+public class aw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yv4 a;
-    public WeakReference<zv4> b;
-    public TbPageContext c;
-    public py4 d;
-    public BdUniqueId e;
-    public String f;
-    public String g;
-    public boolean h;
-    public boolean i;
-    public wr4 j;
-    public boolean k;
-    public tm4 l;
-    public f m;
-    public CustomMessageListener n;
-    public CustomMessageListener o;
+    public final BannerData a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public long i;
+    public int j;
+    public HashMap<String, Integer> k;
+    public hn4 l;
+    public boolean m;
+    public vw4 n;
+    public int o;
+    public String p;
 
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(aw4 aw4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aw4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                String str = (String) customResponsedMessage.getData();
-                if (!StringUtils.isNull(this.a.a.getUserId()) && this.a.a.getUserId().equals(str)) {
-                    this.a.k = true;
-                }
-                pg.a(this.a.j, TbadkCoreApplication.getInst().getCurrentActivity());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(aw4 aw4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aw4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof UpdateAttentionMessage)) {
-                UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                UpdateAttentionMessage.a data = updateAttentionMessage.getData();
-                yv4 yv4Var = this.a.a;
-                if (yv4Var == null || StringUtils.isNull(yv4Var.getUserId()) || data == null || !this.a.a.getUserId().equals(data.c)) {
-                    return;
-                }
-                boolean z = (updateAttentionMessage.getOrginalMessage() == null || this.a.e == null || !updateAttentionMessage.getOrginalMessage().getTag().equals(this.a.e)) ? false : true;
-                BlockPopInfoData blockPopInfoData = data.l;
-                if (blockPopInfoData != null) {
-                    String str = blockPopInfoData.appeal_msg;
-                    if (blockPopInfoData.appeal_status == 1) {
-                        if (TextUtils.isEmpty(str)) {
-                            str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f027a);
-                        }
-                    } else if (TextUtils.isEmpty(str)) {
-                        str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0284);
-                    }
-                    this.a.c.showToast(str);
-                } else if (!data.a) {
-                    this.a.k = false;
-                    String str2 = updateAttentionMessage.getData() != null ? updateAttentionMessage.getData().b : "";
-                    if (TextUtils.isEmpty(str2)) {
-                        str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cf5);
-                    }
-                    BdToast.h(TbadkCoreApplication.getInst().getContext(), str2, R.drawable.obfuscated_res_0x7f0809be, 3000, true).q();
-                    zv4 zv4Var = (zv4) this.a.b.get();
-                    if (zv4Var == null) {
-                        return;
-                    }
-                    if (z) {
-                        zv4Var.c(this.a.a.getIsLike(), this.a.a.getLikeStatus(), z);
-                    } else {
-                        zv4Var.e(this.a.a.getIsLike(), this.a.a.getLikeStatus());
-                    }
-                } else {
-                    int fansNum = this.a.a.getFansNum();
-                    boolean isLike = this.a.a.getIsLike();
-                    if (data.d && !isLike) {
-                        fansNum++;
-                    } else if (!data.d && isLike) {
-                        if (!this.a.i || this.a.k) {
-                            fansNum--;
-                            if (!this.a.h) {
-                                this.a.c.showToast(R.string.obfuscated_res_0x7f0f148e);
-                            }
-                        } else {
-                            this.a.k = false;
-                            this.a.t();
-                            return;
-                        }
-                    }
-                    this.a.a.setLikeStatus(data.m);
-                    this.a.a.setIsLike(data.d);
-                    this.a.a.setIsFromNetWork(false);
-                    this.a.a.setFansNum(fansNum);
-                    this.a.k = false;
-                    zv4 zv4Var2 = (zv4) this.a.b.get();
-                    if (zv4Var2 != null) {
-                        zv4Var2.d(fansNum);
-                        if (z) {
-                            if (this.a.m != null) {
-                                this.a.m.a(data.d);
-                            }
-                            zv4Var2.c(data.d, data.m, true);
-                            return;
-                        }
-                        zv4Var2.e(data.d, data.m);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements yr4.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw4 a;
-
-        public c(aw4 aw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aw4Var;
-        }
-
-        @Override // com.repackage.yr4.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zv4 zv4Var = (zv4) this.a.b.get();
-                if (zv4Var instanceof View) {
-                    this.a.k = true;
-                    MessageManager messageManager = MessageManager.getInstance();
-                    yv4 yv4Var = this.a.a;
-                    messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2921560, yv4Var != null ? yv4Var.getUserId() : "0"));
-                    this.a.onClick((View) zv4Var);
-                }
-                pg.a(this.a.j, TbadkCoreApplication.getInst().getCurrentActivity());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements yr4.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw4 a;
-
-        public d(aw4 aw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aw4Var;
-        }
-
-        @Override // com.repackage.yr4.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.j == null) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921560, "0"));
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e(aw4 aw4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921560, "0"));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface f {
-        void a(boolean z);
-    }
-
-    public aw4(TbPageContext tbPageContext, zv4 zv4Var) {
+    public aw4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, zv4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -317,151 +91,299 @@ public class aw4 implements View.OnClickListener {
                 return;
             }
         }
-        this.b = new WeakReference<>(null);
-        this.f = "0";
-        this.n = new a(this, 2921560);
-        this.o = new b(this, 2001115);
-        this.c = tbPageContext;
-        this.d = new py4(tbPageContext);
-        this.e = this.c.getUniqueId();
-        tbPageContext.registerListener(this.o);
-        tbPageContext.registerListener(this.n);
-        s(zv4Var);
+        this.f = true;
+        this.g = true;
+        this.h = 100000;
+        this.j = 100;
+        this.k = null;
+        this.m = false;
+        this.o = 1;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.a = new BannerData();
+        this.k = new HashMap<>();
+        this.l = new hn4();
+        this.n = new vw4();
     }
 
-    public yv4 j() {
+    public final String a(JSONArray jSONArray) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
+            }
+            int length = jSONArray.length();
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < length; i++) {
+                sb.append(jSONArray.get(i));
+                if (i < length - 1) {
+                    sb.append(",");
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (yv4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
     }
 
-    public void k(boolean z) {
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.h = z;
-            this.d.i(z);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : invokeV.longValue;
     }
 
-    public void l(BdUniqueId bdUniqueId) {
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) || bdUniqueId == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public vw4 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.n : (vw4) invokeV.objValue;
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.e = bdUniqueId;
-        MessageManager.getInstance().unRegisterListener(this.o);
-        MessageManager.getInstance().unRegisterListener(this.n);
-        this.o.setTag(this.e);
-        this.n.setTag(this.e);
-        MessageManager.getInstance().registerListener(this.o);
-        MessageManager.getInstance().registerListener(this.n);
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void n(yv4 yv4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yv4Var) == null) {
-            this.a = yv4Var;
-            zv4 zv4Var = this.b.get();
-            if (zv4Var == null || this.a == null) {
+        try {
+            this.a.parserJson(jSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER));
+            this.b = jSONObject.optString("big_head_image_host");
+            this.c = jSONObject.optString("small_head_image_host");
+            this.d = jSONObject.optString("yijianfankui_fname");
+            this.e = jSONObject.optString("yijianfankui_fid");
+            this.j = jSONObject.optInt("crash_limit_count", 100);
+            int i = -1;
+            int optInt = jSONObject.optInt("app_recommend", -1);
+            this.i = jSONObject.optLong("vip_new_task", 0L);
+            this.n.b(jSONObject.optJSONObject("webview_checkurl"));
+            JSONObject optJSONObject = jSONObject.optJSONObject("log_together");
+            if (optJSONObject != null) {
+                iz4.j().t(optJSONObject.optInt("distance", 60));
+                iz4.j().u(optJSONObject.optInt("items_num", 10));
+                iz4.j().v(1 == optJSONObject.optInt("ad_show", 1));
+            }
+            TbadkCoreApplication.getInst().setYijianfankuiFname(this.d);
+            if (this.l == null) {
+                this.l = new hn4();
+            }
+            this.l.a(jSONObject.optString("photo_strategy"));
+            if (ICDNProblemUploader.getInstance() != null) {
+                ICDNProblemUploader.getInstance().setmCdnLogData(this.l);
+            }
+            ml4 ml4Var = new ml4();
+            ml4Var.a(jSONObject.optJSONObject("photo_cdn_time"));
+            if (ICDNIPDirectConnect.getInstance() != null) {
+                if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
+                    ICDNIPDirectConnect.getInstance().init();
+                }
+                ICDNIPDirectConnect.getInstance().setCDNImageTimeData(ml4Var);
+                ICDNIPDirectConnect.getInstance().setIpDisableTime(jSONObject.optInt("ip_unavailable_time"));
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("movideo");
+            if (optJSONObject2 != null) {
+                gi8.c(optJSONObject2.optInt("chunk_size"));
+                gi8.b(optJSONObject2.optInt("block_size"));
+                gi8.d(optJSONObject2.optInt("data_size"));
+            }
+            PerformanceLoggerHelper.getInstance().setSmallFlowInterval(jSONObject.optLong("small_flow_time_out"));
+            JSONArray optJSONArray = jSONObject.optJSONArray("switch");
+            if (optJSONArray != null) {
+                int i2 = 0;
+                while (i2 < optJSONArray.length()) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                    if (jSONObject2 != null) {
+                        String optString = jSONObject2.optString("name");
+                        Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", i));
+                        this.k.put(optString, valueOf);
+                        if ("netlib_type".equals(optString)) {
+                            TbadkCoreApplication.getInst().setNetWorkCoreType(jSONObject2.optInt("type", 1) == 0 ? 1 : 0);
+                        } else if (LoginPassV6Switch.KEY.equals(optString)) {
+                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
+                            fv4.a();
+                        } else if ("android_safe_sdk_open".equals(optString)) {
+                            ys4.k().w("android_safe_sdk_open", valueOf.intValue());
+                        } else if ("android_new_log_upload_switch".equals(optString)) {
+                            ys4.k().w("KEY_LOG_REAL_TIME_UPLOAD_SWITCH", valueOf.intValue());
+                        } else if ("android_abtest_channel_switch".equals(optString)) {
+                            ys4.k().w("key_abtest_channel", valueOf.intValue());
+                        } else if (CrabSdkSwitch.CRAB_SDK_KEY.equals(optString)) {
+                            ys4.k().w("pref_key_crab_sdk_enable", valueOf.intValue());
+                        } else if (BigdaySwitch.BIGDAY_KEY.equals(optString)) {
+                            ys4.k().w("key_bigday_sync_switch", valueOf.intValue());
+                        } else if (StatSdkSwitch.STAT_SDK_KEY.equals(optString)) {
+                            ys4.k().w("pref_key_stat_sdk_enable", valueOf.intValue());
+                        } else if (JPushSdkSwitch.JPUSH_SDK_KEY.equals(optString)) {
+                            ys4.k().w("pref_key_jpush_sdk_enable", valueOf.intValue());
+                        } else if ("lcslog_upload_switch".equals(optString)) {
+                            ys4.k().w("key_lcs_log_switch", valueOf.intValue());
+                        } else if ("android_slide_anim_switch".equals(optString)) {
+                            ys4.k().w("sync_slide_animation__switch", valueOf.intValue());
+                        } else if ("image_header_no_cache_enable".equals(optString)) {
+                            ys4.k().w("image_no_cache_switch", valueOf.intValue());
+                        } else if ("profile_usercenter_open".equals(optString)) {
+                            ys4.k().w("key_create_center_entrance_switch", valueOf.intValue());
+                        } else if (FunAdSdkSwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w("pref_key_fun_ad_sdk_enable", valueOf.intValue());
+                        } else if ("pic_req_switch_key".equals(optString)) {
+                            ys4.k().w("key_pic_req_switch", valueOf.intValue());
+                        } else if (SplashDealyTimeoutSwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w("pref_key_splash_timeout_enable", valueOf.intValue());
+                        } else if (FunAdServerRecordSwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w("pref_key_fun_ad_server_record_enable", valueOf.intValue());
+                        } else if (GdtPrivacySwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w("pref_key_splash_gdt_privacy_enable", valueOf.intValue());
+                        } else if (CsjPrivacySwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w("pref_key_splash_csj_privacy_enable", valueOf.intValue());
+                        } else if (KsPrivacySwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w("pref_key_splash_ks_privacy_enable", valueOf.intValue());
+                        } else if (FunAdSplashClickRegionSwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w("pref_key_fun_ad_splash_click_enable", valueOf.intValue());
+                        } else if (QqShareH5Switch.QQ_SHARE_H5_ENABLE.equals(optString)) {
+                            ys4.k().w("key_qq_share_h5_enable", valueOf.intValue());
+                        } else if (WeChatShareSmallAppToH5Switch.SMALL_APP_TO_H5.equals(optString)) {
+                            ys4.k().w("key_wechat_small_app_to_h5", valueOf.intValue());
+                        } else if ("platform_csj_init".equals(optString)) {
+                            ys4.k().w("key_fun_cjs_init", valueOf.intValue());
+                        } else if ("platform_gdt_init".equals(optString)) {
+                            ys4.k().w("key_fun_gdt_init", valueOf.intValue());
+                        } else if ("platform_ks_init".equals(optString)) {
+                            ys4.k().w("key_fun_ks_init", valueOf.intValue());
+                        } else if (LaunchUpSpeedSwitch.LAUNCH_UP_SPEED_ENABLE.equals(optString)) {
+                            ys4.k().w("key_launch_up_speed", valueOf.intValue());
+                        } else if (MainTabDataSwitch.LAUNCH_UP_MAIN_TAB_DATA_ENABLE.equals(optString)) {
+                            ys4.k().w("key_launch_up_main_tab_data", valueOf.intValue());
+                        } else if (AdToMainTabActivitySwitch.AD_TO_MAINATABACTIVITY_ENABLE.equals(optString)) {
+                            ys4.k().w("key_ad_to_maintabactivity", valueOf.intValue());
+                        } else if (AiAppsLazyInitSwitch.AI_APPS_LAZY_INIT_ENABLE.equals(optString)) {
+                            ys4.k().w("key_ai_apps_lazy_init", valueOf.intValue());
+                        } else if (VideoCardLazyInitSwitch.VIDEO_CARD_LAZY_INIT_ENABLE.equals(optString)) {
+                            ys4.k().w("key_video_card_lazy_init", valueOf.intValue());
+                        } else if (JumpPbDirectSwitch.JUMP_PB_DIRECT_INIT_ENABLE.equals(optString)) {
+                            ys4.k().w("key_jump_pb_direct_init", valueOf.intValue());
+                        } else if (PrefetchPbDataSwitch.PREFETCH_PB_DATA_INIT_ENABLE.equals(optString)) {
+                            ys4.k().w("key_prefetch_pb_data_init", valueOf.intValue());
+                        } else if (DelayPbTaskSwitch.DELAY_PB_TASK_INIT_ENABLE.equals(optString)) {
+                            ys4.k().w("key_delay_pb_task_init", valueOf.intValue());
+                        } else if (LaunchUpApplicationSwitch.LAUNCH_UP_APPLICATION_ENABLE.equals(optString)) {
+                            ys4.k().w("key_launch_up_application_init", valueOf.intValue());
+                        } else if (LooperBlockOptSwitch.LOOPER_BLOCK_OPT_ENABLE.equals(optString)) {
+                            ys4.k().w("key_looper_block_opt", valueOf.intValue());
+                        } else if (OpenStartSafeModeSwitch.KEY.equals(optString)) {
+                            ys4.k().w("key_is_start_safe_mode", valueOf.intValue());
+                        } else if (ResetSplashAdConfigSwitch.KEY.equals(optString)) {
+                            if (valueOf.intValue() == 1) {
+                                ys4.k().u("key_is_jump_splash_ad", false);
+                            }
+                        } else if (LaunchViewOptSwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w(LaunchViewOptSwitch.KEY_SWITCH, valueOf.intValue());
+                        } else if (PbLoadingViewOptimizeSwitch.ANDROID_PB_LOADING_VIEW_OPTIMIZE.equals(optString)) {
+                            ys4.k().w("key_android_pb_loading_view_optimize", valueOf.intValue());
+                        } else if (PreInitMainTabViewSwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w(PreInitMainTabViewSwitch.KEY_SWITCH, valueOf.intValue());
+                        } else if (ThreadCardImgClickToPBSwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w(ThreadCardImgClickToPBSwitch.KEY_SWITCH, valueOf.intValue());
+                        } else if (FixNpsAnrSwitch.KEY_SWITCH.equals(optString)) {
+                            ys4.k().w(FixNpsAnrSwitch.KEY_SWITCH, valueOf.intValue());
+                        }
+                    }
+                    i2++;
+                    i = -1;
+                }
+            }
+            if (this.k != null && this.k.size() > 0) {
+                SwitchManager.getInstance().refreshSwitchManager(this.k);
+            }
+            CustomPlayerSwitch.setSwitchStatus(SwitchManager.getInstance().findType(CustomPlayerSwitch.CUSTOM_PLAYER_SWITCH));
+            this.g = jSONObject.optInt("is_pushservice_open", 1) == 1;
+            TbadkCoreApplication.getInst().setIsPushServiceOpen(this.g);
+            if (!this.g) {
+                UtilHelper.stopPushService(TbadkCoreApplication.getInst().getApp().getApplicationContext());
+            }
+            TbadkCoreApplication.getInst().setFeatureCrashAutoCloseLimit(jSONObject.optInt("feature_crash_auto_close_limit", 3));
+            this.f = jSONObject.optInt("gpu_open", 1) == 1;
+            TbadkCoreApplication.getInst().setGpuOpen(this.f);
+            boolean z = jSONObject.optInt("voice_use_soft_decoder", 0) == 1;
+            this.m = z;
+            VoiceManager.setVoiceUseSoftDecoder(z);
+            if (TbadkCoreApplication.getInst().getFirstSyncImageQuality()) {
+                int optInt2 = jSONObject.optInt("open_abstract", 0);
+                if (!(optInt2 == 0 || TbadkCoreApplication.getInst().getIsAbstractStatus() != 0)) {
+                    TbadkCoreApplication.getInst().setIsAbstractOn(optInt2);
+                }
+                TbadkCoreApplication.getInst().setFirstSyncImageQuality(false);
+            }
+            if (optInt == 1) {
+                TbadkCoreApplication.getInst().setIsAppOn(true);
+            } else if (optInt == 0) {
+                TbadkCoreApplication.getInst().setIsAppOn(false);
+            }
+            this.h = jSONObject.optInt("perform_sample_param", 100000);
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("keepalive");
+            if (optJSONObject3 != null) {
+                JSONObject optJSONObject4 = optJSONObject3.optJSONObject("wifi");
+                if (optJSONObject4 != null) {
+                    TbadkCoreApplication.getInst().setKeepaliveWifi(optJSONObject4.optInt("switch"));
+                }
+                JSONObject optJSONObject5 = optJSONObject3.optJSONObject("nonwifi");
+                if (optJSONObject5 != null) {
+                    TbadkCoreApplication.getInst().setKeepaliveNonWifi(optJSONObject5.optInt("switch"));
+                }
+            }
+            TbadkCoreApplication.getInst().setSocketReconnStratgy(a(jSONObject.optJSONArray("lcsReconStrategy")));
+            TbadkCoreApplication.getInst().setSocketHeartBeatStratgy(a(jSONObject.optJSONArray("lcsHeartbeatStrategy")));
+            TbadkCoreApplication.getInst().setSocketGetMsgStratgy(a(jSONObject.optJSONArray("imGetMsgStrategy")));
+            JSONObject optJSONObject6 = jSONObject.optJSONObject("imNetworkTimeOut");
+            if (optJSONObject6 != null) {
+                TbadkCoreApplication.getInst().setImTimeOut(new int[]{optJSONObject6.optInt("2gTo", 0) * 1000, optJSONObject6.optInt("3gTo", 0) * 1000, optJSONObject6.optInt("wifiTo", 0) * 1000});
+            }
+            JSONObject optJSONObject7 = jSONObject.optJSONObject("imNotifyRecordStrategy");
+            wy4 a = wy4.a();
+            if (optJSONObject7 != null) {
+                a.b(optJSONObject7);
+            }
+            JSONObject optJSONObject8 = jSONObject.optJSONObject("local_dialog");
+            if (optJSONObject8 != null) {
+                this.o = optJSONObject8.optInt("local_dialog_android", 1);
+                ys4.k().w("sync_local_dialog", this.o);
+            }
+            JSONObject optJSONObject9 = jSONObject.optJSONObject("benchmark");
+            if (optJSONObject9 != null) {
+                int optInt3 = optJSONObject9.optInt("android_flops_dur", Integer.MAX_VALUE);
+                int optInt4 = optJSONObject9.optInt("android_anim_avg_fps", 0);
+                TbSingleton.getInstance().setCpuThreshold(optInt3);
+                TbSingleton.getInstance().setAnimAverageFpsThreshold(optInt4);
+            }
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008017));
+            TbConfig.setBigPhotoAdress(this.b);
+            TbConfig.setSmallPhotoAdress(this.c);
+            TbConfig.setFeedBack(this.d, this.e);
+            PreLoadVideoSwitchManager.getInstance().setSyncSwitchJson(jSONObject.optString("android_preload_conf"));
+            JSONObject optJSONObject10 = jSONObject.optJSONObject("duxiaoman_url");
+            if (optJSONObject10 != null) {
+                this.p = optJSONObject10.optString("cash_pay");
+                ys4.k().y("baidu_finance", optJSONObject10.optString("finance"));
+            }
+            if (TextUtils.isEmpty(this.p) && TextUtils.isEmpty(ys4.k().q("cash_pay", null))) {
+                this.p = "https://icash.baidu.com/cloan/index?na=postbarapp&CH=postbarapp&fr=solely_bdbar_and&hideShare=1";
+            }
+            if (StringUtils.isNull(this.p)) {
                 return;
             }
-            zv4Var.e(yv4Var.getIsLike(), yv4Var.getLikeStatus());
-            zv4Var.d(yv4Var.getFansNum());
+            ys4.k().y("cash_pay", this.p);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-    }
-
-    public void o(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
-            this.m = fVar;
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        yv4 yv4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, view2) == null) {
-            tm4 tm4Var = this.l;
-            if (tm4Var == null || !tm4Var.a(view2)) {
-                if (!ki.A()) {
-                    this.c.showToast(R.string.obfuscated_res_0x7f0f0c2d);
-                    return;
-                }
-                zv4 zv4Var = this.b.get();
-                if (zv4Var != null) {
-                    zv4Var.a(view2);
-                }
-                if (!ViewHelper.checkUpIsLogin(this.c.getPageActivity()) || (yv4Var = this.a) == null) {
-                    return;
-                }
-                boolean z = !yv4Var.getIsLike();
-                if (this.e == null) {
-                    this.d.m(z, this.a.getPortrait(), this.a.getUserId(), this.a.isGod(), this.f, this.c.getUniqueId(), null, "0", this.g);
-                } else {
-                    this.d.m(z, this.a.getPortrait(), this.a.getUserId(), this.a.isGod(), this.f, this.e, null, "0", this.g);
-                }
-            }
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void s(zv4 zv4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, zv4Var) == null) || zv4Var == null) {
-            return;
-        }
-        this.b = new WeakReference<>(zv4Var);
-        zv4Var.b(this);
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (this.j == null) {
-                yr4 yr4Var = new yr4(TbadkCoreApplication.getInst().getCurrentActivity());
-                yr4Var.q(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0432));
-                ArrayList arrayList = new ArrayList();
-                ur4 ur4Var = new ur4(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0428), yr4Var);
-                ur4Var.m(new c(this));
-                arrayList.add(ur4Var);
-                yr4Var.m(new d(this));
-                yr4Var.j(arrayList);
-                wr4 wr4Var = new wr4(UtilHelper.getTbPageContext(TbadkCoreApplication.getInst().getCurrentActivity()), yr4Var);
-                this.j = wr4Var;
-                wr4Var.l(0.7f);
-            }
-            this.j.setOnCancelListener(new e(this));
-            pg.i(this.j, TbadkCoreApplication.getInst().getCurrentActivity());
-        }
-    }
-
-    public void u(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) || bdUniqueId == null) {
-            return;
-        }
-        MessageManager.getInstance().unRegisterListener(this.o);
-        MessageManager.getInstance().unRegisterListener(this.n);
     }
 }

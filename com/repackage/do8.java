@@ -1,48 +1,35 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class do8 extends CustomMessageListener {
+public class do8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final gn8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public do8(MainTabActivity mainTabActivity, tm8 tm8Var) {
-        super(2001437);
+    public static void a(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, tm8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
+            b(tbPageContext, str, null);
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.mLogicController;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        gn8 gn8Var;
+    public static void b(TbPageContext<?> tbPageContext, String str, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof zl8) && ((zl8) customResponsedMessage.getData()).b && this.a.mLikeForumNum == 0 && (gn8Var = this.b) != null && gn8Var.a() != null) {
-            this.b.a().d();
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, str, bundle) == null) || StringUtils.isNull(str) || tbPageContext == null) {
+            return;
         }
+        if (bundle == null) {
+            bundle = new Bundle();
+        }
+        if (bundle.get(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM) == null) {
+            bundle.putBoolean(BaseWebViewActivity.BUNDLE_NEED_EXTRA_PARAM, false);
+        }
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str}, bundle);
     }
 }

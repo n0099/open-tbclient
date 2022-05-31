@@ -22,6 +22,7 @@ import com.bytedance.pangle.helper.PluginDirHelper;
 import com.bytedance.pangle.log.ZeusLogger;
 import com.bytedance.pangle.util.e;
 import com.bytedance.pangle.util.f;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import dalvik.system.DexFile;
 import java.io.File;
 import java.io.FileInputStream;
@@ -123,7 +124,7 @@ public final class b {
                 if (a3 > 30 || a3 < 0) {
                     sb.append("cleanDir cost:");
                     sb.append(a3);
-                    sb.append(";");
+                    sb.append(ParamableElem.DIVIDE_PARAM);
                 }
                 try {
                     ApkVerifier verifier = g.a().b.getVerifier();
@@ -138,7 +139,7 @@ public final class b {
                     if (a4 > 30 || a4 < 0) {
                         sb.append("checkSignature cost:");
                         sb.append(a4);
-                        sb.append(";");
+                        sb.append(ParamableElem.DIVIDE_PARAM);
                     }
                     ZeusParam zeusParam = g.a().b;
                     if (zeusParam != null) {
@@ -164,14 +165,14 @@ public final class b {
                     if (a5 > 30 || a5 < 0) {
                         sb.append("checkMathHostAbi cost:");
                         sb.append(a5);
-                        sb.append(";");
+                        sb.append(ParamableElem.DIVIDE_PARAM);
                     }
                     b(file, str, i);
                     long a6 = a2.a("checkPermissions");
                     if (a6 > 30 || a6 < 0) {
                         sb.append("checkPermissions cost:");
                         sb.append(a6);
-                        sb.append(";");
+                        sb.append(ParamableElem.DIVIDE_PARAM);
                     }
                     String sourceFile = PluginDirHelper.getSourceFile(str, i);
                     try {
@@ -197,7 +198,7 @@ public final class b {
                         if (a7 > 30 || a7 < 0) {
                             sb.append("copyApk cost:");
                             sb.append(a7);
-                            sb.append(";");
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
                         try {
                             com.bytedance.pangle.helper.b.a(new File(PluginDirHelper.getSourceFile(str, i)), new File(PluginDirHelper.getNativeLibraryDir(str, i)), str);
@@ -205,7 +206,7 @@ public final class b {
                             if (a8 > 30 || a8 < 0) {
                                 sb.append("copySo cost:");
                                 sb.append(a8);
-                                sb.append(";");
+                                sb.append(ParamableElem.DIVIDE_PARAM);
                             }
                             try {
                                 String dalvikCacheDir = PluginDirHelper.getDalvikCacheDir(str, i);
@@ -271,14 +272,14 @@ public final class b {
                                 if (a9 > 30 || a9 < 0) {
                                     sb.append("dexOpt cost:");
                                     sb.append(a9);
-                                    sb.append(";");
+                                    sb.append(ParamableElem.DIVIDE_PARAM);
                                 }
                                 e.a(file);
                                 long a10 = a2.a("cleanPluginApk");
                                 if (a10 > 30 || a10 < 0) {
                                     sb.append("cleanPluginApk cost:");
                                     sb.append(a10);
-                                    sb.append(";");
+                                    sb.append(ParamableElem.DIVIDE_PARAM);
                                 }
                                 a(com.bytedance.pangle.b.b.f, b.a.m, str, i, a2.a(), sb.toString(), null);
                                 a2.b("success");

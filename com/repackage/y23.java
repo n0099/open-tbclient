@@ -3,45 +3,50 @@ package com.repackage;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rl2;
-import com.repackage.z53;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.m52;
+import com.repackage.w23;
+import java.util.UUID;
+@Deprecated
 /* loaded from: classes7.dex */
-public abstract class y23 extends r23 {
+public class y23 extends e13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
-    public boolean d;
 
     /* loaded from: classes7.dex */
-    public class a implements nf3<x53<z53.e>> {
+    public class a implements w23.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ u03 c;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ uk2 b;
+        public final /* synthetic */ hp2 c;
         public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ y23 e;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ hz2 f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ qy1 h;
+        public final /* synthetic */ Context i;
+        public final /* synthetic */ y23 j;
 
-        public a(y23 y23Var, CallbackHandler callbackHandler, String str, u03 u03Var, UnitedSchemeEntity unitedSchemeEntity) {
+        public a(y23 y23Var, String str, uk2 uk2Var, hp2 hp2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var, String str2, qy1 qy1Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y23Var, callbackHandler, str, u03Var, unitedSchemeEntity};
+                Object[] objArr = {y23Var, str, uk2Var, hp2Var, unitedSchemeEntity, callbackHandler, hz2Var, str2, qy1Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,37 +56,102 @@ public abstract class y23 extends r23 {
                     return;
                 }
             }
-            this.e = y23Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = u03Var;
+            this.j = y23Var;
+            this.a = str;
+            this.b = uk2Var;
+            this.c = hp2Var;
             this.d = unitedSchemeEntity;
+            this.e = callbackHandler;
+            this.f = hz2Var;
+            this.g = str2;
+            this.h = qy1Var;
+            this.i = context;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(x53<z53.e> x53Var) {
+        @Override // com.repackage.w23.e
+        public void b(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
-                if (!s53.h(x53Var)) {
-                    s53.q(x53Var, this.a, this.b);
-                    this.e.l(this.c, this.d, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                ns2.d(this.a);
+                hw1.i("redirect", "check pages success");
+                this.b.o();
+                m52.e f = m52.f(this.b.getActivity(), r52.c(this.c.a));
+                q23.l(this.d, this.e, this.f, f.a.c(), this.c.a, null, this.g);
+                this.j.n(f, this.c, this.h, this.a);
+            }
+        }
+
+        @Override // com.repackage.w23.e
+        public void c(int i, ab3 ab3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ab3Var) == null) {
+                hw1.c("redirect", "check pages failed");
+                this.b.o();
+                if (e13.b) {
+                    Context context = this.i;
+                    zy2.g(context, this.i.getString(R.string.obfuscated_res_0x7f0f01a1) + i).G();
+                }
+                q23.j(this.d, this.e, this.g);
+                v53.j(this.c, ab3Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements m52.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m52.e a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ hp2 c;
+        public final /* synthetic */ qy1 d;
+
+        public b(y23 y23Var, m52.e eVar, String str, hp2 hp2Var, qy1 qy1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y23Var, eVar, str, hp2Var, qy1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                this.e.k(this.c, this.d, this.a, this.b);
+            }
+            this.a = eVar;
+            this.b = str;
+            this.c = hp2Var;
+            this.d = qy1Var;
+        }
+
+        @Override // com.repackage.m52.f
+        public void onReady() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (e13.b) {
+                    Log.d("redirectTo", "tryToExecutePageRoute onReady start.");
+                }
+                ns2.e(this.a, this.b);
+                q23.e(this.a.a, this.c, this.b);
+                bp1.A(this.d, this.c, this.b, false);
+                if (e13.b) {
+                    Log.d("redirectTo", "tryToExecutePageRoute onReady end.");
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y23(r13 r13Var, String str) {
-        super(r13Var, str);
+    public y23(e03 e03Var) {
+        super(e03Var, "/swanAPI/redirectTo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var, str};
+            Object[] objArr = {e03Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -93,106 +163,90 @@ public abstract class y23 extends r23 {
                 return;
             }
         }
-        this.c = null;
-        this.d = false;
     }
 
-    public static void m(String str, String str2, String str3) {
-        u03 a0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) || (a0 = u03.a0()) == null) {
-            return;
-        }
-        w73 w73Var = new w73();
-        rl2.a V = a0.V();
-        w73Var.a = n73.n(V.G());
-        w73Var.e = str3;
-        w73Var.b = DI.BD.FAVOR;
-        w73Var.f = a0.N();
-        SwanCoreVersion j0 = V.j0();
-        String Y = a0.Y();
-        String str4 = j0 != null ? j0.swanCoreVersionName : "";
-        w73Var.a("appName", Y);
-        w73Var.a("isFavor", str);
-        w73Var.a("favorBy", str2);
-        w73Var.a("swan", str4);
-        b73.i("2571", "89", w73Var.f());
-    }
-
-    @Override // com.repackage.r23
-    public final boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+    @Override // com.repackage.e13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (u03Var == null) {
-                ux1.c("favorite", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (r23.b) {
-                    Log.d("SwanAppAction", "getSwanHistory --- illegal swanApp");
-                }
-                return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
+            if (e13.b) {
+                Log.d("redirectTo", "handle entity: " + unitedSchemeEntity.toString());
             }
-            JSONObject d = ud3.d(unitedSchemeEntity.getParam("params"));
-            String optString = d.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                ux1.c("favorite", "none cb");
-                if (r23.b) {
-                    Log.d("SwanAppAction", "getSwanHistory --- cb is empty");
-                }
+            String uuid = UUID.randomUUID().toString();
+            ns2.b(uuid);
+            String o = q23.o(unitedSchemeEntity, "params");
+            if (TextUtils.isEmpty(o)) {
+                hw1.c("redirect", "url is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            this.d = d.optBoolean("isFavorButton", false);
-            if (!j(u03Var, unitedSchemeEntity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, IActiveUploadListener.PARAM_ERR_MSG);
+            uk2 U = uk2.U();
+            qy1 V = U.V();
+            if (V == null) {
+                hw1.c("redirect", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            String optString2 = d.optString("slaveId");
-            String T = hm2.U().T();
-            if (TextUtils.equals(optString2, hm2.U().C()) && (TextUtils.equals(T, "pages/swan-news-showcase/index") || TextUtils.equals(T, "pages/swan-operate-news/index"))) {
-                k(u03Var, unitedSchemeEntity, callbackHandler, optString);
-            } else if (!o(unitedSchemeEntity)) {
-                u03Var.d0().g(context, this.d ? "scope_favorite_button" : "mapp_favorite", new a(this, callbackHandler, optString, u03Var, unitedSchemeEntity));
-            } else {
-                k(u03Var, unitedSchemeEntity, callbackHandler, optString);
+            hp2 d = hp2.d(o, U.z());
+            d.e = "2";
+            d.f = uuid;
+            v53.g(d);
+            if (!bd3.b(U.s(), d, false)) {
+                hw1.c("redirect", "page params error : path=" + d.a + " ; routePath=" + d.d);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                v53.i(d);
+                return false;
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+            String str = unitedSchemeEntity.getParams().get("initData");
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(d.d) && hz2.L() != null) {
+                hz2.L().K0(str, d.d);
+            }
+            String n = q23.n(unitedSchemeEntity, "params", FetchLog.START_TIME);
+            if (!TextUtils.isEmpty(n)) {
+                HybridUbcFlow q = ms2.q("route", uuid);
+                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
+                ubcFlowEvent.h(Long.valueOf(n).longValue());
+                q.F(ubcFlowEvent);
+            }
+            if (e13.b) {
+                Log.d("redirectTo", "PreloadSlaveManager start.");
+            }
+            String optString = hc3.d(unitedSchemeEntity.getParam("params")).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                hw1.c("redirect", "cb is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                v53.i(d);
+                return false;
+            } else if (u13.b().a(d)) {
+                u13.b().i("redirectTo", d);
+                hw1.c("redirectTo", "access to this page is prohibited");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                U.a();
+                w23.g(hz2Var, d, "", new a(this, uuid, U, d, unitedSchemeEntity, callbackHandler, hz2Var, optString, V, context), uuid);
+                return true;
+            }
         }
         return invokeLLLL.booleanValue;
     }
 
-    public abstract boolean j(u03 u03Var, UnitedSchemeEntity unitedSchemeEntity);
-
-    public abstract void k(u03 u03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str);
-
-    public void l(u03 u03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+    public final void n(m52.e eVar, hp2 hp2Var, qy1 qy1Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, u03Var, unitedSchemeEntity, callbackHandler, str) == null) {
-        }
-    }
-
-    public void n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, unitedSchemeEntity, callbackHandler, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("success", "0");
-            } catch (JSONException e) {
-                if (eh1.a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, hp2Var, qy1Var, str) == null) {
+            boolean z = eVar != null && eVar.b;
+            HybridUbcFlow q = ms2.q("route", str);
+            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
+            q.D("preload", z ? "1" : "0");
+            if (e13.b) {
+                Log.d("redirectTo", "tryToExecutePageRoute start. isReady : " + z);
             }
-            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
+            m52.q(eVar, new b(this, eVar, str, hp2Var, qy1Var));
+            if (e13.b) {
+                Log.d("redirectTo", "tryToExecutePageRoute end.");
+            }
         }
-    }
-
-    public boolean o(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, unitedSchemeEntity)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

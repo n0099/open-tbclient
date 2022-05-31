@@ -8,13 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class fg2 extends oe2<fh2> {
+/* loaded from: classes5.dex */
+public class fg2 extends bd2<dg2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,48 +27,22 @@ public class fg2 extends oe2<fh2> {
         }
     }
 
-    @Override // com.repackage.oe2
+    @Override // com.repackage.bd2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteAudioLevels" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.oe2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            command.obj = new JSONObject();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "release" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.oe2
+    @Override // com.repackage.bd2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull fh2 fh2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull dg2 dg2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, fh2Var) == null) {
-            ArrayList<hh2> v = fh2Var.v();
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            if (v != null) {
-                Iterator<hh2> it = v.iterator();
-                while (it.hasNext()) {
-                    hh2 next = it.next();
-                    JSONObject a = next == null ? null : next.a();
-                    if (a != null) {
-                        jSONArray.put(a);
-                    }
-                }
-            }
-            try {
-                jSONObject.put("audioLevels", jSONArray);
-            } catch (JSONException unused) {
-            }
-            command.obj = jSONObject;
-            String str = command.what;
-            d(fh2Var, str, "" + command.obj, true);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, dg2Var) == null) {
+            d(dg2Var, command.what, null, false);
+            dg2Var.release();
         }
     }
 }

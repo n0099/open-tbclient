@@ -1,36 +1,145 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.os.Handler;
+import android.os.Looper;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.faceshop.CollectEmotionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.repackage.c99;
+import com.repackage.l76;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class n76 implements q76 {
+public class n76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t76 a;
-    public r76 b;
-    public Thread c;
-    public boolean d;
+    public l76 a;
+    public Handler b;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements l76.l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n76 a;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ n76 c;
 
-        public a(n76 n76Var) {
+        public a(n76 n76Var, List list, Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n76Var, list, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = n76Var;
+            this.a = list;
+            this.b = map;
+        }
+
+        @Override // com.repackage.l76.l
+        public void onResult(int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+                this.c.d(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ n76 c;
+
+        /* loaded from: classes6.dex */
+        public class a implements l76.l {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // com.repackage.l76.l
+            public void onResult(int i, int i2, int i3) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+                    b bVar = this.a;
+                    bVar.c.g(bVar.b);
+                }
+            }
+        }
+
+        public b(n76 n76Var, List list, List list2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n76Var, list, list2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = n76Var;
+            this.a = list;
+            this.b = list2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.a.i(this.a, false, new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements l76.l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(n76 n76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,17 +151,19 @@ public abstract class n76 implements q76 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = n76Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.repackage.l76.l
+        public void onResult(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f();
+            if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+                if (i2 > 0) {
+                    BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
+                    kl7.u(System.currentTimeMillis());
+                }
+                kl7.o().x(false);
             }
         }
     }
@@ -70,145 +181,106 @@ public abstract class n76 implements q76 {
                 return;
             }
         }
-        this.d = false;
+        this.a = l76.t();
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    @Override // com.repackage.q76
-    public void a(t76 t76Var, r76 r76Var) {
+    public final void d(List<CollectEmotionData> list, Map<String, CollectEmotionData> map) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, t76Var, r76Var) == null) || r76Var == null) {
-            return;
-        }
-        this.b = r76Var;
-        if (t76Var == null) {
-            r76Var.onError(StringUtil.NULL_STRING, "cover config is null !!");
-            return;
-        }
-        this.a = t76Var;
-        this.c = new Thread(new a(this));
-        ThreadPool.b().e(this.c);
-    }
-
-    public int[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            t76 t76Var = this.a;
-            int[] iArr = {t76Var.a, t76Var.b};
-            if (!t76Var.g && !t76Var.e) {
-                float f = t76Var.d;
-                if (f != 0.0f) {
-                    c99.a e = c99.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
-                    iArr[0] = e.b();
-                    iArr[1] = e.a();
-                }
-            } else {
-                c99.a e2 = e();
-                float f2 = this.a.d;
-                if (f2 != 0.0f) {
-                    c99.a f3 = c99.f(f2, e2.b(), e2.a());
-                    iArr[0] = f3.b();
-                    iArr[1] = f3.a();
-                }
-                c99.a d = c99.d(iArr[0], iArr[1]);
-                iArr[0] = d.b();
-                iArr[1] = d.a();
-            }
-            return iArr;
-        }
-        return (int[]) invokeV.objValue;
-    }
-
-    public Bitmap c(Bitmap bitmap, float f, MultiMediaData multiMediaData) {
-        InterceptResult invokeCommon;
-        Bitmap bitmap2;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), multiMediaData})) == null) {
-            if (multiMediaData == null || !((i = 360 - (((int) multiMediaData.angle) % 360)) == 90 || i == 270)) {
-                bitmap2 = null;
-            } else {
-                Matrix matrix = new Matrix();
-                matrix.setRotate(i);
-                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-            }
-            if (bitmap2 != null) {
-                bitmap = bitmap2;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (bitmap.getHeight() / bitmap.getWidth() > f) {
-                width = (int) (bitmap.getHeight() * f);
-            } else {
-                height = (int) (bitmap.getWidth() * f);
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-            Canvas canvas = new Canvas(createBitmap);
-            canvas.save();
-            canvas.drawBitmap(bitmap, width != bitmap.getWidth() ? Math.abs(width - bitmap.getWidth()) / 2 : 0, height != bitmap.getHeight() ? Math.abs(height - bitmap.getHeight()) / 2 : 0, (Paint) null);
-            canvas.restore();
-            bitmap.recycle();
-            return createBitmap;
-        }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public String d(int i, int i2, Bitmap bitmap, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
-            if (i == 0 || i2 == 0) {
-                return "";
-            }
-            Bitmap h = wa9.h(bitmap, i, i2, z);
-            String b = this.d ? rx8.b() : rx8.a();
-            String c = rx8.c(b, h, System.currentTimeMillis() + ".jpg");
-            if (h != null) {
-                h.recycle();
-                return c;
-            }
-            return c;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public c99.a e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MultiMediaData multiMediaData = this.a.c;
-            int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
-            int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
-            if (multiMediaData == null) {
-                return new c99.a(i, i2);
-            }
-            if (multiMediaData.type == 1) {
-                float f = multiMediaData.angle;
-                float f2 = multiMediaData.rotation;
-                if ((f + f2) % 360.0f != 90.0f && (f + f2) % 360.0f != 270.0f) {
-                    i = multiMediaData.width;
-                    i2 = multiMediaData.height;
-                } else {
-                    i = multiMediaData.height;
-                    i2 = multiMediaData.width;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, list, map) == null) {
+            ArrayList<CollectEmotionData> arrayList = new ArrayList();
+            for (CollectEmotionData collectEmotionData : list) {
+                if (collectEmotionData != null && !map.containsKey(collectEmotionData.pid) && !TextUtils.isEmpty(collectEmotionData.picUrl)) {
+                    arrayList.add(collectEmotionData);
                 }
             }
-            return new c99.a(i, i2);
+            if (!arrayList.isEmpty()) {
+                hl7.a("【表情云同步】：4 - 收藏表情：下载本地没有的表情");
+                ArrayList arrayList2 = new ArrayList();
+                for (CollectEmotionData collectEmotionData2 : arrayList) {
+                    y25 y25Var = new y25();
+                    y25Var.f = collectEmotionData2.pkgId;
+                    y25Var.a = collectEmotionData2.pid;
+                    y25Var.d = collectEmotionData2.picUrl;
+                    y25Var.b = collectEmotionData2.width;
+                    y25Var.c = collectEmotionData2.height;
+                    y25Var.e = collectEmotionData2.thumbnail;
+                    arrayList2.add(y25Var);
+                }
+                this.b.post(new b(this, arrayList2, list));
+                return;
+            }
+            g(list);
         }
-        return (c99.a) invokeV.objValue;
     }
 
-    public abstract void f();
-
-    public void g(s76 s76Var, Bitmap bitmap) {
+    public final void e(List<CollectEmotionData> list, List<CollectEmotionData> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, s76Var, bitmap) == null) {
-            if (s76Var == null) {
-                s76Var = new s76();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
+            ArrayList arrayList = new ArrayList();
+            Map<String, CollectEmotionData> h = h(list2);
+            Map<String, CollectEmotionData> h2 = h(list);
+            for (Map.Entry<String, CollectEmotionData> entry : h.entrySet()) {
+                if (!h2.containsKey(entry.getKey())) {
+                    arrayList.add(entry.getValue());
+                }
             }
-            int[] b = b();
-            s76Var.a = d(b[0], b[1], bitmap, true);
-            this.b.a(this.a.f, s76Var);
+            if (!arrayList.isEmpty()) {
+                hl7.a("【表情云同步】：4 - 收藏表情：删除云端没有的表情");
+                this.a.x(arrayList, false, new a(this, list, h));
+                return;
+            }
+            d(list, h);
         }
+    }
+
+    public void f(List<CollectEmotionData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            l76.t().l(true);
+            List<CollectEmotionData> q = b76.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
+            for (CollectEmotionData collectEmotionData : q) {
+                String p = l76.p(collectEmotionData.pid, false);
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(p);
+                collectEmotionData.imageFileInfo = imageFileInfo;
+            }
+            BdLog.e("NewFaceSyncUtil MergeCollectFace Called CloudList:");
+            Iterator<CollectEmotionData> it = list.iterator();
+            while (it.hasNext()) {
+                BdLog.e("NewFaceSyncUtil Cloud data:" + it.next().pkgId);
+            }
+            BdLog.e("NewFaceSyncUtil MergeCollectFace Called localList:");
+            Iterator<CollectEmotionData> it2 = q.iterator();
+            while (it2.hasNext()) {
+                BdLog.e("NewFaceSyncUtil Local data:" + it2.next().pkgId);
+            }
+            e(list, q);
+        }
+    }
+
+    public final void g(List<CollectEmotionData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            hl7.a("【表情云同步】：5 - 收藏表情：根据云端数据进行排序");
+            this.a.u(list, false, new c(this));
+        }
+    }
+
+    public final Map<String, CollectEmotionData> h(List<CollectEmotionData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            HashMap hashMap = new HashMap();
+            if (list != null) {
+                for (CollectEmotionData collectEmotionData : list) {
+                    if (collectEmotionData != null && !TextUtils.isEmpty(collectEmotionData.pid)) {
+                        hashMap.put(collectEmotionData.pid, collectEmotionData);
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

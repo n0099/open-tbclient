@@ -1,17 +1,25 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.WebView;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
-import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,79 +27,170 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zt2;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.reflect.Method;
+@SuppressLint({"ObsoleteSdkInt"})
 /* loaded from: classes7.dex */
-public final class sx2 {
+public class sx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static boolean c;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final b a;
+    public boolean b;
+    public boolean c;
+    public View d;
+    public View e;
 
     /* loaded from: classes7.dex */
-    public static class a implements w62 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ tx2 b;
-        public final /* synthetic */ Bundle c;
-
-        public a(Context context, tx2 tx2Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, tx2Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = tx2Var;
-            this.c = bundle;
-        }
-
-        @Override // com.repackage.w62
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && sx2.a) {
-                Log.d("SwanAppPreloadHelper", "SwanSailor：updateFail");
-            }
-        }
-
-        @Override // com.repackage.w62
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (sx2.a) {
-                    Log.d("SwanAppPreloadHelper", "SwanSailor updateSuccess");
-                }
-                sx2.i(this.a, this.b, this.c);
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements wz1 {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ tx2 b;
-        public final /* synthetic */ Bundle c;
+        public final int a;
+        public final boolean b;
+        public final int c;
+        public final int d;
+        public final boolean e;
+        public final float f;
 
-        public b(Context context, tx2 tx2Var, Bundle bundle) {
+        public /* synthetic */ b(Activity activity, boolean z, boolean z2, a aVar) {
+            this(activity, z, z2);
+        }
+
+        @TargetApi(14)
+        public final int a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                if (Build.VERSION.SDK_INT >= 14) {
+                    TypedValue typedValue = new TypedValue();
+                    context.getTheme().resolveAttribute(16843499, typedValue, true);
+                    return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
+                }
+                return 0;
+            }
+            return invokeL.intValue;
+        }
+
+        public final int b(Resources resources, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resources, str)) == null) {
+                int identifier = resources.getIdentifier(str, EMABTest.TYPE_DIMEN, "android");
+                if (identifier > 0) {
+                    return resources.getDimensionPixelSize(identifier);
+                }
+                return 0;
+            }
+            return invokeLL.intValue;
+        }
+
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+        }
+
+        @TargetApi(14)
+        public final int d(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                Resources resources = context.getResources();
+                if (Build.VERSION.SDK_INT < 14 || !i(context)) {
+                    return 0;
+                }
+                return b(resources, this.e ? SapiSystemBarTintManager.SystemBarConfig.h : SapiSystemBarTintManager.SystemBarConfig.i);
+            }
+            return invokeL.intValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
+        }
+
+        @TargetApi(14)
+        public final int f(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
+                Resources resources = context.getResources();
+                if (Build.VERSION.SDK_INT < 14 || !i(context)) {
+                    return 0;
+                }
+                return b(resources, SapiSystemBarTintManager.SystemBarConfig.j);
+            }
+            return invokeL.intValue;
+        }
+
+        public final float g(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                if (Build.VERSION.SDK_INT >= 16) {
+                    activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+                } else {
+                    activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                }
+                float f = displayMetrics.density;
+                return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
+            }
+            return invokeL.floatValue;
+        }
+
+        public int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
+        }
+
+        @TargetApi(14)
+        public final boolean i(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+                Resources resources = context.getResources();
+                int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
+                if (identifier != 0) {
+                    boolean z = resources.getBoolean(identifier);
+                    if ("1".equals(sx2.f)) {
+                        return false;
+                    }
+                    if ("0".equals(sx2.f)) {
+                        return true;
+                    }
+                    return z;
+                }
+                return !ViewConfiguration.get(context).hasPermanentMenuKey();
+            }
+            return invokeL.booleanValue;
+        }
+
+        public boolean j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : invokeV.booleanValue;
+        }
+
+        public boolean k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f >= 600.0f || this.e : invokeV.booleanValue;
+        }
+
+        public b(Activity activity, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, tx2Var, bundle};
+                Object[] objArr = {activity, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -101,57 +200,14 @@ public final class sx2 {
                     return;
                 }
             }
-            this.a = context;
-            this.b = tx2Var;
-            this.c = bundle;
-        }
-
-        @Override // com.repackage.wz1
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean unused = sx2.c = true;
-                sx2.h(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c implements nf3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ tx2 b;
-        public final /* synthetic */ Bundle c;
-
-        public c(Context context, tx2 tx2Var, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, tx2Var, bundle};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = tx2Var;
-            this.c = bundle;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                sx2.g(this.a, this.b, this.c);
-            }
+            Resources resources = activity.getResources();
+            this.e = resources.getConfiguration().orientation == 1;
+            this.f = g(activity);
+            this.a = b(resources, SapiSystemBarTintManager.SystemBarConfig.g);
+            a(activity);
+            this.c = d(activity);
+            this.d = f(activity);
+            this.b = this.c > 0;
         }
     }
 
@@ -168,193 +224,105 @@ public final class sx2 {
                 return;
             }
         }
-        a = eh1.a;
-        c = false;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
+        if (Build.VERSION.SDK_INT >= 19) {
             try {
-                jSONObject.put("master", o72.U().k0());
-                jSONObject.put("slave", o72.U().n0());
-            } catch (JSONException e) {
-                if (a) {
-                    throw new RuntimeException(e);
-                }
+                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class);
+                declaredMethod.setAccessible(true);
+                f = (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
+            } catch (Throwable unused) {
+                f = null;
             }
-            String jSONObject2 = jSONObject.toString();
-            if (a) {
-                Log.d("SwanAppPreloadHelper", "createPreloadStatus -- preloadStatus : " + jSONObject2);
-            }
-            return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void g(Context context, tx2 tx2Var, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, context, tx2Var, bundle) == null) {
-            boolean u = bk2.g0() != null ? bk2.g0().u() : false;
-            boolean isMainProcess = ProcessUtils.isMainProcess();
-            String str = isMainProcess ? "main" : "aiapp";
-            long currentTimeMillis = System.currentTimeMillis();
-            if (u) {
-                if (isMainProcess && TextUtils.isEmpty(b)) {
-                    try {
-                        b = new WebView(context).getSettings().getUserAgentString();
-                    } catch (Exception e) {
-                        b = "exception::" + e.toString();
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("time", currentTimeMillis);
-                    jSONObject.put("process", tx2Var.b.index);
-                    jSONObject.put("ua", b);
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                }
-                zt2.d dVar = new zt2.d("812");
-                dVar.g("swan");
-                dVar.i("launch");
-                dVar.h(str);
-                dVar.e(jSONObject);
-                zt2.onEvent(dVar);
-            }
-            long currentTimeMillis2 = System.currentTimeMillis();
-            if (u) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put("time", currentTimeMillis2);
-                    jSONObject2.put("process", tx2Var.b.index);
-                    jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
-                } catch (JSONException e3) {
-                    if (a) {
-                        e3.printStackTrace();
-                    }
-                }
-                zt2.d dVar2 = new zt2.d("812");
-                dVar2.g("swan");
-                dVar2.i("swan_updated");
-                dVar2.h(str);
-                dVar2.e(jSONObject2);
-                zt2.onEvent(dVar2);
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (z93.j()) {
-                ba3.e();
-            }
-            bundle.putParcelable("bundle_key_swan_core", z93.e(0));
-            bundle.putParcelable("bundle_key_extension_core", db2.c(0));
-            bundle.putInt("bundle_key_preload_switch", bk2.g().a());
-            bundle.putLong("bundle_key_preload_launch_time", currentTimeMillis);
-            bundle.putBoolean("bundle_key_v8_ab", bk2.g0().y());
-            bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
-            bundle.putString("bundle_key_preload_src", str);
-            bundle.putInt("bundle_key_process", tx2Var.b.index);
-            bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
-            tx2Var.m0(context, bundle);
         }
     }
 
-    public static void h(Context context, tx2 tx2Var, Bundle bundle) {
+    @TargetApi(19)
+    public sx2(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, context, tx2Var, bundle) == null) {
-            SwanLauncher.j().l(new c(context, tx2Var, bundle));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Window window = activity.getWindow();
+        ViewGroup viewGroup = (ViewGroup) window.getDecorView();
+        if (Build.VERSION.SDK_INT >= 19) {
+            TypedArray obtainStyledAttributes = activity.obtainStyledAttributes(new int[]{16843759, 16843760});
+            try {
+                this.b = obtainStyledAttributes.getBoolean(0, false);
+                this.c = obtainStyledAttributes.getBoolean(1, false);
+                obtainStyledAttributes.recycle();
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                if ((67108864 & attributes.flags) != 0) {
+                    this.b = true;
+                }
+                if ((attributes.flags & 134217728) != 0) {
+                    this.c = true;
+                }
+            } catch (Throwable th) {
+                obtainStyledAttributes.recycle();
+                throw th;
+            }
+        }
+        b bVar = new b(activity, this.b, this.c, null);
+        this.a = bVar;
+        if (!bVar.j()) {
+            this.c = false;
+        }
+        if (this.b) {
+            d(activity, viewGroup);
+        }
+        if (this.c) {
+            c(activity, viewGroup);
         }
     }
 
-    public static void i(Context context, tx2 tx2Var, Bundle bundle) {
+    public void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, context, tx2Var, bundle) == null) {
-            if (y62.a()) {
-                h(context, tx2Var, bundle);
-            } else if (c) {
-                h(context, tx2Var, bundle);
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.b) {
+            this.d.setVisibility(z ? 0 : 8);
+        }
+    }
+
+    public final void c(Context context, ViewGroup viewGroup) {
+        FrameLayout.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup) == null) {
+            this.e = new View(context);
+            if (this.a.k()) {
+                layoutParams = new FrameLayout.LayoutParams(-1, this.a.c());
+                layoutParams.gravity = 80;
             } else {
-                kn1.a().b().a().b(new b(context, tx2Var, bundle));
+                layoutParams = new FrameLayout.LayoutParams(this.a.e(), -1);
+                layoutParams.gravity = 5;
             }
+            this.e.setLayoutParams(layoutParams);
+            this.e.setBackgroundColor(-1728053248);
+            this.e.setVisibility(8);
+            viewGroup.addView(this.e);
         }
     }
 
-    public static void j(Bundle bundle) {
+    public final void d(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, bundle) == null) {
-            bundle.putBoolean("bundle_key_v8_ab", bk2.g0().y());
-        }
-    }
-
-    public static void k(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, context, bundle) == null) {
-            Intent intent = new Intent(context, SwanAppMessengerService.class);
-            intent.setAction(SwanAppMessengerService.ACTION_PRELOAD_NEXT);
-            if (bundle != null) {
-                intent.putExtras(bundle);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup) == null) {
+            this.d = new View(context);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, this.a.h());
+            layoutParams.gravity = 48;
+            if (this.c && !this.a.k()) {
+                layoutParams.rightMargin = this.a.e();
             }
-            try {
-                context.startService(intent);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void l(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, context, bundle) == null) {
-            m(context, vx2.k().f(), bundle);
-        }
-    }
-
-    public static void m(Context context, tx2 tx2Var, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, context, tx2Var, bundle) == null) {
-            if (a) {
-                vx2 k = vx2.k();
-                k.u("b4 tryPreload client=" + tx2Var);
-            }
-            if (!ProcessUtils.isMainProcess() || tx2Var == null || !tx2Var.b.isSwanAppProcess() || tx2Var.D()) {
-                return;
-            }
-            String string = bundle == null ? "" : bundle.getString("bundle_key_preload_preload_scene");
-            if (TextUtils.isEmpty(string)) {
-                string = "0";
-            }
-            if (a) {
-                Log.d("SwanAppPreloadHelper", "SwanSailor：preloadScene:" + string);
-            }
-            if (bk2.w0().c()) {
-                i(context, tx2Var, bundle);
-                return;
-            }
-            y62 y62Var = new y62();
-            y62Var.a = TextUtils.equals(string, "0") ? "by_host_launch" : "by_preload";
-            bk2.w0().b(y62Var, new a(context, tx2Var, bundle));
-        }
-    }
-
-    public static void n(Context context, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, context, bundle) == null) {
-            qk1 g0 = bk2.g0();
-            if (!tw2.Y()) {
-                g0.getSwitch("swan_preload_keep_alive", true);
-            }
-            l(context, bundle);
+            this.d.setLayoutParams(layoutParams);
+            this.d.setBackgroundColor(-1728053248);
+            this.d.setVisibility(8);
+            viewGroup.addView(this.d);
         }
     }
 }

@@ -32,10 +32,10 @@ public final class fg extends fa {
 
     @Override // com.xiaomi.push.fa
     /* renamed from: a */
-    public ByteBuffer mo342a(ByteBuffer byteBuffer) {
+    public ByteBuffer mo341a(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m345a().length == 0 ? byteBuffer : super.mo342a(byteBuffer) : (ByteBuffer) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, byteBuffer)) == null) ? m344a().length == 0 ? byteBuffer : super.mo341a(byteBuffer) : (ByteBuffer) invokeL.objValue;
     }
 
     @Override // com.xiaomi.push.fa
@@ -43,7 +43,7 @@ public final class fg extends fa {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m345a().length == 0) {
+            if (m344a().length == 0) {
                 return 0;
             }
             return super.c();

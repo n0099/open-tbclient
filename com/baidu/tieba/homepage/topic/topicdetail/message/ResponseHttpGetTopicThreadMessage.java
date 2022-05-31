@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g17;
-import com.repackage.ro;
+import com.repackage.jn;
+import com.repackage.jz6;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +22,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<ro> mDataList;
+    public List<jn> mDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpGetTopicThreadMessage() {
@@ -43,7 +43,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         this.hasMore = false;
     }
 
-    public List<ro> getDataList() {
+    public List<jn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDataList : (List) invokeV.objValue;
@@ -75,9 +75,9 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         this.mDataList = new ArrayList();
         for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
             if (topicThread != null) {
-                g17 g17Var = new g17();
-                g17Var.g(topicThread);
-                this.mDataList.add(g17Var);
+                jz6 jz6Var = new jz6();
+                jz6Var.g(topicThread);
+                this.mDataList.add(jz6Var);
             }
         }
     }

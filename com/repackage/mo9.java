@@ -1,24 +1,22 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
-import java.util.concurrent.ConcurrentHashMap;
+import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public class mo9 {
+public class mo9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static mo9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap a;
+    public final /* synthetic */ po9 a;
 
-    public mo9() {
+    public mo9(po9 po9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {po9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,44 +26,15 @@ public class mo9 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.a = po9Var;
     }
 
-    public static mo9 a() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (mo9.class) {
-                    if (b == null) {
-                        b = new mo9();
-                    }
-                }
-            }
-            return b;
-        }
-        return (mo9) invokeV.objValue;
-    }
-
-    public Info b(String str) {
-        InterceptResult invokeL;
-        Info info;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (mo9.class) {
-                info = (Info) this.a.remove(str);
-            }
-            return info;
-        }
-        return (Info) invokeL.objValue;
-    }
-
-    public void c(String str, Info info) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, info) == null) {
-            synchronized (mo9.class) {
-                this.a.put(str, info);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.a.c.c.onFail(PBError.NO_FILL);
+            this.a.a.c.d = true;
         }
     }
 }

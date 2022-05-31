@@ -1,51 +1,131 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.os.FileObserver;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.p53;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class k93 extends uw2 {
+public final class k93 extends FileObserver {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public int b;
+    public int c;
 
-    public k93() {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ k93 b;
+
+        public a(k93 k93Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k93Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = k93Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                p53.b bVar = new p53.b(10019);
+                bVar.l(String.valueOf(this.b.c));
+                bVar.j(this.a);
+                bVar.h(gz2.J().getAppId());
+                bVar.m();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755604084, "Lcom/repackage/k93;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755604084, "Lcom/repackage/k93;");
+                return;
+            }
+        }
+        d = rf1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k93(@NonNull String str) {
+        super(str, 1792);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.c = 0;
+        this.b = 0;
+        this.a = str;
+    }
+
+    public void b(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            bc3.f().execute(new a(this, this.a + File.separator + str));
         }
     }
 
-    public static void e(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+    @Override // android.os.FileObserver
+    public void onEvent(int i, @Nullable String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, ashmemFileDescriptor) == null) && ProcessUtils.isMainProcess()) {
-            Bundle bundle = new Bundle();
-            bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            bundle.putParcelable("result", ashmemFileDescriptor);
-            ox2.a(bundle, k93.class);
-        }
-    }
-
-    @Override // com.repackage.uw2
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            AshmemFileDescriptor ashmemFileDescriptor = (AshmemFileDescriptor) bundle.getParcelable("result");
-            if (ashmemFileDescriptor != null) {
-                o93.b(ashmemFileDescriptor);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            if ((i & 256) == 256) {
+                this.b++;
+                if (d) {
+                    Log.i("SwanPkgFileObserver", "onEvent: create " + this.b + " " + str);
+                    return;
+                }
+                return;
             }
+            this.c++;
+            if (d) {
+                Log.i("SwanPkgFileObserver", "onEvent: delete " + this.b + " " + str);
+            }
+            b(str);
         }
     }
 }

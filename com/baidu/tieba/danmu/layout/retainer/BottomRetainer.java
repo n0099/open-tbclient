@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.repackage.a06;
-import com.repackage.b26;
-import com.repackage.g06;
-import com.repackage.g26;
-import com.repackage.o16;
+import com.repackage.ly5;
+import com.repackage.m06;
+import com.repackage.r06;
+import com.repackage.ry5;
+import com.repackage.zz5;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.TreeSet;
@@ -32,7 +32,7 @@ import kotlin.sequences.SequencesKt__SequenceBuilderKt;
 import kotlin.sequences.SequencesKt___SequencesKt;
 @Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0004\b\u0000\u0018\u00002\u00020\u0001:\u0002!\"B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\u0010\u001a\u00020\u0011H\u0016J(\u0010\u0012\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u00162\u0006\u0010\u0017\u001a\u00020\u00182\u0006\u0010\u0019\u001a\u00020\u001aH\u0016J\u0010\u0010\u001b\u001a\u00020\u00112\u0006\u0010\u001c\u001a\u00020\u0014H\u0016J\u0018\u0010\u001d\u001a\u00020\u00112\u0006\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020\u001fH\u0016R\u001b\u0010\u0005\u001a\u00020\u00068BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\t\u0010\n\u001a\u0004\b\u0007\u0010\bR\u001b\u0010\u000b\u001a\u00020\f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000f\u0010\n\u001a\u0004\b\r\u0010\u000e¨\u0006#"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "endRatio", "", "(F)V", "akRetainer", "Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "getAkRetainer", "()Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "akRetainer$delegate", "Lkotlin/Lazy;", "bilibiliRetainer", "Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$BilibiliRetainer;", "getBilibiliRetainer", "()Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$BilibiliRetainer;", "bilibiliRetainer$delegate", "clear", "", TtmlNode.TAG_LAYOUT, "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", "update", "start", "", "end", "AkRetainer", "BilibiliRetainer", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class BottomRetainer implements b26 {
+public final class BottomRetainer implements m06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Lazy a;
@@ -40,11 +40,11 @@ public final class BottomRetainer implements b26 {
 
     @Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0002\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010\f\u001a\u00020\rH\u0016J(\u0010\u000e\u001a\u00020\u00032\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u00142\u0006\u0010\u0015\u001a\u00020\u0016H\u0016J\u0010\u0010\u0017\u001a\u00020\r2\u0006\u0010\u0018\u001a\u00020\u0010H\u0016J\u0018\u0010\u0019\u001a\u00020\r2\u0006\u0010\u001a\u001a\u00020\u001b2\u0006\u0010\u001c\u001a\u00020\u001bH\u0016R\u001c\u0010\u0005\u001a\u0010\u0012\f\u0012\n \b*\u0004\u0018\u00010\u00070\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0002\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\t\u0010\n\"\u0004\b\u000b\u0010\u0004¨\u0006\u001d"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$AkRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "ratio", "", "(F)V", "lastVisibleEntities", "Ljava/util/TreeSet;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$SpaceHolder;", "kotlin.jvm.PlatformType", "getRatio", "()F", "setRatio", "clear", "", TtmlNode.TAG_LAYOUT, "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", "update", "start", "", "end", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes3.dex */
-    public static final class AkRetainer implements b26 {
+    public static final class AkRetainer implements m06 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public float a;
-        public final TreeSet<b26.d> b;
+        public final TreeSet<m06.d> b;
 
         public AkRetainer(float f) {
             Interceptable interceptable = $ic;
@@ -62,27 +62,27 @@ public final class BottomRetainer implements b26 {
                 }
             }
             this.a = f;
-            this.b = new TreeSet<>(new b26.e());
+            this.b = new TreeSet<>(new m06.e());
         }
 
         /* JADX WARN: Removed duplicated region for block: B:49:0x0124  */
         /* JADX WARN: Removed duplicated region for block: B:54:0x012b A[LOOP:0: B:34:0x00d7->B:54:0x012b, LOOP_END] */
         /* JADX WARN: Removed duplicated region for block: B:97:0x012a A[SYNTHETIC] */
-        @Override // com.repackage.b26
+        @Override // com.repackage.m06
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public float a(g06 drawItem, long j, g26 displayer, a06 config) {
+        public float a(ry5 drawItem, long j, r06 displayer, ly5 config) {
             InterceptResult invokeCommon;
             DrawState drawState;
-            b26.d dVar;
+            m06.d dVar;
             Pair pair;
             boolean z;
             Object obj;
             int intValue;
             Pair pair2;
             boolean z2;
-            g06 d;
+            ry5 d;
             boolean z3;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{drawItem, Long.valueOf(j), displayer, config})) == null) {
@@ -90,17 +90,17 @@ public final class BottomRetainer implements b26 {
                 Intrinsics.checkNotNullParameter(displayer, "displayer");
                 Intrinsics.checkNotNullParameter(config, "config");
                 DrawState f = drawItem.f();
-                if (o16.d(drawItem, j)) {
+                if (zz5.d(drawItem, j)) {
                     b(drawItem);
                     return -1.0f;
                 }
-                b26.d dVar2 = r13;
-                b26.d dVar3 = new b26.d(drawItem, drawItem.j(), (int) f.h(), (int) f.g(), (int) f.q(), (int) f.d(), 0, 0, 0L, FileUtils.S_IRWXU, null);
+                m06.d dVar2 = r13;
+                m06.d dVar3 = new m06.d(drawItem, drawItem.j(), (int) f.h(), (int) f.g(), (int) f.q(), (int) f.d(), 0, 0, 0L, FileUtils.S_IRWXU, null);
                 synchronized (this.b) {
                     if (!(f.p() && f.e() == config.o())) {
-                        TreeSet<b26.d> treeSet = this.b;
+                        TreeSet<m06.d> treeSet = this.b;
                         if (!(treeSet instanceof Collection) || !treeSet.isEmpty()) {
-                            for (b26.d dVar4 : treeSet) {
+                            for (m06.d dVar4 : treeSet) {
                                 dVar = dVar2;
                                 if (Intrinsics.areEqual(dVar4, dVar)) {
                                     z = true;
@@ -123,12 +123,12 @@ public final class BottomRetainer implements b26 {
                                     break;
                                 }
                                 obj = it.next();
-                                b26.b bVar = (b26.b) obj;
+                                m06.b bVar = (m06.b) obj;
                                 if (dVar.b() < bVar.b().getLast() - bVar.b().getFirst()) {
-                                    b26.d a = bVar.a();
+                                    m06.d a = bVar.a();
                                     if (a != null && (d = a.d()) != null) {
                                         drawState = f;
-                                        if (o16.f(d, dVar.d(), displayer, j, config.k())) {
+                                        if (zz5.f(d, dVar.d(), displayer, j, config.k())) {
                                             z3 = true;
                                             if (!z3) {
                                                 z2 = true;
@@ -153,7 +153,7 @@ public final class BottomRetainer implements b26 {
                                 if (!z2) {
                                 }
                             }
-                            b26.b bVar2 = (b26.b) obj;
+                            m06.b bVar2 = (m06.b) obj;
                             if (bVar2 == null) {
                                 BdLog.v("DanmakuEngine [Retainer] no room for this");
                                 drawState.y(config.o());
@@ -162,12 +162,12 @@ public final class BottomRetainer implements b26 {
                             }
                             dVar.i(bVar2.b().getLast() - dVar.b());
                             BdLog.v("DanmakuEngine [Retainer] range: " + new IntRange(dVar.g(), dVar.a()) + " with targetHolder " + bVar2.b());
-                            b26.d a2 = bVar2.a();
+                            m06.d a2 = bVar2.a();
                             if (a2 != null) {
                                 this.b.remove(a2);
                             }
                             Float valueOf = Float.valueOf(dVar.g());
-                            b26.d a3 = bVar2.a();
+                            m06.d a3 = bVar2.a();
                             Integer valueOf2 = a3 == null ? null : Integer.valueOf(a3.c());
                             if (valueOf2 == null) {
                                 intValue = this.b.size() + 1;
@@ -197,8 +197,8 @@ public final class BottomRetainer implements b26 {
             return invokeCommon.floatValue;
         }
 
-        @Override // com.repackage.b26
-        public void b(g06 item) {
+        @Override // com.repackage.m06
+        public void b(ry5 item) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
                 Intrinsics.checkNotNullParameter(item, "item");
@@ -208,7 +208,7 @@ public final class BottomRetainer implements b26 {
             }
         }
 
-        @Override // com.repackage.b26
+        @Override // com.repackage.m06
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -222,7 +222,7 @@ public final class BottomRetainer implements b26 {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.floatValue;
         }
 
-        @Override // com.repackage.b26
+        @Override // com.repackage.m06
         public void update(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
@@ -232,11 +232,11 @@ public final class BottomRetainer implements b26 {
 
     @Metadata(d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0007\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010\t\u001a\u00020\nH\u0016J(\u0010\u000b\u001a\u00020\f2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00122\u0006\u0010\u0013\u001a\u00020\u0014H\u0016J\u0010\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\u000eH\u0016J\u0018\u0010\u0017\u001a\u00020\n2\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020\u0019H\u0016R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0005\u001a\u0010\u0012\f\u0012\n \b*\u0004\u0018\u00010\u00070\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/BottomRetainer$BilibiliRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "()V", "cancelFlag", "", "lastVisibleEntities", "Ljava/util/TreeSet;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer$SpaceHolder;", "kotlin.jvm.PlatformType", "clear", "", TtmlNode.TAG_LAYOUT, "", "drawItem", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", "update", "start", "", "end", "danmu_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes3.dex */
-    public static final class BilibiliRetainer implements b26 {
+    public static final class BilibiliRetainer implements m06 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
-        public final TreeSet<b26.d> b;
+        public final TreeSet<m06.d> b;
 
         public BilibiliRetainer() {
             Interceptable interceptable = $ic;
@@ -251,50 +251,50 @@ public final class BottomRetainer implements b26 {
                     return;
                 }
             }
-            this.b = new TreeSet<>(new b26.e());
+            this.b = new TreeSet<>(new m06.e());
         }
 
         /* JADX WARN: Removed duplicated region for block: B:55:0x016e  */
         /* JADX WARN: Removed duplicated region for block: B:56:0x0182  */
-        @Override // com.repackage.b26
+        @Override // com.repackage.m06
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public float a(g06 drawItem, long j, g26 displayer, a06 config) {
+        public float a(ry5 drawItem, long j, r06 displayer, ly5 config) {
             InterceptResult invokeCommon;
             float height;
-            b26.d dVar;
+            m06.d dVar;
             boolean z;
             boolean z2;
-            b26.d dVar2;
+            m06.d dVar2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{drawItem, Long.valueOf(j), displayer, config})) == null) {
                 Intrinsics.checkNotNullParameter(drawItem, "drawItem");
                 Intrinsics.checkNotNullParameter(displayer, "displayer");
                 Intrinsics.checkNotNullParameter(config, "config");
                 DrawState f = drawItem.f();
-                if (o16.d(drawItem, j)) {
+                if (zz5.d(drawItem, j)) {
                     b(drawItem);
                     return -1.0f;
                 }
-                b26.d dVar3 = r12;
-                b26.d dVar4 = new b26.d(drawItem, drawItem.j(), (int) f.h(), (int) f.g(), (int) f.q(), (int) f.d(), 0, 0, 0L, FileUtils.S_IRWXU, null);
+                m06.d dVar3 = r12;
+                m06.d dVar4 = new m06.d(drawItem, drawItem.j(), (int) f.h(), (int) f.g(), (int) f.q(), (int) f.d(), 0, 0, 0L, FileUtils.S_IRWXU, null);
                 boolean z3 = f.p() && f.e() == config.o();
                 if (z3 && f.h() >= displayer.e()) {
                     height = f.h();
                 } else {
                     height = displayer.getHeight() - f.d();
                 }
-                b26.c cVar = new b26.c(0, null, null, null, null, null, false, false, false, false, 1023, null);
+                m06.c cVar = new m06.c(0, null, null, null, null, null, false, false, false, false, 1023, null);
                 if (z3) {
                     dVar = dVar3;
                     z = false;
                 } else {
                     this.a = false;
                     float f2 = height;
-                    for (b26.d dVar5 : SequencesKt___SequencesKt.takeWhile(CollectionsKt___CollectionsKt.asSequence(this.b), new BottomRetainer$BilibiliRetainer$layout$1(this, cVar))) {
+                    for (m06.d dVar5 : SequencesKt___SequencesKt.takeWhile(CollectionsKt___CollectionsKt.asSequence(this.b), new BottomRetainer$BilibiliRetainer$layout$1(this, cVar))) {
                         cVar.g(cVar.c() + 1);
-                        b26.d dVar6 = dVar3;
+                        m06.d dVar6 = dVar3;
                         if (Intrinsics.areEqual(dVar6, dVar5)) {
                             cVar.h(null);
                             cVar.f(true);
@@ -310,7 +310,7 @@ public final class BottomRetainer implements b26 {
                                 cVar.f(true);
                             } else {
                                 dVar2 = dVar6;
-                                if (!o16.f(dVar5.d(), dVar5.d(), displayer, j, config.k())) {
+                                if (!zz5.f(dVar5.d(), dVar5.d(), displayer, j, config.k())) {
                                     cVar.h(dVar5);
                                     cVar.f(true);
                                 } else {
@@ -324,7 +324,7 @@ public final class BottomRetainer implements b26 {
                     }
                     dVar = dVar3;
                     if (f2 >= displayer.e()) {
-                        b26.d a = cVar.a();
+                        m06.d a = cVar.a();
                         if (a != null && a.a() == displayer.getHeight()) {
                             z2 = false;
                             if (!z2) {
@@ -349,7 +349,7 @@ public final class BottomRetainer implements b26 {
                     clear();
                 }
                 if (!z3) {
-                    b26.d d = cVar.d();
+                    m06.d d = cVar.d();
                     if (d != null) {
                         this.b.remove(d);
                     }
@@ -361,8 +361,8 @@ public final class BottomRetainer implements b26 {
             return invokeCommon.floatValue;
         }
 
-        @Override // com.repackage.b26
-        public void b(g06 item) {
+        @Override // com.repackage.m06
+        public void b(ry5 item) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
                 Intrinsics.checkNotNullParameter(item, "item");
@@ -370,7 +370,7 @@ public final class BottomRetainer implements b26 {
             }
         }
 
-        @Override // com.repackage.b26
+        @Override // com.repackage.m06
         public void clear() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -379,7 +379,7 @@ public final class BottomRetainer implements b26 {
             }
         }
 
-        @Override // com.repackage.b26
+        @Override // com.repackage.m06
         public void update(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -406,8 +406,8 @@ public final class BottomRetainer implements b26 {
         this.b = LazyKt__LazyJVMKt.lazy(new BottomRetainer$akRetainer$2(f));
     }
 
-    @Override // com.repackage.b26
-    public float a(g06 drawItem, long j, g26 displayer, a06 config) {
+    @Override // com.repackage.m06
+    public float a(ry5 drawItem, long j, r06 displayer, ly5 config) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{drawItem, Long.valueOf(j), displayer, config})) == null) {
@@ -422,8 +422,8 @@ public final class BottomRetainer implements b26 {
         return invokeCommon.floatValue;
     }
 
-    @Override // com.repackage.b26
-    public void b(g06 item) {
+    @Override // com.repackage.m06
+    public void b(ry5 item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -438,7 +438,7 @@ public final class BottomRetainer implements b26 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (AkRetainer) this.b.getValue() : (AkRetainer) invokeV.objValue;
     }
 
-    @Override // com.repackage.b26
+    @Override // com.repackage.m06
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -453,7 +453,7 @@ public final class BottomRetainer implements b26 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (BilibiliRetainer) this.a.getValue() : (BilibiliRetainer) invokeV.objValue;
     }
 
-    @Override // com.repackage.b26
+    @Override // com.repackage.m06
     public void update(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {

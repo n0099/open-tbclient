@@ -1,75 +1,19 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.kwad.v8.NodeJS;
+import com.repackage.e34;
 /* loaded from: classes6.dex */
 public class h34 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && 200 == i) {
-                try {
-                    if (TextUtils.isEmpty(str)) {
-                        return;
-                    }
-                    JSONObject jSONObject = new JSONObject(str);
-                    if (!h34.a || jSONObject.optInt("errno") == 0) {
-                        return;
-                    }
-                    Log.e("SwanGameNowUtils", "report game history error");
-                } catch (JSONException unused) {
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -84,30 +28,31 @@ public class h34 {
                 return;
             }
         }
-        a = eh1.a;
+        a = rf1.a;
     }
 
-    public static void b() {
-        u03 L;
-        String str;
+    public static void a(@NonNull hz2 hz2Var, @NonNull e34.e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || (L = u03.L()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, hz2Var, eVar) == null) {
+            long l = hz2Var.V().l("launch_time", 0L);
+            if (l <= 0) {
+                if (a) {
+                    Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
+                    return;
+                }
+                return;
+            }
+            j63 j63Var = new j63();
+            j63Var.a = a63.n(hz2Var.V().G());
+            j63Var.f = hz2Var.getAppId();
+            j63Var.c = hz2Var.V().T();
+            j63Var.b = NodeJS.STARTUP_SCRIPT_NAME;
+            j63Var.g = eVar.a;
+            j63Var.e = eVar.b;
+            j63Var.a("na_start", Long.valueOf(l));
+            j63Var.a("h5_start", Long.valueOf(eVar.c));
+            j63Var.a("h5_finish", Long.valueOf(eVar.d));
+            a63.x("1235", j63Var);
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", bk2.h0().i(bk2.c()));
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("game", L.N());
-            jSONObject2.put("type", 0);
-            jSONObject2.put("upload_time", System.currentTimeMillis() / 1000);
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(jSONObject2);
-            jSONObject.put("app_infos", jSONArray);
-            str = jSONObject.toString();
-        } catch (Exception unused) {
-            str = "";
-        }
-        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) L.h0().postRequest().cookieManager(bk2.q().a())).url(kx3.b().l())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).requestFrom(16)).requestFrom(1606)).build().executeAsync(new a());
     }
 }

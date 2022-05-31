@@ -1,11 +1,7 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.widget.FrameLayout;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,91 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y34 {
+public class y34 extends s34<tl2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int g;
-    public static volatile y34 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public boolean d;
-    public int e;
-    public ViewTreeObserver.OnGlobalLayoutListener f;
-
-    /* loaded from: classes7.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ x34 b;
-        public final /* synthetic */ y34 c;
-
-        public a(y34 y34Var, View view2, x34 x34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y34Var, view2, x34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = y34Var;
-            this.a = view2;
-            this.b = x34Var;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Rect rect = new Rect();
-                View view2 = this.a;
-                if (view2 == null) {
-                    return;
-                }
-                view2.getWindowVisibleDisplayFrame(rect);
-                int i = rect.bottom - rect.top;
-                int n = le3.n(AppRuntime.getAppContext());
-                int t = le3.t();
-                if (!this.c.d) {
-                    this.c.d = true;
-                    this.c.c = (n - i) - t;
-                    if (this.c.c < 0) {
-                        this.c.c = 0;
-                    }
-                }
-                if (i > 0) {
-                    if (i >= this.c.e || this.a.getHeight() - i <= 200) {
-                        if (i <= this.c.e || this.a.getHeight() - i >= 200) {
-                            return;
-                        }
-                        this.c.e = i;
-                        this.c.s(this.b);
-                        return;
-                    }
-                    this.c.e = i;
-                    this.c.b = i - y34.g;
-                    y34 y34Var = this.c;
-                    y34Var.a = ((n - i) - t) - y34Var.c;
-                    if (this.c.a > 0) {
-                        y34 y34Var2 = this.c;
-                        if (y34Var2.t(this.b, y34Var2.a, this.c.b)) {
-                            return;
-                        }
-                        this.c.s(this.b);
-                    }
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -112,8 +30,7 @@ public class y34 {
                 return;
             }
         }
-        g = j34.a(42.0f);
-        h = null;
+        boolean z = rf1.a;
     }
 
     public y34() {
@@ -126,127 +43,46 @@ public class y34 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.f = null;
     }
 
-    public static y34 p() {
+    public static y34 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            if (h == null) {
-                synchronized (y34.class) {
-                    if (h == null) {
-                        h = new y34();
-                    }
-                }
-            }
-            return h;
-        }
-        return (y34) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new y34() : (y34) invokeV.objValue;
     }
 
-    public final void m(View view2, x34 x34Var) {
+    @Override // com.repackage.s34
+    public boolean b(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, view2, x34Var) == null) || view2 == null || x34Var == null) {
-            return;
-        }
-        this.e = view2.getHeight();
-        this.f = new a(this, view2, x34Var);
-        view2.getViewTreeObserver().addOnGlobalLayoutListener(this.f);
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, tl2Var, ql2Var, hz2Var, jSONObject)) == null) ? e(context, tl2Var, ql2Var, hz2Var, jSONObject) : invokeLLLLL.booleanValue;
     }
 
-    public boolean n(x34 x34Var) {
-        InterceptResult invokeL;
+    public final boolean e(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x34Var)) == null) {
-            li1 X = hm2.U().X();
-            boolean z = (X == null || r(x34Var.f()) || !X.c(x34Var.f(), o())) ? false : true;
-            if (z) {
-                if (!x34Var.l() || X == null) {
-                    return false;
-                }
-                m(X.getRootView(), x34Var);
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final ar2 o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ar2 ar2Var = new ar2();
-            ar2Var.k(true);
-            ar2Var.n(-1);
-            ar2Var.j(-2);
-            return ar2Var;
-        }
-        return (ar2) invokeV.objValue;
-    }
-
-    public final ar2 q(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            ar2 ar2Var = new ar2();
-            ar2Var.k(true);
-            ar2Var.m(i);
-            ar2Var.n(-1);
-            ar2Var.j(-2);
-            return ar2Var;
-        }
-        return (ar2) invokeI.objValue;
-    }
-
-    public final boolean r(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
-            li1 X = hm2.U().X();
-            return X != null && X.d(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean s(x34 x34Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, x34Var)) == null) {
-            li1 X = hm2.U().X();
-            if (X == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, tl2Var, ql2Var, hz2Var, jSONObject)) == null) {
+            hw1.i("map", "GetScaleAction start");
+            pl1 A = uk2.U().A(tl2Var.c);
+            if (!(A instanceof nl1)) {
+                hw1.c("map", "WebViewManager is null");
                 return false;
             }
-            FrameLayout rootView = X.getRootView();
-            if (rootView != null && this.f != null) {
-                rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this.f);
+            q44 d = p34.b().c((nl1) A).d(tl2Var.b);
+            if (d == null) {
+                hw1.c("map", "can not find map by id " + tl2Var.b);
+                return false;
             }
-            x34Var.h();
-            this.f = null;
-            this.a = -1;
-            this.b = -1;
-            this.c = -1;
-            this.d = false;
-            this.e = -1;
-            return X.removeView(x34Var.f());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean t(x34 x34Var, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, x34Var, i, i2)) == null) {
-            li1 X = hm2.U().X();
-            boolean z = X != null && X.a(x34Var.f(), q(i2));
-            if (z) {
-                x34Var.k(i);
+            try {
+                jSONObject.put(AnimationProperty.SCALE, d.l.getMap().getMapStatus().zoom);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return z;
+            hw1.i("map", "GetScaleAction end");
+            return true;
         }
-        return invokeLII.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

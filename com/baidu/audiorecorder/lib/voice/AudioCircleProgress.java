@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes.dex */
 public class AudioCircleProgress extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -132,7 +132,7 @@ public class AudioCircleProgress extends View {
             this.d = obtainStyledAttributes.getDimension(1, 15.0f);
             this.m = obtainStyledAttributes.getFloat(5, 270.0f);
             this.n = obtainStyledAttributes.getFloat(6, 360.0f);
-            this.q = mi.f(context, R.dimen.tbds25);
+            this.q = li.f(context, R.dimen.tbds25);
             e();
         }
     }

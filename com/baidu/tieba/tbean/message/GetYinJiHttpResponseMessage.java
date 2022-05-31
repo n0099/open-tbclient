@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.km8;
+import com.repackage.lj8;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.GetIconList.Custom;
@@ -17,7 +17,7 @@ import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.Setting;
 import tbclient.GetIconList.UserInfo;
 /* loaded from: classes4.dex */
-public class GetYinJiHttpResponseMessage extends HttpResponsedMessage implements km8 {
+public class GetYinJiHttpResponseMessage extends HttpResponsedMessage implements lj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<Custom> customList;
@@ -45,28 +45,28 @@ public class GetYinJiHttpResponseMessage extends HttpResponsedMessage implements
         }
     }
 
-    @Override // com.repackage.km8
+    @Override // com.repackage.lj8
     public List<Custom> getCustomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.customList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.km8
+    @Override // com.repackage.lj8
     public List<IconInfo> getIconInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.iconInfoList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.km8
+    @Override // com.repackage.lj8
     public Setting getSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.setting : (Setting) invokeV.objValue;
     }
 
-    @Override // com.repackage.km8
+    @Override // com.repackage.lj8
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

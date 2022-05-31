@@ -46,29 +46,29 @@ public class dy implements ed {
     private void b(Context context, dz dzVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, this, context, dzVar) == null) {
-            String m318a = dzVar.m318a();
+            String m317a = dzVar.m317a();
             String b = dzVar.b();
             String d = dzVar.d();
             int a = dzVar.a();
-            if (context == null || TextUtils.isEmpty(m318a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
+            if (context == null || TextUtils.isEmpty(m317a) || TextUtils.isEmpty(b) || TextUtils.isEmpty(d)) {
                 if (TextUtils.isEmpty(d)) {
                     dw.a(context, "activity", 1008, "argument error");
                 } else {
                     dw.a(context, d, 1008, "argument error");
                 }
-            } else if (!com.xiaomi.push.service.g.b(context, m318a, b)) {
+            } else if (!com.xiaomi.push.service.g.b(context, m317a, b)) {
                 dw.a(context, d, 1003, "B is not ready");
             } else {
                 dw.a(context, d, 1002, "B is ready");
                 dw.a(context, d, 1004, "A is ready");
                 Intent intent = new Intent(b);
-                intent.setPackage(m318a);
+                intent.setPackage(m317a);
                 intent.putExtra("awake_info", dv.a(d));
                 intent.addFlags(276824064);
                 intent.setAction(b);
                 if (a == 1) {
                     try {
-                        if (!ea.m321a(context)) {
+                        if (!ea.m320a(context)) {
                             dw.a(context, d, 1008, "A not in foreground");
                             return;
                         }

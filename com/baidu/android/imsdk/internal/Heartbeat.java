@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r70;
+import com.repackage.e60;
 /* loaded from: classes.dex */
 public class Heartbeat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -108,10 +108,10 @@ public class Heartbeat {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        Intent intent = new Intent(this.this$2.this$1.this$0.mContext, r70.class);
+                                        Intent intent = new Intent(this.this$2.this$1.this$0.mContext, e60.class);
                                         intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                                         intent.setPackage(this.this$2.this$1.this$0.mContext.getPackageName());
-                                        r70.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
+                                        e60.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
                                         this.this$2.this$1.this$0.mHandler.postDelayed(this.this$2.this$1.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
                                     }
                                 }
@@ -182,7 +182,7 @@ public class Heartbeat {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Intent intent = new Intent();
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                intent.setClass(this.this$0.mContext, r70.class);
+                intent.setClass(this.this$0.mContext, e60.class);
                 intent.setAction(Constants.ACTION_SERVICE);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(this.this$0.mContext, 0, intent, LaunchTaskConstants.OTHER_PROCESS));
             }
@@ -195,7 +195,7 @@ public class Heartbeat {
                 cancelHearbeat();
                 Intent intent = new Intent();
                 intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
-                intent.setClass(this.this$0.mContext, r70.class);
+                intent.setClass(this.this$0.mContext, e60.class);
                 intent.setAction(Constants.ACTION_SERVICE);
                 PendingIntent service = PendingIntent.getService(this.this$0.mContext.getApplicationContext(), 0, intent, LaunchTaskConstants.OTHER_PROCESS);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, System.currentTimeMillis() + Heartbeat.ALARM_TIMEOUT, Heartbeat.ALARM_TIMEOUT, service);

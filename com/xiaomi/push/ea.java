@@ -83,10 +83,10 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m321a(Context context) {
+    public static boolean m320a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.ac.m613a(context, context.getPackageName()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? com.xiaomi.push.service.ac.m612a(context, context.getPackageName()) : invokeL.booleanValue;
     }
 
     public int a() {
@@ -96,14 +96,14 @@ public final class ea {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ee m322a() {
+    public ee m321a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f294a : (ee) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m323a() {
+    public String m322a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f295a : (String) invokeV.objValue;

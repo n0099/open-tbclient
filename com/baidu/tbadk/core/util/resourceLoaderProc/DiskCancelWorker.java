@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eg;
+import com.repackage.dg;
 import com.repackage.rb;
 /* loaded from: classes3.dex */
-public class DiskCancelWorker implements eg.a {
+public class DiskCancelWorker implements dg.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public DiskFileOperate operate;
@@ -31,7 +31,7 @@ public class DiskCancelWorker implements eg.a {
         this.operate = null;
     }
 
-    @Override // com.repackage.eg.a
+    @Override // com.repackage.dg.a
     public void cancel() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.operate == null) {

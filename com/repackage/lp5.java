@@ -1,92 +1,112 @@
 package com.repackage;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.SpecialLiveDoubleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lp5 extends uw5<xq5> {
+public class lp5 extends wm<hq5, SpecialLiveDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView i;
-    public ImageView j;
-    public View k;
-    public View l;
+    public TbPageContext<?> i;
+    public xp5 j;
+    public pq5 k;
+    public int l;
+    public long m;
+    public String n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lp5(TbPageContext tbPageContext, ViewGroup viewGroup) {
-        super(tbPageContext, viewGroup);
+    public lp5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), hq5.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = k();
-        this.i = (TextView) k().findViewById(R.id.obfuscated_res_0x7f0921e3);
-        this.j = (ImageView) k().findViewById(R.id.obfuscated_res_0x7f090fda);
-        this.l = k().findViewById(R.id.obfuscated_res_0x7f090e31);
-        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.m = 0L;
+        this.n = "";
+        this.i = tbPageContext;
     }
 
-    @Override // com.repackage.uw5
-    public int d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: Z */
+    public SpecialLiveDoubleViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07ed : invokeV.intValue;
-    }
-
-    @Override // com.repackage.uw5
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_08);
-            SkinManager.setBackgroundResource(this.l, R.color.CAM_X0204);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            xp5 xp5Var = new xp5(this.i, viewGroup);
+            this.j = xp5Var;
+            pq5 pq5Var = this.k;
+            if (pq5Var != null) {
+                xp5Var.u(pq5Var);
+            }
+            return new SpecialLiveDoubleViewHolder(this.j);
         }
+        return (SpecialLiveDoubleViewHolder) invokeL.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.n = str;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uw5
-    /* renamed from: s */
-    public void l(xq5 xq5Var) {
+    @Override // com.repackage.wm
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, hq5 hq5Var, SpecialLiveDoubleViewHolder specialLiveDoubleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xq5Var) == null) {
-            if (xq5Var.a == 1) {
-                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a10));
-                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hq5Var, specialLiveDoubleViewHolder})) == null) {
+            specialLiveDoubleViewHolder.a.t(hq5Var, this.l, this.m, this.n);
+            return specialLiveDoubleViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void b0(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.m = j;
+        }
+    }
+
+    public void c0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    public void d0(pq5 pq5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, pq5Var) == null) {
+            this.k = pq5Var;
+            xp5 xp5Var = this.j;
+            if (xp5Var != null) {
+                xp5Var.u(pq5Var);
             }
-            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0a0f));
-            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
         }
     }
 }

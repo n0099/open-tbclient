@@ -93,7 +93,7 @@ public class KwaiRefreshView extends RelativeLayout implements f {
                 return;
             }
         }
-        this.c = R.drawable.obfuscated_res_0x7f080be2;
+        this.c = R.drawable.obfuscated_res_0x7f080bf3;
         a(context, attributeSet);
     }
 
@@ -106,8 +106,8 @@ public class KwaiRefreshView extends RelativeLayout implements f {
             if (resourceId != 0) {
                 this.c = resourceId;
             }
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0440, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919c1);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0436, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091972);
             post(new Runnable(this) { // from class: com.kwai.library.widget.refresh.KwaiRefreshView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

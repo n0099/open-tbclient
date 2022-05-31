@@ -48,7 +48,7 @@ public class b extends com.kwad.sdk.core.page.recycle.a {
         @Override // com.kwad.sdk.core.page.recycle.d
         public com.kwad.sdk.core.page.recycle.c a(ViewGroup viewGroup, int i) {
             if (i == 1) {
-                View inflate = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0418, viewGroup, false);
+                View inflate = LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d040e, viewGroup, false);
                 Presenter presenter = new Presenter();
                 presenter.a((Presenter) new com.kwad.sdk.core.page.kwai.b());
                 return new com.kwad.sdk.core.page.recycle.c(inflate, presenter, this.b);
@@ -93,9 +93,9 @@ public class b extends com.kwad.sdk.core.page.recycle.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view2) {
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09119a);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09119b);
-        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09119c);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09115c);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09115d);
+        ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09115e);
         this.g = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.b.1
             @Override // android.view.View.OnClickListener
@@ -140,7 +140,7 @@ public class b extends com.kwad.sdk.core.page.recycle.a {
 
     @Override // com.kwad.sdk.core.page.recycle.a
     public int b() {
-        return R.layout.obfuscated_res_0x7f0d0419;
+        return R.layout.obfuscated_res_0x7f0d040f;
     }
 
     @Override // com.kwad.sdk.core.page.recycle.a, com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -189,7 +189,7 @@ public class b extends com.kwad.sdk.core.page.recycle.a {
                 }
                 if (detailWebRecycleView.getChildCount() > 1) {
                     View view4 = detailWebRecycleView.findViewHolderForAdapterPosition(1).itemView;
-                    b.this.b = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f091190);
+                    b.this.b = (WebView) view4.findViewById(R.id.obfuscated_res_0x7f091152);
                     b.this.a(view4);
                 }
                 com.kwad.sdk.core.d.a.a("AdRecycleWebFragment", "onGlobalLayout");

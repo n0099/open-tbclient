@@ -30,10 +30,10 @@ public class ZeusApplication extends PluginContext {
         }
     }
 
-    public void attach(Plugin plugin2, Application application) {
+    public void attach(Plugin plugin, Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, plugin2, application) == null) {
-            this.mPlugin = plugin2;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, plugin, application) == null) {
+            this.mPlugin = plugin;
             this.mHostApplication = application;
             attachBaseContext(application);
             onCreate();

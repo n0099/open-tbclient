@@ -1,17 +1,21 @@
 package com.repackage;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class eb5<T> implements gb5<T> {
+public class eb5 {
     public static /* synthetic */ Interceptable $ic;
+    public static eb5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public iv4 a;
+    public ABTestExtraData b;
 
     public eb5() {
         Interceptable interceptable = $ic;
@@ -23,38 +27,69 @@ public abstract class eb5<T> implements gb5<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -1;
-        this.b = "";
     }
 
-    public void b(int i) {
+    public static eb5 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (eb5.class) {
+                    if (c == null) {
+                        c = new eb5();
+                    }
+                }
+            }
+            return c;
+        }
+        return (eb5) invokeV.objValue;
+    }
+
+    public final void a(iv4 iv4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, iv4Var) == null) {
+            boolean z = iv4Var == null || this.a == null || iv4Var.a() != this.a.a();
+            this.a = iv4Var;
+            if (z) {
+                b("zan_or_cai_smallflow");
+            }
         }
     }
 
-    public void c(String str) {
+    public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.b = str;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
         }
     }
 
-    @Override // com.repackage.gb5
-    public int getErrorCode() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == null) {
+                ABTestExtraData aBTestExtraData = new ABTestExtraData();
+                this.b = aBTestExtraData;
+                aBTestExtraData.parserABTestExtraFormSharedPref();
+            }
+            return this.b.getABTestResult();
+        }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.gb5
-    public String getErrorMsg() {
-        InterceptResult invokeV;
+    public void e(iv4 iv4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, iv4Var) == null) {
+            a(iv4Var);
+        }
+    }
+
+    public void f(ABTestExtraData aBTestExtraData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
+            this.b = aBTestExtraData;
+        }
     }
 }

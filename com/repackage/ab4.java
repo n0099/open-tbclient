@@ -1,117 +1,91 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Vector;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ab4 implements qa4 {
+public class ab4 extends oa4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ud4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<qa4> a;
-    public Object b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755862562, "Lcom/repackage/ab4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755862562, "Lcom/repackage/ab4;");
-                return;
-            }
-        }
-        c = ud4.e();
-    }
-
-    public ab4(qa4 qa4Var) {
+    public ab4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qa4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = new Object();
-        this.a = new Vector<>();
-        c(qa4Var);
     }
 
-    @Override // com.repackage.qa4
-    public <T> void a(ua4<T> ua4Var) {
+    @Override // com.repackage.oa4
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ua4Var) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                synchronized (this.b) {
-                    Iterator<qa4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        it.next().a(ua4Var);
-                    }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("version", db4.b().d());
+                jSONObject.put("tipmsgs", jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                nb4.b();
+                jSONObject3.put("version", nb4.c());
+                jSONObject.put("web_degrade_strategy", jSONObject3);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("version", jb4.a().b());
+                jSONObject.put("pkg_preload", jSONObject4);
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("version", za4.b().c());
+                jSONObject.put("pkg_clean_strategy", jSONObject5);
+                JSONObject jSONObject6 = new JSONObject();
+                jSONObject6.put("version", cb4.a().b());
+                jSONObject.put("getpkg_retry_switch", jSONObject6);
+                JSONObject jSONObject7 = new JSONObject();
+                jSONObject7.put("version", pb4.d());
+                jSONObject.put("update_expire_time", jSONObject7);
+                JSONObject jSONObject8 = new JSONObject();
+                jSONObject8.put("version", hb4.f().h());
+                jSONObject.put("page_tips", jSONObject8);
+                if (lb4.a) {
+                    JSONObject jSONObject9 = new JSONObject();
+                    jSONObject9.put("version", lb4.b);
+                    jSONObject.put("heartbeat", jSONObject9);
                 }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
-            }
-        }
-    }
-
-    @Override // com.repackage.qa4
-    public <T> void b(ua4<T> ua4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ua4Var) == null) {
-            Vector vector = new Vector();
-            try {
-                synchronized (this.b) {
-                    Iterator<qa4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        vector.add(it.next());
-                    }
+                JSONObject jSONObject10 = new JSONObject();
+                jSONObject10.put("version", eb4.a().b());
+                jSONObject.put("local_debug", jSONObject10);
+                JSONObject jSONObject11 = new JSONObject();
+                jSONObject11.put("version", q64.a().a());
+                jSONObject.put(q64.a().c(), jSONObject11);
+                if (mb4.b()) {
+                    JSONObject jSONObject12 = new JSONObject();
+                    jSONObject12.put("version", mb4.a());
+                    jSONObject.put("api_description", jSONObject12);
                 }
-                Iterator it2 = vector.iterator();
-                while (it2.hasNext()) {
-                    ((qa4) it2.next()).b(ua4Var);
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
+                JSONObject jSONObject13 = new JSONObject();
+                jSONObject13.put("version", ob4.b().c());
+                jSONObject.put("tts", jSONObject13);
+                new JSONObject().put("version", fb4.a().c());
+                jSONObject.put("no_history_apps", jSONObject13);
+                JSONObject jSONObject14 = new JSONObject();
+                jSONObject14.put("version", rb4.d());
+                jSONObject.put("app_inner_preload", jSONObject14);
+                JSONObject jSONObject15 = new JSONObject();
+                jSONObject15.put("version", kb4.a().b());
+                jSONObject.put("simple_control_item", jSONObject15);
+            } catch (JSONException unused) {
             }
+            return jSONObject;
         }
-    }
-
-    public void c(qa4 qa4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qa4Var) == null) || qa4Var == null) {
-            return;
-        }
-        synchronized (this.b) {
-            this.a.add(qa4Var);
-        }
-    }
-
-    public void d(qa4 qa4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, qa4Var) == null) || qa4Var == null) {
-            return;
-        }
-        synchronized (this.b) {
-            if (!this.a.remove(qa4Var)) {
-                this.a.remove(this.a.indexOf(qa4Var));
-            }
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

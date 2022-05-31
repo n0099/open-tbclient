@@ -16,6 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.FileDescriptor;
 import java.util.List;
 import java.util.Map;
@@ -530,7 +531,7 @@ public class CyberPlayer implements CyberPlayerManager.OnErrorListener, MediaIns
             StringBuilder sb = new StringBuilder();
             for (String str : iPListWithHost) {
                 sb.append(str);
-                sb.append(";");
+                sb.append(ParamableElem.DIVIDE_PARAM);
             }
             setOption(CyberPlayerManager.OPT_PREPARSE_IP, sb.toString());
         }

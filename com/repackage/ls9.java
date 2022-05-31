@@ -1,36 +1,42 @@
 package com.repackage;
 
-import android.media.MediaPlayer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public class ls9 implements MediaPlayer.OnPreparedListener {
+public class ls9 extends hs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ls9(bp9 bp9Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ls9() {
+        super(Framedata.Opcode.TEXT);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bp9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // android.media.MediaPlayer.OnPreparedListener
-    public void onPrepared(MediaPlayer mediaPlayer) {
+    @Override // com.repackage.hs9, com.repackage.is9
+    public void h() throws InvalidDataException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-            mediaPlayer.setLooping(true);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.h();
+            if (!zs9.b(a())) {
+                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
+            }
         }
     }
 }

@@ -1,80 +1,48 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 /* loaded from: classes7.dex */
-public class z1a<T> extends cy9<T> {
+public class z1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xx9<T> e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public z1a(cy9<? super T> cy9Var) {
-        this(cy9Var, true);
+    public static void a(View view2, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cy9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((cy9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, view2, imageView) == null) || view2 == null || imageView == null) {
+            return;
+        }
+        view2.setVisibility(8);
+        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+            imageView.setTag(null);
+            RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
         }
     }
 
-    @Override // com.repackage.xx9
-    public void onCompleted() {
+    public static void b(View view2, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.onCompleted();
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, view2, imageView) == null) || view2 == null || imageView == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.xx9
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.e.onError(th);
+        ObjectAnimator objectAnimator = imageView.getTag() != null ? (ObjectAnimator) imageView.getTag() : null;
+        if (objectAnimator != null) {
+            objectAnimator.cancel();
+            imageView.setTag(null);
+            RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
         }
-    }
-
-    @Override // com.repackage.xx9
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.onNext(t);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z1a(cy9<? super T> cy9Var, boolean z) {
-        super(cy9Var, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cy9Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((cy9) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new y1a(cy9Var);
+        view2.setVisibility(0);
+        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
+        ofFloat.setDuration(1000L);
+        ofFloat.setInterpolator(new LinearInterpolator());
+        ofFloat.setRepeatCount(-1);
+        ofFloat.start();
+        imageView.setTag(ofFloat);
     }
 }

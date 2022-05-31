@@ -1,29 +1,11 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.widget.ImageView;
 /* loaded from: classes5.dex */
-public class a31 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface a31<IMAGEVIEW extends ImageView> extends dl0 {
+    void a(String str, IMAGEVIEW imageview, int i, int i2);
 
-    public static <T> void a(@NonNull v31 v31Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, v31Var, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        if (!str.startsWith("javascript:")) {
-            str = "javascript:" + str;
-        }
-        v31Var.loadUrl(str, null);
-    }
+    void d(String str, cl0 cl0Var);
 
-    public static <T> void b(@NonNull v31 v31Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{v31Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            a(v31Var, "NadJsControl.visibleRectChange(".concat(String.valueOf(i)).concat(",").concat(String.valueOf(i2)).concat(",").concat(String.valueOf(i3)).concat(",").concat(String.valueOf(i4)).concat(");"));
-        }
-    }
+    void e(String str, IMAGEVIEW imageview);
 }

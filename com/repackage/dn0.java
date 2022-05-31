@@ -1,64 +1,40 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class dn0 {
+public final class dn0 {
     public static /* synthetic */ Interceptable $ic;
-    public static cn0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755761781, "Lcom/repackage/dn0;")) == null) {
-            return;
+    public static final String a(JSONObject optStringCheckNonNull, String key) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, optStringCheckNonNull, key)) == null) {
+            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
+            Intrinsics.checkNotNullParameter(key, "key");
+            return b(optStringCheckNonNull, key, "");
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755761781, "Lcom/repackage/dn0;");
-        }
+        return (String) invokeLL.objValue;
     }
 
-    public dn0() {
+    public static final String b(JSONObject optStringCheckNonNull, String key, String fallback) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, optStringCheckNonNull, key, fallback)) == null) {
+            Intrinsics.checkNotNullParameter(optStringCheckNonNull, "$this$optStringCheckNonNull");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(fallback, "fallback");
+            if (optStringCheckNonNull.isNull(key)) {
+                return fallback;
             }
+            String optString = optStringCheckNonNull.optString(key, fallback);
+            Intrinsics.checkNotNullExpressionValue(optString, "optString(key, fallback)");
+            return optString;
         }
-    }
-
-    public static cn0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (dn0.class) {
-                    if (a == null) {
-                        a = (cn0) ServiceManager.getService(cn0.a);
-                    }
-                    if (a == null) {
-                        a = cn0.b;
-                    }
-                }
-            }
-            return a;
-        }
-        return (cn0) invokeV.objValue;
+        return (String) invokeLLL.objValue;
     }
 }

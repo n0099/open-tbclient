@@ -1,87 +1,125 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.util.ChatStatusManager;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.MediaTopic;
-import tbclient.VideoInfo;
+import com.repackage.e37;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i37 implements ro {
+public class i37 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755669308, "Lcom/repackage/i37;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements e37.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755669308, "Lcom/repackage/i37;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public i37() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-    }
 
-    public void a(MediaTopic mediaTopic) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaTopic) == null) || mediaTopic == null) {
-            return;
-        }
-        mediaTopic.topic_id.longValue();
-        String str = mediaTopic.topic_name;
-        String str2 = mediaTopic.pic_url;
-        VideoInfo videoInfo = mediaTopic.video_info;
-        if (videoInfo == null || videoInfo.video_duration.intValue() <= 0) {
-            return;
-        }
-        b(mediaTopic.video_info);
-    }
-
-    public void b(VideoInfo videoInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
-            String str = videoInfo.video_md5;
-            String str2 = videoInfo.video_url;
-            videoInfo.video_duration.intValue();
-            videoInfo.video_width.intValue();
-            videoInfo.video_height.intValue();
-            String str3 = videoInfo.thumbnail_url;
-            videoInfo.thumbnail_width.intValue();
-            videoInfo.thumbnail_height.intValue();
-            videoInfo.video_length.intValue();
-            videoInfo.play_count.intValue();
+        @Override // com.repackage.e37.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return !TextUtils.isEmpty(str) && ChatStatusManager.getInst().getIsOpen(0) && str.equals(ChatStatusManager.getInst().getCurId(0));
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    @Override // com.repackage.ro
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* loaded from: classes6.dex */
+    public static class b implements e37.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.e37.a
+        public boolean a(ChatMessage chatMessage, ImMessageCenterPojo imMessageCenterPojo) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMessage, imMessageCenterPojo)) == null) {
+                if (chatMessage == null || chatMessage.getMsgType() != 22) {
+                    return false;
+                }
+                if (y67.t(chatMessage)) {
+                    return true;
+                }
+                long a = i37.a(chatMessage);
+                if (a > imMessageCenterPojo.getRead_msgId()) {
+                    imMessageCenterPojo.setRead_msgId(a);
+                }
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public static long a(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
+            if (chatMessage != null) {
+                if (chatMessage.getMsgType() == 22) {
+                    try {
+                        String content = chatMessage.getContent();
+                        if (TextUtils.isEmpty(content)) {
+                            return -1L;
+                        }
+                        JSONObject jSONObject = new JSONObject(content);
+                        String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                        if (TextUtils.isEmpty(optString) || !optString.equals("22001") || (optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM)) == null || optJSONObject.optLong(TbEnum.SystemMessage.KEY_GROUP_ID) != j57.j.longValue()) {
+                            return -1L;
+                        }
+                    } catch (Exception unused) {
+                        return -1L;
+                    }
+                }
+                return x67.a(optJSONObject.optLong("readMsgId"));
+            }
+            return -1L;
+        }
+        return invokeL.longValue;
+    }
+
+    public static void b(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, e37.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            e37.e(groupMsgData, imMessageCenterPojo, bVar, new a(), ChatStatusManager.getInst().getIsOpen(5), new b());
+        }
     }
 }

@@ -1,32 +1,40 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.forumSquare.model.ForumSquareModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class v96 {
+public class v96 implements y96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public aq4 a;
-    public ArrayList<u96> b;
-    public b c;
-    public HttpMessageListener d;
+    public final TbPageContext a;
+    public final Context b;
+    public ForumSquareModel c;
+    public w96 d;
+    public x96 e;
+    public String f;
+    public CustomMessageListener g;
 
     /* loaded from: classes7.dex */
-    public class a extends HttpMessageListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v96 a;
@@ -54,38 +62,26 @@ public class v96 {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetForbiddenFansResponse)) {
-                GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
-                this.a.a = getForbiddenFansResponse.getPageData();
-                if (this.a.b == null) {
-                    this.a.b = new ArrayList();
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                v96 v96Var = this.a;
+                if (v96Var.d == null || v96Var.c == null) {
+                    return;
                 }
-                if (this.a.a != null) {
-                    if (this.a.a.a() == 1) {
-                        this.a.b.clear();
-                    }
-                    if (getForbiddenFansResponse.getFansList() != null) {
-                        this.a.b.addAll(getForbiddenFansResponse.getFansList());
-                    }
-                }
-                if (this.a.c != null) {
-                    this.a.c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.b);
-                }
+                this.a.f = "推荐";
+                this.a.c.clearData();
+                this.a.m();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(int i, String str, ArrayList<u96> arrayList);
-    }
-
-    public v96() {
+    public v96(Context context, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -95,62 +91,213 @@ public class v96 {
                 return;
             }
         }
-        this.d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
-        tbHttpMessageTask.setIsNeedLogin(true);
-        tbHttpMessageTask.setIsNeedTbs(true);
-        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
-        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        MessageManager.getInstance().registerListener(this.d);
+        this.f = "推荐";
+        this.g = new a(this, 2921589);
+        this.a = tbPageContext;
+        this.b = context;
+        this.c = new ForumSquareModel(context, this);
+        this.d = new w96(context, this.a);
+        this.a.registerListener(this.g);
     }
 
-    public boolean f() {
+    public final void c(String str, List<jn> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) || this.d == null || this.c == null) {
+            return;
+        }
+        if (ListUtils.isEmpty(list)) {
+            this.d.g();
+        } else if (ListUtils.getCount(list) < 10) {
+            this.d.o();
+        } else {
+            this.d.F(this.c.M(str));
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.c();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.b();
+        }
+    }
+
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            aq4 aq4Var = this.a;
-            return aq4Var != null && aq4Var.b() == 1;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-            httpMessage.addParam("rn", 20);
-            httpMessage.addParam(Config.PACKAGE_NAME, 1);
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String f = f();
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel == null || this.d == null) {
+                return;
+            }
+            boolean N = forumSquareModel.N();
+            boolean F = this.d.F(this.c.M(f));
+            if (N || !F) {
+                return;
+            }
+            this.c.O(f);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            aq4 aq4Var = this.a;
-            if (aq4Var == null || aq4Var.b() == 1) {
-                aq4 aq4Var2 = this.a;
-                int a2 = aq4Var2 != null ? 1 + aq4Var2.a() : 1;
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
-                httpMessage.addParam("rn", 20);
-                httpMessage.addParam(Config.PACKAGE_NAME, a2);
-                MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            w96 w96Var = this.d;
+            if (w96Var != null) {
+                w96Var.G();
+            }
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel != null) {
+                forumSquareModel.O(f());
             }
         }
     }
 
-    public void i() {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.d);
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            l(this.f);
+            this.f = str;
+            ForumSquareModel forumSquareModel = this.c;
+            if (forumSquareModel == null || this.d == null) {
+                return;
+            }
+            ca6 L = forumSquareModel.L(str);
+            if (L != null && (!L.d || !ListUtils.isEmpty(L.a()))) {
+                this.d.K();
+                c(str, L.a());
+                this.d.t(L.a());
+                this.d.r(L.f, L.g);
+                return;
+            }
+            this.d.E();
+            c(str, null);
+            this.c.O(str);
+            this.d.r(0, 0);
         }
     }
 
-    public void j(b bVar) {
+    public void j(String str) {
+        ForumSquareModel forumSquareModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.c = bVar;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (forumSquareModel = this.c) == null || this.d == null || !forumSquareModel.K(str)) {
+            return;
         }
+        this.d.C(str);
+        i(str);
+    }
+
+    public void k(Intent intent) {
+        Uri uri;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) || intent == null) {
+            return;
+        }
+        String stringExtra = intent.getStringExtra(ForumSquareActivityConfig.FORUM_CLASS_NAME);
+        this.f = stringExtra;
+        if (TextUtils.isEmpty(stringExtra) && (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+            this.f = uri.getQueryParameter("tab_name");
+        }
+        this.d.D(intent.getIntExtra(ForumSquareActivityConfig.SHOW_CREATE_BAR, 0) == 0);
+    }
+
+    public void l(String str) {
+        ca6 L;
+        Pair<Integer, Integer> d;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.d == null || this.c == null || TextUtils.isEmpty(str) || (L = this.c.L(str)) == null || (d = this.d.d()) == null) {
+            return;
+        }
+        L.f = ((Integer) d.first).intValue();
+        L.g = ((Integer) d.second).intValue();
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            x96 x96Var = new x96(this.b, this, this.d);
+            this.e = x96Var;
+            x96Var.e();
+            n();
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.d.G();
+            this.c.O(this.f);
+        }
+    }
+
+    @Override // com.repackage.y96
+    public void onError(String str, ErrorData errorData) {
+        w96 w96Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, errorData) == null) || (w96Var = this.d) == null || this.c == null) {
+            return;
+        }
+        w96Var.K();
+        ca6 L = this.c.L(str);
+        if (L != null && (!L.d || !ListUtils.isEmpty(L.a()))) {
+            this.d.t(L.a());
+            c(str, L.a());
+            return;
+        }
+        this.d.g();
+        this.d.v();
+    }
+
+    @Override // com.repackage.y96
+    public void onNoData(ErrorData errorData) {
+        w96 w96Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, errorData) == null) || (w96Var = this.d) == null) {
+            return;
+        }
+        w96Var.J();
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:17:0x002f, code lost:
+        if (r5.equals(r1) == false) goto L11;
+     */
+    @Override // com.repackage.y96
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onSucc(String str, List<String> list, List<jn> list2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, str, list, list2) == null) || this.c == null || this.d == null) {
+            return;
+        }
+        boolean z = false;
+        if (TextUtils.isEmpty(str) || str.equals(this.f)) {
+            String f = this.d.f();
+            if (!TextUtils.isEmpty(str)) {
+            }
+            this.f = str;
+            this.d.K();
+            this.d.s(str, list, z);
+            this.d.u(list2, this.c.R(list2, 300));
+            c(str, list2);
+        }
+        z = true;
+        this.f = str;
+        this.d.K();
+        this.d.s(str, list, z);
+        this.d.u(list2, this.c.R(list2, 300));
+        c(str, list2);
     }
 }

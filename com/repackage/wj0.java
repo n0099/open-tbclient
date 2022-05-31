@@ -1,73 +1,191 @@
 package com.repackage;
 
-import android.os.Build;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.v8.NodeJS;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wj0 {
+public class wj0 implements gk0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object d;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final vj0 b;
+    public boolean c;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final wj0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(102642262, "Lcom/repackage/wj0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(102642262, "Lcom/repackage/wj0$b;");
+                    return;
+                }
+            }
+            a = new wj0(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755199596, "Lcom/repackage/wj0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755199596, "Lcom/repackage/wj0;");
+                return;
+            }
+        }
+        d = new Object();
+    }
+
+    public /* synthetic */ wj0(a aVar) {
+        this();
+    }
+
+    public static wj0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (wj0) invokeV.objValue;
+    }
+
+    @Override // com.repackage.gk0
+    public int a(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return i;
+            }
+            f(NodeJS.GLOBAL);
+            if (ix0.a(this.b.a(), str) && (str2 = (String) ix0.b(this.b.a(), str)) != null) {
+                try {
+                    return Integer.parseInt(str2);
+                } catch (NumberFormatException unused) {
+                }
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.d = true;
+        }
+    }
+
+    public void d(@Nullable String str) throws ADConfigError {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (str != null && !TextUtils.isEmpty(str)) {
+                JSONObject c = hx0.c(str);
+                if (c.has("error_code")) {
+                    if (TextUtils.equals(c.optString("error_code"), "0")) {
+                        if (c.has("error_message")) {
+                            if (TextUtils.equals(c.optString("error_message"), "success")) {
+                                String optString = c.optString("data");
+                                if (!TextUtils.isEmpty(optString)) {
+                                    JSONObject c2 = hx0.c(optString);
+                                    String optString2 = c2.optString("sign");
+                                    if (!TextUtils.isEmpty(optString2)) {
+                                        if (TextUtils.equals(optString2, ox0.a().b("nad_app_quick_config").getString("_ad_adc_conf_sign", ""))) {
+                                            return;
+                                        }
+                                        ox0.a().b("nad_app_quick_config").i("_ad_adc_conf_sign", optString2);
+                                        synchronized (d) {
+                                            this.b.update(c2);
+                                        }
+                                        return;
+                                    }
+                                    throw ADConfigError.error("2", ADConfigError.REASON_NULL_SIGN);
+                                }
+                                throw ADConfigError.error("7", ADConfigError.REASON_NULL_DATA);
+                            }
+                            throw ADConfigError.error("5", ADConfigError.REASON_WRONG_MSG);
+                        }
+                        throw ADConfigError.error("6", ADConfigError.REASON_NULL_MSG);
+                    }
+                    throw ADConfigError.error("3", ADConfigError.REASON_WRONG_CODE);
+                }
+                throw ADConfigError.error("4", ADConfigError.REASON_NULL_CODE);
+            }
+            throw ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE_BODY);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.d = false;
+        }
+    }
+
+    public final void f(String str) {
+        Map<String, ?> all;
+        Map<String, ?> all2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            ox0 a2 = ox0.a();
+            lx0 b2 = a2.b("nad.launch.config." + str);
+            if (NodeJS.GLOBAL.equals(str)) {
+                if (this.c || (all2 = b2.getAll()) == null) {
+                    return;
+                }
+                ix0.f(this.b.a(), all2);
+                this.c = true;
+            } else if (((Map) ix0.b(this.b.b(), str)) == null && (all = b2.getAll()) != null) {
+                ix0.e(this.b.b(), str, all);
+            }
+        }
+    }
 
     public wj0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public final JSONObject a(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", ki0.a().q());
-            map.put("uid", ki0.a().m());
-            map.put("cuid", ki0.a().b());
-            if (Build.VERSION.SDK_INT >= 17) {
-                map.put("ua", ki0.e());
-            }
-            map.put("model", Build.MODEL);
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            map.put("_os_version", Build.VERSION.RELEASE);
-            map.put("nt", String.valueOf(new fp0().c()));
-            map.put("imei", ki0.a().p());
-            map.put(HttpRequest.ANDROID_ID, ki0.a().a());
-            map.put("ssl", "1");
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                uy0.f(jSONObject, entry.getKey(), entry.getValue());
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public void b(Map<String, String> map, ip0<xj0> ip0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, ip0Var) == null) {
-            pp0 f = pp0.f(c21.a(a(map).toString().getBytes()));
-            qp0 qp0Var = new qp0();
-            qp0Var.a("Content-Encoding", "gzip");
-            qp0Var.a("Content-Type", "application/json");
-            qp0Var.k("https://afdconf.baidu.com/afd/download");
-            qp0Var.g(3000);
-            qp0Var.i(3000);
-            qp0Var.j(3000);
-            qp0Var.f(f);
-            yo0.b().a().a(qp0Var, ip0Var);
-        }
+        this.b = new vj0();
+        this.c = false;
     }
 }

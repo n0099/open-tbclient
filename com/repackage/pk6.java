@@ -1,75 +1,78 @@
 package com.repackage;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.frs.ResponseIncrForumAccessCountHttpMessage;
+import com.baidu.tieba.frs.ResponseIncrForumAccessCountSocketMessage;
+import com.baidu.tieba.frs.ResponseSetCommForumStateHttpMessage;
+import com.baidu.tieba.frs.ResponseSetCommForumStateSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pk6 extends mt4 {
+public class pk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pk6(kt4 kt4Var) {
-        super(kt4Var);
+    public pk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kt4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((kt4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        a();
+        b();
     }
 
-    @nt4(isAsync = false, value = "isGameInstall")
-    private JSONObject isGameInstall(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            String optString = jSONObject.optString("packagename");
-            try {
-                PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
-                if (packageInfo != null && packageInfo.packageName.equals(optString)) {
-                    jSONObject2.put("isInstall", true);
-                } else {
-                    jSONObject2.put("isInstall", false);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                try {
-                    jSONObject2.put("isInstall", false);
-                } catch (JSONException unused) {
-                    BdLog.e(e.getMessage());
-                }
-            } catch (JSONException e2) {
-                BdLog.e(e2.getMessage());
-            }
-            return jSONObject2;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            w85 h = ig8.h(309360, ResponseIncrForumAccessCountSocketMessage.class, false, false);
+            h.setResponsedClass(ResponseIncrForumAccessCountSocketMessage.class);
+            h.g(true);
+            h.h(false);
+            h.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(h);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_INCREASE_FORUM_ACCESS_COUNT, ig8.a(TbConfig.INCR_FORUM_ACCESS_ACOUNT, 309360));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ResponseIncrForumAccessCountHttpMessage.class);
+            tbHttpMessageTask.setIsImm(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.repackage.mt4
-    public String f() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_IS_GAME_INSTALL" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            w85 h = ig8.h(309365, ResponseSetCommForumStateSocketMessage.class, false, false);
+            h.setResponsedClass(ResponseSetCommForumStateSocketMessage.class);
+            h.g(true);
+            h.h(false);
+            h.f(SocketMessageTask.DupLicateMode.NONE);
+            MessageManager.getInstance().registerTask(h);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SET_COMMON_FORUM_STATE, ig8.a(TbConfig.SET_COMMON_FORUM_STATE, 309365));
+            tbHttpMessageTask.setIsNeedLogin(false);
+            tbHttpMessageTask.setIsNeedTbs(false);
+            tbHttpMessageTask.setIsNeedAddCommenParam(false);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(false);
+            tbHttpMessageTask.setResponsedClass(ResponseSetCommForumStateHttpMessage.class);
+            tbHttpMessageTask.setIsImm(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
     }
 }

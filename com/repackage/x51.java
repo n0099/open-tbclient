@@ -1,124 +1,147 @@
 package com.repackage;
 
-import android.graphics.drawable.GradientDrawable;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
-import com.baidu.tieba.R;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 /* loaded from: classes7.dex */
-public class x51 extends u51 {
+public class x51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TextView f;
-    public final TextView g;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ x51 b;
-
-        public a(x51 x51Var, AdBaseModel adBaseModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x51Var, adBaseModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Field a(Class<?> cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, cls, str)) == null) {
+            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
+                try {
+                    Field declaredField = cls2.getDeclaredField(str);
+                    h(declaredField, true);
+                    return declaredField;
+                } catch (NoSuchFieldException unused) {
                 }
             }
-            this.b = x51Var;
-            this.a = adBaseModel;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                th0.c(this.a.h.d, this.b.getContext());
-                ez0.c(new ClogBuilder().w(ClogBuilder.LogType.CLICK).g(ClogBuilder.Area.BUTTON).n(this.a.f.d));
-                m51 m51Var = this.b.d;
-                if (m51Var != null) {
-                    m51Var.b(this.a);
+            Field field = null;
+            for (Class<?> cls3 : cls.getInterfaces()) {
+                try {
+                    Field field2 = cls3.getField(str);
+                    a61.a(field == null, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
+                    field = field2;
+                } catch (NoSuchFieldException unused2) {
                 }
             }
+            return field;
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, clsArr)) == null) {
+            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
+                try {
+                    Method declaredMethod = cls2.getDeclaredMethod(str, clsArr);
+                    h(declaredMethod, true);
+                    return declaredMethod;
+                } catch (NoSuchMethodException unused) {
+                }
+            }
+            Method method = null;
+            for (Class<?> cls3 : cls.getInterfaces()) {
+                try {
+                    Method method2 = cls3.getMethod(str, clsArr);
+                    a61.a(method == null, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
+                    method = method2;
+                } catch (NoSuchMethodException unused2) {
+                }
+            }
+            return method;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Object c(Object obj, String str, Class<?>[] clsArr, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, obj, str, clsArr, objArr)) == null) {
+            Method b = b(obj.getClass(), str, clsArr);
+            b.setAccessible(true);
+            return b.invoke(obj, objArr);
+        }
+        return invokeLLLL.objValue;
+    }
+
+    public static Object d(Class<?> cls, Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, obj, str)) == null) ? f(a(cls, str), obj) : invokeLLL.objValue;
+    }
+
+    public static Object e(Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str)) == null) ? d(obj.getClass(), obj, str) : invokeLL.objValue;
+    }
+
+    public static Object f(Field field, Object obj) throws IllegalAccessException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, field, obj)) == null) ? field.get(obj) : invokeLL.objValue;
+    }
+
+    public static void g(Field field) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, field) == null) {
+            a61.a(field != null, "The field must not be null", new Object[0]);
+            try {
+                if (Modifier.isFinal(field.getModifiers())) {
+                    Field declaredField = Field.class.getDeclaredField("modifiers");
+                    boolean z = !declaredField.isAccessible();
+                    if (z) {
+                        declaredField.setAccessible(true);
+                    }
+                    declaredField.setInt(field, field.getModifiers() & (-17));
+                    if (z) {
+                        declaredField.setAccessible(false);
+                    }
+                }
+            } catch (IllegalAccessException | NoSuchFieldException unused) {
+            }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x51(int i, View view2) {
-        super(i, view2);
+    public static void h(AccessibleObject accessibleObject, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeLZ(65543, null, accessibleObject, z) == null) || accessibleObject.isAccessible() == z) {
+            return;
         }
-        this.g = (TextView) a(R.id.obfuscated_res_0x7f090981);
-        this.f = (TextView) a(R.id.obfuscated_res_0x7f0914d3);
-        k();
+        accessibleObject.setAccessible(z);
     }
 
-    public void k() {
+    public static void i(Class<?> cls, Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b() instanceof AdBaseModel)) {
-            this.g.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060251));
-            this.f.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06025f));
-            if (this.f.getBackground() instanceof GradientDrawable) {
-                ((GradientDrawable) this.f.getBackground()).setColor(getResources().getColor(R.color.obfuscated_res_0x7f0602db));
-                ((GradientDrawable) this.f.getBackground()).setStroke(2, getResources().getColor(R.color.obfuscated_res_0x7f0602dc));
-                return;
-            }
-            this.f.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080df2));
+        if (interceptable == null || interceptable.invokeLLLL(65544, null, cls, obj, str, obj2) == null) {
+            k(a(cls, str), obj, obj2);
         }
     }
 
-    @Override // com.repackage.u51
-    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
+    public static void j(Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel, nadExpressNaBaseView) == null) {
-            super.update(adBaseModel, nadExpressNaBaseView);
-            u51.d(adBaseModel);
-            k();
-            String str = adBaseModel.h.b.a;
-            if (!TextUtils.isEmpty(str)) {
-                this.g.setText(str);
-                this.g.setVisibility(0);
-            } else {
-                this.g.setVisibility(8);
-            }
-            this.f.setText(adBaseModel.h.c);
-            if (!TextUtils.isEmpty(adBaseModel.h.d)) {
-                this.f.setVisibility(0);
-                this.f.setOnClickListener(new a(this, adBaseModel));
-                return;
-            }
-            this.f.setVisibility(8);
+        if (interceptable == null || interceptable.invokeLLL(65545, null, obj, str, obj2) == null) {
+            i(obj.getClass(), obj, str, obj2);
+        }
+    }
+
+    public static void k(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, field, obj, obj2) == null) {
+            field.set(obj, obj2);
         }
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hq7;
+import com.repackage.qn7;
 import com.tencent.mm.sdk.modelbase.BaseReq;
 import com.tencent.mm.sdk.modelbase.BaseResp;
 import com.tencent.mm.sdk.modelmsg.SendMessageToWX;
@@ -117,11 +117,11 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.obfuscated_res_0x7f0d04d6);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b72);
+            setContentView(R.layout.obfuscated_res_0x7f0d04cc);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b20);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a53));
+            this.mNavigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a5a));
             try {
                 this.mWxAPI = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e) {
@@ -167,10 +167,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         }
         int type = baseResp.getType();
         if (1 == type) {
-            hq7 hq7Var = new hq7();
-            hq7Var.a = this;
-            hq7Var.b = baseResp;
-            MessageManager.getInstance().runTask(2921351, null, hq7Var);
+            qn7 qn7Var = new qn7();
+            qn7Var.a = this;
+            qn7Var.b = baseResp;
+            MessageManager.getInstance().runTask(2921351, null, qn7Var);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
             SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;

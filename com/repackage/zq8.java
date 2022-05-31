@@ -1,51 +1,26 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
-public class zq8 extends na {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zq8 {
+    String a();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zq8() {
-        super(0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void b(Intent intent);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.ra
-    /* renamed from: c */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage == null) {
-                return null;
-            }
-            if (xq8.d(httpResponsedMessage.getError()) && httpResponsedMessage.getCmd() == 1001601) {
-                xq8.e(TbadkCoreApplication.getInst().getCurrentActivity(), httpResponsedMessage.getErrorString());
-            }
-            return httpResponsedMessage;
-        }
-        return (HttpResponsedMessage) invokeL.objValue;
-    }
+    String c();
+
+    String d();
+
+    void e(BdUniqueId bdUniqueId);
+
+    String f();
+
+    String g();
+
+    String getVideoUrl();
+
+    String h();
+
+    String i();
 }

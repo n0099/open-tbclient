@@ -1,21 +1,43 @@
 package com.repackage;
 
-import com.baidu.nadcore.model.AdBaseModel;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface t51 {
-    void a(AdBaseModel adBaseModel);
+public class t51 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(AdBaseModel adBaseModel);
+    public static NetworkInfo a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return null;
+                }
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (SecurityException unused) {
+                return null;
+            }
+        }
+        return (NetworkInfo) invokeL.objValue;
+    }
 
-    void c(AdBaseModel adBaseModel);
-
-    void d(AdBaseModel adBaseModel);
-
-    void e(AdBaseModel adBaseModel, String str);
-
-    void f(AdBaseModel adBaseModel);
-
-    void g(boolean z, AdBaseModel adBaseModel);
-
-    void h(AdBaseModel adBaseModel);
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            NetworkInfo a = a(context);
+            return a != null && a.isAvailable() && a.getType() == 1;
+        }
+        return invokeL.booleanValue;
+    }
 }

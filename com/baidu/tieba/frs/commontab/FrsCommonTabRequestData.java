@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e75;
-import com.repackage.jd5;
-import com.repackage.kr6;
-import com.repackage.lc5;
-import com.repackage.mi;
+import com.repackage.c65;
+import com.repackage.dc5;
+import com.repackage.fb5;
+import com.repackage.li;
+import com.repackage.qp6;
 import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
 /* loaded from: classes3.dex */
-public class FrsCommonTabRequestData extends OrmObject implements e75 {
+public class FrsCommonTabRequestData extends OrmObject implements c65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adExtParams;
@@ -52,7 +52,7 @@ public class FrsCommonTabRequestData extends OrmObject implements e75 {
         this.sortType = 0;
     }
 
-    @Override // com.repackage.g75
+    @Override // com.repackage.e65
     public Object f(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -66,21 +66,21 @@ public class FrsCommonTabRequestData extends OrmObject implements e75 {
             builder.tab_name = this.tabName;
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = kr6.e().d("frs_feed");
+            String d = qp6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = lc5.g(d, lc5.f());
-            builder.ad_bear_sid_price = Double.valueOf(lc5.i());
-            builder.has_ad_bear = Integer.valueOf(lc5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = fb5.g(d, fb5.f());
+            builder.ad_bear_sid_price = Double.valueOf(fb5.i());
+            builder.has_ad_bear = Integer.valueOf(fb5.n(builder.ad_bear_sid) ? 1 : 0);
             long j = this.lastThreadId;
             if (j >= 0) {
                 builder.last_thread_id = Long.valueOf(j);
             }
-            builder.scr_h = Integer.valueOf(mi.i(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(mi.k(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) mi.h(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(li.i(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(li.k(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) li.h(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            jd5.c(builder, true, false, true);
+            dc5.c(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -88,7 +88,7 @@ public class FrsCommonTabRequestData extends OrmObject implements e75 {
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.d75
+    @Override // com.repackage.b65
     public HashMap<String, Object> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -98,7 +98,7 @@ public class FrsCommonTabRequestData extends OrmObject implements e75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.d75
+    @Override // com.repackage.b65
     public HashMap<String, String> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

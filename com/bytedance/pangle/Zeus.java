@@ -144,11 +144,11 @@ public class Zeus {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            Plugin plugin2 = PluginManager.getInstance().getPlugin(str);
-            if (plugin2 == null) {
+            Plugin plugin = PluginManager.getInstance().getPlugin(str);
+            if (plugin == null) {
                 return -1;
             }
-            int version = plugin2.getVersion();
+            int version = plugin.getVersion();
             ZeusLogger.d(ZeusLogger.TAG_DOWNLOAD, " getInstalledPluginVersion, " + str + " = " + version);
             return version;
         }
@@ -196,8 +196,8 @@ public class Zeus {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            Plugin plugin2 = PluginManager.getInstance().getPlugin(str);
-            return plugin2 != null && plugin2.isInstalled();
+            Plugin plugin = PluginManager.getInstance().getPlugin(str);
+            return plugin != null && plugin.isInstalled();
         }
         return invokeL.booleanValue;
     }

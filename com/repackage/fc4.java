@@ -1,74 +1,35 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
-import com.baidu.swan.pms.node.Node;
+import android.text.TextUtils;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class fc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(@Nullable cc4<JSONArray> cc4Var, @Nullable cc4<JSONObject> cc4Var2) {
-        InterceptResult invokeLL;
+    public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, cc4Var, cc4Var2)) == null) ? b(Node.values(), cc4Var, cc4Var2) : (JSONObject) invokeLL.objValue;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), jSONObject}) == null) {
+            q64.b().K(b(i), str, str2, i2, jSONObject, c(str, i2));
+        }
     }
 
-    public static JSONObject b(Node[] nodeArr, @Nullable cc4<JSONArray> cc4Var, @Nullable cc4<JSONObject> cc4Var2) {
-        InterceptResult invokeLLL;
-        ec4 provider;
+    public static String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nodeArr, cc4Var, cc4Var2)) == null) {
-            if (nodeArr == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Node node : nodeArr) {
-                    if (node != null && (provider = Node.getProvider(node)) != null) {
-                        if (node.isDataArray()) {
-                            jSONObject.put(node.getName(), provider.b(cc4Var));
-                        } else {
-                            jSONObject.put(node.getName(), provider.a(cc4Var2));
-                        }
-                    }
-                }
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeLLL.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? "unknown" : "swanplugin" : "swandynamiclib" : "swangameconsole" : SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan" : (String) invokeI.objValue;
     }
 
-    public static void c(JSONObject jSONObject, n84 n84Var, @Nullable n84 n84Var2, @Nullable n84 n84Var3) {
-        b84 b;
-        dc4 a;
+    public static boolean c(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65538, null, jSONObject, n84Var, n84Var2, n84Var3) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            return TextUtils.equals(str, "cs_protocol") && (i != 2000);
         }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            Node nodeByConfigName = Node.getNodeByConfigName(next);
-            if (nodeByConfigName != null && (a = gc4.a(nodeByConfigName)) != null) {
-                if (nodeByConfigName.isDataArray()) {
-                    a.a(jSONObject.optJSONArray(next), n84Var, n84Var2, n84Var3);
-                } else {
-                    a.b(jSONObject.optJSONObject(next), n84Var, n84Var2, n84Var3);
-                }
-            }
-        }
-        if (!yc4.a || (b = d84.b()) == null) {
-            return;
-        }
-        b.C();
+        return invokeLI.booleanValue;
     }
 }

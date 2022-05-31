@@ -1,10 +1,13 @@
 package com.repackage;
 
-import com.squareup.wire.Message;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public interface f75 extends y65 {
-    void initByJson(JSONObject jSONObject);
+import java.util.List;
+/* loaded from: classes5.dex */
+public interface f75 {
+    String getCurrentPageKey();
 
-    void initByProtobuf(Message message);
+    List<String> getCurrentPageSourceKeyList();
+
+    List<String> getNextPageSourceKeyList();
+
+    g75 getPageStayFilter();
 }

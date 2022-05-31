@@ -1,56 +1,43 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.TailInfo;
 /* loaded from: classes7.dex */
-public class xz4 {
+public class xz4 extends e05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xz4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz4(int i) {
+        super((String) null, 1, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            try {
-                jSONObject.optString("icon_url");
-                jSONObject.optString("icon_link");
-                jSONObject.optString("content");
-                jSONObject.optInt("tail_type");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (i == 7) {
+            this.d = R.drawable.obfuscated_res_0x7f080803;
+            this.f = R.color.CAM_X0105;
+            this.j = true;
+        } else {
+            this.d = R.drawable.obfuscated_res_0x7f08098b;
+            this.i = true;
         }
-    }
-
-    public void b(TailInfo tailInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tailInfo) == null) {
-            try {
-                String str = tailInfo.icon_url;
-                String str2 = tailInfo.icon_link;
-                String str3 = tailInfo.content;
-                tailInfo.tail_type.intValue();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1348);
     }
 }

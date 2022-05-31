@@ -121,7 +121,7 @@ public class SearchEditView extends RelativeLayout {
                     if (TextUtils.isEmpty(trim) || this.a.e == null) {
                         return true;
                     }
-                    this.a.e.B0(trim);
+                    this.a.e.D0(trim);
                     return true;
                 }
                 return false;
@@ -167,7 +167,7 @@ public class SearchEditView extends RelativeLayout {
     public interface d {
         void A(String str);
 
-        void B0(String str);
+        void D0(String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -194,11 +194,11 @@ public class SearchEditView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0263, (ViewGroup) this, true);
-            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090860);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffe);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fd3);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090fd4);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d025e, (ViewGroup) this, true);
+            this.a = (EditText) findViewById(R.id.obfuscated_res_0x7f090844);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc0);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f95);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090f96);
             SkinManager.setImageResource(this.b, R.drawable.icon_emotion_search);
             SkinManager.setImageResource(this.c, R.drawable.del_search_btn);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);

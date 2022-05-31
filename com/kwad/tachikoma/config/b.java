@@ -50,11 +50,11 @@ public class b {
 
     /* renamed from: com.kwad.tachikoma.config.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class RunnableC0345b implements Runnable {
+    public static class RunnableC0346b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public RunnableC0345b() {
+        public RunnableC0346b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public class b {
                 if (!a) {
                     a = true;
                     c = aVar;
-                    i.a(new RunnableC0345b());
+                    i.a(new RunnableC0346b());
                 }
             }
         }

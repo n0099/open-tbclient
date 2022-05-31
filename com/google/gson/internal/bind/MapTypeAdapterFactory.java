@@ -26,14 +26,14 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean complexMapKeySerialization;
     public final ConstructorConstructor constructorConstructor;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

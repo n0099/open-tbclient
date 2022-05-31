@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e47;
-import com.repackage.gs4;
+import com.repackage.h27;
+import com.repackage.ki;
 import com.repackage.li;
-import com.repackage.mi;
+import com.repackage.wq4;
 /* loaded from: classes3.dex */
-public class MsgrightView extends e47 {
+public class MsgrightView extends h27 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String I = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -123,7 +123,7 @@ public class MsgrightView extends e47 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0552);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0548);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -140,36 +140,36 @@ public class MsgrightView extends e47 {
                 return;
             }
         }
-        l();
-        this.D = (TextView) e(R.id.obfuscated_res_0x7f090ecd);
-        this.B = (ProgressBar) e(R.id.obfuscated_res_0x7f091975);
-        this.C = (ImageView) e(R.id.obfuscated_res_0x7f090429);
-        this.E = (HeadImageView) e(R.id.obfuscated_res_0x7f090ecc);
-        EMTextView eMTextView = (EMTextView) e(R.id.obfuscated_res_0x7f091411);
+        k();
+        this.D = (TextView) b(R.id.obfuscated_res_0x7f090e92);
+        this.B = (ProgressBar) b(R.id.obfuscated_res_0x7f091927);
+        this.C = (ImageView) b(R.id.obfuscated_res_0x7f090424);
+        this.E = (HeadImageView) b(R.id.obfuscated_res_0x7f090e91);
+        EMTextView eMTextView = (EMTextView) b(R.id.obfuscated_res_0x7f0913d1);
         this.H = eMTextView;
-        gs4 d = gs4.d(eMTextView);
+        wq4 d = wq4.d(eMTextView);
         d.z(R.dimen.T_X09);
         d.A(R.string.F_X01);
         d.n(R.string.J_X05);
         d.f(R.color.CAM_X0603);
         this.E.setAutoChangeStyle(false);
         this.E.setDrawerType(1);
-        this.E.setRadius(mi.d(this.mContext.getContext(), 4.0f));
+        this.E.setRadius(li.d(this.mContext.getContext(), 4.0f));
         this.E.setPlaceHolder(1);
         this.E.setOnClickListener(new a(this));
-        this.F = (TextView) e(R.id.obfuscated_res_0x7f090d0d);
-        this.G = (TextView) e(R.id.obfuscated_res_0x7f090d0e);
+        this.F = (TextView) b(R.id.obfuscated_res_0x7f090cd1);
+        this.G = (TextView) b(R.id.obfuscated_res_0x7f090cd2);
         this.n.setIsLeft(false);
         this.o.setIsLeft(false);
     }
 
-    @Override // com.repackage.e47
-    public void n() {
+    @Override // com.repackage.h27
+    public void m() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.A == TbadkCoreApplication.getInst().getSkinType()) {
             return;
         }
-        super.n();
+        super.m();
         SkinManager.setBackgroundResource(this.j, R.drawable.selector_msg_text_bubble_me);
         this.r.q(I);
         SkinManager.setBackgroundResource(this.o, R.drawable.selector_msg_text_bubble_me);
@@ -178,11 +178,11 @@ public class MsgrightView extends e47 {
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0610));
     }
 
-    @Override // com.repackage.e47
-    public void q(View view2, ChatMessage chatMessage) {
+    @Override // com.repackage.h27
+    public void o(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, chatMessage) == null) {
-            super.q(view2, chatMessage);
+            super.o(view2, chatMessage);
             if (chatMessage == null) {
                 this.i.setVisibility(8);
                 this.B.setVisibility(8);
@@ -192,7 +192,7 @@ public class MsgrightView extends e47 {
                 this.H.setVisibility(8);
                 this.j.setVisibility(0);
                 this.j.setText(null);
-                s(8);
+                r(8);
                 this.q.getImage().setTag(null);
                 this.k.setVisibility(8);
                 this.k.setTag(null);
@@ -203,9 +203,9 @@ public class MsgrightView extends e47 {
                 return;
             }
             try {
-                F(chatMessage);
-                M(chatMessage);
-                this.E.setDefaultResource(R.drawable.obfuscated_res_0x7f080efb);
+                E(chatMessage);
+                L(chatMessage);
+                this.E.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0c);
                 if (chatMessage.getUserInfo() != null) {
                     this.E.setUserId(chatMessage.getUserInfo().getUserId());
                     String currentAvatar = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAvatar() : null;
@@ -227,7 +227,7 @@ public class MsgrightView extends e47 {
                         case 2:
                             this.C.setVisibility(0);
                             this.H.setVisibility(0);
-                            this.H.setText(R.string.obfuscated_res_0x7f0f0ac4);
+                            this.H.setText(R.string.obfuscated_res_0x7f0f0acb);
                             break;
                         case 3:
                             this.B.setVisibility(8);
@@ -246,33 +246,33 @@ public class MsgrightView extends e47 {
                         case 4:
                             this.C.setVisibility(0);
                             this.H.setVisibility(0);
-                            this.H.setText(R.string.obfuscated_res_0x7f0f0ac6);
+                            this.H.setText(R.string.obfuscated_res_0x7f0f0acd);
                             break;
                         case 5:
                             this.C.setVisibility(0);
                             this.H.setVisibility(0);
-                            this.H.setText(R.string.obfuscated_res_0x7f0f0ac7);
+                            this.H.setText(R.string.obfuscated_res_0x7f0f0ace);
                             break;
                         case 6:
                             this.C.setVisibility(0);
                             this.H.setVisibility(0);
-                            this.H.setText(R.string.obfuscated_res_0x7f0f0ac5);
+                            this.H.setText(R.string.obfuscated_res_0x7f0f0acc);
                             break;
                         case 7:
                             this.C.setVisibility(0);
                             this.H.setVisibility(0);
-                            this.H.setText(R.string.obfuscated_res_0x7f0f0ac3);
+                            this.H.setText(R.string.obfuscated_res_0x7f0f0aca);
                             break;
                         case 8:
                             this.C.setVisibility(0);
                             this.H.setVisibility(0);
-                            this.H.setText(R.string.obfuscated_res_0x7f0f0ac2);
+                            this.H.setText(R.string.obfuscated_res_0x7f0f0ac9);
                             break;
                         case 9:
                             this.C.setVisibility(0);
                             this.H.setVisibility(0);
-                            if (li.isEmpty(chatMessage.getLocalData().getErrorString())) {
-                                this.H.setText(R.string.obfuscated_res_0x7f0f0ac4);
+                            if (ki.isEmpty(chatMessage.getLocalData().getErrorString())) {
+                                this.H.setText(R.string.obfuscated_res_0x7f0f0acb);
                                 break;
                             } else {
                                 this.H.setText(chatMessage.getLocalData().getErrorString());
@@ -284,7 +284,7 @@ public class MsgrightView extends e47 {
                     this.C.setOnClickListener(new b(this));
                 }
                 this.j.setVisibility(8);
-                s(8);
+                r(8);
                 this.k.setVisibility(8);
                 this.l.setVisibility(8);
                 this.o.setVisibility(8);
@@ -293,21 +293,21 @@ public class MsgrightView extends e47 {
                 this.r.setVisibility(8);
                 int msgType = chatMessage.getMsgType();
                 if (msgType == 1) {
-                    I(chatMessage, I);
+                    H(chatMessage, I);
                 } else if (msgType == 2) {
-                    H(view2, chatMessage, I);
+                    G(view2, chatMessage, I);
                 } else if (msgType == 3) {
-                    L(chatMessage, I);
+                    K(chatMessage, I);
                     this.k.setVisibility(0);
                 } else if (msgType == 4) {
-                    C(chatMessage, true);
+                    B(chatMessage, true);
                 } else if (msgType == 9) {
-                    D(view2, chatMessage, I);
+                    C(view2, chatMessage, I);
                 } else if (msgType == 32) {
-                    K(chatMessage);
+                    I(chatMessage);
                 } else if (msgType != 33) {
                 } else {
-                    E(chatMessage);
+                    D(chatMessage);
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -315,8 +315,8 @@ public class MsgrightView extends e47 {
         }
     }
 
-    @Override // com.repackage.e47
-    public void z(View view2, ChatMessage chatMessage) {
+    @Override // com.repackage.h27
+    public void y(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, chatMessage) == null) {
             if (chatMessage.getLocalData() != null && chatMessage.getLocalData().getStatus() != null && (chatMessage.getLocalData().getStatus().shortValue() == 3 || chatMessage.getLocalData().getStatus().shortValue() == 2)) {

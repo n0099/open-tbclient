@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.t03;
+import com.repackage.gz2;
 import java.io.File;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
@@ -61,7 +61,7 @@ public final class WebCompatImpl$internalFilePathInfo$2 extends Lambda implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            t03 J = t03.J();
+            gz2 J = gz2.J();
             Intrinsics.checkNotNullExpressionValue(J, "Swan.get()");
             File filesDir = J.getFilesDir();
             Intrinsics.checkNotNullExpressionValue(filesDir, "Swan.get().filesDir");

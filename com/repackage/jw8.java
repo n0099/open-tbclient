@@ -1,165 +1,167 @@
 package com.repackage;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.Camera;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
 public class jw8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public List<SimpleForum> b;
+    public String c;
+    public b d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public BdUniqueId i;
+    public wa j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755574138, "Lcom/repackage/jw8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755574138, "Lcom/repackage/jw8;");
-        }
-    }
+    /* loaded from: classes6.dex */
+    public class a extends wa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jw8 a;
 
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    public static int b(TbPageContext tbPageContext, int i) {
-        InterceptResult invokeLI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, tbPageContext, i)) == null) {
-            int i3 = 0;
-            try {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                int d = d(tbPageContext);
-                if (cameraInfo.facing == 1) {
-                    i3 = (cameraInfo.orientation + d) % 360;
-                    i2 = (360 - i3) % 360;
-                } else {
-                    i2 = ((cameraInfo.orientation - d) + 360) % 360;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jw8 jw8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jw8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return i2;
-            } catch (RuntimeException e) {
-                va9.g(e);
-                return i3;
             }
+            this.a = jw8Var;
         }
-        return invokeLI.intValue;
-    }
 
-    public static int c(Camera.Parameters parameters) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parameters)) == null) {
-            if (parameters == null) {
-                return -1;
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+                return;
             }
-            try {
-                if (parameters.isZoomSupported()) {
-                    return Math.min(parameters.getMaxZoom(), 40);
-                }
-                return -1;
-            } catch (Exception e) {
-                va9.g(e);
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            int rotation = tbPageContext.getPageActivity().getWindowManager().getDefaultDisplay().getRotation();
-            if (rotation != 0) {
-                if (rotation != 1) {
-                    if (rotation != 2) {
-                        return rotation != 3 ? 0 : 270;
+            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
+            if (z || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
+                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.a.i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                    if (responsedMessage.hasError()) {
+                        if (this.a.d != null) {
+                            this.a.d.onError();
+                            return;
+                        }
+                        return;
                     }
-                    return 180;
-                }
-                return 90;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void e(TbPageContext tbPageContext, int i, Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65541, null, tbPageContext, i, matrix) == null) || matrix == null) {
-            return;
-        }
-        matrix.setScale(1 == i ? -1.0f : 1.0f, 1.0f);
-        matrix.postRotate(b(tbPageContext, i));
-        matrix.postScale(ob9.e() / 2000.0f, ob9.d() / 2000.0f);
-        matrix.postTranslate(ob9.e() / 2.0f, ob9.d() / 2.0f);
-    }
-
-    public static void f(RectF rectF, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, rectF, rect) == null) {
-            rect.left = Math.round(rectF.left);
-            rect.top = Math.round(rectF.top);
-            rect.right = Math.round(rectF.right);
-            rect.bottom = Math.round(rectF.bottom);
-        }
-    }
-
-    public static void g(int i, int i2, Camera camera) {
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, camera) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(i2, cameraInfo);
-            int i4 = 0;
-            if (i != 0) {
-                if (i == 1) {
-                    i4 = 90;
-                } else if (i == 2) {
-                    i4 = 180;
-                } else if (i == 3) {
-                    i4 = 270;
+                    if (z) {
+                        GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
+                        this.a.b = getRepostForumHttpResMessage.getForumList();
+                        this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
+                        this.a.g = getRepostForumHttpResMessage.getPrivateThread();
+                    }
+                    if (responsedMessage instanceof GetRepostForumSocketResMessage) {
+                        GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
+                        this.a.b = getRepostForumSocketResMessage.getForumList();
+                        this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
+                        this.a.g = getRepostForumSocketResMessage.getPrivateThread();
+                    }
+                    if (this.a.d != null) {
+                        this.a.d.a(this.a.b, this.a.g);
+                    }
                 }
             }
-            if (cameraInfo.facing == 1) {
-                i3 = (360 - ((cameraInfo.orientation + i4) % 360)) % 360;
-            } else {
-                i3 = ((cameraInfo.orientation - i4) + 360) % 360;
-            }
-            camera.setDisplayOrientation(i3);
         }
     }
 
-    public static void h(TbPageContext tbPageContext, int i, Camera camera) {
-        int i2;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(List<SimpleForum> list, int i);
+
+        void onError();
+    }
+
+    public jw8(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65544, null, tbPageContext, i, camera) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(i, cameraInfo);
-            int d = d(tbPageContext);
-            if (cameraInfo.facing == 1) {
-                i2 = (360 - ((cameraInfo.orientation + d) % 360)) % 360;
-            } else {
-                i2 = ((cameraInfo.orientation - d) + 360) % 360;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            camera.setDisplayOrientation(i2);
+        }
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        this.j = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.j);
+        this.j.getHttpMessageListener().setSelfListener(true);
+        this.j.getSocketMessageListener().setSelfListener(true);
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
+            getRepostForumReqMessage.setThreadTitle(this.e);
+            getRepostForumReqMessage.setThreadContent(this.f);
+            getRepostForumReqMessage.setForumId(this.h);
+            getRepostForumReqMessage.setTag(this.a);
+            getRepostForumReqMessage.setRequestId(this.i);
+            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
+        }
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public void j(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.i = bdUniqueId;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
         }
     }
 }

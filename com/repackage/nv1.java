@@ -1,19 +1,20 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class nv1 extends au1 {
+public final class nv1 extends qu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iu1 a;
+    public boolean u;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public nv1() {
+        super("coverImage", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,33 +22,29 @@ public class nv1 extends au1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.au1
-    public void a(bu1 bu1Var, Canvas canvas) {
-        iu1 iu1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) && (iu1Var = this.a) != null && iu1Var.d()) {
-            if (this.a.c()) {
-                bu1Var.c.setShader(this.a.b());
                 return;
             }
-            bu1Var.m = this.a.a();
-            bu1Var.c.setColor(this.a.a());
-            bu1Var.b.setShader(null);
         }
+        this.u = false;
     }
 
-    @Override // com.repackage.au1
-    public void b(JSONArray jSONArray) {
+    @Override // com.repackage.qu1, com.repackage.vu1, com.repackage.xu1, com.repackage.gp2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = new iu1(jSONArray);
+        super.a(jSONObject);
+        this.u = jSONObject.optBoolean("loadState", false);
+        np2 np2Var = this.h;
+        if (np2Var == null || (jSONObject2 = this.j) == null) {
+            return;
+        }
+        np2Var.i(jSONObject2.optBoolean("fixed", false));
     }
 }

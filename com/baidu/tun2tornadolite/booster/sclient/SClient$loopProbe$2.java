@@ -197,7 +197,7 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                     int i5 = 0;
                     while (true) {
                         int i6 = i5 + 1;
-                        long longValue = ((Number) sClient$loopProbe$2$handleData$1.invoke(UByte.m701boximpl(UByte.m707constructorimpl((byte) i5)))).longValue();
+                        long longValue = ((Number) sClient$loopProbe$2$handleData$1.invoke(UByte.m700boximpl(UByte.m706constructorimpl((byte) i5)))).longValue();
                         if (longValue != j2) {
                             j3 += longValue;
                         }

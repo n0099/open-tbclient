@@ -1,34 +1,50 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.di2;
 /* loaded from: classes6.dex */
-public final class i82 {
+public class i82 implements g82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String[] a;
 
-    public static c82 a(j82 j82Var, z82 z82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    public i82() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, j82Var, z82Var, v8ThreadDelegatePolicy)) == null) {
-            k82 a = bk2.B0().a(j82Var);
-            c82 b = a.b(j82Var.a(), z82Var, v8ThreadDelegatePolicy);
-            b.K0(a.a());
-            return b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (c82) invokeLLL.objValue;
+        this.a = new String[]{di2.i(), di2.l(), di2.r(), di2.b.f(), ax1.f(), ax1.d(), lw1.c(), di2.f.f(), di2.f.d(), zc2.d};
     }
 
-    public static c82 b(j82 j82Var, z82 z82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    @Override // com.repackage.g82
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, j82Var, z82Var, v8ThreadDelegatePolicy)) == null) {
-            c82 a = a(j82Var, z82Var, v8ThreadDelegatePolicy);
-            a.s0();
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = kf4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
+            }
+            hw1.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        return (c82) invokeLLL.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 }

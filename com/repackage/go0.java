@@ -1,39 +1,68 @@
 package com.repackage;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class go0 extends AdBaseModel {
+public class go0 extends ro0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public qt0 P;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public go0(@NonNull bo0 bo0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(bo0Var, jSONObject);
+    public go0(@NonNull ds0 ds0Var, @Nullable Context context) {
+        super(ds0Var, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bo0Var, jSONObject};
+            Object[] objArr = {ds0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((bo0) objArr2[0], (JSONObject) objArr2[1]);
+                super((ds0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (bo0Var.k.size() < 3) {
-            throw ParseError.contentError(3, bo0Var.a.value);
+    }
+
+    @Override // com.repackage.ro0, com.repackage.lo0, com.repackage.ko0
+    public int B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 23;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.repackage.ro0, com.repackage.xo0, com.repackage.ko0
+    public void G0(@Nullable Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            super.G0(context);
+            b(new iu0());
+            I1("ad_video_tail_frame_layer");
+        }
+    }
+
+    public void I1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            vt0 vt0Var = new vt0(str);
+            this.P = vt0Var;
+            b(vt0Var);
         }
     }
 }

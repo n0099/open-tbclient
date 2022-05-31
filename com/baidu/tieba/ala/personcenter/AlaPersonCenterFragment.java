@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bu5;
+import com.repackage.us5;
 /* loaded from: classes3.dex */
 public class AlaPersonCenterFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -25,7 +25,7 @@ public class AlaPersonCenterFragment extends BaseFragment {
     public String b;
     public String c;
     public String d;
-    public bu5 e;
+    public us5 e;
 
     public AlaPersonCenterFragment() {
         Interceptable interceptable = $ic;
@@ -41,27 +41,27 @@ public class AlaPersonCenterFragment extends BaseFragment {
         }
     }
 
-    public void C0(String str) {
+    public void E0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    public void D0(String str) {
+    public void F0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void E0(String str) {
+    public void G0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.c = str;
         }
     }
 
-    public void F0(String str) {
+    public void H0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.d = str;
@@ -73,9 +73,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
-            bu5 bu5Var = this.e;
-            if (bu5Var != null) {
-                bu5Var.m(i);
+            us5 us5Var = this.e;
+            if (us5Var != null) {
+                us5Var.m(i);
             }
         }
     }
@@ -85,9 +85,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            bu5 bu5Var = this.e;
-            if (bu5Var != null) {
-                bu5Var.m(i);
+            us5 us5Var = this.e;
+            if (us5Var != null) {
+                us5Var.m(i);
             }
         }
     }
@@ -108,9 +108,9 @@ public class AlaPersonCenterFragment extends BaseFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             this.a = pageContext;
-            bu5 bu5Var = new bu5(pageContext, true);
-            this.e = bu5Var;
-            bu5Var.s(this.c);
+            us5 us5Var = new us5(pageContext, true);
+            this.e = us5Var;
+            us5Var.s(this.c);
             this.e.r(this.b);
             this.e.t(this.d);
             if (getArguments() != null) {

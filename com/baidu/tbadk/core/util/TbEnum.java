@@ -106,7 +106,6 @@ public abstract class TbEnum {
     public static class CustomGroupType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GROUP = 1;
-        public static final int GROUP_UPDATE = -3;
         public static final int GROUP_VALIDATION = -4;
         public static final int NOTIFICATION = 5;
         public static final int OFFICIAL = 4;

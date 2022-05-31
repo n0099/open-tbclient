@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i67;
-import com.repackage.mi;
-import com.repackage.v67;
+import com.repackage.k47;
+import com.repackage.li;
+import com.repackage.u47;
 /* loaded from: classes3.dex */
 public class OfficialFeedItemImage extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -62,17 +62,17 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setRadius(mi.f(this.a, R.dimen.tbds31));
+            this.b.setRadius(li.f(this.a, R.dimen.tbds31));
             this.b.setConrers(3);
             ViewGroup.LayoutParams layoutParams = this.g.getLayoutParams();
-            layoutParams.height = mi.f(this.a, R.dimen.tbds579);
+            layoutParams.height = li.f(this.a, R.dimen.tbds579);
             this.g.setLayoutParams(layoutParams);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
-            layoutParams2.leftMargin = mi.f(this.a, R.dimen.tbds27);
+            layoutParams2.leftMargin = li.f(this.a, R.dimen.tbds27);
             this.h.setLayoutParams(layoutParams2);
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.e.getLayoutParams();
-            layoutParams3.leftMargin = mi.f(this.a, R.dimen.tbds30);
-            layoutParams3.bottomMargin = mi.f(this.a, R.dimen.tbds27);
+            layoutParams3.leftMargin = li.f(this.a, R.dimen.tbds30);
+            layoutParams3.bottomMargin = li.f(this.a, R.dimen.tbds27);
             this.e.setLayoutParams(layoutParams3);
         }
     }
@@ -80,16 +80,16 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0632, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091412);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091419);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091418);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09141d);
-            this.f = findViewById(R.id.obfuscated_res_0x7f090383);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0628, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0913d2);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0913d9);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d8);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0913dd);
+            this.f = findViewById(R.id.obfuscated_res_0x7f09037e);
             this.b.setConrers(15);
-            this.b.setRadius(mi.f(this.a, R.dimen.tbds21));
-            this.g = findViewById(R.id.obfuscated_res_0x7f090e75);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091472);
+            this.b.setRadius(li.f(this.a, R.dimen.tbds21));
+            this.g = findViewById(R.id.obfuscated_res_0x7f090e3a);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091432);
             c();
         }
     }
@@ -97,12 +97,12 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0808fa, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080901, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);
             } else {
-                gradientLinear.blRadius(mi.f(getContext(), R.dimen.tbds21)).brRadius(mi.f(getContext(), R.dimen.tbds21)).into(this.f);
+                gradientLinear.blRadius(li.f(getContext(), R.dimen.tbds21)).brRadius(li.f(getContext(), R.dimen.tbds21)).into(this.f);
             }
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0101);
@@ -113,7 +113,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             if (i > 0) {
-                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e53, StringHelper.numberUniformFormatExtraWithRound(i)));
+                this.d.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0e57, StringHelper.numberUniformFormatExtraWithRound(i)));
                 this.d.setVisibility(0);
                 this.c.setVisibility(0);
                 return;
@@ -123,13 +123,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(v67.a aVar, int i, i67 i67Var) {
+    public void setData(u47.a aVar, int i, k47 k47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, i67Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, k47Var) == null) {
             this.b.K(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (i67Var != null) {
-                i = i67Var.i();
+            if (k47Var != null) {
+                i = k47Var.i();
             }
             d(i);
         }

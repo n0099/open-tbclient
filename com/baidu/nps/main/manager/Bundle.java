@@ -17,9 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f71;
-import com.repackage.h71;
-import com.repackage.z61;
+import com.repackage.m51;
+import com.repackage.s51;
+import com.repackage.u51;
 /* loaded from: classes2.dex */
 public class Bundle {
     public static /* synthetic */ Interceptable $ic = null;
@@ -31,7 +31,7 @@ public class Bundle {
     public transient /* synthetic */ FieldHolder $fh;
     public BundleInfo mBundleInfo;
     public IInvoker mInvoker;
-    public z61 mRuntime;
+    public m51 mRuntime;
 
     public Bundle(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class Bundle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Application applicationContext = ContextHolder.getApplicationContext();
-            PackageInfo a = h71.a(f71.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
+            PackageInfo a = u51.a(s51.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
             if (a == null) {
                 return false;
             }
@@ -83,7 +83,7 @@ public class Bundle {
                 if (this.mRuntime != null) {
                     return true;
                 }
-                z61 b = z61.b(this.mBundleInfo);
+                m51 b = m51.b(this.mBundleInfo);
                 this.mRuntime = b;
                 if (b == null) {
                     return false;
@@ -170,13 +170,13 @@ public class Bundle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, cls)) == null) {
             initIfNeed();
-            z61 z61Var = this.mRuntime;
-            if (z61Var != null) {
+            m51 m51Var = this.mRuntime;
+            if (m51Var != null) {
                 try {
                     if (cls == null) {
-                        return z61Var.c().loadClass(str);
+                        return m51Var.c().loadClass(str);
                     }
-                    return z61Var.c().loadClass(str).asSubclass(cls);
+                    return m51Var.c().loadClass(str).asSubclass(cls);
                 } catch (ClassNotFoundException e) {
                     throw new InvokeException(18, Log.getStackTraceString(e));
                 }

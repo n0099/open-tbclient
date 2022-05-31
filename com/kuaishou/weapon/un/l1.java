@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -484,7 +485,7 @@ public class l1 {
                         sb.append(next);
                         sb.append("=");
                         sb.append(string);
-                        str = ";";
+                        str = ParamableElem.DIVIDE_PARAM;
                     }
                     return sb.toString();
                 }

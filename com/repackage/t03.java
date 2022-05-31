@@ -1,91 +1,41 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.retrieve.upload.UploadConstant;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xl2;
-import com.repackage.y03;
-import java.util.ArrayDeque;
-import java.util.HashSet;
-import java.util.Queue;
-import java.util.Set;
+import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class t03 extends q03 {
+public class t03 extends e13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
-    public static volatile t03 j;
-    public static Handler k;
     public transient /* synthetic */ FieldHolder $fh;
-    public xh1 a;
-    public final Set<nf3<y03.a>> b;
-    public volatile int c;
-    public final Queue<Runnable> d;
-    public Runnable e;
-    public ba4 f;
-    public e33 g;
-    public boolean h;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y03.a a;
-        public final /* synthetic */ t03 b;
+        public final /* synthetic */ Activity a;
 
-        /* renamed from: com.repackage.t03$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0523a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ nf3 a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0523a(a aVar, nf3 nf3Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, nf3Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = nf3Var;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.onCallback(this.b.a);
-                }
-            }
-        }
-
-        public a(t03 t03Var, y03.a aVar) {
+        public a(t03 t03Var, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t03Var, aVar};
+                Object[] objArr = {t03Var, activity, uri, str, callbackHandler, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -95,323 +45,122 @@ public abstract class t03 extends q03 {
                     return;
                 }
             }
-            this.b = t03Var;
-            this.a = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean z = Looper.getMainLooper() == Looper.myLooper();
-                for (nf3 nf3Var : this.b.b) {
-                    if (z && !this.a.e("event_flag_force_post", false)) {
-                        nf3Var.onCallback(this.a);
-                    } else {
-                        t03.L().post(new RunnableC0523a(this, nf3Var));
-                    }
-                }
-            }
+            this.a = activity;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf3 a;
-        public final /* synthetic */ t03 b;
-
-        public b(t03 t03Var, nf3 nf3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t03Var, nf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = t03Var;
-            this.a = nf3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b.add(this.a);
-            }
-        }
+    public interface b {
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf3 a;
-        public final /* synthetic */ t03 b;
-
-        public c(t03 t03Var, nf3 nf3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t03Var, nf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = t03Var;
-            this.a = nf3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b.remove(this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755344614, "Lcom/repackage/t03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755344614, "Lcom/repackage/t03;");
-                return;
-            }
-        }
-        i = eh1.a;
-    }
-
-    public t03() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t03(e03 e03Var) {
+        super(e03Var, "/swanAPI/file/openDocument");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e03Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new xl2.a();
-        this.b = new HashSet();
-        this.c = 0;
-        this.d = new ArrayDeque();
-        this.e = null;
-        this.h = false;
     }
 
-    public static t03 J() {
-        InterceptResult invokeV;
+    @Override // com.repackage.e13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            t03 K = K();
-            if (!K.h) {
-                K.N();
-            }
-            return K;
-        }
-        return (t03) invokeV.objValue;
-    }
-
-    public static t03 K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (j instanceof z03) {
-                return j;
-            }
-            synchronized (t03.class) {
-                if (j instanceof z03) {
-                    return j;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
+            if (hz2Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+                return false;
+            } else if (hz2Var.m0()) {
+                if (e13.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-                SwanAppProcessInfo current = SwanAppProcessInfo.current();
-                if (current.isSwanClient) {
-                    if (i && j != null) {
-                        throw new IllegalStateException("When convinced current process is swan client，but Swan instance already init with: " + j);
-                    }
-                    j = new z03();
-                    return j;
-                } else if (current.isSwanService) {
-                    if (!(j instanceof b13)) {
-                        if (i && j != null) {
-                            throw new IllegalStateException("When convinced current process is swan service，but Swan instance already init with: " + j);
-                        }
-                        j = new b13();
-                    }
-                    return j;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                JSONObject a2 = e13.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+                    return false;
+                }
+                String optString = a2.optString("filePath");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
+                    return false;
+                }
+                String f0 = hz2.f0();
+                if (TextUtils.isEmpty(f0)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
+                    return false;
+                }
+                String M = p63.M(optString, f0);
+                if (TextUtils.isEmpty(M)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
+                    return false;
+                }
+                String optString2 = a2.optString(UploadConstant.KEY_FILE_TYPE);
+                String t = kf4.t(M);
+                if (!TextUtils.isEmpty(t)) {
+                    optString2 = t;
+                } else if (TextUtils.isEmpty(optString2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
+                    return false;
+                }
+                String b2 = yb3.b(optString2);
+                if (TextUtils.isEmpty(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
+                    return false;
+                }
+                Uri parse = Uri.parse(M);
+                if (parse == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal Uri path");
+                    return false;
+                }
+                Uri fromFile = parse.getScheme() == null ? Uri.fromFile(new File(M)) : parse;
+                SwanAppActivity x = hz2Var.x();
+                if (x == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
+                    return false;
+                } else if (!yb3.a(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + b2);
+                    return false;
                 } else {
-                    if (j == null) {
-                        j = new s03();
-                    }
-                    return j;
-                }
-            }
-        }
-        return (t03) invokeV.objValue;
-    }
-
-    public static Handler L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (k == null) {
-                k = new Handler(Looper.getMainLooper());
-            }
-            return k;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    @Override // com.repackage.x03
-    public void A(y03.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (i) {
-                Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.b.size());
-            }
-            if (aVar != null) {
-                Q(new a(this, aVar));
-            }
-        }
-    }
-
-    @Override // com.repackage.x03
-    public e33 B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.g == null) {
-                this.g = I();
-            }
-            return this.g;
-        }
-        return (e33) invokeV.objValue;
-    }
-
-    public abstract ba4 H();
-
-    public abstract e33 I();
-
-    public ba4 M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f == null) {
-                this.f = H();
-            }
-            return this.f;
-        }
-        return (ba4) invokeV.objValue;
-    }
-
-    public final void N() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.h) {
-            return;
-        }
-        O();
-        M();
-        gx2.R();
-        P();
-        this.h = true;
-    }
-
-    public final void O() {
-        e33 B;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (B = B()) == null) {
-            return;
-        }
-        B.I();
-    }
-
-    public abstract void P();
-
-    public final synchronized void Q(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, runnable) == null) {
-            synchronized (this) {
-                this.d.offer(runnable);
-                if (this.e == null) {
-                    while (!this.d.isEmpty()) {
-                        Runnable poll = this.d.poll();
-                        this.e = poll;
-                        if (poll != null) {
-                            poll.run();
+                    String optString3 = a2.optString("cb");
+                    tj1 r = oi2.r();
+                    if (!r.b(x, b2)) {
+                        if (TextUtils.isEmpty(optString3)) {
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + b2);
+                            return false;
                         }
-                        this.e = null;
+                        j(x, b2, fromFile, optString3, callbackHandler);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        return true;
                     }
+                    r.c(x, fromFile, b2);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    callbackHandler.handleSchemeDispatchCallback(optString3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    return true;
                 }
             }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.x03
-    public void p(nf3<y03.a> nf3Var) {
+    public final void j(Activity activity, String str, Uri uri, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, nf3Var) == null) || nf3Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, uri, str2, callbackHandler) == null) {
+            oi2.r().a(activity, str, new a(this, activity, uri, str, callbackHandler, str2));
         }
-        Q(new c(this, nf3Var));
-    }
-
-    @Override // com.repackage.x03
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            w(str, null);
-        }
-    }
-
-    @Override // com.repackage.x03
-    public void v(nf3<y03.a> nf3Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, nf3Var) == null) || nf3Var == null) {
-            return;
-        }
-        Q(new b(this, nf3Var));
-    }
-
-    @Override // com.repackage.x03
-    public void w(String str, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, bundle) == null) {
-            A(new y03.a(str, bundle));
-        }
-    }
-
-    @Override // com.repackage.x03
-    public xh1 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.a == null) {
-                this.a = new xh1();
-            }
-            return this.a;
-        }
-        return (xh1) invokeV.objValue;
     }
 }

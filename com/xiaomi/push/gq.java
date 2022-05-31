@@ -163,7 +163,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static com.xiaomi.push.providers.a m395a(Context context) {
+    public static com.xiaomi.push.providers.a m394a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
@@ -179,7 +179,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m396a(Context context) {
+    public static synchronized String m395a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
@@ -191,7 +191,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m398a(Context context) {
+    public static void m397a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
             a = b(context);
@@ -207,7 +207,7 @@ public class gq {
         }
         synchronized (f424a) {
             isEmpty = f426a.isEmpty();
-            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m396a(context) : "", j));
+            a(new a(str, j2, a2, z ? 1 : 0, a2 == 0 ? m395a(context) : "", j));
         }
         if (isEmpty) {
             f422a.a(new gr(context), 5000L);
@@ -235,7 +235,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized void m399a(String str) {
+    public static synchronized void m398a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, str) == null) {
             synchronized (gq.class) {
@@ -272,7 +272,7 @@ public class gq {
         if (interceptable == null || interceptable.invokeLL(65551, null, context, list) == null) {
             try {
                 synchronized (com.xiaomi.push.providers.a.f807a) {
-                    SQLiteDatabase writableDatabase = m395a(context).getWritableDatabase();
+                    SQLiteDatabase writableDatabase = m394a(context).getWritableDatabase();
                     writableDatabase.beginTransaction();
                     try {
                         for (a aVar : list) {

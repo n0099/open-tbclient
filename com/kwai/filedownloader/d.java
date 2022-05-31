@@ -41,7 +41,7 @@ public class d implements a.d, x, x.a, x.b {
 
         a.b R();
 
-        ArrayList<a.InterfaceC0349a> S();
+        ArrayList<a.InterfaceC0350a> S();
 
         void c(String str);
     }
@@ -282,7 +282,7 @@ public class d implements a.d, x, x.a, x.b {
                 ArrayList arrayList = (ArrayList) this.c.S().clone();
                 int size = arrayList.size();
                 for (int i = 0; i < size; i++) {
-                    ((a.InterfaceC0349a) arrayList.get(i)).a(F);
+                    ((a.InterfaceC0350a) arrayList.get(i)).a(F);
                 }
             }
             r.a().e().b(this.c.R());

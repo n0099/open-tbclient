@@ -1,117 +1,90 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes7.dex */
-public class wv7 extends vu7<eq4, PbRecommendNovelHolder> {
+public class wv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bs7 o;
-    public PbRecommendNovelHolder.b p;
+    public ArrayList<aw7> a;
 
-    /* loaded from: classes7.dex */
-    public class a implements PbRecommendNovelHolder.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wv7 a;
-
-        public a(wv7 wv7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wv7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wv7Var;
-        }
-
-        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
-        public void a(eq4 eq4Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, eq4Var) == null) || eq4Var == null) {
-                return;
-            }
-            vy7.a(this.a.o, eq4Var, eq4Var.h0, 6);
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wv7(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    public wv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((gz7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.p = new a(this);
+        this.a = new ArrayList<>();
     }
 
-    @Override // com.repackage.vu7, com.repackage.eo
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        d0(i, view2, viewGroup, (eq4) obj, (PbRecommendNovelHolder) viewHolder);
-        return view2;
+    public ArrayList<aw7> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: c0 */
-    public PbRecommendNovelHolder M(ViewGroup viewGroup) {
+    public final boolean b(ExcContent excContent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.j.getPageContext(), LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d068b, viewGroup, false), this.p) : (PbRecommendNovelHolder) invokeL.objValue;
-    }
-
-    public View d0(int i, View view2, ViewGroup viewGroup, eq4 eq4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, eq4Var, pbRecommendNovelHolder})) == null) {
-            super.S(i, view2, viewGroup, eq4Var, pbRecommendNovelHolder);
-            if (eq4Var == null) {
-                return view2;
-            }
-            eq4Var.h0 = i + 1;
-            vy7.d(this.j.getUniqueId(), this.o, eq4Var, eq4Var.h0, 6);
-            pbRecommendNovelHolder.f(eq4Var);
-            return view2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
+            long longValue = excContent.type.longValue();
+            return longValue == 2 || longValue == 0 || longValue == 1;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void t(bs7 bs7Var) {
+    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
+        dw7 dw7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bs7Var) == null) {
-            this.o = bs7Var;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) || list == null || list.isEmpty()) {
+            return;
+        }
+        loop0: while (true) {
+            dw7Var = null;
+            for (ExcContent excContent : list) {
+                if (excContent != null && excContent.type != null) {
+                    if (b(excContent)) {
+                        zv7 a = cw7.a(tbPageContext, excContent);
+                        if (a == null) {
+                            continue;
+                        } else if (a.a()) {
+                            if (dw7Var != null) {
+                                this.a.add(dw7Var);
+                            }
+                            this.a.add(a);
+                        } else {
+                            if (dw7Var == null) {
+                                dw7Var = new dw7();
+                            }
+                            dw7Var.c(a.b());
+                        }
+                    } else {
+                        if (dw7Var != null) {
+                            this.a.add(dw7Var);
+                        }
+                        this.a.add(cw7.b(excContent));
+                    }
+                }
+            }
+            break loop0;
+        }
+        if (dw7Var != null) {
+            this.a.add(dw7Var);
         }
     }
 }

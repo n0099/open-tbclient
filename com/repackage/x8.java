@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -338,7 +339,7 @@ public final class x8 {
                     if (next != null && (activity = next.get()) != null) {
                         String simpleName = (activity == null || activity.getClass() == null) ? "" : activity.getClass().getSimpleName();
                         if (!StringUtils.isNull(simpleName)) {
-                            sb.append(simpleName + ";");
+                            sb.append(simpleName + ParamableElem.DIVIDE_PARAM);
                         }
                     }
                 }
@@ -358,7 +359,7 @@ public final class x8 {
                             str = "";
                         }
                         if (!StringUtils.isNull(str)) {
-                            sb2.append(str + ";");
+                            sb2.append(str + ParamableElem.DIVIDE_PARAM);
                         }
                     }
                     return sb2.toString();

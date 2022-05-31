@@ -693,16 +693,16 @@ public class CyberVideoView extends FrameLayout implements CyberPlayerManager.On
     }
 
     private void c() {
-        ArrayList<a.C0086a> b;
+        ArrayList<a.C0085a> b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || this.b == null || (b = this.x.b()) == null) {
             return;
         }
         int size = b.size();
         for (int i = 0; i < size; i++) {
-            a.C0086a c0086a = b.get(i);
-            if (c0086a != null && c0086a.a() != null) {
-                this.b.setExternalInfo(c0086a.a(), c0086a.b());
+            a.C0085a c0085a = b.get(i);
+            if (c0085a != null && c0085a.a() != null) {
+                this.b.setExternalInfo(c0085a.a(), c0085a.b());
             }
         }
     }

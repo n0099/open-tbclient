@@ -1,19 +1,16 @@
 package com.repackage;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.forumMember.tbtitle.model.cache.GetLevelInfoReadCacheResponsedMessage;
-import com.baidu.tieba.forumMember.tbtitle.model.req.GetLevelInfoReadCacheRequestMessage;
+import android.graphics.drawable.Drawable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class db6 implements CustomMessageTask.CustomRunnable<Object> {
+public class db6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, Drawable> a;
 
     public db6() {
         Interceptable interceptable = $ic;
@@ -25,27 +22,17 @@ public class db6 implements CustomMessageTask.CustomRunnable<Object> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof GetLevelInfoReadCacheRequestMessage)) {
-                return null;
-            }
-            byte[] a = new cb6().a(((GetLevelInfoReadCacheRequestMessage) customMessage).getCacheKey());
-            GetLevelInfoReadCacheResponsedMessage getLevelInfoReadCacheResponsedMessage = new GetLevelInfoReadCacheResponsedMessage();
-            try {
-                getLevelInfoReadCacheResponsedMessage.decodeInBackGround(2003007, a);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return getLevelInfoReadCacheResponsedMessage;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isEmpty()) {
+            return;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        this.a.clear();
     }
 }

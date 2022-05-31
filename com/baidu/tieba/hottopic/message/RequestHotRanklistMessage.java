@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.CommonReq;
 import tbclient.TopicList.DataReq;
 import tbclient.TopicList.TopicListReqIdl;
@@ -52,13 +52,13 @@ public class RequestHotRanklistMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f1323common = getCommon();
+                builder.f1315common = getCommon();
                 builder.call_from = getCallFrom();
                 builder.list_type = getListType();
                 builder.need_tab_list = getNeedTabList();
                 builder.fid = Long.valueOf(this.fid);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    jd5.a(builder, true);
+                    dc5.a(builder, true);
                 }
                 TopicListReqIdl.Builder builder2 = new TopicListReqIdl.Builder();
                 builder2.data = builder.build(false);

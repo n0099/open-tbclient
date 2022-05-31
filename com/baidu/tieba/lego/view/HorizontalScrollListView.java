@@ -32,13 +32,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kc7;
-import com.repackage.mi;
-import com.repackage.nx5;
-import com.repackage.qd7;
-import com.repackage.sc7;
-import com.repackage.xc7;
-import com.repackage.yi8;
+import com.repackage.eb7;
+import com.repackage.ga7;
+import com.repackage.gw5;
+import com.repackage.la7;
+import com.repackage.li;
+import com.repackage.y97;
+import com.repackage.zf8;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -103,21 +103,21 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             this.k = null;
             this.l = null;
             this.m = null;
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091302);
-            this.c = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0909bd);
-            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091210);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091216);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091218);
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d0f);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0912c4);
+            this.c = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0909a7);
+            this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911d2);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911d8);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911da);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cd3);
             this.f = headImageView;
             headImageView.setGifIconSupport(false);
-            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d16);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09136f);
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091305);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e1f);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09121b);
-            this.l = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091303);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090436);
+            this.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090cda);
+            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091331);
+            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0912c7);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091dc5);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911dd);
+            this.l = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0912c5);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090431);
         }
     }
 
@@ -153,9 +153,9 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a.j)) {
                 return;
             }
-            nx5.b().d(true);
-            sc7.e(this.a.m).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.m);
-            yi8.c(this.b.h, this.a.j);
+            gw5.b().d(true);
+            ga7.e(this.a.m).d(TiebaStatic.Params.OBJ_URL, this.a.j).a(this.a.m);
+            zf8.c(this.b.h, this.a.j);
         }
     }
 
@@ -189,7 +189,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.b.getContext())) {
-                xc7 a = xc7.a();
+                la7 a = la7.a();
                 HorRankCard.a aVar = this.a;
                 a.e(aVar, aVar.f, null, null);
             }
@@ -234,7 +234,7 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
     public final View e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? View.inflate(this.h.getPageActivity(), R.layout.obfuscated_res_0x7f0d019f, null) : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? View.inflate(this.h.getPageActivity(), R.layout.obfuscated_res_0x7f0d019c, null) : (View) invokeV.objValue;
     }
 
     public final void f(View view2, HorRankCard.a aVar, int i, boolean z) {
@@ -243,9 +243,9 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
             return;
         }
         if (z) {
-            view2.setPadding(0, 0, mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701e8), mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
+            view2.setPadding(0, 0, li.f(getContext(), R.dimen.obfuscated_res_0x7f0701e8), li.f(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
         } else {
-            view2.setPadding(0, 0, 0, mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
+            view2.setPadding(0, 0, 0, li.f(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view2.getTag();
         if (this.a) {
@@ -286,15 +286,15 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
                 itemViewHolder.k.setVisibility(0);
                 itemViewHolder.k.setText(String.valueOf(aVar.a));
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                    if (!qd7.a(aVar.l)) {
+                    if (!eb7.a(aVar.l)) {
                         itemViewHolder.k.setBackgroundColor(aVar.l);
                     } else {
-                        SkinManager.setBackgroundColor(itemViewHolder.k, kc7.a[i <= 3 ? i : 3]);
+                        SkinManager.setBackgroundColor(itemViewHolder.k, y97.a[i <= 3 ? i : 3]);
                     }
-                } else if (!qd7.a(aVar.k)) {
+                } else if (!eb7.a(aVar.k)) {
                     itemViewHolder.k.setBackgroundColor(aVar.k);
                 } else {
-                    SkinManager.setBackgroundColor(itemViewHolder.k, kc7.a[i <= 3 ? i : 3]);
+                    SkinManager.setBackgroundColor(itemViewHolder.k, y97.a[i <= 3 ? i : 3]);
                 }
             }
             itemViewHolder.f.setRadius(0);
@@ -333,9 +333,9 @@ public class HorizontalScrollListView extends MyHorizontalScrollView {
         itemViewHolder.f.K(aVar.b, 10, false);
         if (!TextUtils.isEmpty(aVar.c)) {
             RelativeLayout.LayoutParams layoutParams6 = (RelativeLayout.LayoutParams) itemViewHolder.g.getLayoutParams();
-            int f = mi.f(getContext(), R.dimen.obfuscated_res_0x7f070201);
-            int f2 = mi.f(getContext(), R.dimen.obfuscated_res_0x7f0702e9);
-            int f3 = mi.f(getContext(), R.dimen.obfuscated_res_0x7f070263);
+            int f = li.f(getContext(), R.dimen.obfuscated_res_0x7f070201);
+            int f2 = li.f(getContext(), R.dimen.obfuscated_res_0x7f0702e9);
+            int f3 = li.f(getContext(), R.dimen.obfuscated_res_0x7f070263);
             int i3 = ((this.b - f) + this.d) - f2;
             if (i == 0) {
                 i3 = (i3 - f3) + f2;

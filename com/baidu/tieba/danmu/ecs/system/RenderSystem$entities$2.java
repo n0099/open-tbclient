@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.l0;
-import com.repackage.l26;
 import com.repackage.v0;
+import com.repackage.w06;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -45,6 +45,6 @@ public final class RenderSystem$entities$2 extends Lambda implements Function0<v
     public final v0<l0> invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(l26.a.c()) : (v0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(w06.a.c()) : (v0) invokeV.objValue;
     }
 }

@@ -74,12 +74,12 @@ public class da {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                hi.a(byteArrayInputStream, byteArrayOutputStream);
+                gi.a(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
-                jg.d(byteArrayOutputStream);
-                jg.c(byteArrayInputStream);
+                ig.d(byteArrayOutputStream);
+                ig.c(byteArrayInputStream);
             }
         }
         return (byte[]) invokeLII.objValue;
@@ -148,7 +148,7 @@ public class da {
                 if (caVar.d() && eaVar.d > 0) {
                     if (fa.a().b() != null) {
                         try {
-                            byte[] a2 = ui.a(fa.a().b(), eaVar.b, eaVar.c, eaVar.d);
+                            byte[] a2 = si.a(fa.a().b(), eaVar.b, eaVar.c, eaVar.d);
                             eaVar.b = a2;
                             eaVar.c = 0;
                             eaVar.d = a2.length;
@@ -204,7 +204,7 @@ public class da {
                 encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = ui.c(fa.a().b(), encodeInBackGround);
+                encodeInBackGround = si.c(fa.a().b(), encodeInBackGround);
             }
             return ca.i(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         }
@@ -218,12 +218,12 @@ public class da {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                hi.c(byteArrayInputStream, byteArrayOutputStream);
+                gi.c(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
-                jg.d(byteArrayOutputStream);
-                jg.c(byteArrayInputStream);
+                ig.d(byteArrayOutputStream);
+                ig.c(byteArrayInputStream);
             }
         }
         return (byte[]) invokeLII.objValue;

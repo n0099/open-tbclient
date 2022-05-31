@@ -1,27 +1,65 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.ContextWrapper;
-import android.content.SharedPreferences;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.CardForumHeadLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yw extends ContextWrapper {
+public class yw extends mw<om4> {
     public static /* synthetic */ Interceptable $ic;
-    public static yw b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ex a;
+    public CardForumHeadLayout f;
+    public om4 g;
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yw a;
+
+        public a(yw ywVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ywVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ywVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d() == null) {
+                return;
+            }
+            this.a.d().a(view2, this.a.g);
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yw() {
-        super(null);
+    public yw(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,56 +70,42 @@ public class yw extends ContextWrapper {
                 return;
             }
         }
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().e instanceof CardForumHeadLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().e.getParent() == null) {
+            this.f = (CardForumHeadLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().e;
+        } else {
+            this.f = new CardForumHeadLayout(context);
+        }
+        this.f.setAfterClickListener(new a(this));
     }
 
-    public static synchronized yw a() {
+    @Override // com.repackage.mw
+    public View g() {
         InterceptResult invokeV;
-        yw ywVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (yw.class) {
-                if (b == null) {
-                    b = new yw();
-                }
-                ywVar = b;
-            }
-            return ywVar;
-        }
-        return (yw) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    @Override // android.content.ContextWrapper
-    public void attachBaseContext(Context context) {
+    @Override // com.repackage.cx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            super.attachBaseContext(context);
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || (cardForumHeadLayout = this.f) == null) {
+            return;
         }
-    }
-
-    @Override // android.content.ContextWrapper, android.content.Context
-    public SharedPreferences getSharedPreferences(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            if (ox.c(this)) {
-                return ax.a(str, this);
-            }
-            return super.getSharedPreferences(str, i);
-        }
-        return (SharedPreferences) invokeLI.objValue;
+        cardForumHeadLayout.d();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.content.ContextWrapper, android.content.Context
-    public ex getResources() {
-        InterceptResult invokeV;
+    @Override // com.repackage.bx
+    /* renamed from: p */
+    public void a(om4 om4Var) {
+        CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = new ex(super.getResources(), getAssets(), super.getResources().getDisplayMetrics(), super.getResources().getConfiguration());
-            }
-            return this.a;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, om4Var) == null) || (cardForumHeadLayout = this.f) == null || om4Var == null) {
+            return;
         }
-        return (ex) invokeV.objValue;
+        this.g = om4Var;
+        cardForumHeadLayout.setOnClickListener();
+        this.f.setData(om4Var.getThreadData());
     }
 }

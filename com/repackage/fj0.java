@@ -1,35 +1,39 @@
 package com.repackage;
 
-import android.content.pm.PackageInfo;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.IBinder;
+import android.view.View;
+import android.view.Window;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.basic.AdAppStateManager;
-import com.baidu.nadcore.download.consts.AdDownloadAction;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.download.view.AdDownloadDlgView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-/* loaded from: classes6.dex */
-public class fj0 implements lk0 {
+/* loaded from: classes5.dex */
+public class fj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rj0 a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fj0 a;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ Activity b;
 
-        public a(fj0 fj0Var) {
+        public a(AlertDialog alertDialog, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fj0Var};
+                Object[] objArr = {alertDialog, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,113 +43,102 @@ public class fj0 implements lk0 {
                     return;
                 }
             }
-            this.a = fj0Var;
+            this.a = alertDialog;
+            this.b = activity;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                pk0.c(this.a.a.h);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                fj0.a(this.a, this.b);
             }
         }
     }
 
-    public fj0(@NonNull rj0 rj0Var) {
+    public static boolean a(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rj0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
+                return false;
+            }
+            dialog.dismiss();
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(View view2) {
+        InterceptResult invokeL;
+        IBinder windowToken;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 == null || (windowToken = view2.getWindowToken()) == null) {
+                return false;
+            }
+            try {
+                if (windowToken.isBinderAlive()) {
+                    return windowToken.pingBinder();
+                }
+                return false;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
             }
         }
-        this.a = rj0Var;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.lk0
-    public void a(int i, long j, long j2) {
+    public static Dialog c(@NonNull ki0 ki0Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || j < 0 || j2 <= 0 || j > j2) {
-            return;
-        }
-        this.a.i = (float) wy0.a(j, j2);
-        this.a.c = AdDownloadStatus.DOWNLOADING;
-        ej0.b().e(AdDownloadAction.PROGRESS_UPDATE, this.a);
-    }
-
-    @Override // com.repackage.lk0
-    public void b(long j, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, file) == null) {
-            AdDownloadAction adDownloadAction = this.a.c == AdDownloadStatus.PAUSE ? AdDownloadAction.RESUME : AdDownloadAction.START;
-            this.a.l = System.currentTimeMillis();
-            rj0 rj0Var = this.a;
-            rj0Var.c = AdDownloadStatus.DOWNLOADING;
-            rj0Var.h = file;
-            rj0Var.q.d = j;
-            ej0.b().e(adDownloadAction, this.a);
-            hj0.a().update(this.a);
-            hj0.a().c(this.a);
-        }
-    }
-
-    @Override // com.repackage.lk0
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            this.a.c = AdDownloadStatus.PAUSE;
-            ej0.b().e(AdDownloadAction.PAUSE, this.a);
-            yj0.f().h(this.a, "notify_type_pause");
-            hj0.a().c(this.a);
-        }
-    }
-
-    @Override // com.repackage.lk0
-    public void onError() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            rj0 rj0Var = this.a;
-            rj0Var.c = AdDownloadStatus.NONE;
-            rj0Var.i = 0.0f;
-            rj0Var.j = 0.0f;
-            ej0.b().e(AdDownloadAction.FAIL, this.a);
-            yj0.f().h(this.a, "notify_type_stop");
-            hj0.a().c(this.a);
-        }
-    }
-
-    @Override // com.repackage.lk0
-    public void onSuccess(int i) {
-        PackageInfo packageArchiveInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a.m = System.currentTimeMillis();
-            if (TextUtils.isEmpty(this.a.d)) {
-                rj0 rj0Var = this.a;
-                rj0Var.d = pk0.a(rj0Var.h);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, ki0Var, view2, activity, onDismissListener, onShowListener)) == null) {
+            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100131).create();
+            create.setCanceledOnTouchOutside(true);
+            create.setOnDismissListener(onDismissListener);
+            create.setOnShowListener(onShowListener);
+            AdDownloadDlgView adDownloadDlgView = new AdDownloadDlgView(activity);
+            adDownloadDlgView.b(ki0Var);
+            adDownloadDlgView.setDownloadView(view2);
+            adDownloadDlgView.setOnCloseClickListener(new a(create, activity));
+            d(create, activity);
+            Window window = create.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(adDownloadDlgView);
             }
-            if (this.a.h != null && (packageArchiveInfo = ki0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128)) != null) {
-                rj0 rj0Var2 = this.a;
-                rj0Var2.o = packageArchiveInfo.versionName;
-                rj0Var2.n = packageArchiveInfo.versionCode;
-            }
-            AdAppStateManager.instance().register(this.a);
-            rj0 rj0Var3 = this.a;
-            rj0Var3.c = AdDownloadStatus.COMPLETED;
-            rj0Var3.i = 1.0f;
-            rj0Var3.j = 1.0f;
-            ej0.b().e(AdDownloadAction.COMPLETE, this.a);
-            ok0.a().b(this.a);
-            yj0.f().i(this.a);
-            hj0.a().c(this.a);
-            c01.a(new a(this), "ad_auto_install", 3, 1000L);
+            return create;
         }
+        return (Dialog) invokeLLLLL.objValue;
+    }
+
+    public static boolean d(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing()) {
+                return false;
+            }
+            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

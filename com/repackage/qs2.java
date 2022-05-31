@@ -2,15 +2,8 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,45 +11,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.atomic.AtomicInteger;
-import okhttp3.FormBody;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import org.json.JSONException;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public final class qs2 {
+/* loaded from: classes6.dex */
+public class qs2 implements ss2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile qs2 e;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ts2> a;
-    public AtomicInteger b;
-    public CopyOnWriteArrayList<rs2> c;
+    public rs2 a;
+    public SimpleDateFormat b;
+    public HashMap<String, List<ps2>> c;
+    public final Object d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    public long h;
+    public long i;
+    public volatile dt2 j;
 
-    /* loaded from: classes7.dex */
-    public class a extends ResponseCallback {
+    /* loaded from: classes6.dex */
+    public class a implements rs2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ ArrayMap c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ qs2 e;
+        public final /* synthetic */ qs2 a;
 
-        public a(qs2 qs2Var, String str, List list, ArrayMap arrayMap, String str2) {
+        public a(qs2 qs2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qs2Var, str, list, arrayMap, str2};
+                Object[] objArr = {qs2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,84 +56,23 @@ public final class qs2 {
                     return;
                 }
             }
-            this.e = qs2Var;
-            this.a = str;
-            this.b = list;
-            this.c = arrayMap;
-            this.d = str2;
+            this.a = qs2Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // com.repackage.rs2
+        public boolean a(ps2 ps2Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.e.d(this.b);
-                ux1.l("SwanAppUpdateManager", "update request failure: ", exc);
-                n73.z(this.d, -1, exc.toString());
-                z73.b(SwanInterfaceType.UPDATE, 2101, this.d, null, exc.getMessage());
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                String appId = t03.J().getAppId();
-                if (TextUtils.equals(this.a, appId)) {
-                    this.e.s(this.a, response, this.b, this.c);
-                    ux1.k("SwanAppUpdateManager", "response code = " + response.code());
-                    if (!response.isSuccessful()) {
-                        n73.z(this.d, response.code(), response.message());
-                    }
-                    return response;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ps2Var)) == null) {
+                if (ps2Var == null || ps2Var.c() < 0) {
+                    return false;
                 }
-                ux1.k("SwanAppUpdateManager", "invalid response requestAppId:" + this.a + ";currentAppId:" + appId);
-                this.e.d(this.b);
-                qs2.x(this.a);
-                return response;
-            }
-            return invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rs2 a;
-
-        public b(qs2 qs2Var, rs2 rs2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qs2Var, rs2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                if (qs2.k || ps2Var.b() == 0) {
+                    return this.a.o(ps2Var.e());
                 }
+                return false;
             }
-            this.a = rs2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a();
-            }
+            return invokeL.booleanValue;
         }
     }
 
@@ -160,7 +89,7 @@ public final class qs2 {
                 return;
             }
         }
-        d = eh1.a;
+        k = rf1.a;
     }
 
     public qs2() {
@@ -176,576 +105,284 @@ public final class qs2 {
                 return;
             }
         }
-        k();
+        this.d = new Object();
     }
 
-    public static qs2 g() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ts2
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (qs2.class) {
-                    if (e == null) {
-                        e = new qs2();
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            p();
+            u();
+            this.h = j;
+            q("launch start time-" + j);
+        }
+    }
+
+    @Override // com.repackage.ts2
+    public void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.g = true;
+            this.i = j;
+            v(k());
+            q("launch end time-" + (this.h + this.i));
+        }
+    }
+
+    @Override // com.repackage.ss2
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && us2.j().m()) {
+            p();
+            if (this.f) {
+                q("aiapp start finish");
+                return;
+            }
+            q("ubcReport enter");
+            if (jSONObject != null && jSONObject.length() > 0) {
+                String m = m(jSONObject);
+                q("Id " + m);
+                if (TextUtils.equals(m, "786")) {
+                    if (k) {
+                        Log.d("ApiCalledMarker", jSONObject.toString());
                     }
-                }
-            }
-            return e;
-        }
-        return (qs2) invokeV.objValue;
-    }
-
-    public static void x(String str) {
-        u03 a0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, str) == null) || (a0 = u03.a0()) == null) {
-            return;
-        }
-        nc3 nc3Var = new nc3();
-        nc3Var.k(5L);
-        nc3Var.i(53L);
-        v73 v73Var = new v73();
-        v73Var.p(nc3Var);
-        v73Var.r(a0.V());
-        v73Var.q(n73.n(a0.l()));
-        v73Var.m(a0.getAppId());
-        v73Var.a("requestAppId", str);
-        n73.R(v73Var);
-    }
-
-    public final void A(@NonNull List<ts2> list, @NonNull ArrayMap<String, String> arrayMap) {
-        u03 L;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, list, arrayMap) == null) || list.size() == 0 || (L = u03.L()) == null) {
-            return;
-        }
-        String q = L.d0().q("update_nodes_version", "");
-        JSONObject jSONObject = new JSONObject();
-        if (!TextUtils.isEmpty(q)) {
-            try {
-                jSONObject = new JSONObject(q);
-            } catch (JSONException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-        for (ts2 ts2Var : list) {
-            String str = arrayMap.get(ts2Var.a());
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            try {
-                if (d) {
-                    Log.d("SwanAppUpdateManager", "updateNodeVersions: update node => " + ts2Var.a() + " , version => " + str);
-                }
-                jSONObject.put(ts2Var.a(), str);
-            } catch (JSONException e3) {
-                if (d) {
-                    e3.printStackTrace();
-                }
-            }
-        }
-        L.d0().B("update_nodes_version", jSONObject.toString());
-    }
-
-    @Nullable
-    public final JSONObject c(@NonNull List<ts2> list, @NonNull ArrayMap<String, String> arrayMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, arrayMap)) == null) {
-            if (list.size() == 0) {
-                return null;
-            }
-            String N = t03.J().r().N();
-            if (TextUtils.isEmpty(N)) {
-                return null;
-            }
-            String T = u03.L().X().T();
-            if (TextUtils.isEmpty(T)) {
-                T = "NA";
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ma_id", N);
-                jSONObject.put("source", T);
-            } catch (JSONException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-            for (ts2 ts2Var : list) {
-                try {
-                    JSONObject jSONObject2 = new JSONObject();
-                    String str = arrayMap.containsKey(ts2Var.a()) ? arrayMap.get(ts2Var.a()) : "";
-                    if (d) {
-                        Log.d("SwanAppUpdateManager", "buildRequestParams: node => " + ts2Var.a() + " , version => " + str);
-                    }
-                    jSONObject2.put("version", str);
-                    jSONObject.put(ts2Var.a(), jSONObject2);
-                } catch (JSONException e3) {
-                    if (d) {
-                        e3.printStackTrace();
-                    }
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public final void d(@NonNull List<ts2> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            if (d) {
-                Log.d("SwanAppUpdateManager", "doRequestFail: ");
-            }
-            n(list);
-            o(false);
-        }
-    }
-
-    public final void e(String str, @NonNull JSONObject jSONObject, @NonNull List<ts2> list, @NonNull ArrayMap<String, String> arrayMap, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, str, jSONObject, list, arrayMap, str2) == null) {
-            if (d) {
-                Log.d("SwanAppUpdateManager", "doRequestSuccess: start");
-            }
-            t();
-            boolean z = false;
-            for (ts2 ts2Var : list) {
-                JSONObject optJSONObject = jSONObject.optJSONObject(ts2Var.a());
-                if (optJSONObject == null) {
-                    ts2Var.b();
-                } else if (!TextUtils.equals(optJSONObject.optString("errno"), "0")) {
-                    ts2Var.b();
-                } else {
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("data");
-                    if (optJSONObject2 == null) {
-                        ts2Var.c();
-                    } else {
-                        if (d) {
-                            Log.d("SwanAppUpdateManager", "doRequestSuccess: node => " + ts2Var.a() + " update");
-                        }
-                        ts2Var.d(str, optJSONObject2, str2);
-                        String optString = optJSONObject.optString("version", "");
-                        if (!TextUtils.isEmpty(optString)) {
-                            if (d) {
-                                Log.d("SwanAppUpdateManager", "doRequestSuccess: " + ts2Var.a() + " update , version " + optString);
+                    JSONObject l = l(jSONObject);
+                    if (l != null && l.length() > 0) {
+                        JSONObject optJSONObject = l.optJSONObject("ext");
+                        if (optJSONObject != null && optJSONObject.length() > 0) {
+                            if (TextUtils.isEmpty(this.e)) {
+                                this.e = optJSONObject.optString("swan");
+                                q("current swan version " + this.e);
                             }
-                            arrayMap.put(ts2Var.a(), optString);
-                            z = true;
+                            JSONArray optJSONArray = optJSONObject.optJSONArray("list");
+                            if (optJSONArray != null && optJSONArray.length() > 0) {
+                                s(optJSONArray);
+                                q("ubcReport over");
+                                v(k());
+                                return;
+                            }
+                            q("value-ext-list is empty");
+                            return;
+                        }
+                        q("value-ext is empty");
+                        return;
+                    }
+                    q("value is empty");
+                    return;
+                }
+                return;
+            }
+            q("json data is empty");
+        }
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.g && this.b != null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("----- ");
+                sb.append("launch start time ");
+                sb.append(this.b.format(Long.valueOf(this.h)));
+                sb.append("\n");
+                sb.append("----- ");
+                sb.append("launch end time ");
+                sb.append(this.b.format(Long.valueOf(this.h + this.i)));
+                sb.append("\n");
+                sb.append("----- ");
+                sb.append("swan js version ");
+                sb.append(this.e);
+                sb.append("\n");
+                synchronized (this.d) {
+                    i = 0;
+                    i2 = 0;
+                    for (Map.Entry<String, List<ps2>> entry : this.c.entrySet()) {
+                        List<ps2> value = entry.getValue();
+                        if (value != null && value.size() > 0) {
+                            StringBuilder sb2 = new StringBuilder();
+                            int i3 = 0;
+                            for (ps2 ps2Var : value) {
+                                if (this.a == null || this.a.a(ps2Var)) {
+                                    sb2.append("----- start time ");
+                                    sb2.append(this.b.format(Long.valueOf(ps2Var.e())));
+                                    sb2.append("\n");
+                                    sb2.append("----- end time ");
+                                    sb2.append(this.b.format(Long.valueOf(ps2Var.d())));
+                                    sb2.append("\n");
+                                    sb2.append("----- cost time ");
+                                    sb2.append(ps2Var.c());
+                                    sb2.append("ms\n");
+                                    sb2.append("----------------------------\n");
+                                    i2++;
+                                    i3++;
+                                }
+                            }
+                            if (i3 > 0) {
+                                sb.append("\n===== ");
+                                sb.append(entry.getKey());
+                                sb.append(" ");
+                                sb.append(i3);
+                                sb.append(" times\n");
+                                sb.append((CharSequence) sb2);
+                                i++;
+                            }
                         }
                     }
                 }
+                sb.append("===== total: ");
+                sb.append(i);
+                sb.append(" apis, ");
+                sb.append(i2);
+                sb.append(" times");
+                String sb3 = sb.toString();
+                hw1.b("ApiCalledMarker", sb3);
+                return sb3;
             }
-            if (z) {
-                A(list, arrayMap);
-            }
-            o(true);
+            return "";
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void f(@NonNull List<ts2> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            if (list.size() == 0) {
-                ux1.k("SwanAppUpdateManager", "doUpdate: finish => nodes are empty");
-                p();
-                return;
-            }
-            if (d) {
-                Log.d("SwanAppUpdateManager", "doUpdate: start => nodes size " + list.size());
-            }
-            if (this.b.incrementAndGet() > 1) {
-                ux1.k("SwanAppUpdateManager", "doUpdate: pending => wait previous request");
-                return;
-            }
-            ArrayMap<String, String> i = i(this.a);
-            JSONObject c = c(list, i);
-            if (c == null) {
-                ux1.k("SwanAppUpdateManager", "doUpdate: finish => build params is null");
-                p();
-                return;
-            }
-            if (d) {
-                Log.w("SwanAppUpdateManager", "doUpdate: start to request update data");
-            }
-            FormBody build = new FormBody.Builder().add("data", c.toString()).build();
-            String b2 = bk2.o().b();
-            ux1.k("SwanAppUpdateManager", "appId =" + t03.J().getAppId() + ", update url = " + b2 + ",body=" + c);
-            j(t03.J().getAppId(), b2, build, list, i);
-        }
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (t03.J().D()) {
-                return t03.J().r().d0().n(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, 0L);
-            }
-            return System.currentTimeMillis();
-        }
-        return invokeV.longValue;
-    }
-
-    @NonNull
-    public final ArrayMap<String, String> i(@NonNull List<ts2> list) {
+    public final JSONObject l(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, list)) == null) {
-            ArrayMap<String, String> arrayMap = new ArrayMap<>();
-            if (list.size() == 0) {
-                return arrayMap;
-            }
-            for (ts2 ts2Var : list) {
-                arrayMap.put(ts2Var.a(), "");
-            }
-            u03 L = u03.L();
-            if (L == null) {
-                return arrayMap;
-            }
-            String q = L.d0().q("update_nodes_version", "");
-            if (TextUtils.isEmpty(q)) {
-                return arrayMap;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(q);
-                for (ts2 ts2Var2 : list) {
-                    arrayMap.put(ts2Var2.a(), jSONObject.optString(ts2Var2.a(), ""));
-                }
-            } catch (JSONException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-            return arrayMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("content");
+            return optJSONObject == null ? jSONObject.optJSONObject("value") : optJSONObject;
         }
-        return (ArrayMap) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public final void j(String str, String str2, RequestBody requestBody, List<ts2> list, ArrayMap<String, String> arrayMap) {
+    public final String m(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, str2, requestBody, list, arrayMap) == null) {
-            v74 v74Var = new v74(str2, requestBody, new a(this, str, list, arrayMap, str2));
-            v74Var.f = true;
-            v74Var.g = true;
-            v74Var.h = false;
-            v74Var.k = 20;
-            w74.g().e(v74Var);
-            z73.a(SwanInterfaceType.UPDATE);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONObject)) == null) {
+            String optString = jSONObject.optString("ubcId");
+            return TextUtils.isEmpty(optString) ? jSONObject.optString("actionId") : optString;
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void k() {
+    public final void n(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            l();
-            this.b = new AtomicInteger(0);
-            this.c = new CopyOnWriteArrayList<>();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            arrayList.add(new ss2());
-            this.a.add(new us2());
-        }
-    }
-
-    public final boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            long h = h();
-            if (h <= 0) {
-                return true;
-            }
-            return System.currentTimeMillis() - h > cd4.b(t03.J().getAppId());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void n(@NonNull List<ts2> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            for (ts2 ts2Var : list) {
-                ts2Var.b();
-            }
-        }
-    }
-
-    public final void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            if (d) {
-                Log.d("SwanAppUpdateManager", "onRequestFinish: request finish");
-            }
-            if (this.b.decrementAndGet() > 0) {
-                if (d) {
-                    Log.d("SwanAppUpdateManager", "onRequestFinish: do pending request");
-                }
-                this.b.set(0);
-                if (!z) {
-                    update();
-                    return;
-                } else {
-                    p();
-                    return;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) && this.j == null) {
+            synchronized (this.d) {
+                if (this.j == null) {
+                    this.j = jSONObject.has("caller") ? new ct2() : new bt2();
                 }
             }
-            p();
         }
+    }
+
+    public final boolean o(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            long j2 = this.h;
+            return j >= j2 && j <= j2 + this.i;
+        }
+        return invokeJ.booleanValue;
     }
 
     public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (d) {
-                Log.d("SwanAppUpdateManager", "onUpdateFinish: real finish update");
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.c == null) {
+            synchronized (this.d) {
+                if (this.c == null) {
+                    this.c = new HashMap<>();
+                    this.b = new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault());
+                    this.a = new a(this);
+                }
             }
-            this.b.set(0);
-            Iterator<rs2> it = this.c.iterator();
-            while (it.hasNext()) {
-                s53.l(new b(this, it.next()));
-            }
-            this.c.clear();
         }
     }
 
-    public void q(@NonNull c93 c93Var, @NonNull JSONObject jSONObject) {
-        int length;
-        JSONObject jSONObject2;
+    public final void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, c93Var, jSONObject) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (d) {
-                Log.d("SwanAppUpdateManager", "parse increment accredit node start");
-            }
-            String string = c93Var.getString("node_data_accredit_list", "");
-            ux1.k("SwanAppUpdateManager", "prefName: " + c93Var.h() + ",cacheData is Empty = " + TextUtils.isEmpty(string) + ":accreditNodeObj=" + jSONObject);
-            if (TextUtils.isEmpty(string)) {
-                JSONObject jSONObject3 = new JSONObject();
-                ud3.f(jSONObject3, "list", jSONObject);
-                String jSONObject4 = jSONObject3.toString();
-                c93Var.putString("node_data_accredit_list", jSONObject4);
-                c93Var.putString("cur_request_id", "pkgInfo:" + System.currentTimeMillis());
-                if (d) {
-                    Log.d("SwanAppUpdateManager", "local has no cache data, write directly. pending data = " + jSONObject4);
-                }
-            } else {
-                HashMap<String, JSONObject> r = r(jSONObject);
-                if (r != null && r.size() != 0) {
-                    JSONObject d2 = ud3.d(string);
-                    JSONObject optJSONObject = d2.optJSONObject("list");
-                    if (optJSONObject == null) {
-                        ud3.f(d2, "list", jSONObject);
-                        c93Var.putString("node_data_accredit_list", d2.toString());
-                        c93Var.putString("cur_request_id", "pkgInfo:" + System.currentTimeMillis());
-                        ux1.k("SwanAppUpdateManager", "local has cache data, but list node is empty");
-                        return;
-                    }
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!TextUtils.isEmpty(next) && (jSONObject2 = r.get(next)) != null) {
-                            ud3.f(optJSONObject, next, jSONObject2);
-                        }
-                    }
-                    ud3.f(d2, "list", optJSONObject);
-                    c93Var.putString("node_data_accredit_list", d2.toString());
-                    String string2 = c93Var.getString("cur_request_id", "");
-                    if (!TextUtils.isEmpty(string2) && (length = string2.length()) > 100) {
-                        string2 = string2.substring(length - 100);
-                    }
-                    c93Var.putString("cur_request_id", string2 + ";merge:" + System.currentTimeMillis());
-                    ux1.k("SwanAppUpdateManager", "prefName: " + c93Var.h() + ",mergeAccredit = " + d2);
-                } else {
-                    ux1.k("SwanAppUpdateManager", "local has cache data, but pending data is empty");
-                    return;
-                }
-            }
-            if (d) {
-                Log.d("SwanAppUpdateManager", "parse increment accredit node end, cost = " + (System.currentTimeMillis() - currentTimeMillis));
-            }
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && k) {
+            Log.d("ApiCalledMarker", str);
         }
     }
 
-    public final HashMap<String, JSONObject> r(@NonNull JSONObject jSONObject) {
+    public final boolean r(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) ? this.g && j > this.h + this.i : invokeJ.booleanValue;
+    }
+
+    public final void s(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, jSONArray) == null) {
+            q("start parse api info");
+            int length = jSONArray.length();
+            boolean z = length > 0;
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null && optJSONObject.length() > 0 && optJSONObject.optInt("success") == 1) {
+                    z &= !t(optJSONObject);
+                }
+            }
+            this.f = z;
+            q("start done " + this.f);
+        }
+    }
+
+    public final boolean t(JSONObject jSONObject) {
         InterceptResult invokeL;
-        JSONObject optJSONObject;
+        List<ps2> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, jSONObject)) == null) {
-            HashMap<String, JSONObject> hashMap = new HashMap<>();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next) && (optJSONObject = jSONObject.optJSONObject(next)) != null) {
-                    hashMap.put(next, optJSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, jSONObject)) == null) {
+            n(jSONObject);
+            String optString = jSONObject.optString("apiName");
+            if (TextUtils.isEmpty(optString) || (a2 = this.j.a(jSONObject)) == null || a2.size() <= 0) {
+                return true;
+            }
+            boolean z = a2.size() > 0;
+            synchronized (this.d) {
+                List<ps2> list = this.c.get(optString);
+                if (list == null) {
+                    list = new ArrayList<>();
+                    this.c.put(optString, list);
+                }
+                list.addAll(a2);
+                for (ps2 ps2Var : a2) {
+                    z &= r(ps2Var.e());
                 }
             }
-            return hashMap;
+            if (k) {
+                Log.d("ApiCalledMarker", "api - " + optString + ", all after fmp - " + z);
+            }
+            return !z;
         }
-        return (HashMap) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void s(String str, Response response, @NonNull List<ts2> list, @NonNull ArrayMap<String, String> arrayMap) {
+    public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048592, this, str, response, list, arrayMap) == null) {
-            if (d) {
-                Log.d("SwanAppUpdateManager", "onResponse: update request return");
-            }
-            String str2 = null;
-            if (!response.isSuccessful()) {
-                d(list);
-                z73.c(SwanInterfaceType.UPDATE, 2104, null, response);
-                return;
-            }
-            ResponseBody body = response.body();
-            if (body == null) {
-                d(list);
-                z73.c(SwanInterfaceType.UPDATE, 2103, null, response);
-                return;
-            }
-            try {
-                str2 = body.string();
-            } catch (IOException e2) {
-                if (d) {
-                    e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.c.size() > 0) {
+                synchronized (this.d) {
+                    this.c.clear();
                 }
             }
-            ux1.k("SwanAppUpdateManager", "response body = " + str2);
-            if (TextUtils.isEmpty(str2)) {
-                d(list);
-                z73.c(SwanInterfaceType.UPDATE, 2103, str2, response);
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str2);
-                if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
-                    d(list);
-                    z73.c(SwanInterfaceType.UPDATE, jSONObject.optInt("errno", 2103), str2, response);
-                    return;
-                }
-                String optString = jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "");
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                ux1.k("SwanAppUpdateManager", "request_id = " + optString);
-                if (optJSONObject == null) {
-                    d(list);
-                } else {
-                    e(str, optJSONObject, list, arrayMap, optString);
-                }
-            } catch (JSONException e3) {
-                if (d) {
-                    e3.printStackTrace();
-                }
-                d(list);
-                z73.c(SwanInterfaceType.UPDATE, 2103, str2, response);
-            }
+            this.f = false;
+            this.g = false;
+            this.i = 0L;
+            this.h = 0L;
+            this.e = null;
+            v("===== loading... =====");
         }
     }
 
-    public final void t() {
+    public final void v(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && t03.J().D()) {
-            t03.J().r().d0().A(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, System.currentTimeMillis());
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            if (d) {
-                Log.d("SwanAppUpdateManager", "release: ");
-            }
-            if (e == null) {
-                return;
-            }
-            this.c.clear();
-            e = null;
-        }
-    }
-
-    public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            update(null);
-        }
-    }
-
-    public void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            if (t03.J().D()) {
-                t03.J().r().d0().D(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME);
-            }
-            y();
-        }
-    }
-
-    public void w(ts2 ts2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, ts2Var) == null) {
-            if (ts2Var == null) {
-                if (d) {
-                    Log.w("SwanAppUpdateManager", "resetNodeVersion: node is null");
-                    return;
-                }
-                return;
-            }
-            if (d) {
-                Log.d("SwanAppUpdateManager", "resetNodeVersion: " + ts2Var.a());
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(ts2Var);
-            ArrayMap<String, String> arrayMap = new ArrayMap<>();
-            arrayMap.put(ts2Var.a(), "");
-            A(arrayList, arrayMap);
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            boolean m = t03.J().r().d0().m("swan_service_update_degraded", false);
-            ux1.i("SwanAppUpdateManager", "tryUpdate, isServiceDegraded = " + m);
-            if (m) {
-                return;
-            }
-            z(null);
-        }
-    }
-
-    public void z(@Nullable rs2 rs2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, rs2Var) == null) {
-            if (m()) {
-                if (d) {
-                    Log.d("SwanAppUpdateManager", "tryUpdate: start => cache data invalid");
-                }
-                update(rs2Var);
-                return;
-            }
-            if (d) {
-                Log.d("SwanAppUpdateManager", "tryUpdate: finish => cache data valid");
-            }
-            if (rs2Var != null) {
-                rs2Var.a();
-            }
-        }
-    }
-
-    public void update(@Nullable rs2 rs2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, rs2Var) == null) {
-            if (rs2Var != null) {
-                this.c.add(rs2Var);
-            }
-            f(this.a);
-        }
+        db3.j.update((cb3<String>) str);
     }
 }

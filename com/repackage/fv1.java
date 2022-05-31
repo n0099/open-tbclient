@@ -1,19 +1,20 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class fv1 extends au1 {
+public final class fv1 extends tu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kv1 a;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fv1() {
+        super(NativeConstants.ID_BUTTON, "buttonId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,26 +22,25 @@ public class fv1 extends au1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.au1
-    public void a(bu1 bu1Var, Canvas canvas) {
-        kv1 kv1Var;
+    @Override // com.repackage.tu1, com.repackage.vu1, com.repackage.xu1, com.repackage.gp2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) && (kv1Var = this.a) != null && kv1Var.a()) {
-            bu1Var.i = this.a;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.au1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            this.a = new kv1(jSONArray);
+        super.a(jSONObject);
+        JSONObject jSONObject2 = this.j;
+        if (jSONObject2 != null) {
+            this.y = yc3.g((float) jSONObject2.optDouble("lineHeight", 0.0d));
         }
     }
 }

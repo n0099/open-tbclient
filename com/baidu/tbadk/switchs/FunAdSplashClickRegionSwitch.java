@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iu4;
 import com.repackage.xe;
+import com.repackage.ys4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class FunAdSplashClickRegionSwitch extends xe {
@@ -37,7 +37,7 @@ public class FunAdSplashClickRegionSwitch extends xe {
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? iu4.k().l("pref_key_fun_ad_splash_click_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ys4.k().l("pref_key_fun_ad_splash_click_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // com.repackage.xe

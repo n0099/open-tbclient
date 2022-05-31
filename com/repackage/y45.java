@@ -1,43 +1,34 @@
 package com.repackage;
 
+import android.app.ActivityManager;
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.os.Process;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class y45 extends r45 {
+public class y45 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
-    public static final int l;
-    public static final int m;
-    public static final int n;
+    public static final ArrayList<String> a;
+    public static String b;
+    public static String c;
+    public static boolean d;
+    public static String e;
+    public static String f;
+    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public TextView b;
-    public TextView c;
-    public TBSpecificationBtn d;
-    public LinearLayout e;
-    public int f;
-    public int g;
-    public int h;
-    public boolean i;
 
     static {
         InterceptResult invokeClinit;
@@ -52,265 +43,188 @@ public class y45 extends r45 {
                 return;
             }
         }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds312);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds84);
-        l = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds62);
-        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds32);
-        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20);
+        a = new ArrayList<>();
+        d = false;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y45(Context context, View.OnClickListener onClickListener) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05e4, (ViewGroup) null));
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!d) {
+                r(context);
             }
+            return d;
         }
-        this.a = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091555);
-        this.b = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091554);
-        this.c = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091557);
-        this.e = (LinearLayout) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091556);
-        this.d = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091553);
-        xu4 xu4Var = new xu4();
-        this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0f83));
-        this.d.setTextSize(R.dimen.T_X05);
-        this.d.setConfig(xu4Var);
-        this.f = R.drawable.new_pic_emotion_08;
-        this.g = R.color.CAM_X0107;
-        this.h = R.color.CAM_X0109;
-        this.d.setOnClickListener(onClickListener);
-        this.attachedView.setOnClickListener(null);
-        l(0);
+        return invokeL.booleanValue;
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.d.getVisibility() == 0) {
-                ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    marginLayoutParams.topMargin = k;
-                    this.e.setLayoutParams(marginLayoutParams);
-                }
-                this.b.setVisibility(this.i || (this.b.getText() != null && this.b.getText().length() > 0) ? 0 : 8);
-                this.g = R.color.CAM_X0107;
-            } else if (this.b.getVisibility() == 8) {
-                ViewGroup.LayoutParams layoutParams2 = this.e.getLayoutParams();
-                if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
-                    marginLayoutParams2.topMargin = k;
-                    this.e.setLayoutParams(marginLayoutParams2);
-                }
-                this.g = R.color.CAM_X0107;
-            } else if (this.c.getVisibility() == 0) {
-                ViewGroup.LayoutParams layoutParams3 = this.e.getLayoutParams();
-                if (layoutParams3 instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams3 = (ViewGroup.MarginLayoutParams) layoutParams3;
-                    marginLayoutParams3.topMargin = m;
-                    this.e.setLayoutParams(marginLayoutParams3);
-                }
-                ViewGroup.LayoutParams layoutParams4 = this.c.getLayoutParams();
-                if (layoutParams4 instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams4 = (ViewGroup.MarginLayoutParams) layoutParams4;
-                    marginLayoutParams4.topMargin = n;
-                    this.c.setLayoutParams(marginLayoutParams4);
-                }
-                this.g = R.color.CAM_X0107;
-                this.h = R.color.CAM_X0109;
-            } else {
-                ViewGroup.LayoutParams layoutParams5 = this.a.getLayoutParams();
-                int i = j;
-                layoutParams5.width = i;
-                layoutParams5.height = i;
-                this.a.setLayoutParams(layoutParams5);
-                ViewGroup.LayoutParams layoutParams6 = this.e.getLayoutParams();
-                if (layoutParams6 instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams5 = (ViewGroup.MarginLayoutParams) layoutParams6;
-                    marginLayoutParams5.topMargin = l;
-                    this.e.setLayoutParams(marginLayoutParams5);
-                }
-                this.h = R.color.CAM_X0109;
-            }
-            onChangeSkinType();
-        }
-    }
-
-    public View b() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.attachedView : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e : (String) invokeV.objValue;
     }
 
-    public View c() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                b = d(TbadkCoreApplication.getInst().getApp());
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public TextView d() {
+    public static String d(Context context) {
+        InterceptResult invokeL;
+        ActivityManager activityManager;
+        List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (context == null || (activityManager = (ActivityManager) context.getSystemService("activity")) == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
+                return null;
+            }
+            int myPid = Process.myPid();
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f : (String) invokeV.objValue;
     }
 
-    public void e() {
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.d.setVisibility(8);
-            this.c.setVisibility(8);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0109, 1);
-            a();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? g : (String) invokeV.objValue;
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            String packageName = TbadkCoreApplication.getInst().getPackageName();
+            String str = packageName + ":swan";
+            c = str;
+            a.clear();
+            a.add(packageName);
+            a.add(packageName + ":remote");
+            a.add(packageName + ":cdnTachometer");
+            a.add(packageName + ":daemon");
+            a.add(packageName + ":third");
+            a.add(packageName + ":pluginInstaller");
+            a.add(packageName + ":xiaoying");
+            a.add(packageName + ":media");
+            a.add(packageName + ":kmyas__");
+            a.add(packageName + ":guardService");
+            a.add(packageName + ":warkup");
+            a.add(str);
+            a.add(packageName + ":bdservice_v1");
+            a.add(packageName + ":live");
+            m("initProcess-->CurrentProcessName=" + c());
         }
     }
 
-    public void f(int i) {
+    public static boolean h(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            SkinManager.setBackgroundColor(this.attachedView, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return str != null && str.equalsIgnoreCase(c());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? j(c()) : invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:10:0x0018  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            Iterator<String> it = a.iterator();
+            while (it.hasNext()) {
+                if (str.equalsIgnoreCase(it.next()) || str.toLowerCase().startsWith(c)) {
+                    return true;
+                }
+                while (it.hasNext()) {
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? d : invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? h(TbadkCoreApplication.getInst().getPackageName()) : invokeV.booleanValue;
+    }
+
+    public static void m(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, str) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
+            Log.e("MutiProcess", str);
         }
     }
 
-    public void g(String str) {
+    public static void n(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || str == null) {
+        if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
+            e = str;
+        }
+    }
+
+    public static void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65551, null, z) == null) {
+            d = z;
+        }
+    }
+
+    public static void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
+            f = str;
+        }
+    }
+
+    public static void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+            g = str;
+        }
+    }
+
+    public static void r(Context context) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65554, null, context) == null) || context == null) {
             return;
         }
-        this.d.setText(str);
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.f = i;
-            SkinManager.setImageResource(this.a, i);
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = i;
-                this.a.setLayoutParams(marginLayoutParams);
-            }
-        }
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            int i2 = mi.i(TbadkCoreApplication.getInst());
-            int dimensionPixelSize = i2 <= 0 ? TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds200) : (int) (i2 * 0.16d);
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = dimensionPixelSize + i;
-                this.a.setLayoutParams(marginLayoutParams);
-            }
-        }
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            if (str == null) {
-                this.b.setVisibility(8);
-            } else {
-                this.b.setVisibility(0);
-                this.b.setText(str);
-            }
-            a();
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || str == null) {
-            return;
-        }
-        this.c.setText(str);
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, str) == null) || str == null) {
-            return;
-        }
-        this.c.setText(str);
-        this.c.setVisibility(0);
-        a();
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            SkinManager.setImageResource(this.a, this.f);
-            SkinManager.setViewTextColor(this.b, this.h, 1, skinType);
-            SkinManager.setViewTextColor(this.c, this.g, 1, skinType);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
-            }
-        }
-    }
-
-    @Override // com.repackage.r45
-    public void onViewAttached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
-        }
-    }
-
-    @Override // com.repackage.r45
-    public void onViewDettached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            super.onViewDettached();
-            this.a.setImageResource(0);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.d.setVisibility(0);
-            this.c.setVisibility(0);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0109, 1);
-            a();
-        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true)));
     }
 }

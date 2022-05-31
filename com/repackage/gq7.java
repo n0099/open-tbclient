@@ -1,68 +1,76 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.os.CountDownTimer;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.ejection.value.Direction;
+import com.baidu.tieba.pb.ejection.value.LifeCycleState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.NewTopicList;
+import java.util.Random;
 /* loaded from: classes6.dex */
-public class gq7 implements ro {
+public abstract class gq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public int a;
     public int b;
-    public String c;
-    public String d;
-    public long e;
-    public String f;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
     public int g;
-    public int h;
+    public float h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public float m;
+    public Direction n;
+    public Direction o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public Paint u;
+    public LifeCycleState v;
+    public CountDownTimer w;
+    public Random x;
+    public int y;
 
-    public gq7(@NonNull NewTopicList newTopicList, int i) {
+    public gq7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {newTopicList, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = i + 1;
-        this.c = newTopicList.topic_name;
-        this.d = newTopicList.topic_desc;
-        this.e = newTopicList.discuss_num.longValue();
-        this.f = newTopicList.topic_image;
-        this.g = newTopicList.topic_tag.intValue();
-        this.a = newTopicList.topic_id.longValue();
-        this.h = newTopicList.is_video_topic.intValue();
+        this.g = 255;
+        this.h = 2.0f;
+        this.i = 0;
+        this.j = 0;
+        this.k = 90;
+        this.l = 0;
+        this.m = -0.4f;
+        this.n = Direction.TOP;
+        this.o = Direction.RIGHT;
+        this.t = 0;
+        this.v = LifeCycleState.ACTIVE;
+        this.u = new Paint(1);
+        this.x = new Random();
+        this.y = TbadkCoreApplication.getInst().getSkinType();
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.intValue;
-    }
+    public abstract void a();
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h == 1 : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.ro
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? fq7.a : (BdUniqueId) invokeV.objValue;
-    }
+    public abstract void b(Canvas canvas);
 }

@@ -1,137 +1,73 @@
 package com.repackage;
 
-import android.os.Process;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.StringUtils;
+import android.util.Pair;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.searchbox.retrieve.log.bean.FetchLog;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
-import com.baidu.tieba.VideoPlatformStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.MyEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bm7 implements am7 {
+public class bm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long A;
-    public long B;
-    public long C;
-    public boolean D;
-    public boolean E;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public int i;
-    public List<x78> j;
-    public Map<String, Long> k;
-    public long l;
-    public long m;
-    public long n;
-    public long o;
-    public long p;
-    public ArrayList<Integer> q;
-    public boolean r;
-    public boolean s;
-    public boolean t;
-    public boolean u;
-    public int v;
-    public boolean w;
-    public String x;
-    public List<ul7> y;
-    public int z;
+    public BdListView a;
+    public MyEmotionHorizontalAdater b;
+    public List<EmotionPackageData> c;
+    public final List<a> d;
+    public gm7 e;
+    public zl7 f;
 
     /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bm7 a;
+        public int a;
+        public int b;
+        public int c;
 
-        public a(bm7 bm7Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bm7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = bm7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x0070  */
-        /* JADX WARN: Removed duplicated region for block: B:30:? A[RETURN, SYNTHETIC] */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
+        public String toString() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) != null) {
-                return (Void) invokeL.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.c;
             }
-            int b = vy4.b();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("baseInfo", this.a.s());
-                jSONObject.put("kpiInfo", this.a.u());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (b != 0 && (b != 4 || !this.a.s)) {
-                if (b == 2) {
-                    jSONObject.put("debugInfo", this.a.t());
-                }
-                wq8.h().k(jSONObject, !this.a.s);
-                if (this.a.y == null) {
-                    this.a.y.clear();
-                    return null;
-                }
-                return null;
-            }
-            JSONObject t = this.a.t();
-            t.put("running", this.a.w());
-            jSONObject.put("debugInfo", t);
-            wq8.h().k(jSONObject, !this.a.s);
-            if (this.a.y == null) {
-            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public bm7(String str, String str2, String str3) {
+    public bm7(TbPageContext<?> tbPageContext, BdListView bdListView, zl7 zl7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {tbPageContext, bdListView, zl7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -141,411 +77,83 @@ public class bm7 implements am7 {
                 return;
             }
         }
-        this.a = 0;
-        this.s = true;
-        this.t = false;
-        this.u = false;
-        this.D = false;
-        this.E = false;
-        this.a = 0;
-        this.b = UUID.randomUUID().toString();
-        this.c = str;
-        this.d = str2;
-        this.g = str3;
-        this.k = new HashMap();
-        this.j = new ArrayList();
-        this.l = 0L;
-        this.m = 0L;
-        this.n = 0L;
-        this.q = new ArrayList<>();
-        B();
+        this.a = bdListView;
+        gm7 gm7Var = new gm7(tbPageContext);
+        this.e = gm7Var;
+        gm7Var.b(TbadkCoreApplication.getInst().getSkinType());
+        this.a.addHeaderView(this.e.a());
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.c, this.d, tbPageContext);
+        this.b = myEmotionHorizontalAdater;
+        this.f = zl7Var;
+        this.a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
     }
 
-    public void A() {
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.w) {
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || i < 0 || i >= this.c.size() || i2 < 0 || i2 >= this.c.size()) {
             return;
         }
-        x();
-        int b = vy4.b();
-        if ((vy4.c() || !this.s) && b != 3) {
-            this.w = true;
-            new a(this).execute(new Void[0]);
-        }
+        List<EmotionPackageData> list = this.c;
+        list.add(i2, list.remove(i));
+        List<a> list2 = this.d;
+        list2.add(i2, list2.remove(i));
+        this.b.notifyDataSetChanged();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i), Integer.valueOf(i2))));
     }
 
-    public final void B() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.A = 0L;
-            this.B = 0L;
-            this.C = 0L;
-        }
-    }
-
-    @Override // com.repackage.am7
-    public void a(long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.A = j;
-            this.B = j2;
-            this.C = j3;
-        }
-    }
-
-    @Override // com.repackage.am7
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.r = z;
-            this.j.add(new w78(1));
-            this.a = 1;
-        }
-    }
-
-    @Override // com.repackage.am7
-    public void c(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.D = z;
-            this.E = z2;
-        }
-    }
-
-    @Override // com.repackage.am7
-    public boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            int i = this.a;
-            if (i == 8 || i == 7 || i == 6 || i == -1 || i == 1) {
-                return false;
-            }
-            this.e = VideoPlatformStatic.a(str);
-            this.f = str2;
-            y();
-            this.j.add(new w78(207));
-            this.a = 7;
-            A();
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.am7
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) {
-            int i = this.a;
-            if (i != 8 && i != 7 && i != 6 && i != -1) {
-                this.e = VideoPlatformStatic.a(str);
-                this.f = str2;
-                y();
-                this.k.put("stallDuration", Long.valueOf(this.p));
-                this.j.add(new w78(206));
-                this.a = 6;
-                A();
-                return this.b;
-            }
-            return this.b;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.am7
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int i = this.a;
-            if (i == 4 || i == 3) {
-                if (this.m != 0) {
-                    this.n += System.currentTimeMillis() - this.m;
-                    this.m = 0L;
-                }
-                this.j.add(new w78(203));
-                this.a = 5;
-            }
-        }
-    }
-
-    @Override // com.repackage.am7
-    public void g(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            this.o++;
-            this.p += j;
-            this.q.add(Integer.valueOf(i));
-        }
-    }
-
-    @Override // com.repackage.am7
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            int i2 = this.a;
-            if (i2 == 5) {
-                z();
-            } else if (i2 != 3) {
-            } else {
-                this.h = i;
-                this.m = System.currentTimeMillis();
-                this.j.add(new w78(200));
-                this.a = 4;
-            }
-        }
-    }
-
-    @Override // com.repackage.am7
-    public void i(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || (i2 = this.a) == 4 || i2 == 5 || i2 == 7 || i2 == 8) {
-            return;
-        }
-        this.h = i;
-        this.s = true;
-        this.t = true;
-        this.k.put("loadingTime", 1L);
-        this.l = 0L;
-        this.j.add(new w78(103));
-        this.a = 3;
-    }
-
-    @Override // com.repackage.am7
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.l = System.currentTimeMillis();
-            this.j.add(new w78(3));
-            this.a = 0;
-        }
-    }
-
-    @Override // com.repackage.am7
-    public void k(String str, String str2) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) || (i = this.a) == 8 || i == 7 || i == 6 || i == -1) {
-            return;
-        }
-        this.e = VideoPlatformStatic.a(str);
-        this.f = str2;
-        y();
-        this.j.add(new w78(205));
-        this.a = 8;
-        A();
-    }
-
-    @Override // com.repackage.am7
-    public void l(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (i2 = this.a) == 4 || i2 == 5 || i2 == 7 || i2 == 8) {
-            return;
-        }
-        this.h = i;
-        this.s = true;
-        long currentTimeMillis = System.currentTimeMillis() - this.l;
-        if (currentTimeMillis > 86400000) {
-            currentTimeMillis = 10000;
-        }
-        this.k.put("loadingTime", Long.valueOf(currentTimeMillis));
-        this.l = 0L;
-        this.j.add(new w78(102));
-        this.a = 3;
-    }
-
-    public final JSONObject s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            JSONObject c = VideoPlatformStatic.c();
-            List<ul7> list = this.y;
-            if (list != null) {
-                try {
-                    int size = list.size();
-                    for (int i = 0; i < size; i++) {
-                        this.y.get(i).c(c);
+            ArrayList arrayList = new ArrayList(this.d);
+            this.d.clear();
+            for (EmotionPackageData emotionPackageData : this.c) {
+                a aVar = null;
+                Iterator it = arrayList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return c;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final JSONObject t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("uuid", this.b);
-                if (!StringUtils.isNull(this.g)) {
-                    jSONObject.put("parentUuid", this.g);
-                }
-                jSONObject.put("tid", this.c);
-                jSONObject.put("videoUrl", this.d);
-                jSONObject.put("source", this.e);
-                jSONObject.put("playerType", VideoPlatformStatic.b(this.h));
-                jSONObject.put("urlType", this.i);
-                jSONObject.put("sub_error", this.z);
-                jSONObject.put("current_pid", Process.myPid());
-                jSONObject.put("directPrepare", this.t ? 1 : 0);
-                jSONObject.put("testType", TbSingleton.getInstance().getVideoTestType());
-                jSONObject.put("stallTypes", this.q);
-                String str = "1";
-                jSONObject.put("pcdn_used", this.D ? "1" : "0");
-                if (!this.E) {
-                    str = "0";
-                }
-                jSONObject.put("p2p_used", str);
-                if (!StringUtils.isNull(this.x)) {
-                    jSONObject.put("error_stack", this.x);
-                }
-                if (this.y != null) {
-                    int size = this.y.size();
-                    for (int i = 0; i < size; i++) {
-                        this.y.get(i).b(jSONObject);
+                    a aVar2 = (a) it.next();
+                    if (aVar2 != null && aVar2.a == emotionPackageData.id) {
+                        aVar = aVar2;
+                        break;
                     }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+                if (aVar == null) {
+                    aVar = new a();
+                    aVar.a = emotionPackageData.id;
+                }
+                this.d.add(aVar);
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final JSONObject u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, Long> entry : this.k.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-                if (!this.k.containsKey("loadingTime")) {
-                    jSONObject.put("loadingTime", 0L);
-                }
-                if (!this.k.containsKey("playDuration")) {
-                    jSONObject.put("playDuration", 0L);
-                }
-                if (!this.k.containsKey("stallCount")) {
-                    jSONObject.put("stallCount", 0);
-                }
-                if (!this.k.containsKey("stallDuration")) {
-                    jSONObject.put("stallDuration", 0L);
-                }
-                int i = 1;
-                jSONObject.put("isCacheHit", this.r ? 1 : 0);
-                jSONObject.put("playSuccess", this.s ? 1 : 0);
-                jSONObject.put("startPlayTimeInfo", v());
-                if (!this.u) {
-                    i = 0;
-                }
-                jSONObject.put("retryError", i);
-                jSONObject.put("error", this.v);
-                if (this.y != null) {
-                    int size = this.y.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        this.y.get(i2).a(jSONObject);
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final JSONObject v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("preparedTime", this.A);
-                jSONObject.put(FetchLog.START_TIME, this.B);
-                jSONObject.put("totalTime", this.C);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            B();
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public final JSONArray w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            List<x78> list = this.j;
-            if (list == null) {
-                return jSONArray;
-            }
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                jSONArray.put(this.j.get(i).a());
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && this.k != null) {
-            sg a2 = i95.a();
-            a2.b("action", "video_monitor");
-            a2.c("play_time", this.k.get("playDuration"));
-            a2.c("caton_time", this.k.get("stallDuration"));
-            a2.c("loading_time", Long.valueOf(this.C));
-            Object[] objArr = new Object[2];
-            objArr[0] = "pcdn";
-            objArr[1] = Integer.valueOf((this.E ? 2 : 0) | (this.D ? 1 : 0));
-            a2.c(objArr);
-            a2.c("hit_cache", Boolean.valueOf(this.r));
-            a2.c("direct_play", Integer.valueOf(this.t ? 1 : 0));
-            a2.b("page_code", this.f);
-            a2.b(FpsTracer.UBC_KEY_NET_TYPE, wg.a(BdBaseApplication.getInst()));
-            BdStatisticsManager.getInstance().performance("video", a2);
         }
     }
 
-    public final void y() {
+    public void update(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            if (this.m != 0) {
-                this.n += System.currentTimeMillis() - this.m;
-            }
-            this.k.put("playDuration", Long.valueOf(this.n));
-            this.k.put("stallCount", Long.valueOf(this.o));
-            this.k.put("stallDuration", Long.valueOf(this.p));
-            if (!this.k.containsKey("loadingTime")) {
-                this.k.put("loadingTime", 0L);
-            }
-            this.l = 0L;
-            this.m = 0L;
-            this.n = 0L;
-            this.o = 0L;
-            this.p = 0L;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.a == null || this.b == null) {
+            return;
         }
+        this.c.clear();
+        this.c.addAll(list);
+        b();
+        this.b.d();
+        this.e.update(Integer.valueOf(this.b.b()));
+        this.f.b(0, this.b.b());
+        this.f.a(yl7.b().a());
+        this.b.notifyDataSetChanged();
     }
 
-    public void z() {
+    public void update() {
+        gm7 gm7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && this.a == 5) {
-            this.m = System.currentTimeMillis();
-            this.j.add(new w78(204));
-            this.a = 4;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.b == null || this.a == null || this.c == null || (gm7Var = this.e) == null || this.f == null) {
+            return;
         }
+        gm7Var.c();
+        this.f.b(0, this.b.b());
+        this.f.a(yl7.b().a());
+        this.b.notifyDataSetChanged();
     }
 }

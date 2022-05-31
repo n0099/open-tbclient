@@ -313,9 +313,9 @@ public final class DateTimeUtils {
                 calendar3.set(13, 0);
                 calendar3.set(14, 0);
                 if (calendar.after(calendar2)) {
-                    return j4 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f13ed), Long.valueOf(j4)) : j5 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f13ee), Long.valueOf(j5)) : context.getString(R.string.obfuscated_res_0x7f0f13ef);
+                    return j4 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f13ff), Long.valueOf(j4)) : j5 > 0 ? String.format(context.getString(R.string.obfuscated_res_0x7f0f1400), Long.valueOf(j5)) : context.getString(R.string.obfuscated_res_0x7f0f1401);
                 } else if (calendar.after(calendar3)) {
-                    return String.format(context.getString(R.string.obfuscated_res_0x7f0f13ec), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
+                    return String.format(context.getString(R.string.obfuscated_res_0x7f0f13fe), Integer.valueOf((int) (((calendar2.getTimeInMillis() - calendar.getTimeInMillis()) / MSEC_OF_ONE_DAY) + 1)));
                 } else {
                     if (z2) {
                         return new SimpleDateFormat("MM-dd", Locale.getDefault()).format(calendar.getTime());

@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ay0;
-import com.repackage.l21;
+import com.repackage.nw0;
+import com.repackage.y01;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class BdVideoCacheView extends FrameLayout {
@@ -45,14 +45,14 @@ public class BdVideoCacheView extends FrameLayout {
                 return;
             }
         }
-        l21.c(18.0f);
-        l21.c(22.0f);
-        e = l21.d(200.0f);
-        f = l21.d(200.0f);
-        l21.d(10.0f);
-        l21.d(25.0f);
-        l21.d(6.0f);
-        l21.d(8.0f);
+        y01.c(18.0f);
+        y01.c(22.0f);
+        e = y01.d(200.0f);
+        f = y01.d(200.0f);
+        y01.d(10.0f);
+        y01.d(25.0f);
+        y01.d(6.0f);
+        y01.d(8.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -133,7 +133,7 @@ public class BdVideoCacheView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             if (i != 0) {
-                ay0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
+                nw0.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
                 setVisibility(4);
             }
             super.onWindowVisibilityChanged(i);

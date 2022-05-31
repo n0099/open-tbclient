@@ -88,14 +88,14 @@ public class a extends g implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (TextView) a(R.id.obfuscated_res_0x7f091085);
-        this.c = (TextView) a(R.id.obfuscated_res_0x7f09108a);
+        this.b = (TextView) a(R.id.obfuscated_res_0x7f091047);
+        this.c = (TextView) a(R.id.obfuscated_res_0x7f09104c);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 == this.b || view2 == this.c) {
-            com.kwad.sdk.core.download.a.a.a(new a.C0295a(view2.getContext()).a(this.e).a(this.f).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.a.a.a.2
+            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.e).a(this.f).a(false).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.a.a.a.2
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     a.this.r();

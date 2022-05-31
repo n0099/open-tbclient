@@ -1,16 +1,17 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ba4;
-import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class eb4 extends bb4 {
+public class eb4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile eb4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public eb4() {
@@ -27,19 +28,41 @@ public class eb4 extends bb4 {
         }
     }
 
-    @Override // com.repackage.ba4
-    public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ba4.a aVar) {
+    public static eb4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            db4.b(str, map, map2, jSONObject, new ca4(aVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (eb4.class) {
+                    if (a == null) {
+                        a = new eb4();
+                    }
+                }
+            }
+            return a;
         }
+        return (eb4) invokeV.objValue;
     }
 
-    @Override // com.repackage.ba4
-    public void j(String str, Map<String, String> map, Map<String, String> map2, ba4.a aVar) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            db4.a(str, map, map2, new ca4(aVar));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? q64.b() == null ? "0" : q64.b().i().getString("local_debug_version", "0") : (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || q64.b() == null) {
+            return;
+        }
+        q64.b().i().putString("local_debug_version", optString);
+        q64.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
+        q64.b().i().putString("error_url", optJSONObject.optString("error_url"));
+        q64.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
     }
 }

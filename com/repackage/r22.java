@@ -1,42 +1,84 @@
 package com.repackage;
 
-import android.content.Context;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class r22 {
+import com.repackage.o84;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public abstract class r22 extends pz2 implements v22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public r22() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r22(gz2 gz2Var) {
+        super(gz2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gz2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((kz2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public q22 a(Context context, int i) {
-        InterceptResult invokeLI;
+    public static final Map<String, String> H(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return new s22(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
+            HashMap hashMap = new HashMap();
+            if (bundle != null && !bundle.isEmpty()) {
+                for (String str : bundle.keySet()) {
+                    hashMap.put(str, bundle.getString(str));
                 }
-                return new u22(context);
             }
-            return new s22(context);
+            return hashMap;
         }
-        return (q22) invokeLI.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static final Bundle I(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            Bundle bundle = new Bundle();
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
+            }
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    @Override // com.repackage.o84
+    public void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, o84.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            oi2.r0().a(str, map, map2, jSONObject, aVar);
+        }
+    }
+
+    @Override // com.repackage.o84
+    public void j(String str, Map<String, String> map, Map<String, String> map2, o84.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            oi2.r0().j(str, map, map2, aVar);
+        }
     }
 }

@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.mi;
-import com.repackage.ro;
-import com.repackage.tp5;
-import com.repackage.wo5;
+import com.repackage.ji;
+import com.repackage.jn;
+import com.repackage.li;
+import com.repackage.mo5;
+import com.repackage.pn5;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -34,7 +34,7 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public tp5 f;
+    public mo5 f;
     public long g;
     public b h;
     public HttpMessageListener i;
@@ -77,16 +77,16 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
                         this.a.h.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
                 } else {
-                    wo5 wo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    pn5 pn5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
-                        this.a.f.a(wo5Var);
+                        this.a.f.a(pn5Var);
                         AlaLiveTabFriendModel.E(this.a);
                     } else {
                         AlaLiveTabFragment.k++;
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
-                        this.a.f = new tp5(alaTabLiveResponsedMessage);
+                        this.a.f = new mo5(alaTabLiveResponsedMessage);
                     }
                     AlaLiveTabFriendModel alaLiveTabFriendModel = this.a;
                     alaLiveTabFriendModel.c = alaLiveTabFriendModel.f.f();
@@ -101,7 +101,7 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<ro> list);
+        void a(boolean z, List<jn> list);
 
         void b(int i, String str, boolean z);
     }
@@ -139,19 +139,19 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
             httpMessage.addParam("tab_id", 3);
             String str = "N";
-            if (ki.z()) {
-                if (ki.H()) {
+            if (ji.z()) {
+                if (ji.H()) {
                     str = "1_0";
-                } else if (ki.v()) {
+                } else if (ji.v()) {
                     str = "0_13";
-                } else if (ki.u()) {
+                } else if (ji.u()) {
                     str = "0_3";
-                } else if (ki.t()) {
+                } else if (ji.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", mi.k(this.a.getPageActivity()) + "_" + mi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", li.k(this.a.getPageActivity()) + "_" + li.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.g);
             httpMessage.addParam("refresh_type", i2);
             httpMessage.addParam("big_refresh_count", i3);
@@ -164,8 +164,8 @@ public class AlaLiveTabFriendModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            tp5 tp5Var = this.f;
-            return (tp5Var == null || ListUtils.isEmpty(tp5Var.d())) ? false : true;
+            mo5 mo5Var = this.f;
+            return (mo5Var == null || ListUtils.isEmpty(mo5Var.d())) ? false : true;
         }
         return invokeV.booleanValue;
     }

@@ -23,19 +23,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bl8;
-import com.repackage.cl8;
-import com.repackage.h98;
-import com.repackage.j95;
+import com.repackage.ci8;
+import com.repackage.cm4;
+import com.repackage.d85;
+import com.repackage.di8;
+import com.repackage.fv4;
+import com.repackage.iz4;
+import com.repackage.jb5;
 import com.repackage.ka;
-import com.repackage.m05;
-import com.repackage.m98;
-import com.repackage.mf;
-import com.repackage.ng;
-import com.repackage.nn4;
-import com.repackage.pc5;
-import com.repackage.pw4;
-import com.repackage.vc5;
+import com.repackage.lf;
+import com.repackage.mg;
+import com.repackage.o68;
+import com.repackage.pb5;
+import com.repackage.t68;
 import com.repackage.x8;
 /* loaded from: classes2.dex */
 public class InitLaunchAsyncTask extends LaunchTask {
@@ -59,21 +59,21 @@ public class InitLaunchAsyncTask extends LaunchTask {
     private void initICDN() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            mf.e = UseHttpdnsSdkSwitch.isOn();
+            lf.e = UseHttpdnsSdkSwitch.isOn();
             if (UseHttpdnsSdkSwitch.isOn()) {
-                BDHttpDns j = BDHttpDns.j(TbadkCoreApplication.getInst().getApplicationContext());
-                j.n(false);
+                BDHttpDns h = BDHttpDns.h(TbadkCoreApplication.getInst().getApplicationContext());
+                h.m(false);
                 try {
-                    j.k("119799");
-                    j.q("87JNTZjGacgUzuMBYvid");
+                    h.j("119799");
+                    h.p("87JNTZjGacgUzuMBYvid");
                 } catch (Exception e) {
                     BdLog.e(e);
                 }
-                j.m(true);
-                j.o(true, true);
-                j.l(BDHttpDns.CachePolicy.POLICY_TOLERANT);
+                h.l(true);
+                h.n(true, true);
+                h.k(BDHttpDns.CachePolicy.POLICY_TOLERANT);
                 if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    ng.a().postDelayed(new Runnable(this, j) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.3
+                    mg.a().postDelayed(new Runnable(this, h) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InitLaunchAsyncTask this$0;
@@ -84,7 +84,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, j};
+                                Object[] objArr = {this, h};
                                 interceptable2.invokeUnInit(65536, newInitContext);
                                 int i = newInitContext.flag;
                                 if ((i & 1) != 0) {
@@ -95,14 +95,14 @@ public class InitLaunchAsyncTask extends LaunchTask {
                                 }
                             }
                             this.this$0 = this;
-                            this.val$httpDns = j;
+                            this.val$httpDns = h;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.val$httpDns.p(PrefetchEvent.MODULE);
+                                this.val$httpDns.o(PrefetchEvent.MODULE);
                             }
                         }
                     }, 1000L);
@@ -114,14 +114,14 @@ public class InitLaunchAsyncTask extends LaunchTask {
             if (TbadkCoreApplication.getInst().isMainProcess(true) && ICDNIPDirectConnect.getInstance() != null) {
                 ICDNIPDirectConnect.getInstance().init();
             }
-            j95.b().n(System.currentTimeMillis() - currentTimeMillis);
+            d85.b().n(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
     private void initQuickWebViewManager() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            h98.q().u();
+            o68.q().u();
         }
     }
 
@@ -155,7 +155,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
                 public void onServiceCreate() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        vc5.e().c(new vc5.b(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2.1
+                        pb5.e().c(new pb5.b(this) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ AnonymousClass2 this$1;
@@ -178,7 +178,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
                                 this.this$1 = this;
                             }
 
-                            @Override // com.repackage.vc5.b
+                            @Override // com.repackage.pb5.b
                             public void onResult(boolean z) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) {
@@ -201,12 +201,12 @@ public class InitLaunchAsyncTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setServiceOnCreateCallBack();
-            m98.g().j();
-            m05.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
+            t68.g().j();
+            iz4.j().m(TbadkCoreApplication.getInst().isMainProcess(false));
             intReadThreadHistory();
-            pw4.c();
-            nn4.t().C();
-            pc5.m().s(TbadkCoreApplication.getInst());
+            fv4.c();
+            cm4.t().C();
+            jb5.m().s(TbadkCoreApplication.getInst());
             initICDN();
             initQuickWebViewManager();
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
@@ -246,12 +246,12 @@ public class InitLaunchAsyncTask extends LaunchTask {
                         }
                     }
                 });
-                j95.b().q(System.currentTimeMillis() - currentTimeMillis);
+                d85.b().q(System.currentTimeMillis() - currentTimeMillis);
             }
             EmotionUtil.statisticsEmotionGroupNums();
             ColdStartStatsUtil.startUBCStats(TbadkCoreApplication.getInst().isMainProcess(false));
             if (TbadkCoreApplication.getInst().isRemoteProcess()) {
-                j95.b().g(System.currentTimeMillis() - TbadkCoreApplication.getInst().processCreateTime);
+                d85.b().g(System.currentTimeMillis() - TbadkCoreApplication.getInst().processCreateTime);
             }
         }
     }
@@ -276,8 +276,8 @@ public class InitLaunchAsyncTask extends LaunchTask {
     public void intReadThreadHistory() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            TbadkApplication.getInst().mReadThreadHistory = new cl8(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new bl8(300);
+            TbadkApplication.getInst().mReadThreadHistory = new di8(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new ci8(300);
             x8.g().s(TbadkApplication.getInst());
         }
     }

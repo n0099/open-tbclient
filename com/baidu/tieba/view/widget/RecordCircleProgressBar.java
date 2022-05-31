@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uw8;
+import com.repackage.wt8;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class RecordCircleProgressBar extends View implements uw8, Runnable {
+public class RecordCircleProgressBar extends View implements wt8, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -45,7 +45,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
     public int t;
     public boolean u;
     public boolean v;
-    public uw8.a w;
+    public wt8.a w;
     public float x;
     public int y;
     public Runnable z;
@@ -117,7 +117,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         }
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -128,14 +128,14 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
                 this.x = getProgress();
                 invalidate();
             }
-            uw8.a aVar = this.w;
+            wt8.a aVar = this.w;
             if (aVar != null) {
                 aVar.b(this.x);
             }
         }
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -160,19 +160,19 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            uw8.a aVar = this.w;
+            wt8.a aVar = this.w;
             postDelayed(this, (aVar == null || !(aVar.a() == 0.5f || this.w.a() == 0.33333334f)) ? 50L : 25L);
         }
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.r : invokeV.intValue;
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -186,7 +186,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         return invokeV.floatValue;
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -268,7 +268,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         }
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -287,12 +287,12 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.p == 0 || this.o.size() == 0) {
             return;
         }
-        uw8.a aVar = this.w;
+        wt8.a aVar = this.w;
         if (aVar != null) {
             aVar.onProgress(this.x);
         }
         if (this.x >= this.r) {
-            uw8.a aVar2 = this.w;
+            wt8.a aVar2 = this.w;
             if (aVar2 != null) {
                 aVar2.onFinish();
                 return;
@@ -309,7 +309,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         }
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
@@ -317,7 +317,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         }
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -325,8 +325,8 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         }
     }
 
-    @Override // com.repackage.uw8
-    public void setOnProgressListener(uw8.a aVar) {
+    @Override // com.repackage.wt8
+    public void setOnProgressListener(wt8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
             this.w = aVar;
@@ -341,7 +341,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         }
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || this.s == z) {
@@ -351,7 +351,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         invalidate();
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -361,7 +361,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         }
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -446,7 +446,7 @@ public class RecordCircleProgressBar extends View implements uw8, Runnable {
         this.m.setColor(this.j);
     }
 
-    @Override // com.repackage.uw8
+    @Override // com.repackage.wt8
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeJ(1048592, this, j) == null) || this.o.size() <= 0) {

@@ -1,9 +1,13 @@
 package com.repackage;
+
+import android.content.Intent;
 /* loaded from: classes7.dex */
 public interface s85 {
-    void a();
+    Intent getResultIntent();
 
-    void b();
+    boolean isOnViewCancel();
 
-    void onError(String str);
+    boolean isOnViewTop();
+
+    void onViewChangeSkinType(int i);
 }

@@ -1,8 +1,9 @@
 package com.repackage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.platform.BdSailorPlatform;
-import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,30 +11,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.LoadErrorCode;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
 /* loaded from: classes7.dex */
-public class yx implements WebKitFactory.WebkitInstallListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String c = "yx";
+public class yx {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int k;
+    public static final int l;
+    public static final int m;
+    public static final int n;
+    public static final int o;
+    public static final int p;
+    public static final int q;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte a;
-    public long b;
+    public boolean a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public boolean j;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964021562, "Lcom/repackage/yx;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964021562, "Lcom/repackage/yx;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964021562, "Lcom/repackage/yx;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964021562, "Lcom/repackage/yx;");
-        }
+        k = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        l = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        m = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        n = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        o = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        p = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds0);
+        q = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
     }
 
     public yx() {
@@ -46,65 +65,85 @@ public class yx implements WebKitFactory.WebkitInstallListener {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = n;
+        this.c = p;
+        this.d = k;
+        this.e = 0;
+        this.f = l;
+        this.g = m;
+        this.h = R.color.CAM_X0205;
+        this.i = q;
     }
 
-    public static void c(LoadErrorCode loadErrorCode) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, loadErrorCode) == null) {
-            BdSailorPlatform.getStatic().b("init-webkit", "Err = " + loadErrorCode.getInt() + loadErrorCode.getString());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : invokeV.booleanValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.h = i;
         }
     }
 
-    public final void a(LoadErrorCode loadErrorCode) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, loadErrorCode) == null) {
-            WebKitFactory.setEngine(0);
-            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, loadErrorCode);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.e = i;
         }
     }
 
-    public final void b(String str) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
-            return;
-        }
-        this.a = (byte) 0;
-        if (!str.startsWith("file://")) {
-            str = "file://".concat(String.valueOf(str));
-        }
-        BdZeusUtil.printKernellog("install plugin from download");
-        WebKitFactory.installAsync(str, this);
-        this.b = System.currentTimeMillis();
-        Log.i(c, "full update started!");
-    }
-
-    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-    public void onInstallFinish(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            System.currentTimeMillis();
-            Log.i("soar", "the return value of installing kernal is: ".concat(String.valueOf(i)));
-            BdZeusUtil.printKernellog("oninstalled: " + i + " targetpath: " + str);
-            if (i == 0) {
-                Log.d(c, "install success!");
-                BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.a);
-            } else {
-                Log.d(c, "install failed!");
-                BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, WebKitFactory.getLoadErrorCode());
-            }
-            BdSailorPlatform.getWebkitManager().enableBdWebkit();
-            long currentTimeMillis = System.currentTimeMillis() - this.b;
-            String str2 = c;
-            Log.i(str2, "total timecost: " + String.valueOf(currentTimeMillis));
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.i = i;
         }
     }
 
-    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-    public void onInstallStart() {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.j = z;
         }
     }
 }

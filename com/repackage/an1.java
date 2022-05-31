@@ -1,66 +1,41 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.repackage.bn1;
+import android.content.Context;
+import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface an1<T extends bn1> extends cn1<T>, jm1 {
-    void B(FrameLayout frameLayout, j13 j13Var);
+public class an1 extends SwanAppSimpleH5Widget {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void E(int i);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public an1(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    boolean L();
-
-    boolean M();
-
-    void N(l72 l72Var);
-
-    ln1 P();
-
-    void R(FrameLayout frameLayout, j13 j13Var);
-
-    int T();
-
-    void U(String str);
-
-    void W();
-
-    boolean Z(s43 s43Var);
-
-    boolean b0(s43 s43Var);
-
-    void c0(i22 i22Var);
-
-    void d0(j22 j22Var);
-
-    boolean e();
-
-    @Nullable
-    kx1 f0();
-
-    int i0();
-
-    void j(uq2 uq2Var);
-
-    PullToRefreshBaseWebView k0();
-
-    void l(ViewGroup viewGroup, View view2);
-
-    boolean l0();
-
-    dn1 m();
-
-    @Nullable
-    String m0();
-
-    String o();
-
-    boolean t(int i);
-
-    void y(String str);
-
-    boolean z(s43 s43Var);
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.pl1
+    public String e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "swan_app_alliance_choose_address_widget" : (String) invokeV.objValue;
+    }
 }

@@ -19,6 +19,7 @@ import com.baidubce.util.DateUtils;
 import com.baidubce.util.HashUtils;
 import com.baidubce.util.HttpUtils;
 import com.baidubce.util.JoinerUtils;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -186,7 +187,7 @@ public class BceV1Signer implements Signer {
             String canonicalQueryString = HttpUtils.getCanonicalQueryString(internalRequest.getParameters(), true);
             SortedMap<String, String> headersToSign = getHeadersToSign(internalRequest.getHeaders(), signOptions.getHeadersToSign());
             String canonicalHeaders = getCanonicalHeaders(headersToSign);
-            String lowerCase = signOptions.getHeadersToSign() != null ? JoinerUtils.on(";", headersToSign.keySet()).trim().toLowerCase() : "";
+            String lowerCase = signOptions.getHeadersToSign() != null ? JoinerUtils.on(ParamableElem.DIVIDE_PARAM, headersToSign.keySet()).trim().toLowerCase() : "";
             String on2 = JoinerUtils.on("\n", internalRequest.getHttpMethod(), canonicalURIPath, canonicalQueryString, canonicalHeaders);
             String on3 = JoinerUtils.on("/", on, lowerCase, HashUtils.sha256Hex(sha256Hex, on2));
             BLog.debug("CanonicalRequest:{}\tAuthorization:{}", on2.replace("\n", "[\\n]"), on3);

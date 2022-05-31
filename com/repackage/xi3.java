@@ -1,169 +1,316 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Base64;
+import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.request.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.nio.charset.Charset;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Headers;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xi3 {
+public class xi3 extends wi3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public boolean c;
-    public String d;
-    public int e;
+    public Callback d;
+    public JSONObject e;
     public String f;
     public String g;
+    public String h;
+    public String i;
+    public int j;
 
-    public xi3() {
+    /* loaded from: classes7.dex */
+    public class a extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xi3 a;
+
+        public a(xi3 xi3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xi3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xi3Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                if (ci3.a) {
+                    Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
+                }
+                if (this.a.d != null) {
+                    if (exc instanceof IOException) {
+                        this.a.d.onFailure(null, (IOException) exc);
+                    } else {
+                        this.a.d.onFailure(null, new IOException(exc));
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.a.n(null, response);
+                return response;
+            }
+            return invokeLI.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755170673, "Lcom/repackage/xi3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755170673, "Lcom/repackage/xi3;");
+                return;
+            }
+        }
+        k = rf1.a;
+    }
+
+    public xi3(hz2 hz2Var, JSONObject jSONObject, String str, Callback callback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hz2Var, jSONObject, str, callback};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = callback;
+        this.f = str;
+        m(jSONObject);
+        d(this.e.optString("method"));
+    }
+
+    @Override // com.repackage.wi3
+    public void e(IOException iOException) {
+        Callback callback;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iOException) == null) || (callback = this.d) == null) {
+            return;
+        }
+        callback.onFailure(null, iOException);
+    }
+
+    @Override // com.repackage.wi3
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (ci3.a) {
+                Log.d("BdtlsRequestApi", "onRequestError=" + i);
+            }
+            Callback callback = this.d;
+            if (callback != null) {
+                callback.onFailure(null, new IOException("request error  code : " + i));
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        char c;
+    @Override // com.repackage.wi3
+    public void h(byte[] bArr) {
+        JSONObject jSONObject;
+        HttpRequest httpRequest;
+        Callback callback;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = this.d;
-            int hashCode = str.hashCode();
-            if (hashCode == 2154) {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
-                    c = 2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject = new JSONObject(this.e.toString());
+                try {
+                    Uri parse = Uri.parse(this.h);
+                    String path = parse.getPath();
+                    String query = parse.getQuery();
+                    if (TextUtils.isEmpty(this.i)) {
+                        str = di3.b;
+                    } else {
+                        str = this.i + "/bdtls";
+                    }
+                    StringBuilder sb = new StringBuilder(str + "/" + this.g);
+                    String str3 = "";
+                    if (TextUtils.isEmpty(path)) {
+                        path = "";
+                    }
+                    sb.append(path);
+                    if (!TextUtils.isEmpty(query)) {
+                        str3 = "?" + query;
+                    }
+                    sb.append(str3);
+                    if (k) {
+                        Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
+                    }
+                    JSONObject optJSONObject = jSONObject.optJSONObject("header");
+                    if (this.a) {
+                        if (TextUtils.equals(b(), "GET")) {
+                            str2 = Base64.encodeToString(bArr, 2);
+                        } else {
+                            jSONObject.putOpt("data", bArr);
+                            str2 = "Bdtls";
+                        }
+                        optJSONObject.put("Bdtls", str2);
+                    }
+                    jSONObject.putOpt("header", optJSONObject);
+                    jSONObject.putOpt("url", sb.toString());
+                } catch (JSONException e) {
+                    e = e;
+                    jSONObject2 = jSONObject;
+                    if (k) {
+                        Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
+                    }
+                    jSONObject = jSONObject2;
+                    httpRequest = (HttpRequest) vo1.C(jSONObject, this.f).first;
+                    if (httpRequest == null) {
+                        callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
+                    }
+                    l(httpRequest);
                 }
-                c = 65535;
-            } else if (hashCode != 2161) {
-                if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
-                    c = 1;
-                }
-                c = 65535;
-            } else {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
-                    c = 0;
-                }
-                c = 65535;
+            } catch (JSONException e2) {
+                e = e2;
             }
-            if (c == 0) {
-                this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f007d);
-            } else if (c == 1) {
-                this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f007e);
-            } else if (c != 2) {
-                this.g = "";
-            } else {
-                this.g = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f007f);
+            httpRequest = (HttpRequest) vo1.C(jSONObject, this.f).first;
+            if (httpRequest == null && (callback = this.d) != null) {
+                callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
             }
-            return this.g;
+            l(httpRequest);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        char c;
+    public final void l(HttpRequest httpRequest) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.d;
-            int hashCode = str.hashCode();
-            if (hashCode == 2154) {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CMCC)) {
-                    c = 2;
-                }
-                c = 65535;
-            } else if (hashCode != 2161) {
-                if (hashCode == 2162 && str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CUCC)) {
-                    c = 1;
-                }
-                c = 65535;
-            } else {
-                if (str.equals(OneKeyLoginSdkCall.OPERATOR_TYPE_CTCC)) {
-                    c = 0;
-                }
-                c = 65535;
-            }
-            if (c == 0) {
-                this.f = "https://e.189.cn/sdk/agreement/detail.do?hidetop=true";
-            } else if (c == 1) {
-                this.f = "https://ms.zzx9.cn/html/oauth/protocol2.html";
-            } else if (c == 2) {
-                this.f = "https://wap.cmpassport.com/resources/html/contract.html";
-            }
-            return this.f;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, httpRequest) == null) || httpRequest == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        httpRequest.executeAsync(new a(this));
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public final void m(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            this.e = jSONObject;
+            this.h = jSONObject.optString("url");
+            JSONObject optJSONObject = this.e.optJSONObject("ext");
+            if (optJSONObject != null) {
+                this.i = optJSONObject.optString("customHost");
+            }
+        }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public final void n(Call call, Response response) throws IOException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, call, response) == null) {
+            Headers headers = response.headers();
+            if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
+                ii3.l().m().s(0);
+                if (ii3.l().m().b()) {
+                    ii3.l().m().a();
+                    i(true);
+                    p();
+                    return;
+                }
+                this.d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
+                return;
+            }
+            ii3.l().m().k();
+            if (this.a) {
+                ResponseBody body = response.body();
+                String g = g(body.bytes());
+                if (ci3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
+                }
+                if (this.b == 1) {
+                    Buffer buffer = new Buffer();
+                    buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
+                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                    Callback callback = this.d;
+                    if (callback != null) {
+                        callback.onResponse(call, build);
+                    }
+                    this.j = 0;
+                    return;
+                } else if (this.j < 3) {
+                    p();
+                    return;
+                } else {
+                    this.d.onFailure(call, new IOException("Url or serviceId is invalid"));
+                    this.j = 0;
+                    return;
+                }
+            }
+            Callback callback2 = this.d;
+            if (callback2 != null) {
+                callback2.onResponse(call, response);
+            }
+        }
     }
 
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void g(String str) {
+    public void o(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
+            this.g = str;
+            JSONObject jSONObject = this.e;
+            a(jSONObject != null ? jSONObject.optString("data") : "");
         }
     }
 
-    public void h(boolean z) {
+    public final void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d = str;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.j++;
+            o(this.g);
         }
     }
 }

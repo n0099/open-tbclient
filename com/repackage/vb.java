@@ -237,7 +237,7 @@ public class vb extends DiskFileOperate {
     public void endLog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            dg.k(isSuccess(), System.currentTimeMillis() - this.e);
+            cg.k(isSuccess(), System.currentTimeMillis() - this.e);
         }
     }
 
@@ -292,7 +292,7 @@ public class vb extends DiskFileOperate {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bArr) == null) {
             super.setData(bArr);
-            if (isGif() || !mi.A(bArr)) {
+            if (isGif() || !li.B(bArr)) {
                 return;
             }
             setGif(true);

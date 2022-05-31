@@ -1,25 +1,26 @@
 package com.repackage;
 
-import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class aa1 {
     public static /* synthetic */ Interceptable $ic;
-    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Context a() {
-        InterceptResult invokeV;
+    @Nullable
+    public static File a(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (Context) invokeV.objValue;
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            a = context;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return x91.q(str);
         }
+        return (File) invokeL.objValue;
     }
 }

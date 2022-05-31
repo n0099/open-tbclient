@@ -1,96 +1,121 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public class ym2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ym2 b;
+    public static ArrayList<MediaModel> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l93 a;
 
-    public ym2() {
+    public static void a() {
+        ArrayList<MediaModel> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (arrayList = a) == null) {
+            return;
         }
-        this.a = new l93("swan_local_ab_data");
-        if (ProcessUtils.isMainProcess()) {
-            this.a.clear();
-        }
-        c();
+        arrayList.clear();
+        a = null;
     }
 
-    public static ym2 b() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ym2.class) {
-                    if (b == null) {
-                        b = new ym2();
-                    }
-                }
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null || arrayList.size() == 0 || a.get(0) == null) {
+                return null;
             }
-            return b;
+            return a.get(0).getType();
         }
-        return (ym2) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public String a() {
+    public static int c(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        ArrayList<MediaModel> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
+            if (mediaModel == null || (arrayList = a) == null) {
+                return -1;
+            }
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                if (mediaModel.equals(a.get(i))) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("sids", "") : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
     }
 
-    public final void c() {
-        Object e;
+    public static ArrayList<MediaModel> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
-            List<zm2> c = new xm2().c();
-            for (zm2 zm2Var : c) {
-                an2 b2 = zm2Var.b();
-                bn2 c2 = zm2Var.c();
-                if (b2 == null) {
-                    e = c2.d();
-                } else {
-                    e = b2.e();
-                }
-                if (e instanceof Boolean) {
-                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
-                } else if (e instanceof Double) {
-                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
-                } else if (e instanceof Integer) {
-                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
-                } else if (e instanceof Long) {
-                    this.a.writeLong(c2.e(), ((Long) e).longValue());
-                } else if (e instanceof String) {
-                    this.a.writeString(c2.e(), (String) e);
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a : (ArrayList) invokeV.objValue;
+    }
+
+    public static boolean f(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null) {
+                return false;
             }
-            StringBuilder sb = new StringBuilder();
-            for (zm2 zm2Var2 : c) {
-                an2 b3 = zm2Var2.b();
-                if (b3 != null) {
-                    sb.append(b3.d());
-                    sb.append("-");
-                }
-            }
-            this.a.writeString("sids", sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1));
+            return arrayList.contains(mediaModel);
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(MediaModel mediaModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
+            ArrayList<MediaModel> arrayList = a;
+            if (arrayList == null || arrayList.size() == 0) {
+                return false;
+            }
+            return a.contains(mediaModel);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void h(MediaModel mediaModel) {
+        ArrayList<MediaModel> arrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) || (arrayList = a) == null) {
+            return;
+        }
+        arrayList.remove(mediaModel);
+    }
+
+    public static void i(MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65544, null, mediaModel) == null) || mediaModel == null) {
+            return;
+        }
+        if (a == null) {
+            a = new ArrayList<>();
+        }
+        a.add(mediaModel);
     }
 }

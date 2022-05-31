@@ -34,25 +34,25 @@ public class b extends Dialog {
     }
 
     private View a() {
-        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d0477, (ViewGroup) null, false);
-        inflate.findViewById(R.id.obfuscated_res_0x7f09108c).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.1
+        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d046d, (ViewGroup) null, false);
+        inflate.findViewById(R.id.obfuscated_res_0x7f09104e).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 b.this.a.c(b.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f09108b).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.2
+        inflate.findViewById(R.id.obfuscated_res_0x7f09104d).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091199).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.3
+        inflate.findViewById(R.id.obfuscated_res_0x7f09115b).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 b.this.a.a(b.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f091198).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.4
+        inflate.findViewById(R.id.obfuscated_res_0x7f09115a).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 b.this.a.b(b.this);

@@ -1,14 +1,21 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class rx3 implements iy3 {
+public class rx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String filePath;
+    @V8JavascriptField
+    public int statusCode;
+    @V8JavascriptField
+    public String tempFilePath;
 
     public rx3() {
         Interceptable interceptable = $ic;
@@ -24,21 +31,12 @@ public class rx3 implements iy3 {
         }
     }
 
-    @Override // com.repackage.iy3
-    public void a(h14 h14Var, g14 g14Var) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, h14Var, g14Var) == null) || g14Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "ResponseData{statusCode=" + this.statusCode + ",tempFilePath=" + this.tempFilePath + ",filePath=" + this.filePath + "}";
         }
-        g14Var.a(h14Var, "Method 'shareVideo' is not implemented.");
-    }
-
-    @Override // com.repackage.iy3
-    public void b(y04 y04Var, x04 x04Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y04Var, x04Var) == null) || x04Var == null) {
-            return;
-        }
-        x04Var.a(y04Var, "Method 'clipVideo' is not implemented.");
+        return (String) invokeV.objValue;
     }
 }

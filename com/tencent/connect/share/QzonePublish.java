@@ -26,13 +26,14 @@ import com.tencent.open.utils.f;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import com.tencent.tauth.UiError;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class QzonePublish extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HULIAN_CALL_BACK = "hulian_call_back";
@@ -232,8 +233,8 @@ public class QzonePublish extends BaseApi {
                                 stringBuffer3.append(URLEncoder.encode(a));
                             }
                             if (i3 != size - 1) {
-                                stringBuffer2.append(";");
-                                stringBuffer3.append(";");
+                                stringBuffer2.append(ParamableElem.DIVIDE_PARAM);
+                                stringBuffer3.append(ParamableElem.DIVIDE_PARAM);
                             }
                             i3++;
                             openId = str10;

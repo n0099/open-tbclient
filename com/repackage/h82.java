@@ -1,21 +1,17 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes6.dex */
-public final class h82 {
+public class h82 implements g82 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile h82 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Lock a;
-    public ArrayList<l82> b;
+    public final String[] a;
 
     public h82() {
         Interceptable interceptable = $ic;
@@ -30,114 +26,24 @@ public final class h82 {
                 return;
             }
         }
-        this.a = new ReentrantLock();
-        this.b = new ArrayList<>();
+        this.a = new String[]{oi2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), oi2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
     }
 
-    public static h82 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (h82.class) {
-                    if (c == null) {
-                        c = new h82();
-                    }
-                }
-            }
-            return c;
-        }
-        return (h82) invokeV.objValue;
-    }
-
-    public final Object[] a() {
+    @Override // com.repackage.g82
+    public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                this.a.lock();
-                return this.b.size() > 0 ? this.b.toArray() : null;
-            } finally {
-                this.a.unlock();
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = kf4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
             }
+            hw1.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        return (Object[]) invokeV.objValue;
-    }
-
-    public void b(c82 c82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((l82) obj).d(c82Var);
-        }
-    }
-
-    public void c(c82 c82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((l82) obj).b(c82Var);
-        }
-    }
-
-    public void d(c82 c82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, c82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((l82) obj).f(c82Var);
-        }
-    }
-
-    public void e(c82 c82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, c82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((l82) obj).c(c82Var);
-        }
-    }
-
-    public void f(c82 c82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, c82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((l82) obj).g(c82Var);
-        }
-    }
-
-    public void g(c82 c82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, c82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((l82) obj).a(c82Var);
-        }
-    }
-
-    public void h(c82 c82Var) {
-        Object[] a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, c82Var) == null) || (a = a()) == null) {
-            return;
-        }
-        for (Object obj : a) {
-            ((l82) obj).e(c82Var);
-        }
+        return (ArraySet) invokeV.objValue;
     }
 }

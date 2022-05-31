@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kx;
-import com.repackage.lx;
+import com.repackage.xv;
+import com.repackage.yv;
 /* loaded from: classes.dex */
 public class BdPermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -54,7 +54,7 @@ public class BdPermissionActivity extends Activity {
         }
         if (z) {
             ActivityCompat.requestPermissions(this, this.mPermissions, this.mReqCode);
-        } else if (lx.c(this, this.mReqCode)) {
+        } else if (yv.c(this, this.mReqCode)) {
             ActivityCompat.requestPermissions(this, this.mPermissions, this.mReqCode);
         } else {
             onRequestPermissionsResult(this.mReqCode, this.mPermissions, new int[0]);
@@ -75,7 +75,7 @@ public class BdPermissionActivity extends Activity {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, strArr, iArr) == null) {
-            ActivityCompat.OnRequestPermissionsResultCallback c = kx.b().c(this.mReqCode);
+            ActivityCompat.OnRequestPermissionsResultCallback c = xv.b().c(this.mReqCode);
             if (c != null) {
                 c.onRequestPermissionsResult(i, strArr, iArr);
             }

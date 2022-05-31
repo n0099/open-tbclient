@@ -1,15 +1,45 @@
 package com.repackage;
 
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import android.app.Activity;
+import androidx.annotation.UiThread;
+import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
+import com.baidu.swan.apps.core.SwanAppWebViewManager;
+import com.repackage.ol1;
 /* loaded from: classes6.dex */
-public interface pl1 {
-    fh2 a(ZeusPluginFactory.Invoker invoker, String str);
+public interface pl1<T extends ol1> extends TypedCallbackHandler {
+    SwanAppWebViewManager.d J();
 
-    fj2 b(ZeusPluginFactory.Invoker invoker, String str);
+    @UiThread
+    void Q();
 
-    fj2 c(ZeusPluginFactory.Invoker invoker, String str);
+    void X(u02 u02Var);
 
-    eh2 d(ZeusPluginFactory.Invoker invoker, String str);
+    String a();
 
-    cf2 e(ZeusPluginFactory.Invoker invoker, String str);
+    String c();
+
+    void d(vx1 vx1Var);
+
+    void destroy();
+
+    String e0();
+
+    void f(Activity activity);
+
+    void h0();
+
+    void loadUrl(String str);
+
+    void onJSLoaded();
+
+    void onPause();
+
+    void onResume();
+
+    @UiThread
+    void s();
+
+    T u();
+
+    void v(u02 u02Var);
 }

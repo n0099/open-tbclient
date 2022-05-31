@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ro;
+import com.repackage.jn;
 import tbclient.ActivityPage.SpecialColumn;
 /* loaded from: classes3.dex */
-public class SpecialColumnItemData implements ro, Parcelable {
+public class SpecialColumnItemData implements jn, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnItemData> CREATOR;
     public static final BdUniqueId TYPE;
@@ -111,7 +111,7 @@ public class SpecialColumnItemData implements ro, Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.ro
+    @Override // com.repackage.jn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

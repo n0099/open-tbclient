@@ -1,37 +1,51 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.LoginActivity;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.interest.InterestPanelShowManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity;
+import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes5.dex */
 public class fn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
+    public int a;
+    public PersonalCardCategoryActivity b;
+    public View c;
+    public NavigationBar d;
+    public NoNetworkView e;
+    public MemberRecommendView f;
+    public BdListView g;
+    public en8 h;
+    public View i;
+    public TextView j;
+    public int k;
 
-    public fn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
+    public fn8(PersonalCardCategoryActivity personalCardCategoryActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, tm8Var};
+            Object[] objArr = {personalCardCategoryActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,88 +55,179 @@ public class fn8 {
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.a = 3;
+        this.k = 0;
+        this.b = personalCardCategoryActivity;
+        this.k = li.f(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023f);
+        View inflate = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01c6, (ViewGroup) null);
+        this.c = inflate;
+        this.b.setContentView(inflate);
+        this.i = this.c.findViewById(R.id.obfuscated_res_0x7f090392);
+        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0923a2);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e5a);
+        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0923a4);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.c.findViewById(R.id.obfuscated_res_0x7f09059f);
+        this.f = memberRecommendView;
+        memberRecommendView.setFromType(9);
+        TextView textView = new TextView(this.b.getActivity());
+        this.j = textView;
+        textView.setHeight(li.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        this.g = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f09059e);
+        en8 en8Var = new en8(this.b.getPageContext());
+        this.h = en8Var;
+        this.g.setAdapter((ListAdapter) en8Var);
     }
 
-    public void a() {
+    public final List<Object> a(List<dn8> list) {
+        InterceptResult invokeL;
+        int size;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b) {
-            return;
-        }
-        if (c() && TbSingleton.getInstance().hasPerformedFirstLoginTest() && TbSingleton.getInstance().isNeedShowInterestGuide()) {
-            this.b = true;
-            InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a);
-            if (TbSingleton.getInstance().triggerInterestPanelYDaysConfig) {
-                interestGuideActivityConfig.setCustomTitle(new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08fa), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08fb), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08f6)});
-                interestGuideActivityConfig.setScene(10);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (dn8 dn8Var : list) {
+                ArrayList<gm8> a = dn8Var.a();
+                if (a != null && (size = a.size()) != 0) {
+                    arrayList.add(dn8Var.b());
+                    if (size > 6) {
+                        size = 6;
+                    }
+                    int i2 = 0;
+                    while (i2 < size) {
+                        ArrayList arrayList2 = new ArrayList();
+                        int i3 = 0;
+                        while (true) {
+                            i = this.a;
+                            if (i3 < i) {
+                                int i4 = i2 + i3;
+                                if (i4 < size) {
+                                    arrayList2.add(a.get(i4));
+                                }
+                                i3++;
+                            }
+                        }
+                        arrayList.add(arrayList2);
+                        i2 = i2 + (i - 1) + 1;
+                    }
+                }
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
-            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+            return arrayList;
         }
-        iu4.k().x("key_app_launch_time", System.currentTimeMillis());
-        b();
+        return (List) invokeL.objValue;
     }
 
-    public final void b() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-            return;
-        }
-        TbSingleton.getInstance().setHasPerformedFirstLoginTest(true);
-        if (UbsABTestHelper.isFirstLoginTestA()) {
-            if (TbadkCoreApplication.isLogin() || LoginActivity.class.getName().equals(mi.v())) {
-                return;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921535, this));
-            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
-        } else if (UbsABTestHelper.isFirstLoginTestB()) {
-            if (TbadkApplication.getInst().isNeedNewUserLead()) {
-                InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a, 4);
-                interestGuideActivityConfig.setRequestCode(25060);
-                interestGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
-                TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
-            }
-        } else if (TbadkApplication.getInst().isNeedNewUserLead()) {
-            InterestGuideActivityConfig interestGuideActivityConfig2 = new InterestGuideActivityConfig(this.a, 4);
-            interestGuideActivityConfig2.setRequestCode(25060);
-            interestGuideActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig2));
-            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.hideNetRefreshView(this.c);
+            this.i.setVisibility(0);
         }
     }
 
-    public final boolean c() {
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Activity b = x8.g().b();
-            String localClassName = b != null ? b.getLocalClassName() : "";
-            return localClassName.contains("MainTabActivity") || localClassName.contains("FrsActivity") || localClassName.contains("PbActivity") || localClassName.contains("NewSquareSearchActivity") || localClassName.contains("PbCommentFloatActivity");
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (View) invokeV.objValue;
     }
 
     public void d() {
+        en8 en8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || TbSingleton.getInstance().hasPerformInterestPanelShow) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
+            this.b.getLayoutMode().j(this.c);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.b.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            NoNetworkView noNetworkView = this.e;
+            if (noNetworkView != null) {
+                noNetworkView.c(this.b.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.g;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (en8Var = this.h) != null) {
+                en8Var.notifyDataSetChanged();
+            }
+            MemberRecommendView memberRecommendView = this.f;
+            if (memberRecommendView != null && memberRecommendView.getVisibility() == 0) {
+                this.f.d();
+            }
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
+        }
+    }
+
+    public final void e(List<dn8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.g.setVisibility(0);
+                this.h.b(a(list));
+                this.h.notifyDataSetChanged();
+                return;
+            }
+            this.g.setVisibility(8);
+        }
+    }
+
+    public final boolean f(ln8 ln8Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ln8Var)) == null) {
+            if (ln8Var != null && !StringUtils.isNull(ln8Var.c())) {
+                this.f.setVisibility(0);
+                this.f.e(ln8Var);
+                return true;
+            }
+            this.f.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(PersonalCardItemView.b bVar) {
+        en8 en8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (en8Var = this.h) == null) {
             return;
         }
-        TbSingleton.getInstance().hasPerformInterestPanelShow = true;
-        if (TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-            InterestPanelShowManager.a().d(this.a);
-            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+        en8Var.a(bVar);
+    }
+
+    public void h(BdListView.p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, pVar) == null) {
+            this.g.setOnSrollToBottomListener(pVar);
         }
-        iu4.k().x("key_app_launch_time", System.currentTimeMillis());
-        b();
-        if (!UbsABTestHelper.isFirstLoginTestA() && !UbsABTestHelper.isFirstLoginTestB() && !TbadkApplication.getInst().isNeedNewUserLead()) {
-            InterestPanelShowManager.a().d(this.a);
-            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.i.setVisibility(8);
+            String string = this.b.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c4d);
+            this.b.setNetRefreshViewTopMargin(this.k);
+            this.b.showNetRefreshView(this.c, string, false);
         }
-        if (!UbsABTestHelper.isFirstLoginTestB() || TbadkApplication.getInst().isNeedNewUserLead()) {
-            return;
+    }
+
+    public void j(int i, ln8 ln8Var, List<dn8> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), ln8Var, list, Boolean.valueOf(z)}) == null) {
+            if ((ln8Var == null || StringUtils.isNull(ln8Var.c())) && (list == null || list.size() <= 0)) {
+                i();
+            } else if (i != 0) {
+            } else {
+                b();
+                if (f(ln8Var)) {
+                    this.g.removeHeaderView(this.j);
+                    this.g.addHeaderView(this.j);
+                } else {
+                    this.g.removeHeaderView(this.j);
+                }
+                e(list);
+            }
         }
-        InterestPanelShowManager.a().d(this.a);
-        TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
     }
 }

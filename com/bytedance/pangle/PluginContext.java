@@ -229,13 +229,13 @@ public class PluginContext extends e {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PluginContext(Context context, Plugin plugin2, boolean z) {
+    public PluginContext(Context context, Plugin plugin, boolean z) {
         super(getContextWithoutTheme(context), getThemeResourceId(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, plugin2, Boolean.valueOf(z)};
+            Object[] objArr = {context, plugin, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -247,7 +247,7 @@ public class PluginContext extends e {
                 return;
             }
         }
-        this.mPlugin = plugin2;
+        this.mPlugin = plugin;
         this.mOriginContext = context;
         this.mIsHostApplicationContext = z;
     }

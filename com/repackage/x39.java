@@ -1,88 +1,55 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.service.IPCService;
-@Singleton
-@Service
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class x39 implements j49 {
+public class x39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l49 a;
-    public IPCService b;
-    public m49 c;
 
-    public x39() {
+    public static void a(String str, b49 b49Var, a49 a49Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, b49Var, a49Var) == null) {
+            if (p79.a) {
+                p79.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + a49Var.toString());
+            }
+            v39 g = s39.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (a49Var != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", a49Var.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", a49Var.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", a49Var.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", a49Var.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", a49Var.d + ""));
+                }
+                g.a("perf_record_arperf", str, b49Var.a, b49Var.b, b49Var.c, b49Var.d, b49Var.e, null, arrayList);
             }
         }
     }
 
-    @Override // com.repackage.j49
-    public g49 a() {
-        InterceptResult invokeV;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new l49();
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (p79.a) {
+                p79.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
             }
-            return this.a;
-        }
-        return (g49) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j49
-    public i49 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == null) {
-                this.b = new IPCService();
+            v39 g = s39.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", n79.a(s39.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(n79.b(s39.c().getContext()))));
+                }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
             }
-            return this.b;
         }
-        return (i49) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j49
-    public i39 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e49.b() : (i39) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j49
-    public m39 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e49.c() : (m39) invokeV.objValue;
-    }
-
-    @Override // com.repackage.j49
-    public h49 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c == null) {
-                this.c = new m49();
-            }
-            return this.c;
-        }
-        return (h49) invokeV.objValue;
     }
 }

@@ -1,23 +1,17 @@
 package com.repackage;
 
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
 /* loaded from: classes6.dex */
 public abstract class jy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final by0[][] a;
 
     public jy0() {
         Interceptable interceptable = $ic;
@@ -29,87 +23,35 @@ public abstract class jy0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new by0[0];
     }
 
-    public void a(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+    public static by0 a(int i, String str, String str2, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, th}) == null) && c(i, str)) {
-            if (TextUtils.isEmpty(str2)) {
-                if (th == null) {
-                    return;
-                }
-                str2 = b(th);
-            } else if (th != null) {
-                str2 = str2 + "\n" + b(th);
-            }
-            if (TextUtils.isEmpty(str)) {
-                d(i, null, str2);
-            } else if (str.length() > 23 && Build.VERSION.SDK_INT < 24) {
-                d(i, str.substring(0, 23), str2);
-            } else {
-                d(i, str, str2);
-            }
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) ? b(i, str, str2, i2, 0) : (by0) invokeCommon.objValue;
     }
 
-    public final String b(@NonNull Throwable th) {
-        InterceptResult invokeL;
+    public static by0 b(int i, String str, String str2, int i2, int i3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) {
-            try {
-                StringWriter stringWriter = new StringWriter(256);
-                PrintWriter printWriter = new PrintWriter((Writer) stringWriter, false);
-                th.printStackTrace(printWriter);
-                printWriter.flush();
-                printWriter.close();
-                return stringWriter.toString();
-            } catch (Exception e) {
-                String message = e.getMessage();
-                return TextUtils.isEmpty(message) ? "unknown throwable by VideoLog.java" : message;
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? new by0(i, str, str2, i2, i3) : (by0) invokeCommon.objValue;
     }
 
-    public abstract boolean c(int i, @Nullable String str);
+    public abstract Column[] c();
 
-    public void d(int i, @Nullable String str, @NonNull String str2) {
-        int min;
+    public abstract by0[] d();
+
+    public by0[][] e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
-            if (str2.length() < 4096) {
-                if (i == 7) {
-                    Log.wtf(str, str2);
-                    return;
-                } else {
-                    Log.println(i, str, str2);
-                    return;
-                }
-            }
-            int i2 = 0;
-            int length = str2.length();
-            while (i2 < length) {
-                int indexOf = str2.indexOf(10, i2);
-                if (indexOf == -1) {
-                    indexOf = length;
-                }
-                while (true) {
-                    min = Math.min(indexOf, i2 + 4096);
-                    String substring = str2.substring(i2, min);
-                    if (i == 7) {
-                        Log.wtf(str, substring);
-                    } else {
-                        Log.println(i, str, substring);
-                    }
-                    if (min >= indexOf) {
-                        break;
-                    }
-                    i2 = min;
-                }
-                i2 = min + 1;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (by0[][]) invokeV.objValue;
     }
+
+    public abstract by0[] f();
+
+    public abstract String g();
 }

@@ -1,7 +1,7 @@
 package com.meizu.cloud.pushsdk.platform;
 
 import android.text.TextUtils;
-import com.repackage.tl9;
+import com.repackage.ni9;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +37,7 @@ public class a {
                         }
                         return new String(String.valueOf(cArr).getBytes("iso-8859-1"), "UTF-8");
                     } catch (Exception unused) {
-                        tl9.b("PushIdEncryptUtils", "invalid pushId encryption " + str2);
+                        ni9.b("PushIdEncryptUtils", "invalid pushId encryption " + str2);
                         return str;
                     }
                 }

@@ -1,74 +1,86 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
+import android.app.Application;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.GetIconList.Setting;
-import tbclient.GetIconList.UserInfo;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
 public class em8 {
     public static /* synthetic */ Interceptable $ic;
+    public static em8 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public boolean b;
 
-    public static String a(int i) {
-        InterceptResult invokeI;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Application application);
+    }
+
+    public em8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i < 0) {
-                i = 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            String valueOf = String.valueOf(i);
-            if (i >= 1000000) {
-                float f = i / 10000.0f;
-                int i2 = i / 10000;
-                if (f > i2) {
-                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f149f);
+        }
+        this.b = false;
+        this.a = c();
+    }
+
+    public static em8 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (em8.class) {
+                    if (c == null) {
+                        c = new em8();
+                    }
                 }
-                return i2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f149f);
             }
-            return valueOf;
+            return c;
         }
-        return (String) invokeI.objValue;
+        return (em8) invokeV.objValue;
     }
 
-    public static String b(long j) {
-        InterceptResult invokeJ;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            String valueOf = String.valueOf(j);
-            if (j >= 1000000) {
-                float f = ((float) j) / 10000.0f;
-                long j2 = j / 10000;
-                if (f > ((float) j2)) {
-                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f149f);
-                }
-                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f149f);
-            }
-            return valueOf;
-        }
-        return (String) invokeJ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ys4.k().l("pref_key_jpush_sdk_enable", 0) == 1 : invokeV.booleanValue;
     }
 
-    public static int c(UserInfo userInfo, int i, Setting setting) {
-        InterceptResult invokeLIL;
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, userInfo, i, setting)) == null) {
-            if (userInfo == null || userInfo.is_mem == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!a() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
+                return null;
             }
-            return userInfo.is_mem.intValue() != 2 ? i : (setting == null || setting.vip_extra_switch.intValue() != 1 || setting.vip_extra_percent.intValue() <= 0) ? i : ((setting.vip_extra_percent.intValue() * i) / 100) + i;
+            return (a) runTask.getData();
         }
-        return invokeLIL.intValue;
+        return (a) invokeV.objValue;
     }
 
-    public static int d(int i) {
-        InterceptResult invokeI;
+    public void d(Application application) {
+        a aVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (int) (i / 100.0f) : invokeI.intValue;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) || this.b || (aVar = this.a) == null) {
+            return;
+        }
+        aVar.a(application);
+        this.b = true;
     }
 }

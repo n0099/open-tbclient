@@ -1,19 +1,25 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.helper.NetUtils;
-import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ts0;
-/* loaded from: classes7.dex */
-public class qs0 extends cs0 implements ts0.a {
+@Singleton
+@Service
+/* loaded from: classes6.dex */
+public class qs0 implements zr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ts0 b;
+    public int a;
+    public int b;
 
     public qs0() {
         Interceptable interceptable = $ic;
@@ -28,97 +34,146 @@ public class qs0 extends cs0 implements ts0.a {
                 return;
             }
         }
-        this.b = new ts0(this);
+        this.a = 0;
+        this.b = 0;
     }
 
-    @Override // com.repackage.ts0.a
-    public void a(NetUtils.NetStatus netStatus, NetUtils.NetStatus netStatus2) {
+    @Override // com.repackage.zr0
+    public void a(su0 su0Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, netStatus, netStatus2) == null) {
-            rs0 w = ps0.w(SystemEvent.ACTION_CONNECT_CHANGED);
-            w.n(1, netStatus2);
-            c(w);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, su0Var) == null) || su0Var == null || TextUtils.isEmpty(su0Var.g)) {
+            return;
         }
-    }
-
-    @Override // com.repackage.ts0.a
-    public void onBatteryChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            rs0 w = ps0.w(SystemEvent.ACTION_BATTERY_CHANGED);
-            w.r(1);
-            w.n(4, Integer.valueOf(i));
-            c(w);
+        ClogBuilder clogBuilder = new ClogBuilder();
+        if (!TextUtils.isEmpty(su0Var.f)) {
+            clogBuilder.t(su0Var.f);
         }
-    }
-
-    @Override // com.repackage.ts0.a
-    public void onBluetoothHeadsetChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            rs0 w = ps0.w(SystemEvent.ACTION_BLUETOOTH_HEADSET);
-            w.n(6, Boolean.valueOf(z));
-            c(w);
+        clogBuilder.n(su0Var.g);
+        String c = su0Var.a.c();
+        char c2 = 65535;
+        switch (c.hashCode()) {
+            case -1530009462:
+                if (c.equals(ControlEvent.ACTION_SYNC_PROGRESS)) {
+                    c2 = 5;
+                    break;
+                }
+                break;
+            case 154871702:
+                if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                    c2 = 4;
+                    break;
+                }
+                break;
+            case 720027695:
+                if (c.equals(ControlEvent.ACTION_PAUSE)) {
+                    c2 = 1;
+                    break;
+                }
+                break;
+            case 723345051:
+                if (c.equals(ControlEvent.ACTION_START)) {
+                    c2 = 0;
+                    break;
+                }
+                break;
+            case 906917140:
+                if (c.equals(ControlEvent.ACTION_RESUME)) {
+                    c2 = 2;
+                    break;
+                }
+                break;
+            case 2145795460:
+                if (c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
+                    c2 = 3;
+                    break;
+                }
+                break;
         }
-    }
-
-    @Override // com.repackage.ts0.a
-    public void onConfigurationChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(ps0.w(SystemEvent.ACTION_CONFIGURATION_CHANGED));
-        }
-    }
-
-    @Override // com.repackage.ts0.a
-    public void onHeadsetPlug(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            rs0 w = ps0.w(SystemEvent.ACTION_HEADSET_PLUG);
-            w.n(3, Boolean.valueOf(z));
-            c(w);
-        }
-    }
-
-    @Override // com.repackage.ts0.a
-    public void onScreenStatusChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            rs0 w = ps0.w(z ? SystemEvent.ACTION_SCREEN_OFF : SystemEvent.ACTION_SCREEN_ON);
-            w.n(2, Boolean.valueOf(z));
-            c(w);
-        }
-    }
-
-    @Override // com.repackage.ts0.a
-    public void onVolumeChanged(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            rs0 w = ps0.w(SystemEvent.ACTION_VOLUME_CHANGED);
-            w.n(5, Integer.valueOf(i));
-            c(w);
-        }
-    }
-
-    public void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.b.registerReceiver();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (c2 == 0) {
+            clogBuilder.w(ClogBuilder.LogType.VIDEO_START).i(su0Var.b).k(su0Var.d);
+            this.b = 0;
+            this.a++;
+            rx0.c(clogBuilder);
+        } else if (c2 == 1) {
+            boolean d = su0Var.a.d(7);
+            clogBuilder.j(su0Var.c).k(su0Var.d).l(su0Var.e);
+            if (d) {
+                clogBuilder.w(ClogBuilder.LogType.VIDEO_PAUSE);
+            } else {
+                clogBuilder.w(ClogBuilder.LogType.VIDEO_COMPLETED).m("1");
             }
+            rx0.c(clogBuilder);
+        } else if (c2 == 2) {
+            clogBuilder.w(ClogBuilder.LogType.VIDEO_RESUME).i(su0Var.b).k(su0Var.d);
+            rx0.c(clogBuilder);
+        } else if (c2 == 3 || c2 == 4) {
+            if (this.a < 1) {
+                return;
+            }
+            try {
+                if (this.b > Integer.parseInt(su0Var.c)) {
+                    clogBuilder.j(su0Var.d);
+                } else {
+                    clogBuilder.j(su0Var.c);
+                }
+            } catch (NumberFormatException unused) {
+                clogBuilder.j(su0Var.c);
+            }
+            clogBuilder.w(ClogBuilder.LogType.VIDEO_COMPLETED).k(su0Var.d).l(su0Var.e).m("0");
+            this.a--;
+            rx0.c(clogBuilder);
+        } else if (c2 != 5) {
+        } else {
+            int g = su0Var.a.g(1);
+            int g2 = su0Var.a.g(2);
+            if (g == 0 && g2 != 0 && (i = this.b) != 0 && i >= g2 - 2) {
+                clogBuilder.w(ClogBuilder.LogType.VIDEO_COMPLETED).j(String.valueOf(g2)).k(String.valueOf(g2)).l(su0Var.e);
+                rx0.c(clogBuilder);
+                ClogBuilder n = new ClogBuilder().w(ClogBuilder.LogType.VIDEO_START).i(su0Var.b).k(su0Var.d).n(su0Var.g);
+                if (!TextUtils.isEmpty(su0Var.f)) {
+                    n.t(su0Var.f);
+                }
+                rx0.c(n);
+            }
+            this.b = g;
         }
     }
 
-    public void unregisterReceiver() {
+    @Override // com.repackage.zr0
+    public void b(su0 su0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            try {
-                this.b.unregisterReceiver();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, su0Var) == null) || su0Var == null || su0Var.a == null || TextUtils.isEmpty(su0Var.g)) {
+            return;
+        }
+        String c = su0Var.a.c();
+        char c2 = 65535;
+        int hashCode = c.hashCode();
+        if (hashCode != 154871702) {
+            if (hashCode != 1370689931) {
+                if (hashCode == 2145795460 && c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
+                    c2 = 1;
+                }
+            } else if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
+                c2 = 0;
             }
+        } else if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+            c2 = 2;
+        }
+        if (c2 != 0) {
+            if (c2 == 1 || c2 == 2) {
+                tu0.b.b();
+                return;
+            }
+            return;
+        }
+        yu0 a = tu0.b.a();
+        if (a != null) {
+            a.c(su0Var.g);
+            a.e(su0Var.b);
+            a.d(su0Var.h);
+            a.b(su0Var.d);
+            tu0.b.c(a);
         }
     }
 }

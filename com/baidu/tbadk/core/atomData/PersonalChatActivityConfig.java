@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PersonalChatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FOLLOWED_BY_SENDER = 3;
@@ -22,6 +22,7 @@ public class PersonalChatActivityConfig extends IntentConfig {
     public static final int FROM_IM = 3;
     public static final int FROM_PERSON_MAIN_PAGE = 2;
     public static final int FROM_SHARE = 1;
+    public static final int FROM_STRANGER = 4;
     public static final int IS_FRIEND = 1;
     public static final int IS_NOT_FRIEND = 0;
     public static final String KEY_FROM = "key_from";
@@ -36,6 +37,7 @@ public class PersonalChatActivityConfig extends IntentConfig {
     public static final String KEY_USER_ID = "key_user_id";
     public static final String KEY_USER_NAME = "key_user_name";
     public static final String KEY_USER_PORTAIT = "key_user_portait";
+    public static final String LAST_PAGE_UNIQUE_ID = "last_page_unique_id";
     public transient /* synthetic */ FieldHolder $fh;
     public UserData mUserData;
 
@@ -87,9 +89,18 @@ public class PersonalChatActivityConfig extends IntentConfig {
         }
     }
 
+    public void setLastUniqueId(int i) {
+        Intent intent;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (intent = getIntent()) == null) {
+            return;
+        }
+        intent.putExtra("last_page_unique_id", i);
+    }
+
     public void setSelectList(ArrayList<ReportPrivateMsgData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             getIntent().putParcelableArrayListExtra(KEY_HAS_SELECT_MSG_LIST, arrayList);
         }
     }

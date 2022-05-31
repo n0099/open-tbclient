@@ -1,179 +1,240 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class po3 implements yo3 {
+public class po3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public final vo3 b;
 
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(po3 po3Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {po3Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                DownloadInfo downloadInfo = (DownloadInfo) message.obj;
-                int status = downloadInfo.getStatus();
-                if (downloadInfo.getDownloadListener() == null) {
-                    return;
-                }
-                switch (b.a[DownloadState.convert(status).ordinal()]) {
-                    case 1:
-                        downloadInfo.getDownloadListener().e(downloadInfo.getProgress(), downloadInfo.getSize());
-                        return;
-                    case 2:
-                        downloadInfo.getDownloadListener().onStart();
-                        return;
-                    case 3:
-                        downloadInfo.getDownloadListener().d();
-                        return;
-                    case 4:
-                        downloadInfo.getDownloadListener().f(downloadInfo.getProgress(), downloadInfo.getSize());
-                        return;
-                    case 5:
-                        downloadInfo.getDownloadListener().a();
-                        return;
-                    case 6:
-                        downloadInfo.getDownloadListener().b(downloadInfo.getException());
-                        return;
-                    case 7:
-                        downloadInfo.getDownloadListener().c();
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-93054817, "Lcom/repackage/po3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-93054817, "Lcom/repackage/po3$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[DownloadState.values().length];
-            a = iArr;
-            try {
-                iArr[DownloadState.DOWNLOADING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[DownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[DownloadState.WAIT.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[DownloadState.DOWNLOADED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[DownloadState.DELETED.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-        }
-    }
-
-    public po3(vo3 vo3Var) {
+    @Nullable
+    public static Map<String, String> a(String str, String str2, String str3, String str4, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vo3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
+            if (z || yn3.b() == null) {
+                return null;
             }
+            TreeMap treeMap = new TreeMap();
+            treeMap.put("ver", zo3.l());
+            treeMap.put("host", yn3.b().a());
+            treeMap.put("os", "android");
+            int c = NetworkUtils.c(false);
+            treeMap.put("net", c + "");
+            treeMap.put("phone", zo3.e());
+            treeMap.put("osV", zo3.f());
+            treeMap.put("slot", str);
+            treeMap.put("flow", str2);
+            treeMap.put("appid", str3);
+            treeMap.put("apid", str4);
+            treeMap.put("sdk", yn3.b().getSdkVersion());
+            treeMap.put("time", "" + System.currentTimeMillis());
+            return treeMap;
         }
-        this.b = vo3Var;
-        this.a = new a(this, Looper.getMainLooper());
+        return (Map) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.yo3
-    public void a(DownloadException downloadException) {
+    public static String b(String str, @Nullable Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (map != null) {
+                map.put("name", str);
+                return xo3.b("https://mobads-logs.baidu.com/dz.zb?type=mnp&", map);
+            }
+            return "https://mobads-logs.baidu.com/dz.zb?type=mnp&";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String c(@NonNull Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) ? map.get("flow") : (String) invokeL.objValue;
+    }
+
+    public static void d(String str, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, xn3Var) == null) {
+            xn3Var.e(str);
         }
     }
 
-    @Override // com.repackage.yo3
-    public void b(DownloadInfo downloadInfo) {
+    public static String e(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
-            if (downloadInfo.getStatus() != DownloadState.DELETED.value()) {
-                this.b.a(downloadInfo);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2)) == null) {
+            String replaceAll = str.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()).replaceAll("%25%25play_mode%25%25", "0");
+            String replaceAll2 = replaceAll.replaceAll("%25%25cur_time%25%25", "" + i);
+            return replaceAll2.replaceAll("%25%25start_time%25%25", "" + i2).replaceAll("%25%25area%25%25", "hot");
+        }
+        return (String) invokeLII.objValue;
+    }
+
+    public static void f(String str, String str2, String str3, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65541, null, str, str2, str3, xn3Var) == null) || yn3.b() == null || zo3.o()) {
+            return;
+        }
+        String a = yn3.b().a();
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("bizId", 10003);
+            jSONObject.put(TbEnum.SystemMessage.KEY_GROUP_ID, 10003);
+            jSONObject.put("containerAppName", a);
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("distribute_channel", 38);
+            jSONObject2.put("CTK", str3);
+            jSONObject2.put("logtype", 2);
+            jSONObject2.put("media_id", str);
+            jSONObject2.put("PVID", str3);
+            jSONObject2.put("tuid", str2);
+            jSONObject2.put("time", zo3.j());
+            jSONObject2.put("page_type", 1);
+            jSONObject2.put("traffic_type", 1);
+            jSONObject.put("content", jSONObject2);
+            xn3Var.d(jSONObject.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void g(AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            d(e(str, 0, 0), xn3Var);
+        }
+    }
+
+    public static void h(AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            HashSet hashSet = new HashSet();
+            hashSet.add(BdVideoAd.AD_VIDEO_DAPAGE);
+            hashSet.add("da_type");
+            String a = xo3.a(xo3.a(xo3.c(str, hashSet), BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL_PLAYABLE"), "da_type", "102");
+            d(a.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), xn3Var);
+        }
+        d(adElementInfo.getClickUrl(), xn3Var);
+    }
+
+    public static void i(AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65544, null, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            HashSet hashSet = new HashSet();
+            hashSet.add(BdVideoAd.AD_VIDEO_DAPAGE);
+            hashSet.add("da_type");
+            String c = xo3.c(str, hashSet);
+            if (!TextUtils.isEmpty(adElementInfo.getEndFrameUrl())) {
+                c = xo3.a(c, BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL_PLAYABLE");
+            } else if (!TextUtils.isEmpty(adElementInfo.getEndFrameHtml())) {
+                c = xo3.a(c, BdVideoAd.AD_VIDEO_DAPAGE, "NAVIDEO_TAIL");
             }
-            Message obtainMessage = this.a.obtainMessage(downloadInfo.getId().hashCode());
-            obtainMessage.obj = downloadInfo;
-            obtainMessage.sendToTarget();
+            String a = xo3.a(c, "da_type", TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY);
+            d(a.replaceAll("%25%25origin_time%25%25", "" + System.currentTimeMillis()), xn3Var);
+        }
+    }
+
+    public static void j(AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getImpressionUrls()) {
+            d(e(str, 0, 0), xn3Var);
+        }
+        for (String str2 : adElementInfo.getThirdImpressionTrackingUrls()) {
+            d(e(str2, 0, 0), xn3Var);
+        }
+    }
+
+    public static void k(@Nullable Map<String, String> map, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, map, str) == null) {
+            l(map, str, new go3(AppRuntime.getAppContext()));
+        }
+    }
+
+    public static void l(@Nullable Map<String, String> map, String str, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65547, null, map, str, xn3Var) == null) || map == null) {
+            return;
+        }
+        TreeMap treeMap = new TreeMap(map);
+        if (!TextUtils.isEmpty(str)) {
+            treeMap.put(StatConstants.KEY_EXT_ERR_CODE, str);
+            treeMap.put(StatConstants.KEY_EXT_ERR_MSG, to3.a(str));
+        }
+        n("error", treeMap, xn3Var);
+    }
+
+    public static void m(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, str, map) == null) {
+            n(str, map, new go3(AppRuntime.getAppContext()));
+        }
+    }
+
+    public static void n(String str, Map<String, String> map, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65549, null, str, map, xn3Var) == null) || map == null) {
+            return;
+        }
+        d(b(str, map), xn3Var);
+    }
+
+    public static void o(int i, int i2, AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), adElementInfo, xn3Var}) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getCloseTrackers()) {
+            d(e(str, i, i2), xn3Var);
+        }
+    }
+
+    public static void p(AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65551, null, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getSkipTrackers()) {
+            d(e(str, 0, 0), xn3Var);
+        }
+    }
+
+    public static void q(AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65552, null, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getStartTrackers()) {
+            d(e(str, 0, 0), xn3Var);
         }
     }
 }

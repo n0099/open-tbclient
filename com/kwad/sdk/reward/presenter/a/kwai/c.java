@@ -148,9 +148,9 @@ public class c extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (TailFramePortraitVertical) a(R.id.obfuscated_res_0x7f091182);
-        this.c = (TailFramePortraitHorizontal) a(R.id.obfuscated_res_0x7f091181);
-        this.d = (TailFrameLandscapeVertical) a(R.id.obfuscated_res_0x7f09117a);
-        this.e = (TailFrameLandscapeHorizontal) a(R.id.obfuscated_res_0x7f091179);
+        this.b = (TailFramePortraitVertical) a(R.id.obfuscated_res_0x7f091144);
+        this.c = (TailFramePortraitHorizontal) a(R.id.obfuscated_res_0x7f091143);
+        this.d = (TailFrameLandscapeVertical) a(R.id.obfuscated_res_0x7f09113c);
+        this.e = (TailFrameLandscapeHorizontal) a(R.id.obfuscated_res_0x7f09113b);
     }
 }

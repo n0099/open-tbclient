@@ -1,36 +1,22 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.graphics.Bitmap;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class vj1 implements im1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vj1 {
 
-    public vj1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onResult(String str);
     }
 
-    @Override // com.repackage.im1
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
+
+    void b(Context context, String str, String str2, String str3);
+
+    void c(HashMap<String, String> hashMap, File file, a aVar);
+
+    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
 }

@@ -230,7 +230,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m169a(Context context) {
+    public static void m168a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             boolean z = false;
@@ -247,7 +247,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m170a(Context context, e eVar) {
+    public static void m169a(Context context, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, eVar) == null) {
             String a2 = a(eVar);
@@ -266,15 +266,15 @@ public class i {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a2 = a(eVar);
         if (TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m109a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+            com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
             return;
         }
         String string = sharedPreferences.getString(a2, "");
         if (!TextUtils.isEmpty(string) && str.equals(string)) {
-            com.xiaomi.channel.commonutils.logger.b.m109a("ASSEMBLE_PUSH : do not need to send token");
+            com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : do not need to send token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m109a("ASSEMBLE_PUSH : send token upload");
+        com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : send token upload");
         a(eVar, str);
         at a3 = l.a(eVar);
         if (a3 == null) {
@@ -298,9 +298,9 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m109a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                 } else if (TextUtils.isEmpty(str)) {
-                    com.xiaomi.channel.commonutils.logger.b.m109a("ASSEMBLE_PUSH : token is null");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : token is null");
                 } else {
                     a.put(a2, str);
                 }
@@ -316,7 +316,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m171a(Context context) {
+    public static boolean m170a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
@@ -329,12 +329,12 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m172a(Context context, e eVar) {
+    public static boolean m171a(Context context, e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, eVar)) == null) {
-            if (l.m174a(eVar) != null) {
-                return com.xiaomi.push.service.aq.a(context).a(l.m174a(eVar).a(), true);
+            if (l.m173a(eVar) != null) {
+                return com.xiaomi.push.service.aq.a(context).a(l.m173a(eVar).a(), true);
             }
             return false;
         }
@@ -390,11 +390,11 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m109a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                     return;
                 }
                 com.xiaomi.push.r.a(context.getSharedPreferences("mipush_extra", 0).edit().putString(a2, str));
-                com.xiaomi.channel.commonutils.logger.b.m109a("ASSEMBLE_PUSH : update sp file success!  " + str);
+                com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : update sp file success!  " + str);
             }
         }
     }

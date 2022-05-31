@@ -79,12 +79,12 @@ public class PushThreadActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && ((z = httpResponsedMessage instanceof PbPushHttpResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
                 } else if (z) {
                     if (this.a.mCurrentPushType == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
                         this.a.setResult(-1, new Intent());
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
                     }
                     this.a.finish();
                 }
@@ -149,10 +149,10 @@ public class PushThreadActivity extends BaseActivity {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
-                View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0700, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fe5);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fe4);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092204);
+                View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06f7, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fa7);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fa6);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0921a9);
                 PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.a.mPushTypeDatas, i);
                 if (pushTypeData != null) {
                     tbImageView.K(pushTypeData.getIcon(), 10, false);
@@ -201,20 +201,20 @@ public class PushThreadActivity extends BaseActivity {
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0701);
-            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f0919d7), R.drawable.dialog_background);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091cb1), (int) R.color.CAM_X0105);
-            this.mGridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090d01);
+            setContentView(R.layout.obfuscated_res_0x7f0d06f8);
+            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f09198b), R.drawable.dialog_background);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091c5c), (int) R.color.CAM_X0105);
+            this.mGridView = (GridView) findViewById(R.id.obfuscated_res_0x7f090cc5);
             this.mGridView.setAdapter((ListAdapter) new b(this));
             this.mGridView.setOnItemClickListener(this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0919c7);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091978);
             this.mPushCommit = textView;
-            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f080fb4);
+            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f080fc6);
             SkinManager.setViewTextColor(this.mPushCommit, (int) R.color.CAM_X0101);
             this.mPushCommit.setOnClickListener(this);
-            ImageButton imageButton = (ImageButton) findViewById(R.id.obfuscated_res_0x7f090dfa);
+            ImageButton imageButton = (ImageButton) findViewById(R.id.obfuscated_res_0x7f090dbe);
             this.mIbClose = imageButton;
-            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f080fb3);
+            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f080fc5);
             this.mIbClose.setOnClickListener(this);
         }
     }
@@ -241,7 +241,7 @@ public class PushThreadActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             if (view2 == this.mPushCommit) {
                 if (this.mCurrentPushType == 0) {
-                    showToast(R.string.obfuscated_res_0x7f0f10dc);
+                    showToast(R.string.obfuscated_res_0x7f0f10ec);
                     return;
                 }
                 long longExtra = getIntent().getLongExtra("forum_id", 0L);
@@ -275,8 +275,8 @@ public class PushThreadActivity extends BaseActivity {
         View childAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fe4);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092204);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fa6);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921a9);
             this.mPushCommit.setEnabled(true);
             PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.mPushTypeDatas, i);
             if (pushTypeData != null) {
@@ -288,8 +288,8 @@ public class PushThreadActivity extends BaseActivity {
                 }
                 PushTypeData pushTypeData2 = this.mPreSelectData;
                 if (pushTypeData2 != null && (childAt = adapterView.getChildAt(ListUtils.getPosition(this.mPushTypeDatas, pushTypeData2))) != null) {
-                    ((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090fe4)).setImageDrawable(null);
-                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f092204), (int) R.color.CAM_X0105);
+                    ((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f090fa6)).setImageDrawable(null);
+                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f0921a9), (int) R.color.CAM_X0105);
                 }
                 SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0308);

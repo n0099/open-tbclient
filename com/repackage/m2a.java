@@ -1,13 +1,9 @@
 package com.repackage;
 
-import rx.subjects.ReplaySubject$ReplayProducer;
+import android.view.View;
 /* loaded from: classes6.dex */
-public interface m2a<T> {
-    void a(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer);
+public interface m2a {
+    View getContentView();
 
-    void complete();
-
-    void error(Throwable th);
-
-    void next(T t);
+    void refreshView();
 }

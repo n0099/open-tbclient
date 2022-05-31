@@ -23,7 +23,7 @@ import org.apache.http.conn.scheme.LayeredSocketFactory;
 import org.apache.http.conn.ssl.StrictHostnameVerifier;
 import org.apache.http.params.HttpParams;
 @TargetApi(17)
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k implements LayeredSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final HostnameVerifier a;

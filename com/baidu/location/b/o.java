@@ -17,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -333,7 +334,7 @@ public class o extends com.baidu.location.e.e {
                     String[] strArr = Build.SUPPORTED_ABIS;
                     String str4 = null;
                     for (int i = 0; i < strArr.length; i++) {
-                        str4 = i == 0 ? strArr[i] + ";" : str4 + strArr[i] + ";";
+                        str4 = i == 0 ? strArr[i] + ParamableElem.DIVIDE_PARAM : str4 + strArr[i] + ParamableElem.DIVIDE_PARAM;
                     }
                     str3 = str4;
                 } else {

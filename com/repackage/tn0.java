@@ -1,31 +1,26 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tn0 {
+public final class tn0 implements on0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public String b;
+    public final boolean a;
+    public final long b;
     public final String c;
     public final String d;
-    public final boolean e;
 
-    public tn0(@NonNull JSONObject jSONObject, boolean z) {
+    public tn0(boolean z, long j, String str, String str2, Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
+            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j), str, str2, exc};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,49 +30,37 @@ public class tn0 {
                 return;
             }
         }
-        if (z) {
-            this.a = jSONObject.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-            this.b = jSONObject.optString("deferred_cmd");
-            this.c = jSONObject.optString("download_url");
-            this.d = jSONObject.optString("key");
-        } else {
-            this.a = jSONObject.optString("apk_name");
-            this.b = jSONObject.optString("deferred_cmd");
-            this.c = jSONObject.optString("download_url");
-            this.d = jSONObject.optString("download_key");
-        }
-        this.e = a();
+        this.a = z;
+        this.b = j;
+        this.c = str;
+        this.d = str2;
     }
 
-    @Nullable
-    public static tn0 b(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return new tn0(jSONObject, false);
-        }
-        return (tn0) invokeL.objValue;
-    }
-
-    @Nullable
-    public static tn0 c(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return new tn0(jSONObject, true);
-        }
-        return (tn0) invokeL.objValue;
-    }
-
-    public final boolean a() {
+    @Override // com.repackage.on0
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.c)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.on0
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.on0
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    @Override // com.repackage.on0
+    public boolean isSuccess() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

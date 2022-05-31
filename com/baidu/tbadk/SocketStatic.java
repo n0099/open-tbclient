@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
+import com.repackage.ji;
+import com.repackage.l35;
 import com.repackage.nb;
-import com.repackage.q45;
 /* loaded from: classes2.dex */
 public class SocketStatic {
     public static /* synthetic */ Interceptable $ic = null;
@@ -92,8 +92,8 @@ public class SocketStatic {
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable3 = $ic;
-                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && ki.z() && BdSocketLinkService.isClose()) {
-                                q45.b(0, 0, 0, 1, 6);
+                            if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && ji.z() && BdSocketLinkService.isClose()) {
+                                l35.b(0, 0, 0, 1, 6);
                                 BdSocketLinkService.setAvailable(true);
                                 BdSocketLinkService.startService(false, "net succ");
                             }

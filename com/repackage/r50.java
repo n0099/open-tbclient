@@ -1,143 +1,28 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.k50;
-import com.repackage.n50;
-import java.util.UUID;
+import com.repackage.s50;
+import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class r50 extends n50 {
+/* loaded from: classes6.dex */
+public class r50 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile r50 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public k50.a d;
-    public a e;
+    public int a;
+    public String b;
+    public Context c;
+    public boolean d;
 
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public boolean b;
-        public h50 c;
-        public String d;
-        public String e;
-        public final /* synthetic */ r50 f;
-
-        public a(r50 r50Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r50Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = r50Var;
-            this.b = true;
-            this.c = new h50();
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        public void b(String str) {
-            String str2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (str2 = this.d) == str) {
-                return;
-            }
-            if (str == null || !str.equals(str2)) {
-                this.d = str;
-                this.b = true;
-            }
-        }
-
-        public void c(long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.a == j) {
-                return;
-            }
-            this.a = j;
-            this.b = true;
-        }
-
-        public void d(String str) {
-            String str2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (str2 = this.e) == str) {
-                return;
-            }
-            if (str == null || !str.equals(str2)) {
-                this.e = str;
-                this.b = true;
-            }
-        }
-
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.b) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("form_id", this.d);
-                        jSONObject.put("lst_fe_ts", this.a);
-                        jSONObject.put("c_form_ver", 1);
-                        jSONObject.put("flags", this.c.d());
-                        jSONObject.put("uuid", this.e);
-                        this.f.d.i("cache.dat", jSONObject.toString(), true);
-                        this.b = false;
-                        return true;
-                    } catch (Exception unused) {
-                    }
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                String g = this.f.d.g("cache.dat", true);
-                if (TextUtils.isEmpty(g)) {
-                    return false;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject(g);
-                    this.d = jSONObject.optString("form_id");
-                    this.a = jSONObject.getLong("lst_fe_ts");
-                    jSONObject.getInt("c_form_ver");
-                    this.e = jSONObject.getString("uuid");
-                    this.c.b(jSONObject.getLong("flags"));
-                    return true;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public r50() {
-        super("iid");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -145,38 +30,109 @@ public class r50 extends n50 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
+        this.b = "";
     }
 
-    @Override // com.repackage.n50
-    public String c() {
+    public static r50 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e.a() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (r50.class) {
+                    if (e == null) {
+                        e = new r50();
+                    }
+                }
+            }
+            return e;
+        }
+        return (r50) invokeV.objValue;
     }
 
-    @Override // com.repackage.n50
-    public void f(n50.b bVar) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = this.a.f(e());
-            this.e.f();
-            if (TextUtils.isEmpty(this.e.a())) {
-                String uuid = UUID.randomUUID().toString();
-                this.e.d(uuid);
-                try {
-                    this.e.b(n50.b("A50", new e50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(uuid.getBytes("UTF-8"))));
-                } catch (Exception unused) {
-                }
-                this.e.c(System.currentTimeMillis());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void e(Context context, String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.b = str;
+            if (context != null) {
+                this.c = context.getApplicationContext();
             }
-            this.e.e();
+            this.a = i;
+            this.d = z;
+        }
+    }
+
+    public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
+        byte[] a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            if (TextUtils.isEmpty(this.b) || this.c == null || jSONArray == null || jSONArray.length() == 0) {
+                a60.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
+                return;
+            }
+            Context context = this.c;
+            if (jSONArray == null || jSONArray.length() == 0) {
+                a60.a("UBCUploader", "upload json is null");
+                return;
+            }
+            a60.a("UBCUploader", "uploadjson:" + jSONArray.toString() + ", isReal:" + z + ", isSave:" + z2);
+            if (z2) {
+                a60.a("UBCUploader", "save ubcdata");
+                return;
+            }
+            JSONObject a2 = new x50(z, jSONArray).a();
+            if (a2 == null) {
+                a60.a("UBCUploader", "uploadJsonData is null");
+                return;
+            }
+            String jSONObject = a2.toString();
+            if (TextUtils.isEmpty(jSONObject)) {
+                a = null;
+            } else {
+                a = z50.a(jSONObject.getBytes());
+                if (a != null && a.length > 2) {
+                    a[0] = ContentUtil.GZIP_HEAD_1;
+                    a[1] = ContentUtil.GZIP_HEAD_2;
+                }
+            }
+            byte[] bArr = a;
+            if (bArr == null || bArr.length < 3) {
+                a60.a("UBCUploader", "uploadGzip is null or uploadGzip length<3");
+                return;
+            }
+            a60.a("UBCUploader", "gzip success, length:" + bArr.length);
+            a60.a("UBCUploader", "start execute http upload data");
+            v50 v50Var = new v50(context);
+            s50 a3 = s50.a(context);
+            if (context == null || TextUtils.isEmpty(v50Var.a())) {
+                v50Var.b(s50.d, Constants.ERROR_MSG_PARAMETER_ERROR.getBytes());
+            } else if (z3) {
+                w50.a().b(new s50.a(a3, v50Var, bArr, v50Var));
+            } else {
+                a3.e(v50Var.b(), v50Var.a(), bArr, v50Var.d(), v50Var.c(), v50Var);
+            }
         }
     }
 }

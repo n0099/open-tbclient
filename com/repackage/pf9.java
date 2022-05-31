@@ -1,43 +1,38 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class pf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static com.fun.module.csj.f0 a(TTNativeAd tTNativeAd) {
+    public static RippedAd a(AdInfo adInfo) {
         InterceptResult invokeL;
-        int i;
+        String str;
+        List<AdInfo.AdMaterialInfo.MaterialFeature> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
-            int imageMode = tTNativeAd.getImageMode();
-            if (imageMode == 15) {
-                i = R.layout.obfuscated_res_0x7f0d0365;
-            } else if (imageMode == 16) {
-                i = R.layout.obfuscated_res_0x7f0d0364;
-            } else if (imageMode == 2) {
-                i = R.layout.obfuscated_res_0x7f0d0363;
-            } else if (imageMode == 3) {
-                i = R.layout.obfuscated_res_0x7f0d0361;
-            } else if (imageMode == 4) {
-                i = R.layout.obfuscated_res_0x7f0d0360;
-            } else if (imageMode != 5) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
+            AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
+            AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
+            RippedAd.Builder builder = new RippedAd.Builder();
+            AdInfo.AdMaterialInfo adMaterialInfo = adInfo.adMaterialInfo;
+            String str2 = null;
+            if (adMaterialInfo == null || (list = adMaterialInfo.materialFeatureList) == null || list.isEmpty()) {
+                str = null;
             } else {
-                i = R.layout.obfuscated_res_0x7f0d0362;
+                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
+                String str3 = materialFeature.materialUrl;
+                str2 = materialFeature.coverUrl;
+                str = str3;
             }
-            com.fun.module.csj.f0 f0Var = (com.fun.module.csj.f0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
-            f0Var.a(tTNativeAd);
-            return f0Var;
+            builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(adBaseInfo.appImageUrl)).setVideoImageUrl(str2).setVideoUrl(str).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+            return builder.build();
         }
-        return (com.fun.module.csj.f0) invokeL.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class NewUserRedPackageActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_DATA = "key_data";
@@ -31,6 +31,6 @@ public class NewUserRedPackageActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("key_data", newUserRedPackageData);
+        getIntent().putExtra(KEY_DATA, newUserRedPackageData);
     }
 }

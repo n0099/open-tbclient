@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -15,12 +16,12 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import java.util.Locale;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +54,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String packageName = context.getPackageName();
             String a2 = a(context, packageName);
-            return a2 + ";" + packageName;
+            return a2 + ParamableElem.DIVIDE_PARAM + packageName;
         }
         return (String) invokeL.objValue;
     }
@@ -118,7 +119,7 @@ public class b {
             int length = b.length;
             String[] strArr = new String[length];
             for (int i = 0; i < length; i++) {
-                strArr[i] = b[i] + ";" + packageName;
+                strArr[i] = b[i] + ParamableElem.DIVIDE_PARAM + packageName;
                 if (com.baidu.lbsapi.auth.a.a) {
                     com.baidu.lbsapi.auth.a.a("mcode" + strArr[i]);
                 }

@@ -1,89 +1,106 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.util.DisplayMetrics;
-import android.view.View;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Locale;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-@JvmName(name = "BdPlayerUtils")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class wx0 {
+public class wx0 extends ux0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
 
-    public static final int a(View view2, float f) {
-        InterceptResult invokeLF;
-        Context context;
-        Resources resources;
-        DisplayMetrics displayMetrics;
+    public wx0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
-            return (int) ((f * ((view2 == null || (context = view2.getContext()) == null || (resources = context.getResources()) == null || (displayMetrics = resources.getDisplayMetrics()) == null) ? 1.0f : displayMetrics.density)) + 0.5f);
-        }
-        return invokeLF.intValue;
-    }
-
-    public static final String b(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i < 0) {
-                return "";
-            }
-            int i2 = i / 3600;
-            int i3 = (i % 3600) / 60;
-            int i4 = i % 60;
-            if (i2 == 0 && !z) {
-                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
-                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
-                return format;
-            }
-            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
-            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
-            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
-            return format2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    @JvmOverloads
-    public static final int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
-    }
-
-    @JvmOverloads
-    public static final int d(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            if (str == null || str.length() == 0) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (NumberFormatException e) {
-                ay0.f("parseInt catch exception:", e);
-                return i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLI.intValue;
+        this.b = null;
     }
 
-    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
-        if ((i2 & 2) != 0) {
-            i = 0;
+    public final void d(StringBuilder sb, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, sb, str, str2) == null) {
+            if (sb.length() > 0) {
+                sb.append('&');
+            }
+            sb.append(str);
+            sb.append('=');
+            sb.append(str2);
         }
-        return d(str, i);
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            eh0 d = xg0.d();
+            StringBuilder sb = new StringBuilder();
+            d(sb, "productId", d.l());
+            d(sb, HttpRequest.CLIENT_TYPE, "2");
+            d(sb, "_os_type", "2");
+            d(sb, "_os_version", d.c());
+            d(sb, "_client_version", d.q());
+            d(sb, "_sdk_version", "5.2.0.21");
+            d(sb, "model", d.j());
+            d(sb, "cuid", d.b());
+            d(sb, "net_type", String.valueOf(new sn0().c()));
+            if (oe0.a) {
+                d(sb, "rd", d.r());
+                d(sb, "qa", d.s());
+                d(sb, "story_id", d.n());
+            }
+            String sb2 = sb.toString();
+            this.b = sb2;
+            return !TextUtils.isEmpty(sb2);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.xx0
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                return e();
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.ux0, com.repackage.xx0
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                e();
+            }
+            if (this.a.toString().contains(this.b)) {
+                return this.a.toString();
+            }
+            if (this.a.length() > 0) {
+                this.a.append('&');
+            }
+            this.a.append(this.b);
+            return this.a.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

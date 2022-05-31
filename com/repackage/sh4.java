@@ -1,50 +1,31 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class sh4 {
+public class sh4 extends rh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Activity activity, View view2) {
-        InterceptResult invokeLL;
-        ViewGroup viewGroup;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sh4(lh4 lh4Var) {
+        super(lh4Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, view2)) == null) {
-            if (activity == null || view2 == null || (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lh4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((lh4) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            b(view2);
-            viewGroup.removeView(view2);
-            viewGroup.addView(view2);
-            return true;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 == null || view2.getParent() == null || !(view2.getParent() instanceof ViewGroup)) {
-                return false;
-            }
-            ViewGroup viewGroup = (ViewGroup) view2.getParent();
-            if (viewGroup.indexOfChild(view2) != -1) {
-                try {
-                    viewGroup.removeView(view2);
-                    return true;
-                } catch (Exception unused) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

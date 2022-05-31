@@ -1,94 +1,38 @@
 package com.repackage;
 
-import android.net.wifi.WifiConfiguration;
-import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.repackage.vc3;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class wb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(WifiConfiguration wifiConfiguration) {
-        InterceptResult invokeL;
+    @Nullable
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
-            if (wifiConfiguration == null) {
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            List<vc3.a> d = zj2.d();
+            if (d == null || d.size() <= 0) {
+                return null;
             }
-            if (wifiConfiguration.allowedKeyManagement.get(1)) {
-                return 2;
+            File file = new File(d.get(0).a, "/debug/");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
-                return 3;
-            }
-            if (wifiConfiguration.wepKeys[0] != null) {
-                return 1;
-            }
-            return wifiConfiguration.allowedKeyManagement.get(0) ? 0 : -1;
+            return file;
         }
-        return invokeL.intValue;
+        return (File) invokeV.objValue;
     }
 
-    public static int b(sb3 sb3Var) {
-        InterceptResult invokeL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sb3Var)) == null) {
-            if (sb3Var == null) {
-                return -1;
-            }
-            if (TextUtils.isEmpty(sb3Var.c) && TextUtils.isEmpty(sb3Var.d)) {
-                return 0;
-            }
-            if (TextUtils.isEmpty(sb3Var.c) || TextUtils.isEmpty(sb3Var.d)) {
-                return !TextUtils.isEmpty(sb3Var.d) ? 2 : -1;
-            }
-            return 3;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            if (str.contains("WEP")) {
-                return 1;
-            }
-            if (str.contains("PSK")) {
-                return 2;
-            }
-            return str.contains("EAP") ? 3 : -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void d(WifiConfiguration wifiConfiguration, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, wifiConfiguration, i) == null) || wifiConfiguration == null) {
-            return;
-        }
-        wifiConfiguration.allowedKeyManagement.clear();
-        wifiConfiguration.allowedProtocols.clear();
-        wifiConfiguration.allowedAuthAlgorithms.clear();
-        wifiConfiguration.allowedPairwiseCiphers.clear();
-        wifiConfiguration.allowedGroupCiphers.clear();
-        if (i == 0) {
-            wifiConfiguration.allowedKeyManagement.set(0);
-        } else if (i == 1) {
-            wifiConfiguration.allowedKeyManagement.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(1);
-        } else if (i == 2) {
-            wifiConfiguration.allowedKeyManagement.set(1);
-        } else if (i != 3) {
-        } else {
-            wifiConfiguration.allowedKeyManagement.set(2);
-            wifiConfiguration.allowedKeyManagement.set(3);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new File(zj2.d().get(0).a, "/debug/").getAbsolutePath() : (String) invokeV.objValue;
     }
 }

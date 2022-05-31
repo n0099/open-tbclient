@@ -1,71 +1,102 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.ubc.UBCManager;
+import java.util.AbstractMap;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ll {
-    public static /* synthetic */ Interceptable $ic;
-    public static Map<String, ol> a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "11446";
+    public static String b = "type";
+    public static String c = "value";
+    public static String d = "ext";
+    public static String e = "suc";
+    public static String f = "fail";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964034427, "Lcom/repackage/ll;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964034427, "Lcom/repackage/ll;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964034427, "Lcom/repackage/ll;");
+        }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? TextUtils.isEmpty(str) ? "-" : str : (String) invokeL.objValue;
+    }
+
+    public static void b(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(b, f);
+                jSONObject.put(c, str);
+                JSONObject jSONObject2 = new JSONObject();
+                if (list != null && !list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
+                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
+                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
+                        }
+                    }
+                }
+                jSONObject.put(d, jSONObject2);
+                d(a, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964034427, "Lcom/repackage/ll;");
-                return;
+        }
+    }
+
+    public static void c(String str, List<AbstractMap.SimpleEntry<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(b, e);
+                jSONObject.put(c, str);
+                JSONObject jSONObject2 = new JSONObject();
+                if (list != null && !list.isEmpty()) {
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
+                        if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
+                            jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
+                        }
+                    }
+                }
+                jSONObject.put(d, jSONObject2);
+                d(a, jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, new kl());
     }
 
-    public static void a(String str, int i) {
-        ol olVar;
+    public static void d(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) || (olVar = a.get(str)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject) == null) {
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).onEvent(str, jSONObject);
         }
-        olVar.b(i);
-    }
-
-    public static void b(String str, int i, long j) {
-        ol olVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) || (olVar = a.get(str)) == null) {
-            return;
-        }
-        olVar.c(i, j);
-    }
-
-    public static void c(String str, int i, int i2) {
-        ol olVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) || (olVar = a.get(str)) == null) {
-            return;
-        }
-        olVar.d(i, i2);
-    }
-
-    public static void d(String str, int i, int i2) {
-        ol olVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) || (olVar = a.get(str)) == null) {
-            return;
-        }
-        olVar.e(i, i2);
     }
 }

@@ -1,24 +1,14 @@
 package com.repackage;
 
-import android.webkit.ValueCallback;
+import android.os.Handler;
+import android.os.Looper;
 import androidx.annotation.NonNull;
+import com.repackage.rz1;
 /* loaded from: classes7.dex */
-public interface sz1 {
-    void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
+public interface sz1<T extends rz1> {
+    void a(@NonNull Handler handler);
 
-    void continueTimer();
+    void b(T t);
 
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
-
-    String getContainerId();
-
-    String getUrl();
-
-    boolean isDestroyed();
-
-    boolean isWebView();
-
-    void onJSLoaded();
-
-    void suspendTimer();
+    Looper getLooper();
 }

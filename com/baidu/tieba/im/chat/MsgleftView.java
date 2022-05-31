@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e47;
-import com.repackage.iu4;
-import com.repackage.mi;
-import com.repackage.r67;
+import com.repackage.h27;
+import com.repackage.li;
+import com.repackage.q47;
+import com.repackage.ys4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class MsgleftView extends e47 {
+public class MsgleftView extends h27 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String K = "com.baidu.tieba.im.chat.MsgleftView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,7 @@ public class MsgleftView extends e47 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgleftView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.obfuscated_res_0x7f0d054f);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0545);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,17 +168,17 @@ public class MsgleftView extends e47 {
         this.G = new TouchType();
         this.J = new b(this);
         this.H = tbPageContext;
-        l();
-        this.F = (ImageView) e(R.id.obfuscated_res_0x7f090fe6);
-        this.C = (TextView) e(R.id.obfuscated_res_0x7f091f5b);
-        this.D = (ViewGroup) e(R.id.obfuscated_res_0x7f0903ea);
-        HeadImageView headImageView = (HeadImageView) e(R.id.obfuscated_res_0x7f090ecc);
+        k();
+        this.F = (ImageView) b(R.id.obfuscated_res_0x7f090fa8);
+        this.C = (TextView) b(R.id.obfuscated_res_0x7f091f01);
+        this.D = (ViewGroup) b(R.id.obfuscated_res_0x7f0903e5);
+        HeadImageView headImageView = (HeadImageView) b(R.id.obfuscated_res_0x7f090e91);
         this.B = headImageView;
         headImageView.setAutoChangeStyle(false);
         this.B.setDrawerType(1);
-        this.B.setRadius(mi.d(this.H.getContext(), 4.0f));
+        this.B.setRadius(li.d(this.H.getContext(), 4.0f));
         this.B.setPlaceHolder(1);
-        this.E = (UserIconBox) e(R.id.obfuscated_res_0x7f092315);
+        this.E = (UserIconBox) b(R.id.obfuscated_res_0x7f0922ba);
         this.B.setLongClickable(true);
         this.B.setOnLongClickListener(this.J);
         this.B.setOnTouchListener(new a(this));
@@ -186,10 +186,10 @@ public class MsgleftView extends e47 {
         this.o.setIsLeft(true);
     }
 
-    public final void O(ChatMessage chatMessage) {
+    public final void N(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) {
-            String q = iu4.k().q("live_room_chat_page_author_id", "");
+            String q = ys4.k().q("live_room_chat_page_author_id", "");
             if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(q)) {
                 this.F.setVisibility(0);
             } else {
@@ -198,7 +198,7 @@ public class MsgleftView extends e47 {
         }
     }
 
-    public void P() {
+    public void O() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.s) {
@@ -218,7 +218,7 @@ public class MsgleftView extends e47 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void Q(ChatMessage chatMessage) {
+    public final void P(ChatMessage chatMessage) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) && this.s) {
@@ -241,13 +241,13 @@ public class MsgleftView extends e47 {
         }
     }
 
-    @Override // com.repackage.e47
-    public void n() {
+    @Override // com.repackage.h27
+    public void m() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.A == TbadkCoreApplication.getInst().getSkinType()) {
             return;
         }
-        super.n();
+        super.m();
         SkinManager.setBackgroundResource(this.j, R.drawable.selector_msg_text_bubble_other);
         SkinManager.setBackgroundResource(this.m, R.drawable.selector_msg_text_bubble_other);
         this.r.q(K);
@@ -256,18 +256,18 @@ public class MsgleftView extends e47 {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:37:0x0165  */
-    @Override // com.repackage.e47
+    @Override // com.repackage.h27
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void q(View view2, ChatMessage chatMessage) {
+    public void o(View view2, ChatMessage chatMessage) {
         int msgType;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, view2, chatMessage) == null) {
-            super.q(view2, chatMessage);
+            super.o(view2, chatMessage);
             String str = null;
             ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
-            P();
+            O();
             UserIconBox userIconBox = this.E;
             if (userIconBox != null && this.s) {
                 userIconBox.setVisibility(0);
@@ -279,7 +279,7 @@ public class MsgleftView extends e47 {
                 this.C.setText((CharSequence) null);
                 this.j.setVisibility(0);
                 this.j.setText(null);
-                s(8);
+                r(8);
                 this.q.getImage().setTag(null);
                 this.k.setVisibility(8);
                 this.k.setTag(null);
@@ -292,11 +292,11 @@ public class MsgleftView extends e47 {
                 this.r.setVisibility(8);
                 return;
             }
-            F(chatMessage);
-            Q(chatMessage);
+            E(chatMessage);
+            P(chatMessage);
             this.C.setText("");
-            O(chatMessage);
-            M(chatMessage);
+            N(chatMessage);
+            L(chatMessage);
             try {
                 if (chatMessage.getUserInfo() != null) {
                     this.C.setText(chatMessage.getUserInfo().getName_show());
@@ -305,7 +305,7 @@ public class MsgleftView extends e47 {
                 }
                 if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
                     if (this.I == null) {
-                        this.I = r67.p().j(String.valueOf(chatMessage.getUserId()), 2);
+                        this.I = q47.o().i(String.valueOf(chatMessage.getUserId()), 2);
                     }
                     if (this.I != null && !TextUtils.isEmpty(this.I.getGroup_head())) {
                         str = this.I.getGroup_head();
@@ -313,7 +313,7 @@ public class MsgleftView extends e47 {
                     this.B.K(str, 12, false);
                     this.B.setContentDescription(chatMessage.getUserInfo().getName_show());
                     this.j.setVisibility(8);
-                    s(8);
+                    r(8);
                     this.k.setVisibility(8);
                     this.l.setVisibility(8);
                     this.m.setVisibility(8);
@@ -324,38 +324,38 @@ public class MsgleftView extends e47 {
                     msgType = chatMessage.getMsgType();
                     if (msgType != 1) {
                         if (msgType == 2) {
-                            H(view2, chatMessage, K);
-                            return;
-                        } else if (msgType == 3) {
-                            L(chatMessage, K);
-                            return;
-                        } else if (msgType == 4) {
-                            C(chatMessage, false);
-                            return;
-                        } else if (msgType == 5) {
                             G(view2, chatMessage, K);
                             return;
+                        } else if (msgType == 3) {
+                            K(chatMessage, K);
+                            return;
+                        } else if (msgType == 4) {
+                            B(chatMessage, false);
+                            return;
+                        } else if (msgType == 5) {
+                            F(view2, chatMessage, K);
+                            return;
                         } else if (msgType == 9) {
-                            D(view2, chatMessage, K);
+                            C(view2, chatMessage, K);
                             return;
                         } else if (msgType != 30) {
                             if (msgType == 32) {
-                                K(chatMessage);
+                                I(chatMessage);
                                 return;
                             } else if (msgType != 33) {
                                 return;
                             } else {
-                                E(chatMessage);
+                                D(chatMessage);
                                 return;
                             }
                         }
                     }
-                    I(chatMessage, K);
+                    H(chatMessage, K);
                 }
                 this.B.K(str, 10, false);
                 this.B.setContentDescription(chatMessage.getUserInfo().getName_show());
                 this.j.setVisibility(8);
-                s(8);
+                r(8);
                 this.k.setVisibility(8);
                 this.l.setVisibility(8);
                 this.m.setVisibility(8);
@@ -366,7 +366,7 @@ public class MsgleftView extends e47 {
                 msgType = chatMessage.getMsgType();
                 if (msgType != 1) {
                 }
-                I(chatMessage, K);
+                H(chatMessage, K);
             } catch (Exception e) {
                 e.printStackTrace();
             }

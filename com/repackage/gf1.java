@@ -1,150 +1,39 @@
 package com.repackage;
 
+import android.content.ComponentName;
 import android.content.Context;
-import android.content.IntentFilter;
-import android.os.Message;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sso.p.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te1;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class gf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gf1 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, cf1> a;
-    public final ArrayList<te1.a> b;
-    public com.baidu.sso.h.h c;
-    public Context d;
-    public boolean e;
-    public int f;
+    public com.baidu.sso.p.a a;
+    public Context b;
+    public String c;
+    public String d;
+    public df1 e;
+    public ServiceConnection f;
 
-    /* loaded from: classes6.dex */
-    public class a implements te1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cf1 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ te1.a e;
-
-        public a(gf1 gf1Var, cf1 cf1Var, Context context, int i, long j, te1.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gf1Var, cf1Var, context, Integer.valueOf(i), Long.valueOf(j), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cf1Var;
-            this.b = context;
-            this.c = i;
-            this.d = j;
-            this.e = aVar;
-        }
-
-        @Override // com.repackage.te1.a
-        public void onFinish(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                try {
-                    if (new JSONObject(str).optInt("0", -1) == 0) {
-                        this.a.j(this.b, this.c, this.d);
-                        return;
-                    }
-                    if (this.e != null) {
-                        this.e.onFinish(str);
-                    }
-                    ye1.c().d(false);
-                } catch (Throwable unused) {
-                    te1.a aVar = this.e;
-                    if (aVar != null) {
-                        aVar.onFinish(str);
-                    }
-                    ye1.c().d(false);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements te1.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cf1 a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ te1.a e;
-
-        public b(gf1 gf1Var, cf1 cf1Var, Context context, int i, long j, te1.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gf1Var, cf1Var, context, Integer.valueOf(i), Long.valueOf(j), aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cf1Var;
-            this.b = context;
-            this.c = i;
-            this.d = j;
-            this.e = aVar;
-        }
-
-        @Override // com.repackage.te1.a
-        public void onFinish(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                try {
-                    if (new JSONObject(str).optInt("0", -1) == 0) {
-                        this.a.p(this.b, this.c, this.d);
-                        return;
-                    }
-                    if (this.e != null) {
-                        this.e.onFinish(str);
-                    }
-                    ye1.c().n(false);
-                } catch (Throwable unused) {
-                    te1.a aVar = this.e;
-                    if (aVar != null) {
-                        aVar.onFinish(str);
-                    }
-                    ye1.c().n(false);
-                }
-            }
-        }
-    }
-
-    public gf1() {
+    public gf1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -154,404 +43,78 @@ public class gf1 {
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new ArrayList<>();
-        this.f = -1;
+        this.a = null;
+        this.c = null;
+        this.d = null;
+        this.f = new if1(this);
+        this.b = context;
     }
 
-    public static gf1 j() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String a(String str) {
+        InterceptResult invokeL;
+        Signature[] signatureArr;
+        PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (g == null) {
-                synchronized (gf1.class) {
-                    if (g == null) {
-                        g = new gf1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a != null) {
+                String str2 = null;
+                try {
+                    if (TextUtils.isEmpty(this.c)) {
+                        this.c = this.b.getPackageName();
                     }
-                }
-            }
-            return g;
-        }
-        return (gf1) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public final int b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
-            if (this.a.size() == 1) {
-                return Integer.valueOf(this.a.get(this.a.keySet().iterator().next()).c).intValue();
-            }
-            return (this.a.size() != 2 || i2 >= 4 || i2 <= 0) ? i : i2;
-        }
-        return invokeII.intValue;
-    }
-
-    public synchronized void c(int i, int i2, int i3, int i4, String str, ff1 ff1Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, ff1Var, Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                if (ff1Var == null) {
-                    return;
-                }
-                Pair<Boolean, te1.a> b2 = ye1.c().b(i);
-                if (((Boolean) b2.first).booleanValue()) {
-                    if1.a().b(i);
-                    h((te1.a) b2.second, new bf1(i2, i3, i4, str), ff1Var.a, z);
-                    if (i2 == 1) {
-                        ff1Var.b = 1;
-                    }
-                    if (z) {
-                        int i5 = ff1Var.a;
-                        if (i5 == 1) {
-                            vf1.b(this.d, i4, ff1Var.b, i3, str);
-                        } else if (i5 == 3) {
-                            vf1.f(this.d, i4, ff1Var.b, i3, str);
-                        } else if (i5 == 2) {
-                            if (i2 == 3 && i3 == 2019) {
-                                ue1.f(this.d).z(System.currentTimeMillis());
-                                ue1.f(this.d).i(i3);
-                            }
-                            vf1.a(this.d, i4, i2, i3, ff1Var.c, ff1Var.d);
-                        } else {
-                            if (i2 == 3 && i3 == 2019) {
-                                ue1.f(this.d).L(System.currentTimeMillis());
-                                ue1.f(this.d).q(i3);
-                            }
-                            vf1.e(this.d, i4, i2, i3, ff1Var.c, ff1Var.d);
+                    if (TextUtils.isEmpty(this.d)) {
+                        try {
+                            packageInfo = this.b.getPackageManager().getPackageInfo(this.c, 64);
+                        } catch (PackageManager.NameNotFoundException unused) {
                         }
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            synchronized (this) {
-                try {
-                    if (this.e) {
-                        return;
-                    }
-                    this.d = context.getApplicationContext();
-                    if (!rf1.f(context)) {
-                        og1.b().a(this.d, null);
-                    }
-                    boolean z = false;
-                    if (!we1.a(this.d).d() && fg1.j(this.d) == 0) {
-                        z = true;
-                    }
-                    g(this.d, z);
-                    fg1.l(this.d);
-                    this.a.put(1, new ze1(this.d));
-                    this.a.put(3, new jf1(this.d));
-                    this.a.put(2, new lf1(this.d));
-                    this.e = true;
-                }
-            }
-        }
-    }
-
-    public synchronized void e(Context context, int i, Pair<Integer, Integer> pair, long j, te1.a aVar) {
-        int intValue;
-        int intValue2;
-        int intValue3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), pair, Long.valueOf(j), aVar}) == null) {
-            synchronized (this) {
-                int i2 = -1;
-                if (ye1.c().g()) {
-                    this.b.add(aVar);
-                    return;
-                }
-                this.b.clear();
-                int a2 = ye1.c().a(aVar);
-                try {
-                    Message message = new Message();
-                    message.what = a2;
-                    message.arg1 = -1;
-                    message.arg2 = 1;
-                    this.f = -1;
-                    if1.a().c(message, j);
-                    Pair<Integer, Integer> c = pair == null ? ng1.c(context) : pair;
-                    intValue = ((Integer) c.first).intValue();
-                    intValue2 = ((Integer) c.second).intValue();
-                    intValue3 = ((Integer) c.second).intValue();
-                } catch (Throwable unused) {
-                    i2 = a2;
-                    ff1 ff1Var = new ff1();
-                    ff1Var.a = 1;
-                    c(i2, 3, 2009, -1, "auth login unknown error.", ff1Var, true);
-                }
-                if (i(a2, intValue2, intValue, 1)) {
-                    int b2 = b(intValue2, i);
-                    this.f = b2;
-                    ye1.c().i(false, true);
-                    if (b2 != 1 && b2 != 2 && b2 != 3) {
-                        ff1 ff1Var2 = new ff1();
-                        ff1Var2.a = 1;
-                        c(a2, 3, 2004, b2, "has no op.", ff1Var2, true);
-                        return;
-                    }
-                    cf1 cf1Var = this.a.get(Integer.valueOf(b2));
-                    if (cf1Var == null) {
-                        ff1 ff1Var3 = new ff1();
-                        ff1Var3.a = 1;
-                        c(a2, 3, 2002, b2, "not support current operator", ff1Var3, true);
-                    } else {
-                        cf1Var.m(intValue3);
-                        cf1Var.i(context, intValue, a2);
-                        vf1.d(context, intValue3, 1, cf1.q);
-                    }
-                }
-            }
-        }
-    }
-
-    public void f(Context context, long j, te1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
-            int a2 = ye1.c().a(aVar);
-            Pair<Integer, Integer> c = ng1.c(context);
-            int intValue = ((Integer) c.first).intValue();
-            int intValue2 = ((Integer) c.second).intValue();
-            if (i(a2, intValue2, intValue, 2)) {
-                if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
-                    ff1 ff1Var = new ff1();
-                    ff1Var.a = 2;
-                    c(a2, 3, 2004, intValue2, "has no op.", ff1Var, true);
-                    return;
-                }
-                cf1 cf1Var = this.a.get(Integer.valueOf(intValue2));
-                if (cf1Var == null) {
-                    ff1 ff1Var2 = new ff1();
-                    ff1Var2.a = 2;
-                    c(a2, 3, 2002, intValue2, "not support current operator", ff1Var2, true);
-                } else if (!ye1.c().e(false, true)) {
-                    ff1 ff1Var3 = new ff1();
-                    ff1Var3.a = 2;
-                    c(a2, 3, 998, intValue2, "is doing auth login.", ff1Var3, false);
-                } else {
-                    vf1.d(context, intValue2, 2, cf1.q);
-                    if (!cf1Var.l()) {
-                        cf1Var.j(context, a2, j);
-                    } else if (ye1.c().g()) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        while (ye1.c().g()) {
-                            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                            if (currentTimeMillis2 > 0 && currentTimeMillis2 < j) {
+                        if (packageInfo != null) {
+                            signatureArr = packageInfo.signatures;
+                            if (signatureArr != null && signatureArr.length > 0) {
                                 try {
-                                    Thread.sleep(100L);
-                                    if (!cf1Var.l()) {
-                                        cf1Var.j(context, a2, j);
-                                        return;
+                                    byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                                    StringBuilder sb = new StringBuilder();
+                                    for (byte b : digest) {
+                                        sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
                                     }
-                                } catch (Throwable th) {
-                                    fg1.d(th);
-                                    ff1 ff1Var4 = new ff1();
-                                    ff1Var4.a = 2;
-                                    c(a2, 3, 2019, intValue2, "auth out time", ff1Var4, true);
-                                    return;
+                                    str2 = sb.toString();
+                                } catch (NoSuchAlgorithmException unused2) {
                                 }
-                            } else {
-                                ff1 ff1Var5 = new ff1();
-                                ff1Var5.a = 2;
-                                c(a2, 3, 2019, intValue2, "auth out time", ff1Var5, true);
-                                return;
                             }
+                            this.d = str2;
                         }
-                    } else {
-                        e(context, 0, c, j, new a(this, cf1Var, context, a2, j, aVar));
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void g(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, context, z) == null) {
-            synchronized (this) {
-                try {
-                    m(context);
-                    this.c = new com.baidu.sso.h.h();
-                    IntentFilter intentFilter = new IntentFilter();
-                    intentFilter.addAction("sso_action_t_m");
-                    if (z) {
-                        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    }
-                    context.registerReceiver(this.c, intentFilter);
-                } catch (Throwable th) {
-                    fg1.d(th);
-                }
-            }
-        }
-    }
-
-    public final void h(te1.a aVar, bf1 bf1Var, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{aVar, bf1Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (i == 1) {
-                this.b.clear();
-                ef1.b(aVar, bf1Var, i, (ArrayList) this.b.clone(), z);
-                return;
-            }
-            ef1.b(aVar, bf1Var, i, null, z);
-        }
-    }
-
-    public final boolean i(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4)) == null) {
-            ff1 ff1Var = new ff1();
-            ff1Var.a = i4;
-            if (!this.e) {
-                c(i, 3, 2001, i2, "has no init.", ff1Var, false);
-                return false;
-            } else if (TextUtils.isEmpty(te1.b) && TextUtils.isEmpty(te1.c)) {
-                c(i, 3, 2007, i2, "has no key.", ff1Var, false);
-                return false;
-            } else if (this.a.isEmpty()) {
-                c(i, 3, 2002, i2, "has no sdk.", ff1Var, false);
-                return false;
-            } else if (i3 == 0) {
-                c(i, 3, 2003, i2, "has no net.", ff1Var, false);
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeIIII.booleanValue;
-    }
-
-    public void k(Context context, int i, Pair<Integer, Integer> pair, long j, te1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), pair, Long.valueOf(j), aVar}) == null) {
-            int a2 = ye1.c().a(aVar);
-            try {
-                Message message = new Message();
-                message.what = a2;
-                message.arg1 = -1;
-                message.arg2 = 3;
-                this.f = -1;
-                if1.a().c(message, j);
-                if (pair == null) {
-                    pair = ng1.c(context);
-                }
-                int intValue = ((Integer) pair.first).intValue();
-                int intValue2 = ((Integer) pair.second).intValue();
-                int intValue3 = ((Integer) pair.second).intValue();
-                if (i(a2, intValue2, intValue, 3)) {
-                    int b2 = b(intValue2, i);
-                    this.f = b2;
-                    if (!ye1.c().m(false, true)) {
-                        ff1 ff1Var = new ff1();
-                        ff1Var.a = 3;
-                        c(a2, 3, 998, b2, "is doing auth prelogin.", ff1Var, false);
-                    } else if (b2 != 1 && b2 != 2 && b2 != 3) {
-                        ff1 ff1Var2 = new ff1();
-                        ff1Var2.a = 3;
-                        c(a2, 3, 2004, b2, "has no op.", ff1Var2, true);
-                    } else {
-                        cf1 cf1Var = this.a.get(Integer.valueOf(b2));
-                        if (cf1Var == null) {
-                            ff1 ff1Var3 = new ff1();
-                            ff1Var3.a = 3;
-                            c(a2, 3, 2002, b2, "not support current operator", ff1Var3, true);
-                            return;
-                        }
-                        cf1Var.m(intValue3);
-                        cf1Var.h(context, a2);
-                        vf1.d(context, intValue3, 3, cf1.r);
-                    }
-                }
-            } catch (Throwable unused) {
-                ff1 ff1Var4 = new ff1();
-                ff1Var4.a = 3;
-                c(a2, 3, 2009, -1, "auth login unknown error.", ff1Var4, true);
-            }
-        }
-    }
-
-    public void l(Context context, long j, te1.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
-            int a2 = ye1.c().a(aVar);
-            Pair<Integer, Integer> c = ng1.c(context);
-            int intValue = ((Integer) c.first).intValue();
-            int intValue2 = ((Integer) c.second).intValue();
-            if (i(a2, intValue2, intValue, 4)) {
-                if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
-                    ff1 ff1Var = new ff1();
-                    ff1Var.a = 4;
-                    c(a2, 3, 2004, intValue2, "has no op.", ff1Var, true);
-                    return;
-                }
-                cf1 cf1Var = this.a.get(Integer.valueOf(intValue2));
-                if (cf1Var == null) {
-                    ff1 ff1Var2 = new ff1();
-                    ff1Var2.a = 4;
-                    c(a2, 3, 2002, intValue2, "not support current operator", ff1Var2, true);
-                } else if (!ye1.c().o(false, true)) {
-                    ff1 ff1Var3 = new ff1();
-                    ff1Var3.a = 4;
-                    c(a2, 3, 998, intValue2, "is doing auth verify.", ff1Var3, false);
-                } else {
-                    vf1.d(context, intValue2, 4, cf1.r);
-                    if (!cf1Var.q()) {
-                        cf1Var.p(context, a2, j);
-                    } else if (ye1.c().k()) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        while (ye1.c().k()) {
-                            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                            if (currentTimeMillis2 > 0 && currentTimeMillis2 < j) {
-                                try {
-                                    Thread.sleep(100L);
-                                    if (!cf1Var.q()) {
-                                        cf1Var.p(context, a2, j);
-                                        return;
-                                    }
-                                } catch (Throwable th) {
-                                    fg1.d(th);
-                                    ff1 ff1Var4 = new ff1();
-                                    ff1Var4.a = 4;
-                                    c(a2, 3, 2019, intValue2, "auth out time", ff1Var4, true);
-                                    return;
-                                }
-                            } else {
-                                ff1 ff1Var5 = new ff1();
-                                ff1Var5.a = 4;
-                                c(a2, 3, 2019, intValue2, "auth out time", ff1Var5, true);
-                                return;
+                        signatureArr = null;
+                        if (signatureArr != null) {
+                            byte[] digest2 = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                            StringBuilder sb2 = new StringBuilder();
+                            while (r3 < r4) {
                             }
+                            str2 = sb2.toString();
                         }
-                    } else {
-                        k(context, 0, c, j, new b(this, cf1Var, context, a2, j, aVar));
+                        this.d = str2;
                     }
+                    str2 = ((a.AbstractBinderC0152a.C0153a) this.a).a(this.c, this.d, str);
+                } catch (Throwable unused3) {
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    return str2;
                 }
             }
+            return "";
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void m(Context context) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
-            try {
-                if (this.c != null) {
-                    context.unregisterReceiver(this.c);
-                }
-                this.c = null;
-            } catch (Throwable th) {
-                fg1.d(th);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
+            intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+            this.b.bindService(intent, this.f, 1);
         }
     }
 }

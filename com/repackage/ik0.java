@@ -1,21 +1,39 @@
 package com.repackage;
 
-import com.baidu.nadcore.download.consts.AdDownloadCode;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface ik0 {
-    void a(rj0 rj0Var);
+    public static final ik0 a = new a();
 
-    void b(rj0 rj0Var, AdDownloadCode adDownloadCode);
+    /* loaded from: classes6.dex */
+    public static class a implements ik0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void c(rj0 rj0Var);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    void d(rj0 rj0Var);
+        @Override // com.repackage.ik0
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            }
+        }
+    }
 
-    void e(rj0 rj0Var);
-
-    void f(rj0 rj0Var, float f);
-
-    void g(rj0 rj0Var);
-
-    void h(rj0 rj0Var);
+    void a(boolean z);
 }

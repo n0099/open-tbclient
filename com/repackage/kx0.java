@@ -1,23 +1,20 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kx0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile b a;
-    public static final b b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface kx0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", ShareLoginStat.GetShareListStat.VALUE_FROM_SP);
+    public static final kx0 b = new a();
 
     /* loaded from: classes6.dex */
-    public static class a implements b {
+    public static class a implements kx0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,56 +32,22 @@ public class kx0 {
             }
         }
 
-        @Override // com.repackage.kx0.b
-        public long getNetHandle() {
+        @Override // com.repackage.kx0
+        public lx0 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new mx0() : (lx0) invokeV.objValue;
         }
 
-        @Override // com.repackage.kx0.b
-        public void onServiceBind(Context context) {
+        @Override // com.repackage.kx0
+        public lx0 b(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            }
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? new mx0(str) : (lx0) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        long getNetHandle();
+    lx0 a();
 
-        void onServiceBind(Context context);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static b a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? kx0.a != null ? kx0.a : kx0.b : (b) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755543634, "Lcom/repackage/kx0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755543634, "Lcom/repackage/kx0;");
-                return;
-            }
-        }
-        b = new a();
-    }
+    lx0 b(String str);
 }

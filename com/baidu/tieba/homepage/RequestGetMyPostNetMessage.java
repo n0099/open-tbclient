@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.GetMyPost.DataReq;
 import tbclient.GetMyPost.GetMyPostReqIdl;
 /* loaded from: classes3.dex */
@@ -61,7 +62,7 @@ public class RequestGetMyPostNetMessage extends NetMessage {
             builder.q_type = Integer.valueOf(this.mQType);
             builder.bfrom = this.bFrom;
             builder.call_from = Integer.valueOf(this.callFrom);
-            jd5.a(builder, true);
+            dc5.a(builder, true);
             GetMyPostReqIdl.Builder builder2 = new GetMyPostReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -69,36 +70,72 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
+    public int getCallFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.callFrom : invokeV.intValue;
+    }
+
+    public long getForumId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumId : invokeV.longValue;
+    }
+
+    public String getFrom() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.bFrom : (String) invokeV.objValue;
+    }
+
+    public long getPostId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPostId : invokeV.longValue;
+    }
+
     public int getProZone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.proZone : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.proZone : invokeV.intValue;
+    }
+
+    public int getQType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mQType : invokeV.intValue;
+    }
+
+    public long getThreadId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mThreadId : invokeV.longValue;
     }
 
     public void setBFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.bFrom = str;
         }
     }
 
     public void setCallFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.callFrom = i;
         }
     }
 
     public void setHideErrorToast(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             this.hideErrorToast = z;
         }
     }
 
     public void setParams(long j, long j2, long j3, int i, int i2, double d, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d), Integer.valueOf(i3)}) == null) {
             this.mPostId = j2;
             this.mThreadId = j;
             this.mForumId = j3;
@@ -111,7 +148,7 @@ public class RequestGetMyPostNetMessage extends NetMessage {
 
     public void setProZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.proZone = i;
         }
     }
@@ -119,6 +156,6 @@ public class RequestGetMyPostNetMessage extends NetMessage {
     public boolean showErrorToast() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? !this.hideErrorToast : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? !this.hideErrorToast : invokeV.booleanValue;
     }
 }

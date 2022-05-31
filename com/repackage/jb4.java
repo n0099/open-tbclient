@@ -6,91 +6,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jb4 extends y94<pb4> {
+public class jb4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile jb4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
+    public a a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jb4(String str, n84 n84Var, yb4 yb4Var) {
-        super(n84Var, yb4Var);
+    /* loaded from: classes6.dex */
+    public static class a extends qf4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_preload_package");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public jb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, n84Var, yb4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((n84) objArr2[0], (yb4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = str;
+        this.a = new a();
     }
 
-    @Override // com.repackage.y94
-    public String h() {
+    public static jb4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getpkg" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: v */
-    public boolean f(pb4 pb4Var) {
-        InterceptResult invokeL;
-        List<s94> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pb4Var)) == null) {
-            if (pb4Var == null || (list = pb4Var.a) == null) {
-                return false;
-            }
-            for (s94 s94Var : list) {
-                if (!s94Var.a()) {
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (jb4.class) {
+                    if (b == null) {
+                        b = new jb4();
+                    }
                 }
             }
-            return true;
+            return b;
         }
-        return invokeL.booleanValue;
+        return (jb4) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: w */
-    public m94 t(pb4 pb4Var) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, pb4Var)) == null) {
-            this.a.F();
-            ae4 ae4Var = new ae4();
-            p(pb4Var.a, ae4Var);
-            if (ae4Var.n() == 0) {
-                this.a.G();
-                return null;
-            }
-            this.a.H(ae4Var);
-            da4.d(pb4Var, this.a);
-            return null;
-        }
-        return (m94) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: x */
-    public pb4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void c(ib4 ib4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? zd4.i(this.d, jSONObject) : (pb4) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ib4Var) == null) || ib4Var == null) {
+            return;
+        }
+        this.a.edit().putString("version", ib4Var.c()).apply();
+    }
+
+    public void d(JSONObject jSONObject) {
+        ib4 a2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null || (a2 = ib4.a(jSONObject)) == null) {
+            return;
+        }
+        q64.b().H(a2);
     }
 }

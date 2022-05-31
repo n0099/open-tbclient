@@ -1,105 +1,35 @@
 package com.repackage;
 
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.face.platform.ConstPath;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.dx1;
-import org.json.JSONException;
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public class ij2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static dx1.g b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ij2 {
+    boolean a(Context context, xl2 xl2Var, ql2 ql2Var, hz2 hz2Var);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755616608, "Lcom/repackage/ij2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755616608, "Lcom/repackage/ij2;");
-                return;
-            }
-        }
-        a = eh1.a;
-    }
+    boolean b(Context context, sl2 sl2Var, ql2 ql2Var, hz2 hz2Var);
 
-    public static void a(dx1.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, gVar) == null) {
-            b = gVar;
-        }
-    }
+    boolean c(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var);
 
-    public static void b(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, editText, i) == null) {
-            e(editText, ConstPath.KEY_BLUR, i);
-        }
-    }
+    void d(nl1 nl1Var);
 
-    public static void c(ex1 ex1Var, EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65539, null, ex1Var, editText, i) == null) || editText == null || b == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("value", editText.getText());
-            jSONObject.put("eventName", "change");
-            jSONObject.put("cursorOffset", editText.getSelectionStart());
-            jSONObject.put("keyCode", i);
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
-        ex1Var.j(editText.getText().toString());
-        ex1Var.l(editText.getSelectionStart(), editText.getSelectionEnd());
-        b.a(String.valueOf(editText.getTag()), jSONObject);
-    }
+    boolean e(Context context, rl2 rl2Var, ql2 ql2Var, hz2 hz2Var);
 
-    public static void d(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, editText, i) == null) {
-            e(editText, "confirm", i);
-        }
-    }
+    void f(nl1 nl1Var);
 
-    public static void e(EditText editText, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65541, null, editText, str, i) == null) || editText == null || b == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("value", editText.getText());
-            jSONObject.put("eventName", str);
-            jSONObject.put("cursorOffset", editText.getText().length());
-            jSONObject.put("keyboardHeight", "" + le3.O(i));
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
-        b.a(String.valueOf(editText.getTag()), jSONObject);
-    }
+    boolean g(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var);
 
-    public static void f(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, editText, i) == null) {
-            e(editText, AddFriendActivityConfig.TYPE_FOCUS, i);
-        }
-    }
+    boolean h(Context context, vl2 vl2Var, ql2 ql2Var, hz2 hz2Var);
+
+    void i(nl1 nl1Var);
+
+    boolean j(Context context, wl2 wl2Var, ql2 ql2Var, hz2 hz2Var);
+
+    boolean k(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var);
+
+    boolean l(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var);
+
+    boolean m(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var);
+
+    boolean n(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var);
+
+    boolean update(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var);
 }

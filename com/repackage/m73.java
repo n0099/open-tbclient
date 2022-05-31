@@ -1,149 +1,260 @@
 package com.repackage;
 
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.rl2;
-import java.util.HashSet;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public final class m73 {
+public class m73 implements k73 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
+    public l73 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755546424, "Lcom/repackage/m73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-230659477, "Lcom/repackage/m73$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-230659477, "Lcom/repackage/m73$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755546424, "Lcom/repackage/m73;");
-                return;
+            int[] iArr = new int[PathType.values().length];
+            a = iArr;
+            try {
+                iArr[PathType.RELATIVE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[PathType.ERROR.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PathType.BD_FILE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
         }
-        boolean z = eh1.a;
-        a = 0;
     }
 
-    public static void a(JSONObject jSONObject) {
+    public m73() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        rl2.a V = t03.J().r().V();
-        String i = z93.i(V.j0(), V.G());
-        if (!jSONObject.has("appid")) {
-            ud3.f(jSONObject, "appid", V.H());
-        }
-        if (!jSONObject.has("swan")) {
-            ud3.f(jSONObject, "swan", i);
-        }
-        if (!jSONObject.has("appversion")) {
-            ud3.f(jSONObject, "appversion", V.v1());
-        }
-        if (!jSONObject.has("swanNativeVersion")) {
-            ud3.f(jSONObject, "swanNativeVersion", fh1.a());
-        }
-        if (!jSONObject.has("thirdversion")) {
-            ud3.f(jSONObject, "thirdversion", V.w1());
-        }
-        if (!t03.J().r().x0() || jSONObject.has("isWebDowngrade")) {
-            return;
-        }
-        ud3.f(jSONObject, "isWebDowngrade", "1");
     }
 
-    public static String b(String str) {
+    @Override // com.repackage.k73
+    public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String o = me3.o(str);
-            if (TextUtils.isEmpty(o)) {
-                return str;
-            }
-            HashSet hashSet = new HashSet();
-            hashSet.add("bduss");
-            hashSet.add("bduss".toUpperCase());
-            String i = me3.i(o, hashSet);
-            String f = me3.f(str);
-            return f + "?" + i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            hz2 a0 = hz2.a0();
+            return a0 == null ? str : p63.H(str, a0);
         }
         return (String) invokeL.objValue;
     }
 
-    public static int c() {
+    @Override // com.repackage.k73
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? p63.G(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.k73
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            hz2 a0 = hz2.a0();
+            return a0 == null ? "" : p63.n(a0.b, str, null);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.k73
+    @NonNull
+    public synchronized l73 d() {
+        InterceptResult invokeV;
+        l73 l73Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new n73();
+                }
+                l73Var = this.a;
+            }
+            return l73Var;
+        }
+        return (l73) invokeV.objValue;
+    }
+
+    @Override // com.repackage.k73
+    public String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            hz2 a0 = hz2.a0();
+            if (a0 == null) {
+                return null;
+            }
+            return p63.L(str, a0, a0.j0());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.k73
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.intValue;
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            hz2 a0 = hz2.a0();
+            return a0 == null ? "" : p63.z(a0.b);
         }
+        return (String) invokeV.objValue;
     }
 
-    public static <EvenT extends w73> EvenT e(EvenT event, String str, Object obj) {
-        InterceptResult invokeLLL;
+    @Override // com.repackage.k73
+    public String g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
-            if (event != null && !TextUtils.isEmpty(str)) {
-                event.a(str, obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            hz2 a0 = hz2.a0();
+            return a0 == null ? str : p63.I(str, a0.b);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.k73
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            String t = kf4.t(str);
+            if (TextUtils.isEmpty(t)) {
+                return g(str);
             }
-            return event;
+            return g(str) + "." + t;
         }
-        return (EvenT) invokeLLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static <EvenT extends w73> EvenT f(EvenT event) {
+    @Override // com.repackage.k73
+    public String i(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
-            e(event, "isDownloading", String.valueOf(t03.J().r().E0() ? 1 : 0));
-            return event;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            hz2 a0 = hz2.a0();
+            if (a0 == null) {
+                return null;
+            }
+            return p63.M(str, a0.b);
         }
-        return (EvenT) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static <EvenT extends w73> EvenT g(EvenT event) {
-        InterceptResult invokeL;
+    @Override // com.repackage.k73
+    public boolean j(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
-            e(event, "launchType", c() == 2 ? "2" : "1");
-            return event;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            PathType s = p63.s(str);
+            if (z) {
+                s = o(str, s);
+            }
+            return s != PathType.ERROR;
         }
-        return (EvenT) invokeL.objValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static <EvenT extends w73> EvenT h(EvenT event) {
-        InterceptResult invokeL;
+    @Override // com.repackage.k73
+    public String k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
-            e(event, "packageState", String.valueOf(t03.J().r().D0()));
-            return event;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            hz2 a0 = hz2.a0();
+            return a0 == null ? "" : p63.x(a0.b);
         }
-        return (EvenT) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static <EvenT extends w73> EvenT i(EvenT event) {
+    @Override // com.repackage.k73
+    public boolean l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
-            e(event, "coreState", String.valueOf(o72.B0()));
-            return event;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? p63.F(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.k73
+    public String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? p63.K(str) : (String) invokeL.objValue;
+    }
+
+    public final boolean n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            int indexOf = str.indexOf("../");
+            if (indexOf != 0) {
+                return indexOf > 0;
+            }
+            String substring = str.substring(3);
+            return !TextUtils.isEmpty(substring) && substring.contains("../");
         }
-        return (EvenT) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public final PathType o(String str, PathType pathType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, pathType)) == null) {
+            int i = a.a[pathType.ordinal()];
+            if (i == 1) {
+                return n(str) ? PathType.ERROR : pathType;
+            } else if (i != 2) {
+                return i != 3 ? PathType.ERROR : pathType;
+            } else {
+                StringBuilder sb = new StringBuilder();
+                sb.append("bdfile://code");
+                sb.append(File.separator);
+                return (str.startsWith(sb.toString()) || "bdfile://code".equals(str)) ? PathType.RELATIVE : pathType;
+            }
+        }
+        return (PathType) invokeLL.objValue;
     }
 }

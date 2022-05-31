@@ -1,5 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +20,44 @@ public final class EmotionGroupType {
     public static final EmotionGroupType PROMOTION;
     public static final EmotionGroupType SINGLE_FORUM;
     public static final EmotionGroupType USER_COLLECT;
+    public static final EmotionGroupType USER_DIY;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1587936132, "Lcom/baidu/tbadk/coreExtra/data/EmotionGroupType$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-1587936132, "Lcom/baidu/tbadk/coreExtra/data/EmotionGroupType$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[EmotionGroupType.values().length];
+            a = iArr;
+            try {
+                iArr[EmotionGroupType.BIG_EMOTION.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[EmotionGroupType.USER_COLLECT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[EmotionGroupType.USER_DIY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,9 +77,10 @@ public final class EmotionGroupType {
         PROMOTION = new EmotionGroupType("PROMOTION", 2);
         USER_COLLECT = new EmotionGroupType("USER_COLLECT", 3);
         SINGLE_FORUM = new EmotionGroupType("SINGLE_FORUM", 4);
-        EmotionGroupType emotionGroupType = new EmotionGroupType("NET_SUG", 5);
-        NET_SUG = emotionGroupType;
-        $VALUES = new EmotionGroupType[]{LOCAL, BIG_EMOTION, PROMOTION, USER_COLLECT, SINGLE_FORUM, emotionGroupType};
+        NET_SUG = new EmotionGroupType("NET_SUG", 5);
+        EmotionGroupType emotionGroupType = new EmotionGroupType("USER_DIY", 6);
+        USER_DIY = emotionGroupType;
+        $VALUES = new EmotionGroupType[]{LOCAL, BIG_EMOTION, PROMOTION, USER_COLLECT, SINGLE_FORUM, NET_SUG, emotionGroupType};
     }
 
     public EmotionGroupType(String str, int i) {
@@ -62,15 +102,25 @@ public final class EmotionGroupType {
         }
     }
 
+    public static boolean isSendAsPic(@NonNull EmotionGroupType emotionGroupType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, emotionGroupType)) == null) {
+            int i = a.a[emotionGroupType.ordinal()];
+            return i == 1 || i == 2 || i == 3;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static EmotionGroupType valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EmotionGroupType) Enum.valueOf(EmotionGroupType.class, str) : (EmotionGroupType) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (EmotionGroupType) Enum.valueOf(EmotionGroupType.class, str) : (EmotionGroupType) invokeL.objValue;
     }
 
     public static EmotionGroupType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EmotionGroupType[]) $VALUES.clone() : (EmotionGroupType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (EmotionGroupType[]) $VALUES.clone() : (EmotionGroupType[]) invokeV.objValue;
     }
 }

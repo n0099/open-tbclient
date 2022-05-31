@@ -1,7 +1,12 @@
 package com.repackage;
-/* loaded from: classes7.dex */
-public interface v71 {
-    void onError(String str);
 
-    void onSuccess(String str);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes7.dex */
+public class v71 {
+    public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static String b;
+    public static int c;
+    public transient /* synthetic */ FieldHolder $fh;
 }

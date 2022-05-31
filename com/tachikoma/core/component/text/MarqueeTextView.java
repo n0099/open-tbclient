@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.utility.ScheduleHandler;
 import com.tachikoma.core.utility.SizeUtil;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MarqueeTextView extends TextView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MARQUEE_DP_PER_SECOND = 12;

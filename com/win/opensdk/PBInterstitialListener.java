@@ -1,5 +1,5 @@
 package com.win.opensdk;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface PBInterstitialListener extends PBListener {
     void onInterstitialDismissed();
 

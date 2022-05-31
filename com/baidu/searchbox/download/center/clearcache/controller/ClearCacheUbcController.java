@@ -320,7 +320,7 @@ public class ClearCacheUbcController {
                 this.val$type = str;
             }
 
-            /* JADX WARN: Removed duplicated region for block: B:112:0x02a7  */
+            /* JADX WARN: Removed duplicated region for block: B:112:0x02a8  */
             @Override // java.lang.Runnable
             /*
                 Code decompiled incorrectly, please refer to instructions dump.

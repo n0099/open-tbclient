@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mr4;
-import com.repackage.wa7;
+import com.repackage.cq4;
+import com.repackage.l87;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import tbclient.AgreeList;
@@ -20,7 +20,7 @@ import tbclient.Error;
 public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<wa7> datas;
+    public ArrayList<l87> datas;
     public boolean hasMore;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -47,8 +47,8 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
     public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            mr4.f();
-            mr4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+            cq4.f();
+            cq4.e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
         }
     }
 
@@ -76,9 +76,9 @@ public class AgreeMeHTTPResponseMessage extends TbHttpResponsedMessage {
                 this.hasMore = dataRes.has_more.intValue() == 1;
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
-                        wa7 wa7Var = new wa7();
-                        wa7Var.G(agreeList);
-                        this.datas.add(wa7Var);
+                        l87 l87Var = new l87();
+                        l87Var.G(agreeList);
+                        this.datas.add(l87Var);
                     }
                 }
             }

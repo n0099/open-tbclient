@@ -1,117 +1,51 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class vy0 {
+public class vy0 implements yy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ScheduledExecutorService a;
+    public ScheduledExecutorService b;
 
-    public static <K, V> boolean a(Map<K, V> map, K k) {
-        InterceptResult invokeLL;
+    public vy0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, map, k)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                return map.containsKey(k);
-            } catch (Exception e) {
-                h(e);
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLL.booleanValue;
+        this.a = new ScheduledThreadPoolExecutor(15);
+        this.b = new ScheduledThreadPoolExecutor(1);
     }
 
-    public static <K, V> V b(Map<K, V> map, K k) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.yy0
+    public void a(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, map, k)) == null) {
-            if (d(map)) {
-                return null;
-            }
-            try {
-                return map.get(k);
-            } catch (Exception e) {
-                h(e);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.a.schedule(runnable, j, TimeUnit.MILLISECONDS);
         }
-        return (V) invokeLL.objValue;
     }
 
-    public static <K, V> boolean c(Map<K, V> map) {
-        InterceptResult invokeL;
+    @Override // com.repackage.yy0
+    public void b(@NonNull Runnable runnable, @NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) ? d(map) || map.isEmpty() : invokeL.booleanValue;
-    }
-
-    public static boolean d(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) ? obj == null : invokeL.booleanValue;
-    }
-
-    public static <K, V> boolean e(Map<K, V> map, K k, V v) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, map, k, v)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                map.put(k, v);
-                return true;
-            } catch (Exception e) {
-                h(e);
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static <K, V> boolean f(Map<K, V> map, Map<? extends K, ? extends V> map2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, map, map2)) == null) {
-            if (d(map)) {
-                return false;
-            }
-            try {
-                map.putAll(map2);
-                return true;
-            } catch (Exception e) {
-                h(e);
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static <K, V> V g(Map<K, V> map, K k) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, map, k)) == null) {
-            if (d(map)) {
-                return null;
-            }
-            try {
-                return map.remove(k);
-            } catch (Exception e) {
-                h(e);
-                return null;
-            }
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public static void h(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, exc) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+            this.b.schedule(runnable, j, TimeUnit.MILLISECONDS);
         }
     }
 }

@@ -1,23 +1,24 @@
 package com.repackage;
 
+import android.util.Log;
+import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.AugmentedFace;
-import com.google.ar.core.Session;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public final class el9 {
+import com.xiaomi.mipush.sdk.MiPushClient;
+/* loaded from: classes5.dex */
+public class el9 implements ViewTreeObserver.OnDrawListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Long, AugmentedFace> a;
+    public final /* synthetic */ ViewTreeObserver a;
 
-    public el9() {
+    public el9(ml9 ml9Var, ViewTreeObserver viewTreeObserver) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ml9Var, viewTreeObserver};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,23 +28,14 @@ public final class el9 {
                 return;
             }
         }
-        this.a = new com.google.ar.core.j(1, 0.75f, true);
+        this.a = viewTreeObserver;
     }
 
-    public final synchronized AugmentedFace a(long j, Session session) {
-        InterceptResult invokeJL;
-        AugmentedFace augmentedFace;
+    @Override // android.view.ViewTreeObserver.OnDrawListener
+    public void onDraw() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
-            synchronized (this) {
-                augmentedFace = this.a.get(Long.valueOf(j));
-                if (augmentedFace == null) {
-                    augmentedFace = new AugmentedFace(j, session);
-                    this.a.put(Long.valueOf(j), augmentedFace);
-                }
-            }
-            return augmentedFace;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Log.e(MiPushClient.COMMAND_REGISTER, "onDraw:" + this.a.isAlive());
         }
-        return (AugmentedFace) invokeJL.objValue;
     }
 }

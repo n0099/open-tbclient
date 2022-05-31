@@ -15,7 +15,7 @@ import com.tachikoma.core.module.handler.IBusinessSchoolBridge;
 import com.tachikoma.core.utility.V8Proxy;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKBusinessSchoolBridge implements IBusinessSchoolBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TKBusinessSchoolBridge";

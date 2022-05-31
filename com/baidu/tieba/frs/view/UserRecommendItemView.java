@@ -89,18 +89,18 @@ public class UserRecommendItemView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0355, (ViewGroup) this, true);
-            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f092306);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d034e, (ViewGroup) this, true);
+            ClickableHeaderImageView clickableHeaderImageView = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f0922ab);
             this.a = clickableHeaderImageView;
             clickableHeaderImageView.setAutoChangeStyle(true);
             this.a.setDefaultResource(17170445);
             this.a.setIsRound(true);
             this.a.setScaleType(ImageView.ScaleType.FIT_XY);
-            CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.obfuscated_res_0x7f092307);
+            CardUserLikeButton cardUserLikeButton = (CardUserLikeButton) findViewById(R.id.obfuscated_res_0x7f0922ac);
             this.b = cardUserLikeButton;
             cardUserLikeButton.setGravity(17);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09230a);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092305);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922af);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922aa);
             setOrientation(1);
             setFocusable(true);
             setClickable(true);

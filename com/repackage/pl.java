@@ -1,61 +1,27 @@
 package com.repackage;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.DexClassLoader;
 /* loaded from: classes6.dex */
-public class pl extends DexClassLoader {
+public class pl {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ol a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClassLoader a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pl(String str, String str2, String str3, ClassLoader classLoader, ClassLoader classLoader2) {
-        super(str, str2, str3, classLoader);
+    public static synchronized ol a() {
+        InterceptResult invokeV;
+        ol olVar;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, classLoader, classLoader2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (ClassLoader) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.a = classLoader2;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Class<?> findClass(String str) throws ClassNotFoundException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                return super.findClass(str);
-            } catch (Exception unused) {
-                ClassLoader classLoader = this.a;
-                if (classLoader != null) {
-                    Class<?> loadClass = classLoader.loadClass(str);
-                    if (BdBaseApplication.getInst().isDebugMode()) {
-                        BdLog.i("findClass from container. classname is " + str);
-                    }
-                    return loadClass;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (pl.class) {
+                if (a == null) {
+                    a = new ol();
                 }
-                return null;
+                olVar = a;
             }
+            return olVar;
         }
-        return (Class) invokeL.objValue;
+        return (ol) invokeV.objValue;
     }
 }

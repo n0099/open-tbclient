@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.SearchSug.DataReq;
 import tbclient.SearchSug.SearchSugReqIdl;
 /* loaded from: classes3.dex */
@@ -48,7 +48,7 @@ public class SearchListNetMessage extends NetMessage {
             builder.word = this.mKey;
             builder.isforum = String.valueOf(this.isForum);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             SearchSugReqIdl.Builder builder2 = new SearchSugReqIdl.Builder();
             builder2.data = builder.build(false);

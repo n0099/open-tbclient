@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iu4;
+import com.repackage.ys4;
 @ModifyClass
 /* loaded from: classes3.dex */
 public class LaunchUpApplicationSwitch extends BaseNormalSwitch {
@@ -57,7 +57,7 @@ public class LaunchUpApplicationSwitch extends BaseNormalSwitch {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (type > 2) {
-                int l = iu4.k().l("key_launch_up_application_init", 0);
+                int l = ys4.k().l("key_launch_up_application_init", 0);
                 type = l;
                 if (l == 2) {
                     switchOn = true;

@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xw4;
+import com.repackage.nv4;
 /* loaded from: classes3.dex */
 public class RightFloatLayerLottieView extends RightFloatLayerView {
     public static /* synthetic */ Interceptable $ic;
@@ -47,12 +47,12 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
 
         /* renamed from: com.baidu.tbadk.widget.RightFloatLayerLottieView$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0173a extends AnimatorListenerAdapter {
+        public class C0172a extends AnimatorListenerAdapter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0173a(a aVar) {
+            public C0172a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,7 +105,7 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.y.getVisibility() == 0) {
                 RightFloatLayerLottieView rightFloatLayerLottieView = this.a;
-                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0173a(this), 0L);
+                rightFloatLayerLottieView.D(rightFloatLayerLottieView.y, new C0172a(this), 0L);
             }
         }
     }
@@ -458,14 +458,14 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @NonNull
-    public static RightFloatLayerView F(xw4 xw4Var, @NonNull Context context) {
+    public static RightFloatLayerView F(nv4 nv4Var, @NonNull Context context) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, xw4Var, context)) == null) {
-            if (xw4Var == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, nv4Var, context)) == null) {
+            if (nv4Var == null) {
                 return new RightFloatLayerView(context);
             }
-            if (xw4Var.c()) {
+            if (nv4Var.c()) {
                 return new RightFloatLayerLottieView(context);
             }
             return new RightFloatLayerView(context);
@@ -530,13 +530,13 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             super.j(context);
-            this.w = findViewById(R.id.obfuscated_res_0x7f0909d3);
-            this.y = findViewById(R.id.obfuscated_res_0x7f0909c7);
-            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909cd);
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0911c2);
-            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909ce);
-            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909cf);
-            SkinManager.setImageResource(this.u, R.drawable.obfuscated_res_0x7f0805e8);
+            this.w = findViewById(R.id.obfuscated_res_0x7f0909bd);
+            this.y = findViewById(R.id.obfuscated_res_0x7f0909b1);
+            this.u = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909b7);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f091184);
+            this.z = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909b8);
+            this.x = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909b9);
+            SkinManager.setImageResource(this.u, R.drawable.obfuscated_res_0x7f0805e6);
             this.x.setVisibility(0);
         }
     }
@@ -553,9 +553,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
             if (tBLottieAnimationView2 != null) {
                 tBLottieAnimationView2.invalidate();
             }
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805e8, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805e6, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0112, 1);
-            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.u, R.drawable.obfuscated_res_0x7f0805e8, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.u, R.drawable.obfuscated_res_0x7f0805e6, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setViewTextColor(this.v, R.color.CAM_X0112, 1);
         }
     }
@@ -595,12 +595,12 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
     }
 
     @Override // com.baidu.tbadk.widget.RightFloatLayerView
-    public void setData(xw4 xw4Var) {
+    public void setData(nv4 nv4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, xw4Var) == null) || xw4Var == null || this.s || xw4Var.a()) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, nv4Var) == null) || nv4Var == null || this.s || nv4Var.a()) {
             return;
         }
-        if (l(xw4Var)) {
+        if (l(nv4Var)) {
             this.v.setVisibility(0);
         } else {
             this.b.setVisibility(4);
@@ -608,9 +608,9 @@ public class RightFloatLayerLottieView extends RightFloatLayerView {
         }
         this.w.setVisibility(0);
         this.y.setVisibility(8);
-        G(xw4Var.d, this.x);
-        G(xw4Var.c, this.z);
-        w(xw4Var);
+        G(nv4Var.d, this.x);
+        G(nv4Var.c, this.z);
+        w(nv4Var);
         this.s = true;
     }
 

@@ -1,146 +1,47 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.util.JsonWriter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.PollOptionData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.view.VoteView;
-import com.baidu.tbadk.coreExtra.data.WriteVoteData;
-import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.write.write.WriteActivity;
+import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
+import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
-import java.util.ArrayList;
-import java.util.Calendar;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k09 {
+public class k09 implements t19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<WriteActivity> a;
-    public RelativeLayout b;
-    public VoteView c;
-    public WriteVoteData d;
+    public String a;
+    public int b;
+    public String c;
+    public JSONObject d;
+    public long e;
+    public long f;
+    public int g;
+    public String h;
+    public String i;
+    public String j;
+    public JSONArray k;
+    public JSONArray l;
+    public boolean m;
+    public int n;
+    public int o;
+    public String p;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k09 a;
-
-        /* renamed from: com.repackage.k09$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0441a implements nr4.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0441a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.repackage.nr4.e
-            public void onClick(nr4 nr4Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
-                    this.a.a.d = null;
-                    this.a.a.h(false);
-                    nr4Var.dismiss();
-                }
-            }
-        }
-
-        /* loaded from: classes6.dex */
-        public class b implements nr4.e {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // com.repackage.nr4.e
-            public void onClick(nr4 nr4Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
-                    nr4Var.dismiss();
-                }
-            }
-        }
-
-        public a(k09 k09Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k09Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k09Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                nr4 nr4Var = new nr4(this.a.a.getPageActivity());
-                nr4Var.setTitle(this.a.a.getString(R.string.obfuscated_res_0x7f0f1563));
-                nr4Var.setTitleShowCenter(true);
-                nr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f1562));
-                nr4Var.setMessageShowCenter(true);
-                nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f049d, new C0441a(this));
-                nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new b(this));
-                nr4Var.create(this.a.a).show();
-            }
-        }
-    }
-
-    public k09(TbPageContext<WriteActivity> tbPageContext, RelativeLayout relativeLayout) {
+    public k09() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -150,104 +51,429 @@ public class k09 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = relativeLayout;
-        VoteView voteView = new VoteView(this.a.getPageActivity());
-        this.c = voteView;
-        voteView.setPageContext(this.a);
-        this.c.setDeleteOnClickListener(new a(this));
-        this.c.setVoteViewDeleteVisibility(0);
-        this.b.addView(this.c);
-        h(false);
+        this.l = null;
+        this.m = false;
+        this.n = 0;
+        this.o = 0;
     }
 
-    public WriteVoteData c() {
+    public void A(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void B(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            this.k = new JSONArray(str);
+            this.n = str.getBytes("UTF-8").length;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public void C(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    @Override // com.repackage.t19
+    public JSONObject a() throws JSONException {
+        InterceptResult invokeV;
+        JSONObject e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("id", this.a);
+            jSONObject.put(LaunchedTaskSpeedStats.KEY_START_TIME, Long.toString(this.e));
+            jSONObject.put("endtime", Long.toString(this.f));
+            jSONObject.put("type", "1");
+            b09 o = b09.o();
+            jSONObject.put(Constant.IS_REAL, o.O(this.a) ? "1" : "0");
+            int n = o.n(this.a);
+            if (n != 0) {
+                jSONObject.put("gflow", String.valueOf(n));
+            }
+            JSONObject jSONObject2 = this.d;
+            if (jSONObject2 != null) {
+                jSONObject.put("content", jSONObject2.toString());
+            } else if (!TextUtils.isEmpty(this.c)) {
+                jSONObject.put("content", this.c);
+            }
+            if (!TextUtils.isEmpty(this.i)) {
+                jSONObject.put("abtest", this.i);
+            }
+            if (!TextUtils.isEmpty(this.j)) {
+                jSONObject.put("c", this.j);
+            }
+            JSONArray jSONArray = this.k;
+            if (jSONArray != null && jSONArray.length() > 0) {
+                jSONObject.put(SpeedStatsMainTable.PART, this.k);
+            }
+            if (this.m) {
+                jSONObject.put("of", "1");
+            }
+            jSONObject.put(Constant.ID_TYPE, o.z(this.a));
+            JSONArray jSONArray2 = this.l;
+            if (jSONArray2 != null && jSONArray2.length() > 0) {
+                jSONObject.put("eventlist", this.l);
+            }
+            if (!TextUtils.isEmpty(this.p) && (e = e()) != null) {
+                jSONObject.put("bizInfo", e);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.repackage.t19
+    public void b(JsonWriter jsonWriter) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jsonWriter) == null) {
+            jsonWriter.beginObject();
+            jsonWriter.name("id").value(this.a);
+            jsonWriter.name(LaunchedTaskSpeedStats.KEY_START_TIME).value(Long.toString(this.e));
+            jsonWriter.name("endtime").value(Long.toString(this.f));
+            jsonWriter.name("type").value("1");
+            jsonWriter.name(Constant.IS_REAL).value(b09.o().O(this.a) ? "1" : "0");
+            int n = b09.o().n(this.a);
+            if (n != 0) {
+                jsonWriter.name("gflow").value(n);
+            }
+            if (this.d != null) {
+                jsonWriter.name("content").value(this.d.toString());
+            } else if (!TextUtils.isEmpty(this.c)) {
+                jsonWriter.name("content").value(this.c);
+            }
+            if (!TextUtils.isEmpty(this.i)) {
+                jsonWriter.name("abtest").value(this.i);
+            }
+            if (!TextUtils.isEmpty(this.j)) {
+                jsonWriter.name("c").value(this.j);
+            }
+            JSONArray jSONArray = this.k;
+            if (jSONArray != null && jSONArray.length() > 0) {
+                jsonWriter.name(SpeedStatsMainTable.PART);
+                a29.a(jsonWriter, this.k);
+            }
+            if (this.m) {
+                jsonWriter.name("of").value("1");
+            }
+            jsonWriter.name(Constant.ID_TYPE).value(b09.o().z(this.a));
+            JSONArray jSONArray2 = this.l;
+            if (jSONArray2 != null && jSONArray2.length() > 0) {
+                jsonWriter.name("eventlist");
+                jsonWriter.beginArray();
+                int length = this.l.length();
+                for (int i = 0; i < length; i++) {
+                    try {
+                        JSONObject jSONObject = (JSONObject) this.l.get(i);
+                        if (jSONObject != null) {
+                            jsonWriter.beginObject();
+                            if (jSONObject.has("id")) {
+                                String optString = jSONObject.optString("id");
+                                if (!TextUtils.isEmpty(optString)) {
+                                    jsonWriter.name("id").value(optString);
+                                }
+                            }
+                            if (jSONObject.has("timestamp")) {
+                                jsonWriter.name("timestamp").value(Long.toString(jSONObject.optLong("timestamp")));
+                            }
+                            if (jSONObject.has("content")) {
+                                String optString2 = jSONObject.optString("content");
+                                if (!TextUtils.isEmpty(optString2)) {
+                                    jsonWriter.name("content").value(optString2);
+                                }
+                            }
+                            jsonWriter.endObject();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                jsonWriter.endArray();
+            }
+            if (!TextUtils.isEmpty(this.p) && e() != null) {
+                jsonWriter.name("bizInfo");
+                a29.a(jsonWriter, e());
+            }
+            jsonWriter.endObject();
+        }
+    }
+
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (WriteVoteData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
     }
 
-    public void d(int i) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.c.C(i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.p : (String) invokeV.objValue;
+    }
+
+    public JSONObject e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (TextUtils.isEmpty(this.p)) {
+                return null;
+            }
+            try {
+                return new JSONObject(this.p);
+            } catch (JSONException e) {
+                if (w09.m()) {
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0047  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0064  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public int h() {
+        InterceptResult invokeV;
+        int length;
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            int i = this.o;
+            if (i > 0) {
+                return i;
+            }
+            int length2 = TextUtils.isEmpty(this.a) ? 0 : 0 + this.a.getBytes().length;
+            JSONObject jSONObject = this.d;
+            if (jSONObject != null) {
+                try {
+                    length = jSONObject.toString().getBytes("UTF-8").length;
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                if (!TextUtils.isEmpty(this.c)) {
+                    length = this.c.getBytes().length;
+                }
+                if (!TextUtils.isEmpty(this.i)) {
+                    length2 += this.i.getBytes().length;
+                }
+                jSONArray = this.k;
+                if (jSONArray != null && jSONArray.length() > 0) {
+                    length2 += this.n;
+                }
+                if (!TextUtils.isEmpty(this.p)) {
+                    length2 += this.p.getBytes().length;
+                }
+                this.o = length2;
+                return length2;
+            }
+            length2 += length;
+            if (!TextUtils.isEmpty(this.i)) {
+            }
+            jSONArray = this.k;
+            if (jSONArray != null) {
+                length2 += this.n;
+            }
+            if (!TextUtils.isEmpty(this.p)) {
+            }
+            this.o = length2;
+            return length2;
+        }
+        return invokeV.intValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.longValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public JSONObject m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.d : (JSONObject) invokeV.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.m : invokeV.booleanValue;
+    }
+
+    public void q(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.e = j;
         }
     }
 
-    public void e(View.OnClickListener onClickListener) {
-        VoteView voteView;
+    public void r(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || (voteView = this.c) == null || onClickListener == null) {
-            return;
-        }
-        voteView.setOnItemClickListener(onClickListener);
-    }
-
-    public void f(View.OnClickListener onClickListener) {
-        VoteView voteView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (voteView = this.c) == null || onClickListener == null) {
-            return;
-        }
-        voteView.setOnClickListener(onClickListener);
-    }
-
-    public void g(WriteVoteData writeVoteData) {
-        VoteView voteView;
-        TbPageContext<WriteActivity> tbPageContext;
-        int i;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, writeVoteData) == null) || writeVoteData == null || (voteView = this.c) == null) {
-            return;
-        }
-        this.d = writeVoteData;
-        voteView.setVoteTitle(writeVoteData.getTitle());
-        if (this.d.getIs_multi() == 1) {
-            tbPageContext = this.a;
-            i = R.string.obfuscated_res_0x7f0f156e;
-        } else {
-            tbPageContext = this.a;
-            i = R.string.obfuscated_res_0x7f0f156f;
-        }
-        String string = tbPageContext.getString(i);
-        int expire_type = this.d.getExpire_type();
-        if (expire_type > 0) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.add(6, expire_type);
-            str = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f15ca), Integer.valueOf(calendar.get(2) + 1), Integer.valueOf(calendar.get(5)));
-        } else {
-            str = "";
-        }
-        if (StringUtils.isNull(str)) {
-            this.c.setVoteSubContent(string);
-        } else {
-            VoteView voteView2 = this.c;
-            voteView2.setVoteSubContent(string + " · " + str);
-        }
-        ArrayList arrayList = new ArrayList();
-        for (WriteVoteItemData writeVoteItemData : this.d.getOptions()) {
-            PollOptionData pollOptionData = new PollOptionData();
-            pollOptionData.setId(writeVoteItemData.getId());
-            pollOptionData.setText(writeVoteItemData.getText());
-            arrayList.add(pollOptionData);
-        }
-        if (ListUtils.isEmpty(arrayList)) {
-            return;
-        }
-        if (arrayList.size() > 3) {
-            this.c.setData(arrayList.subList(0, 3));
-        } else {
-            this.c.setData(arrayList);
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.p = str;
         }
     }
 
-    public void h(boolean z) {
+    public void s(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.b.setVisibility(z ? 0 : 8);
-            this.a.getOrignalPage().changeToolButtonStatus();
-            this.a.getOrignalPage().upDateVoteInfo(this.d);
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.j = str;
         }
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.m = z;
+        }
+    }
+
+    public void v(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public void w(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, jSONArray) == null) {
+            this.l = jSONArray;
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && b09.o().a(this.a)) {
+            this.i = w09.i().h();
+        }
+    }
+
+    public void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+            this.i = str;
+        }
+    }
+
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public k09(String str, int i, String str2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.l = null;
+        this.m = false;
+        this.n = 0;
+        this.o = 0;
+        this.a = str;
+        this.b = i;
+        this.c = str2;
+        this.g = i2;
+    }
+
+    public k09(String str, int i, JSONObject jSONObject, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), jSONObject, Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.l = null;
+        this.m = false;
+        this.n = 0;
+        this.o = 0;
+        this.a = str;
+        this.b = i;
+        this.d = jSONObject;
+        this.g = i2;
     }
 }

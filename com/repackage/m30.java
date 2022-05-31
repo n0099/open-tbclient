@@ -1,6 +1,7 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,500 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.IntBuffer;
+import java.security.GeneralSecurityException;
+import java.util.Random;
 /* loaded from: classes6.dex */
 public class m30 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean a;
+    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public byte[] a;
-        public int b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final int[] f;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int c;
-        public int d;
-        public final int[] e;
-
-        static {
-            InterceptResult invokeClinit;
-            int i;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-234442903, "Lcom/repackage/m30$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-234442903, "Lcom/repackage/m30$b;");
-                    return;
-                }
-            }
-            f = new int[256];
-            int i2 = 0;
-            while (true) {
-                if (i2 >= 64) {
-                    break;
-                }
-                f[i2] = i2;
-                i2++;
-            }
-            for (i = 64; i < 256; i++) {
-                f[i] = -1;
-            }
-        }
-
-        public b(int i, byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), bArr};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = bArr;
-            this.e = f;
-            this.c = 0;
-            this.d = 0;
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:67:0x00ff, code lost:
-            if (r5 != 4) goto L29;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public boolean a(byte[] bArr, int i, int i2, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-                int i3 = this.c;
-                if (i3 == 6) {
-                    return false;
-                }
-                int i4 = i2 + i;
-                int i5 = this.d;
-                byte[] bArr2 = this.a;
-                int[] iArr = this.e;
-                int i6 = i5;
-                int i7 = 0;
-                int i8 = i3;
-                int i9 = i;
-                while (i9 < i4) {
-                    if (i8 == 0) {
-                        while (true) {
-                            int i10 = i9 + 4;
-                            if (i10 > i4 || (i6 = (iArr[bArr[i9] & 255] << 18) | (iArr[bArr[i9 + 1] & 255] << 12) | (iArr[bArr[i9 + 2] & 255] << 6) | iArr[bArr[i9 + 3] & 255]) < 0) {
-                                break;
-                            }
-                            bArr2[i7 + 2] = (byte) i6;
-                            bArr2[i7 + 1] = (byte) (i6 >> 8);
-                            bArr2[i7] = (byte) (i6 >> 16);
-                            i7 += 3;
-                            i9 = i10;
-                        }
-                        if (i9 >= i4) {
-                            break;
-                        }
-                    }
-                    int i11 = i9 + 1;
-                    int i12 = iArr[bArr[i9] & 255];
-                    if (i8 != 0) {
-                        if (i8 == 1) {
-                            if (i12 < 0) {
-                                if (i12 != -1) {
-                                    this.c = 6;
-                                    return false;
-                                }
-                            }
-                            i12 |= i6 << 6;
-                        } else if (i8 == 2) {
-                            if (i12 < 0) {
-                                if (i12 == -2) {
-                                    bArr2[i7] = (byte) (i6 >> 4);
-                                    i7++;
-                                    i8 = 4;
-                                } else if (i12 != -1) {
-                                    break;
-                                }
-                            }
-                            i12 |= i6 << 6;
-                        } else if (i8 != 3) {
-                            if (i8 != 4) {
-                                if (i8 == 5 && i12 != -1) {
-                                    this.c = 6;
-                                    return false;
-                                }
-                            } else if (i12 == -2) {
-                                i8++;
-                            } else if (i12 != -1) {
-                                this.c = 6;
-                                return false;
-                            }
-                        } else if (i12 >= 0) {
-                            int i13 = i12 | (i6 << 6);
-                            bArr2[i7 + 2] = (byte) i13;
-                            bArr2[i7 + 1] = (byte) (i13 >> 8);
-                            bArr2[i7] = (byte) (i13 >> 16);
-                            i7 += 3;
-                            i6 = i13;
-                            i8 = 0;
-                        } else if (i12 == -2) {
-                            bArr2[i7 + 1] = (byte) (i6 >> 2);
-                            bArr2[i7] = (byte) (i6 >> 10);
-                            i7 += 2;
-                            i8 = 5;
-                        } else if (i12 != -1) {
-                            break;
-                        }
-                        i8++;
-                        i6 = i12;
-                    } else {
-                        if (i12 < 0) {
-                            if (i12 != -1) {
-                                this.c = 6;
-                                return false;
-                            }
-                        }
-                        i8++;
-                        i6 = i12;
-                    }
-                    i9 = i11;
-                }
-                if (z) {
-                    if (i8 != 1) {
-                        if (i8 == 2) {
-                            bArr2[i7] = (byte) (i6 >> 4);
-                            i7++;
-                        } else if (i8 == 3) {
-                            int i14 = i7 + 1;
-                            bArr2[i7] = (byte) (i6 >> 10);
-                            i7 = i14 + 1;
-                            bArr2[i14] = (byte) (i6 >> 2);
-                        }
-                        this.c = i8;
-                    }
-                    this.c = 6;
-                    return false;
-                }
-                this.c = i8;
-                this.d = i6;
-                this.b = i7;
-                return true;
-            }
-            return invokeCommon.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c extends a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final byte[] j;
-        public static final /* synthetic */ boolean k;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final byte[] c;
-        public int d;
-        public int e;
-        public final boolean f;
-        public final boolean g;
-        public final boolean h;
-        public final byte[] i;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-234442872, "Lcom/repackage/m30$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-234442872, "Lcom/repackage/m30$c;");
-                    return;
-                }
-            }
-            k = !m30.class.desiredAssertionStatus();
-            j = new byte[64];
-            for (int i = 0; i < 64; i++) {
-                j[i] = (byte) i;
-            }
-        }
-
-        public c(int i, byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), bArr};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = bArr;
-            this.f = (i & 1) == 0;
-            this.g = (i & 2) == 0;
-            this.h = (i & 4) != 0;
-            this.i = j;
-            this.c = new byte[2];
-            this.d = 0;
-            this.e = this.g ? 19 : -1;
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:32:0x00da, code lost:
-            if (r17.h == false) goto L28;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:33:0x00dc, code lost:
-            r2[r6] = 13;
-            r6 = r6 + 1;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:34:0x00e1, code lost:
-            r2[r6] = 10;
-            r6 = r6 + 1;
-            r11 = r10;
-         */
-        /* JADX WARN: Removed duplicated region for block: B:82:0x01c2  */
-        /* JADX WARN: Removed duplicated region for block: B:89:0x01d1 A[ADDED_TO_REGION] */
-        /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:34:0x00e1 -> B:24:0x008e). Please submit an issue!!! */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public boolean a(byte[] bArr, int i, int i2, boolean z) {
-            InterceptResult invokeCommon;
-            int i3;
-            int i4;
-            int i5;
-            int i6;
-            byte b;
-            int i7;
-            byte b2;
-            byte b3;
-            int i8;
-            int i9;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
-                return invokeCommon.booleanValue;
-            }
-            byte[] bArr2 = this.i;
-            byte[] bArr3 = this.a;
-            int i10 = this.e;
-            int i11 = i2 + i;
-            int i12 = this.d;
-            int i13 = 0;
-            if (i12 != 1) {
-                if (i12 == 2 && (i9 = i + 1) <= i11) {
-                    byte[] bArr4 = this.c;
-                    i4 = ((bArr4[1] & 255) << 8) | ((bArr4[0] & 255) << 16) | (bArr[i] & 255);
-                    this.d = 0;
-                    i3 = i9;
-                }
-                i3 = i;
-                i4 = -1;
-            } else {
-                if (i + 2 <= i11) {
-                    int i14 = i + 1;
-                    i3 = i14 + 1;
-                    i4 = (bArr[i14] & 255) | ((this.c[0] & 255) << 16) | ((bArr[i] & 255) << 8);
-                    this.d = 0;
-                }
-                i3 = i;
-                i4 = -1;
-            }
-            if (i4 != -1) {
-                bArr3[0] = bArr2[(i4 >> 18) & 63];
-                bArr3[1] = bArr2[(i4 >> 12) & 63];
-                bArr3[2] = bArr2[(i4 >> 6) & 63];
-                bArr3[3] = bArr2[i4 & 63];
-                i10--;
-                if (i10 == 0) {
-                    if (this.h) {
-                        i8 = 5;
-                        bArr3[4] = 13;
-                    } else {
-                        i8 = 4;
-                    }
-                    i5 = i8 + 1;
-                    bArr3[i8] = 10;
-                    i10 = 19;
-                } else {
-                    i5 = 4;
-                }
-            } else {
-                i5 = 0;
-            }
-            while (true) {
-                int i15 = i3 + 3;
-                if (i15 > i11) {
-                    if (z) {
-                        int i16 = this.d;
-                        int i17 = i3 - i16;
-                        if (i17 == i11 - 1) {
-                            if (i16 > 0) {
-                                b3 = this.c[0];
-                                i13 = 1;
-                            } else {
-                                byte b4 = bArr[i3];
-                                i3++;
-                                b3 = b4;
-                            }
-                            int i18 = (b3 & 255) << 4;
-                            this.d -= i13;
-                            int i19 = i5 + 1;
-                            bArr3[i5] = bArr2[(i18 >> 6) & 63];
-                            i5 = i19 + 1;
-                            bArr3[i19] = bArr2[i18 & 63];
-                            if (this.f) {
-                                int i20 = i5 + 1;
-                                bArr3[i5] = BaseNCodec.PAD_DEFAULT;
-                                i5 = i20 + 1;
-                                bArr3[i20] = BaseNCodec.PAD_DEFAULT;
-                            }
-                            if (this.g) {
-                                if (this.h) {
-                                    bArr3[i5] = 13;
-                                    i5++;
-                                }
-                                i6 = i5 + 1;
-                                bArr3[i5] = 10;
-                                i5 = i6;
-                            }
-                            if (k && this.d != 0) {
-                                throw new AssertionError();
-                            }
-                            if (!k && i3 != i11) {
-                                throw new AssertionError();
-                            }
-                        } else if (i17 == i11 - 2) {
-                            if (i16 > 1) {
-                                b = this.c[0];
-                                i13 = 1;
-                            } else {
-                                byte b5 = bArr[i3];
-                                i3++;
-                                b = b5;
-                            }
-                            int i21 = (b & 255) << 10;
-                            if (this.d > 0) {
-                                i7 = i13 + 1;
-                                b2 = this.c[i13];
-                            } else {
-                                i7 = i13;
-                                b2 = bArr[i3];
-                                i3++;
-                            }
-                            int i22 = i21 | ((b2 & 255) << 2);
-                            this.d -= i7;
-                            int i23 = i5 + 1;
-                            bArr3[i5] = bArr2[(i22 >> 12) & 63];
-                            int i24 = i23 + 1;
-                            bArr3[i23] = bArr2[(i22 >> 6) & 63];
-                            int i25 = i24 + 1;
-                            bArr3[i24] = bArr2[i22 & 63];
-                            if (this.f) {
-                                bArr3[i25] = BaseNCodec.PAD_DEFAULT;
-                                i25++;
-                            }
-                            if (this.g) {
-                                if (this.h) {
-                                    bArr3[i25] = 13;
-                                    i25++;
-                                }
-                                i6 = i25 + 1;
-                                bArr3[i25] = 10;
-                                i5 = i6;
-                                if (k) {
-                                }
-                                if (!k) {
-                                    throw new AssertionError();
-                                }
-                            } else {
-                                i5 = i25;
-                                if (k) {
-                                }
-                                if (!k) {
-                                }
-                            }
-                        } else {
-                            if (this.g && i5 > 0 && i10 != 19) {
-                                if (this.h) {
-                                    bArr3[i5] = 13;
-                                    i5++;
-                                }
-                                i6 = i5 + 1;
-                                bArr3[i5] = 10;
-                                i5 = i6;
-                            }
-                            if (k) {
-                            }
-                            if (!k) {
-                            }
-                        }
-                    } else if (i3 == i11 - 1) {
-                        byte[] bArr5 = this.c;
-                        int i26 = this.d;
-                        this.d = i26 + 1;
-                        bArr5[i26] = bArr[i3];
-                    } else if (i3 == i11 - 2) {
-                        byte[] bArr6 = this.c;
-                        int i27 = this.d;
-                        int i28 = i27 + 1;
-                        this.d = i28;
-                        bArr6[i27] = bArr[i3];
-                        this.d = i28 + 1;
-                        bArr6[i28] = bArr[i3 + 1];
-                    }
-                    this.b = i5;
-                    this.e = i10;
-                    return true;
-                }
-                int i29 = ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3] & 255) << 16) | (bArr[i3 + 2] & 255);
-                bArr3[i5] = bArr2[(i29 >> 18) & 63];
-                bArr3[i5 + 1] = bArr2[(i29 >> 12) & 63];
-                bArr3[i5 + 2] = bArr2[(i29 >> 6) & 63];
-                bArr3[i5 + 3] = bArr2[i29 & 63];
-                i5 += 4;
-                i10--;
-                if (i10 == 0) {
-                    break;
-                }
-                i3 = i15;
-            }
-        }
-    }
+    public final int a;
 
     static {
         InterceptResult invokeClinit;
@@ -516,105 +34,196 @@ public class m30 {
                 return;
             }
         }
-        a = !m30.class.desiredAssertionStatus();
+        b = n(new byte[]{Constants.SHORT_PING_CMD_TYPE, 120, 112, 97, 110, 100, 32, 51, 50, 45, 98, 121, 116, Constants.SHORT_PING_CMD_TYPE, 32, 107});
     }
 
-    public m30() {
+    public m30(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = i;
     }
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static int b(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            c cVar = new c(19, null);
-            int i2 = (i / 3) * 4;
-            if (!cVar.f) {
-                int i3 = i % 3;
-                if (i3 == 1) {
-                    i2 += 2;
-                } else if (i3 == 2) {
-                    i2 += 3;
-                }
-            } else if (i % 3 > 0) {
-                i2 += 4;
-            }
-            if (!cVar.g || i <= 0) {
-                return i2;
-            }
-            return i2 + ((((i - 1) / 57) + 1) * (cVar.h ? 2 : 1));
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? (i >>> (-i2)) | (i << i2) : invokeII.intValue;
     }
 
-    public static byte[] b(byte[] bArr) {
+    public static void f(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, iArr) == null) {
+            for (int i = 0; i < 10; i++) {
+                g(iArr, 0, 4, 8, 12);
+                g(iArr, 1, 5, 9, 13);
+                g(iArr, 2, 6, 10, 14);
+                g(iArr, 3, 7, 11, 15);
+                g(iArr, 0, 5, 10, 15);
+                g(iArr, 1, 6, 11, 12);
+                g(iArr, 2, 7, 8, 13);
+                g(iArr, 3, 4, 9, 14);
+            }
+        }
+    }
+
+    public static void g(int[] iArr, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            iArr[i] = iArr[i] + iArr[i2];
+            iArr[i4] = b(iArr[i4] ^ iArr[i], 16);
+            iArr[i3] = iArr[i3] + iArr[i4];
+            iArr[i2] = b(iArr[i2] ^ iArr[i3], 12);
+            iArr[i] = iArr[i] + iArr[i2];
+            iArr[i4] = b(iArr[i] ^ iArr[i4], 8);
+            iArr[i3] = iArr[i3] + iArr[i4];
+            iArr[i2] = b(iArr[i2] ^ iArr[i3], 7);
+        }
+    }
+
+    public static void h(int[] iArr, int[] iArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, iArr, iArr2) == null) {
+            int[] iArr3 = b;
+            System.arraycopy(iArr3, 0, iArr, 0, iArr3.length);
+            System.arraycopy(iArr2, 0, iArr, b.length, 8);
+        }
+    }
+
+    public static int[] n(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? c(bArr, 0, bArr.length) : (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] c(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
-            b bVar = new b(19, new byte[(i2 * 3) / 4]);
-            if (bVar.a(bArr, i, i2, true)) {
-                int i3 = bVar.b;
-                byte[] bArr2 = bVar.a;
-                if (i3 == bArr2.length) {
-                    return bArr2;
-                }
-                byte[] bArr3 = new byte[i3];
-                System.arraycopy(bArr2, 0, bArr3, 0, i3);
-                return bArr3;
-            }
-            throw new IllegalArgumentException("bad base-64");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            IntBuffer asIntBuffer = ByteBuffer.wrap(bArr).order(ByteOrder.LITTLE_ENDIAN).asIntBuffer();
+            int[] iArr = new int[asIntBuffer.remaining()];
+            asIntBuffer.get(iArr);
+            return iArr;
         }
-        return (byte[]) invokeLII.objValue;
+        return (int[]) invokeL.objValue;
     }
 
-    public static byte[] d(byte[] bArr) {
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 12;
+        }
+        return invokeV.intValue;
+    }
+
+    public ByteBuffer c(byte[] bArr, byte[] bArr2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, i)) == null) {
+            int[] l = l(n(bArr), n(bArr2), i);
+            int[] iArr = (int[]) l.clone();
+            f(iArr);
+            for (int i2 = 0; i2 < l.length; i2++) {
+                l[i2] = l[i2] + iArr[i2];
+            }
+            ByteBuffer order = ByteBuffer.allocate(64).order(ByteOrder.LITTLE_ENDIAN);
+            order.asIntBuffer().put(l, 0, 16);
+            return order;
+        }
+        return (ByteBuffer) invokeLLI.objValue;
+    }
+
+    public void d(ByteBuffer byteBuffer, byte[] bArr, byte[] bArr2) throws GeneralSecurityException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer, bArr, bArr2) == null) {
+            if (byteBuffer.remaining() - a() < bArr.length) {
+                throw new IllegalArgumentException("data output is too small");
+            }
+            if (bArr2 == null) {
+                bArr2 = new byte[a()];
+                new Random().nextBytes(bArr2);
+            }
+            byteBuffer.put(bArr2);
+            e(bArr2, o30.b(), byteBuffer, ByteBuffer.wrap(bArr));
+        }
+    }
+
+    public final void e(byte[] bArr, byte[] bArr2, ByteBuffer byteBuffer, ByteBuffer byteBuffer2) throws GeneralSecurityException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, bArr, bArr2, byteBuffer, byteBuffer2) == null) {
+            int remaining = byteBuffer2.remaining();
+            int i = (remaining / 64) + 1;
+            for (int i2 = 0; i2 < i; i2++) {
+                ByteBuffer c = c(bArr, bArr2, this.a + i2);
+                if (i2 == i - 1) {
+                    l30.a(byteBuffer, byteBuffer2, c, remaining % 64);
+                } else {
+                    l30.a(byteBuffer, byteBuffer2, c, 64);
+                }
+            }
+        }
+    }
+
+    public byte[] i(ByteBuffer byteBuffer) throws GeneralSecurityException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? e(bArr, 0, bArr.length) : (byte[]) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, byteBuffer)) == null) {
+            if (byteBuffer.remaining() >= a()) {
+                byte[] bArr = new byte[a()];
+                byteBuffer.get(bArr);
+                ByteBuffer allocate = ByteBuffer.allocate(byteBuffer.remaining());
+                e(bArr, o30.a(), allocate, byteBuffer);
+                return allocate.array();
+            }
+            throw new GeneralSecurityException("data too short");
+        }
+        return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] e(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public byte[] j(byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i, i2)) == null) {
-            c cVar = new c(19, null);
-            int i3 = (i2 / 3) * 4;
-            if (!cVar.f) {
-                int i4 = i2 % 3;
-                if (i4 == 1) {
-                    i3 += 2;
-                } else if (i4 == 2) {
-                    i3 += 3;
-                }
-            } else if (i2 % 3 > 0) {
-                i3 += 4;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) ? i(ByteBuffer.wrap(bArr)) : (byte[]) invokeL.objValue;
+    }
+
+    public byte[] k(byte[] bArr, byte[] bArr2) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, bArr, bArr2)) == null) {
+            if (bArr.length <= Integer.MAX_VALUE - a()) {
+                ByteBuffer allocate = ByteBuffer.allocate(a() + bArr.length);
+                d(allocate, bArr, bArr2);
+                return allocate.array();
             }
-            if (cVar.g && i2 > 0) {
-                i3 += (((i2 - 1) / 57) + 1) * (cVar.h ? 2 : 1);
-            }
-            cVar.a = new byte[i3];
-            cVar.a(bArr, i, i2, true);
-            if (a || cVar.b == i3) {
-                return cVar.a;
-            }
-            throw new AssertionError();
+            throw new GeneralSecurityException("data too long");
         }
-        return (byte[]) invokeLII.objValue;
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public int[] l(int[] iArr, int[] iArr2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, iArr, iArr2, i)) == null) {
+            if (iArr.length == a() / 4) {
+                int[] iArr3 = new int[16];
+                h(iArr3, iArr2);
+                iArr3[12] = i;
+                System.arraycopy(iArr, 0, iArr3, 13, iArr.length);
+                return iArr3;
+            }
+            throw new IllegalArgumentException(String.format("need 96-bit param, but got a %d-bit param", Integer.valueOf(iArr.length * 32)));
+        }
+        return (int[]) invokeLLI.objValue;
+    }
+
+    public byte[] m(byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr)) == null) ? k(bArr, null) : (byte[]) invokeL.objValue;
     }
 }

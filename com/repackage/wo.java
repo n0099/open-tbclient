@@ -1,9 +1,9 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.bdtask.TaskState;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public interface wo<T> extends so<T> {
-    int b(int i, int i2);
-
-    eo<ro, TypeAdapter.ViewHolder> c(ro roVar);
+public interface wo {
+    void a(Map<String, ? extends List<TaskState>> map);
 }

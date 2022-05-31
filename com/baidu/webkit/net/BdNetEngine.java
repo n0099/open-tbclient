@@ -22,6 +22,7 @@ import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.sdk.Log;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -509,7 +510,7 @@ public class BdNetEngine extends HandlerThread implements INoProGuard {
                 stringBuffer.append(entry2.getKey().trim());
                 stringBuffer.append("=");
                 stringBuffer.append(entry2.getValue().trim());
-                stringBuffer.append(";");
+                stringBuffer.append(ParamableElem.DIVIDE_PARAM);
             }
             if (stringBuffer.length() > 0) {
                 stringBuffer.setLength(stringBuffer.length() - 1);

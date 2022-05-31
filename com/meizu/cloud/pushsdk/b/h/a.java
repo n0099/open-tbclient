@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.SSLSessionCache;
 import android.os.Environment;
 import com.meizu.cloud.pushsdk.base.a.d;
-import com.repackage.tl9;
+import com.repackage.ni9;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -25,15 +25,15 @@ public class a extends SSLSocketFactory {
             try {
                 sSLSessionCache = new SSLSessionCache(new File(Environment.getExternalStorageDirectory(), "sslCache"));
             } catch (IOException e) {
-                tl9.b(this.a, e.getMessage());
+                ni9.b(this.a, e.getMessage());
                 sSLSessionCache = new SSLSessionCache(context);
             }
             d a = com.meizu.cloud.pushsdk.base.a.a.a(sSLSessionCache).a("install", SSLSessionCache.class, SSLContext.class).a(sSLSessionCache, sSLSessionCache, sSLContext);
             String str = this.a;
-            tl9.d(str, "install tls session cache " + a.a);
+            ni9.d(str, "install tls session cache " + a.a);
             this.b = sSLContext.getSocketFactory();
         } catch (Exception e2) {
-            tl9.b(this.a, e2.getMessage());
+            ni9.b(this.a, e2.getMessage());
             this.b = (SSLSocketFactory) SSLSocketFactory.getDefault();
         }
     }
@@ -42,7 +42,7 @@ public class a extends SSLSocketFactory {
         if (socket instanceof SSLSocket) {
             d a = com.meizu.cloud.pushsdk.base.a.a.a(socket).a("setUseSessionTickets", Boolean.TYPE).a(socket, Boolean.TRUE);
             String str = this.a;
-            tl9.d(str, "set ssl session ticket support " + a.a);
+            ni9.d(str, "set ssl session ticket support " + a.a);
         }
         return socket;
     }

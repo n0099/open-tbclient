@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e73;
-import com.repackage.i22;
-import com.repackage.le3;
-import com.repackage.mg3;
-import com.repackage.pg3;
-import com.repackage.qq2;
-import com.repackage.t03;
+import com.repackage.cf3;
+import com.repackage.dp2;
+import com.repackage.gz2;
+import com.repackage.r53;
+import com.repackage.v02;
+import com.repackage.yc3;
+import com.repackage.ze3;
 /* loaded from: classes2.dex */
 public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackHandler {
     public static /* synthetic */ Interceptable $ic;
@@ -57,14 +57,14 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
         public void onPageFinished(BdSailorWebView bdSailorWebView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, bdSailorWebView, str) == null) {
-                i22 i22Var = this.this$0.U;
-                if (i22Var != null) {
-                    i22Var.e(str);
+                v02 v02Var = this.this$0.U;
+                if (v02Var != null) {
+                    v02Var.e(str);
                 }
-                pg3.a().h(str);
-                mg3.c().q(str);
+                cf3.a().h(str);
+                ze3.c().q(str);
                 this.this$0.b2();
-                mg3.c().l(str);
+                ze3.c().l(str);
                 super.onPageFinished(bdSailorWebView, str);
             }
         }
@@ -73,7 +73,7 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
         public void onPageStarted(BdSailorWebView bdSailorWebView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, str, bitmap) == null) {
-                this.this$0.T = le3.t();
+                this.this$0.T = yc3.t();
                 super.onPageStarted(bdSailorWebView, str, bitmap);
             }
         }
@@ -82,9 +82,9 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
         public void onReceivedError(BdSailorWebView bdSailorWebView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, i, str, str2) == null) {
-                i22 i22Var = this.this$0.U;
-                if (i22Var != null) {
-                    i22Var.c(i, str, str2);
+                v02 v02Var = this.this$0.U;
+                if (v02Var != null) {
+                    v02Var.c(i, str, str2);
                 }
                 super.onReceivedError(bdSailorWebView, i, str, str2);
             }
@@ -95,8 +95,8 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bdSailorWebView, str)) == null) {
-                i22 i22Var = this.this$0.U;
-                return i22Var != null && i22Var.b(str);
+                v02 v02Var = this.this$0.U;
+                return v02Var != null && v02Var.b(str);
             }
             return invokeLL.booleanValue;
         }
@@ -135,7 +135,7 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, bdSailorWebView, str) == null) {
                 super.onFirstContentfulPaintExt(bdSailorWebView, str);
-                pg3.a().c(str);
+                cf3.a().c(str);
             }
         }
 
@@ -144,7 +144,7 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdSailorWebView, str) == null) {
                 super.onFirstImagePaintExt(bdSailorWebView, str);
-                pg3.a().d(str);
+                cf3.a().d(str);
             }
         }
 
@@ -153,9 +153,9 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bdSailorWebView, str) == null) {
                 super.onFirstScreenPaintFinishedExt(bdSailorWebView, str);
-                pg3.a().f(str);
-                if (TextUtils.equals(mg3.c().f(), "3")) {
-                    e73.s(t03.J().r().V());
+                cf3.a().f(str);
+                if (TextUtils.equals(ze3.c().f(), "3")) {
+                    r53.s(gz2.J().r().V());
                 }
             }
         }
@@ -165,7 +165,7 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, bdSailorWebView, str) == null) {
                 super.onFirstTextPaintExt(bdSailorWebView, str);
-                pg3.a().e(str);
+                cf3.a().e(str);
             }
         }
     }
@@ -230,26 +230,26 @@ public class SwanWebModeWidget extends SwanAppWebViewWidget implements CallbackH
     public void b2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int b = qq2.b();
-            qq2.g(b, qq2.a(b));
+            int b = dp2.b();
+            dp2.g(b, dp2.a(b));
         }
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.cn1
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.pl1
     public String e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "swan_app_web_mode_widget" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.uz1
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.repackage.hy1
     public boolean q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            i22 i22Var = this.U;
-            if (i22Var != null) {
-                i22Var.goBack();
+            v02 v02Var = this.U;
+            if (v02Var != null) {
+                v02Var.goBack();
             }
             return super.q();
         }

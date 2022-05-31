@@ -23,14 +23,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eo;
-import com.repackage.es7;
-import com.repackage.hv4;
-import com.repackage.mi;
+import com.repackage.li;
+import com.repackage.np7;
+import com.repackage.wm;
+import com.repackage.xt4;
 import tbclient.ApkDetail;
 import tbclient.Item;
 /* loaded from: classes3.dex */
-public class PbFirstFloorItemAdapter extends eo<es7, PbFirstFloorItemViewHolder> {
+public class PbFirstFloorItemAdapter extends wm<np7, PbFirstFloorItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener i;
@@ -48,15 +48,15 @@ public class PbFirstFloorItemAdapter extends eo<es7, PbFirstFloorItemViewHolder>
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ es7 a;
+            public final /* synthetic */ np7 a;
             public final /* synthetic */ PbFirstFloorItemViewHolder b;
 
-            public a(PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder, es7 es7Var) {
+            public a(PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder, np7 np7Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {pbFirstFloorItemViewHolder, es7Var};
+                    Object[] objArr = {pbFirstFloorItemViewHolder, np7Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -67,7 +67,7 @@ public class PbFirstFloorItemAdapter extends eo<es7, PbFirstFloorItemViewHolder>
                     }
                 }
                 this.b = pbFirstFloorItemViewHolder;
-                this.a = es7Var;
+                this.a = np7Var;
             }
 
             @Override // android.view.View.OnClickListener
@@ -76,7 +76,7 @@ public class PbFirstFloorItemAdapter extends eo<es7, PbFirstFloorItemViewHolder>
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                     int intValue = this.a.a.button_link_type.intValue();
                     ApkDetail apkDetail = this.a.a.apk_detail;
-                    int a = hv4.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0);
+                    int a = xt4.a(intValue, apkDetail != null ? apkDetail.pkg_source.intValue() : 0);
                     ItemData itemData = new ItemData();
                     itemData.parseProto(this.a.a);
                     ItemCardHelper.q(this.b.b.getPosition(), this.a.a.item_id.longValue(), this.b.b.z(itemData), this.a.b, a, "", 2);
@@ -124,15 +124,15 @@ public class PbFirstFloorItemAdapter extends eo<es7, PbFirstFloorItemViewHolder>
             }
         }
 
-        public void e(es7 es7Var) {
+        public void e(np7 np7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, es7Var) == null) {
-                if (es7Var != null) {
-                    this.a.setText(this.d.a.getText(R.string.obfuscated_res_0x7f0f0f88));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, np7Var) == null) {
+                if (np7Var != null) {
+                    this.a.setText(this.d.a.getText(R.string.obfuscated_res_0x7f0f0f99));
                     ItemData itemData = new ItemData();
-                    itemData.parseProto(es7Var.a);
-                    this.b.setData(itemData, 17, es7Var.b);
-                    this.b.setOnClickListener(new a(this, es7Var));
+                    itemData.parseProto(np7Var.a);
+                    this.b.setData(itemData, 17, np7Var.b);
+                    this.b.setOnClickListener(new a(this, np7Var));
                 }
                 if (this.d.i != null) {
                     this.b.setOnClickListenerOfRightBtn(this.d.i);
@@ -201,14 +201,14 @@ public class PbFirstFloorItemAdapter extends eo<es7, PbFirstFloorItemViewHolder>
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.repackage.eo
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, es7 es7Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
-        c0(i, view2, viewGroup, es7Var, pbFirstFloorItemViewHolder);
+    @Override // com.repackage.wm
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, np7 np7Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
+        c0(i, view2, viewGroup, np7Var, pbFirstFloorItemViewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: b0 */
     public PbFirstFloorItemViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -217,12 +217,12 @@ public class PbFirstFloorItemAdapter extends eo<es7, PbFirstFloorItemViewHolder>
             LinearLayout linearLayout = new LinearLayout(this.a);
             linearLayout.setOrientation(1);
             linearLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            int f = mi.f(this.a, R.dimen.M_W_X007);
-            int f2 = mi.f(this.a, R.dimen.T_X09);
-            int f3 = mi.f(this.a, R.dimen.M_H_X005);
-            int f4 = mi.f(this.a, R.dimen.M_H_X003);
+            int f = li.f(this.a, R.dimen.M_W_X007);
+            int f2 = li.f(this.a, R.dimen.T_X09);
+            int f3 = li.f(this.a, R.dimen.M_H_X005);
+            int f4 = li.f(this.a, R.dimen.M_H_X003);
             View view2 = new View(this.a);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, mi.f(this.a, R.dimen.tbds1));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, li.f(this.a, R.dimen.tbds1));
             layoutParams.leftMargin = f;
             layoutParams.rightMargin = f;
             linearLayout.addView(view2, layoutParams);
@@ -247,17 +247,17 @@ public class PbFirstFloorItemAdapter extends eo<es7, PbFirstFloorItemViewHolder>
         return (PbFirstFloorItemViewHolder) invokeL.objValue;
     }
 
-    public View c0(int i, View view2, ViewGroup viewGroup, es7 es7Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
+    public View c0(int i, View view2, ViewGroup viewGroup, np7 np7Var, PbFirstFloorItemViewHolder pbFirstFloorItemViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, es7Var, pbFirstFloorItemViewHolder})) == null) {
-            if (es7Var != null && es7Var.a != null) {
-                pbFirstFloorItemViewHolder.e(es7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, np7Var, pbFirstFloorItemViewHolder})) == null) {
+            if (np7Var != null && np7Var.a != null) {
+                pbFirstFloorItemViewHolder.e(np7Var);
             }
             pbFirstFloorItemViewHolder.d();
             StatisticItem statisticItem = new StatisticItem("c14070");
-            statisticItem.param("tid", es7Var.b);
-            statisticItem.param("obj_locate", es7Var.a.item_id.longValue());
+            statisticItem.param("tid", np7Var.b);
+            statisticItem.param("obj_locate", np7Var.a.item_id.longValue());
             TiebaStatic.log(statisticItem);
             return view2;
         }

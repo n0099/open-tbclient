@@ -9,7 +9,7 @@ import com.kwad.sdk.f.a;
 /* loaded from: classes5.dex */
 public class b extends com.kwad.sdk.core.e.b {
     @NonNull
-    public a.InterfaceC0320a a;
+    public a.InterfaceC0321a a;
     @NonNull
     public KsNativeAd.VideoPlayListener b;
     @NonNull

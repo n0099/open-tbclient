@@ -1,21 +1,12 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.inputmethod.InputMethodManager;
+import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,294 +17,379 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class u25 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
-    public static int c;
-    public static int d;
+    public static u25 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public zf<String, um> a;
+    public zf<String, um> b;
+    public zf<String, Bitmap> c;
+    public zf<String, um> d;
+    public ag<sd5> e;
+    public xd5 f;
 
     /* loaded from: classes7.dex */
-    public static class a implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class a extends zf<String, um> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final ViewGroup b;
-        public final p25 c;
-        public final boolean d;
-        public final boolean e;
-        public final boolean f;
-        public final int g;
-        public boolean h;
-        public final b i;
-        public final int j;
-        public boolean k;
-        public int l;
 
-        public a(boolean z, boolean z2, boolean z3, ViewGroup viewGroup, p25 p25Var, b bVar, int i) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(u25 u25Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), viewGroup, p25Var, bVar, Integer.valueOf(i)};
+                Object[] objArr = {u25Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = 0;
-            this.k = false;
-            this.b = viewGroup;
-            this.c = p25Var;
-            this.d = z;
-            this.e = z2;
-            this.f = z3;
-            this.g = v25.a(viewGroup.getContext());
-            this.i = bVar;
-            this.j = i;
         }
 
-        private Context getContext() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.zf
+        /* renamed from: o */
+        public void b(boolean z, String str, um umVar, um umVar2) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.b.getContext() : (Context) invokeV.objValue;
-        }
-
-        public final void a(int i) {
-            int abs;
-            int h;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (this.a == 0) {
-                    this.a = i;
-                    this.c.refreshHeight(u25.h(getContext()));
-                    return;
-                }
-                if (t25.a(this.d, this.e, this.f)) {
-                    abs = ((View) this.b.getParent()).getHeight() - i;
-                } else {
-                    abs = Math.abs(i - this.a);
-                }
-                if (abs <= u25.f(getContext())) {
-                    int height = ((View) this.b.getParent()).getHeight() - i;
-                    if (i >= this.a) {
-                        return;
-                    }
-                    abs = height - this.g;
-                }
-                if (abs == this.g || !u25.i(getContext(), abs) || this.c.getHeight() == (h = u25.h(getContext()))) {
-                    return;
-                }
-                this.c.refreshHeight(h);
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, umVar, umVar2}) == null) || umVar == null) {
+                return;
             }
-        }
-
-        public final void b(int i) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                View view2 = (View) this.b.getParent();
-                int height = view2.getHeight() - view2.getPaddingTop();
-                if (t25.a(this.d, this.e, this.f)) {
-                    if (this.e || height - i != this.g) {
-                        z = height > i;
-                    } else {
-                        z = this.h;
-                    }
-                } else {
-                    int i2 = this.b.getResources().getDisplayMetrics().heightPixels;
-                    int i3 = this.l;
-                    if (i3 == 0) {
-                        z = this.h;
-                    } else {
-                        z = i < i3 - u25.f(getContext());
-                    }
-                    this.l = Math.max(this.l, height);
-                }
-                if (this.h != z) {
-                    this.c.a(z);
-                    b bVar = this.i;
-                    if (bVar != null) {
-                        bVar.a(z);
-                    }
-                }
-                this.h = z;
-            }
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        @TargetApi(13)
-        public void onGlobalLayout() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                View childAt = this.b.getChildAt(0);
-                View view2 = (View) this.b.getParent();
-                Rect rect = new Rect();
-                if (this.e) {
-                    view2.getWindowVisibleDisplayFrame(rect);
-                    i = rect.bottom - rect.top;
-                    if (!this.k) {
-                        this.k = i == this.j;
-                    }
-                    if (!this.k) {
-                        i += this.g;
-                    }
-                } else if (childAt != null) {
-                    childAt.getWindowVisibleDisplayFrame(rect);
-                    i = rect.bottom - rect.top;
-                } else {
-                    i = -1;
-                }
-                if (i == -1) {
-                    return;
-                }
-                a(i);
-                b(i);
-                this.a = i;
-            }
+            umVar.x();
         }
     }
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z);
+    public class b extends zf<String, um> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(u25 u25Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u25Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.zf
+        /* renamed from: o */
+        public void b(boolean z, String str, um umVar, um umVar2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, umVar, umVar2}) == null) || umVar == null) {
+                return;
+            }
+            BdLog.isDebugMode();
+            umVar.x();
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016308, str));
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.zf
+        /* renamed from: p */
+        public int m(String str, um umVar) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, umVar)) == null) {
+                if (umVar != null) {
+                    return umVar.B();
+                }
+                return 0;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends zf<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(u25 u25Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u25Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.zf
+        /* renamed from: o */
+        public void b(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) || bitmap == null) {
+                return;
+            }
+            bitmap.recycle();
+        }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755312839, "Lcom/repackage/u25;")) == null) {
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755312839, "Lcom/repackage/u25;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755312839, "Lcom/repackage/u25;");
+                return;
+            }
+        }
+        g = new u25();
+    }
+
+    public u25() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.a = new a(this, 0);
+        this.b = new b(this, 0);
+        this.c = new c(this, 0);
+        this.d = new zf<>(Integer.MAX_VALUE);
+    }
+
+    public static u25 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? g : (u25) invokeV.objValue;
+    }
+
+    public void a(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || StringUtils.isNull(str) || bitmap == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755312839, "Lcom/repackage/u25;");
-        }
+        this.c.h(str, bitmap);
     }
 
-    @TargetApi(13)
-    public static ViewTreeObserver.OnGlobalLayoutListener b(Activity activity, p25 p25Var, b bVar) {
-        InterceptResult invokeLLL;
-        int height;
+    public void b(String str, um umVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, activity, p25Var, bVar)) == null) {
-            ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
-            boolean b2 = w25.b(activity);
-            boolean c2 = w25.c(activity);
-            boolean a2 = w25.a(activity);
-            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
-            if (Build.VERSION.SDK_INT >= 13) {
-                Point point = new Point();
-                defaultDisplay.getSize(point);
-                height = point.y;
-            } else {
-                height = defaultDisplay.getHeight();
-            }
-            a aVar = new a(b2, c2, a2, viewGroup, p25Var, bVar, height);
-            viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(aVar);
-            return aVar;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, umVar) == null) {
+            c(str, umVar, false);
         }
-        return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLL.objValue;
     }
 
-    @TargetApi(16)
-    public static void c(Activity activity, ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener) {
+    public void c(String str, um umVar, boolean z) {
+        zf<String, um> zfVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, activity, onGlobalLayoutListener) == null) {
-            ViewGroup viewGroup = (ViewGroup) activity.findViewById(16908290);
-            if (Build.VERSION.SDK_INT >= 16) {
-                viewGroup.getViewTreeObserver().removeOnGlobalLayoutListener(onGlobalLayoutListener);
-            } else {
-                viewGroup.getViewTreeObserver().removeGlobalOnLayoutListener(onGlobalLayoutListener);
-            }
+        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, umVar, z) == null) || umVar == null || (zfVar = this.a) == null) {
+            return;
+        }
+        zfVar.h(str, umVar);
+    }
+
+    public void d(String str, um umVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, umVar) == null) {
+            e(str, umVar, false);
         }
     }
 
-    public static int d(Context context) {
+    public void e(String str, um umVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, str, umVar, z) == null) || umVar == null || this.b == null) {
+            return;
+        }
+        BdLog.isDebugMode();
+        this.b.h(str, umVar);
+    }
+
+    public void f(String str, um umVar) {
+        zf<String, um> zfVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, umVar) == null) || umVar == null || (zfVar = this.d) == null) {
+            return;
+        }
+        zfVar.h(str, umVar);
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a.i(str);
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b.i(str);
+        }
+    }
+
+    public boolean i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.b.e(i) : invokeI.booleanValue;
+    }
+
+    public Bitmap j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (a == 0) {
-                int l = iu4.k().l("key_last_keyboard_height", g(context.getResources()));
-                a = l;
-                if (l > 0) {
-                    TbadkCoreApplication.getInst().setKeyboardHeight(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            return this.c.f(str);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public um l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? this.a.f(str) : (um) invokeL.objValue;
+    }
+
+    public um m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? this.b.f(str) : (um) invokeL.objValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b.g() : invokeV.intValue;
+    }
+
+    public um o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            return this.d.f(str);
+        }
+        return (um) invokeL.objValue;
+    }
+
+    public ag<sd5> p(int i) {
+        InterceptResult invokeI;
+        xd5 xd5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            if (this.e != null && (xd5Var = this.f) != null) {
+                if (xd5Var.g() == i) {
+                    return this.e;
                 }
+                this.f.j(i);
+                this.e.c();
             }
-            return a;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int e(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, resources)) == null) {
-            if (b == 0) {
-                b = resources.getDimensionPixelSize(R.dimen.max_editor_panel_height);
+            if (this.f == null) {
+                this.f = new xd5(i);
             }
-            return b;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (d == 0) {
-                d = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cb);
+            if (this.e == null) {
+                this.e = new ag<>(this.f, 6, 0);
             }
-            return d;
+            return this.e;
         }
-        return invokeL.intValue;
+        return (ag) invokeI.objValue;
     }
 
-    public static int g(Resources resources) {
-        InterceptResult invokeL;
+    public void q(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, resources)) == null) {
-            if (c == 0) {
-                c = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cb);
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
+            t(i);
+            u(i2);
+            s(60);
         }
-        return invokeL.intValue;
     }
 
-    public static int h(Context context) {
-        InterceptResult invokeL;
+    public void r() {
+        ag<sd5> agVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? Math.min(e(context.getResources()), Math.max(g(context.getResources()), d(context))) : invokeL.intValue;
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (agVar = this.e) == null) {
+            return;
+        }
+        agVar.g(0);
+        this.e.f(0);
+        this.e.c();
+        this.e = null;
     }
 
-    public static boolean i(Context context, int i) {
-        InterceptResult invokeLI;
+    public void s(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, context, i)) == null) {
-            if (a != i && i > 0) {
-                a = i;
-                TbadkCoreApplication.getInst().setKeyboardHeight(a);
-                iu4.k().w("key_last_keyboard_height", i);
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.c.k(i);
         }
-        return invokeLI.booleanValue;
     }
 
-    public static void j(View view2) {
+    public void t(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, view2) == null) {
-            view2.requestFocus();
-            ((InputMethodManager) view2.getContext().getSystemService("input_method")).showSoftInput(view2, 0);
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.a.k(i);
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            return "pic:" + this.b.toString() + "  photo:" + this.a.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.b.k(i);
+        }
+    }
+
+    public String v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return this.b.l() + "/" + this.b.g() + "/" + this.b.d() + "_" + this.a.l() + "/" + this.a.g() + "/" + this.a.d();
+        }
+        return (String) invokeV.objValue;
     }
 }

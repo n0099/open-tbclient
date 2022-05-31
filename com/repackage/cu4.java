@@ -1,19 +1,7 @@
 package com.repackage;
-
-import android.content.Context;
 /* loaded from: classes5.dex */
 public interface cu4 {
-    void a(Context context);
+    void a();
 
-    void b(Context context, int i);
-
-    void c(Context context, int i, boolean z);
-
-    Class<?> d();
-
-    void e(Context context, int i, boolean z);
-
-    String f();
-
-    int getCurrentTabType();
+    void onLoadingStart();
 }

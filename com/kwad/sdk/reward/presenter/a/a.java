@@ -35,13 +35,13 @@ public class a extends g {
 
     /* renamed from: com.kwad.sdk.reward.presenter.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0335a extends com.kwad.sdk.reward.presenter.a {
-        public C0335a() {
+    public static class C0336a extends com.kwad.sdk.reward.presenter.a {
+        public C0336a() {
         }
 
         @Override // com.kwad.sdk.reward.presenter.a
         public int e() {
-            return R.id.obfuscated_res_0x7f09104e;
+            return R.id.obfuscated_res_0x7f091010;
         }
 
         @Override // com.kwad.sdk.reward.presenter.a
@@ -74,7 +74,7 @@ public class a extends g {
         if (com.kwad.sdk.core.response.a.b.h(this.c)) {
             a(new com.kwad.sdk.reward.presenter.a.kwai.d());
         }
-        a(new C0335a());
+        a(new C0336a());
         if (com.kwad.sdk.core.response.a.a.aG(this.b) || !com.kwad.sdk.core.response.a.a.q(this.b)) {
             return;
         }

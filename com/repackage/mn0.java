@@ -1,19 +1,35 @@
 package com.repackage;
 
-import com.baidu.nadcore.max.event.NestedEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class mn0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+public class mn0 {
     public static /* synthetic */ Interceptable $ic;
+    public static qn0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
-        $EnumSwitchMapping$0[NestedEvent.SCROLL_FINISH.ordinal()] = 3;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755493662, "Lcom/repackage/mn0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755493662, "Lcom/repackage/mn0;");
+                return;
+            }
+        }
+        a = qn0.a;
+    }
+
+    public static qn0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (qn0) invokeV.objValue;
     }
 }

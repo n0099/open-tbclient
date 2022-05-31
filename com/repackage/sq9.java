@@ -1,28 +1,21 @@
 package com.repackage;
 
-import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 /* loaded from: classes7.dex */
-public final class sq9 implements Runnable {
+public class sq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ byte[] a;
-    public final /* synthetic */ String b;
-    public final /* synthetic */ vr9 c;
+    public final /* synthetic */ xl9 a;
 
-    public sq9(byte[] bArr, String str, vr9 vr9Var) {
+    public sq9(xl9 xl9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, str, vr9Var};
+            Object[] objArr = {xl9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,82 +25,33 @@ public final class sq9 implements Runnable {
                 return;
             }
         }
-        this.a = bArr;
-        this.b = str;
-        this.c = vr9Var;
+        this.a = xl9Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Handler handler;
-        Handler handler2;
-        FileOutputStream fileOutputStream;
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            byte[] bArr = this.a;
-            String str = this.b;
-            vr9 vr9Var = this.c;
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            File file = new File(str);
-            String substring = str.substring(0, str.lastIndexOf("/"));
-            if (!file.exists()) {
-                new File(substring).mkdir();
-            }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    try {
-                        fileOutputStream = new FileOutputStream(file);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr2 = new byte[1024];
-                while (true) {
-                    int read = byteArrayInputStream.read(bArr2);
-                    if (read == -1) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr2, 0, read);
-                }
-                fileOutputStream.flush();
-                fileOutputStream.close();
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                if (vr9Var != null && (handler = vr9Var.a.c.k) != null) {
-                    handler.post(new sr9(vr9Var));
-                }
-                if (fileOutputStream2 != null) {
-                    fileOutputStream2.close();
-                }
-                if (vr9Var != null) {
+        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i == 1 && i2 == 0) {
+            xl9 xl9Var = this.a;
+            yl9 yl9Var = xl9Var.e;
+            if (yl9Var != null && !xl9Var.f && !xl9Var.k && !xl9.x) {
+                if (yl9Var != null) {
+                    yl9Var.e();
                     return;
                 }
                 return;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
             }
-            if (vr9Var != null || (handler2 = vr9Var.a.c.k) == null) {
+            xl9 xl9Var2 = this.a;
+            if (xl9Var2.e == null || xl9Var2.f || !xl9Var2.k || xl9.x) {
                 return;
             }
-            handler2.post(new or9(vr9Var));
+            ok9 ok9Var = xl9Var2.b.a;
+            if (((ok9Var == null || !ok9Var.f()) ? -1 : ok9Var.c.getOpent()) == 1) {
+                xl9 xl9Var3 = this.a;
+                if (xl9Var3.e == null || !xl9Var3.r.isShown()) {
+                    return;
+                }
+                this.a.e.e();
+            }
         }
     }
 }

@@ -704,9 +704,9 @@ public final class MaterialContainerTransform extends Transition {
                 transitionValues.view = TransitionUtils.findDescendantOrAncestorById(transitionValues.view, i);
             } else if (view2 != null) {
                 transitionValues.view = view2;
-            } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f091480) instanceof View) {
-                transitionValues.view.setTag(R.id.obfuscated_res_0x7f091480, null);
-                transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f091480);
+            } else if (transitionValues.view.getTag(R.id.obfuscated_res_0x7f091440) instanceof View) {
+                transitionValues.view.setTag(R.id.obfuscated_res_0x7f091440, null);
+                transitionValues.view = (View) transitionValues.view.getTag(R.id.obfuscated_res_0x7f091440);
             }
             View view3 = transitionValues.view;
             if (!ViewCompat.isLaidOut(view3) && view3.getWidth() == 0 && view3.getHeight() == 0) {
@@ -731,8 +731,8 @@ public final class MaterialContainerTransform extends Transition {
             if (shapeAppearanceModel != null) {
                 return shapeAppearanceModel;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f091480) instanceof ShapeAppearanceModel) {
-                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091480);
+            if (view2.getTag(R.id.obfuscated_res_0x7f091440) instanceof ShapeAppearanceModel) {
+                return (ShapeAppearanceModel) view2.getTag(R.id.obfuscated_res_0x7f091440);
             }
             Context context = view2.getContext();
             int transitionShapeAppearanceResId = getTransitionShapeAppearanceResId(context);

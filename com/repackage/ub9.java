@@ -1,39 +1,40 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdLoader;
+import com.repackage.ob9;
 /* loaded from: classes7.dex */
-public class ub9 {
+public class ub9 implements ob9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ ib9 a;
 
-    public ub9() {
+    public ub9(wb9 wb9Var, ib9 ib9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wb9Var, ib9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = ib9Var;
     }
 
-    public ub9 a(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.repackage.ob9.a
+    public FunAdLoader a(ah9 ah9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this : (ub9) invokeZ.objValue;
-    }
-
-    public ub9 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this : (ub9) invokeI.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ah9Var)) == null) ? new xg9(this.a, ah9Var) : (FunAdLoader) invokeL.objValue;
     }
 }

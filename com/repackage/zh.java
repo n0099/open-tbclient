@@ -1,66 +1,63 @@
 package com.repackage;
 
-import android.content.Context;
+import android.annotation.TargetApi;
 import android.os.Build;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.io.BufferedReader;
+import java.io.FileReader;
+@TargetApi(21)
 /* loaded from: classes7.dex */
 public class zh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@Nullable File file) {
+    public static boolean a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, file) == null) && file != null && file.exists()) {
-            if (file.isDirectory()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null) {
-                    for (File file2 : listFiles) {
-                        a(file2);
-                    }
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return Process.is64Bit();
             }
-            String absolutePath = file.getAbsolutePath();
-            if (file.delete()) {
-                BdLog.v("Abi64WebViewCompat:Delete[" + absolutePath + PreferencesUtil.RIGHT_MOUNT);
-                return;
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr == null || strArr.length <= 0 || (str = Build.CPU_ABI) == null) {
+                return false;
             }
-            BdLog.e("Abi64WebViewCompat:Delete[" + absolutePath + "]Error!");
+            return str.equals(strArr[0]);
         }
+        return invokeV.booleanValue;
     }
 
-    public static void b(@NonNull Context context) {
-        File[] listFiles;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, context) == null) || Build.VERSION.SDK_INT < 24) {
-            return;
-        }
-        try {
-            context.getApplicationContext().getSharedPreferences("WebViewChromiumPrefs", 0).edit().clear().apply();
-            File filesDir = context.getFilesDir();
-            if (filesDir == null || filesDir.getParent() == null) {
-                return;
-            }
-            File file = new File(filesDir.getParent());
-            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                for (File file2 : listFiles) {
-                    String absolutePath = file2.getAbsolutePath();
-                    if (!TextUtils.isEmpty(absolutePath) && absolutePath.toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
-                        a(file2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (Build.VERSION.SDK_INT >= 21) {
+                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+                if (strArr != null) {
+                    for (String str : strArr) {
+                        if ("arm64-v8a".equals(str)) {
+                            return true;
+                        }
                     }
+                    return false;
                 }
+                return false;
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/cpuinfo"));
+                z = bufferedReader.readLine().contains("aarch64");
+                bufferedReader.close();
+                return z;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return z;
+            }
         }
+        return invokeV.booleanValue;
     }
 }

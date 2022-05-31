@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class c {
     public HashMap<String, String> b;
     public a<String> c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a<Result> {
         void a(Result result);
     }

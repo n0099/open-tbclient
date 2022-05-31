@@ -1,239 +1,112 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Build;
-import android.os.Handler;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.utils.BaseUtils;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UVEventType;
-import java.net.URLEncoder;
-import java.util.Iterator;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class pf1 extends nf1 {
+public final class pf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qf1 c;
+    public SwanKV.b a;
+    public boolean b;
+    public boolean c;
+    public final Context d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pf1(Context context, Handler handler) {
-        super(context, handler);
+    public pf1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (Handler) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.c = qf1.a(context);
+        this.d = context;
     }
 
-    public String b() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("0", this.b.getPackageName());
-                jSONObject.put("6", fg1.k(this.b));
-                jSONObject.put("7", mg1.a(this.b));
-                return c("q/1/qc", fg1.c(this.b, jSONObject, ""));
-            } catch (Throwable th) {
-                fg1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    public String c(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) {
-            try {
-                byte[] f = fg1.f();
-                String b = this.c.b(str, URLEncoder.encode(Base64.encodeToString(hg1.h(f, jg1.b(gg1.a(this.b)).getBytes()), 0)));
-                if (TextUtils.isEmpty(b)) {
-                    return "";
-                }
-                String a = a(b, this.c.e(f, jSONObject.toString()));
-                if (TextUtils.isEmpty(a)) {
-                    return "";
-                }
-                JSONObject jSONObject2 = new JSONObject(a);
-                jSONObject2.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-                String optString = jSONObject2.optString("skey");
-                return new String(hg1.e(Base64.decode(jSONObject2.optString("data").getBytes(), 0), hg1.g(Base64.decode(optString.getBytes(), 0), jg1.b(gg1.a(this.b)).getBytes())));
-            } catch (Throwable th) {
-                fg1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
     }
 
-    public String d(JSONObject jSONObject, long j) {
-        InterceptResult invokeLJ;
+    public final SwanKV.b c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jSONObject, j)) == null) {
-            try {
-                JSONObject f = f(true, false);
-                f.put("40", rf1.c(this.b, true, false, "login"));
-                f.put("41", rf1.b(this.b, "login"));
-                f.put("24", "");
-                f.put("73", hf1.c().f());
-                if (hf1.c().i()) {
-                    f.put("50", ng1.a(this.b));
-                    f.put("60", rf1.h(this.b, "login"));
-                    Pair<Integer, String[]> d = ng1.d(this.b);
-                    if (d != null) {
-                        f.put(UVEventType.PAY_WALLET_BANNER_SHOW, d.first);
-                        String[] strArr = (String[]) d.second;
-                        if (strArr.length == 4) {
-                            f.put("14", strArr[0]);
-                            f.put("18", strArr[1]);
-                            f.put("15", strArr[2]);
-                            f.put("19", strArr[3]);
-                        }
-                    }
-                }
-                return c("q/1/qmini", fg1.c(this.b, e(f, jSONObject), "1077102"));
-            } catch (Throwable th) {
-                fg1.d(th);
-                return "";
-            }
-        }
-        return (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (SwanKV.b) invokeV.objValue;
     }
 
-    public final JSONObject e(JSONObject jSONObject, JSONObject jSONObject2) {
-        InterceptResult invokeLL;
+    public final void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, jSONObject2)) == null) {
-            if (jSONObject == null && jSONObject2 == null) {
-                return null;
-            }
-            if (jSONObject == null) {
-                return jSONObject2;
-            }
-            if (jSONObject2 == null) {
-                return jSONObject;
-            }
-            try {
-                Iterator<String> keys = jSONObject2.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    jSONObject.put(next, jSONObject2.opt(next));
-                }
-            } catch (Throwable th) {
-                fg1.d(th);
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
         }
-        return (JSONObject) invokeLL.objValue;
     }
 
-    public final JSONObject f(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public final void e(SwanKV.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                g(jSONObject, "21", "");
-                g(jSONObject, "22", "");
-                g(jSONObject, "23", "");
-            } catch (Throwable th) {
-                fg1.d(th);
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public final void g(JSONObject jSONObject, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, jSONObject, str, str2) == null) || jSONObject == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            if (TextUtils.isEmpty(str2)) {
-                jSONObject.put(str, "");
-            } else {
-                jSONObject.put(str, str2);
-            }
-        } catch (Throwable th) {
-            fg1.d(th);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.a = bVar;
         }
     }
 
-    public boolean h(JSONObject jSONObject) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            try {
-                JSONObject f = f(false, true);
-                f.put("24", "");
-                f.put("40", rf1.c(this.b, false, true, "prelogin"));
-                f.put("41", rf1.b(this.b, "prelogin"));
-                f.put("27", rf1.e(this.b, "prelogin"));
-                f.put(com.tencent.connect.common.Constants.VIA_ACT_TYPE_TWENTY_EIGHT, rf1.g(this.b, "prelogin"));
-                f.put("60", rf1.h(this.b, "prelogin"));
-                f.put(BaseUtils.METHOD_SENDMESSAGE, String.valueOf(Build.VERSION.SDK_INT));
-                f.put("50", ng1.a(this.b));
-                Pair<Integer, String[]> d = ng1.d(this.b);
-                if (d != null) {
-                    f.put(UVEventType.PAY_WALLET_BANNER_SHOW, d.first);
-                    String[] strArr = (String[]) d.second;
-                    if (strArr.length == 4) {
-                        f.put("14", strArr[0]);
-                        f.put("18", strArr[1]);
-                        f.put("15", strArr[2]);
-                        f.put("19", strArr[3]);
-                    }
-                }
-                JSONObject jSONObject2 = new JSONObject(c("q/1/qpre", fg1.c(this.b, e(f, jSONObject), "1077104")));
-                if (jSONObject2.optInt("0", 0) == 0) {
-                    hf1.c().e(this.b, jSONObject2);
-                    return true;
-                }
-            } catch (Throwable th) {
-                fg1.d(th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this != obj) {
+                return (obj instanceof pf1) && Intrinsics.areEqual(this.d, ((pf1) obj).d);
             }
-            return false;
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public String i(JSONObject jSONObject, long j) {
-        InterceptResult invokeLJ;
+    public final Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, jSONObject, j)) == null) {
-            try {
-                return c("q/1/qv", fg1.c(this.b, e(f(true, false), jSONObject), ""));
-            } catch (Throwable th) {
-                fg1.d(th);
-                return "";
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (Context) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            Context context = this.d;
+            if (context != null) {
+                return context.hashCode();
             }
+            return 0;
         }
-        return (String) invokeLJ.objValue;
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "SwanKVConfig(context=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 }

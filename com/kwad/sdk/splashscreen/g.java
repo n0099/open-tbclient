@@ -76,7 +76,7 @@ public class g extends com.kwad.sdk.core.e.b {
 
     public void a(Context context, final int i, int i2, final double d) {
         final AdInfo j = com.kwad.sdk.core.response.a.d.j(this.d);
-        com.kwad.sdk.core.download.a.a.a(new a.C0295a(context).a(this.d).a(this.g).a(i2).a(false).a(new a.b() { // from class: com.kwad.sdk.splashscreen.g.2
+        com.kwad.sdk.core.download.a.a.a(new a.C0296a(context).a(this.d).a(this.g).a(i2).a(false).a(new a.b() { // from class: com.kwad.sdk.splashscreen.g.2
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 String d2;
@@ -137,7 +137,7 @@ public class g extends com.kwad.sdk.core.e.b {
             return null;
         }
         String c = c();
-        final ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09114c);
+        final ImageView imageView = (ImageView) this.e.findViewById(R.id.obfuscated_res_0x7f09110e);
         Bitmap createBitmap = Bitmap.createBitmap(this.e.getWidth(), this.e.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         Bitmap bitmap = this.f.a().getBitmap();

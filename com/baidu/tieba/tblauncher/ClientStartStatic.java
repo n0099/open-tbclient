@@ -23,6 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class ClientStartStatic {
@@ -149,7 +150,7 @@ public class ClientStartStatic {
                             boolean z = false;
                             for (int i = 0; i < list.size(); i++) {
                                 if (list.get(i) != null && list.get(i).contains("BAIDUID=")) {
-                                    String[] split = list.get(i).split(";");
+                                    String[] split = list.get(i).split(ParamableElem.DIVIDE_PARAM);
                                     if (split != null) {
                                         int length = split.length;
                                         int i2 = 0;

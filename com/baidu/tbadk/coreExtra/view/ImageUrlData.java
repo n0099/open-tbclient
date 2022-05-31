@@ -5,6 +5,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,6 +21,7 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     public transient /* synthetic */ FieldHolder $fh;
     public AgreeData agreeData;
     public String commentNum;
+    public FaceGroupInfoData faceGroupInfoData;
     public String forumId;
     public String forumName;
     public String from;
@@ -42,6 +44,7 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     public long originalSize;
     public String originalUrl;
     public long overAllIndex;
+    public String picId;
     public long postId;
     public String qrInfo;
     public String richTextArray;

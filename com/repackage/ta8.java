@@ -1,79 +1,92 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ta8 {
+public class ta8 implements vx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static int a(int i, sa8 sa8Var) {
-        InterceptResult invokeIL;
+    public ta8(Context context, ux4 ux4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, sa8Var)) == null) {
-            if (i <= 0) {
-                return sa8Var.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, ux4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (sa8Var.c()) {
-                return i + sa8Var.b();
-            }
-            return i + sa8Var.b() + 1;
         }
-        return invokeIL.intValue;
+        this.a = null;
+        this.a = context;
     }
 
-    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull sa8 sa8Var, int i2, @Nullable T t, @Nullable ua8 ua8Var, @Nullable va8 va8Var) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.vx4
+    public void a(ShareItem shareItem, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), sa8Var, Integer.valueOf(i2), t, ua8Var, va8Var})) == null) {
-            if (sa8Var.a() != -1 && sa8Var.b() != -1) {
-                int a = a(i2, sa8Var);
-                if (ua8Var != null && t != null) {
-                    if (i <= i2) {
-                        if (va8Var != 0) {
-                            va8Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i3 = i + 1;
-                    if (i3 < a) {
-                        if (va8Var != 0) {
-                            va8Var.a(i, a);
-                        }
-                        return false;
-                    }
-                    int i4 = i > a ? i3 : a;
-                    int i5 = pd7.i(list);
-                    if (i4 >= i5 && (ua8Var.b() || i4 > i5)) {
-                        if (va8Var != 0) {
-                            va8Var.d(i, i4, i5, ua8Var, t);
-                        }
-                        return false;
-                    }
-                    ua8Var.a(i4);
-                    if (ua8Var.b()) {
-                        if (va8Var != 0) {
-                            va8Var.e(i, i4, pd7.d(list, i4), ua8Var, t);
-                            return true;
-                        }
-                        return true;
-                    }
-                    pd7.b(list, t, i4);
-                    if (va8Var != 0) {
-                        va8Var.c(i, i4, ua8Var, t);
-                        return true;
-                    }
-                    return true;
-                } else if (va8Var != 0) {
-                    va8Var.a(i, a);
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            b(shareItem, i);
         }
-        return invokeCommon.booleanValue;
+    }
+
+    public final void b(ShareItem shareItem, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) || this.a == null || shareItem == null) {
+            return;
+        }
+        IntentConfig intentConfig = new IntentConfig(this.a);
+        ShareEntity shareEntity = new ShareEntity();
+        shareEntity.setTitle(shareItem.u);
+        shareEntity.setContent(shareItem.v);
+        shareEntity.setReadCount(shareItem.U);
+        int i2 = shareItem.P;
+        shareEntity.setIsVideoThread(i2 == 2 || i2 == 6 || i2 == 8);
+        shareEntity.setImageUri(shareItem.y);
+        shareEntity.canShareBySmartApp = shareItem.r0;
+        String str = shareItem.w;
+        if (i == 6 && !StringUtils.isNull(shareItem.x)) {
+            str = shareItem.x;
+        }
+        shareEntity.setLinkUrl(str);
+        shareEntity.setLocalFile(shareItem.A);
+        shareEntity.setLocation(shareItem.E);
+        shareEntity.setShareTo(i);
+        shareEntity.setStats(shareItem.e());
+        shareEntity.setPreferImageToLink(shareItem.g0);
+        shareEntity.setTid(shareItem.N);
+        shareEntity.setfName(shareItem.s);
+        shareEntity.setTypeShareToSmallApp(shareItem.B);
+        shareEntity.topic = shareItem.R;
+        if (i == 6 && !StringUtils.isNull(shareItem.T)) {
+            shareEntity.topic = shareItem.S + shareItem.T;
+            shareEntity.setContent("");
+        }
+        shareEntity.taskCompleteId = shareItem.V;
+        shareEntity.diskPicOperate = shareItem.D;
+        shareEntity.setExtLiveInfo(shareItem.w0);
+        shareEntity.setFromDuXiaoMan(shareItem.m);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("extra_share_data", shareEntity);
+        bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+        intentConfig.getIntent().putExtras(bundle);
+        shareItem.j(true);
+        intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
     }
 }

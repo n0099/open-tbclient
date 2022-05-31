@@ -1,26 +1,36 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class i98 {
     public static /* synthetic */ Interceptable $ic;
-    public static i98 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, j98> a;
+    public final String a;
+    public final View b;
+    public AdvertAppInfo c;
+    public xa7 d;
+    public TbPageContext e;
+    public AdCard f;
+    public View.OnClickListener g;
 
-    public i98() {
+    public i98(View view2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,106 +40,81 @@ public class i98 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.b = view2;
+        this.a = str;
     }
 
-    public static i98 a() {
-        InterceptResult invokeV;
+    public final <T> T a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (i98.class) {
-                    if (b == null) {
-                        b = new i98();
-                    }
-                }
-            }
-            return b;
-        }
-        return (i98) invokeV.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (T) this.b.findViewById(i) : (T) invokeI.objValue;
     }
 
-    public ConcurrentHashMap<String, j98> b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ConcurrentHashMap) invokeV.objValue;
-    }
-
-    public j98 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ConcurrentHashMap<String, j98> concurrentHashMap = this.a;
-            if (concurrentHashMap == null) {
-                return null;
-            }
-            return concurrentHashMap.get(str);
-        }
-        return (j98) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        ConcurrentHashMap<String, j98> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        Iterator<String> it = concurrentHashMap.keySet().iterator();
-        while (it.hasNext()) {
-            j98 j98Var = this.a.get(it.next());
-            if (j98Var != null && str.equals(j98Var.b)) {
-                it.remove();
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    public void e(boolean z) {
-        ConcurrentHashMap<String, j98> concurrentHashMap;
+    public void c(t88 t88Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        for (String str : concurrentHashMap.keySet()) {
-            j98 j98Var = this.a.get(str);
-            if (j98Var != null) {
-                j98Var.e = z;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t88Var) == null) {
         }
     }
 
-    public void f(boolean z, String str) {
-        ConcurrentHashMap<String, j98> concurrentHashMap;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
-            return;
-        }
-        for (String str2 : concurrentHashMap.keySet()) {
-            j98 j98Var = this.a.get(str2);
-            if (j98Var != null && str.equals(j98Var.b)) {
-                j98Var.e = z;
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.setVisibility(0);
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.t(this.c.j).o(String.valueOf(this.c.position + 1)).n(this.c.g).x(String.valueOf(303));
+            rx0.c(clogBuilder);
         }
     }
 
-    public void g(HashMap<String, j98> hashMap) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.setVisibility(8);
+        }
+    }
+
+    public void f(AdvertAppInfo advertAppInfo) {
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
+            this.c = advertAppInfo;
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof AdCard)) {
                 return;
             }
-            this.a.putAll(hashMap);
+            this.f = (AdCard) iLegoAdvert;
         }
     }
 
-    public void h(String str, HashMap<String, j98> hashMap) {
+    public void g(xa7 xa7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) {
-            if (this.a == null) {
-                this.a = new ConcurrentHashMap<>();
-            }
-            d(str);
-            this.a.putAll(hashMap);
+        if (interceptable == null || interceptable.invokeL(1048582, this, xa7Var) == null) {
+            this.d = xa7Var;
+        }
+    }
+
+    public void h(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
+            this.e = tbPageContext;
+        }
+    }
+
+    public void i(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+            this.g = onClickListener;
+        }
+    }
+
+    public void j(CountDownTextView.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
         }
     }
 }

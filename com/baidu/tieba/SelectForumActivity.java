@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.ph5;
-import com.repackage.y95;
-import com.repackage.yi5;
-import com.repackage.zi5;
+import com.repackage.jg5;
+import com.repackage.li;
+import com.repackage.s85;
+import com.repackage.sh5;
+import com.repackage.th5;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class SelectForumActivity extends SuspendedActivity {
@@ -30,7 +30,7 @@ public class SelectForumActivity extends SuspendedActivity {
     public CustomMessageListener mCloseListener;
     public CustomMessageListener mPermissionsListener;
     public ArrayList<SelectForumData> mSelectedForums;
-    public ph5 selectForumView;
+    public jg5 selectForumView;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -106,13 +106,13 @@ public class SelectForumActivity extends SuspendedActivity {
                 if (TextUtils.isEmpty(str)) {
                     str = this.a.getString(R.string.obfuscated_res_0x7f0f008f);
                 }
-                mi.N(this.a, str);
+                li.O(this.a, str);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c implements zi5.f {
+    public class c implements th5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -135,7 +135,7 @@ public class SelectForumActivity extends SuspendedActivity {
             this.a = selectForumActivity;
         }
 
-        @Override // com.repackage.zi5.f
+        @Override // com.repackage.th5.f
         public void a(ArrayList<SelectForumData> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
@@ -165,10 +165,10 @@ public class SelectForumActivity extends SuspendedActivity {
         this.mPermissionsListener = new b(this, 2921507);
     }
 
-    private zi5.f getSaveInterestForumListener() {
+    private th5.f getSaveInterestForumListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new c(this) : (zi5.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? new c(this) : (th5.f) invokeV.objValue;
     }
 
     private void initData() {
@@ -182,20 +182,20 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public y95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public s85 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.selectForumView == null) {
                 if (this.isSelectInterestForum) {
-                    this.selectForumView = new zi5(getPageContext(), linearLayout, navigationBar, getSaveInterestForumListener(), this.mSelectedForums);
+                    this.selectForumView = new th5(getPageContext(), linearLayout, navigationBar, getSaveInterestForumListener(), this.mSelectedForums);
                 } else {
-                    this.selectForumView = new yi5(getPageContext(), linearLayout, navigationBar);
+                    this.selectForumView = new sh5(getPageContext(), linearLayout, navigationBar);
                 }
             }
             return this.selectForumView;
         }
-        return (y95) invokeLL.objValue;
+        return (s85) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -215,9 +215,9 @@ public class SelectForumActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            ph5 ph5Var = this.selectForumView;
-            if (ph5Var != null) {
-                ph5Var.onDestroy();
+            jg5 jg5Var = this.selectForumView;
+            if (jg5Var != null) {
+                jg5Var.onDestroy();
             }
         }
     }
@@ -227,9 +227,9 @@ public class SelectForumActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onResume();
-            ph5 ph5Var = this.selectForumView;
-            if (ph5Var != null) {
-                ph5Var.onResume();
+            jg5 jg5Var = this.selectForumView;
+            if (jg5Var != null) {
+                jg5Var.onResume();
             }
         }
     }

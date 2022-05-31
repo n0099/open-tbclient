@@ -1,9 +1,11 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class ij0 implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ij0 {
+    void a(long j);
+
+    void b(long j, long j2);
+
+    void c(long j, long j2);
+
+    void onProgress(long j, long j2);
 }

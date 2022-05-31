@@ -63,7 +63,7 @@ public class FetchLog {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00c2  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00c4  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

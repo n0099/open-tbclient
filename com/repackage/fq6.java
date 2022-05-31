@@ -1,285 +1,47 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.vc.FrsTabViewController;
+import com.baidu.tieba.gift.giftTab.CategoryGiftListModel;
+import com.baidu.tieba.gift.giftTab.DefaultGiftListModel;
+import com.baidu.tieba.gift.giftTab.FreeGiftChanceModel;
+import com.baidu.tieba.gift.giftTab.GiftTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
-public class fq6 extends km6 {
+import java.util.Iterator;
+/* loaded from: classes5.dex */
+public class fq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bo6 h;
-    public boolean i;
-    public HashMap<Integer, fd6> j;
-    public boolean k;
-    public CustomMessageListener l;
-    public final CustomMessageListener m;
-    public final CustomMessageListener n;
-    public final CustomMessageListener o;
-    public final CustomMessageListener p;
-    public xd6 q;
+    public b9<GiftTabActivity> a;
+    public DefaultGiftListModel b;
+    public CategoryGiftListModel c;
+    public FreeGiftChanceModel d;
+    public ArrayList<cq6> e;
+    public ArrayList<aq6> f;
+    public ArrayList<eq6> g;
+    public HashMap<Integer, ArrayList<yn4>> h;
+    public int i;
+    public String j;
+    public int k;
+    public zn4 l;
+    public e m;
+    public d n;
+    public DefaultGiftListModel.b o;
+    public CategoryGiftListModel.b p;
+    public FreeGiftChanceModel.b q;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    /* loaded from: classes5.dex */
+    public class a implements DefaultGiftListModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fq6 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(fq6 fq6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
-                return;
-            }
-            if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                this.a.k = false;
-                return;
-            }
-            this.a.k = true;
-            this.a.b.L2().M();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fq6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(fq6 fq6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || this.a.a == null) {
-                return;
-            }
-            this.a.a.T1();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fq6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(fq6 fq6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof fd6)) {
-                this.a.a.V1();
-                fd6 fd6Var = (fd6) customResponsedMessage.getData();
-                xd6 xd6Var = fd6Var.b;
-                if (xd6Var != null) {
-                    this.a.c0(fd6Var.a, xd6Var);
-                } else {
-                    int i = fd6Var.a;
-                    if (i != 1) {
-                        this.a.c0(i, null);
-                    } else {
-                        fq6 fq6Var = this.a;
-                        fq6Var.c0(i, fq6Var.q);
-                    }
-                }
-                this.a.f0(fd6Var.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fq6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(fq6 fq6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof fd6)) {
-                fd6 fd6Var = (fd6) customResponsedMessage.getData();
-                this.a.d0(fd6Var.a, fd6Var.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fq6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(fq6 fq6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof yc6)) {
-                yc6 yc6Var = (yc6) customResponsedMessage.getData();
-                this.a.e0(yc6Var.a, yc6Var.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements xd6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fq6 a;
-
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ f a;
-
-            public a(f fVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {fVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = fVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.a.i0() == null || this.a.a.f == null || this.a.a.a.i0().getVisibility() == 0) {
-                    return;
-                }
-                this.a.a.f.o();
-            }
-        }
-
-        public f(fq6 fq6Var) {
+        public a(fq6 fq6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -297,185 +59,228 @@ public class fq6 extends km6 {
             this.a = fq6Var;
         }
 
-        @Override // com.repackage.xd6
-        public void D() {
+        @Override // com.baidu.tieba.gift.giftTab.DefaultGiftListModel.b
+        public void a(int i, String str, int i2, String str2, int i3, zn4 zn4Var, ArrayList<aq6> arrayList, ArrayList<yn4> arrayList2, ArrayList<eq6> arrayList3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null && this.a.b.isAdded()) {
-                if (this.a.i && this.a.b.L2() != null) {
-                    if (!this.a.k && !this.a.a0()) {
-                        this.a.b.L2().g0();
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, Integer.valueOf(i3), zn4Var, arrayList, arrayList2, arrayList3}) == null) {
+                if (i == 0) {
+                    int i4 = 0;
+                    if (arrayList != null && arrayList.size() >= 1 && arrayList.get(0) != null) {
+                        i4 = arrayList.get(0).a();
                     }
-                    this.a.i = false;
+                    this.a.f = arrayList;
+                    this.a.h.put(Integer.valueOf(i4), arrayList2);
+                    this.a.g = arrayList3;
+                    this.a.j = str2;
+                    this.a.i = i2;
+                    fq6 fq6Var = this.a;
+                    fq6Var.k = i3;
+                    fq6Var.l = zn4Var;
+                    fq6Var.q();
                 }
-                if (this.a.h != null && this.a.b.w0() != null && this.a.b.w0().Y() != null && !this.a.b.w0().Y().o() && this.a.b.L2() != null && !this.a.b.L2().X()) {
-                    this.a.h.b();
+                if (this.a.m != null) {
+                    e eVar = this.a.m;
+                    String str3 = this.a.j;
+                    fq6 fq6Var2 = this.a;
+                    eVar.a(i, str, true, str3, fq6Var2.k, fq6Var2.l, fq6Var2.e, this.a.f, this.a.g);
                 }
-                if (this.a.a == null || this.a.f == null || this.a.d == null || this.a.h == null) {
-                    return;
-                }
-                this.a.a.k0().n(0, 0, true, true);
-                this.a.b.u3();
-                this.a.b.I3(true);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016524));
-                this.a.d.s0();
-                if (!TbadkCoreApplication.isLogin() || this.a.b.H2().getVisibility() != 0 || ListUtils.isEmpty(this.a.b.g0().getThreadList())) {
-                }
-            }
-        }
-
-        @Override // com.repackage.xd6
-        public void k0() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.i = true;
-                if (this.a.a == null || this.a.f == null || this.a.d == null || this.a.b == null || !this.a.b.isAdded()) {
-                    return;
-                }
-                if (this.a.a != null && this.a.a.k0() != null) {
-                    this.a.a.k0().x();
-                }
-                this.a.b.I3(false);
-                ng.a().postDelayed(new a(this), 110L);
-                this.a.a.r1(1, true);
-                if (ki.z()) {
-                    this.a.b.refresh();
-                    this.a.b.I3(true);
-                } else {
-                    this.a.b.Z3();
-                }
-                TiebaStatic.log(new StatisticItem("c11749").param("fid", this.a.b.y()).param("obj_locate", "1"));
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fq6(FrsFragment frsFragment) {
-        super(frsFragment);
+    /* loaded from: classes5.dex */
+    public class b implements CategoryGiftListModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fq6 a;
+
+        public b(fq6 fq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fq6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fq6Var;
+        }
+
+        @Override // com.baidu.tieba.gift.giftTab.CategoryGiftListModel.b
+        public void a(int i, String str, int i2, ArrayList<yn4> arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), arrayList}) == null) {
+                if (i == 0) {
+                    this.a.h.put(Integer.valueOf(i2), arrayList);
+                    this.a.q();
+                }
+                if (this.a.m != null) {
+                    e eVar = this.a.m;
+                    String str2 = this.a.j;
+                    fq6 fq6Var = this.a;
+                    eVar.a(i, str, false, str2, fq6Var.k, fq6Var.l, fq6Var.e, this.a.f, this.a.g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements FreeGiftChanceModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fq6 a;
+
+        public c(fq6 fq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fq6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fq6Var;
+        }
+
+        @Override // com.baidu.tieba.gift.giftTab.FreeGiftChanceModel.b
+        public void a(int i, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && i == 0) {
+                this.a.i = i2;
+                if (this.a.n != null) {
+                    this.a.n.a(this.a.i);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a(int i);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a(int i, String str, boolean z, String str2, int i2, zn4 zn4Var, ArrayList<cq6> arrayList, ArrayList<aq6> arrayList2, ArrayList<eq6> arrayList3);
+    }
+
+    public fq6(b9<GiftTabActivity> b9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
+            Object[] objArr = {b9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((FrsFragment) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = false;
-        this.k = false;
-        this.l = new a(this, 2921468);
-        this.m = new b(this, 2003003);
-        this.n = new c(this, 2921448);
-        this.o = new d(this, 9205410);
-        this.p = new e(this, 2921449);
-        this.q = new f(this);
-        this.h = frsFragment.C2();
-        this.j = new HashMap<>();
-        this.a.g1(1);
-        frsFragment.registerListener(this.m);
-        frsFragment.registerListener(this.n);
-        frsFragment.registerListener(this.o);
-        frsFragment.registerListener(this.p);
-        frsFragment.registerListener(this.l);
+        this.h = new HashMap<>();
+        this.o = new a(this);
+        this.p = new b(this);
+        this.q = new c(this);
+        this.a = b9Var;
+        DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(b9Var);
+        this.b = defaultGiftListModel;
+        defaultGiftListModel.K(this.o);
+        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
+        this.c = categoryGiftListModel;
+        categoryGiftListModel.C(this.p);
+        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
+        this.d = freeGiftChanceModel;
+        freeGiftChanceModel.C(this.q);
     }
 
-    public void Z() {
+    public void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.l);
-        }
-    }
-
-    public final boolean a0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b.g0() == null || this.b.g0().getUserData() == null || this.b.g0().forumRule == null || this.b.g0().getForum() == null || !this.b.g0().getForum().getIsShowRule()) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.d == null) {
+                FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
+                this.d = freeGiftChanceModel;
+                freeGiftChanceModel.C(this.q);
             }
-            return this.b.g0().getUserData().getIs_manager() == 1 ? this.b.g0().forumRule.has_forum_rule.intValue() != 1 && this.b.g0().forumRule.audit_status.intValue() == 0 && iu4.k().l("key_forum_rule_first_show_frs_manager", 0) <= 0 : this.b.g0().forumRule.has_forum_rule.intValue() == 1 && iu4.k().l("key_forum_rule_first_show_frs", 0) <= 0;
+            this.d.B(str);
         }
-        return invokeV.booleanValue;
     }
 
-    public void b0() {
+    public void o(String str, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            if (this.b == null) {
+                DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.a);
+                this.b = defaultGiftListModel;
+                defaultGiftListModel.K(this.o);
+            }
+            this.b.J(str, j);
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (this.c == null) {
+                CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
+                this.c = categoryGiftListModel;
+                categoryGiftListModel.C(this.p);
+            }
+            this.c.B(i);
+        }
+    }
+
+    public final void q() {
+        HashMap<Integer, ArrayList<yn4>> hashMap;
+        ArrayList<aq6> arrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hashMap = this.h) == null || hashMap.size() <= 0 || (arrayList = this.f) == null || arrayList.size() <= 0) {
             return;
         }
-        jq6 jq6Var = this.c;
-        if ((jq6Var instanceof FrsTabViewController) && ((FrsTabViewController) jq6Var).A() != null && (((FrsTabViewController) this.c).A().b instanceof xd6)) {
-            FrsTabViewController.o A = ((FrsTabViewController) this.c).A();
-            c0(A.a, (xd6) A.b);
-            f0(A.a);
-            return;
+        if (this.e == null) {
+            this.e = new ArrayList<>();
         }
-        this.a.n1(this.q);
-    }
-
-    public final void c0(int i, xd6 xd6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, xd6Var) == null) {
-            fd6 fd6Var = this.j.get(Integer.valueOf(i));
-            if (fd6Var == null) {
-                fd6 fd6Var2 = new fd6();
-                fd6Var2.a = i;
-                fd6Var2.b = xd6Var;
-                this.j.put(Integer.valueOf(i), fd6Var2);
-            } else {
-                fd6Var.b = xd6Var;
-            }
-            vc6 vc6Var = this.a;
-            if (vc6Var != null) {
-                vc6Var.n1(xd6Var);
+        this.e.clear();
+        Iterator<aq6> it = this.f.iterator();
+        while (it.hasNext()) {
+            aq6 next = it.next();
+            if (next != null && !StringUtils.isNull(next.b())) {
+                cq6 cq6Var = new cq6();
+                cq6Var.c(next.a());
+                cq6Var.d(next.b());
+                ArrayList<yn4> arrayList2 = this.h.get(Integer.valueOf(next.a()));
+                if (arrayList2 != null) {
+                    cq6Var.e(arrayList2);
+                }
+                this.e.add(cq6Var);
             }
         }
     }
 
-    public final void d0(int i, boolean z) {
+    public void r(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            fd6 fd6Var = this.j.get(Integer.valueOf(i));
-            if (fd6Var == null) {
-                fd6 fd6Var2 = new fd6();
-                fd6Var2.a = i;
-                fd6Var2.c = z;
-                this.j.put(Integer.valueOf(i), fd6Var2);
-            } else {
-                fd6Var.c = z;
-            }
-            vc6 vc6Var = this.a;
-            if (vc6Var != null) {
-                vc6Var.C1(z);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
+            this.n = dVar;
         }
     }
 
-    public final void e0(int i, boolean z) {
-        vc6 vc6Var;
+    public void s(e eVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || (vc6Var = this.a) == null) {
-            return;
-        }
-        vc6Var.r1(i, z);
-    }
-
-    public final void f0(int i) {
-        fd6 fd6Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || this.a == null || (fd6Var = this.j.get(Integer.valueOf(i))) == null) {
-            return;
-        }
-        this.a.g1(i);
-        this.a.n1(fd6Var.b);
-        this.a.C1(fd6Var.c);
-        if (fd6Var.b == null) {
-            this.a.C1(false);
+        if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
+            this.m = eVar;
         }
     }
 }

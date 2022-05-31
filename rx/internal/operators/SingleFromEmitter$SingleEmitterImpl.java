@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.by9;
-import com.repackage.d2a;
-import com.repackage.dy9;
-import com.repackage.my9;
+import com.repackage.gv9;
+import com.repackage.vu9;
+import com.repackage.xu9;
+import com.repackage.xy9;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
@@ -18,15 +18,15 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 8082834163465882809L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final by9<? super T> actual;
+    public final vu9<? super T> actual;
     public final SequentialSubscription resource;
 
-    public SingleFromEmitter$SingleEmitterImpl(by9<? super T> by9Var) {
+    public SingleFromEmitter$SingleEmitterImpl(vu9<? super T> vu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {by9Var};
+            Object[] objArr = {vu9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,7 +36,7 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
                 return;
             }
         }
-        this.actual = by9Var;
+        this.actual = vu9Var;
         this.resource = new SequentialSubscription();
     }
 
@@ -60,7 +60,7 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
                     this.resource.unsubscribe();
                 }
             }
-            d2a.j(th);
+            xy9.j(th);
         }
     }
 
@@ -75,17 +75,17 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
         }
     }
 
-    public void setCancellation(my9 my9Var) {
+    public void setCancellation(gv9 gv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, my9Var) == null) {
-            setSubscription(new CancellableSubscription(my9Var));
+        if (interceptable == null || interceptable.invokeL(1048579, this, gv9Var) == null) {
+            setSubscription(new CancellableSubscription(gv9Var));
         }
     }
 
-    public void setSubscription(dy9 dy9Var) {
+    public void setSubscription(xu9 xu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dy9Var) == null) {
-            this.resource.update(dy9Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, xu9Var) == null) {
+            this.resource.update(xu9Var);
         }
     }
 

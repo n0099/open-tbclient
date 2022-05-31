@@ -1,10 +1,9 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.os.Build;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,55 +12,30 @@ public class tl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755286768, "Lcom/repackage/tl9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755286768, "Lcom/repackage/tl9;");
-        }
-    }
-
-    public static void a(String str, String str2) {
+    public static ql9 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().a(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (!RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(Build.MANUFACTURER) || Build.VERSION.SDK_INT < 23) {
+                return null;
+            }
+            nl9 nl9Var = new nl9(context);
+            try {
+                try {
+                    Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+                    intent.setPackage("com.huawei.hwid");
+                    if (context.bindService(intent, nl9Var, 1)) {
+                        com.win.opensdk.a aVar = (com.win.opensdk.a) com.win.opensdk.b.a(nl9Var.a());
+                        return new ql9(aVar.a(), aVar.b());
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return null;
+            } finally {
+                context.unbindService(nl9Var);
+            }
         }
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().d(str, str2);
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().a(false);
-        }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().b(str, str2);
-        }
-    }
-
-    public static void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            com.meizu.cloud.pushsdk.base.h.b().a(context);
-            com.meizu.cloud.pushsdk.base.h b = com.meizu.cloud.pushsdk.base.h.b();
-            b.a(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdk/" + context.getPackageName());
-        }
+        return (ql9) invokeL.objValue;
     }
 }

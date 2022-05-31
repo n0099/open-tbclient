@@ -1,71 +1,29 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kc0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile int b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+public interface kc0 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755563815, "Lcom/repackage/kc0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755563815, "Lcom/repackage/kc0;");
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void b(kc0 kc0Var);
     }
 
-    public kc0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
+    /* loaded from: classes6.dex */
+    public interface b {
+        boolean d(kc0 kc0Var, int i, int i2);
     }
 
-    public static synchronized kc0 a() {
-        InterceptResult invokeV;
-        kc0 kc0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (kc0.class) {
-                if (b < 1000000) {
-                    b = 1000000;
-                }
-                kc0Var = new kc0();
-                kc0Var.a = b;
-                b++;
-            }
-            return kc0Var;
-        }
-        return (kc0) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public interface c {
+        boolean e(kc0 kc0Var, int i, int i2, Object obj);
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    /* loaded from: classes6.dex */
+    public interface d {
+        void c(kc0 kc0Var);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a(kc0 kc0Var);
     }
 }

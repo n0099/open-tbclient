@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.mi;
-import com.repackage.py;
+import com.repackage.cx;
+import com.repackage.li;
+import com.repackage.wq4;
 import tbclient.ItemInfo;
 /* loaded from: classes3.dex */
-public class CardItemInfoBriefLayout extends FrameLayout implements py {
+public class CardItemInfoBriefLayout extends FrameLayout implements cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiLineEllipsizeTextView a;
@@ -92,11 +92,11 @@ public class CardItemInfoBriefLayout extends FrameLayout implements py {
                 CardItemInfoBriefLayout cardItemInfoBriefLayout = this.a;
                 cardItemInfoBriefLayout.d = !cardItemInfoBriefLayout.d;
                 if (!this.a.d) {
-                    this.a.b.setText(R.string.obfuscated_res_0x7f0f05c7);
+                    this.a.b.setText(R.string.obfuscated_res_0x7f0f05ce);
                     this.a.a.setMaxLines(3);
                     return;
                 }
-                this.a.b.setText(R.string.obfuscated_res_0x7f0f062d);
+                this.a.b.setText(R.string.obfuscated_res_0x7f0f0634);
                 this.a.a.setMaxLines(Integer.MAX_VALUE);
                 this.a.a.setText(this.a.c);
             }
@@ -128,23 +128,23 @@ public class CardItemInfoBriefLayout extends FrameLayout implements py {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            setPadding(mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
+            setPadding(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005), 0);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(getContext());
             this.a = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05c7))));
-            gs4 d = gs4.d(this.a);
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05ce))));
+            wq4 d = wq4.d(this.a);
             d.z(R.dimen.T_X07);
             d.w(R.dimen.M_T_X002);
-            this.a.setPadding(0, 0, 0, mi.f(getContext(), R.dimen.M_H_X005));
+            this.a.setPadding(0, 0, 0, li.f(getContext(), R.dimen.M_H_X005));
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             this.a.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f05c7);
-            gs4.d(this.a).z(R.dimen.T_X07);
-            this.b.setPadding(mi.f(getContext(), R.dimen.M_W_X005), mi.f(getContext(), R.dimen.M_H_X005), 0, mi.f(getContext(), R.dimen.M_H_X005));
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f05ce);
+            wq4.d(this.a).z(R.dimen.T_X07);
+            this.b.setPadding(li.f(getContext(), R.dimen.M_W_X005), li.f(getContext(), R.dimen.M_H_X005), 0, li.f(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
@@ -153,16 +153,16 @@ public class CardItemInfoBriefLayout extends FrameLayout implements py {
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            gs4 d = gs4.d(this);
+            wq4 d = wq4.d(this);
             d.m(2);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            gs4.d(this.a).v(R.color.CAM_X0105);
-            gs4.d(this.b).v(R.color.CAM_X0304);
+            wq4.d(this.a).v(R.color.CAM_X0105);
+            wq4.d(this.b).v(R.color.CAM_X0304);
         }
     }
 

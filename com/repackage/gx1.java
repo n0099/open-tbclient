@@ -1,172 +1,164 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import android.os.Build;
+import android.os.Process;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.tachikoma.core.component.button.StyleHelper;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes6.dex */
-public final class gx1 extends bw1 {
+public class gx1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public int M;
-    public String N;
-    public String O;
-    public boolean P;
-    public boolean Q;
-    public boolean R;
-    public boolean S;
-    public boolean T;
-    public int U;
-    public int V;
-    public boolean W;
-    public boolean X;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gx1() {
-        super("textArea", "componentId");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755662767, "Lcom/repackage/gx1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755662767, "Lcom/repackage/gx1;");
                 return;
             }
         }
-        this.L = "";
-        this.N = "";
-        this.O = "";
+        a = rf1.a;
     }
 
-    private void i() {
-        JSONObject jSONObject;
+    public static synchronized String a() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
+        IOException e;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.j) == null) {
-            return;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
+            return (String) invokeV.objValue;
         }
-        int g = le3.g(c(jSONObject, "minHeight", 0.0f));
-        if (g < 0) {
-            g = 0;
-        }
-        this.U = g;
-        int g2 = le3.g(c(this.j, "maxHeight", 2.1474836E9f));
-        if (g2 < 0) {
-            g2 = Integer.MAX_VALUE;
-        }
-        this.V = g2;
-    }
-
-    @Override // com.repackage.bw1, com.repackage.gw1, com.repackage.iw1, com.repackage.kw1, com.repackage.tq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        ar2 ar2Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("placeholder");
-        o(jSONObject);
-        this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
-        boolean optBoolean = jSONObject.optBoolean("autoHeight", false);
-        this.Q = optBoolean;
-        if (optBoolean && (ar2Var = this.h) != null) {
-            ar2Var.j(-2);
-            this.h.k(true);
-        }
-        boolean optBoolean2 = jSONObject.optBoolean("fixed");
-        this.R = optBoolean2;
-        ar2 ar2Var2 = this.h;
-        if (ar2Var2 != null) {
-            ar2Var2.i(optBoolean2);
-        }
-        this.S = jSONObject.optBoolean("showConfirmBar", true);
-        this.T = jSONObject.optBoolean("adjustPosition", true);
-        this.W = jSONObject.optBoolean(StyleHelper.KEY_ONDISABLE, false);
-        this.X = jSONObject.optInt("confirmHold") == 1;
-        i();
-    }
-
-    @Override // com.repackage.bw1, com.repackage.gw1, com.repackage.iw1, com.repackage.kw1
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.W = jSONObject.optBoolean(StyleHelper.KEY_ONDISABLE, this.W);
-            this.L = jSONObject.optString("placeholder", this.L);
-            this.t = jSONObject.optString("value", this.t);
-            this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
-            this.S = jSONObject.optBoolean("showConfirmBar", this.S);
-            this.T = jSONObject.optBoolean("adjustPosition", this.T);
-            n(jSONObject);
-            p(jSONObject);
-            o(jSONObject);
-            i();
-        }
-    }
-
-    public final void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            boolean optBoolean = jSONObject.optBoolean("autoHeight", this.Q);
-            this.Q = optBoolean;
-            ar2 ar2Var = this.h;
-            if (ar2Var != null) {
-                if (optBoolean) {
-                    ar2Var.j(-2);
-                    this.h.k(true);
-                    return;
+        synchronized (gx1.class) {
+            if (a) {
+                Log.d("SwanCpuProperty", "start cpu monitor thread");
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
+                try {
+                    try {
+                        String c = c(bufferedReader);
+                        if (a) {
+                            Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
+                        }
+                        kf4.d(bufferedReader);
+                        return c;
+                    } catch (IOException e2) {
+                        e = e2;
+                        if (a) {
+                            Log.e("SwanCpuProperty", "error in cpu monitor", e);
+                        }
+                        kf4.d(bufferedReader);
+                        return "";
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    kf4.d(bufferedReader);
+                    throw th;
                 }
-                int c = ar2Var.c();
-                int i = this.K;
-                if (i > 0) {
-                    c = i;
-                }
-                this.h.j(c);
-                this.h.k(false);
+            } catch (IOException e3) {
+                bufferedReader = null;
+                e = e3;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
+                kf4.d(bufferedReader);
+                throw th;
             }
         }
     }
 
-    public final void o(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public static float b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("placeholderStyle")) == null) {
-            return;
-        }
-        this.M = optJSONObject.optInt(TtmlNode.ATTR_TTS_FONT_SIZE);
-        this.N = optJSONObject.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-        this.O = optJSONObject.optString("color");
-    }
-
-    public final void p(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            boolean optBoolean = jSONObject.optBoolean("fixed", this.R);
-            this.R = optBoolean;
-            ar2 ar2Var = this.h;
-            if (ar2Var != null) {
-                ar2Var.i(optBoolean);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String a2 = a();
+            try {
+                if (a2.contains("%")) {
+                    return Float.parseFloat(a2.replace("%", "").trim());
+                }
+                return Float.parseFloat(a2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
+                    return 0.0f;
+                }
+                return 0.0f;
             }
         }
+        return invokeV.floatValue;
     }
 
-    public void q(boolean z) {
+    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
+        r11 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
+        if (com.repackage.gx1.a != false) goto L25;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
+        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String c(BufferedReader bufferedReader) throws IOException {
+        InterceptResult invokeL;
+        char read;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.P = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
+            char[] cArr = new char[4];
+            int i = 0;
+            if (Build.VERSION.SDK_INT < 26) {
+                int i2 = 0;
+                do {
+                    read = (char) bufferedReader.read();
+                    if (read == ' ' || i2 == 4) {
+                        i2 = 0;
+                    } else {
+                        cArr[i2] = read;
+                        i2++;
+                    }
+                    if (read == '%') {
+                        break;
+                    }
+                } while (read != 65535);
+                return String.valueOf(cArr, 0, i2);
+            }
+            int i3 = 0;
+            int i4 = 0;
+            while (true) {
+                char read2 = (char) bufferedReader.read();
+                if (z && read2 != ' ') {
+                    i3++;
+                }
+                if (i3 == 9) {
+                    if (read2 != '.' && read2 != ' ') {
+                        cArr[i4] = read2;
+                        i4++;
+                    }
+                    i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
+                    return i + "%";
+                }
+                z = (i3 <= 9 && read2 != 65535 && i4 < 4) ? read2 == ' ' : true;
+                i = Integer.parseInt(String.valueOf(cArr, 0, i4)) / Runtime.getRuntime().availableProcessors();
+                return i + "%";
+            }
         }
+        return (String) invokeL.objValue;
     }
 }

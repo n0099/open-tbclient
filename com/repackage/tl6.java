@@ -1,32 +1,39 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import tbclient.ThemeElement;
 /* loaded from: classes7.dex */
-public class tl6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+public interface tl6 {
+    @Nullable
+    <T> T a(@NonNull LogicField logicField);
 
-    public tl6(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = i;
-        this.b = str;
-    }
+    void b(boolean z);
+
+    void c(float f);
+
+    void d(int i, boolean z);
+
+    void e(@NonNull ThemeElement themeElement);
+
+    @NonNull
+    NavigationBar f();
+
+    @Nullable
+    zl6 g();
+
+    void h(boolean z);
+
+    int i();
+
+    void j(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
+
+    @Nullable
+    wl6 k();
+
+    void onChangeSkinType(int i);
 }

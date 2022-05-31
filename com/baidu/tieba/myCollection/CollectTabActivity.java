@@ -23,12 +23,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an4;
-import com.repackage.e55;
-import com.repackage.lm7;
-import com.repackage.mm7;
-import com.repackage.nm7;
-import com.repackage.sj4;
+import com.repackage.fi4;
+import com.repackage.pl4;
+import com.repackage.tj7;
+import com.repackage.uj7;
+import com.repackage.vj7;
+import com.repackage.z35;
 import java.util.Map;
 /* loaded from: classes3.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
@@ -36,7 +36,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final String SCHEME_MY_COLLECT = "tbmycollection://";
     public transient /* synthetic */ FieldHolder $fh;
-    public lm7 mController;
+    public tj7 mController;
     public CustomMessageListener mEditorEnableListener;
 
     /* loaded from: classes3.dex */
@@ -114,12 +114,12 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Map<String, String> paramPair = UrlManager.getParamPair(decode);
         if (paramPair != null) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-            sj4.b(param, paramPair);
+            fi4.b(param, paramPair);
             TiebaStatic.log(param);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.m85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -129,17 +129,17 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void initTabsOnActivityCreated() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            an4 an4Var = new an4(getPageContext().getPageActivity());
+            pl4 pl4Var = new pl4(getPageContext().getPageActivity());
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
-            an4Var.a(threadDelegateStatic);
-            if (an4Var.getContext() != null) {
-                e55 b = threadDelegateStatic.b();
+            pl4Var.a(threadDelegateStatic);
+            if (pl4Var.getContext() != null) {
+                z35 b = threadDelegateStatic.b();
                 if (b == null) {
                     return;
                 }
                 b.a.setArguments(new Bundle());
             }
-            this.mController.h(an4Var.b());
+            this.mController.h(pl4Var.b());
         }
     }
 
@@ -170,7 +170,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2 == this.mController.d()) {
             boolean z = !this.mController.i();
             if (z) {
-                nm7.a("c14067");
+                vj7.a("c14067");
             }
             this.mController.b(z);
         }
@@ -181,8 +181,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d01e9);
-            this.mController = new lm7(this);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e2);
+            this.mController = new tj7(this);
             registerListener(this.mEditorEnableListener);
             initTabsOnActivityCreated();
             checkSchemeFromIntent(getIntent());
@@ -204,7 +204,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
-            mm7.b().f(false);
+            uj7.b().f(false);
         }
     }
 
@@ -213,9 +213,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            nm7.a("c14061");
-            mm7.b().f(true);
-            mm7.b().e(false);
+            vj7.a("c14061");
+            uj7.b().f(true);
+            uj7.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);
         }
     }

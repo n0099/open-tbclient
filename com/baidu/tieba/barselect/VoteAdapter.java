@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gw5;
-import com.repackage.xv5;
-import com.repackage.zv5;
+import com.repackage.qu5;
+import com.repackage.su5;
+import com.repackage.zu5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public zv5 b;
-    public List<xv5> c;
+    public su5 b;
+    public List<qu5> c;
     public int d;
 
     public VoteAdapter(TbPageContext tbPageContext) {
@@ -69,12 +69,12 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         }
     }
 
-    public void g(zv5 zv5Var) {
+    public void g(su5 su5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zv5Var) == null) {
-            this.b = zv5Var;
-            if (zv5Var != null) {
-                this.c = zv5Var.b();
+        if (interceptable == null || interceptable.invokeL(1048579, this, su5Var) == null) {
+            this.b = su5Var;
+            if (su5Var != null) {
+                this.c = su5Var.b();
             }
             this.d = -1;
             notifyDataSetChanged();
@@ -86,7 +86,7 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<xv5> list = this.c;
+            List<qu5> list = this.c;
             if (list != null) {
                 return list.size();
             }
@@ -100,11 +100,11 @@ public class VoteAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            List<xv5> list = this.c;
+            List<qu5> list = this.c;
             if (list == null || list.size() <= i || this.c.get(i).i() != 1 || i != 0) {
                 return 0;
             }
-            return gw5.c;
+            return zu5.c;
         }
         return invokeI.intValue;
     }

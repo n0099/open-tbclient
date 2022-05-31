@@ -1,84 +1,60 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.TaskState;
-import com.baidu.bdtask.ctrl.model.TaskStatus;
-import com.baidu.bdtask.model.ITaskModelData;
-import com.baidu.bdtask.model.info.TaskInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes7.dex */
-public final class ru extends su<TaskState> {
+public final class ru {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final uu a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ru(uu uuVar) {
-        super(uuVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uuVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((uu) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964028382, "Lcom/repackage/ru;")) == null) {
+            return;
         }
-        this.a = uuVar;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964028382, "Lcom/repackage/ru;");
+        }
     }
 
-    public final <T extends ITaskModelData> T b(uu uuVar, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uuVar, str, str2)) == null) ? uuVar.a(str).a(str2) : (T) invokeLLL.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.key : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.su
-    /* renamed from: d */
-    public TaskState a(String str) {
+    @JvmStatic
+    @JvmOverloads
+    public static final bs a(Class<? extends js<mp>> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                uu uuVar = this.a;
-                String optString = jSONObject.optString("info");
-                Intrinsics.checkExpressionValueIsNotNull(optString, "jsonObject.optString(TaskInfo.key)");
-                TaskInfo taskInfo = (TaskInfo) b(uuVar, "info", optString);
-                if (taskInfo != null) {
-                    uu uuVar2 = this.a;
-                    String optString2 = jSONObject.optString(TaskStatus.key);
-                    Intrinsics.checkExpressionValueIsNotNull(optString2, "jsonObject.optString(TaskStatus.key)");
-                    TaskStatus taskStatus = (TaskStatus) b(uuVar2, TaskStatus.key, optString2);
-                    if (taskStatus != null) {
-                        return new TaskState(taskInfo, taskStatus);
-                    }
-                }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (TaskState) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) ? new bs(cls, mp.class) : (bs) invokeL.objValue;
+    }
+
+    @JvmStatic
+    @JvmOverloads
+    public static final cs b(Class<? extends rs<qp>> cls, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, cls, z)) == null) ? new cs(cls, qp.class, z) : (cs) invokeLZ.objValue;
+    }
+
+    @JvmStatic
+    public static final bs c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a(su.class) : (bs) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final cs d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b(tu.class, true) : (cs) invokeV.objValue;
     }
 }

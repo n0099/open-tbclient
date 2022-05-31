@@ -163,7 +163,7 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public MediaTrackConfig m36clone() {
+    public MediaTrackConfig m34clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

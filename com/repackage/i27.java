@@ -1,125 +1,302 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Rect;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.im.chat.AbsMsglistView;
+import com.baidu.tieba.im.chat.MsgAdapterScanMessage;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
+import com.baidu.tieba.im.chat.MsgIceBreakItemAdapter;
+import com.baidu.tieba.im.chat.MsgLeftViewItemAdapter;
+import com.baidu.tieba.im.chat.MsgMidViewItemAdapter;
+import com.baidu.tieba.im.chat.MsgRightViewItemAdapter;
+import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class i27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<MsglistActivity<?>> a;
+    public List<ChatMessage> b;
+    public BdTypeListView c;
+    public MsgLeftViewItemAdapter d;
+    public MsgRightViewItemAdapter e;
+    public MsgMidViewItemAdapter f;
+    public MsgIceBreakItemAdapter g;
+    public List<MsgCommonItemAdapter> h;
+    public CustomMessageListener i;
 
-    public static void a(yx5 yx5Var, StatisticItem statisticItem) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, yx5Var, statisticItem) == null) || yx5Var == null || yx5Var.getThreadData() == null || statisticItem == null) {
-            return;
-        }
-        if (yx5Var.getThreadData().getBaijiahaoData() != null) {
-            BaijiahaoData baijiahaoData = yx5Var.getThreadData().getBaijiahaoData();
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData.oriUgcNid);
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData.oriUgcVid);
-            return;
-        }
-        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
-    }
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i27 a;
 
-    public static boolean b(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
-            if (threadData == null || threadData.isShareThread) {
-                return false;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(i27 i27Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i27Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            int i = threadData.threadType;
-            return i == 0 || i == 11 || i == 40 || threadData.isUgcThreadType();
+            this.a = i27Var;
         }
-        return invokeL.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+                return;
+            }
+            MsgAdapterScanMessage.a aVar = (MsgAdapterScanMessage.a) customResponsedMessage.getData();
+            if (aVar.b == null || aVar.a == null) {
+                return;
+            }
+            this.a.h.addAll(aVar.b);
+            this.a.c.a(new ArrayList(this.a.h));
+        }
     }
 
-    public static void c(zn4 zn4Var, Context context, int i, boolean z, Rect rect) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public i27(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView) {
+        this(tbPageContext, bdTypeListView, 0);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{zn4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) || zn4Var == null || zn4Var.getThreadData() == null || context == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((TbPageContext) objArr2[0], (BdTypeListView) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        ThreadData threadData = zn4Var.getThreadData();
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, "video_tab", 18003, true, false, false);
-        createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
-        createFromThreadCfg.setFrom("from_video_tab");
-        createFromThreadCfg.setForumName(threadData.getForum_name());
-        createFromThreadCfg.setStartFrom(i);
-        createFromThreadCfg.setVideoOriginArea(rect);
-        if (zn4Var.getPbInputLocate() != null) {
-            createFromThreadCfg.addLocateParam(zn4Var.getPbInputLocate());
-        }
-        if (TbSingleton.getInstance().isPbPreloadSwitchOn() && b(threadData)) {
-            createFromThreadCfg.setNeedPreLoad(true);
-            qc6.update(threadData);
-        }
-        createFromThreadCfg.setVideo_source("video_tab");
-        createFromThreadCfg.setJumpGodReply(z);
-        fx5.a(threadData.getTid());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 
-    public static void d(yx5 yx5Var) {
-        StatisticItem y;
+    public List<ChatMessage> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, yx5Var) == null) || yx5Var == null || (y = yx5Var.y("c13583", true)) == null) {
-            return;
-        }
-        a(yx5Var, y);
-        TiebaStatic.log(y);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
-    public static void e(yx5 yx5Var) {
-        StatisticItem y;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, yx5Var) == null) || yx5Var == null || (y = yx5Var.y("c13584", true)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MsgLeftViewItemAdapter msgLeftViewItemAdapter = new MsgLeftViewItemAdapter(this.a, ChatMessage.TYPE_MSG_LEFT);
+            this.d = msgLeftViewItemAdapter;
+            msgLeftViewItemAdapter.e0(true);
+            this.d.f0(true);
+            MsgRightViewItemAdapter msgRightViewItemAdapter = new MsgRightViewItemAdapter(this.a, ChatMessage.TYPE_MSG_RIGHT);
+            this.e = msgRightViewItemAdapter;
+            msgRightViewItemAdapter.e0(true);
+            this.e.f0(true);
+            this.f = new MsgMidViewItemAdapter(this.a, ChatMessage.TYPE_MSG_MID);
+            MsgIceBreakItemAdapter msgIceBreakItemAdapter = new MsgIceBreakItemAdapter(this.a);
+            this.g = msgIceBreakItemAdapter;
+            msgIceBreakItemAdapter.e0(true);
+            this.h.add(this.d);
+            this.h.add(this.e);
+            this.h.add(this.f);
+            this.h.add(this.g);
+            e();
+            MsgAdapterScanMessage.a aVar = new MsgAdapterScanMessage.a();
+            aVar.b = new ArrayList();
+            aVar.a = this.a;
+            MessageManager.getInstance().dispatchResponsedMessage(new MsgAdapterScanMessage(aVar));
         }
-        a(yx5Var, y);
-        y.param(TiebaStatic.Params.OBJ_FLOOR, yx5Var.position + 1);
-        TiebaStatic.log(y);
     }
 
-    public static void f(yx5 yx5Var) {
-        StatisticItem y;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, yx5Var) == null) || yx5Var == null || (y = yx5Var.y("c13585", true)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.i.setPriority(Integer.MAX_VALUE);
+            this.a.registerListener(this.i);
         }
-        a(yx5Var, y);
-        TiebaStatic.log(y);
     }
 
-    public static void g(yx5 yx5Var) {
-        StatisticItem y;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, yx5Var) == null) || yx5Var == null || (y = yx5Var.y("c13586", true)) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (this.c.getAdapter2() instanceof an)) {
+            this.c.getAdapter2().notifyDataSetChanged();
         }
-        a(yx5Var, y);
-        TiebaStatic.log(y);
     }
 
-    public static void h(yx5 yx5Var) {
-        StatisticItem y;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, yx5Var) == null) || yx5Var == null || (y = yx5Var.y("c13587", true)) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (this.c.getAdapter2() instanceof an)) {
+            this.c.getAdapter2().notifyDataSetInvalidated();
+        }
+    }
+
+    public void h(ChatMessage chatMessage) {
+        h27 itemView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, chatMessage) == null) || chatMessage == null || (itemView = chatMessage.getItemView()) == null || itemView.h == null || chatMessage.getMsgId() != itemView.h.longValue()) {
             return;
         }
-        a(yx5Var, y);
-        TiebaStatic.log(y);
+        itemView.y(null, chatMessage);
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.d.l0(i);
+            this.e.l0(i);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.i == null) {
+            return;
+        }
+        MessageManager.getInstance().unRegisterListener(this.i);
+        this.i = null;
+    }
+
+    public void k(List<ChatMessage> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            this.b = list;
+            ArrayList arrayList = new ArrayList();
+            if (this.b != null) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (i > 0) {
+                        if (list.get(i).getCacheData() == null) {
+                            list.get(i).setCacheData(new MsgCacheData());
+                        }
+                        list.get(i).getCacheData().setLastMsgTime(list.get(i - 1).getTime());
+                    }
+                }
+                arrayList.addAll(this.b);
+            }
+            this.c.setData(arrayList);
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            MsgLeftViewItemAdapter msgLeftViewItemAdapter = this.d;
+            if (msgLeftViewItemAdapter != null) {
+                msgLeftViewItemAdapter.d0(z);
+            }
+            MsgRightViewItemAdapter msgRightViewItemAdapter = this.e;
+            if (msgRightViewItemAdapter != null) {
+                msgRightViewItemAdapter.d0(z);
+            }
+        }
+    }
+
+    public void m(boolean z) {
+        MsgRightViewItemAdapter msgRightViewItemAdapter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || (msgRightViewItemAdapter = this.e) == null) {
+            return;
+        }
+        msgRightViewItemAdapter.n0(z);
+    }
+
+    public void n(boolean z) {
+        MsgLeftViewItemAdapter msgLeftViewItemAdapter;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048587, this, z) == null) || (msgLeftViewItemAdapter = this.d) == null) {
+            return;
+        }
+        msgLeftViewItemAdapter.n0(z);
+    }
+
+    public void o(ef efVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, efVar) == null) {
+            for (MsgCommonItemAdapter msgCommonItemAdapter : this.h) {
+                if (msgCommonItemAdapter.a0()) {
+                    msgCommonItemAdapter.g0(efVar);
+                }
+            }
+        }
+    }
+
+    public void p(ff ffVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, ffVar) == null) {
+            for (MsgCommonItemAdapter msgCommonItemAdapter : this.h) {
+                if (msgCommonItemAdapter.b0()) {
+                    msgCommonItemAdapter.h0(ffVar);
+                }
+            }
+        }
+    }
+
+    public void q(ArrayList<ReportPrivateMsgData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, arrayList) == null) {
+            this.e.i0(arrayList);
+            this.d.i0(arrayList);
+        }
+    }
+
+    public void r(AbsMsglistView.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, gVar) == null) {
+            this.d.k0(gVar);
+            this.e.k0(gVar);
+        }
+    }
+
+    public i27(TbPageContext<MsglistActivity<?>> tbPageContext, BdTypeListView bdTypeListView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.h = new ArrayList();
+        this.i = new a(this, 2001275);
+        this.a = tbPageContext;
+        this.c = bdTypeListView;
+        d();
+        this.d.j0(i);
+        this.e.j0(i);
     }
 }

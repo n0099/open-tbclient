@@ -2,21 +2,20 @@ package com.repackage;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.util.Base64;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m11;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class de1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
 
     public de1(Context context) {
         Interceptable interceptable = $ic;
@@ -33,83 +32,106 @@ public class de1 {
                 return;
             }
         }
-        this.a = context;
+        this.a = id1.a;
     }
 
-    public final void a(RelativeLayout.LayoutParams layoutParams, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIII(1048576, this, layoutParams, i, i2, i3) == null) && (i & i2) == i2) {
-            layoutParams.addRule(i3);
-        }
-    }
-
-    public final int b(JSONObject jSONObject) {
+    public static synchronized de1 a(Context context) {
         InterceptResult invokeL;
+        de1 de1Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? jSONObject.optInt("l_gravity") : invokeL.intValue;
-    }
-
-    public final int[] c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            int[] iArr = {0, 0, 0, 0};
-            String optString = jSONObject.optString("margin");
-            boolean z = jSONObject.optInt("is_equal_bottom_logo", 0) == 1;
-            if (!TextUtils.isEmpty(optString)) {
-                String[] split = optString.split("_");
-                if (split.length == 4) {
-                    for (int i = 0; i < 4; i++) {
-                        try {
-                            iArr[i] = Integer.parseInt(split[i]);
-                        } catch (Exception unused) {
-                            iArr[i] = 0;
-                        }
-                        if (i == 3 && z) {
-                            iArr[i] = iArr[i] + jb1.b();
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (de1.class) {
+                de1Var = new de1(context);
             }
-            return iArr;
+            return de1Var;
         }
-        return (int[]) invokeL.objValue;
+        return (de1) invokeL.objValue;
     }
 
-    public final void d(RelativeLayout.LayoutParams layoutParams, int i) {
+    public String b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, layoutParams, i) == null) || i <= 0) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String str3 = gd1.b;
+            String str4 = gd1.c;
+            String str5 = "";
+            if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
+                return "";
+            }
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            StringBuilder sb = new StringBuilder();
+            try {
+                str5 = c(str3, str4, currentTimeMillis);
+            } catch (Throwable th) {
+                se1.d(th);
+            }
+            sb.append(f());
+            sb.append(str);
+            sb.append("/");
+            sb.append("100");
+            sb.append("/");
+            sb.append(str3);
+            sb.append("/");
+            sb.append(currentTimeMillis);
+            sb.append("/");
+            sb.append(str5);
+            sb.append("?skey=");
+            sb.append(str2);
+            return sb.toString();
         }
-        a(layoutParams, i, 1, 10);
-        a(layoutParams, i, 2, 12);
-        a(layoutParams, i, 4, 9);
-        a(layoutParams, i, 8, 11);
-        a(layoutParams, i, 16, 14);
-        a(layoutParams, i, 32, 15);
+        return (String) invokeLL.objValue;
     }
 
-    public final void e(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
+    public String c(String str, String str2, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, marginLayoutParams, iArr) == null) && iArr != null && iArr.length == 4) {
-            marginLayoutParams.setMargins(m11.c.a(this.a, iArr[0]), m11.c.a(this.a, iArr[1]), m11.c.a(this.a, iArr[2]), m11.c.a(this.a, iArr[3]));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            try {
+                return we1.b(str + j + str2);
+            } catch (Throwable th) {
+                se1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                b = new String(ue1.e(Base64.decode(this.a, 0), "30212102dicudiab".getBytes(IMAudioTransRequest.CHARSET)));
+            } catch (Throwable th) {
+                se1.d(th);
+            }
         }
     }
 
-    public final void f(RelativeLayout.LayoutParams layoutParams, JSONObject jSONObject) {
+    public byte[] e(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, layoutParams, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, bArr, str)) == null) {
+            try {
+                bArr2 = ve1.b(str.getBytes(IMAudioTransRequest.CHARSET));
+            } catch (Throwable th) {
+                se1.d(th);
+                bArr2 = null;
+            }
+            return ue1.f(bArr2, bArr);
         }
-        d(layoutParams, b(jSONObject));
-        e(layoutParams, c(jSONObject));
+        return (byte[]) invokeLL.objValue;
     }
 
-    public void g(ViewGroup.LayoutParams layoutParams, JSONObject jSONObject) {
+    public final String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, layoutParams, jSONObject) == null) || layoutParams == null || jSONObject == null || !(layoutParams instanceof RelativeLayout.LayoutParams)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                d();
+            }
+            return b;
         }
-        f((RelativeLayout.LayoutParams) layoutParams, jSONObject);
+        return (String) invokeV.objValue;
     }
 }

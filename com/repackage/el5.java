@@ -1,80 +1,78 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import android.app.Activity;
+import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.sapi2.service.AbstractThirdPartyService;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes6.dex */
-public class el5 extends qc1<bi0> {
+/* loaded from: classes5.dex */
+public class el5 extends ActivityDelegation implements tf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public hl5 b;
+    public Activity c;
+    public Map<String, String> d;
+    public CustomMessageListener e;
 
-    /* loaded from: classes6.dex */
-    public class a implements bi0 {
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ el5 a;
 
-        public a(el5 el5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(el5 el5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {el5Var};
+                Object[] objArr = {el5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = el5Var;
         }
 
-        @Override // com.repackage.bi0
-        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable ci0 ci0Var) {
-            InterceptResult invokeLLLL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, ci0Var)) == null) {
-                Log.e("CMDConfig", "host invoke command = " + str);
-                return false;
-            }
-            return invokeLLLL.booleanValue;
-        }
-
-        @Override // com.repackage.bi0
-        public void b(String str, String str2, ei0 ei0Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, ei0Var) == null) || ei0Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            ei0Var.onResult(true);
-        }
-
-        @Override // com.repackage.bi0
-        public String[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
+            Object data = customResponsedMessage.getData();
+            if (data instanceof q75) {
+                q75 q75Var = (q75) data;
+                if (getTag() == q75Var.a || q75Var.g) {
+                    this.a.mResult.putInt("result_code", q75Var.b);
+                    this.a.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, q75Var.c);
+                    if (this.a.b != null) {
+                        this.a.b.a(this.a.mResult);
+                    }
+                    this.a.finish();
+                }
             }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Override // com.repackage.bi0
-        public boolean d(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
         }
     }
 
@@ -88,16 +86,80 @@ public class el5 extends qc1<bi0> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = BdUniqueId.gen();
+        this.e = new a(this, 2921393);
+    }
+
+    public void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.c = activity;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.qc1
-    /* renamed from: a */
-    public bi0 createService() throws ServiceNotFoundException {
+    public void d(hl5 hl5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hl5Var) == null) {
+            this.b = hl5Var;
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void finish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = null;
+            MessageManager.getInstance().unRegisterListener(this.e);
+            super.finish();
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (bi0) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.e.setTag(this.a);
+            MessageManager.getInstance().registerListener(this.e);
+            int i = this.mParams.getInt("type");
+            String string = this.mParams.getString("orderInfo");
+            q75 q75Var = new q75();
+            q75Var.a = this.a;
+            q75Var.b = i;
+            q75Var.c = string;
+            q75Var.e = (Map) this.mParams.getSerializable("params");
+            q75Var.f = this.d;
+            if (getAgent() != null) {
+                q75Var.d = getAgent();
+            } else {
+                Activity activity = this.c;
+                if (activity != null) {
+                    q75Var.d = activity;
+                } else {
+                    q75Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
+                }
+            }
+            CustomMessage customMessage = new CustomMessage(2921393, q75Var);
+            customMessage.setTag(this.a);
+            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
+            this.mResult.putInt("result_code", sendMessage ? 0 : 1);
+            Bundle bundle = this.mResult;
+            bundle.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, "" + sendMessage);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.tf1
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mResult.putInt("result_code", i);
+            this.mResult.putString(AbstractThirdPartyService.EXTRA_RESULT_MSG, "");
+            finish();
+        }
     }
 }

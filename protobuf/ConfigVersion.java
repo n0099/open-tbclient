@@ -15,9 +15,7 @@ public final class ConfigVersion extends Message {
     public static final String DEFAULT_SYNC = "";
     public transient /* synthetic */ FieldHolder $fh;
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
-
-    /* renamed from: plugin  reason: collision with root package name */
-    public final String f1034plugin;
+    public final String plugin;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String sync;
 
@@ -25,9 +23,7 @@ public final class ConfigVersion extends Message {
     public static final class Builder extends Message.Builder<ConfigVersion> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: plugin  reason: collision with root package name */
-        public String f1035plugin;
+        public String plugin;
         public String sync;
 
         public Builder() {
@@ -66,7 +62,7 @@ public final class ConfigVersion extends Message {
                 return;
             }
             this.sync = configVersion.sync;
-            this.f1035plugin = configVersion.f1034plugin;
+            this.plugin = configVersion.plugin;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -113,16 +109,16 @@ public final class ConfigVersion extends Message {
             } else {
                 this.sync = str;
             }
-            String str2 = builder.f1035plugin;
+            String str2 = builder.plugin;
             if (str2 == null) {
-                this.f1034plugin = "";
+                this.plugin = "";
                 return;
             } else {
-                this.f1034plugin = str2;
+                this.plugin = str2;
                 return;
             }
         }
         this.sync = builder.sync;
-        this.f1034plugin = builder.f1035plugin;
+        this.plugin = builder.plugin;
     }
 }

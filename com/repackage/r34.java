@@ -1,61 +1,27 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.jx3;
-import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class r34 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile q34 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755401282, "Lcom/repackage/r34;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755401282, "Lcom/repackage/r34;");
-                return;
-            }
-        }
-        boolean z = eh1.a;
-    }
-
-    public static PathType a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return PathType.ERROR;
-            }
-            if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                return PathType.RELATIVE;
-            }
-            return PathType.NETWORK;
-        }
-        return (PathType) invokeL.objValue;
-    }
-
-    public static String b() {
+    public static synchronized q34 a() {
         InterceptResult invokeV;
-        File h;
+        q34 q34Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            u03 r = t03.J().r();
-            if (r.H() && r.j0() != null && (h = jx3.d.h(r.getAppId(), r.j0())) != null && h.exists()) {
-                return "file://" + h.getAbsolutePath();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (r34.class) {
+                if (a == null) {
+                    a = new q34();
+                }
+                q34Var = a;
             }
-            return null;
+            return q34Var;
         }
-        return (String) invokeV.objValue;
+        return (q34) invokeV.objValue;
     }
 }

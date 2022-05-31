@@ -127,7 +127,7 @@ public final class DispatchedContinuationKt {
                 } else {
                     CancellationException cancellationException = job.getCancellationException();
                     Result.Companion companion = Result.Companion;
-                    dispatchedContinuation.resumeWith(Result.m689constructorimpl(ResultKt.createFailure(cancellationException)));
+                    dispatchedContinuation.resumeWith(Result.m688constructorimpl(ResultKt.createFailure(cancellationException)));
                     z = true;
                 }
                 if (!z) {

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes4.dex */
 public class RecordLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -58,7 +58,7 @@ public class RecordLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.c = ViewConfiguration.getMaximumFlingVelocity();
             this.b = ViewConfiguration.getMinimumFlingVelocity();
-            this.d = mi.f(getContext(), R.dimen.obfuscated_res_0x7f070250);
+            this.d = li.f(getContext(), R.dimen.obfuscated_res_0x7f070250);
         }
     }
 
@@ -78,7 +78,7 @@ public class RecordLayout extends RelativeLayout {
                     float xVelocity = this.a.getXVelocity();
                     int rawX = (int) (motionEvent.getRawX() - this.e);
                     if (Math.abs(xVelocity) <= this.b || Math.abs(rawX) <= this.d) {
-                        if (Math.abs(rawX) > mi.k(getContext()) * 0.5d) {
+                        if (Math.abs(rawX) > li.k(getContext()) * 0.5d) {
                             if (rawX > 0) {
                                 this.f.onTouchToRight();
                             } else {

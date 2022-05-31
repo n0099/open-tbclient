@@ -1,150 +1,176 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.IProcessBridge;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class hx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static class a extends ImageSpan {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Class a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ dx2 c;
 
-        public a(Class cls, Bundle bundle, dx2 dx2Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context, Bitmap bitmap) {
+            super(context, bitmap);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cls, bundle, dx2Var};
+                Object[] objArr = {context, bitmap};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = cls;
-            this.b = bundle;
-            this.c = dx2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bundle b = hx2.b(this.a, this.b);
-                dx2 dx2Var = this.c;
-                if (dx2Var != null) {
-                    dx2Var.onResult(b);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+                Drawable drawable = getDrawable();
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                if (i3 != 0) {
+                    i3 -= 4;
                 }
+                canvas.save();
+                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
+                drawable.draw(canvas);
+                canvas.restore();
             }
+        }
+
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+                Rect bounds = getDrawable().getBounds();
+                if (fontMetricsInt != null) {
+                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                    int i4 = (bounds.bottom - bounds.top) / 2;
+                    int i5 = i3 / 4;
+                    int i6 = i4 - i5;
+                    int i7 = -(i4 + i5);
+                    fontMetricsInt.ascent = i7;
+                    fontMetricsInt.top = i7;
+                    int i8 = i6 + 8;
+                    fontMetricsInt.bottom = i8;
+                    fontMetricsInt.descent = i8;
+                }
+                return bounds.right + 5;
+            }
+            return invokeCommon.intValue;
         }
     }
 
-    public static void a(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle, @Nullable dx2<Bundle> dx2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, cls, bundle, dx2Var) == null) {
-            od3.k(new a(cls, bundle, dx2Var), "asyncCallMainProcess");
+    /* loaded from: classes6.dex */
+    public static class b extends ImageSpan {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Context context, Bitmap bitmap) {
+            super(context, bitmap);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, bitmap};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (Bitmap) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+                Drawable drawable = getDrawable();
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                if (i3 != 0) {
+                    i3 -= 4;
+                }
+                canvas.save();
+                canvas.translate(f, i3 + (((fontMetricsInt.bottom - fontMetricsInt.top) - drawable.getBounds().bottom) / 2));
+                drawable.draw(canvas);
+                canvas.restore();
+            }
+        }
+
+        @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+        public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+                Rect bounds = getDrawable().getBounds();
+                if (fontMetricsInt != null) {
+                    Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                    int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                    int i4 = (bounds.bottom - bounds.top) / 2;
+                    int i5 = i3 / 4;
+                    int i6 = i4 - i5;
+                    int i7 = -(i4 + i5);
+                    fontMetricsInt.ascent = i7;
+                    fontMetricsInt.top = i7;
+                    int i8 = i6 + 3;
+                    fontMetricsInt.bottom = i8;
+                    fontMetricsInt.descent = i8;
+                }
+                return bounds.right + 5;
+            }
+            return invokeCommon.intValue;
         }
     }
 
-    @NonNull
-    public static Bundle b(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
-        IProcessBridge R;
+    public static int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, bundle)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                Bundle d = d(cls, bundle);
-                return d == null ? new Bundle() : d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            int length = str.length();
+            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
+            int i = 0;
+            int i2 = 0;
+            while (matcher.find()) {
+                i += matcher.group().length();
+                i2++;
             }
-            px2 z = t03.J().z();
-            if (z != null && (R = z.R()) != null) {
-                try {
-                    Bundle callMainProcessSync = R.callMainProcessSync(cls.getName(), bundle);
-                    return callMainProcessSync == null ? new Bundle() : callMainProcessSync;
-                } catch (Throwable th) {
-                    ux1.d("SwanProcessCallManager", "callMainProcessSync", th);
-                }
-            }
-            return DelegateUtils.callOnMainWithContentProvider(bk2.c(), cls, bundle).mResult;
+            return (length - i) + i2;
         }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    @NonNull
-    public static jx2 c(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, bundle)) == null) ? new jx2(b(cls, bundle)) : (jx2) invokeLL.objValue;
-    }
-
-    @Nullable
-    @SuppressLint({"BDThrowableCheck"})
-    public static Bundle d(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, bundle)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                ProviderDelegation a2 = ix2.a(cls);
-                if (a2 == null) {
-                    try {
-                        a2 = cls.newInstance();
-                    } catch (Exception e) {
-                        ux1.d("SwanProcessCallManager", "callOnMainProcess", e);
-                    }
-                }
-                if (a2 != null) {
-                    return a2.execCall(bundle);
-                }
-                return null;
-            }
-            return null;
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    @Nullable
-    @SuppressLint({"BDThrowableCheck"})
-    public static Bundle e(@NonNull String str, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bundle)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                ProviderDelegation b = ix2.b(str);
-                if (b == null) {
-                    try {
-                        b = (ProviderDelegation) Class.forName(str).newInstance();
-                    } catch (Exception e) {
-                        ux1.d("SwanProcessCallManager", "callOnMainProcess", e);
-                    }
-                }
-                if (b != null) {
-                    return b.execCall(bundle);
-                }
-                return null;
-            }
-            return null;
-        }
-        return (Bundle) invokeLL.objValue;
+        return invokeL.intValue;
     }
 }

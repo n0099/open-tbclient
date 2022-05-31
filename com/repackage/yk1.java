@@ -1,15 +1,18 @@
 package com.repackage;
 
-import android.content.Context;
-import java.io.File;
-import org.json.JSONObject;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public interface yk1 {
-    void a(String str, String str2);
+    ExecutorService d();
 
-    File b(Context context, String str);
+    void e(String str, int i, JSONArray jSONArray);
 
-    JSONObject c(Context context, String str);
+    void f(String str, int i);
 
-    void d();
+    void g(String str, String str2, int i, String str3, int i2);
+
+    void i(String str, int i, String str2);
+
+    void o(String str, String str2, int i, String str3, long j, int i2);
 }

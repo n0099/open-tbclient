@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hq4;
-import com.repackage.mr4;
+import com.repackage.cq4;
 import com.repackage.qe;
+import com.repackage.wo4;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hq4 data;
+    public wo4 data;
     public int mErrCode;
     public String mErrMsg;
 
@@ -56,17 +56,17 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                hq4 hq4Var = new hq4();
-                this.data = hq4Var;
-                hq4Var.c(jSONObject);
+                wo4 wo4Var = new wo4();
+                this.data = wo4Var;
+                wo4Var.c(jSONObject);
             }
         }
     }
 
-    public hq4 getData() {
+    public wo4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (hq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (wo4) invokeV.objValue;
     }
 
     public String getErrMsg() {
@@ -97,8 +97,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                 if ((map.get("page") == null || map.get("page").equals("0")) && map.get("id") != null) {
                     boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
                     String str = new String(bArr);
-                    mr4.f();
-                    qe<String> g = mr4.g("tb.my_pages");
+                    cq4.f();
+                    qe<String> g = cq4.g("tb.my_pages");
                     if (g != null) {
                         String str2 = z ? "personal_followme" : "personal_myfollow";
                         g.e(str2 + "_" + map.get("id"), str, 604800000L);

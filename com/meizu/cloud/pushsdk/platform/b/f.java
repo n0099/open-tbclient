@@ -7,7 +7,7 @@ import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.meizu.cloud.pushsdk.platform.PlatformMessageSender;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import com.meizu.cloud.pushsdk.platform.message.PushSwitchStatus;
-import com.repackage.tl9;
+import com.repackage.ni9;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledExecutorService;
@@ -76,7 +76,7 @@ public class f extends c<PushSwitchStatus> {
         Map<String, Boolean> map = this.m;
         Boolean bool = map.get(this.h + "_" + this.c);
         boolean booleanValue = bool != null ? bool.booleanValue() : true;
-        tl9.b("Strategy", "isSyncPushStatus " + this.h + " switch type->" + this.c + " flag->" + booleanValue);
+        ni9.b("Strategy", "isSyncPushStatus " + this.h + " switch type->" + this.c + " flag->" + booleanValue);
         return booleanValue;
     }
 
@@ -186,10 +186,10 @@ public class f extends c<PushSwitchStatus> {
                 if (a != null) {
                     if (a.b()) {
                         PushSwitchStatus pushSwitchStatus2 = new PushSwitchStatus((String) a.a());
-                        tl9.b("Strategy", "network pushSwitchStatus " + pushSwitchStatus2);
+                        ni9.b("Strategy", "network pushSwitchStatus " + pushSwitchStatus2);
                         if (BasicPushStatus.SUCCESS_CODE.equals(pushSwitchStatus.getCode())) {
                             f(false);
-                            tl9.b("Strategy", "update local switch preference");
+                            ni9.b("Strategy", "update local switch preference");
                             pushSwitchStatus.setSwitchNotificationMessage(pushSwitchStatus2.isSwitchNotificationMessage());
                             pushSwitchStatus.setSwitchThroughMessage(pushSwitchStatus2.isSwitchThroughMessage());
                             c(pushSwitchStatus2.isSwitchNotificationMessage());
@@ -198,14 +198,14 @@ public class f extends c<PushSwitchStatus> {
                     } else {
                         com.meizu.cloud.pushsdk.b.b.a c = a.c();
                         if (c.a() != null) {
-                            tl9.b("Strategy", "status code=" + c.b() + " data=" + c.a());
+                            ni9.b("Strategy", "status code=" + c.b() + " data=" + c.a());
                         }
                         pushSwitchStatus.setCode(String.valueOf(c.b()));
                         pushSwitchStatus.setMessage(c.c());
-                        tl9.b("Strategy", "pushSwitchStatus " + pushSwitchStatus);
+                        ni9.b("Strategy", "pushSwitchStatus " + pushSwitchStatus);
                     }
                 }
-                tl9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
+                ni9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
                 if (this.l && !this.k) {
                     i = this.c;
                     if (i != 0 || i == 1) {
@@ -224,7 +224,7 @@ public class f extends c<PushSwitchStatus> {
                 a = this.j.a(this.f, this.g, this.b, this.c, this.a);
                 if (a != null) {
                 }
-                tl9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
+                ni9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
                 if (this.l) {
                     i = this.c;
                     if (i != 0) {
@@ -245,7 +245,7 @@ public class f extends c<PushSwitchStatus> {
                 a = this.j.a(this.f, this.g, this.b, this.c, this.a);
                 if (a != null) {
                 }
-                tl9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
+                ni9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
                 if (this.l) {
                 }
                 return pushSwitchStatus;
@@ -258,7 +258,7 @@ public class f extends c<PushSwitchStatus> {
         a = null;
         if (a != null) {
         }
-        tl9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
+        ni9.b("Strategy", "enableRPC " + this.l + " isSupportRemoteInvoke " + this.k);
         if (this.l) {
         }
         return pushSwitchStatus;

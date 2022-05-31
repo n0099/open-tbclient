@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.ForumRuleDetail.DataReq;
 import tbclient.ForumRuleDetail.ForumRuleDetailReqIdl;
 /* loaded from: classes3.dex */
@@ -52,7 +52,7 @@ public class ForumRuleDetailReqMsg extends NetMessage {
                 DataReq.Builder builder = new DataReq.Builder();
                 builder.forum_id = getForumRuleId();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    jd5.c(builder, true, true, false);
+                    dc5.c(builder, true, true, false);
                 }
                 ForumRuleDetailReqIdl.Builder builder2 = new ForumRuleDetailReqIdl.Builder();
                 builder2.data = builder.build(false);

@@ -80,7 +80,7 @@ public class e {
             p.a aVar = new p.a();
             aVar.b = i;
             aVar.g = this.c.getTouchCoords();
-            com.kwad.sdk.core.download.a.a.a(new a.C0295a(this.d).a(this.e).a(this.f).a(false).a(aVar).c(true));
+            com.kwad.sdk.core.download.a.a.a(new a.C0296a(this.d).a(this.e).a(this.f).a(false).a(aVar).c(true));
         }
     }
 

@@ -1,640 +1,82 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
+import android.content.Context;
+import android.location.Address;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes5.dex */
 public class cj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-        public final /* synthetic */ String b;
-
-        public a(WriteData writeData, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeData, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(NetWork netWork, WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
+            netWork.addPostData("is_location", "2");
+            Address j = gf.n().j(false);
+            if (j != null) {
+                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
             }
-            this.a = writeData;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                mr4.f();
-                qe<String> g = mr4.g("tb.pb_editor");
-                WriteData writeData = this.a;
-                if (writeData != null && writeData.hasContentToSave()) {
-                    g.e(cj8.f(this.b), this.a.toDraftString(), 604800000L);
-                    return null;
-                }
-                g.remove(cj8.f(this.b));
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
-
-        public b(WriteData writeData, boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeData, Boolean.valueOf(z), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = writeData;
-            this.b = z;
-            this.c = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            WriteData writeData;
-            WriteData writeData2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                mr4.f();
-                qe<String> g = mr4.g("tb.pb_editor");
-                WriteData writeData3 = this.a;
-                if (writeData3 != null && writeData3.hasContentToSave() && !this.b) {
-                    String draftString = this.a.toDraftString();
-                    g.e(cj8.b(this.c), draftString, 604800000L);
-                    if ("0".equals(this.c) || (writeData2 = this.a) == null || writeData2.getStatisticFrom() != 1) {
-                        return null;
-                    }
-                    g.e(cj8.b("0"), draftString, 604800000L);
-                    return null;
-                }
-                g.remove(cj8.b(this.c));
-                if ("0".equals(this.c) || (writeData = this.a) == null || writeData.getStatisticFrom() != 1) {
-                    return null;
-                }
-                g.remove(cj8.b("0"));
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-
-        public c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                mr4.f();
-                qe<String> g = mr4.g("tb.pb_editor");
-                if (!TextUtils.isEmpty(this.a)) {
-                    g.e(cj8.d(this.b), this.a, 604800000L);
-                    return null;
-                }
-                g.remove(cj8.d(this.b));
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WriteData a;
-        public final /* synthetic */ String b;
-
-        public d(WriteData writeData, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {writeData, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = writeData;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                mr4.f();
-                qe<String> g = mr4.g("tb.pb_editor");
-                WriteData writeData = this.a;
-                if (writeData != null && writeData.hasContentToSave()) {
-                    g.e(cj8.g(this.b), this.a.toDraftString(), 604800000L);
-                    return null;
-                }
-                g.remove(cj8.g(this.b));
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                mr4.f();
-                qe<String> g = mr4.g("tb.pb_editor");
-                if (!TextUtils.isEmpty(this.a)) {
-                    g.e(cj8.e(), this.a, 604800000L);
-                    return null;
-                }
-                g.remove(cj8.e());
-                FileHelper.deleteFileOrDir(new File(sr8.e));
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface f {
-        void onDraftLoaded(WriteData writeData);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface g {
-        void a(String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class h extends BdAsyncTask<String, String, WriteData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final f a;
-        public final String b;
-
-        public h(String str, f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            setPriority(3);
-            this.a = fVar;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public WriteData doInBackground(String... strArr) {
-            String str;
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                try {
-                    mr4.f();
-                    str = mr4.g("tb.pb_editor").get(this.b);
-                } catch (Exception unused) {
-                    str = null;
-                }
-                return WriteData.fromDraftString(str);
-            }
-            return (WriteData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(WriteData writeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
-                super.onPostExecute(writeData);
-                f fVar = this.a;
-                if (fVar != null) {
-                    fVar.onDraftLoaded(writeData);
-                }
+            LocationData b = zh8.a().b();
+            if (b != null) {
+                netWork.addPostData("name", b.getFormatted_address());
+                netWork.addPostData("sn", b.getSn());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class i extends BdAsyncTask<String, String, String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final g a;
-        public final String b;
-
-        public i(String str, g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void b(Context context, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e7, (ViewGroup) null);
+            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(li.f(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090923);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091dc8);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0918d2);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090663);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091dc7);
+            if (imageView != null) {
+                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.obfuscated_res_0x7f0809cc, R.color.CAM_X0101, null));
             }
-            setPriority(3);
-            this.a = gVar;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public String doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                try {
-                    mr4.f();
-                    return mr4.g("tb.pb_editor").get(this.b);
-                } catch (Exception unused) {
-                    return null;
-                }
+            if (StringUtils.isNull(str)) {
+                str = context.getString(R.string.obfuscated_res_0x7f0f1117);
             }
-            return (String) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                super.onPostExecute((i) str);
-                if (this.a == null || TextUtils.isEmpty(str)) {
-                    return;
-                }
-                this.a.a(str);
+            textView.setText(str);
+            if (str2 != null || str3 != null) {
+                findViewById.setVisibility(0);
+                textView2.setText(str2);
+                textView3.setText(str3);
             }
+            c(context, inflate);
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void c(Context context, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@evaluate" + str;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
+            Toast toast = new Toast(context);
+            toast.setView(view2);
+            toast.setGravity(17, 0, 0);
+            toast.setDuration(3000);
+            toast.show();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@frs" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@localchannel";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@localchannelhi" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@newvideo";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@pb" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@subpb" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + "@topic" + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void i(String str, f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, fVar) == null) {
-            if (str != null) {
-                new h(a(str), fVar).execute(new String[0]);
-            } else if (fVar != null) {
-                fVar.onDraftLoaded(null);
-            }
-        }
-    }
-
-    public static void j(String str, f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, fVar) == null) {
-            if (!li.isEmpty(str)) {
-                new h(b(str), fVar).execute(new String[0]);
-            } else if (fVar != null) {
-                fVar.onDraftLoaded(null);
-            }
-        }
-    }
-
-    public static void k(f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, fVar) == null) {
-            new h(c(), fVar).execute(new String[0]);
-        }
-    }
-
-    public static void l(String str, g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, gVar) == null) {
-            if (!li.isEmpty(str)) {
-                new i(d(str), gVar).execute(new String[0]);
-            } else if (gVar != null) {
-                gVar.a(null);
-            }
-        }
-    }
-
-    public static void m(g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, gVar) == null) {
-            new i(e(), gVar).execute(new String[0]);
-        }
-    }
-
-    public static void n(String str, f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, str, fVar) == null) {
-            if (!li.isEmpty(str)) {
-                new h(f(str), fVar).execute(new String[0]);
-            } else if (fVar != null) {
-                fVar.onDraftLoaded(null);
-            }
-        }
-    }
-
-    public static void o(String str, f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, str, fVar) == null) {
-            if (!li.isEmpty(str)) {
-                new h(g(str), fVar).execute(new String[0]);
-            } else if (fVar != null) {
-                fVar.onDraftLoaded(null);
-            }
-        }
-    }
-
-    public static void p(String str, f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, str, fVar) == null) {
-            if (!li.isEmpty(str)) {
-                new h(h(str), fVar).execute(new String[0]);
-            } else if (fVar != null) {
-                fVar.onDraftLoaded(null);
-            }
-        }
-    }
-
-    public static void q(String str, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65552, null, str, writeData) == null) || str == null) {
-            return;
-        }
-        mr4.f();
-        qe<String> g2 = mr4.g("tb.pb_editor");
-        if (writeData != null && writeData.hasContentToSave()) {
-            g2.e(a(str), writeData.toDraftString(), 604800000L);
-            g2.e(a(""), writeData.toDraftString(), 604800000L);
-            return;
-        }
-        g2.remove(a(str));
-        g2.remove(a(""));
-    }
-
-    public static void r(String str, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65553, null, str, writeData) == null) {
-            s(str, writeData, false);
-        }
-    }
-
-    public static void s(String str, WriteData writeData, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65554, null, str, writeData, z) == null) || li.isEmpty(str)) {
-            return;
-        }
-        new b(writeData, z, str).execute(new Void[0]);
-    }
-
-    public static void t(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, writeData) == null) {
-            mr4.f();
-            qe<String> g2 = mr4.g("tb.pb_editor");
-            if (writeData != null && writeData.hasContentToSave()) {
-                g2.e(c(), writeData.toDraftString(), 604800000L);
-            } else {
-                g2.remove(c());
-            }
-        }
-    }
-
-    public static void u(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) || li.isEmpty(str)) {
-            return;
-        }
-        new c(str2, str).execute(new Void[0]);
-    }
-
-    public static void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, str) == null) {
-            new e(str).execute(new Void[0]);
-        }
-    }
-
-    public static void w(String str, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65558, null, str, writeData) == null) || li.isEmpty(str)) {
-            return;
-        }
-        new a(writeData, str).execute(new Void[0]);
-    }
-
-    public static void x(String str, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65559, null, str, writeData) == null) || li.isEmpty(str)) {
-            return;
-        }
-        new d(writeData, str).execute(new Void[0]);
-    }
-
-    public static void y(String str, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65560, null, str, writeData) == null) || li.isEmpty(str)) {
-            return;
-        }
-        mr4.f();
-        qe<String> g2 = mr4.g("tb.pb_editor");
-        if (writeData != null && writeData.hasContentToSave()) {
-            g2.i(h(str), writeData.toDraftString(), 604800000L);
-        } else {
-            g2.d(h(str));
-        }
-    }
-
-    public static String z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            String e2 = e();
-            mr4.f();
-            return mr4.g("tb.pb_editor").get(e2);
-        }
-        return (String) invokeV.objValue;
     }
 }

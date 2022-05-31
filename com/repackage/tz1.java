@@ -1,14 +1,88 @@
 package com.repackage;
 
-import android.view.KeyEvent;
-import android.view.MotionEvent;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface tz1 {
-    boolean dispatchTouchEvent(MotionEvent motionEvent);
+public final class tz1 extends HandlerThread implements sz1<rz1> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
 
-    boolean onKeyDown(int i, KeyEvent keyEvent);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755273562, "Lcom/repackage/tz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755273562, "Lcom/repackage/tz1;");
+                return;
+            }
+        }
+        boolean z = rf1.a;
+    }
 
-    void onScrollChanged(int i, int i2, int i3, int i4);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz1() {
+        super("EventDispatcherImpl");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        c();
+    }
 
-    boolean onTouchEvent(MotionEvent motionEvent);
+    @Override // com.repackage.sz1
+    public void a(@NonNull Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
+            this.a = handler;
+        }
+    }
+
+    @Override // com.repackage.sz1
+    public void b(rz1 rz1Var) {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rz1Var) == null) || rz1Var == null || (handler = this.a) == null) {
+            return;
+        }
+        this.a.sendMessageDelayed(Message.obtain(handler, rz1Var.a, rz1Var), rz1Var.c);
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            start();
+        }
+    }
+
+    @Override // android.os.HandlerThread, com.repackage.sz1
+    public Looper getLooper() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? super.getLooper() : (Looper) invokeV.objValue;
+    }
 }

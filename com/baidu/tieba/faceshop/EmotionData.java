@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.f86;
+import com.repackage.r66;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
-public class EmotionData implements Serializable, f86 {
+public class EmotionData implements Serializable, r66 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class EmotionData implements Serializable, f86 {
         }
     }
 
-    @Override // com.repackage.f86
+    @Override // com.repackage.r66
     public boolean IsValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class EmotionData implements Serializable, f86 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.f86
+    @Override // com.repackage.r66
     public String getGroupId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

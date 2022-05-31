@@ -1,43 +1,66 @@
 package com.repackage;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.enterForum.tabfeed.EnterForumTabFeedFragment;
+import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.repackage.w59;
 /* loaded from: classes7.dex */
-public class z56 {
+public abstract class z56 implements c66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EnterForumTabFeedFragment a;
-    public BdTypeRecyclerView b;
-    public l66 c;
-    public c66 d;
-    public e66 e;
-    public d66 f;
-    public f66 g;
-    public m66 h;
-    public h66 i;
-    public j66 j;
-    public i66 k;
-    public g66 l;
-    public k66 m;
-    public b66 n;
-    public n66 o;
-    public List<eo> p;
+    public f66 a;
+    public d66 b;
+    public Thread c;
+    public boolean d;
 
-    public z56(EnterForumTabFeedFragment enterForumTabFeedFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z56 a;
+
+        public a(z56 z56Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z56Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = z56Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
+            }
+        }
+    }
+
+    public z56() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {enterForumTabFeedFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,100 +70,145 @@ public class z56 {
                 return;
             }
         }
-        this.p = new LinkedList();
-        this.a = enterForumTabFeedFragment;
-        this.b = bdTypeRecyclerView;
-        a();
+        this.d = false;
     }
 
-    public final void a() {
+    @Override // com.repackage.c66
+    public void a(f66 f66Var, d66 d66Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l66 l66Var = new l66(this.a.getPageContext(), ThreadData.TYPE_USER_NORMAL, this.a.getUniqueId(), this.a.E0());
-            this.c = l66Var;
-            l66Var.d0(this.b);
-            this.p.add(this.c);
-            c66 c66Var = new c66(this.a.getPageContext(), ThreadData.TYPE_CONTENT_FEED_PIC_NORMMAL, this.a.getUniqueId(), this.a.E0());
-            this.d = c66Var;
-            c66Var.e0(this.b);
-            this.p.add(this.d);
-            e66 e66Var = new e66(this.a.getPageContext(), ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL, this.a.getUniqueId(), this.a.E0());
-            this.e = e66Var;
-            e66Var.d0(this.b);
-            this.p.add(this.e);
-            d66 d66Var = new d66(this.a.getPageContext(), ThreadData.TYPE_CONTENT_MULTI_PIC_NORMMAL, this.a.getUniqueId(), this.a.E0());
-            this.f = d66Var;
-            d66Var.d0(this.b);
-            this.p.add(this.f);
-            f66 f66Var = new f66(this.a.getPageContext(), ThreadData.TYPE_CONTENT_TEXT_NORMAL, this.a.getUniqueId(), this.a.E0());
-            this.g = f66Var;
-            f66Var.d0(this.b);
-            this.p.add(this.g);
-            m66 m66Var = new m66(this.a.getPageContext(), ThreadData.TYPE_VIDEO, this.a.getUniqueId(), this.a.E0());
-            this.h = m66Var;
-            m66Var.g0(this.b);
-            this.p.add(this.h);
-            h66 h66Var = new h66(this.a.getPageContext(), ThreadData.TYPE_ITEM, this.a.getUniqueId(), this.a.E0());
-            this.i = h66Var;
-            h66Var.b0(this.b);
-            this.p.add(this.i);
-            j66 j66Var = new j66(this.a.getPageContext(), ThreadData.TYPE_SINGLE_LINK, this.a.getUniqueId(), this.a.E0());
-            this.j = j66Var;
-            j66Var.d0(this.b);
-            this.p.add(this.j);
-            i66 i66Var = new i66(this.a.getPageContext(), ThreadData.TYPE_MULTI_LINK, this.a.getUniqueId(), this.a.E0());
-            this.k = i66Var;
-            i66Var.b0(this.b);
-            this.p.add(this.k);
-            g66 g66Var = new g66(this.a.getPageContext(), ThreadData.TYPE_ENTER_FORUM, this.a.getUniqueId(), this.a.E0());
-            this.l = g66Var;
-            g66Var.d0(this.b);
-            this.p.add(this.l);
-            k66 k66Var = new k66(this.a.getPageContext(), ThreadData.TYPE_BOTTOM_NORMAL, this.a.getUniqueId(), this.a.E0());
-            this.m = k66Var;
-            k66Var.d0(this.b);
-            this.p.add(this.m);
-            b66 b66Var = new b66(this.a.getPageContext(), ThreadData.TYPE_ARTICLE, this.a.getUniqueId(), this.a.E0());
-            this.n = b66Var;
-            b66Var.e0(this.b);
-            this.p.add(this.n);
-            n66 n66Var = new n66(this.a.getPageContext(), vq4.d, this.a.getUniqueId(), this.a.E0());
-            this.o = n66Var;
-            n66Var.c0(this.b);
-            this.p.add(this.o);
-            this.b.a(this.p);
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, f66Var, d66Var) == null) || d66Var == null) {
+            return;
         }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
+        this.b = d66Var;
+        if (f66Var == null) {
+            d66Var.onError(StringUtil.NULL_STRING, "cover config is null !!");
+            return;
         }
+        this.a = f66Var;
+        this.c = new Thread(new a(this));
+        ThreadPool.b().e(this.c);
     }
 
-    public void c(ArrayList<ro> arrayList) {
+    public int[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.b.setData(arrayList);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            f66 f66Var = this.a;
+            int[] iArr = {f66Var.a, f66Var.b};
+            if (!f66Var.g && !f66Var.e) {
+                float f = f66Var.d;
+                if (f != 0.0f) {
+                    w59.a e = w59.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                    iArr[0] = e.b();
+                    iArr[1] = e.a();
+                }
+            } else {
+                w59.a e2 = e();
+                float f2 = this.a.d;
+                if (f2 != 0.0f) {
+                    w59.a f3 = w59.f(f2, e2.b(), e2.a());
+                    iArr[0] = f3.b();
+                    iArr[1] = f3.a();
+                }
+                w59.a d = w59.d(iArr[0], iArr[1]);
+                iArr[0] = d.b();
+                iArr[1] = d.a();
+            }
+            return iArr;
         }
+        return (int[]) invokeV.objValue;
     }
 
-    public void d(boolean z) {
+    public Bitmap c(Bitmap bitmap, float f, MultiMediaData multiMediaData) {
+        InterceptResult invokeCommon;
+        Bitmap bitmap2;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            c66 c66Var = this.d;
-            if (c66Var != null) {
-                c66Var.setFromCDN(z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), multiMediaData})) == null) {
+            if (multiMediaData == null || !((i = 360 - (((int) multiMediaData.angle) % 360)) == 90 || i == 270)) {
+                bitmap2 = null;
+            } else {
+                Matrix matrix = new Matrix();
+                matrix.setRotate(i);
+                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             }
-            d66 d66Var = this.f;
-            if (d66Var != null) {
-                d66Var.setFromCDN(z);
+            if (bitmap2 != null) {
+                bitmap = bitmap2;
             }
-            e66 e66Var = this.e;
-            if (e66Var != null) {
-                e66Var.setFromCDN(z);
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (bitmap.getHeight() / bitmap.getWidth() > f) {
+                width = (int) (bitmap.getHeight() * f);
+            } else {
+                height = (int) (bitmap.getWidth() * f);
             }
+            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            Canvas canvas = new Canvas(createBitmap);
+            canvas.save();
+            canvas.drawBitmap(bitmap, width != bitmap.getWidth() ? Math.abs(width - bitmap.getWidth()) / 2 : 0, height != bitmap.getHeight() ? Math.abs(height - bitmap.getHeight()) / 2 : 0, (Paint) null);
+            canvas.restore();
+            bitmap.recycle();
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public String d(int i, int i2, Bitmap bitmap, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
+            if (i == 0 || i2 == 0) {
+                return "";
+            }
+            Bitmap h = q79.h(bitmap, i, i2, z);
+            String b = this.d ? tu8.b() : tu8.a();
+            String c = tu8.c(b, h, System.currentTimeMillis() + ".jpg");
+            if (h != null) {
+                h.recycle();
+                return c;
+            }
+            return c;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public w59.a e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            MultiMediaData multiMediaData = this.a.c;
+            int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
+            int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+            if (multiMediaData == null) {
+                return new w59.a(i, i2);
+            }
+            if (multiMediaData.type == 1) {
+                float f = multiMediaData.angle;
+                float f2 = multiMediaData.rotation;
+                if ((f + f2) % 360.0f != 90.0f && (f + f2) % 360.0f != 270.0f) {
+                    i = multiMediaData.width;
+                    i2 = multiMediaData.height;
+                } else {
+                    i = multiMediaData.height;
+                    i2 = multiMediaData.width;
+                }
+            }
+            return new w59.a(i, i2);
+        }
+        return (w59.a) invokeV.objValue;
+    }
+
+    public abstract void f();
+
+    public void g(e66 e66Var, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, e66Var, bitmap) == null) {
+            if (e66Var == null) {
+                e66Var = new e66();
+            }
+            int[] b = b();
+            e66Var.a = d(b[0], b[1], bitmap, true);
+            this.b.a(this.a.f, e66Var);
         }
     }
 }

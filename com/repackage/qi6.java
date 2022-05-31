@@ -1,34 +1,29 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class qi6 {
+public class qi6 extends y35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public BarImageView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public EntelechyUserLikeButton f;
-    public View g;
-    public int h;
-    public int i;
 
-    public qi6(View view2) {
+    public qi6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,13 +33,50 @@ public class qi6 {
                 return;
             }
         }
-        this.i = 3;
-        this.a = view2;
-        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ae1);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ae4);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ae2);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090ae3);
-        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090adf);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090ae0);
+        b().a = frsFragment;
+    }
+
+    @Override // com.repackage.y35
+    public z35 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            z35 z35Var = new z35();
+            z35Var.e = 1;
+            z35Var.b = R.string.obfuscated_res_0x7f0f03d7;
+            z35Var.i = z35.k;
+            return z35Var;
+        }
+        return (z35) invokeV.objValue;
+    }
+
+    @Override // com.repackage.y35
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ea, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
+        }
+        return (TbFragmentTabIndicator) invokeL.objValue;
+    }
+
+    @Override // com.repackage.y35
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(ec6 ec6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, ec6Var) == null) && ec6Var != null && ec6Var.h(1)) {
+            ec6Var.a(this);
+        }
     }
 }

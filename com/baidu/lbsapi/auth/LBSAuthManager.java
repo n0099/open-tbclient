@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class LBSAuthManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_AUTHENTICATE_SUCC = 0;

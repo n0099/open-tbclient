@@ -1,13 +1,5 @@
 package com.repackage;
 /* loaded from: classes6.dex */
-public interface oa0 {
-    void b();
-
-    void c();
-
-    void d();
-
-    void e();
-
-    void g();
+public interface oa0<T> {
+    T a();
 }

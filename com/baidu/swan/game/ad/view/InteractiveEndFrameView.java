@@ -16,35 +16,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bp3;
-import com.repackage.cq3;
-import com.repackage.dq3;
-import com.repackage.lp3;
-import com.repackage.lq3;
-import com.repackage.tp3;
-import com.repackage.uo3;
-import com.repackage.zo3;
+import com.repackage.go3;
+import com.repackage.hn3;
+import com.repackage.mn3;
+import com.repackage.on3;
+import com.repackage.po3;
+import com.repackage.qo3;
+import com.repackage.yn3;
+import com.repackage.yo3;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class InteractiveEndFrameView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RewardWebView a;
-    public tp3 b;
+    public go3 b;
     public AdElementInfo c;
     public DownloadParams d;
-    public uo3 e;
+    public hn3 e;
     public JSONObject f;
     public String g;
     public String h;
     public DownloadState i;
-    public dq3 j;
-    public zo3 k;
+    public qo3 j;
+    public mn3 k;
     public RelativeLayout l;
     public RelativeLayout.LayoutParams m;
 
     /* loaded from: classes2.dex */
-    public class a implements uo3 {
+    public class a implements hn3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ InteractiveEndFrameView a;
@@ -67,7 +67,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             this.a = interactiveEndFrameView;
         }
 
-        @Override // com.repackage.uo3
+        @Override // com.repackage.hn3
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -75,7 +75,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.uo3
+        @Override // com.repackage.hn3
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -83,7 +83,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.uo3
+        @Override // com.repackage.hn3
         public void c(DownloadState downloadState, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, downloadState, i) == null) {
@@ -107,7 +107,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.uo3
+        @Override // com.repackage.hn3
         public void d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -115,7 +115,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
         }
 
-        @Override // com.repackage.uo3
+        @Override // com.repackage.hn3
         public String e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             return (String) invokeV.objValue;
         }
 
-        @Override // com.repackage.uo3
+        @Override // com.repackage.hn3
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.a.l == null) {
@@ -170,7 +170,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
-                cq3.h(this.a.c, this.a.b);
+                po3.h(this.a.c, this.a.b);
                 this.a.g = str;
                 String v = this.a.v(str);
                 if (!TextUtils.isEmpty(v)) {
@@ -178,20 +178,20 @@ public class InteractiveEndFrameView extends RelativeLayout {
                 }
                 InteractiveEndFrameView interactiveEndFrameView = this.a;
                 interactiveEndFrameView.d = new DownloadParams(interactiveEndFrameView.g, this.a.h);
-                this.a.k = new bp3();
+                this.a.k = new on3();
                 InteractiveEndFrameView interactiveEndFrameView2 = this.a;
-                zo3 zo3Var = interactiveEndFrameView2.k;
-                zo3Var.c(this.a.getContext(), this.a.d, this.a.e);
-                interactiveEndFrameView2.k = zo3Var;
+                mn3 mn3Var = interactiveEndFrameView2.k;
+                mn3Var.c(this.a.getContext(), this.a.d, this.a.e);
+                interactiveEndFrameView2.k = mn3Var;
                 this.a.k.e(this.a.d);
                 this.a.k.f();
-                if (lq3.a(this.a.getContext(), this.a.d.b) && this.a.l != null) {
+                if (yo3.a(this.a.getContext(), this.a.d.b) && this.a.l != null) {
                     this.a.l.removeView(this.a.k.getRealView());
                     this.a.l.addView(this.a.k.getRealView(), this.a.m);
                     this.a.k.b(DownloadState.INSTALLED);
                     return;
                 }
-                lp3.b().d(this.a.getContext(), this.a.d.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.e);
+                yn3.b().d(this.a.getContext(), this.a.d.a(), DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.e);
             }
         }
     }
@@ -216,7 +216,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
         }
         this.h = "";
         this.i = DownloadState.NOT_START;
-        this.b = new tp3(context);
+        this.b = new go3(context);
     }
 
     public void s(AdElementInfo adElementInfo, RelativeLayout relativeLayout) {
@@ -231,7 +231,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             this.a.loadUrl(endFrameUrl);
             addView(this.a, new RelativeLayout.LayoutParams(-1, -1));
             this.f = adElementInfo.getAdMonitors();
-            this.j = new dq3(getContext(), this.f);
+            this.j = new qo3(getContext(), this.f);
             w();
             setDownloadListener();
         }
@@ -253,7 +253,7 @@ public class InteractiveEndFrameView extends RelativeLayout {
             }
             if (DownloadState.DOWNLOADING == this.i) {
                 this.e = null;
-                lp3.b().d(getContext(), this.d.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.e);
+                yn3.b().d(getContext(), this.d.a(), DownloadParams.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD, this.e);
             }
         }
     }

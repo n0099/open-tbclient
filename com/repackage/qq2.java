@@ -1,125 +1,120 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-/* loaded from: classes7.dex */
-public class qq2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import okhttp3.MediaType;
+import okhttp3.ResponseBody;
+import okio.Buffer;
+import okio.BufferedSource;
+import okio.ForwardingSource;
+import okio.Okio;
+import okio.Source;
+/* loaded from: classes6.dex */
+public class qq2 extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ResponseBody a;
+    public final nq2 b;
+    public BufferedSource c;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return i != 3 ? 100 : 118;
-                    }
-                    return 112;
+    /* loaded from: classes6.dex */
+    public class a extends ForwardingSource {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public final /* synthetic */ qq2 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(qq2 qq2Var, Source source) {
+            super(source);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qq2Var, source};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Source) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return 100;
             }
-            return 82;
+            this.b = qq2Var;
+            this.a = 0L;
         }
-        return invokeI.intValue;
+
+        @Override // okio.ForwardingSource, okio.Source
+        public long read(Buffer buffer, long j) throws IOException {
+            InterceptResult invokeLJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, buffer, j)) == null) {
+                long read = super.read(buffer, j);
+                int i = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
+                this.a += i != 0 ? read : 0L;
+                this.b.b.a(this.a, this.b.a.contentLength(), i == 0);
+                return read;
+            }
+            return invokeLJ.longValue;
+        }
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public qq2(ResponseBody responseBody, nq2 nq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Bundle b = hx2.b(rq2.class, null);
-            if (b == null) {
-                return 1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {responseBody, nq2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return b.getInt("font_size_level", 1);
         }
-        return invokeV.intValue;
+        this.a = responseBody;
+        this.b = nq2Var;
     }
 
-    public static NgWebView c(a02 a02Var) {
+    public final Source c(Source source) {
         InterceptResult invokeL;
-        HashMap<String, cn1> V;
-        cn1 cn1Var;
-        bn1 u;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, a02Var)) == null) {
-            if (a02Var instanceof c02) {
-                an1 n3 = ((c02) a02Var).n3();
-                if (n3 == null || n3.m() == null) {
-                    if (n3 != null) {
-                        return (NgWebView) n3.u();
-                    }
-                    return null;
-                }
-                return (NgWebView) n3.m().u();
-            } else if (!(a02Var instanceof h02) || (V = o72.U().V()) == null || V.size() <= 0 || (cn1Var = V.get(mg3.c().h())) == null || !(cn1Var instanceof SwanWebModeWidget) || (u = cn1Var.u()) == null || !(u instanceof NgWebView)) {
-                return null;
-            } else {
-                return (NgWebView) u;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, source)) == null) ? new a(this, source) : (Source) invokeL.objValue;
+    }
+
+    @Override // okhttp3.ResponseBody
+    public long contentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.contentLength() : invokeV.longValue;
+    }
+
+    @Override // okhttp3.ResponseBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.contentType() : (MediaType) invokeV.objValue;
+    }
+
+    @Override // okhttp3.ResponseBody
+    public BufferedSource source() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c == null) {
+                this.c = Okio.buffer(c(this.a.source()));
             }
+            return this.c;
         }
-        return (NgWebView) invokeL.objValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b() + 1 : invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? je3.f("3.200.101") : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            SwanAppConfigData s = hm2.U().s();
-            if (s == null) {
-                return false;
-            }
-            return TextUtils.equals("none", s.e.q);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void g(int i, int i2) {
-        SwanAppActivity x;
-        d02 swanAppFragmentManager;
-        a02 m;
-        NgWebView c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65542, null, i, i2) == null) || (x = t03.J().x()) == null || (swanAppFragmentManager = x.getSwanAppFragmentManager()) == null || (m = swanAppFragmentManager.m()) == null || (c = c(m)) == null) {
-            return;
-        }
-        if (!f()) {
-            c.getSettings().setTextZoom(a(i));
-            pq2.a(Integer.valueOf(i + 1), String.valueOf(i2));
-        }
-        h(i);
-    }
-
-    public static void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-            kx2.e().h(new mx2(22, bundle));
-        }
+        return (BufferedSource) invokeV.objValue;
     }
 }

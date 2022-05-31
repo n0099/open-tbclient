@@ -1,78 +1,26 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
+import android.content.Intent;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.max.ImmersiveVideoDetailActivity;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes6.dex */
-public class fl0 extends Handler implements dl0 {
+import java.util.HashMap;
+import java.util.Map;
+@Service
+/* loaded from: classes5.dex */
+public class fl0 extends hg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<b<?>> a;
-    public boolean b;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final fl0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-382206294, "Lcom/repackage/fl0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-382206294, "Lcom/repackage/fl0$a;");
-                    return;
-                }
-            }
-            a = new fl0();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b<T extends bl0> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final el0<T> a;
-        public final T b;
-
-        public b(gl0 gl0Var, el0<T> el0Var, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gl0Var, el0Var, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = el0Var;
-            this.b = t;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fl0() {
-        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,63 +28,30 @@ public class fl0 extends Handler implements dl0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = false;
     }
 
-    public static dl0 b() {
+    @Override // com.repackage.hg0
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (dl0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "max" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.dl0
-    public <T extends bl0> void a(gl0 gl0Var, el0<T> el0Var, T t) {
+    @Override // com.repackage.hg0
+    public boolean b(@NonNull Context context, @NonNull lg0 lg0Var, @Nullable Map<String, Object> map, @Nullable pg0 pg0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, gl0Var, el0Var, t) == null) {
-            if (vi0.a()) {
-                el0Var.onEvent(t);
-                return;
-            }
-            synchronized (this) {
-                this.a.offer(new b<>(gl0Var, el0Var, t));
-                if (!this.b) {
-                    sendMessage(Message.obtain());
-                }
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, lg0Var, map, pg0Var)) == null) {
+            super.b(context, lg0Var, map, pg0Var);
+            HashMap<String, String> d = lg0Var.d();
+            Intent intent = new Intent(context, ImmersiveVideoDetailActivity.class);
+            intent.putExtra("map", d);
+            return tz0.c(context, intent);
         }
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(@NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                do {
-                    b<?> poll = this.a.poll();
-                    if (poll == null) {
-                        synchronized (this) {
-                            poll = this.a.poll();
-                            if (poll == null) {
-                                this.b = false;
-                                return;
-                            }
-                        }
-                    }
-                    poll.a.onEvent(poll.b);
-                } while (System.currentTimeMillis() - currentTimeMillis < 5);
-                sendMessage(Message.obtain());
-                this.b = true;
-            } finally {
-                this.b = false;
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

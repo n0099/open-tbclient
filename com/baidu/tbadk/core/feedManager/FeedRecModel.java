@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ca5;
-import com.repackage.hj8;
+import com.repackage.ig8;
+import com.repackage.w85;
 import com.repackage.wa;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes3.dex */
@@ -163,7 +163,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, hj8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, ig8.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
             tbHttpMessageTask.setPriority(4);
@@ -174,11 +174,11 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ca5 ca5Var = new ca5(309264);
-            ca5Var.setResponsedClass(RecPersonalizeSocketResponse.class);
-            ca5Var.g(true);
-            ca5Var.setPriority(4);
-            MessageManager.getInstance().registerTask(ca5Var);
+            w85 w85Var = new w85(309264);
+            w85Var.setResponsedClass(RecPersonalizeSocketResponse.class);
+            w85Var.g(true);
+            w85Var.setPriority(4);
+            MessageManager.getInstance().registerTask(w85Var);
         }
     }
 }

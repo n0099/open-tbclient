@@ -797,7 +797,7 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public ChatSession m29clone() throws CloneNotSupportedException {
+    public ChatSession m27clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (ChatSession) super.clone() : (ChatSession) invokeV.objValue;

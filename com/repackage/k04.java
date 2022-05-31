@@ -1,17 +1,18 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.R;
+import com.baidu.mobstat.Config;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,31 +20,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rl2;
-import com.repackage.yz2;
+import com.repackage.cb3;
+import com.repackage.wv3;
+import java.io.File;
+import java.util.Set;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class k04 {
+public class k04 implements wg1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public yz2 a;
+    public SharedPreferences a;
+    public File b;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements cb3.a<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ bt1 c;
-        public final /* synthetic */ rl2 d;
-        public final /* synthetic */ k04 e;
+        public final /* synthetic */ k04 a;
 
-        public a(k04 k04Var, SwanAppActivity swanAppActivity, String str, bt1 bt1Var, rl2 rl2Var) {
+        public a(k04 k04Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {k04Var, swanAppActivity, str, bt1Var, rl2Var};
+                Object[] objArr = {k04Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,90 +55,16 @@ public class k04 {
                     return;
                 }
             }
-            this.e = k04Var;
-            this.a = swanAppActivity;
-            this.b = str;
-            this.c = bt1Var;
-            this.d = rl2Var;
+            this.a = k04Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.repackage.cb3.a
+        public Long update() throws IllegalStateException {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.f(this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bt1 a;
-
-        public b(k04 k04Var, bt1 bt1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k04Var, bt1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bt1Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                f34.call(this.a, true, new m04(false));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bt1 a;
-        public final /* synthetic */ rl2 b;
-        public final /* synthetic */ k04 c;
-
-        public c(k04 k04Var, bt1 bt1Var, rl2 rl2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k04Var, bt1Var, rl2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = k04Var;
-            this.a = bt1Var;
-            this.b = rl2Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                f34.call(this.a, true, new m04(true));
-                this.c.e(this.b);
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(this.a.m()) : (Long) invokeV.objValue;
         }
     }
 
@@ -153,7 +81,7 @@ public class k04 {
                 return;
             }
         }
-        b = eh1.a;
+        c = rf1.a;
     }
 
     public k04() {
@@ -166,79 +94,204 @@ public class k04 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void c(bt1 bt1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bt1Var, str) == null) {
-            cv3 cv3Var = new cv3();
-            cv3Var.errMsg = str;
-            f34.call(bt1Var, false, cv3Var);
-        }
-    }
-
-    public void d(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            bt1 F = bt1.F(jsObject);
-            if (F == null) {
-                F = new bt1();
-            }
-            bt1 bt1Var = F;
-            u03 r = t03.J().r();
-            if (!r.H()) {
-                c(bt1Var, "reload failed, api internal error.");
                 return;
             }
-            SwanAppActivity x = r.x();
-            rl2.a V = r.V();
-            if (x == null) {
-                c(bt1Var, "reload failed, api internal error.");
-                return;
-            }
-            String B = bt1Var.B("content");
-            if (TextUtils.isEmpty(B)) {
-                B = x.getString(R.string.obfuscated_res_0x7f0f017a);
-            }
-            oe3.e0(new a(this, x, B, bt1Var, V));
+        }
+        String o = o();
+        if (c) {
+            Log.i("SwanGameStorageManager", "preferencesName:" + o);
+        }
+        if (o != null) {
+            this.a = oi2.c().getSharedPreferences(o, 0);
+            File q = q();
+            this.b = new File(q, o + ActivityChooserModel.HISTORY_FILE_EXTENSION);
+        }
+        db3.h.b(new a(this));
+    }
+
+    public static void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            l(String.format("aigame_storage_%s_anonymous", str, ""));
         }
     }
 
-    public final void e(@NonNull rl2 rl2Var) {
+    public static void l(String str) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rl2Var) == null) {
-            String H = rl2Var.H();
-            String h1 = sl2.h1(rl2Var.H(), rl2Var.T(), rl2Var.G());
-            Bundle bundle = new Bundle();
-            bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, H);
-            bundle.putString("scheme", h1);
-            bundle.putInt("target", SwanAppProcessInfo.current().index);
-            if (b) {
-                Log.d("SwanGameReloadApi", "reload-appid:" + rl2Var.H());
+        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || str == null || !str.startsWith("aigame_storage_") || (listFiles = q().listFiles()) == null) {
+            return;
+        }
+        for (File file : listFiles) {
+            if (file.getName().startsWith(str)) {
+                kf4.L(file);
             }
-            px2.P().V(bundle, l04.class);
         }
     }
 
-    public final void f(@NonNull Activity activity, @NonNull String str, @NonNull bt1 bt1Var, @NonNull rl2 rl2Var) {
+    @NonNull
+    public static File q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, activity, str, bt1Var, rl2Var) == null) {
-            yz2 yz2Var = this.a;
-            if (yz2Var != null && yz2Var.isShowing()) {
-                c(bt1Var, "reload failed, the reload dialog has been displayed.");
-                return;
-            }
-            yz2.a aVar = new yz2.a(activity);
-            aVar.U(R.string.obfuscated_res_0x7f0f017b);
-            aVar.x(str);
-            aVar.a();
-            aVar.n(new cg3());
-            aVar.m(false);
-            aVar.B(R.string.obfuscated_res_0x7f0f010a, new b(this, bt1Var));
-            aVar.O(R.string.obfuscated_res_0x7f0f019a, new c(this, bt1Var, rl2Var));
-            this.a = aVar.X();
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs") : (File) invokeV.objValue;
+    }
+
+    @Override // com.repackage.wg1
+    public String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? rb2.Y(str) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.wg1
+    public q72 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new i04() : (q72) invokeV.objValue;
+    }
+
+    @Override // com.repackage.wg1
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            rb2.c();
         }
+    }
+
+    @Override // com.repackage.wg1
+    public File[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q().listFiles() : (File[]) invokeV.objValue;
+    }
+
+    @Override // com.repackage.wg1
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? rb2.p() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.wg1
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String J = kf4.J(wv3.d());
+            String J2 = kf4.J(wv3.d.g());
+            g();
+            c();
+            kf4.k(J);
+            kf4.k(J2);
+        }
+    }
+
+    @Override // com.repackage.wg1
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            l("aigame_storage_");
+        }
+    }
+
+    @Override // com.repackage.wg1
+    public String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? rb2.Z(str) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.wg1
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ob2.c();
+        }
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? r() && this.a.edit().clear().commit() : invokeV.booleanValue;
+    }
+
+    public long m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            File file = this.b;
+            if (file != null) {
+                return file.length();
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public String[] n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (r()) {
+                Set<String> keySet = this.a.getAll().keySet();
+                String[] strArr = new String[keySet.size()];
+                keySet.toArray(strArr);
+                return strArr;
+            }
+            return new String[0];
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Nullable
+    public final String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            String f0 = hz2.f0();
+            if (TextUtils.isEmpty(f0)) {
+                return null;
+            }
+            return String.format("aigame_storage_%s_anonymous", f0);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String p(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            if (r()) {
+                return this.a.getString(str, str2);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    public long s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? Config.FULL_TRACE_LOG_LIMIT : invokeV.longValue;
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public boolean t(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) ? r() && this.a.edit().putString(str, str2).commit() : invokeLL.booleanValue;
+    }
+
+    @SuppressLint({"ApplySharedPref"})
+    public boolean u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? r() && this.a.edit().remove(str).commit() : invokeL.booleanValue;
     }
 }

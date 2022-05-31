@@ -1,21 +1,25 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tachikoma.core.component.anim.AnimationProperty;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class wl2<ValueT> {
+public class wl2 extends tl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ValueT a;
+    public am2 A;
+    public double B;
+    public int C;
+    public String z;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public wl2() {
-        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,52 +27,36 @@ public abstract class wl2<ValueT> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.z = "";
+        this.C = 1000;
     }
 
-    public ValueT a(xl2 xl2Var, String str) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.tl2, com.repackage.xu1, com.repackage.gp2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, xl2Var, str)) == null) ? b(xl2Var, str, this.a) : (ValueT) invokeLL.objValue;
-    }
-
-    public ValueT b(xl2 xl2Var, String str, ValueT valuet) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xl2Var, str, valuet)) == null) ? c(xl2Var.C(), str, valuet) : (ValueT) invokeLLL.objValue;
-    }
-
-    public abstract ValueT c(Bundle bundle, String str, ValueT valuet);
-
-    public void d(xl2 xl2Var, String str, ValueT valuet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, xl2Var, str, valuet) == null) {
-            e(xl2Var.C(), str, valuet);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        super.a(jSONObject);
+        this.z = jSONObject.optString("markerId");
+        am2 am2Var = new am2();
+        this.A = am2Var;
+        am2Var.a(jSONObject.optJSONObject("destination"));
+        jSONObject.optBoolean("autoRotate");
+        this.B = jSONObject.optDouble(AnimationProperty.ROTATE);
+        this.C = Math.abs(jSONObject.optInt("duration", this.C));
     }
 
-    public abstract void e(Bundle bundle, String str, ValueT valuet);
-
-    public wl2(ValueT valuet) {
+    @Override // com.repackage.xu1, com.repackage.gp2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        am2 am2Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {valuet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = valuet;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.z) || (am2Var = this.A) == null || !am2Var.isValid()) ? false : true : invokeV.booleanValue;
     }
 }

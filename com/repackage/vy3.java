@@ -1,30 +1,27 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
 /* loaded from: classes7.dex */
-public class vy3 extends JSEvent {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vy3 {
+    void a(JsObject jsObject);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vy3() {
-        super("appMount");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void b(JsObject jsObject);
+
+    void c(JsObject jsObject);
+
+    void d(JsObject jsObject);
+
+    void e(JsObject jsObject);
+
+    void f();
+
+    void g(JsObject jsObject);
+
+    void h(JsObject jsObject);
+
+    void i(JsObject jsObject);
+
+    void j();
+
+    void k(JsObject jsObject);
 }

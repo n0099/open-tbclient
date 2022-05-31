@@ -1,6 +1,12 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,73 +14,159 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidParameterException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class po1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String f;
+    public static final MediaType g;
     public transient /* synthetic */ FieldHolder $fh;
-    public kh1 a;
+    public String a;
+    public Map<String, String> b;
+    public Map<String, String> c;
+    public boolean d;
+    public String e;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final po1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-93114430, "Lcom/repackage/po1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-93114430, "Lcom/repackage/po1$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755403297, "Lcom/repackage/po1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new po1();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755403297, "Lcom/repackage/po1;");
+                return;
+            }
         }
+        boolean z = rf1.a;
+        f = String.format("%s/ma/call", bw1.b());
+        g = oq2.a;
     }
 
     public po1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = f + "?";
+        this.b = new HashMap();
+        this.c = new HashMap();
+        this.d = false;
+        this.e = "";
+        d();
+        e();
+    }
+
+    public final void a() {
+        hz2 a0;
+        PMSAppInfo f0;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a0 = hz2.a0()) == null || (f0 = a0.V().f0()) == null) {
+            return;
+        }
+        this.c.put("app_ver", String.valueOf(f0.versionCode));
+    }
+
+    public final void b() {
+        hz2 a0;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (a0 = hz2.a0()) == null) {
+            return;
+        }
+        int l = a0.l();
+        String i = m83.i(uk2.U().M(), l);
+        if (l == 0) {
+            this.c.put("swan_ver", i);
+        } else if (l == 1) {
+            this.c.put("game_ver", i);
+        }
+    }
+
+    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback) == null) {
+            if (!this.d) {
+                responseCallback.onFail(new InvalidParameterException("no service has been set"));
+                return;
+            }
+            String b = zc3.b(this.a, this.c);
+            this.a = b;
+            this.a = dw1.b(b);
+            i64 i64Var = new i64(this.a, RequestBody.create(g, this.e), responseCallback);
+            i64Var.c = this.b;
+            i64Var.g = true;
+            hw1.i("CallServiceRequest", "Start request cloud ability: " + this.c.get("service"));
+            j64.g().e(i64Var);
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (bj3.getContext() == null) {
+                hw1.c("CallServiceRequest", Log.getStackTraceString(new AssertionError("Assertion failed: SwanConfigRuntime.getContext() == null")));
+                return;
+            }
+            this.c.put("host_os", hf4.f());
+            this.c.put("host_os_ver", hf4.g());
+            this.c.put("host_app", bj3.getContext().c());
+            this.c.put("host_app_ver", bj3.getContext().h());
+            this.c.put("sdk_ver", bj3.getContext().b());
+            this.c.put("ua", pf4.b(bj3.getContext().h()));
+            this.c.put("ut", dw1.f());
+            this.c.put("network", hf4.e());
+            this.c.put("bundle_Id", gz2.J().getAppId());
+            this.c.put("cuid", bj3.getContext().g());
+            this.c.put("uuid", bj3.getContext().e());
+            Map<String, String> map = this.c;
+            map.put("sid", oi2.g0().k() + "");
+            this.c.put("source", "swan_sdk");
+            this.c.put("timestamp", String.valueOf(System.currentTimeMillis()));
+            b();
+            a();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.put("mnpunion", String.valueOf(SwanAppAllianceLoginHelper.d.f() ? 2 : 0));
+            this.b.put("Referer", oc3.b());
+        }
+    }
+
+    public void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            if (jSONObject == null) {
+                this.e = "";
+            } else {
+                this.e = jSONObject.toString();
             }
         }
     }
 
-    public static po1 a() {
-        InterceptResult invokeV;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (po1) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        kh1 kh1Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (kh1Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        kh1Var.a(i);
-        this.a = null;
-    }
-
-    public void c(JSONObject jSONObject) {
-        kh1 kh1Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || (kh1Var = this.a) == null) {
-            return;
-        }
-        kh1Var.b(jSONObject);
-        this.a = null;
+        this.c.put("service", str);
+        this.d = true;
     }
 }

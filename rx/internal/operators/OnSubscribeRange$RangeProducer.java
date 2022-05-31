@@ -5,25 +5,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cy9;
-import com.repackage.ry9;
-import com.repackage.yx9;
+import com.repackage.lv9;
+import com.repackage.su9;
+import com.repackage.wu9;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OnSubscribeRange$RangeProducer extends AtomicLong implements yx9 {
+public final class OnSubscribeRange$RangeProducer extends AtomicLong implements su9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4114392207069098388L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cy9<? super Integer> childSubscriber;
+    public final wu9<? super Integer> childSubscriber;
     public long currentIndex;
     public final int endOfRange;
 
-    public OnSubscribeRange$RangeProducer(cy9<? super Integer> cy9Var, int i, int i2) {
+    public OnSubscribeRange$RangeProducer(wu9<? super Integer> wu9Var, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cy9Var, Integer.valueOf(i), Integer.valueOf(i2)};
+            Object[] objArr = {wu9Var, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -33,7 +33,7 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
                 return;
             }
         }
-        this.childSubscriber = cy9Var;
+        this.childSubscriber = wu9Var;
         this.currentIndex = i;
         this.endOfRange = i2;
     }
@@ -42,21 +42,21 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             long j = this.endOfRange + 1;
-            cy9<? super Integer> cy9Var = this.childSubscriber;
+            wu9<? super Integer> wu9Var = this.childSubscriber;
             for (long j2 = this.currentIndex; j2 != j; j2++) {
-                if (cy9Var.isUnsubscribed()) {
+                if (wu9Var.isUnsubscribed()) {
                     return;
                 }
-                cy9Var.onNext(Integer.valueOf((int) j2));
+                wu9Var.onNext(Integer.valueOf((int) j2));
             }
-            if (cy9Var.isUnsubscribed()) {
+            if (wu9Var.isUnsubscribed()) {
                 return;
             }
-            cy9Var.onCompleted();
+            wu9Var.onCompleted();
         }
     }
 
-    @Override // com.repackage.yx9
+    @Override // com.repackage.su9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || get() == Long.MAX_VALUE) {
@@ -64,7 +64,7 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
         }
         if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
             fastPath();
-        } else if (j <= 0 || ry9.b(this, j) != 0) {
+        } else if (j <= 0 || lv9.b(this, j) != 0) {
         } else {
             slowPath(j);
         }
@@ -75,22 +75,22 @@ public final class OnSubscribeRange$RangeProducer extends AtomicLong implements 
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             long j2 = this.endOfRange + 1;
             long j3 = this.currentIndex;
-            cy9<? super Integer> cy9Var = this.childSubscriber;
+            wu9<? super Integer> wu9Var = this.childSubscriber;
             do {
                 long j4 = 0;
                 while (true) {
                     if (j4 != j && j3 != j2) {
-                        if (cy9Var.isUnsubscribed()) {
+                        if (wu9Var.isUnsubscribed()) {
                             return;
                         }
-                        cy9Var.onNext(Integer.valueOf((int) j3));
+                        wu9Var.onNext(Integer.valueOf((int) j3));
                         j3++;
                         j4++;
-                    } else if (cy9Var.isUnsubscribed()) {
+                    } else if (wu9Var.isUnsubscribed()) {
                         return;
                     } else {
                         if (j3 == j2) {
-                            cy9Var.onCompleted();
+                            wu9Var.onCompleted();
                             return;
                         }
                         j = get();

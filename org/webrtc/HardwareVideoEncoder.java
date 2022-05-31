@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ssa.SsaDecoder;
-import com.repackage.sx9;
+import com.repackage.mu9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
@@ -513,7 +513,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
     public /* synthetic */ long createNativeVideoEncoder() {
-        return sx9.$default$createNativeVideoEncoder(this);
+        return mu9.$default$createNativeVideoEncoder(this);
     }
 
     public void deliverEncodedImage() {
@@ -676,7 +676,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
     public /* synthetic */ boolean isHardwareEncoder() {
-        return sx9.$default$isHardwareEncoder(this);
+        return mu9.$default$isHardwareEncoder(this);
     }
 
     @Override // org.webrtc.VideoEncoder

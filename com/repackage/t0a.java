@@ -1,134 +1,75 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import tv.athena.revenue.RevenueManager;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
 /* loaded from: classes7.dex */
-public abstract class t0a<E> extends u0a<E> {
+public class t0a implements l0a {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
-    public static final long d;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final E[] b;
+    public int a;
+    public int b;
+    public PayUIKitConfig c;
+    public l1a d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755343188, "Lcom/repackage/t0a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755343188, "Lcom/repackage/t0a;");
-                return;
-            }
-        }
-        c = Integer.getInteger("sparse.shift", 0).intValue();
-        int b = t1a.a.b(Object[].class);
-        if (4 == b) {
-            e = c + 2;
-        } else if (8 == b) {
-            e = c + 3;
-        } else {
-            throw new IllegalStateException("Unknown pointer size");
-        }
-        d = t1a.a.a(Object[].class) + (32 << (e - c));
-    }
-
-    public t0a(int i) {
+    public t0a(int i, int i2, PayUIKitConfig payUIKitConfig, l1a l1aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig, l1aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int b = w0a.b(i);
-        this.a = b - 1;
-        this.b = (E[]) new Object[(b << c) + 64];
+        this.a = i;
+        this.b = i2;
+        this.c = payUIKitConfig;
+        this.d = l1aVar;
     }
 
-    public final long a(long j) {
-        InterceptResult invokeJ;
+    @Override // com.repackage.l0a
+    public void a(Activity activity, PayFlowType payFlowType, p1a p1aVar, m1a m1aVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? b(j, this.a) : invokeJ.longValue;
-    }
-
-    public final long b(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? d + ((j & j2) << e) : invokeCommon.longValue;
-    }
-
-    public final E c(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) ? (E) t1a.a.e(eArr, j) : (E) invokeLJ.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, payFlowType, p1aVar, m1aVar, appCustomExpand, iPayCallback, str}) == null) {
+            l1a l1aVar = this.d;
+            if (l1aVar == null) {
+                RLog.error("PayCoreImpl", "payRequest error modelProvider null", new Object[0]);
                 return;
             }
+            qz9 b = l1aVar.b(payFlowType);
+            b.r(iPayCallback);
+            b.p(activity);
+            b.u(m1aVar.a);
+            b.w(p1aVar.a);
+            b.q(appCustomExpand);
+            b.A(str);
+            b.v(payFlowType.getTypeId());
+            PayType payType = p1aVar.a;
+            if (payType == PayType.DXM_PAY_KJ || payType == PayType.UNION_PAY) {
+                b.x(o1a.b(this.c));
+            }
+            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.a, this.b);
+            if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
+                middleRevenue.getMiddlePayService().a(b);
+            } else {
+                RLog.error("PayCoreImpl", "requestPay error middleRevenue null", new Object[0]);
+            }
         }
-    }
-
-    public final E d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? e(this.b, j) : (E) invokeJ.objValue;
-    }
-
-    public final E e(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) ? (E) t1a.a.f(eArr, j) : (E) invokeLJ.objValue;
-    }
-
-    public final void f(E[] eArr, long j, E e2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            t1a.a.j(eArr, j, e2);
-        }
-    }
-
-    public final void g(E[] eArr, long j, E e2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            t1a.a.h(eArr, j, e2);
-        }
-    }
-
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Iterator) invokeV.objValue;
     }
 }

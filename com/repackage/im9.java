@@ -1,82 +1,46 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.SpriteEntity;
-import java.util.ArrayList;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.zip.GZIPInputStream;
+import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes6.dex */
-public final class im9 {
+public class im9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<jm9> b;
+    public URL a;
+    public byte[] b;
+    public Map c;
+    public Map d;
+    public String e;
+    public int f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public int j;
 
-    public im9(JSONObject jSONObject) {
+    public im9(String str, String str2, Map map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = jSONObject.optString("imageKey");
-        ArrayList arrayList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("frames");
-        if (optJSONArray != null) {
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                if (optJSONObject != null) {
-                    jm9 jm9Var = new jm9(optJSONObject);
-                    if ((!jm9Var.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) jm9Var.d())).e() && arrayList.size() > 0) {
-                        jm9Var.f(((jm9) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).d());
-                    }
-                    arrayList.add(jm9Var);
-                }
-            }
-        }
-        this.b = CollectionsKt___CollectionsKt.toList(arrayList);
-    }
-
-    public final List<jm9> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public im9(SpriteEntity spriteEntity) {
-        List<jm9> emptyList;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spriteEntity};
+            Object[] objArr = {str, str2, map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,23 +50,107 @@ public final class im9 {
                 return;
             }
         }
-        this.a = spriteEntity.imageKey;
-        List<FrameEntity> list = spriteEntity.frames;
-        if (list != null) {
-            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            jm9 jm9Var = null;
-            for (FrameEntity it : list) {
-                Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                jm9 jm9Var2 = new jm9(it);
-                if ((!jm9Var2.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) jm9Var2.d())).e() && jm9Var != null) {
-                    jm9Var2.f(jm9Var.d());
-                }
-                emptyList.add(jm9Var2);
-                jm9Var = jm9Var2;
+        this.e = "GET";
+        this.f = -1;
+        this.g = false;
+        this.h = true;
+        this.a = new URL(str);
+        this.e = str2;
+        this.c = map;
+        this.i = 20000;
+        this.j = 20000;
+    }
+
+    public lm9 a() {
+        InterceptResult invokeV;
+        HttpURLConnection httpURLConnection;
+        InputStream errorStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            String url = this.a.toString();
+            if (!TextUtils.isEmpty(url) ? url.startsWith("http") : false) {
+                httpURLConnection = (HttpURLConnection) this.a.openConnection();
+            } else {
+                httpURLConnection = (HttpsURLConnection) this.a.openConnection();
             }
-        } else {
-            emptyList = CollectionsKt__CollectionsKt.emptyList();
+            httpURLConnection.setRequestMethod(this.e);
+            httpURLConnection.setInstanceFollowRedirects(this.h);
+            httpURLConnection.setReadTimeout(this.j);
+            httpURLConnection.setConnectTimeout(this.i);
+            httpURLConnection.setDoInput(true);
+            Map map = this.c;
+            if (map != null && map.size() > 0) {
+                for (Map.Entry entry : map.entrySet()) {
+                    String str = (String) entry.getKey();
+                    for (String str2 : (List) entry.getValue()) {
+                        String str3 = "header:" + str + "=" + str2;
+                        httpURLConnection.setRequestProperty(str, str2);
+                    }
+                }
+            }
+            if (this.e.equals("POST")) {
+                httpURLConnection.setDoInput(true);
+                httpURLConnection.setDoOutput(true);
+                PrintWriter printWriter = null;
+                PrintWriter printWriter2 = null;
+                try {
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    byte[] bArr = this.b;
+                    if (bArr == null) {
+                        PrintWriter printWriter3 = new PrintWriter((Writer) new OutputStreamWriter(outputStream, "UTF-8"), true);
+                        try {
+                            URL url2 = this.a;
+                            printWriter3.print(url2 != null ? url2.getQuery() : null);
+                            printWriter3.flush();
+                            printWriter2 = printWriter3;
+                        } catch (Throwable th) {
+                            th = th;
+                            printWriter = printWriter3;
+                            if (printWriter != null) {
+                                printWriter.close();
+                            }
+                            throw th;
+                        }
+                    } else {
+                        outputStream.write(bArr);
+                        outputStream.flush();
+                    }
+                    if (printWriter2 != null) {
+                        printWriter2.close();
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            }
+            this.f = httpURLConnection.getResponseCode();
+            httpURLConnection.getContentLength();
+            if (httpURLConnection.getHeaderFields() != null) {
+                this.d = httpURLConnection.getHeaderFields();
+            }
+            try {
+                String contentEncoding = httpURLConnection.getContentEncoding();
+                errorStream = (contentEncoding == null || !contentEncoding.contains("gzip")) ? httpURLConnection.getInputStream() : new GZIPInputStream(httpURLConnection.getInputStream());
+            } catch (IOException e) {
+                errorStream = httpURLConnection.getErrorStream();
+                if (errorStream == null) {
+                    throw new RuntimeException("InputStream is error: " + e.getMessage());
+                }
+            }
+            BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
+            byte[] bArr2 = new byte[4096];
+            int i = 0;
+            while (!this.g && i != -1) {
+                i = bufferedInputStream.read(bArr2);
+                if (i > 0) {
+                    byteArrayOutputStream.write(bArr2, 0, i);
+                }
+            }
+            httpURLConnection.disconnect();
+            byteArrayOutputStream.flush();
+            errorStream.close();
+            return new lm9(this.f, byteArrayOutputStream.toByteArray(), this.d);
         }
-        this.b = emptyList;
+        return (lm9) invokeV.objValue;
     }
 }

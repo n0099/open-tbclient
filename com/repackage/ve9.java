@@ -1,110 +1,233 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.repackage.gf9;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBMediaView;
+import com.win.opensdk.PBNative;
+import com.win.opensdk.PBNativeListener;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ve9 {
+public class ve9 extends qe9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final bf9<Reporter> a;
-    public static final bf9<Reporter> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public PBNative a;
 
     /* loaded from: classes7.dex */
-    public static class a extends bf9<Reporter> {
+    public class a implements PBNativeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ af9 a;
 
-        public a() {
+        public a(ve9 ve9Var, af9 af9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ve9Var, af9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = af9Var;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ((gf9.a) this.a).a();
+            }
+        }
+
+        @Override // com.win.opensdk.PBNativeListener
+        public void onDisplayed() {
+            Ssp.Pid pid;
+            Ssp.Pid pid2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                gf9.a aVar = (gf9.a) this.a;
+                aVar.getClass();
+                LogPrinter.d();
+                aVar.d.onAdShow(aVar.c, aVar.a, new String[0]);
+                aVar.a = true;
+                synchronized (aVar.d.i) {
+                    gf9.b bVar = aVar.d.i.get(aVar.c);
+                    if (bVar != null) {
+                        FunAdInteractionListener funAdInteractionListener = bVar.c;
+                        String str = bVar.a;
+                        pid = aVar.d.mPid;
+                        String str2 = pid.ssp.type;
+                        pid2 = aVar.d.mPid;
+                        funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+                    }
                 }
             }
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.repackage.bf9
-        public Reporter a() {
-            InterceptResult invokeV;
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ze9("https://rpe.xdplt.com/evt/", true) : invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends bf9<Reporter> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+                ((gf9.a) this.a).b(pBError.getMsg(), pBError.getCode());
             }
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        /* JADX WARN: Type inference failed for: r1v0, types: [com.fun.ad.sdk.internal.api.reporter.Reporter, java.lang.Object] */
-        @Override // com.repackage.bf9
-        public Reporter a() {
-            InterceptResult invokeV;
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new xe9("https://rpd.xdplt.com/evt/") : invokeV.objValue;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                ((gf9.a) this.a).c();
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755233913, "Lcom/repackage/ve9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755233913, "Lcom/repackage/ve9;");
+    public ve9(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
-        b = new b();
+        this.a = new PBNative(context.getApplicationContext(), str);
     }
 
-    /* JADX WARN: Type inference failed for: r1v7, types: [T, java.lang.Object] */
-    public static Reporter a() {
-        InterceptResult invokeV;
-        Reporter reporter;
+    @Override // com.repackage.ne9
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            bf9<Reporter> bf9Var = a;
-            synchronized (bf9Var) {
-                if (bf9Var.a == null) {
-                    bf9Var.a = bf9Var.a();
-                }
-                reporter = bf9Var.a;
-            }
-            return reporter;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.destroy();
         }
-        return (Reporter) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ne9
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.load();
+        }
+    }
+
+    @Override // com.repackage.qe9
+    public void c(View view2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, obj) == null) {
+            this.a.registerViewForInteraction(view2, (PBMediaView) obj);
+        }
+    }
+
+    @Override // com.repackage.qe9
+    public void d(View view2, Object obj, List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, view2, obj, list) == null) {
+            this.a.registerViewForInteraction(view2, (PBMediaView) obj, list);
+        }
+    }
+
+    @Override // com.repackage.qe9
+    public void e(af9 af9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, af9Var) == null) {
+            this.a.setNativeListener(new a(this, af9Var));
+        }
+    }
+
+    @Override // com.repackage.qe9
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.getBody() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qe9
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getCallToAction() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qe9
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.getHeadline() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qe9
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.getIM() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qe9
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.getIcon() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qe9
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.getMediaViewHeight() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.qe9
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.getMediaViewWidth() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.qe9
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.a.isD() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.qe9
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a.isReady() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.qe9
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            String adType = this.a.getAdType();
+            adType.hashCode();
+            return adType.equals("h5") || adType.equals("video");
+        }
+        return invokeV.booleanValue;
     }
 }

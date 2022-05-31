@@ -1,124 +1,33 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class lx3 implements mp3 {
+public final class lx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public lx3() {
+    public static final Integer a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null) {
+                int hashCode = str.hashCode();
+                if (hashCode != -1727084929) {
+                    if (hashCode != -1538208320) {
+                        if (hashCode == 155362205 && str.equals("menuAddToLauncher")) {
+                            return 35;
+                        }
+                    } else if (str.equals("menuShare")) {
+                        return 4;
+                    }
+                } else if (str.equals("menuAttention")) {
+                    return 38;
+                }
             }
+            return null;
         }
-    }
-
-    @Override // com.repackage.mp3
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? g34.A().n() : invokeV.longValue;
-    }
-
-    @Override // com.repackage.mp3
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            rt3.b(z ? "gdtvideo" : "video", null);
-        }
-    }
-
-    @Override // com.repackage.mp3
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g34.A().C() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.mp3
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? g34.A().B() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.mp3
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? g34.A().v() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.mp3
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g34.A().o() : invokeV.longValue;
-    }
-
-    @Override // com.repackage.mp3
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? g34.A().z() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.mp3
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? g34.A().p() : invokeV.longValue;
-    }
-
-    @Override // com.repackage.mp3
-    public Long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? g34.A().w() : (Long) invokeV.objValue;
-    }
-
-    @Override // com.repackage.mp3
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? g34.A().q() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.mp3
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? g34.A().u() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.mp3
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? g34.A().x() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.mp3
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? g34.A().y() : (String) invokeV.objValue;
+        return (Integer) invokeL.objValue;
     }
 }

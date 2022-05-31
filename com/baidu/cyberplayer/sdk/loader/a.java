@@ -26,7 +26,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class a implements a.InterfaceC0088a {
+public class a implements a.InterfaceC0087a {
     public static /* synthetic */ Interceptable $ic;
     public static ClassLoader m;
     public static a n;
@@ -389,14 +389,14 @@ public class a implements a.InterfaceC0088a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0088a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0087a
     public void a(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0088a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0087a
     public void a(String str, long j, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2}) == null) {
@@ -410,7 +410,7 @@ public class a implements a.InterfaceC0088a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0088a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0087a
     public void a(String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -424,7 +424,7 @@ public class a implements a.InterfaceC0088a {
         }
     }
 
-    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0088a
+    @Override // com.baidu.cyberplayer.sdk.downloader.a.InterfaceC0087a
     public void a(String str, long j, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Long.valueOf(j), arrayList}) == null) {

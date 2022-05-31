@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zp5;
+import com.repackage.so5;
 /* loaded from: classes3.dex */
 public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zp5 a;
+    public so5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public StageLiveViewHolder(zp5 zp5Var) {
-        super(zp5Var.k());
+    public StageLiveViewHolder(so5 so5Var) {
+        super(so5Var.k());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zp5Var};
+            Object[] objArr = {so5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class StageLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = zp5Var;
+        this.a = so5Var;
     }
 }

@@ -1,26 +1,24 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.HorseRace.LiveHorseRaceData;
+import android.view.View;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.frs.accelerator.ui.AcceleratorFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetHorseRaceLampList.DataRes;
-import tbclient.GetHorseRaceLampList.LiveList;
 /* loaded from: classes6.dex */
-public class qd6 {
+public class qd6 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LiveHorseRaceData> a;
+    public final /* synthetic */ AcceleratorFragment a;
 
-    public qd6() {
+    public qd6(AcceleratorFragment acceleratorFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {acceleratorFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,28 +28,18 @@ public class qd6 {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = acceleratorFragment;
     }
 
-    public List<LiveHorseRaceData> a() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        new LiveHorseRaceData();
-        List<LiveList> list = dataRes.live_list;
-        if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
-                LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
-                liveHorseRaceData.parserProtobuf(list.get(i));
-                this.a.add(liveHorseRaceData);
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            if (this.a.c != null && this.a.c.getItemData() != null) {
+                TbSingleton.getInstance().removeAcceleratorServer(String.valueOf(this.a.c.getItemData().itemId));
             }
+            this.a.q1();
+            this.a.getActivity().finish();
         }
     }
 }

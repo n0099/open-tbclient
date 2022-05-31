@@ -1,5 +1,5 @@
 package com.repackage;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface f7 {
     void dispose();
 }

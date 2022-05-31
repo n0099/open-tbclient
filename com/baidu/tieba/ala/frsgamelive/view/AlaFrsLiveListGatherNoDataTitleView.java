@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.js5;
-import com.repackage.uw5;
+import com.repackage.cr5;
+import com.repackage.nv5;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveListGatherNoDataTitleView extends uw5<js5> {
+public class AlaFrsLiveListGatherNoDataTitleView extends nv5<cr5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView i;
@@ -71,19 +71,19 @@ public class AlaFrsLiveListGatherNoDataTitleView extends uw5<js5> {
         this.l = 3;
         this.k = tbPageContext;
         View k = k();
-        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090afc);
-        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090afd);
+        this.i = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090ae2);
+        this.j = (TextView) k.findViewById(R.id.obfuscated_res_0x7f090ae3);
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.uw5
+    @Override // com.repackage.nv5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f3 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00ef : invokeV.intValue;
     }
 
-    @Override // com.repackage.uw5
+    @Override // com.repackage.nv5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.l == i) {
@@ -102,11 +102,11 @@ public class AlaFrsLiveListGatherNoDataTitleView extends uw5<js5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uw5
+    @Override // com.repackage.nv5
     /* renamed from: s */
-    public void l(js5 js5Var) {
+    public void l(cr5 cr5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, js5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, cr5Var) == null) {
             m(this.k, TbadkCoreApplication.getInst().getSkinType());
         }
     }

@@ -36,16 +36,16 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class EnumC0016a {
+    public static final class EnumC0015a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0016a a;
-        public static final EnumC0016a b;
-        public static final EnumC0016a c;
-        public static final EnumC0016a d;
-        public static final EnumC0016a e;
-        public static final EnumC0016a f;
-        public static final EnumC0016a g;
-        public static final /* synthetic */ EnumC0016a[] h;
+        public static final EnumC0015a a;
+        public static final EnumC0015a b;
+        public static final EnumC0015a c;
+        public static final EnumC0015a d;
+        public static final EnumC0015a e;
+        public static final EnumC0015a f;
+        public static final EnumC0015a g;
+        public static final /* synthetic */ EnumC0015a[] h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,18 +61,18 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC0016a("alarmMsgInfoId", 0);
-            b = new EnumC0016a("msgId", 1);
-            c = new EnumC0016a("sendtime", 2);
-            d = new EnumC0016a("showtime", 3);
-            e = new EnumC0016a("expiretime", 4);
-            f = new EnumC0016a("msgEnable", 5);
-            EnumC0016a enumC0016a = new EnumC0016a("isAlarm", 6);
-            g = enumC0016a;
-            h = new EnumC0016a[]{a, b, c, d, e, f, enumC0016a};
+            a = new EnumC0015a("alarmMsgInfoId", 0);
+            b = new EnumC0015a("msgId", 1);
+            c = new EnumC0015a("sendtime", 2);
+            d = new EnumC0015a("showtime", 3);
+            e = new EnumC0015a("expiretime", 4);
+            f = new EnumC0015a("msgEnable", 5);
+            EnumC0015a enumC0015a = new EnumC0015a("isAlarm", 6);
+            g = enumC0015a;
+            h = new EnumC0015a[]{a, b, c, d, e, f, enumC0015a};
         }
 
-        public EnumC0016a(String str, int i) {
+        public EnumC0015a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -331,19 +331,19 @@ public class a {
             c = sb.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE AlarmMsgInfo (");
-            sb2.append(EnumC0016a.a.name());
+            sb2.append(EnumC0015a.a.name());
             sb2.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb2.append(EnumC0016a.b.name());
+            sb2.append(EnumC0015a.b.name());
             sb2.append(" TEXT NOT NULL, ");
-            sb2.append(EnumC0016a.c.name());
+            sb2.append(EnumC0015a.c.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0016a.d.name());
+            sb2.append(EnumC0015a.d.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0016a.e.name());
+            sb2.append(EnumC0015a.e.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC0016a.f.name());
+            sb2.append(EnumC0015a.f.name());
             sb2.append(" INTEGER, ");
-            sb2.append(EnumC0016a.g.name());
+            sb2.append(EnumC0015a.g.name());
             sb2.append(" INTEGER);");
             d = sb2.toString();
             e = "CREATE TABLE AppInfo (" + b.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.b.name() + " TEXT, " + b.c.name() + " INTEGER, " + b.d.name() + " TEXT UNIQUE, " + b.e.name() + " TEXT, " + b.f.name() + " TEXT, " + b.g.name() + " TEXT, " + b.h.name() + " TEXT, " + b.i.name() + " TEXT);";

@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j95;
-import com.repackage.p95;
+import com.repackage.d85;
+import com.repackage.j85;
 /* loaded from: classes3.dex */
 public class TiebaMainApplication extends TiebaBaseApplication {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
             long currentTimeMillis = System.currentTimeMillis();
             super.attachBaseContext(context);
             TbadkApplication.sApp = this;
-            j95.b().t(currentTimeMillis);
+            d85.b().t(currentTimeMillis);
         }
     }
 
@@ -52,13 +52,13 @@ public class TiebaMainApplication extends TiebaBaseApplication {
                 if (getSplash() != null) {
                     getSplash().a();
                 }
-                if (p95.a(getContext())) {
+                if (j85.a(getContext())) {
                     TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
                 } else {
                     TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
                 }
             }
-            j95.b().F(System.currentTimeMillis());
+            d85.b().F(System.currentTimeMillis());
         }
     }
 }

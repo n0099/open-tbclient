@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ng;
+import com.repackage.mg;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -59,12 +59,12 @@ public class ScrollItemView extends ListView {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ng.a().removeCallbacks(this.a.c);
+                mg.a().removeCallbacks(this.a.c);
                 if (this.a.getItemCount() > 0) {
                     ScrollItemView scrollItemView = this.a;
                     scrollItemView.smoothScrollToPositionFromTop(ScrollItemView.d(scrollItemView), 0, 300);
                 }
-                ng.a().postDelayed(this.a.c, 3000L);
+                mg.a().postDelayed(this.a.c, 3000L);
             }
         }
     }
@@ -204,7 +204,7 @@ public class ScrollItemView extends ListView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
                 if (view2 == null) {
-                    view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0733, viewGroup, false);
+                    view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d072a, viewGroup, false);
                     dVar = new d(this.c, view2);
                     view2.setTag(dVar);
                 } else {
@@ -241,7 +241,7 @@ public class ScrollItemView extends ListView {
                 }
             }
             this.b = scrollItemView;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090fb2);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f75);
         }
     }
 
@@ -312,14 +312,14 @@ public class ScrollItemView extends ListView {
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ng.a().postDelayed(this.c, 3000L);
+            mg.a().postDelayed(this.c, 3000L);
         }
     }
 
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ng.a().removeCallbacks(this.c);
+            mg.a().removeCallbacks(this.c);
             setSelection(this.b);
         }
     }

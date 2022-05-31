@@ -1,12 +1,19 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,28 +21,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y03;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class gx2 extends c13 implements ex2 {
+public class gx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static int a;
+    public static int b;
+    public static int c;
+    public static int d;
+    public static int e;
+    public static int f;
+    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> b;
-    public final HashMap<String, fx2> c;
 
     /* loaded from: classes6.dex */
-    public class a implements nf3<y03.a> {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gx2 a;
+        public final /* synthetic */ View a;
 
-        public a(gx2 gx2Var) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gx2Var};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,36 +54,41 @@ public final class gx2 extends c13 implements ex2 {
                     return;
                 }
             }
-            this.a = gx2Var;
+            this.a = view2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(y03.a aVar) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (gx2.d) {
-                    gx2 gx2Var = this.a;
-                    gx2Var.S("onEventCallback msg" + aVar);
-                }
-                this.a.U(aVar);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gx2.m(this.a);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements nf3<y03.a> {
+    public interface b {
+        void onSoftInputShowing(boolean z);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gx2 a;
+        public final kx2 a;
+        public final ViewGroup b;
+        public final b c;
+        public int d;
+        public boolean e;
+        public final Activity f;
+        public int g;
 
-        public b(gx2 gx2Var) {
+        public c(Activity activity, ViewGroup viewGroup, kx2 kx2Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gx2Var};
+                Object[] objArr = {activity, viewGroup, kx2Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,336 +98,246 @@ public final class gx2 extends c13 implements ex2 {
                     return;
                 }
             }
-            this.a = gx2Var;
+            this.d = 0;
+            this.f = activity;
+            this.c = bVar;
+            this.b = viewGroup;
+            this.a = kx2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(y03.a aVar) {
+        private Context getContext() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                if (gx2.d) {
-                    gx2 gx2Var = this.a;
-                    gx2Var.S("onEventCallback msg" + aVar);
+            return (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) ? this.b.getContext() : (Context) invokeV.objValue;
+        }
+
+        public final void a(int i) {
+            int abs;
+            int j;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.d == 0) {
+                    this.d = i;
+                    this.a.refreshHeight(gx2.j(getContext()));
                 }
-                this.a.V(aVar);
+                if (dx2.e(this.b.getContext())) {
+                    abs = ((View) this.b.getParent()).getHeight() - i;
+                } else {
+                    abs = Math.abs(i - this.d);
+                }
+                if (abs > gx2.g(getContext())) {
+                    if (!gx2.l(getContext(), abs) || this.a.getHeight() == (j = gx2.j(getContext()))) {
+                        return;
+                    }
+                    this.a.refreshHeight(j);
+                } else if (Math.abs(abs) == gx2.i(this.b.getContext())) {
+                    this.d -= abs;
+                }
             }
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static gx2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-342435247, "Lcom/repackage/gx2$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        public final void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                View view2 = (View) this.b.getParent();
+                int height = view2.getHeight() - view2.getPaddingTop();
+                boolean z = true;
+                if (!dx2.e(this.b.getContext())) {
+                    int i2 = this.g;
+                    if (i2 == 0) {
+                        z = this.e;
+                    } else if (i >= i2 - gx2.g(getContext())) {
+                        z = false;
+                    }
+                    this.g = Math.max(this.g, height);
+                } else if (height <= i) {
+                    z = false;
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-342435247, "Lcom/repackage/gx2$c;");
+                if (this.e != z) {
+                    this.a.onSoftInputShowing(z);
+                    b bVar = this.c;
+                    if (bVar != null) {
+                        bVar.onSoftInputShowing(z);
+                    }
+                }
+                this.e = z;
+            }
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                View childAt = this.b.getChildAt(0);
+                Rect rect = new Rect();
+                if (childAt == null) {
+                    i = -1;
+                } else if (!dx2.e(this.b.getContext()) && (!ix2.e(this.f) || !ix2.c(this.f))) {
+                    i = childAt.getHeight();
+                } else {
+                    childAt.getWindowVisibleDisplayFrame(rect);
+                    i = rect.bottom - rect.top;
+                }
+                if (i == -1) {
                     return;
                 }
+                a(i);
+                b(i);
             }
-            a = new gx2(t03.J());
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755662736, "Lcom/repackage/gx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755662736, "Lcom/repackage/gx2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755662736, "Lcom/repackage/gx2;")) == null) {
+            return;
         }
-        d = eh1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gx2(x03 x03Var) {
-        super(x03Var);
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x03Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((x03) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
-        if (d) {
-            S("SwanIpc");
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755662736, "Lcom/repackage/gx2;");
         }
-        r03 r03Var = new r03();
-        r03Var.e(new b(this), "event_messenger_call_out");
-        r03Var.e(new a(this), "event_messenger_call_in");
-        v(r03Var);
     }
 
-    public static synchronized boolean I(@NonNull Bundle bundle, @NonNull String str) {
-        InterceptResult invokeLL;
-        boolean K;
+    public static ViewTreeObserver.OnGlobalLayoutListener c(Activity activity, ViewGroup viewGroup, kx2 kx2Var, b bVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bundle, str)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, activity, viewGroup, kx2Var, bVar)) == null) {
+            if (viewGroup == null) {
+                viewGroup = (ViewGroup) activity.findViewById(16908290);
+            }
+            c cVar = new c(activity, viewGroup, kx2Var, bVar);
+            viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(cVar);
+            return cVar;
+        }
+        return (ViewTreeObserver.OnGlobalLayoutListener) invokeLLLL.objValue;
+    }
+
+    public static int d(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, resources)) == null) {
+            if (d == 0) {
+                d = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070155);
+            }
+            return d;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (b == 0) {
+                b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070156);
+            }
+            return b;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int f(Resources resources) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, resources)) == null) {
+            if (c == 0) {
+                c = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070157);
+            }
+            return c;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (a == 0) {
+                a = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070158);
+            }
+            return a;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (e == 0) {
+                e = xw2.a(context, f(context.getResources()));
+            }
+            return e;
+        }
+        return invokeL.intValue;
+    }
+
+    public static synchronized int i(Context context) {
+        InterceptResult invokeL;
+        int i;
+        int identifier;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             synchronized (gx2.class) {
-                K = Q().K(Y(bundle), str);
-            }
-            return K;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static synchronized boolean J(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        boolean K;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            synchronized (gx2.class) {
-                K = Q().K(Z(str), str2);
-            }
-            return K;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static synchronized fx2 P(@NonNull String str) {
-        InterceptResult invokeL;
-        fx2 d0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            synchronized (gx2.class) {
-                d0 = Q().d0(str);
-            }
-            return d0;
-        }
-        return (fx2) invokeL.objValue;
-    }
-
-    public static gx2 Q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c.a : (gx2) invokeV.objValue;
-    }
-
-    public static void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            Q();
-        }
-    }
-
-    public static synchronized fx2 Y(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
-        fx2 b0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, bundle)) == null) {
-            synchronized (gx2.class) {
-                b0 = Q().b0(bundle);
-            }
-            return b0;
-        }
-        return (fx2) invokeL.objValue;
-    }
-
-    public static synchronized fx2 Z(@NonNull String str) {
-        InterceptResult invokeL;
-        fx2 c0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            synchronized (gx2.class) {
-                c0 = Q().c0(str, null);
-            }
-            return c0;
-        }
-        return (fx2) invokeL.objValue;
-    }
-
-    public final synchronized boolean H(@NonNull fx2 fx2Var, @NonNull Bundle bundle) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fx2Var, bundle)) == null) {
-            synchronized (this) {
-                if (fx2Var.Z()) {
-                    z = K(fx2Var, bundle.getString("ipc_topic", ""));
+                if (!g && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) > 0) {
+                    f = context.getResources().getDimensionPixelSize(identifier);
+                    g = true;
                 }
+                i = f;
             }
-            return z;
+            return i;
         }
-        return invokeLL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public final synchronized boolean K(@NonNull fx2 fx2Var, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fx2Var, str)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (fx2Var.Z()) {
-                    String Q = fx2Var.Q();
-                    String str2 = this.b.get(Q);
-                    boolean z2 = !TextUtils.isEmpty(str2);
-                    z = (!z2 || TextUtils.equals(str2, str)) ? true : true;
-                    if (z && !z2 && !TextUtils.isEmpty(str)) {
-                        this.b.put(Q, str);
-                    }
-                    return z;
-                }
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void S(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && d) {
-            Log.i("SwanIpc", SwanAppProcessInfo.current() + " >> " + str);
-        }
-    }
-
-    public final void T(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            S(str + ": " + str2);
-        }
-    }
-
-    public final void U(y03.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            if (d) {
-                T("onCallIn", "msg=" + aVar);
-            }
-            if (aVar != null) {
-                Bundle D = aVar.D();
-                y03.a aVar2 = new y03.a("event_messenger_call", D);
-                fx2 Y = Y(D);
-                if (H(Y, D) && Y.X(aVar2)) {
-                    return;
-                }
-                t03.J().A(aVar2);
-            }
-        }
-    }
-
-    public final void V(y03.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            if (d) {
-                T("onCallOut", "msg=" + aVar);
-            }
-            if (aVar != null) {
-                Y(aVar.D()).call();
-            }
-        }
-    }
-
-    public String W(@NonNull fx2 fx2Var) {
+    public static int j(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fx2Var)) == null) ? X(fx2Var.Q()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) ? Math.min(d(context.getResources()), Math.max(f(context.getResources()), h(context))) : invokeL.intValue;
     }
 
-    public String X(@NonNull String str) {
-        InterceptResult invokeL;
+    public static void k(@NonNull View view2) {
+        InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? this.b.get(str) : (String) invokeL.objValue;
-    }
-
-    public gx2 a0(fx2 fx2Var, Exception exc) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fx2Var, exc)) == null) {
-            if (fx2Var != null) {
-                synchronized (this.c) {
-                    fx2Var.M(exc);
-                    this.c.remove(fx2Var.Q());
-                }
-            }
-            return this;
+        if (!(interceptable == null || interceptable.invokeL(65547, null, view2) == null) || (inputMethodManager = (InputMethodManager) view2.getContext().getSystemService("input_method")) == null) {
+            return;
         }
-        return (gx2) invokeLL.objValue;
+        inputMethodManager.hideSoftInputFromWindow(view2.getWindowToken(), 0);
     }
 
-    public final synchronized fx2 b0(Bundle bundle) {
-        InterceptResult invokeL;
-        fx2 c0;
+    public static boolean l(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bundle)) == null) {
-            synchronized (this) {
-                c0 = c0(bundle == null ? null : bundle.getString("ipc_session_id"), bundle);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, context, i)) == null) {
+            if (e != i && i >= 0) {
+                e = i;
+                return xw2.b(context, i);
             }
-            return c0;
+            return false;
         }
-        return (fx2) invokeL.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public final synchronized fx2 c0(String str, Bundle bundle) {
-        InterceptResult invokeLL;
-        fx2 fx2Var;
+    public static void m(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, bundle)) == null) {
-            synchronized (this) {
-                fx2Var = TextUtils.isEmpty(str) ? null : this.c.get(str);
-                if (fx2Var == null || !fx2Var.Z()) {
-                    a0(fx2Var, new IllegalStateException("invalid session"));
-                    fx2Var = new fx2(this, str);
-                    this.c.put(fx2Var.Q(), fx2Var);
-                }
-                boolean z = bundle != null && H(fx2Var, bundle);
-                if (z) {
-                    int i = bundle.getInt("ipc_session_repal", SwanAppProcessInfo.UNKNOWN.index);
-                    if (SwanAppProcessInfo.checkProcessId(i)) {
-                        fx2Var.I(i);
-                    } else if (SwanAppProcessInfo.SERVICE.index == i) {
-                        fx2Var.K(true);
-                    }
-                }
-                fx2Var.S(z ? bundle.getLong("ipc_session_timeout") : ex2.d0);
-                if (d) {
-                    T("session", "id=" + str + " session=" + bundle + " session=" + fx2Var);
-                }
+        if (interceptable == null || interceptable.invokeL(65549, null, view2) == null) {
+            view2.requestFocus();
+            InputMethodManager inputMethodManager = (InputMethodManager) view2.getContext().getSystemService("input_method");
+            if (inputMethodManager != null) {
+                inputMethodManager.showSoftInput(view2, 0);
             }
-            return fx2Var;
         }
-        return (fx2) invokeLL.objValue;
     }
 
-    public final synchronized fx2 d0(String str) {
-        InterceptResult invokeL;
-        fx2 b0;
+    public static void n(View view2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            synchronized (this) {
-                b0 = b0(null);
-                K(b0, str);
-                if (d) {
-                    T("topic", str + " session=" + b0);
-                }
-            }
-            return b0;
+        if (interceptable == null || interceptable.invokeLJ(65550, null, view2, j) == null) {
+            view2.postDelayed(new a(view2), j);
         }
-        return (fx2) invokeL.objValue;
     }
 }

@@ -6,35 +6,38 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fq;
-import com.repackage.gq;
+import com.repackage.so;
+import com.repackage.to;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 /* loaded from: classes.dex */
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean isIPv4Reachable = true;
+    public static boolean isIPv6Reachable = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public String d;
-    public boolean e;
-    public boolean f;
+    public String beforeNetInfo;
+    public boolean clearCache;
+    public boolean httpDnsPrefetch;
+    public boolean isFirstNotify;
+    public ExecutorService mService;
 
     /* loaded from: classes.dex */
     public class a implements Callable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BDNetworkStateChangeReceiver a;
 
         public a(BDNetworkStateChangeReceiver bDNetworkStateChangeReceiver) {
             Interceptable interceptable = $ic;
@@ -48,32 +51,93 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = bDNetworkStateChangeReceiver;
         }
 
+        /* JADX WARN: Removed duplicated region for block: B:35:0x002b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:39:0x0046 A[EXC_TOP_SPLITTER, SYNTHETIC] */
         @Override // java.util.concurrent.Callable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
         public Object call() {
             InterceptResult invokeV;
+            DatagramSocket datagramSocket;
+            DatagramSocket datagramSocket2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 InetSocketAddress inetSocketAddress = new InetSocketAddress("2001:4860:4860::8888", 443);
+                InetSocketAddress inetSocketAddress2 = new InetSocketAddress("180.76.76.76", 80);
                 try {
-                    new DatagramSocket().connect(new InetSocketAddress("180.76.76.76", 80));
+                    datagramSocket = new DatagramSocket();
                 } catch (SocketException unused) {
-                    this.a.f = false;
+                    datagramSocket = null;
                 }
                 try {
-                    new DatagramSocket().connect(inetSocketAddress);
-                } catch (SocketException unused2) {
-                    this.a.e = false;
+                    datagramSocket.connect(inetSocketAddress2);
+                    boolean unused2 = BDNetworkStateChangeReceiver.isIPv4Reachable = true;
+                } catch (SocketException unused3) {
+                    boolean unused4 = BDNetworkStateChangeReceiver.isIPv4Reachable = false;
+                    if (datagramSocket != null) {
+                    }
+                    datagramSocket2 = new DatagramSocket();
+                    try {
+                        datagramSocket2.connect(inetSocketAddress);
+                        boolean unused5 = BDNetworkStateChangeReceiver.isIPv6Reachable = true;
+                    } catch (SocketException unused6) {
+                        datagramSocket = datagramSocket2;
+                        boolean unused7 = BDNetworkStateChangeReceiver.isIPv6Reachable = false;
+                        datagramSocket2 = datagramSocket;
+                        if (datagramSocket2 != null) {
+                        }
+                        to.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                        return null;
+                    }
+                    if (datagramSocket2 != null) {
+                    }
+                    to.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
+                    return null;
                 }
-                gq.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(this.a.f), Boolean.valueOf(this.a.e));
+                if (datagramSocket != null) {
+                    try {
+                        datagramSocket.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+                try {
+                    datagramSocket2 = new DatagramSocket();
+                    datagramSocket2.connect(inetSocketAddress);
+                    boolean unused52 = BDNetworkStateChangeReceiver.isIPv6Reachable = true;
+                } catch (SocketException unused8) {
+                }
+                if (datagramSocket2 != null) {
+                    try {
+                        datagramSocket2.close();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                to.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv4Reachable), Boolean.valueOf(BDNetworkStateChangeReceiver.isIPv6Reachable));
                 return null;
             }
             return invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(2008299385, "Lcom/baidu/bdhttpdns/BDNetworkStateChangeReceiver;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(2008299385, "Lcom/baidu/bdhttpdns/BDNetworkStateChangeReceiver;");
         }
     }
 
@@ -81,104 +145,81 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = true;
-        this.c = true;
-        this.d = "";
-        this.e = true;
-        this.f = true;
+        this.isFirstNotify = false;
+        this.clearCache = true;
+        this.httpDnsPrefetch = true;
+        this.beforeNetInfo = "";
+        this.mService = Executors.newFixedThreadPool(1);
     }
 
-    private void a(Context context) {
+    public static boolean isIPv4Reachable() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            gq.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.b), Boolean.valueOf(this.c));
-            i b = i.b();
-            b.r();
-            BDHttpDns j = BDHttpDns.j(context);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? isIPv4Reachable : invokeV.booleanValue;
+    }
+
+    public static boolean isIPv6Reachable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? isIPv6Reachable : invokeV.booleanValue;
+    }
+
+    private void processCacheOnNetworkChange(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
+            to.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.clearCache), Boolean.valueOf(this.httpDnsPrefetch));
+            HttpDnsClient z = HttpDnsClient.z();
+            z.x();
+            BDHttpDns h = BDHttpDns.h(context);
             refreshIpReachable();
-            ArrayList<String> e = j.a().e();
-            if (this.b) {
-                j.a().b();
-                j.d().b();
+            ArrayList<String> b = h.e().b();
+            if (this.clearCache) {
+                h.e().a();
+                h.d().a();
             }
-            if (this.c) {
-                if (isIPv6Only()) {
-                    gq.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
-                } else if (e == null || e.isEmpty()) {
-                } else {
-                    b.o(e, new fq(context));
-                }
+            if (!this.httpDnsPrefetch || b == null || b.isEmpty()) {
+                return;
             }
+            z.O(b, new so(context));
         }
     }
 
-    public void a(boolean z) {
+    public boolean isClearCache() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.b = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.clearCache : invokeV.booleanValue;
     }
 
-    public void b(boolean z) {
+    public boolean isHttpDnsPrefetch() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.httpDnsPrefetch : invokeV.booleanValue;
     }
 
     public boolean isIPv6Only() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f && this.e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !isIPv4Reachable && isIPv6Reachable : invokeV.booleanValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(8:13|(1:(6:40|19|20|(1:23)|25|26)(1:39))(1:17)|18|19|20|(1:23)|25|26) */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x005f, code lost:
-        r9 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0060, code lost:
-        r6 = r0;
-        r0 = r9;
-        r9 = r6;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x0065, code lost:
-        r0.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0068, code lost:
-        a(r8);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x006c, code lost:
-        r8 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x006d, code lost:
-        r8.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x0070, code lost:
-        r0 = r9;
-     */
     @Override // android.content.BroadcastReceiver
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     public void onReceive(Context context, Intent intent) {
         String str;
         ConnectivityManager connectivityManager;
-        String extraInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, intent) == null) {
             String str2 = "";
-            if (!this.a) {
-                this.a = true;
+            if (!this.isFirstNotify) {
+                this.isFirstNotify = true;
                 return;
             }
             try {
@@ -187,36 +228,56 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                 e = e;
             }
             if (connectivityManager == null) {
-                a(context);
+                processCacheOnNetworkChange(context);
                 return;
             }
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
             NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
             if (networkInfo != null && networkInfo.getState() == NetworkInfo.State.CONNECTED) {
-                extraInfo = networkInfo.getExtraInfo();
-            } else if (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) {
-                str = "";
-                if (!this.d.equals(str) && str != "") {
-                    gq.a("Current net type: %s.", str);
-                    a(context);
-                }
-                this.d = str;
+                str = networkInfo.getExtraInfo().toString();
             } else {
-                extraInfo = networkInfo2.getExtraInfo();
+                str = (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) ? "" : networkInfo2.getExtraInfo().toString();
             }
-            str = extraInfo.toString();
-            if (!this.d.equals(str)) {
-                gq.a("Current net type: %s.", str);
-                a(context);
+            try {
+                if (!this.beforeNetInfo.equals(str) && str != "") {
+                    to.a("Current net type: %s.", str);
+                    processCacheOnNetworkChange(context);
+                }
+            } catch (RuntimeException e2) {
+                String str3 = str;
+                e = e2;
+                str2 = str3;
+                e.printStackTrace();
+                try {
+                    processCacheOnNetworkChange(context);
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+                str = str2;
+                this.beforeNetInfo = str;
             }
-            this.d = str;
+            this.beforeNetInfo = str;
         }
     }
 
     public void refreshIpReachable() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Executors.newFixedThreadPool(1).submit(new a(this));
+            this.mService.submit(new a(this));
+        }
+    }
+
+    public void setClearCache(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.clearCache = z;
+        }
+    }
+
+    public void setHttpDnsPrefetch(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.httpDnsPrefetch = z;
         }
     }
 }

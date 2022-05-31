@@ -1,178 +1,287 @@
 package com.repackage;
 
-import android.media.AudioTrack;
+import android.annotation.TargetApi;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.media.MediaMetadataRetriever;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import com.baidu.ugc.editvideo.data.MediaInfo;
+import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class a89 extends u79 {
+public class a89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z79 B;
-    public Thread C;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a89(String str, int[] iArr) throws Exception {
-        super(0, str, iArr);
+    public static long a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, iArr};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (int[]) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                mediaMetadataRetriever.setDataSource(str);
+                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0L;
             }
         }
+        return invokeL.longValue;
     }
 
-    @Override // com.repackage.u79
-    public void B(long j) {
+    public static long b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            M(j * 1000, true);
+        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
+            return invokeL.longValue;
         }
-    }
-
-    @Override // com.repackage.u79
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Thread thread = this.C;
-            if (thread == null || !thread.isAlive()) {
-                Thread thread2 = new Thread(this);
-                this.C = thread2;
-                thread2.start();
-            }
-            super.I();
+        if (TextUtils.isEmpty(str)) {
+            return 0L;
         }
-    }
-
-    public final void K() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (i() == 1) {
-                i = 4;
-            } else {
-                i();
-                i = 12;
-            }
-            int i2 = this.q;
-            if (i2 != 1 && i2 != 2) {
-                this.q = 2;
-            }
-            this.B = new z79(3, m(), i, h() == 2 ? 2 : 3, AudioTrack.getMinBufferSize(m(), i, h() == 2 ? 2 : 3), 1);
-        }
-    }
-
-    public boolean L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            z79 z79Var = this.B;
-            return z79Var != null && z79Var.getState() == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void M(long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            if (j < 0) {
-                j = 0;
-            }
-            if (this.e != null && j > this.e.getDuration()) {
-                j = this.e.getDuration();
-            }
-            if (z) {
-                int playState = L() ? this.B.getPlayState() : 2;
-                if (playState == 2) {
-                    pause();
-                }
-                synchronized (this.b) {
-                    if (L()) {
-                        this.B.flush();
+        MediaMetadataRetriever mediaMetadataRetriever = null;
+        try {
+            if (new File(str).exists()) {
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    long c = t79.c(mediaMetadataRetriever2.extractMetadata(9), 0L);
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
                     }
-                    this.d = 0L;
-                }
-                e();
-                c();
-                if (playState == 3) {
-                    I();
+                    return c;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return 0L;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
                 }
             }
-            synchronized (this.c) {
-                if (this.e != null) {
-                    this.e.seek(j);
-                }
-            }
+            return 0L;
+        } catch (Exception unused5) {
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
-    public void N(float f, float f2) {
+    public static long c(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            synchronized (this.b) {
-                if (L()) {
-                    this.B.setStereoVolume(f, f2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            long j = 0;
+            if (FileUtils.isExists(str)) {
+                MediaExtractor mediaExtractor = new MediaExtractor();
+                try {
+                    try {
+                        mediaExtractor.setDataSource(str);
+                        MediaFormat mediaFormat = null;
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= mediaExtractor.getTrackCount()) {
+                                break;
+                            }
+                            MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
+                            if (trackFormat.getString("mime").startsWith(i == 0 ? "audio/" : com.sina.weibo.sdk.utils.FileUtils.VIDEO_FILE_START)) {
+                                mediaExtractor.selectTrack(i2);
+                                mediaFormat = trackFormat;
+                                break;
+                            }
+                            i2++;
+                        }
+                        if (mediaFormat != null) {
+                            j = mediaFormat.getLong("durationUs");
+                        }
+                    } catch (Exception e) {
+                        p79.e("VideoMuxer", "getMediaDurationMs error:" + e.getMessage());
+                    }
+                    return j / 1000;
+                } finally {
+                    mediaExtractor.release();
                 }
             }
+            return 0L;
         }
+        return invokeLI.longValue;
     }
 
-    @Override // com.repackage.u79
-    public y79 p() throws IOException {
-        InterceptResult invokeV;
+    public static MediaInfo d(String str) {
+        InterceptResult invokeL;
+        MediaInfo mediaInfo;
+        File file;
+        MediaMetadataRetriever mediaMetadataRetriever;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            K();
-            return this.B;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, str)) != null) {
+            return (MediaInfo) invokeL.objValue;
         }
-        return (y79) invokeV.objValue;
-    }
-
-    @Override // com.repackage.u79
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this.b) {
-                if (L() && this.B.getPlayState() != 2) {
-                    this.B.pause();
+        MediaMetadataRetriever mediaMetadataRetriever2 = null;
+        try {
+            try {
+                file = new File(str);
+            } catch (Exception e) {
+                e = e;
+                mediaInfo = null;
+            }
+            if (file.exists() && file.isFile()) {
+                mediaInfo = new MediaInfo();
+                try {
+                    mediaInfo.setVideoPath(str);
+                    mediaInfo.setLastModified(file.lastModified());
+                    mediaMetadataRetriever = new MediaMetadataRetriever();
+                } catch (Exception e2) {
+                    e = e2;
                 }
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    mediaInfo.setDuration(Integer.parseInt(mediaMetadataRetriever.extractMetadata(9)));
+                    mediaInfo.setMimeType(mediaMetadataRetriever.extractMetadata(12));
+                    mediaInfo.setVideoWidth(Integer.parseInt(mediaMetadataRetriever.extractMetadata(18)));
+                    mediaInfo.setVideoHeight(Integer.parseInt(mediaMetadataRetriever.extractMetadata(19)));
+                    mediaInfo.setRotation(t79.b(mediaMetadataRetriever.extractMetadata(24), 0));
+                    o79.a(mediaMetadataRetriever);
+                } catch (Exception e3) {
+                    e = e3;
+                    mediaMetadataRetriever2 = mediaMetadataRetriever;
+                    p79.g(e);
+                    if (mediaMetadataRetriever2 != null) {
+                        o79.a(mediaMetadataRetriever2);
+                    }
+                    return mediaInfo;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever2 = mediaMetadataRetriever;
+                    if (mediaMetadataRetriever2 != null) {
+                        o79.a(mediaMetadataRetriever2);
+                    }
+                    throw th;
+                }
+                return mediaInfo;
+            }
+            return null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
+    }
+
+    public static int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    int b = t79.b(mediaMetadataRetriever.extractMetadata(20), 0);
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return b;
+                } catch (Throwable th) {
+                    try {
+                        mediaMetadataRetriever.release();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (Exception e3) {
+                e3.printStackTrace();
+                try {
+                    mediaMetadataRetriever.release();
+                } catch (Exception e4) {
+                    e4.printStackTrace();
+                }
+                return 0;
             }
         }
+        return invokeL.intValue;
     }
 
-    @Override // com.repackage.u79
-    public void u() {
+    public static int f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this.b) {
-                if (L() && this.B.getPlayState() != 3) {
-                    this.B.play();
+        if (interceptable != null && (invokeL = interceptable.invokeL(65541, null, str)) != null) {
+            return invokeL.intValue;
+        }
+        if (TextUtils.isEmpty(str)) {
+            return 0;
+        }
+        MediaMetadataRetriever mediaMetadataRetriever = null;
+        try {
+            if (new File(str).exists()) {
+                MediaMetadataRetriever mediaMetadataRetriever2 = new MediaMetadataRetriever();
+                try {
+                    mediaMetadataRetriever2.setDataSource(str);
+                    int parseInt = Integer.parseInt(mediaMetadataRetriever2.extractMetadata(9));
+                    try {
+                        mediaMetadataRetriever2.release();
+                    } catch (Exception unused) {
+                    }
+                    return parseInt;
+                } catch (Exception unused2) {
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused3) {
+                        }
+                    }
+                    return 0;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaMetadataRetriever = mediaMetadataRetriever2;
+                    if (mediaMetadataRetriever != null) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                    throw th;
                 }
             }
+            return 0;
+        } catch (Exception unused5) {
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
-    @Override // com.repackage.u79
-    public void v() {
+    @TargetApi(16)
+    public static boolean g(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.C == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(str);
+            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
+                if (z79.j(mediaExtractor.getTrackFormat(i))) {
+                    return true;
+                }
+            }
+            return false;
         }
-        this.C = null;
+        return invokeL.booleanValue;
     }
 }

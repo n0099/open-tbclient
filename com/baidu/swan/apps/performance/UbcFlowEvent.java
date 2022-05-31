@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.repackage.eh1;
+import com.repackage.rf1;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -104,7 +104,7 @@ public class UbcFlowEvent {
                 return;
             }
         }
-        g = eh1.a;
+        g = rf1.a;
     }
 
     public UbcFlowEvent(String str) {

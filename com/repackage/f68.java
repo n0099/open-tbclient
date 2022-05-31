@@ -1,95 +1,73 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class f68 extends uw5<c58> {
+import tbclient.GetLockWindowMsg.LockWindowThreadInfo;
+/* loaded from: classes5.dex */
+public class f68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TbImageView j;
-    public TextView k;
-    public TextView l;
-    public c58 m;
+    public long a;
+    public String b;
+    public int c;
+    public TbRichText d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f68(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public f68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        View k = k();
-        this.i = k;
-        this.j = (TbImageView) k.findViewById(R.id.obfuscated_res_0x7f090568);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090566);
-        this.l = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f090567);
     }
 
-    @Override // com.repackage.uw5
-    public int d() {
+    public TbRichText a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ad : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (TbRichText) invokeV.objValue;
     }
 
-    @Override // com.repackage.uw5
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void e(LockWindowThreadInfo lockWindowThreadInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, lockWindowThreadInfo) == null) || lockWindowThreadInfo == null) {
             return;
         }
-        this.a = i;
-        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
-        if (this.m.a == null) {
-            SkinManager.setImageResource(this.j, R.drawable.icon_shen_mine);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uw5
-    /* renamed from: s */
-    public void l(c58 c58Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, c58Var) == null) || c58Var == null) {
+        this.a = lockWindowThreadInfo.tid.longValue();
+        this.b = lockWindowThreadInfo.title;
+        this.c = lockWindowThreadInfo.post_num.intValue();
+        if (ListUtils.isEmpty(lockWindowThreadInfo.content)) {
             return;
         }
-        this.m = c58Var;
-        String str = c58Var.a;
-        if (str != null) {
-            this.j.K(str, 10, false);
-        }
-        this.k.setText(c58Var.b);
-        this.l.setText(c58Var.c);
+        this.d = TbRichTextView.X(lockWindowThreadInfo.content, true);
     }
 }

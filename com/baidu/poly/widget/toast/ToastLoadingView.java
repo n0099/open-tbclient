@@ -49,9 +49,9 @@ public class ToastLoadingView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0892, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920cf);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0920d2);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0885, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092075);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092078);
             this.c = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010090);
             setClickable(true);
         }

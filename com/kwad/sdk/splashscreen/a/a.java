@@ -63,6 +63,6 @@ public class a extends Presenter implements com.kwad.sdk.widget.d {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.a = a(R.id.obfuscated_res_0x7f091146);
+        this.a = a(R.id.obfuscated_res_0x7f091108);
     }
 }

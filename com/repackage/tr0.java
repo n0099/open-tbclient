@@ -1,9 +1,22 @@
 package com.repackage;
 
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface tr0 {
-    @NonNull
-    View getContentView();
+public class tr0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) || activity == null) {
+            return;
+        }
+        if (z) {
+            activity.getWindow().addFlags(128);
+        } else {
+            activity.getWindow().clearFlags(128);
+        }
+    }
 }

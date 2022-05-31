@@ -143,7 +143,7 @@ public class da {
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file)));
                 try {
-                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m651a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + "\n");
+                    bufferedWriter.write("model :" + Build.MODEL + "; os :" + Build.VERSION.INCREMENTAL + "; uid :" + com.xiaomi.push.service.bi.m650a() + "; lng :" + Locale.getDefault().toString() + "; sdk :43; andver :" + Build.VERSION.SDK_INT + "\n");
                     this.f193a = 0;
                     Iterator<File> it = this.f195a.iterator();
                     while (it.hasNext()) {
@@ -205,7 +205,7 @@ public class da {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public da m278a(File file) {
+    public da m277a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
@@ -246,14 +246,14 @@ public class da {
                 if (!file2.exists()) {
                     file2 = context.getFilesDir();
                 }
-                m278a(new File(file2, "xmsf.log.1"));
+                m277a(new File(file2, "xmsf.log.1"));
                 file3 = new File(file2, "xmsf.log");
             } else {
                 file2 = new File(context.getExternalFilesDir(null) + a);
-                m278a(new File(file2, "log0.txt"));
+                m277a(new File(file2, "log0.txt"));
                 file3 = new File(file2, "log1.txt");
             }
-            m278a(file3);
+            m277a(file3);
             if (file2.isDirectory()) {
                 File file4 = new File(file, date.getTime() + "-" + date2.getTime() + ".zip");
                 if (file4.exists()) {

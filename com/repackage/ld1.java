@@ -1,346 +1,180 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.AdImageView;
-import com.baidu.sdk.container.filedownloader.MaterialLoadErrorCode;
-import com.baidu.sdk.container.filedownloader.MaterialLoader;
-import com.baidu.sdk.container.widget.AdView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.repackage.gd1;
+import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class ld1 extends jd1 {
+public class ld1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ld1 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView X;
-    public Bitmap Y;
+    public AtomicBoolean a;
+    public AtomicBoolean b;
+    public AtomicBoolean c;
+    public AtomicBoolean d;
+    public HashMap<Integer, gd1.a> e;
 
-    /* loaded from: classes6.dex */
-    public class a implements nd1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ld1 a;
-
-        public a(ld1 ld1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ld1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ld1Var;
-        }
-
-        @Override // com.repackage.nd1
-        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
-                ld1 ld1Var = this.a;
-                ld1Var.G("StaticImage Load Failed: " + materialLoadErrorCode.toString());
-            }
-        }
-
-        @Override // com.repackage.nd1
-        public void b(String str, View view2, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
-                this.a.Y = bitmap;
-                this.a.Q();
-                this.a.H();
-            }
-        }
-
-        @Override // com.repackage.nd1
-        public void onLoadingStarted(String str, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ld1 a;
-
-        public b(ld1 ld1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ld1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ld1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.F();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements nd1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ld1 a;
-
-        public c(ld1 ld1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ld1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ld1Var;
-        }
-
-        @Override // com.repackage.nd1
-        public void a(String str, View view2, MaterialLoadErrorCode materialLoadErrorCode) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, view2, materialLoadErrorCode) == null) {
-                ld1 ld1Var = this.a;
-                ld1Var.G("Get Static Image error: " + materialLoadErrorCode.getMessage());
-            }
-        }
-
-        @Override // com.repackage.nd1
-        public void b(String str, View view2, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, view2, bitmap) == null) {
-                this.a.Y = bitmap;
-            }
-        }
-
-        @Override // com.repackage.nd1
-        public void onLoadingStarted(String str, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, view2) == null) {
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ld1(Context context, JSONObject jSONObject) {
-        super(context, jSONObject);
+    public ld1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = "image";
+        this.a = new AtomicBoolean(false);
+        this.b = new AtomicBoolean(false);
+        this.c = new AtomicBoolean(false);
+        this.d = new AtomicBoolean(false);
+        this.e = new HashMap<>();
     }
 
-    @Override // com.repackage.jd1
-    public void B() {
-        RelativeLayout.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b == 2) {
-            return;
-        }
-        try {
-            layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            AdImageView adImageView = new AdImageView(this.a);
-            this.X = adImageView;
-            adImageView.setVisibility(0);
-            this.X.setOnClickListener(new b(this));
-            this.X.setLayoutParams(layoutParams);
-            U();
-        } catch (Exception e) {
-            G(jd1.W + " exception=" + Log.getStackTraceString(e));
-        }
-        if (this.Y == null) {
-            G("bitmap is null!!!");
-            return;
-        }
-        this.X.setDrawingCacheEnabled(true);
-        this.X.setImageBitmap(this.Y);
-        j(this.X, layoutParams);
-        this.X.requestLayout();
-        super.B();
-        this.X.requestFocus();
-        J();
-    }
-
-    @Override // com.repackage.jd1
-    public void C() {
-        AdView adView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ImageView imageView = this.X;
-            if (imageView != null && (adView = this.k) != null && adView.indexOfChild(imageView) >= 0) {
-                if (this.X.getDrawingCache() != null) {
-                    this.X.getDrawingCache().recycle();
-                }
-                this.k.removeAllViews();
-            }
-            Bitmap bitmap = this.Y;
-            if (bitmap == null || bitmap.isRecycled()) {
-                return;
-            }
-            this.Y.recycle();
-            this.Y = null;
-        }
-    }
-
-    public final void U() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ImageView imageView = this.X;
-            if (imageView != null) {
-                imageView.setScaleType(this.F == 17 ? ImageView.ScaleType.CENTER_CROP : ImageView.ScaleType.FIT_XY);
-            }
-            if (this.Y != null) {
-                return;
-            }
-            this.Y = this.h.a(this.t, new c(this));
-        }
-    }
-
-    @Override // com.repackage.jd1, com.repackage.ud1
-    public void a(vd1 vd1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vd1Var) == null) {
-            super.a(vd1Var);
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-        }
-    }
-
-    @Override // com.repackage.jd1, com.repackage.ud1
-    public void c(td1 td1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, td1Var) == null) {
-            super.c(td1Var);
-        }
-    }
-
-    @Override // com.repackage.jd1, com.repackage.ud1
-    public View getAdView() {
+    public static ld1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? super.getAdView() : (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.jd1, com.repackage.ud1
-    public void load() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.load();
-            if (this.h.c(this.t, MaterialLoader.MaterialCacheType.PICTURE)) {
-                Q();
-                H();
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == null) {
+                synchronized (ld1.class) {
+                    if (f == null) {
+                        f = new ld1();
+                    }
+                }
             }
-            try {
-                MaterialLoader.k(this.a).f(this.t, new a(this));
-            } catch (Exception e) {
-                G("StaticImage,Exception: " + e.toString());
+            return f;
+        }
+        return (ld1) invokeV.objValue;
+    }
+
+    public synchronized int a(gd1.a aVar) {
+        InterceptResult invokeL;
+        int currentTimeMillis;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            synchronized (this) {
+                currentTimeMillis = (int) System.currentTimeMillis();
+                this.e.put(Integer.valueOf(currentTimeMillis), aVar);
+            }
+            return currentTimeMillis;
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized Pair<Boolean, gd1.a> b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            synchronized (this) {
+                if (!this.e.containsKey(Integer.valueOf(i))) {
+                    return new Pair<>(Boolean.FALSE, null);
+                }
+                vd1.a().b(i);
+                this.e.remove(Integer.valueOf(i));
+                return new Pair<>(Boolean.TRUE, this.e.get(Integer.valueOf(i)));
             }
         }
+        return (Pair) invokeI.objValue;
     }
 
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onAttachedToWindow() {
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a.set(z);
         }
     }
 
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onDetachedFromWindow() {
+    public boolean e(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            R();
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.a.compareAndSet(z, z2) : invokeCommon.booleanValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b.set(z);
         }
     }
 
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        InterceptResult invokeIL;
+    public boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, keyEvent)) == null) {
-            return false;
-        }
-        return invokeIL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.get() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onWindowFocusChanged(boolean z) {
+    public synchronized boolean h(int i) {
+        InterceptResult invokeI;
+        boolean containsKey;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            synchronized (this) {
+                containsKey = this.e.containsKey(Integer.valueOf(i));
+            }
+            return containsKey;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean i(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.b.compareAndSet(z, z2) : invokeCommon.booleanValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.c.set(z);
         }
     }
 
-    @Override // com.baidu.sdk.container.widget.AdView.a
-    public void onWindowVisibilityChanged(int i) {
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c.get() : invokeV.booleanValue;
+    }
+
+    public synchronized boolean l(int i) {
+        InterceptResult invokeI;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            synchronized (this) {
+                containsKey = this.e.containsKey(Integer.valueOf(i));
+            }
+            return containsKey;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean m(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.c.compareAndSet(z, z2) : invokeCommon.booleanValue;
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.d.set(z);
         }
     }
 
-    @Override // com.repackage.jd1
-    public void y() {
-        ImageView imageView;
+    public boolean o(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (imageView = this.X) == null) {
-            return;
-        }
-        imageView.setOnClickListener(null);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.d.compareAndSet(z, z2) : invokeCommon.booleanValue;
     }
 }

@@ -1,19 +1,20 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.event.base.TKBaseEvent;
+import com.repackage.tl2;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s34 extends JSEvent {
+public abstract class s34<T extends tl2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s34() {
-        super(TKBaseEvent.TK_CLICK_EVENT_NAME);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,11 +22,30 @@ public class s34 extends JSEvent {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
+    }
+
+    public abstract boolean b(Context context, T t, ql2 ql2Var, hz2 hz2Var, JSONObject jSONObject);
+
+    public boolean c(Context context, T t, ql2 ql2Var, hz2 hz2Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, t, ql2Var, hz2Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!b(context, t, ql2Var, hz2Var, jSONObject)) {
+                ql2Var.d(1001);
+                hw1.c("map", "doAction fail");
+                return false;
+            }
+            if (jSONObject.length() <= 0) {
+                jSONObject = null;
+            }
+            ql2Var.e(jSONObject);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

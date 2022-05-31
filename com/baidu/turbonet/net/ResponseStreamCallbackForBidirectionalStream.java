@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.net.BidirectionalStream;
-import com.repackage.d29;
+import com.repackage.gz8;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.concurrent.Executor;
@@ -99,12 +99,12 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
             try {
                 this.c.e();
             } catch (Exception unused) {
-                d29.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
+                gz8.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
             }
             try {
                 this.a.close();
             } catch (Exception unused2) {
-                d29.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                gz8.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
             i(bidirectionalStream, urlResponseInfo);
         }
@@ -114,16 +114,16 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
     public final void b(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo, TurbonetException turbonetException) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bidirectionalStream, urlResponseInfo, turbonetException) == null) {
-            d29.h("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), turbonetException);
+            gz8.h("ChromiumNetwork", "****** onFailed, url is: %s, error is: %s", urlResponseInfo.h(), turbonetException);
             try {
                 this.c.e();
             } catch (Exception unused) {
-                d29.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
+                gz8.h("ChromiumNetwork", "Exception when closing associated stream", new Object[0]);
             }
             try {
                 this.a.close();
             } catch (Exception unused2) {
-                d29.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                gz8.h("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
             if (this.b) {
                 return;
@@ -137,7 +137,7 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bidirectionalStream, urlResponseInfo, byteBuffer, Boolean.valueOf(z)}) == null) {
             byteBuffer.flip();
-            d29.h("ChromiumNetwork", "****** onReadCompleted ******%s", byteBuffer);
+            gz8.h("ChromiumNetwork", "****** onReadCompleted ******%s", byteBuffer);
             this.a.write(byteBuffer.array(), byteBuffer.arrayOffset(), byteBuffer.limit());
             this.a.flush();
             if (z) {
@@ -152,15 +152,15 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
     public final void d(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, bidirectionalStream, urlResponseInfo) == null) {
-            d29.h("ChromiumNetwork", "****** onResponseHeaderReceived ******", new Object[0]);
-            d29.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
+            gz8.h("ChromiumNetwork", "****** onResponseHeaderReceived ******", new Object[0]);
+            gz8.h("ChromiumNetwork", "*** Headers Are *** %s", urlResponseInfo.a());
             this.a = new PipedOutputStreamAndroid25();
             try {
                 d.execute(new a(this, bidirectionalStream, urlResponseInfo, new PipedInputStreamAndroid25(this.a, 4096)));
                 bidirectionalStream.a(ByteBuffer.allocateDirect(32768));
                 this.b = true;
             } catch (Exception e) {
-                d29.c("ChromiumNetwork", "Exception in onResponseStarted ", e);
+                gz8.c("ChromiumNetwork", "Exception in onResponseStarted ", e);
                 throw e;
             }
         }
@@ -170,7 +170,7 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
     public final void f(BidirectionalStream bidirectionalStream) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bidirectionalStream) == null) {
-            d29.h("ChromiumNetwork", "****** onStreamReady ******", new Object[0]);
+            gz8.h("ChromiumNetwork", "****** onStreamReady ******", new Object[0]);
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(this.c.c());
             int b = this.c.b(allocateDirect);
             allocateDirect.flip();
@@ -182,11 +182,11 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
     public final void g(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, bidirectionalStream, urlResponseInfo) == null) {
-            d29.h("ChromiumNetwork", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
+            gz8.h("ChromiumNetwork", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
             try {
                 this.a.close();
             } catch (Exception unused) {
-                d29.c("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
+                gz8.c("ChromiumNetwork", "Exception when closing output stream", new Object[0]);
             }
         }
     }
@@ -201,7 +201,7 @@ public abstract class ResponseStreamCallbackForBidirectionalStream extends Bidir
         int b = this.c.b(byteBuffer);
         byteBuffer.flip();
         bidirectionalStream.b(byteBuffer, b <= 0);
-        d29.h("ChromiumNetwork", "****** onWriteCompleted ******, total writen bytes is %d", Integer.valueOf(b));
+        gz8.h("ChromiumNetwork", "****** onWriteCompleted ******, total writen bytes is %d", Integer.valueOf(b));
     }
 
     public void i(BidirectionalStream bidirectionalStream, UrlResponseInfo urlResponseInfo) {

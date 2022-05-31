@@ -1,52 +1,144 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.view.View;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.card.AutoVideoCardViewHolder;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.Align;
+import com.baidu.card.view.UnfollowedDecorView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dy {
+public class dy extends ow implements bx<ThreadData>, cx {
     public static /* synthetic */ Interceptable $ic;
+    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
+    public UnfollowedDecorView e;
+    public Align f;
 
-    public static Rect a(xo xoVar, View view2, int i) {
-        InterceptResult invokeLLI;
-        BdTypeRecyclerView bdTypeRecyclerView;
-        RecyclerView.LayoutManager layoutManager;
-        View findViewByPosition;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, xoVar, view2, i)) == null) {
-            if (view2.getTag() instanceof AutoVideoCardViewHolder) {
-                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view2.getTag()).w().getVideoContainer());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964041712, "Lcom/repackage/dy;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!(xoVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) xoVar).getLayoutManager()) == null) {
-                return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964041712, "Lcom/repackage/dy;");
+                return;
             }
-            int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
-            int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
-            List<ro> data = xoVar.getData();
-            Object item = ListUtils.getItem(data, i);
-            if (item instanceof BaseCardInfo) {
-                BaseCardInfo baseCardInfo = (BaseCardInfo) item;
-                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
-                for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
-                    Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
-                    if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
-                        return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).w().getVideoContainer());
-                    }
-                }
-                return null;
-            }
-            return null;
         }
-        return (Rect) invokeLLI.objValue;
+        g = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds124);
+    }
+
+    public dy(TbPageContext tbPageContext, Align align) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, align};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        h(-1);
+        UnfollowedDecorView unfollowedDecorView = new UnfollowedDecorView(tbPageContext.getPageActivity());
+        this.e = unfollowedDecorView;
+        unfollowedDecorView.setId(R.id.obfuscated_res_0x7f09074e);
+        g(this.e);
+        k(align);
+    }
+
+    public void k(Align align) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, align) == null) || align == this.f) {
+            return;
+        }
+        int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
+        if (align == Align.ALIGN_RIGHT_TOP) {
+            int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            layoutParams.topMargin = dimenPixelSize2;
+            i(layoutParams);
+            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.e.setLayoutParams(layoutParams);
+        } else if (align == Align.ALIGN_RIGHT_CENTER) {
+            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
+            layoutParams2.addRule(11);
+            layoutParams2.addRule(15);
+            layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
+            layoutParams2.bottomMargin = 0;
+            i(layoutParams2);
+            this.e.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.e.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.e.setLayoutParams(layoutParams2);
+        } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
+            int i = g;
+            int f = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds30);
+            int f2 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds14);
+            int f3 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds20);
+            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(i, i);
+            layoutParams3.addRule(11);
+            layoutParams3.addRule(12);
+            layoutParams3.rightMargin = f2;
+            layoutParams3.bottomMargin = f3;
+            i(layoutParams3);
+            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f080908, R.color.CAM_X0111);
+            this.e.setPadding(f, f, f, f);
+            this.e.setLayoutParams(layoutParams3);
+        }
+        this.f = align;
+    }
+
+    public void l(om4 om4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, om4Var) == null) {
+            if (om4Var.isSupportTop()) {
+                k(Align.ALIGN_RIGHT_TOP);
+            } else if (om4Var.isSupportBottom()) {
+                xx xxVar = this.d;
+                if (xxVar != null) {
+                    xxVar.n(this);
+                }
+            } else {
+                k(Align.ALIGN_RIGHT_TOP);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bx
+    /* renamed from: m */
+    public void a(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) {
+            this.e.m(threadData);
+        }
+    }
+
+    @Override // com.repackage.cx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            this.e.o();
+        }
     }
 }

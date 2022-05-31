@@ -160,11 +160,11 @@ public class c {
 
     /* renamed from: com.baidu.android.pushservice.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0017c implements DatabaseErrorHandler {
+    public static class C0016c implements DatabaseErrorHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0017c() {
+        public C0016c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +178,7 @@ public class c {
             }
         }
 
-        public /* synthetic */ C0017c(AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0016c(AnonymousClass1 anonymousClass1) {
             this();
         }
 
@@ -2158,7 +2158,7 @@ public class c {
                         String str = file.getAbsolutePath() + File.separator + "pushinfo.db";
                         SQLiteDatabase sQLiteDatabase = null;
                         if (Build.VERSION.SDK_INT >= 11) {
-                            a = new d(context, str, 8, new C0017c(null));
+                            a = new d(context, str, 8, new C0016c(null));
                         } else {
                             a = new d(context, str, (SQLiteDatabase.CursorFactory) null, 8);
                         }

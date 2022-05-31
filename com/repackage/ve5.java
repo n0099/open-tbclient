@@ -1,92 +1,48 @@
 package com.repackage;
 
-import android.util.SparseArray;
+import android.content.Context;
 import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 /* loaded from: classes7.dex */
-public class ve5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<WeakReference<View>> a;
-    public View b;
+public interface ve5 {
+    ag<GifView> getGifViewPool();
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ve5(View view2) {
-        this(view2, -1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((View) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    ag<ImageView> getImageViewPool();
 
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
+    ag<ItemCardView> getItemCardViewPool();
 
-    public <T extends View> T b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            WeakReference<View> weakReference = this.a.get(i);
-            if (weakReference == null) {
-                T t = (T) this.b.findViewById(i);
-                if (t != null) {
-                    this.a.put(i, new WeakReference<>(t));
-                    return t;
-                }
-                return t;
-            }
-            return (T) weakReference.get();
-        }
-        return (T) invokeI.objValue;
-    }
+    ListView getListView();
 
-    public ve5 c(View.OnClickListener onClickListener) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
-            this.b.setOnClickListener(onClickListener);
-            return this;
-        }
-        return (ve5) invokeL.objValue;
-    }
+    ag<RelativeLayout> getRelativeLayoutPool();
 
-    public ve5(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = view2;
-        this.a = new SparseArray<>();
-    }
+    int getRichTextViewId();
+
+    ag<TextView> getTextViewPool();
+
+    ag<LinearLayout> getTextVoiceViewPool();
+
+    ag<TiebaPlusRecommendCard> getTiejiaRecommendPool();
+
+    ag<View> getVoiceViewPool();
+
+    void onAtClicked(Context context, String str);
+
+    void onLinkButtonClicked(Context context, String str);
+
+    void onLinkClicked(Context context, String str, boolean z);
+
+    void onPhoneClicked(Context context, String str, String str2);
+
+    void onSongClicked(Context context, String str);
+
+    void onVideoClicked(Context context, String str);
+
+    void onVideoP2PClicked(Context context, String str);
 }

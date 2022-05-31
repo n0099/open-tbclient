@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fb5;
-import com.repackage.gb5;
-import com.repackage.hb5;
+import com.repackage.aa5;
+import com.repackage.ba5;
+import com.repackage.z95;
 /* loaded from: classes3.dex */
 public class TemplateNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isNeedCache;
-    public fb5 mIReq;
-    public gb5 mIResp;
+    public z95 mIReq;
+    public aa5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TemplateNetMessage(hb5 hb5Var, fb5 fb5Var, gb5 gb5Var) {
-        super(hb5Var.e(), hb5Var.a());
+    public TemplateNetMessage(ba5 ba5Var, z95 z95Var, aa5 aa5Var) {
+        super(ba5Var.e(), ba5Var.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hb5Var, fb5Var, gb5Var};
+            Object[] objArr = {ba5Var, z95Var, aa5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,8 +39,8 @@ public class TemplateNetMessage extends NetMessage {
             }
         }
         this.isNeedCache = false;
-        this.mIReq = fb5Var;
-        this.mIResp = gb5Var;
+        this.mIReq = z95Var;
+        this.mIResp = aa5Var;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage
@@ -54,16 +54,16 @@ public class TemplateNetMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public fb5 getIReq() {
+    public z95 getIReq() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIReq : (fb5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mIReq : (z95) invokeV.objValue;
     }
 
-    public gb5 getIResp() {
+    public aa5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIResp : (gb5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mIResp : (aa5) invokeV.objValue;
     }
 
     public boolean isNeedCache() {

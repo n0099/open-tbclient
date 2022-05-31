@@ -2,7 +2,7 @@ package com.repackage;
 
 import android.content.Context;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface r {
     boolean a(Context context, File file);
 

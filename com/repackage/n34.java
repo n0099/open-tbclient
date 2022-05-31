@@ -1,8 +1,10 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.mapapi.CoordType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,64 +13,27 @@ public class n34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(View view2, ar2 ar2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, ar2Var)) == null) {
-            li1 X = hm2.U().X();
-            return X != null && X.c(view2, ar2Var);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            li1 X = hm2.U().X();
-            if (X != null) {
-                return X.getContext();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755520446, "Lcom/repackage/n34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755520446, "Lcom/repackage/n34;");
+                return;
+            }
         }
-        return (Context) invokeV.objValue;
+        SDKInitializer.initialize(AppRuntime.getAppContext());
+        SDKInitializer.setCoordType(CoordType.GCJ02);
+        SDKInitializer.setHttpsEnable(true);
     }
 
-    public static void c(tf3 tf3Var) {
-        li1 X;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, tf3Var) == null) || (X = hm2.U().X()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
         }
-        X.e(tf3Var);
-    }
-
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            li1 X = hm2.U().X();
-            return X != null && X.removeView(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(tf3 tf3Var) {
-        li1 X;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tf3Var) == null) || (X = hm2.U().X()) == null) {
-            return;
-        }
-        X.f(tf3Var);
-    }
-
-    public static boolean f(View view2, ar2 ar2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, ar2Var)) == null) {
-            li1 X = hm2.U().X();
-            return X != null && X.a(view2, ar2Var);
-        }
-        return invokeLL.booleanValue;
     }
 }

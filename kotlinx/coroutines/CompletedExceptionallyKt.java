@@ -16,25 +16,25 @@ public final class CompletedExceptionallyKt {
             if (DebugKt.getRECOVER_STACK_TRACES() && (continuation instanceof CoroutineStackFrame)) {
                 th = StackTraceRecoveryKt.access$recoverFromStackFrame(th, (CoroutineStackFrame) continuation);
             }
-            return Result.m689constructorimpl(ResultKt.createFailure(th));
+            return Result.m688constructorimpl(ResultKt.createFailure(th));
         }
         Result.Companion companion2 = Result.Companion;
-        return Result.m689constructorimpl(obj);
+        return Result.m688constructorimpl(obj);
     }
 
     public static final <T> Object toState(Object obj) {
-        Throwable m692exceptionOrNullimpl = Result.m692exceptionOrNullimpl(obj);
-        return m692exceptionOrNullimpl == null ? obj : new CompletedExceptionally(m692exceptionOrNullimpl, false, 2, null);
+        Throwable m691exceptionOrNullimpl = Result.m691exceptionOrNullimpl(obj);
+        return m691exceptionOrNullimpl == null ? obj : new CompletedExceptionally(m691exceptionOrNullimpl, false, 2, null);
     }
 
     public static final <T> Object toState(Object obj, CancellableContinuation<?> cancellableContinuation) {
-        Throwable m692exceptionOrNullimpl = Result.m692exceptionOrNullimpl(obj);
-        if (m692exceptionOrNullimpl == null) {
+        Throwable m691exceptionOrNullimpl = Result.m691exceptionOrNullimpl(obj);
+        if (m691exceptionOrNullimpl == null) {
             return obj;
         }
         if (DebugKt.getRECOVER_STACK_TRACES() && (cancellableContinuation instanceof CoroutineStackFrame)) {
-            m692exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m692exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
+            m691exceptionOrNullimpl = StackTraceRecoveryKt.access$recoverFromStackFrame(m691exceptionOrNullimpl, (CoroutineStackFrame) cancellableContinuation);
         }
-        return new CompletedExceptionally(m692exceptionOrNullimpl, false, 2, null);
+        return new CompletedExceptionally(m691exceptionOrNullimpl, false, 2, null);
     }
 }

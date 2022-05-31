@@ -14,20 +14,21 @@ import org.json.JSONObject;
 public class tp1 extends np1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String f;
+    public ae3<Integer> g;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements ae3<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ tp1 b;
+        public final /* synthetic */ tp1 a;
 
-        public a(tp1 tp1Var, String str) {
+        public a(tp1 tp1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tp1Var, str};
+                Object[] objArr = {tp1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,81 +38,78 @@ public class tp1 extends np1 {
                     return;
                 }
             }
-            this.b = tp1Var;
-            this.a = str;
+            this.a = tp1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ae3
+        /* renamed from: a */
+        public void onCallback(Integer num) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d02 V = hm2.U().V();
-                if (V == null) {
-                    ux1.c("PullDownRefreshApi", "manager is null");
-                    this.b.d(this.a, new us1(1001));
-                } else if (!(V.m() instanceof c02)) {
-                    ux1.c("PullDownRefreshApi", "top fragment error");
-                    this.b.d(this.a, new us1(1001));
-                } else {
-                    c02 c02Var = (c02) V.m();
-                    if (c02Var.k0() == null) {
-                        ux1.c("PullDownRefreshApi", "view is null");
-                        this.b.d(this.a, new us1(1001));
-                        return;
-                    }
-                    c02Var.k0().w(false);
-                    ux1.i("PullDownRefreshApi", "refresh complete");
-                    this.b.d(this.a, new us1(0));
+            if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
+                if (num.intValue() == 1 || num.intValue() == 0) {
+                    this.a.z();
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tp1(@NonNull vo1 vo1Var) {
-        super(vo1Var);
+    public tp1(@NonNull in1 in1Var) {
+        super(in1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vo1Var};
+            Object[] objArr = {in1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vo1) newInitContext.callArgs[0]);
+                super((in1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.g = new a(this);
     }
 
-    @Override // com.repackage.xo1
+    @Override // com.repackage.kn1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PullDownRefreshApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ExitFullScreenApi" : (String) invokeV.objValue;
     }
 
-    public us1 x(String str) {
+    public hr1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#stopPullDownRefresh", false);
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
+            q("#exitFullScreen", false);
+            Pair<hr1, JSONObject> s = s(str);
+            hr1 hr1Var = (hr1) s.first;
+            if (hr1Var.isSuccess()) {
                 String optString = ((JSONObject) s.second).optString("cb");
+                this.f = optString;
                 if (TextUtils.isEmpty(optString)) {
-                    p("cb is empty", null, true);
-                    return new us1(1001, "cb is empty");
+                    return new hr1(201);
                 }
-                oe3.e0(new a(this, optString));
-                return us1.f();
+                yp1.e().v(this.g);
+                yp1.e().m();
+                return hr1.f();
             }
-            return us1Var;
+            return hr1Var;
         }
-        return (us1) invokeL.objValue;
+        return (hr1) invokeL.objValue;
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            yp1.e().w();
+            yp1.e().p();
+            d(this.f, new hr1(0));
+        }
     }
 }

@@ -89,7 +89,7 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m216a() {
+    private void m215a() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.a.size() <= 100) {
             return;
@@ -98,7 +98,7 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m217a() {
+    public synchronized int m216a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m218a() {
+    public synchronized LinkedList<a> m217a() {
         InterceptResult invokeV;
         LinkedList<a> linkedList;
         Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class bi {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             synchronized (this) {
                 this.a.add(new a(0, obj));
-                m216a();
+                m215a();
             }
         }
     }

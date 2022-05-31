@@ -7,11 +7,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class u77 {
+public class u77 extends f87 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile u77 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
     public u77() {
         Interceptable interceptable = $ic;
@@ -27,32 +25,27 @@ public class u77 {
         }
     }
 
-    public static u77 a() {
+    @Override // com.repackage.f87, com.repackage.y55
+    public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (u77.class) {
-                    if (b == null) {
-                        b = new u77();
-                    }
-                }
-            }
-            return b;
-        }
-        return (u77) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
     }
 
-    public boolean b() {
+    @Override // com.repackage.f87, com.repackage.z55
+    public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void c(boolean z) {
+    @Override // com.repackage.f87, com.repackage.z55
+    public String x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tb_user_atme" : (String) invokeV.objValue;
     }
 }

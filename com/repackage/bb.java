@@ -102,7 +102,7 @@ public abstract class bb<M extends Message<?>, T extends MessageTask, R extends 
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m, t)) == null) {
-            mi.c();
+            li.c();
             if (m == null) {
                 return false;
             }
@@ -140,7 +140,7 @@ public abstract class bb<M extends Message<?>, T extends MessageTask, R extends 
     public void d(N n) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, n) == null) {
-            mi.c();
+            li.c();
             if (n == null) {
                 return;
             }
@@ -246,7 +246,7 @@ public abstract class bb<M extends Message<?>, T extends MessageTask, R extends 
     public void n(int i, MessageListener<N> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048586, this, i, messageListener) == null) {
-            mi.c();
+            li.c();
             if (messageListener == null) {
                 return;
             }
@@ -310,7 +310,7 @@ public abstract class bb<M extends Message<?>, T extends MessageTask, R extends 
     public void s(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, bdUniqueId) == null) {
-            mi.c();
+            li.c();
             if (bdUniqueId == null) {
                 return;
             }
@@ -332,7 +332,7 @@ public abstract class bb<M extends Message<?>, T extends MessageTask, R extends 
     public void t(MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, messageListener) == null) {
-            mi.c();
+            li.c();
             if (messageListener == null) {
                 return;
             }

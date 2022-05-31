@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,10 +49,10 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d01ec);
-            this.mRootView = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906cd);
+            setContentView(R.layout.obfuscated_res_0x7f0d01e5);
+            this.mRootView = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906b0);
             if (isUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = mi.r(getPageContext().getPageActivity());
+                ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = li.s(getPageContext().getPageActivity());
             }
             String stringExtra = getIntent().getStringExtra("url");
             this.mUrl = stringExtra;
@@ -63,7 +63,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.mUrl);
             this.mFragment.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906cd, this.mFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906b0, this.mFragment).commit();
         }
     }
 

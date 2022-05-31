@@ -15,22 +15,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk2;
-import com.repackage.eh1;
-import com.repackage.j63;
-import com.repackage.kx2;
-import com.repackage.ml2;
-import com.repackage.mx2;
-import com.repackage.oe3;
-import com.repackage.yv2;
+import com.repackage.bd3;
+import com.repackage.lu2;
+import com.repackage.oi2;
+import com.repackage.rf1;
+import com.repackage.w43;
+import com.repackage.xv2;
+import com.repackage.zj2;
+import com.repackage.zv2;
 /* loaded from: classes2.dex */
 public class SwanAppBaseActivity extends FragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
     public static final String TAG = "SwanAppBaseActivity";
     public transient /* synthetic */ FieldHolder $fh;
-    public yv2 mPermissionHandler;
-    public j63 mSkinDecorator;
+    public lu2 mPermissionHandler;
+    public w43 mSkinDecorator;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +45,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 return;
             }
         }
-        DEBUG = eh1.a;
+        DEBUG = rf1.a;
     }
 
     public SwanAppBaseActivity() {
@@ -64,19 +64,19 @@ public class SwanAppBaseActivity extends FragmentActivity {
         this.mSkinDecorator = null;
     }
 
-    public j63 getSkinDecorator() {
+    public w43 getSkinDecorator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSkinDecorator : (j63) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mSkinDecorator : (w43) invokeV.objValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.ie4, android.app.Activity
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, com.repackage.vc4, android.app.Activity
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            int c0 = oe3.c0(this);
+            int c0 = bd3.c0(this);
             super.onCreate(bundle);
-            oe3.g(this, c0);
+            bd3.g(this, c0);
         }
     }
 
@@ -92,7 +92,7 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 return;
             }
             if (this.mSkinDecorator == null) {
-                this.mSkinDecorator = new j63();
+                this.mSkinDecorator = new w43();
             }
             ViewGroup viewGroup = (ViewGroup) window.getDecorView();
             if (z) {
@@ -101,10 +101,10 @@ public class SwanAppBaseActivity extends FragmentActivity {
                 this.mSkinDecorator.b(viewGroup);
             }
             if (z2) {
-                kx2 e = kx2.e();
-                mx2 mx2Var = new mx2(5);
-                mx2Var.f(true);
-                e.h(mx2Var);
+                xv2 e = xv2.e();
+                zv2 zv2Var = new zv2(5);
+                zv2Var.f(true);
+                e.h(zv2Var);
             }
         }
     }
@@ -114,29 +114,29 @@ public class SwanAppBaseActivity extends FragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onPostCreate(bundle);
-            boolean a = bk2.M().a();
-            ml2.e(Boolean.valueOf(a));
+            boolean a = oi2.M().a();
+            zj2.e(Boolean.valueOf(a));
             onNightModeCoverChanged(a, false);
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.repackage.ce4.b
+    @Override // com.baidu.swan.support.v4.app.FragmentActivity, android.app.Activity, com.repackage.pc4.b
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i, strArr, iArr) == null) {
-            yv2 yv2Var = this.mPermissionHandler;
-            if (yv2Var != null) {
-                yv2Var.f(this, i, strArr, iArr);
+            lu2 lu2Var = this.mPermissionHandler;
+            if (lu2Var != null) {
+                lu2Var.f(this, i, strArr, iArr);
             } else {
                 superOnRequestPermissionsResult(i, strArr, iArr);
             }
         }
     }
 
-    public void requestPermissionsExt(int i, @NonNull String[] strArr, yv2.a aVar) {
+    public void requestPermissionsExt(int i, @NonNull String[] strArr, lu2.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048581, this, i, strArr, aVar) == null) {
-            yv2 c = yv2.c();
+            lu2 c = lu2.c();
             this.mPermissionHandler = c;
             c.requestPermissions(this, i, strArr, aVar);
         }

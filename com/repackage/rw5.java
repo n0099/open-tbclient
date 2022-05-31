@@ -1,206 +1,440 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qw5;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class rw5 implements qw5, View.OnClickListener {
+public abstract class rw5 extends om4 implements PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId D;
+    public static final BdUniqueId E;
+    public static final BdUniqueId F;
+    public static final BdUniqueId G;
+    public static final BdUniqueId H;
+    public static final BdUniqueId I;
+    public static final BdUniqueId J;
+    public static final BdUniqueId K;
+    public static final BdUniqueId L;
+    public static final BdUniqueId M;
+    public static final BdUniqueId N;
+    public static final ArrayList<BdUniqueId> O;
+    public static final ArrayList<BdUniqueId> P;
+    public static BdUniqueId[][] Q;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public LinearLayout b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public TextView g;
-    public pw5 h;
-    public qw5.a i;
+    public boolean A;
+    public boolean B;
+    public int C;
+    public ThreadData a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
+    public Integer i;
     public int j;
-    public Map<Integer, Float> k;
+    public int k;
+    public int l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public boolean v;
+    public boolean w;
+    public boolean x;
+    public boolean y;
+    public boolean z;
 
-    public rw5(TbPageContext tbPageContext, pw5 pw5Var, qw5.a aVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755335903, "Lcom/repackage/rw5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755335903, "Lcom/repackage/rw5;");
+                return;
+            }
+        }
+        D = BdUniqueId.gen();
+        E = BdUniqueId.gen();
+        F = BdUniqueId.gen();
+        G = BdUniqueId.gen();
+        H = BdUniqueId.gen();
+        I = BdUniqueId.gen();
+        J = BdUniqueId.gen();
+        K = BdUniqueId.gen();
+        L = BdUniqueId.gen();
+        M = BdUniqueId.gen();
+        N = BdUniqueId.gen();
+        O = new ArrayList<>();
+        P = new ArrayList<>();
+        O.add(D);
+        O.add(E);
+        P.add(I);
+        P.add(F);
+        P.add(H);
+        P.add(G);
+        Q = (BdUniqueId[][]) Array.newInstance(BdUniqueId.class, O.size(), P.size());
+        for (int i = 0; i < O.size(); i++) {
+            for (int i2 = 0; i2 < P.size(); i2++) {
+                Q[i][i2] = BdUniqueId.gen();
+            }
+        }
+    }
+
+    public rw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, pw5Var, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.i = 0;
         this.j = 0;
-        this.k = new HashMap();
-        this.a = tbPageContext;
-        this.h = pw5Var;
-        this.i = aVar;
-        e();
+        this.k = 0;
+        this.m = false;
+        this.n = false;
+        this.o = false;
+        this.p = false;
+        this.q = false;
+        this.r = false;
+        this.s = false;
+        this.t = false;
+        this.u = false;
+        this.v = false;
+        this.w = false;
+        this.x = false;
+        this.y = false;
+        this.z = false;
+        this.A = false;
+        this.B = false;
+        this.C = 0;
     }
 
-    @Override // com.repackage.qw5
-    public float a() {
+    public StatisticItem A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k.get(Integer.valueOf(this.j)).floatValue() : invokeV.floatValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (StatisticItem) invokeV.objValue;
     }
 
-    @Override // com.repackage.qw5
-    public int b() {
+    public StatisticItem B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.getVisibility() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (StatisticItem) invokeV.objValue;
     }
 
-    @Override // com.repackage.qw5
-    public void c(int i) {
+    public StatisticItem C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b.setVisibility(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (StatisticItem) invokeV.objValue;
+    }
+
+    public String D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public boolean E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l == 1 : invokeV.booleanValue;
+    }
+
+    public void F(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
         }
     }
 
-    @Override // com.repackage.qw5
-    public boolean d() {
-        InterceptResult invokeV;
+    public void G(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j != 0 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.h = str;
+        }
     }
 
-    public boolean e() {
+    public void H(Integer num) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, num) == null) {
+            this.i = num;
+        }
+    }
+
+    public void I(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void J(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void K(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.l = i;
+        }
+    }
+
+    public void L(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        }
+    }
+
+    public void M(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.k.put(0, Float.valueOf(1.0f));
-            this.k.put(1, Float.valueOf(0.5f));
-            this.k.put(2, Float.valueOf(0.33333334f));
-            this.k.put(3, Float.valueOf(2.0f));
-            this.k.put(4, Float.valueOf(3.0f));
-            f();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public StatisticItem g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            return null;
+        }
+        return (StatisticItem) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData != null) {
+                return threadData.getImages();
+            }
+            return null;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.repackage.om4
+    public lo4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        SparseArray<String> sparseArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (getThreadData() == null || (sparseArray = this.feedBackReasonMap) == null || sparseArray.size() <= 0) {
+                return null;
+            }
+            lo4 lo4Var = new lo4();
+            lo4Var.o(getThreadData().getTid());
+            lo4Var.k(getThreadData().getFid());
+            lo4Var.n(getThreadData().getNid());
+            lo4Var.j(this.feedBackReasonMap);
+            lo4Var.k = this.b;
+            lo4Var.l = this.c;
+            lo4Var.m = this.h;
+            lo4Var.n = getThreadData().threadType;
+            return lo4Var;
+        }
+        return (lo4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.om4
+    public String getPbInputLocate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.c + "#" + this.d + "#" + this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.om4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    public final void f() {
+    public boolean isVideoThreadType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = (LinearLayout) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0904bd);
-            this.c = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091da0);
-            this.d = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d9f);
-            this.e = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d9e);
-            this.f = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d9b);
-            this.g = (TextView) this.a.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091d9c);
-            this.c.setOnClickListener(this);
-            this.d.setOnClickListener(this);
-            this.e.setOnClickListener(this);
-            this.f.setOnClickListener(this);
-            this.g.setOnClickListener(this);
-            gs4 d = gs4.d(this.b);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0214);
-            h(this.e, true);
-            h(this.c, false);
-            h(this.d, false);
-            h(this.f, false);
-            h(this.g, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void g(int i) {
+    public StatisticItem k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            i(this.j, false);
-            this.j = i;
-            i(i, true);
-            pw5 pw5Var = this.h;
-            if (pw5Var != null) {
-                pw5Var.a(a());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return null;
+        }
+        return (StatisticItem) invokeV.objValue;
+    }
+
+    public Integer m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.i : (Integer) invokeV.objValue;
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public String r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public StatisticItem s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) ? y(str, false) : (StatisticItem) invokeL.objValue;
+    }
+
+    public StatisticItem v(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048603, this, str, i)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null) {
+                return null;
             }
-        }
-    }
-
-    public final void h(TextView textView, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, textView, z) == null) {
-            textView.setTextColor(this.a.getResources().getColor(z ? R.color.CAM_X0302 : R.color.CAM_X0101));
-            textView.setTextSize(0, UtilHelper.getDimenPixelSize(z ? R.dimen.T_X05 : R.dimen.T_X07));
-        }
-    }
-
-    public final void i(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            StatisticItem param = new StatisticItem(str).param("fid", String.valueOf(threadData.getFid())).param("tid", String.valueOf(threadData.getTid())).param(TiebaStatic.Params.OBJ_PARAM2, 1).param("obj_param1", D()).param("obj_source", r()).param("obj_locate", q()).param("obj_name", e()).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM3, yv5.e());
             if (i == 0) {
-                h(this.e, z);
-            } else if (i == 1) {
-                h(this.d, z);
-            } else if (i == 2) {
-                h(this.c, z);
-            } else if (i == 3) {
-                h(this.f, z);
-            } else if (i != 4) {
+                param.param("obj_type", z());
             } else {
-                h(this.g, z);
+                param.param("obj_type", i);
             }
+            param.param("obj_id", i());
+            return param;
         }
+        return (StatisticItem) invokeLI.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public StatisticItem y(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091da0) {
-                qw5.a aVar = this.i;
-                if (aVar == null || aVar.a(2)) {
-                    g(2);
-                }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d9f) {
-                qw5.a aVar2 = this.i;
-                if (aVar2 == null || aVar2.a(1)) {
-                    g(1);
-                }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d9e) {
-                qw5.a aVar3 = this.i;
-                if (aVar3 == null || aVar3.a(0)) {
-                    g(0);
-                }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d9b) {
-                qw5.a aVar4 = this.i;
-                if (aVar4 == null || aVar4.a(3)) {
-                    g(3);
-                }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091d9c) {
-                qw5.a aVar5 = this.i;
-                if (aVar5 == null || aVar5.a(4)) {
-                    g(4);
-                }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048604, this, str, z)) == null) {
+            ThreadData threadData = getThreadData();
+            if (threadData == null || str.length() == 0) {
+                return null;
             }
+            StatisticItem param = new StatisticItem(str).param("fid", String.valueOf(threadData.getFid())).param("fname", threadData.getForum_name()).param("tid", String.valueOf(threadData.getTid())).param("nid", threadData.getNid()).param("obj_id", i()).param("obj_param1", D()).param(TiebaStatic.Params.OBJ_PARAM2, 1).param("obj_source", r()).param("obj_locate", q()).param("uid", TbadkCoreApplication.getCurrentAccount()).param(TiebaStatic.Params.OBJ_PARAM3, yv5.e()).param("ab_tag", e()).param(TiebaStatic.Params.IS_ZP, threadData.isWorksInfo() ? 1 : 0);
+            if (!z) {
+                param.param("obj_type", z());
+            } else {
+                if (threadData.middle_page_num > 0) {
+                    param.param(TiebaStatic.Params.MID_PAGE_FLAG, 1);
+                } else {
+                    param.param(TiebaStatic.Params.MID_PAGE_FLAG, 0);
+                }
+                param.param(TiebaStatic.Params.IS_VERTICAL, m().intValue());
+            }
+            if (threadData.getTopAgreePost() != null && threadData.getTopAgreePost().P() != null && threadData.getTopAgreePost().P().A() != null && threadData.getTopAgreePost().P().A().size() > 0) {
+                param.param(TiebaStatic.Params.OBJ_TO, threadData.getTopAgreePost().L ? 2 : 1);
+            }
+            return param;
         }
+        return (StatisticItem) invokeLZ.objValue;
     }
 
-    @Override // com.repackage.qw5
-    public void reset() {
+    public final int z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            g(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            ThreadData threadData = getThreadData();
+            int i = 0;
+            if (threadData == null) {
+                return 0;
+            }
+            ArrayList<MediaData> medias = threadData.getMedias();
+            if (medias != null) {
+                Iterator<MediaData> it = medias.iterator();
+                while (it.hasNext()) {
+                    MediaData next = it.next();
+                    if (next != null && next.getType() == 3) {
+                        i++;
+                    }
+                }
+            }
+            return i;
         }
+        return invokeV.intValue;
     }
 }

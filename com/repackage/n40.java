@@ -1,133 +1,152 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.helios.common.cc.n;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import kotlin.UShort;
 /* loaded from: classes6.dex */
-public final class n40 extends m40 {
+public abstract class n40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b d;
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Class<?> a;
-        public Method b;
-        public Method c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            d();
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public final long b(Object obj) throws n.a {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                try {
-                    return ((Long) this.c.invoke(obj, new Object[0])).longValue();
-                } catch (Exception unused) {
-                    throw new n.a("");
-                }
-            }
-            return invokeL.longValue;
-        }
-
-        public final void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    this.a = Class.forName(com.baidu.helios.common.cc.n.a(q40.a()), true, Object.class.getClassLoader());
-                    this.b = com.baidu.helios.common.cc.n.b(this.a, com.baidu.helios.common.cc.n.a(q40.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.c = com.baidu.helios.common.cc.n.b(this.a, com.baidu.helios.common.cc.n.a(q40.c()), null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        public final void f(Object obj, byte[] bArr, int i, int i2) throws n.a {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
-                try {
-                    this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
-                } catch (Exception unused) {
-                    throw new n.a("");
-                }
-            }
-        }
-
-        public final Object g() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.newInstance() : invokeV.objValue;
-        }
-    }
-
-    public n40(int i, int i2) {
+    public static int a(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) ? byteBuffer.getShort(i) & UShort.MAX_VALUE : invokeLI.intValue;
+    }
+
+    public static Pair<ByteBuffer, Long> b(RandomAccessFile randomAccessFile) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, randomAccessFile)) == null) {
+            if (randomAccessFile.length() < 22) {
+                return null;
+            }
+            Pair<ByteBuffer, Long> c = c(randomAccessFile, 0);
+            return c != null ? c : c(randomAccessFile, 65535);
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    public static Pair<ByteBuffer, Long> c(RandomAccessFile randomAccessFile, int i) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, randomAccessFile, i)) == null) {
+            if (i < 0 || i > 65535) {
+                throw new IllegalArgumentException("maxCommentSize: " + i);
+            }
+            long length = randomAccessFile.length();
+            if (length < 22) {
+                return null;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i, length - 22)) + 22);
+            allocate.order(ByteOrder.LITTLE_ENDIAN);
+            long capacity = length - allocate.capacity();
+            randomAccessFile.seek(capacity);
+            randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
+            int h = h(allocate);
+            if (h == -1) {
+                return null;
+            }
+            allocate.position(h);
+            ByteBuffer slice = allocate.slice();
+            slice.order(ByteOrder.LITTLE_ENDIAN);
+            return Pair.create(slice, Long.valueOf(capacity + h));
+        }
+        return (Pair) invokeLI.objValue;
+    }
+
+    public static void d(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
+            throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
+        }
+    }
+
+    public static void e(ByteBuffer byteBuffer, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j >= 0 && j <= 4294967295L) {
+                byteBuffer.putInt(byteBuffer.position() + i, (int) j);
                 return;
             }
+            throw new IllegalArgumentException("uint32 value of out range: " + j);
         }
-        this.a = 32;
-        this.b = i;
-        this.c = i2;
-        this.d = new b(null);
     }
 
-    @Override // com.repackage.m40
-    public com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2) {
-        long j;
-        InterceptResult invokeLII;
+    public static void f(ByteBuffer byteBuffer, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            try {
-                Object g = this.d.g();
-                this.d.f(g, bArr, i, i2);
-                j = this.d.b(g);
-            } catch (Exception unused) {
-                j = 4294967295L;
-            }
-            return com.baidu.helios.common.cc.a.a(new long[]{j});
+        if (interceptable == null || interceptable.invokeLJ(65541, null, byteBuffer, j) == null) {
+            d(byteBuffer);
+            e(byteBuffer, byteBuffer.position() + 16, j);
         }
-        return (com.baidu.helios.common.cc.a) invokeLII.objValue;
+    }
+
+    public static final boolean g(RandomAccessFile randomAccessFile, long j) throws IOException {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, randomAccessFile, j)) == null) {
+            long j2 = j - 20;
+            if (j2 < 0) {
+                return false;
+            }
+            randomAccessFile.seek(j2);
+            return randomAccessFile.readInt() == 1347094023;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static int h(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
+            d(byteBuffer);
+            int capacity = byteBuffer.capacity();
+            if (capacity < 22) {
+                return -1;
+            }
+            int i = capacity - 22;
+            int min = Math.min(i, 65535);
+            for (int i2 = 0; i2 < min; i2++) {
+                int i3 = i - i2;
+                if (byteBuffer.getInt(i3) == 101010256 && a(byteBuffer, i3 + 20) == i2) {
+                    return i3;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static long i(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, byteBuffer, i)) == null) ? byteBuffer.getInt(i) & 4294967295L : invokeLI.longValue;
+    }
+
+    public static long j(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, byteBuffer)) == null) {
+            d(byteBuffer);
+            return i(byteBuffer, byteBuffer.position() + 16);
+        }
+        return invokeL.longValue;
+    }
+
+    public static long k(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, byteBuffer)) == null) {
+            d(byteBuffer);
+            return i(byteBuffer, byteBuffer.position() + 12);
+        }
+        return invokeL.longValue;
     }
 }

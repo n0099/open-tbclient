@@ -1,36 +1,64 @@
 package com.repackage;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.data.IconData;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
+import com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class gn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final nn8 b;
-    public final mn8 c;
-    public final on8 d;
-    public final jn8 e;
-    public final fn8 f;
-    public final in8 g;
-    public final hn8 h;
-    public final dn8 i;
-    public final kn8 j;
-    public final ln8 k;
-    public final en8 l;
+    public PersonalCardDetailActivity a;
+    public View b;
+    public View c;
+    public NavigationBar d;
+    public NoNetworkView e;
+    public TbImageView f;
+    public TextView g;
+    public TbImageView h;
+    public TextView i;
+    public TextView j;
+    public HeadImageView k;
+    public TextView l;
+    public TbImageView m;
+    public UserIconBox n;
+    public View o;
+    public View p;
+    public gm8 q;
+    public View.OnClickListener r;
+    public int s;
+    public int t;
+    public int u;
+    public int v;
 
-    public gn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
+    public gn8(PersonalCardDetailActivity personalCardDetailActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, tm8Var};
+            Object[] objArr = {personalCardDetailActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,83 +68,237 @@ public class gn8 {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = new nn8(mainTabActivity, tm8Var);
-        this.c = new mn8(mainTabActivity, tm8Var);
-        this.d = new on8();
-        this.e = new jn8(mainTabActivity, tm8Var);
-        this.f = new fn8(mainTabActivity, tm8Var);
-        this.g = new in8(mainTabActivity, tm8Var);
-        this.h = new hn8(mainTabActivity, tm8Var);
-        this.i = new dn8(mainTabActivity, tm8Var);
-        this.j = new kn8(mainTabActivity, tm8Var);
-        this.k = new ln8(mainTabActivity, tm8Var);
-        this.l = new en8(mainTabActivity, tm8Var);
+        this.s = 0;
+        this.t = 0;
+        this.u = 0;
+        this.v = 0;
+        this.a = personalCardDetailActivity;
+        View inflate = LayoutInflater.from(personalCardDetailActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06c8, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
+        this.s = li.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
+        this.t = li.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070234);
+        this.u = li.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
+        this.v = li.f(this.a.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070201);
+        this.r = onClickListener;
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923a2);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e5b);
+        this.e = (NoNetworkView) this.b.findViewById(R.id.obfuscated_res_0x7f0923a4);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0906d1);
+        this.p = this.b.findViewById(R.id.obfuscated_res_0x7f09209a);
+        TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090547);
+        this.f = tbImageView;
+        tbImageView.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081233);
+        this.f.setDefaultResource(R.drawable.obfuscated_res_0x7f081233);
+        this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09229d);
+        HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092287);
+        this.k = headImageView;
+        headImageView.setIsRound(true);
+        this.k.setDrawBorder(false);
+        this.n = (UserIconBox) this.b.findViewById(R.id.obfuscated_res_0x7f09058b);
+        this.m = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0922be);
+        this.o = this.b.findViewById(R.id.obfuscated_res_0x7f0907ed);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09055a);
+        this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0904f2);
+        this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09058a);
+        TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09058c);
+        this.h = tbImageView2;
+        tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081233);
+        this.h.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081233);
+        this.j.setOnClickListener(this.r);
     }
 
-    public dn8 a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : (dn8) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
+            this.a.getLayoutMode().j(this.b);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            NoNetworkView noNetworkView = this.e;
+            if (noNetworkView != null) {
+                noNetworkView.c(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+        }
     }
 
-    public en8 b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : (en8) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.setVisibility(0);
+            this.p.setVisibility(0);
+            this.f.setVisibility(0);
+            this.o.setVisibility(0);
+            this.g.setVisibility(0);
+            this.i.setVisibility(0);
+            this.h.setVisibility(0);
+            this.j.setVisibility(0);
+            this.a.hideNetRefreshView(this.b);
+        }
     }
 
-    public fn8 c() {
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (fn8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    public hn8 d() {
+    public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (hn8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (View) invokeV.objValue;
     }
 
-    public in8 e() {
-        InterceptResult invokeV;
+    public final void e() {
+        gm8 gm8Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (in8) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (gm8Var = this.q) == null) {
+            return;
+        }
+        this.g.setText(gm8Var.j());
+        this.i.setText(this.q.d());
+        this.h.K(this.q.i(), 10, false);
     }
 
-    public jn8 f() {
-        InterceptResult invokeV;
+    public final void f() {
+        String str;
+        String str2;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (jn8) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.q == null) {
+            return;
+        }
+        if (!TbadkCoreApplication.isLogin()) {
+            this.n.setVisibility(8);
+            this.m.setVisibility(8);
+            this.l.setPadding(this.u, 0, 0, 0);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0308, 1);
+            this.l.setText(R.string.obfuscated_res_0x7f0f0496);
+        } else {
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            String str3 = null;
+            if (currentAccountInfo != null) {
+                String portrait = currentAccountInfo.getPortrait();
+                str = currentAccountInfo.getAccountNameShow();
+                String memberIconUrl = currentAccountInfo.getMemberIconUrl();
+                i = currentAccountInfo.getMemberType();
+                str2 = portrait;
+                str3 = memberIconUrl;
+            } else {
+                str = null;
+                str2 = null;
+                i = 0;
+            }
+            if (i > 0) {
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0308, 1);
+            } else {
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0108, 1);
+            }
+            if (StringUtils.isNull(str3)) {
+                this.m.setVisibility(8);
+                this.l.setPadding(this.u, 0, 0, 0);
+                this.l.setText(str);
+            } else {
+                this.m.setVisibility(0);
+                this.m.K(str3, 10, false);
+                this.l.setPadding(this.s, 0, 0, 0);
+                this.l.setText(str);
+            }
+            this.n.setVisibility(0);
+            int size = (currentAccountInfo == null || currentAccountInfo.getUserIcons() == null) ? 0 : currentAccountInfo.getUserIcons().size();
+            int i3 = (size < 8 && (i2 = size - 1) < 4) ? i2 : 4;
+            if (currentAccountInfo != null) {
+                UserIconBox userIconBox = this.n;
+                List<IconData> userIcons = currentAccountInfo.getUserIcons();
+                int i4 = this.v;
+                userIconBox.h(userIcons, i3, i4, i4, this.t, true);
+            }
+            this.k.K(str2, 12, false);
+        }
+        this.f.K(this.q.e(), 10, false);
     }
 
-    public kn8 g() {
-        InterceptResult invokeV;
+    public void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : (kn8) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c.setVisibility(8);
+            this.f.setVisibility(8);
+            this.o.setVisibility(8);
+            this.p.setVisibility(8);
+            this.g.setVisibility(8);
+            this.i.setVisibility(8);
+            this.h.setVisibility(8);
+            this.j.setVisibility(8);
+            this.a.showNetRefreshView(this.b, this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c4d), true);
+        }
     }
 
-    public ln8 h() {
-        InterceptResult invokeV;
+    public void h(int i, gm8 gm8Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k : (ln8) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, gm8Var) == null) {
+            if (gm8Var == null) {
+                g();
+            } else if (i != 0) {
+            } else {
+                this.q = gm8Var;
+                b();
+                f();
+                e();
+                i(gm8Var);
+            }
+        }
     }
 
-    public mn8 i() {
-        InterceptResult invokeV;
+    public void i(gm8 gm8Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : (mn8) invokeV.objValue;
-    }
-
-    public nn8 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (nn8) invokeV.objValue;
-    }
-
-    public on8 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d : (on8) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, gm8Var) == null) || gm8Var == null) {
+            return;
+        }
+        this.q = gm8Var;
+        if (gm8Var == null) {
+            this.j.setVisibility(8);
+            return;
+        }
+        int f = gm8Var.f();
+        this.j.setVisibility(0);
+        if (this.q.g() == 1) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
+            this.j.setText(R.string.obfuscated_res_0x7f0f04f3);
+        } else if (this.q.c() == 1) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
+            this.j.setText(R.string.obfuscated_res_0x7f0f14e2);
+        } else if (f == 0) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.gray_btn_selector);
+            this.j.setText(R.string.obfuscated_res_0x7f0f14e1);
+        } else if (f == 100) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_blue);
+            if (this.q.h() == 0) {
+                this.j.setText(R.string.obfuscated_res_0x7f0f008c);
+            } else {
+                this.j.setText(R.string.obfuscated_res_0x7f0f14e2);
+            }
+        } else if (f == 101) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.orange_btn_selector);
+            this.j.setText(R.string.obfuscated_res_0x7f0f02fc);
+        } else if (f > 1) {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.orange_btn_selector);
+            this.j.setText(String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0302), Integer.valueOf(f)));
+        } else {
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.orange_btn_selector);
+            this.j.setText(R.string.obfuscated_res_0x7f0f02ff);
+        }
     }
 }

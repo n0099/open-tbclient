@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.ChannelNativeAds;
 import com.fun.ad.sdk.FunNativeAd;
-import com.repackage.er6;
-import com.repackage.gr6;
-import com.repackage.ir6;
-import com.repackage.mr6;
-import com.repackage.yj8;
+import com.repackage.kp6;
+import com.repackage.mp6;
+import com.repackage.op6;
+import com.repackage.sp6;
+import com.repackage.zg8;
 /* loaded from: classes3.dex */
 public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -41,19 +41,19 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
     public String h;
 
     /* loaded from: classes3.dex */
-    public class a implements er6.i {
+    public class a implements kp6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
-        public final /* synthetic */ yj8 b;
+        public final /* synthetic */ zg8 b;
         public final /* synthetic */ FunAdNativeViewHolder c;
 
-        public a(FunAdNativeViewHolder funAdNativeViewHolder, int i, yj8 yj8Var) {
+        public a(FunAdNativeViewHolder funAdNativeViewHolder, int i, zg8 zg8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {funAdNativeViewHolder, Integer.valueOf(i), yj8Var};
+                Object[] objArr = {funAdNativeViewHolder, Integer.valueOf(i), zg8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -65,64 +65,64 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
             }
             this.c = funAdNativeViewHolder;
             this.a = i;
-            this.b = yj8Var;
+            this.b = zg8Var;
         }
 
-        @Override // com.repackage.er6.i
+        @Override // com.repackage.kp6.i
         public void onAdClicked(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param(TiebaStatic.Params.RESOURCE_ID, this.c.h()).param("obj_type", this.c.g()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK).param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, this.c.h()).param("obj_type", this.c.g()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
                 if ("a006".equals(this.c.g())) {
                     param.param(TiebaStatic.Params.OBJ_PARAM3, this.a);
-                    param.param("obj_param1", gr6.a);
+                    param.param("obj_param1", mp6.a);
                 }
-                mr6.a(param, this.b);
-                mr6.D(0, FunAdRecordHttpMessage.CLICK_AD_RECORD, this.c.g(), this.b);
+                sp6.a(param, this.b);
+                sp6.D(0, FunAdRecordHttpMessage.CLICK_AD_RECORD, this.c.g(), this.b);
                 TiebaStatic.log(param);
             }
         }
 
-        @Override // com.repackage.er6.i
+        @Override // com.repackage.kp6.i
         public void onAdClose(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             }
         }
 
-        @Override // com.repackage.er6.i
+        @Override // com.repackage.kp6.i
         public void onAdError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param(TiebaStatic.Params.RESOURCE_ID, this.c.h()).param("obj_type", this.c.g()).param("obj_locate", 1);
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW).param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, this.c.h()).param("obj_type", this.c.g()).param("obj_locate", 1);
                 if ("a006".equals(this.c.g())) {
-                    param.param("obj_param1", gr6.a);
+                    param.param("obj_param1", mp6.a);
                 }
-                mr6.a(param, this.b);
-                mr6.D(1, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.c.g(), this.b);
+                sp6.a(param, this.b);
+                sp6.D(1, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.c.g(), this.b);
                 TiebaStatic.log(param);
             }
         }
 
-        @Override // com.repackage.er6.i
+        @Override // com.repackage.kp6.i
         public void onAdShow(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
                 this.c.j(str2);
                 this.c.i(str3);
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_SHOW);
-                statisticItem.param("obj_source", 6).param(TiebaStatic.Params.RESOURCE_ID, this.c.h()).param("obj_type", this.c.g()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
+                statisticItem.param("obj_source", 6).param(TiebaStatic.Params.AD_BEAR_PLACE, this.c.h()).param("obj_type", this.c.g()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_TO, str2).param(TiebaStatic.Params.OBJ_PARAM2, str3);
                 if ("a006".equals(this.c.g())) {
                     statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.a);
-                    statisticItem.param("obj_param1", gr6.a);
+                    statisticItem.param("obj_param1", mp6.a);
                 }
-                mr6.a(statisticItem, this.b);
-                mr6.D(0, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.c.g(), this.b);
+                sp6.a(statisticItem, this.b);
+                sp6.D(0, FunAdRecordHttpMessage.SHOW_AD_RECORD, this.c.g(), this.b);
                 TiebaStatic.log(statisticItem);
             }
         }
 
-        @Override // com.repackage.er6.i
+        @Override // com.repackage.kp6.i
         public void onRewardedVideo(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -240,46 +240,46 @@ public class FunAdNativeViewHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void o(@NonNull yj8 yj8Var, int i) {
+    public void o(@NonNull zg8 zg8Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, yj8Var, i) == null) {
-            Object d = yj8Var.d();
+        if (interceptable == null || interceptable.invokeLI(1048588, this, zg8Var, i) == null) {
+            Object d = zg8Var.d();
             if (d == null) {
-                d = er6.j().k(this.b, this.d);
-                yj8Var.l(d);
+                d = kp6.j().k(this.b, this.d);
+                zg8Var.l(d);
                 if (!TextUtils.isEmpty(this.g) && d != null) {
                     FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
                     StringBuilder sb = new StringBuilder();
                     FunNativeAd funNativeAd = (FunNativeAd) d;
-                    sb.append(mr6.i(funNativeAd));
+                    sb.append(sp6.i(funNativeAd));
                     sb.append("_");
                     sb.append(funNativeAd.getTitle());
                     sb.append("_");
                     sb.append(funNativeAd.getDescription());
                     funAdHistoryData.setFunAdKey(sb.toString());
                     funAdHistoryData.setShowTime(System.currentTimeMillis() / 1000);
-                    ir6.f().a(this.g, funAdHistoryData);
+                    op6.f().a(this.g, funAdHistoryData);
                 }
             }
             Object obj = d;
             if (obj == null) {
                 this.c.d(8);
                 if ("a006".equals(g())) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", g()).param("obj_locate", 1).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", gr6.a));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", g()).param("obj_locate", 1).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", mp6.a));
                     return;
                 }
                 return;
             }
             if ("a006".equals(g())) {
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", g()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", gr6.a));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FUN_AD_FRS_FLOOR_SHOW).param("obj_source", 6).param("obj_type", g()).param("obj_locate", 0).param(TiebaStatic.Params.OBJ_PARAM3, i).param("obj_param1", mp6.a));
             }
             this.c.d(0);
-            this.c.f(yj8Var, this.b);
+            this.c.f(zg8Var, this.b);
             this.c.e(this.a);
             FunAbsAdView funAbsAdView = this.c;
             FunNativeAd funNativeAd2 = (FunNativeAd) obj;
             funAbsAdView.c(funNativeAd2);
-            er6.j().z(this.b, obj, new a(this, i, yj8Var), funAbsAdView, this.c.getClickViews(), this.c.getCreativeViews(), this.c.getLogItem());
+            kp6.j().z(this.b, obj, new a(this, i, zg8Var), funAbsAdView, this.c.getClickViews(), this.c.getCreativeViews(), this.c.getLogItem());
             if (!c(funNativeAd2) || funAbsAdView == null || funAbsAdView.getChildCount() <= 1) {
                 return;
             }

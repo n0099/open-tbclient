@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.c38;
-import com.repackage.mr4;
+import com.repackage.cq4;
+import com.repackage.l08;
 import com.repackage.qe;
 /* loaded from: classes3.dex */
 public class PersonBarModel extends BdBaseModel {
@@ -28,7 +28,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public c38 a;
+    public l08 a;
     public boolean b;
     public String c;
     public int d;
@@ -72,7 +72,7 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new c38();
+        this.a = new l08();
         this.b = z;
     }
 
@@ -105,8 +105,8 @@ public class PersonBarModel extends BdBaseModel {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
-                    mr4.f();
-                    qe<String> g = mr4.g("tb.my_pages");
+                    cq4.f();
+                    qe<String> g = cq4.g("tb.my_pages");
                     if (g != null) {
                         g.e(id, str, 604800000L);
                     }
@@ -163,10 +163,10 @@ public class PersonBarModel extends BdBaseModel {
         }
     }
 
-    public c38 y() {
+    public l08 y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : (c38) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a : (l08) invokeV.objValue;
     }
 
     public boolean z() {

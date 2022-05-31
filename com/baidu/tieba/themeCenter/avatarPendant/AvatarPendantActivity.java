@@ -28,14 +28,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fp8;
-import com.repackage.gp8;
-import com.repackage.hp8;
-import com.repackage.jp8;
-import com.repackage.jq8;
+import com.repackage.hm8;
+import com.repackage.im8;
+import com.repackage.jm8;
+import com.repackage.lm8;
+import com.repackage.ln8;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAvatarPendantModel.b, View.OnClickListener {
+public class AvatarPendantActivity extends BaseActivity implements lm8.a, SetAvatarPendantModel.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AvatarPendantModel.b mCallback;
@@ -44,7 +44,7 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
     public AvatarPendantModel mModel;
     public NoNetworkView.b mNetListener;
     public SetAvatarPendantModel mSetAvatarPendantModel;
-    public jp8 mView;
+    public lm8 mView;
 
     /* loaded from: classes4.dex */
     public class a implements AvatarPendantModel.b {
@@ -71,16 +71,16 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i, String str, jq8 jq8Var, List<hp8> list) {
+        public void a(int i, String str, ln8 ln8Var, List<jm8> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, jq8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, ln8Var, list}) == null) {
                 AvatarPendantActivity avatarPendantActivity = this.a;
-                avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.i());
+                avatarPendantActivity.hideLoadingView(avatarPendantActivity.mView.h());
                 if (i == 0) {
-                    this.a.mView.q(jq8Var, list);
+                    this.a.mView.o(ln8Var, list);
                 } else {
                     this.a.showToast(str);
-                    this.a.mView.o();
+                    this.a.mView.n();
                 }
                 this.a.mHasListData = !ListUtils.isEmpty(list);
             }
@@ -115,7 +115,7 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                BdListViewHelper.c(this.a.mView.j(), BdListViewHelper.HeadType.DEFAULT, z);
+                BdListViewHelper.c(this.a.mView.i(), BdListViewHelper.HeadType.DEFAULT, z);
             }
         }
     }
@@ -160,7 +160,7 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
             if (dressItemData == null) {
                 return "";
             }
-            List<hp8> D = this.mModel.D();
+            List<jm8> D = this.mModel.D();
             if (D != null && D.size() > 0) {
                 int size = D.size();
                 for (int i = 0; i < size; i++) {
@@ -201,10 +201,10 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            jp8 jp8Var = new jp8(this);
-            this.mView = jp8Var;
-            jp8Var.e(this.mNetListener);
-            this.mView.n(this);
+            lm8 lm8Var = new lm8(this);
+            this.mView = lm8Var;
+            lm8Var.b(this.mNetListener);
+            this.mView.m(this);
         }
     }
 
@@ -223,14 +223,14 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mView.k();
+            this.mView.j();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2 == this.mView.h().getButton() && checkLogin()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2 == this.mView.g().getButton() && checkLogin()) {
             TiebaStatic.log("c11613");
             MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 22);
             memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_OPENDE_RENEWALFEE_BUTTON);
@@ -245,7 +245,7 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
             super.onCreate(bundle);
             initUI();
             initData();
-            showLoadingView(this.mView.i());
+            showLoadingView(this.mView.h());
             this.mModel.loadData();
         }
     }
@@ -260,7 +260,7 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
         }
     }
 
-    @Override // com.repackage.jp8.a
+    @Override // com.repackage.lm8.a
     public void onItemClick(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, dressItemData) == null) && checkLogin() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.mHasListData) {
@@ -272,12 +272,12 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        jp8 jp8Var;
+        lm8 lm8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (jp8Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.mModel == null || (lm8Var = this.mView) == null) {
             return;
         }
-        showLoadingView(jp8Var.i());
+        showLoadingView(lm8Var.h());
         this.mModel.loadData();
     }
 
@@ -289,7 +289,7 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
                 showErrorDialog(i2, str, i);
                 return;
             }
-            List<hp8> D = this.mModel.D();
+            List<jm8> D = this.mModel.D();
             if (D == null || D.size() <= 0) {
                 return;
             }
@@ -317,7 +317,7 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
             UserPendantData userPendantData = new UserPendantData();
             userPendantData.setPropsId(j);
             userPendantData.setImgUrl(str2);
-            this.mView.l(this.mModel.D());
+            this.mView.k(this.mModel.D());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016485, userPendantData));
         }
     }
@@ -329,10 +329,10 @@ public class AvatarPendantActivity extends BaseActivity implements jp8.a, SetAva
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i == gp8.a) {
-                fp8.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-            } else if (i == gp8.b) {
-                fp8.c(getPageContext(), 7, str, i3);
+            if (i == im8.a) {
+                hm8.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+            } else if (i == im8.b) {
+                hm8.c(getPageContext(), 7, str, i3);
             }
         }
     }

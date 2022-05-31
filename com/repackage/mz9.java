@@ -3,21 +3,20 @@ package com.repackage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleProducer;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes6.dex */
-public final class mz9<T> extends by9<T> {
+public final class mz9 implements xu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cy9<? super T> b;
+    public final SequentialSubscription a;
 
-    public mz9(cy9<? super T> cy9Var) {
+    public mz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cy9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,22 +26,32 @@ public final class mz9<T> extends by9<T> {
                 return;
             }
         }
-        this.b = cy9Var;
+        this.a = new SequentialSubscription();
     }
 
-    @Override // com.repackage.by9
-    public void b(Throwable th) {
+    public void a(xu9 xu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            this.b.onError(th);
+        if (interceptable == null || interceptable.invokeL(1048576, this, xu9Var) == null) {
+            if (xu9Var != null) {
+                this.a.update(xu9Var);
+                return;
+            }
+            throw new IllegalArgumentException("Subscription can not be null");
         }
     }
 
-    @Override // com.repackage.by9
-    public void c(T t) {
+    @Override // com.repackage.xu9
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.b.f(new SingleProducer(this.b, t));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.xu9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
     }
 }

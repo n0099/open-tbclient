@@ -1,174 +1,104 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public final class bq {
+public final class bq extends eq {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bq a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
+    public TaskResponseData e;
+    public TaskInfo f;
+    public final String g;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public a b;
-        public final /* synthetic */ bq c;
-
-        public b(bq bqVar, String str, a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bqVar, str, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = bqVar;
-            this.a = str;
-            this.b = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ArrayList<String> arrayList;
-            ArrayList<String> arrayList2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Map e = this.c.e(this.a);
-                if (e != null) {
-                    arrayList2 = (ArrayList) e.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
-                    arrayList = (ArrayList) e.get("ipv4");
-                } else {
-                    arrayList = null;
-                    arrayList2 = null;
-                }
-                this.b.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.a);
-            }
-        }
-    }
-
-    public bq() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bq(String str, TaskResponseData taskResponseData, TaskInfo taskInfo, String str2, Integer num, String str3) {
+        super(str, num, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, taskResponseData, taskInfo, str2, num, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = str;
+        this.e = taskResponseData;
+        this.f = taskInfo;
+        this.g = str2;
     }
 
-    public static bq b() {
+    @Override // com.repackage.sq
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (bq.class) {
-                    if (a == null) {
-                        a = new bq();
-                    }
-                }
-            }
-            return a;
-        }
-        return (bq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskFinishReqAction" : (String) invokeV.objValue;
     }
 
-    public BDHttpDnsResult a(String str) {
-        InterceptResult invokeL;
-        ArrayList arrayList;
+    @Override // com.repackage.eq
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Map<String, ArrayList> e = e(str);
-            ArrayList arrayList2 = null;
-            if (e != null) {
-                arrayList2 = e.get("ipv4");
-                arrayList = e.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
-            } else {
-                arrayList = null;
-            }
-            return ((arrayList2 == null || arrayList2.isEmpty()) && (arrayList == null || arrayList.isEmpty())) ? new BDHttpDnsResult(BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve) : new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList2, arrayList);
-        }
-        return (BDHttpDnsResult) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public void d(String str, a aVar) {
+    public final void g(TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) || str == null || str.isEmpty()) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskInfo) == null) {
+            this.f = taskInfo;
         }
-        hq.a().b().execute(new b(this, str, aVar));
     }
 
-    public final Map<String, ArrayList> e(String str) {
-        InterceptResult invokeL;
+    public final void h(TaskResponseData taskResponseData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                InetAddress[] allByName = InetAddress.getAllByName(str);
-                if (allByName == null || allByName.length == 0) {
-                    gq.a("Dns resolve failed, host(%s), get empty resolve result", str);
-                    return null;
-                }
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                HashMap hashMap = new HashMap();
-                for (InetAddress inetAddress : allByName) {
-                    if (inetAddress instanceof Inet4Address) {
-                        String hostAddress = inetAddress.getHostAddress();
-                        if (aq.e(hostAddress)) {
-                            arrayList.add(hostAddress);
-                        }
-                    } else if (inetAddress instanceof Inet6Address) {
-                        String hostAddress2 = inetAddress.getHostAddress();
-                        if (aq.g(hostAddress2)) {
-                            arrayList2.add(hostAddress2);
-                        }
-                    }
-                }
-                hashMap.put("ipv4", arrayList);
-                hashMap.put(HttpDnsCacheForHost.JSON_KEY_IPV6, arrayList2);
-                if (arrayList.isEmpty() && arrayList2.isEmpty()) {
-                    gq.a("Dns resolve failed, host(%s), get no valid resolve result", str);
-                    return null;
-                }
-                gq.a("Dns resolve successful, host(%s), ipv4List(%s), ipv6List(%s)", str, arrayList.toString(), arrayList2.toString());
-                return hashMap;
-            } catch (UnknownHostException e) {
-                e.printStackTrace();
-                gq.a("Dns resolve failed, host(%s), caught UnknownHostException", str);
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, taskResponseData) == null) {
+            this.e = taskResponseData;
         }
-        return (Map) invokeL.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 22;
+        }
+        return invokeV.intValue;
+    }
+
+    public final TaskResponseData j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (TaskResponseData) invokeV.objValue;
+    }
+
+    public final TaskInfo k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (TaskInfo) invokeV.objValue;
+    }
+
+    public final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ bq(String str, TaskResponseData taskResponseData, TaskInfo taskInfo, String str2, Integer num, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, (i & 2) != 0 ? null : taskResponseData, (i & 4) != 0 ? null : taskInfo, (i & 8) != 0 ? "" : str2, (i & 16) != 0 ? null : num, (i & 32) == 0 ? str3 : null);
     }
 }

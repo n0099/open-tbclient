@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.cw6;
-import com.repackage.ki;
-import com.repackage.kv6;
-import com.repackage.ro;
+import com.repackage.gu6;
+import com.repackage.ji;
+import com.repackage.jn;
+import com.repackage.ot6;
 import com.repackage.wa;
 import java.util.HashMap;
 import java.util.List;
@@ -27,12 +27,12 @@ import java.util.List;
 public class HotTopicTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kv6 a;
+    public ot6 a;
     public wa b;
     public boolean c;
     public String d;
     public int e;
-    public final HashMap<String, List<ro>> f;
+    public final HashMap<String, List<jn>> f;
 
     /* loaded from: classes3.dex */
     public class a extends wa {
@@ -67,17 +67,17 @@ public class HotTopicTabModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (this.a.a != null && (responsedMessage instanceof cw6) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+                if (this.a.a != null && (responsedMessage instanceof gu6) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                     if (responsedMessage.getOrginalMessage() == null) {
-                        this.a.a.V(-1, null);
+                        this.a.a.W(-1, null);
                         return;
                     }
                     HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
-                    cw6 cw6Var = (cw6) responsedMessage;
+                    gu6 gu6Var = (gu6) responsedMessage;
                     if (!TextUtils.isEmpty(this.a.d)) {
-                        this.a.f.put(this.a.d, cw6Var.getDataList());
+                        this.a.f.put(this.a.d, gu6Var.getDataList());
                     }
-                    this.a.a.V(responsedMessage.getError(), cw6Var);
+                    this.a.a.W(responsedMessage.getError(), gu6Var);
                 }
             }
         }
@@ -107,13 +107,13 @@ public class HotTopicTabModel extends BdBaseModel {
         G();
     }
 
-    public List<ro> D() {
+    public List<jn> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? E(this.d) : (List) invokeV.objValue;
     }
 
-    public List<ro> E(String str) {
+    public List<jn> E(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f.get(str) : (List) invokeL.objValue;
@@ -132,10 +132,10 @@ public class HotTopicTabModel extends BdBaseModel {
         }
     }
 
-    public void H(kv6 kv6Var) {
+    public void H(ot6 ot6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kv6Var) == null) {
-            this.a = kv6Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ot6Var) == null) {
+            this.a = ot6Var;
         }
     }
 
@@ -167,7 +167,7 @@ public class HotTopicTabModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!ki.A() || this.c) {
+            if (!ji.A() || this.c) {
                 return false;
             }
             HotTopicTabRequest hotTopicTabRequest = new HotTopicTabRequest();

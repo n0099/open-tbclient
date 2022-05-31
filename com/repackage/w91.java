@@ -1,100 +1,79 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import com.baidu.prologue.business.data.SplashStyleRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.repackage.qb1;
 /* loaded from: classes7.dex */
 public class w91 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = null;
-    public static String b = null;
-    public static int c = 0;
-    public static boolean d = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755246654, "Lcom/repackage/w91;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755246654, "Lcom/repackage/w91;");
-        }
-    }
-
-    public static String a(String str) {
+    @NonNull
+    public static qb1 a(@NonNull z91 z91Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + b + ":" + c + PreferencesUtil.RIGHT_MOUNT + str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, z91Var)) == null) {
+            qb1.b bVar = new qb1.b(z91Var.e(), z91Var.g);
+            bVar.t("rsplash");
+            bVar.i(z91Var.f == 1);
+            bVar.f(b());
+            bVar.m(c());
+            bVar.o(z91Var.f == 1);
+            bVar.n(d(z91Var.m));
+            bVar.z(z91Var.n * 1000);
+            bVar.x(1);
+            bVar.C(SplashStyleRecorder.a());
+            bVar.g(5);
+            bVar.v(false);
+            bVar.c(z91Var.l);
+            bVar.e(25);
+            bVar.d(13);
+            bVar.y(72);
+            bVar.w(30);
+            bVar.B(68);
+            bVar.A(30);
+            bVar.h(17);
+            bVar.q(z91Var.z);
+            bVar.u(z91Var.A == 1);
+            bVar.b(z91Var.B);
+            bVar.p(z91Var.d());
+            bVar.r("跳转详情页或第三方应用");
+            bVar.s(z91Var.g() ? 47 : b() + 39);
+            bVar.j(z91Var.H);
+            bVar.l(z91Var.G);
+            bVar.k(z91Var.I);
+            return bVar.a();
         }
-        return (String) invokeL.objValue;
+        return (qb1) invokeL.objValue;
     }
 
-    public static void b(String str) {
+    public static int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && d) {
-            Log.d("CashierSdk", str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? m91.a().b() : invokeV.intValue;
     }
 
-    public static void c(String str, Throwable th) {
+    @IdRes
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, th) == null) && d) {
-            e(new Throwable().getStackTrace());
-            Log.e("CashierSdk", f(str), th);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? m91.a().c() : invokeV.intValue;
     }
 
-    public static void d(Object... objArr) {
+    @IdRes
+    public static int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) == null) && d) {
-            e(new Throwable().getStackTrace());
-            Log.e("CashierSdk", f(objArr));
-        }
-    }
-
-    public static void e(StackTraceElement[] stackTraceElementArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, stackTraceElementArr) == null) {
-            a = stackTraceElementArr[1].getFileName();
-            b = stackTraceElementArr[1].getMethodName();
-            c = stackTraceElementArr[1].getLineNumber();
-        }
-    }
-
-    public static String f(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
-            if (objArr == null) {
-                return "";
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i == 1) {
+                return m91.a().h();
             }
-            StringBuilder sb = new StringBuilder();
-            for (Object obj : objArr) {
-                if (obj != null) {
-                    sb.append(obj.toString());
-                }
-            }
-            return a(sb.toString());
+            return m91.a().g();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, str) == null) && d) {
-            Log.i("CashierSdk", str);
-        }
+        return invokeI.intValue;
     }
 }

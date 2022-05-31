@@ -1,16 +1,19 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hc8 extends BroadcastReceiver {
+public class hc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
     public hc8() {
         Interceptable interceptable = $ic;
@@ -26,18 +29,19 @@ public class hc8 extends BroadcastReceiver {
         }
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            if (action.equals("android.intent.action.SCREEN_ON")) {
-                gc8.j().e = 1;
-            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-                gc8.j().e = 1;
-                gc8.j().d.d();
-            } else if (action.equals("android.intent.action.USER_PRESENT")) {
-                gc8.j().e = 0;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            if (jSONObject == null) {
+                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
+                return;
+            }
+            try {
+                this.a = jSONObject.optString("banner_pic");
+                this.b = jSONObject.optString("banner_url");
+            } catch (Exception e) {
+                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e.toString());
+                BdLog.e(e.getMessage());
             }
         }
     }

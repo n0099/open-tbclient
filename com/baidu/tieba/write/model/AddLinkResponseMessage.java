@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uy8;
+import com.repackage.wv8;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -17,7 +17,7 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
     public static final int ERROR = -1;
     public static final int SUCCESS = 0;
     public transient /* synthetic */ FieldHolder $fh;
-    public uy8 addLinkResponseData;
+    public wv8 addLinkResponseData;
     public String errmsg;
     public int errno;
 
@@ -48,7 +48,7 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.addLinkResponseData = new uy8();
+        this.addLinkResponseData = new wv8();
         int optInt = jSONObject.optInt("errno", -1);
         this.errno = optInt;
         this.addLinkResponseData.a = optInt == 0;
@@ -85,10 +85,10 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public uy8 getAddLinkResponseData() {
+    public wv8 getAddLinkResponseData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addLinkResponseData : (uy8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.addLinkResponseData : (wv8) invokeV.objValue;
     }
 
     public String getErrmsg() {

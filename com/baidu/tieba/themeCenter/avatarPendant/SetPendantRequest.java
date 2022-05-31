@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.SetPendant.DataReq;
 import tbclient.SetPendant.SetPendantReqIdl;
 /* loaded from: classes4.dex */
@@ -48,7 +48,7 @@ public class SetPendantRequest extends NetMessage {
             builder.props_id = Long.valueOf(this.pendantId);
             builder.type = Integer.valueOf(this.type);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             SetPendantReqIdl.Builder builder2 = new SetPendantReqIdl.Builder();
             builder2.data = builder.build(false);

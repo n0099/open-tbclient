@@ -55,7 +55,7 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
     public int getLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d04c5 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d04bb : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -64,9 +64,9 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (this.optionOnClickListener != null) {
                 int id = view2.getId();
-                if (id == R.id.obfuscated_res_0x7f091c0f) {
+                if (id == R.id.obfuscated_res_0x7f091bbd) {
                     this.optionOnClickListener.onOptionClick(1001);
-                } else if (id == R.id.obfuscated_res_0x7f091bb9) {
+                } else if (id == R.id.obfuscated_res_0x7f091b67) {
                     this.optionOnClickListener.onOptionClick(1002);
                 }
             }
@@ -79,17 +79,17 @@ public class ImgOcrOptionDialog extends BaseDialogFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091c0f);
-            this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bb9);
-            this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bf9);
+            this.takePhotoTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bbd);
+            this.chooseImgTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b67);
+            this.cancelTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ba7);
             if (this.isDarkMode) {
-                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081077);
+                this.takePhotoTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f08108a);
                 this.takePhotoTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b6));
-                view2.findViewById(R.id.obfuscated_res_0x7f091c10).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060930));
-                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081075);
+                view2.findViewById(R.id.obfuscated_res_0x7f091bbe).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060930));
+                this.chooseImgTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081088);
                 this.chooseImgTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b6));
-                view2.findViewById(R.id.obfuscated_res_0x7f091bba).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06095b));
-                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081075);
+                view2.findViewById(R.id.obfuscated_res_0x7f091b68).setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f06095b));
+                this.cancelTv.setBackgroundResource(R.drawable.obfuscated_res_0x7f081088);
                 this.cancelTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609b6));
             }
             this.takePhotoTv.setOnClickListener(this);

@@ -1,9 +1,9 @@
 package com.repackage;
 
-import android.database.sqlite.SQLiteDatabase;
+import java.nio.channels.ReadableByteChannel;
 /* loaded from: classes5.dex */
-public interface a94<T> {
-    void a(SQLiteDatabase sQLiteDatabase);
+public interface a94 {
+    long a();
 
-    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
+    ReadableByteChannel source();
 }

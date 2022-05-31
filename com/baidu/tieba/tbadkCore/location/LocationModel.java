@@ -29,11 +29,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.gf;
-import com.repackage.hj8;
-import com.repackage.iu4;
-import com.repackage.ki;
+import com.repackage.ig8;
+import com.repackage.ji;
 import com.repackage.ya;
-import com.repackage.yk8;
+import com.repackage.ys4;
+import com.repackage.zh8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class LocationModel extends BdBaseModel {
@@ -332,14 +332,14 @@ public class LocationModel extends BdBaseModel {
     public static void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            hj8.h(303017, LocationSocketResponsedMessage.class, false, false);
+            ig8.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
     public boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? G(this.c.getPageActivity()) && TbadkCoreApplication.getInst().getLocationShared() && !yk8.a().d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? G(this.c.getPageActivity()) && TbadkCoreApplication.getInst().getLocationShared() && !zh8.a().d() : invokeV.booleanValue;
     }
 
     public final void D() {
@@ -352,14 +352,14 @@ public class LocationModel extends BdBaseModel {
     public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - yk8.a().c() > 300000 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? System.currentTimeMillis() - zh8.a().c() > 300000 : invokeV.booleanValue;
     }
 
     public boolean F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LocationData b2 = yk8.a().b();
+            LocationData b2 = zh8.a().b();
             return (E() || b2 == null || StringUtils.isNull(b2.getFormatted_address())) ? false : true;
         }
         return invokeV.booleanValue;
@@ -383,8 +383,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             C(locationData);
-            yk8.a().g(System.currentTimeMillis());
-            yk8.a().e(locationData);
+            zh8.a().g(System.currentTimeMillis());
+            zh8.a().e(locationData);
             e eVar2 = this.a;
             if (eVar2 != null) {
                 eVar2.b(locationData);
@@ -410,9 +410,9 @@ public class LocationModel extends BdBaseModel {
             if (F()) {
                 e eVar = this.a;
                 if (eVar != null) {
-                    eVar.b(yk8.a().b());
+                    eVar.b(zh8.a().b());
                 }
-            } else if (ki.z()) {
+            } else if (ji.z()) {
                 if (PermissionUtil.checkLocationForGoogle(this.c.getPageActivity())) {
                     gf.n().k(true, this.f);
                 }
@@ -431,9 +431,9 @@ public class LocationModel extends BdBaseModel {
             if (F()) {
                 e eVar = this.a;
                 if (eVar != null) {
-                    eVar.b(yk8.a().b());
+                    eVar.b(zh8.a().b());
                 }
-            } else if (ki.z()) {
+            } else if (ji.z()) {
                 if (PermissionUtil.checkLocationForBaiduLocation(this.c.getPageActivity())) {
                     gf.n().k(true, this.f);
                 } else {
@@ -487,7 +487,7 @@ public class LocationModel extends BdBaseModel {
     public void O(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            LocationData b2 = yk8.a().b();
+            LocationData b2 = zh8.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -499,8 +499,8 @@ public class LocationModel extends BdBaseModel {
     public void P(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            yk8.a().f(z);
-            iu4.k().u("no_longer_show_address", yk8.a().d());
+            zh8.a().f(z);
+            ys4.k().u("no_longer_show_address", zh8.a().d());
         }
     }
 

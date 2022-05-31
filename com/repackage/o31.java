@@ -1,26 +1,54 @@
 package com.repackage;
 
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.comm.constants.Constants;
-import java.util.Locale;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class o31 {
+public class o31 extends p31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r31 a;
-    public boolean b;
-    public int c;
-    public final JSONObject d;
+    public r31 o;
 
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o31 a;
+
+        public a(o31 o31Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o31Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o31Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.i(view2);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o31() {
+        super(new r31());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,130 +56,34 @@ public class o31 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((s31) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = true;
-        this.c = -1;
-        this.d = new JSONObject();
-        r31 r31Var = new r31();
-        this.a = r31Var;
-        r31Var.a = System.currentTimeMillis();
+        this.o = (r31) this.l;
     }
 
-    public String a(String str, long j, long j2, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.p31, com.repackage.m31
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(Constants.KEYS.AD_INFO, str);
-                jSONObject.put("isbrowser", String.valueOf(j));
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("aderrorcode", String.valueOf(j2));
-                jSONObject2.put("multipleaccess", String.valueOf(z));
-                jSONObject2.put(PrefetchEvent.MODULE, "0");
-                jSONObject.put("adext", jSONObject2.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public void b(String str, String str2, String str3, String str4, long j) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) || this.a == null) {
-            return;
-        }
-        if (str3 == null) {
-            str3 = "";
-        }
-        lz0 f = new lz0().f("1006");
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("ext", str2);
-            f.a("f1", jSONObject.toString());
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("timing", str);
-            f.a("f2", jSONObject2.toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        r31 r31Var = this.a;
-        f.a("f3", str4);
-        f.a("f4", String.valueOf(j));
-        f.a("f6", String.valueOf(this.c));
-        f.a("f7", LaunchStatsUtils.AD);
-        f.a("f14", "");
-        f.a("f15", String.valueOf(this.a.a));
-        f.a("f16", String.format(Locale.CHINA, "%.3f", Float.valueOf((((float) ((currentTimeMillis - r31Var.d) + r31Var.e)) * 1.0f) / 1000.0f)));
-        f.a("f17", str3);
-        f.a("f18", String.valueOf(this.a.b));
-        f.a("f19", String.valueOf(this.a.c));
-        f.a("f20", String.valueOf(this.a.d));
-        f.a("f21", String.valueOf(this.a.f));
-        f.b("f23", this.d);
-        ez0.c(f);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
-            r31 r31Var = this.a;
-            r31Var.a = 0L;
-            r31Var.e = 0L;
-            r31Var.f = 0L;
-            r31Var.d = 0L;
-            r31Var.c = 0L;
-            r31Var.b = 0L;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.d = System.currentTimeMillis();
-            r31 r31Var = this.a;
-            long j = r31Var.d - r31Var.c;
-            if (j < 0) {
-                j = 0;
-            }
-            this.a.e += j;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.c = System.currentTimeMillis();
-            if (this.b) {
-                r31 r31Var = this.a;
-                long j = r31Var.c - r31Var.a;
-                if (j < 0) {
-                    j = 0;
-                }
-                this.a.e = j;
-                this.b = false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.j();
+            r31 r31Var = this.o;
+            if (r31Var != null) {
+                r31Var.F();
+                this.o.G(new a(this));
             }
         }
     }
 
-    public void f() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.p31
+    /* renamed from: u */
+    public r31 s() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.b = System.currentTimeMillis();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a.f = System.currentTimeMillis();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.o : (r31) invokeV.objValue;
     }
 }

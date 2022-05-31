@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jc1;
-import com.repackage.nc1;
-import com.repackage.oc1;
-import com.repackage.pc1;
+import com.repackage.ab1;
+import com.repackage.bb1;
+import com.repackage.cb1;
+import com.repackage.wa1;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -35,7 +35,7 @@ public class ServerProvider extends DispatchableContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return jc1.a().getPackageName() + ".provider.ipc.server";
+            return wa1.a().getPackageName() + ".provider.ipc.server";
         }
         return (String) invokeV.objValue;
     }
@@ -48,15 +48,15 @@ public class ServerProvider extends DispatchableContentProvider {
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    public List<nc1> getContentProviderDelegates() {
+    public List<ab1> getContentProviderDelegates() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<nc1> a = pc1.a(getAuthority());
+            List<ab1> a = cb1.a(getAuthority());
             if (a == null) {
                 a = new ArrayList<>();
             }
-            a.add(0, new oc1());
+            a.add(0, new bb1());
             return a;
         }
         return (List) invokeV.objValue;

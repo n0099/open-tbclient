@@ -2,19 +2,50 @@ package com.repackage;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.qj2;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class a62 {
+public final class a62 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static LruCache<String, Object> b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a62 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-575162570, "Lcom/repackage/a62$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-575162570, "Lcom/repackage/a62$b;");
+                    return;
+                }
+            }
+            a = new a62(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,58 +60,67 @@ public class a62 {
                 return;
             }
         }
-        a = eh1.a;
+        a = rf1.a;
     }
 
-    public static z52 a(PMSAppInfo pMSAppInfo, String str) {
+    public /* synthetic */ a62(a aVar) {
+        this();
+    }
+
+    public static a62 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (a62) invokeV.objValue;
+    }
+
+    public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pMSAppInfo, str)) == null) {
-            if (pMSAppInfo == null || TextUtils.isEmpty(pMSAppInfo.appId) || pMSAppInfo.appCategory != 0) {
-                return null;
-            }
-            File i = qj2.e.i(pMSAppInfo.appId, String.valueOf(pMSAppInfo.versionCode));
-            if (!i.exists()) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, config)) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return config;
+                }
+                CONFIG config2 = (CONFIG) b.get(str);
+                if (config2 == null) {
+                    return config;
+                }
                 if (a) {
-                    Log.w("PrefetchUtils", "aiapp dir not exist ");
+                    Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
                 }
-                return null;
-            }
-            z52 z52Var = new z52();
-            if (new File(i, "app.json").exists()) {
-                if (a) {
-                    Log.d("PrefetchUtils", "find main pkg's app config file");
-                }
-                z52Var.a = i;
-                return z52Var;
-            } else if (TextUtils.isEmpty(str)) {
-                return null;
-            } else {
-                String g = me3.g(str);
-                int lastIndexOf = g.lastIndexOf(File.separator);
-                if (lastIndexOf >= 0) {
-                    g = g.substring(0, lastIndexOf);
-                }
-                if (new File(i, g).exists()) {
-                    int lastIndexOf2 = g.lastIndexOf(File.separator);
-                    while (lastIndexOf2 >= 0) {
-                        g = g.substring(0, lastIndexOf2);
-                        if (new File(i, g + File.separator + "app.json").exists()) {
-                            if (a) {
-                                Log.d("PrefetchUtils", "isInDependentPkg=true, pagePath=" + g);
-                            }
-                            z52Var.b = true;
-                            z52Var.c = g;
-                            z52Var.a = new File(i, g);
-                            return z52Var;
-                        }
-                        lastIndexOf2 = g.lastIndexOf(File.separator);
-                    }
-                    return null;
-                }
-                return null;
+                return config2;
             }
         }
-        return (z52) invokeLL.objValue;
+        return (CONFIG) invokeLL.objValue;
+    }
+
+    public synchronized <CONFIG> void c(String str, CONFIG config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && config != null) {
+                    if (a) {
+                        Log.d("SwanAppConfigCache", "putConfig key: " + str);
+                    }
+                    b.put(str, config);
+                }
+            }
+        }
+    }
+
+    public a62() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        b = new LruCache<>(10);
     }
 }

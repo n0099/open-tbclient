@@ -1,77 +1,22 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.bdhttpdns.BDHttpDns;
-import com.baidu.bdhttpdns.i;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.TaskState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dq;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class fq implements i.a {
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+/* loaded from: classes5.dex */
+public abstract class fq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dq a;
-    public final BDHttpDns b;
-    public final BDHttpDns.CachePolicy c;
-    public final com.baidu.bdhttpdns.i d;
 
-    public fq(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        BDHttpDns j = BDHttpDns.j(context);
-        this.b = j;
-        this.a = j.a();
-        this.c = this.b.f();
-        this.d = this.b.g();
-    }
+    public abstract ss a();
 
-    @Override // com.baidu.bdhttpdns.i.a
-    public void a(int i, i.d dVar, Map<String, i.e> map, String str) {
+    public final void b(TaskState taskState, Function0<Unit> function0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), dVar, map, str}) == null) {
-            if (i != -1) {
-                if (i != 0) {
-                    gq.a("Internal error: async httpdns resolve completion get error ret(%d)", Integer.valueOf(i));
-                } else {
-                    for (Map.Entry<String, i.e> entry : map.entrySet()) {
-                        String key = entry.getKey();
-                        i.e value = entry.getValue();
-                        if (value != null) {
-                            dq.a aVar = new dq.a();
-                            aVar.a(value.b());
-                            aVar.e(System.currentTimeMillis() / 1000);
-                            aVar.b(value.a());
-                            this.a.c(key, aVar);
-                        } else if (this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                            this.a.f(key);
-                        }
-                    }
-                }
-            } else if (dVar.equals(i.d.a) && this.c == BDHttpDns.CachePolicy.POLICY_TOLERANT) {
-                for (String str2 : str.split(",")) {
-                    this.a.f(str2);
-                }
-            }
-            if (this.b.h() <= 0 || this.d.C()) {
-                return;
-            }
-            this.d.s(true);
-            gq.a("preResolve has finished", new Object[0]);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskState, function0) == null) {
+            throw null;
         }
     }
 }

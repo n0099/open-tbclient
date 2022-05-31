@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
-import com.repackage.bk2;
-import com.repackage.od3;
-import com.repackage.u03;
-import com.repackage.vu2;
-import com.repackage.yl2;
+import com.repackage.bc3;
+import com.repackage.hz2;
+import com.repackage.it2;
+import com.repackage.lk2;
+import com.repackage.oi2;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes2.dex */
-public class SwanPrefetchImageRes implements yl2 {
+public class SwanPrefetchImageRes implements lk2 {
     public static /* synthetic */ Interceptable $ic;
     public static final HashMap<String, List<String>> c;
     public static final List<String> d;
@@ -67,7 +67,7 @@ public class SwanPrefetchImageRes implements yl2 {
                 for (String str : this.a) {
                     this.c.f(str);
                 }
-                if (yl2.a) {
+                if (lk2.a) {
                     Log.d("SwanPerformance", "start prefetch image appKey = " + this.b + " ; cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
                 }
             }
@@ -414,7 +414,7 @@ public class SwanPrefetchImageRes implements yl2 {
                     add("http://b.hiphotos.baidu.com/baike/whfpf%3D640%2C360%2C0/sign=f5fefd63a8cc7cd9fa7867995f3c170b/3c6d55fbb2fb431634739cf42ba4462308f7d3d4.jpg");
                 }
             });
-            if (yl2.a) {
+            if (lk2.a) {
                 Log.d("SwanPerformance", "prefetch image init cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
             }
         }
@@ -422,9 +422,9 @@ public class SwanPrefetchImageRes implements yl2 {
 
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str) && vu2.m()) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str) && it2.m()) {
             if (d.contains(str)) {
-                if (yl2.a) {
+                if (lk2.a) {
                     Log.d("SwanPerformance", "has prefetch this appKey = " + str);
                     return;
                 }
@@ -432,14 +432,14 @@ public class SwanPrefetchImageRes implements yl2 {
             }
             List<String> list = c.get(str);
             if (list != null && !list.isEmpty()) {
-                u03 a0 = u03.a0();
+                hz2 a0 = hz2.a0();
                 if (a0 != null && !a0.H()) {
                     d.add(str);
-                    od3.k(new a(this, list, str), "PrefetchImageRes");
-                } else if (yl2.a) {
+                    bc3.k(new a(this, list, str), "PrefetchImageRes");
+                } else if (lk2.a) {
                     Log.d("SwanPerformance", "app is occupied");
                 }
-            } else if (yl2.a) {
+            } else if (lk2.a) {
                 Log.d("SwanPerformance", "can't find res, appKey = " + str);
             }
         }
@@ -455,7 +455,7 @@ public class SwanPrefetchImageRes implements yl2 {
     public final void f(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            BdNet bdNet = new BdNet(bk2.c());
+            BdNet bdNet = new BdNet(oi2.c());
             bdNet.setEventListener(new INetListener(this) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -520,7 +520,7 @@ public class SwanPrefetchImageRes implements yl2 {
                 @Override // com.baidu.webkit.net.INetListener
                 public void onNetResponseCode(BdNet bdNet2, BdNetTask bdNetTask, int i) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLLI(1048581, this, bdNet2, bdNetTask, i) == null) && yl2.a) {
+                    if ((interceptable2 == null || interceptable2.invokeLLI(1048581, this, bdNet2, bdNetTask, i) == null) && lk2.a) {
                         Log.d("SwanPerformance", "response code = " + i);
                     }
                 }
@@ -542,7 +542,7 @@ public class SwanPrefetchImageRes implements yl2 {
                 @Override // com.baidu.webkit.net.INetListener
                 public void onNetTaskStart(BdNet bdNet2, BdNetTask bdNetTask) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet2, bdNetTask) == null) && yl2.a) {
+                    if ((interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet2, bdNetTask) == null) && lk2.a) {
                         Log.d("SwanPerformance", "start prefetch image = " + bdNetTask.getUrl());
                     }
                 }

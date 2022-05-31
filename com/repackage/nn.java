@@ -1,35 +1,11 @@
 package com.repackage;
-
-import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class nn {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "http://mbd.baidu.com";
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nn {
+    void cancelRefresh();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964032443, "Lcom/repackage/nn;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964032443, "Lcom/repackage/nn;");
-        }
-    }
+    kn getAdapter();
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? String.format(CloudControlUrlConfig.mUrl, a) : (String) invokeV.objValue;
-    }
+    int getFirstVisiblePosition();
+
+    int getLastVisiblePosition();
 }

@@ -24,12 +24,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.fm8;
-import com.repackage.hm8;
-import com.repackage.im8;
-import com.repackage.jm8;
-import com.repackage.km8;
-import com.repackage.rj8;
+import com.repackage.gj8;
+import com.repackage.ij8;
+import com.repackage.jj8;
+import com.repackage.kj8;
+import com.repackage.lj8;
+import com.repackage.sg8;
 import com.repackage.ya;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -46,9 +46,9 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public BuyTBeanActivity a;
     public e b;
-    public List<im8> c;
-    public List<hm8> d;
-    public jm8 e;
+    public List<jj8> c;
+    public List<ij8> d;
+    public kj8 e;
     public UserInfo f;
 
     /* loaded from: classes4.dex */
@@ -84,7 +84,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
                 if (socketResponsedMessage == null || !(socketResponsedMessage instanceof GetYinJiResponseMessage)) {
-                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2d));
+                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c33));
                     return;
                 }
                 GetYinJiResponseMessage getYinJiResponseMessage = (GetYinJiResponseMessage) socketResponsedMessage;
@@ -92,7 +92,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     if (!TextUtils.isEmpty(getYinJiResponseMessage.getErrorString())) {
                         this.a.b.onFailed(getYinJiResponseMessage.getErrorString());
                     } else {
-                        this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2d));
+                        this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c33));
                     }
                     if (this.a.a == null || getYinJiResponseMessage.getError() != 1990055) {
                         return;
@@ -103,7 +103,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 this.a.f = getYinJiResponseMessage.getUserInfo();
                 this.a.C(getYinJiResponseMessage);
                 if (getYinJiResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiResponseMessage.getIconInfoList())) {
-                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c46));
+                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c4e));
                 } else {
                     this.a.b.onSuccess();
                 }
@@ -184,7 +184,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof GetYinJiHttpResponseMessage)) {
-                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2d));
+                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c33));
                     return;
                 }
                 GetYinJiHttpResponseMessage getYinJiHttpResponseMessage = (GetYinJiHttpResponseMessage) httpResponsedMessage;
@@ -192,7 +192,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                     if (!TextUtils.isEmpty(getYinJiHttpResponseMessage.getErrorString())) {
                         this.a.b.onFailed(getYinJiHttpResponseMessage.getErrorString());
                     } else {
-                        this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c2d));
+                        this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c33));
                     }
                     if (this.a.a == null || getYinJiHttpResponseMessage.getError() != 1990055) {
                         return;
@@ -203,7 +203,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 this.a.f = getYinJiHttpResponseMessage.getUserInfo();
                 this.a.C(getYinJiHttpResponseMessage);
                 if (getYinJiHttpResponseMessage.getUserInfo() == null || ListUtils.isEmpty(getYinJiHttpResponseMessage.getIconInfoList())) {
-                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c46));
+                    this.a.b.onFailed(this.a.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c4e));
                 } else {
                     this.a.b.onSuccess();
                 }
@@ -245,7 +245,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof ResponseGetPayinfoMessage) || httpResponsedMessage.getCmd() != 1001505) {
                     if (this.a.a != null) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
                         return;
                     }
                     return;
@@ -257,24 +257,24 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 if (statusCode == 200 && error == 0) {
                     if (responseGetPayinfoMessage.getPayInfoResultData() == null) {
                         if (this.a.a != null) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f0359);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f035b);
                             return;
                         }
                     } else {
                         int pay_status = responseGetPayinfoMessage.getPayInfoResultData().getPay_status();
                         if (pay_status != 0) {
                             if (this.a.a != null) {
-                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0359);
+                                this.a.a.showToast(R.string.obfuscated_res_0x7f0f035b);
                                 return;
                             }
                         } else {
-                            fm8.a("c10297");
+                            gj8.a("c10297");
                             String str = httpMessage.getExtra() instanceof String ? (String) httpMessage.getExtra() : "";
-                            rj8 rj8Var = new rj8();
-                            rj8Var.d(str);
-                            rj8Var.c(pay_status);
-                            rj8Var.b(this.a.a.isFromDecreaseGiftStepStrategy());
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001227, rj8Var));
+                            sg8 sg8Var = new sg8();
+                            sg8Var.d(str);
+                            sg8Var.c(pay_status);
+                            sg8Var.b(this.a.a.isFromDecreaseGiftStepStrategy());
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001227, sg8Var));
                             if (this.a.a != null) {
                                 this.a.a.finish();
                                 return;
@@ -285,7 +285,7 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
                 if (!TextUtils.isEmpty(responseGetPayinfoMessage.getErrorString())) {
                     this.a.a.showToast(responseGetPayinfoMessage.getErrorString());
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c2d);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0c33);
                 }
             }
         }
@@ -324,74 +324,74 @@ public class BuyTBeanModel extends BdBaseModel<BuyTBeanActivity> {
         this.b = eVar;
     }
 
-    public final void C(km8 km8Var) {
+    public final void C(lj8 lj8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, km8Var) == null) || km8Var == null || km8Var.getUserInfo() == null || ListUtils.isEmpty(km8Var.getIconInfoList())) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, lj8Var) == null) || lj8Var == null || lj8Var.getUserInfo() == null || ListUtils.isEmpty(lj8Var.getIconInfoList())) {
             return;
         }
-        List<im8> list = this.c;
+        List<jj8> list = this.c;
         if (list != null) {
             list.clear();
         }
-        List<hm8> list2 = this.d;
+        List<ij8> list2 = this.d;
         if (list2 != null) {
             list2.clear();
         }
-        ArrayList<hm8> arrayList = new ArrayList();
+        ArrayList<ij8> arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
-        if (!ListUtils.isEmpty(km8Var.getCustomList())) {
-            for (Custom custom : km8Var.getCustomList()) {
+        if (!ListUtils.isEmpty(lj8Var.getCustomList())) {
+            for (Custom custom : lj8Var.getCustomList()) {
                 if (custom.is_custom_price.intValue() == 1) {
-                    jm8 jm8Var = new jm8();
-                    jm8Var.a = custom;
-                    arrayList2.add(jm8Var);
+                    kj8 kj8Var = new kj8();
+                    kj8Var.a = custom;
+                    arrayList2.add(kj8Var);
                 } else if (custom.is_custom_price.intValue() == 0) {
-                    hm8 hm8Var = new hm8();
-                    hm8Var.a = custom;
-                    arrayList.add(hm8Var);
+                    ij8 ij8Var = new ij8();
+                    ij8Var.a = custom;
+                    arrayList.add(ij8Var);
                 }
             }
         }
         if (!ListUtils.isEmpty(arrayList)) {
-            for (hm8 hm8Var2 : arrayList) {
-                hm8Var2.b = km8Var.getSetting();
-                this.d.add(hm8Var2);
+            for (ij8 ij8Var2 : arrayList) {
+                ij8Var2.b = lj8Var.getSetting();
+                this.d.add(ij8Var2);
             }
         }
-        if (!ListUtils.isEmpty(km8Var.getIconInfoList())) {
-            for (IconInfo iconInfo : km8Var.getIconInfoList()) {
-                im8 im8Var = new im8();
-                im8Var.b = iconInfo;
-                km8Var.getUserInfo();
-                im8Var.a = km8Var.getSetting();
-                this.c.add(im8Var);
+        if (!ListUtils.isEmpty(lj8Var.getIconInfoList())) {
+            for (IconInfo iconInfo : lj8Var.getIconInfoList()) {
+                jj8 jj8Var = new jj8();
+                jj8Var.b = iconInfo;
+                lj8Var.getUserInfo();
+                jj8Var.a = lj8Var.getSetting();
+                this.c.add(jj8Var);
             }
         }
         if (ListUtils.isEmpty(arrayList2)) {
             return;
         }
-        jm8 jm8Var2 = (jm8) ListUtils.getItem(arrayList2, 0);
-        this.e = jm8Var2;
-        jm8Var2.c = km8Var.getSetting();
-        this.e.b = km8Var.getUserInfo();
+        kj8 kj8Var2 = (kj8) ListUtils.getItem(arrayList2, 0);
+        this.e = kj8Var2;
+        kj8Var2.c = lj8Var.getSetting();
+        this.e.b = lj8Var.getUserInfo();
     }
 
-    public List<im8> D() {
+    public List<jj8> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
-    public List<hm8> E() {
+    public List<ij8> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (List) invokeV.objValue;
     }
 
-    public jm8 F() {
+    public kj8 F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (jm8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (kj8) invokeV.objValue;
     }
 
     public UserInfo G() {

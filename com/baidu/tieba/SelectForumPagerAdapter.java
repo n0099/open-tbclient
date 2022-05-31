@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qh5;
+import com.repackage.kg5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -23,7 +23,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<SelectForumActivity> a;
-    public List<qh5> b;
+    public List<kg5> b;
     public int c;
 
     public SelectForumPagerAdapter(TbPageContext tbPageContext) {
@@ -53,28 +53,28 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
     /* renamed from: b */
-    public qh5 instantiateItem(@NonNull ViewGroup viewGroup, int i) {
+    public kg5 instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            qh5 qh5Var = (qh5) ListUtils.getItem(this.b, i);
-            if (qh5Var instanceof View) {
-                View view2 = (View) qh5Var;
+            kg5 kg5Var = (kg5) ListUtils.getItem(this.b, i);
+            if (kg5Var instanceof View) {
+                View view2 = (View) kg5Var;
                 if (view2.getParent() != null) {
                     viewGroup.removeView(view2);
                 }
                 viewGroup.addView(view2);
             }
-            return qh5Var;
+            return kg5Var;
         }
-        return (qh5) invokeLI.objValue;
+        return (kg5) invokeLI.objValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (qh5 qh5Var : this.b) {
-                qh5Var.onDestroy();
+            for (kg5 kg5Var : this.b) {
+                kg5Var.onDestroy();
             }
         }
     }
@@ -82,8 +82,8 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (qh5 qh5Var : this.b) {
-                qh5Var.a();
+            for (kg5 kg5Var : this.b) {
+                kg5Var.a();
             }
         }
     }
@@ -107,7 +107,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
     public CharSequence getPageTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? ListUtils.getItem(this.b, i) == null ? "" : ((qh5) ListUtils.getItem(this.b, i)).getTitle() : (CharSequence) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? ListUtils.getItem(this.b, i) == null ? "" : ((kg5) ListUtils.getItem(this.b, i)).getTitle() : (CharSequence) invokeI.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -126,9 +126,9 @@ public class SelectForumPagerAdapter extends PagerAdapter {
                 return;
             }
             this.c = i;
-            qh5 qh5Var = (qh5) ListUtils.getItem(this.b, i);
-            if (qh5Var != null) {
-                qh5Var.c(null);
+            kg5 kg5Var = (kg5) ListUtils.getItem(this.b, i);
+            if (kg5Var != null) {
+                kg5Var.c(null);
             }
         }
     }

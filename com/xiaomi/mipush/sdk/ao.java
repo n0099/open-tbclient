@@ -63,7 +63,7 @@ public class ao extends Handler {
             int i = message.arg1;
             synchronized (ae.class) {
                 context = this.a.f48a;
-                if (ae.a(context).m130a(str)) {
+                if (ae.a(context).m129a(str)) {
                     context2 = this.a.f48a;
                     if (ae.a(context2).a(str) < 10) {
                         if (at.a.ordinal() == i) {

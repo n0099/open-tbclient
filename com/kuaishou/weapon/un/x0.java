@@ -31,6 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.FileReader;
@@ -349,13 +350,13 @@ public class x0 {
                 StringBuilder sb = new StringBuilder();
                 for (InputMethodInfo inputMethodInfo : inputMethodList) {
                     sb.append(inputMethodInfo.getId());
-                    sb.append(";");
+                    sb.append(ParamableElem.DIVIDE_PARAM);
                 }
                 if (TextUtils.isEmpty(sb)) {
                     return y0.c;
                 }
                 String sb2 = sb.toString();
-                return sb2.endsWith(";") ? sb2.substring(0, sb2.length() - 1) : sb2;
+                return sb2.endsWith(ParamableElem.DIVIDE_PARAM) ? sb2.substring(0, sb2.length() - 1) : sb2;
             } catch (Exception unused) {
                 return y0.d;
             }

@@ -62,8 +62,6 @@ public final class MemberCenterStaticAutoGenerateUrlCollectorImpl implements ICm
             arrayList.add("MemberPayActivityConfig");
             arrayList.add("MemberPrivilegeActivityConfig");
             arrayList.add("MembercenterActivityConfig");
-            arrayList.add("CardBoxMemberPayActivityConfig");
-            arrayList.add("MemberExchangeActivityConfig");
             arrayList.add("MemberPayResultActivityConfig");
             arrayList.add(UrlSchemaHelper.SCHEMA_TYPE_GOTO_MEMBER_TASK_CENTER);
             arrayList.add(UrlSchemaHelper.PAY_MEMBER_PAGE);

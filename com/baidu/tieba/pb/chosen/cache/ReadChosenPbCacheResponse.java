@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr7;
+import com.repackage.wo7;
 /* loaded from: classes3.dex */
-public class ReadChosenPbCacheResponse extends CustomResponsedMessage<nr7> {
+public class ReadChosenPbCacheResponse extends CustomResponsedMessage<wo7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nr7 chosenData;
+    public wo7 chosenData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReadChosenPbCacheResponse(nr7 nr7Var) {
+    public ReadChosenPbCacheResponse(wo7 wo7Var) {
         super(2001314);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nr7Var};
+            Object[] objArr = {wo7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,12 +31,12 @@ public class ReadChosenPbCacheResponse extends CustomResponsedMessage<nr7> {
                 return;
             }
         }
-        this.chosenData = nr7Var;
+        this.chosenData = wo7Var;
     }
 
-    public nr7 getChosenData() {
+    public wo7 getChosenData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.chosenData : (nr7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.chosenData : (wo7) invokeV.objValue;
     }
 }

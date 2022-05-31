@@ -1,122 +1,64 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class fs3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final fs3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-375652274, "Lcom/repackage/fs3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-375652274, "Lcom/repackage/fs3$a;");
-                    return;
-                }
-            }
-            a = new fs3();
-        }
-    }
-
-    public fs3() {
+    public static boolean a(View view2, np2 np2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, np2Var)) == null) {
+            yg1 W = uk2.U().W();
+            return W != null && W.c(view2, np2Var);
         }
+        return invokeLL.booleanValue;
     }
 
-    public static fs3 b() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (fs3) invokeV.objValue;
-    }
-
-    public void a(@NonNull JSONObject jSONObject, @NonNull ms3 ms3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, ms3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                ms3Var.a(new ns3(31008, "download is not exist"));
-            } else {
-                kx3.c().c(optString);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            yg1 W = uk2.U().W();
+            return (W == null || !W.b() || W.h()) ? false : true;
         }
+        return invokeV.booleanValue;
     }
 
-    public void c(@NonNull JSONObject jSONObject, @NonNull ms3 ms3Var) {
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, ms3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                ms3Var.a(new ns3(31008, "download is not exist"));
-            } else {
-                kx3.c().e(optString);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            yg1 W = uk2.U().W();
+            return W != null && W.d(view2);
         }
+        return invokeL.booleanValue;
     }
 
-    public void d(@NonNull JSONObject jSONObject, @NonNull ms3 ms3Var) {
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, ms3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            if (!optBoolean) {
-                ms3Var.a(new ns3(31008, "download is not exist"));
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            yg1 W = uk2.U().W();
+            if (W == null) {
+                return false;
             }
-            String optString = jSONObject.optString("packageName");
-            String optString2 = jSONObject.optString("apkId");
-            String optString3 = jSONObject.optString("url");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                if (kx3.c().a(optString3, optString, optString2, optBoolean, new hs3(ms3Var))) {
-                    return;
+            if (W.h()) {
+                SwanAppActivity activity = uk2.U().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
                 }
-                ms3Var.a(new ns3(31006, "is not in main process"));
-                return;
+                W.g(false);
             }
-            ms3Var.a(new ns3(31007, "invalid params"));
+            return W.removeView(view2);
         }
-    }
-
-    public void e(@NonNull JSONObject jSONObject, @NonNull ms3 ms3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, ms3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                ms3Var.a(new ns3(31008, "download is not exist"));
-            } else {
-                kx3.c().f(optString);
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

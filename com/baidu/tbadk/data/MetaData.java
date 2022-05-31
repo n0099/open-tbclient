@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kg;
-import com.repackage.li;
-import com.repackage.yv4;
+import com.repackage.jg;
+import com.repackage.ki;
+import com.repackage.ou4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +45,7 @@ import tbclient.TbVipInfo;
 import tbclient.TshowInfo;
 import tbclient.User;
 /* loaded from: classes3.dex */
-public class MetaData extends OrmObject implements Serializable, yv4 {
+public class MetaData extends OrmObject implements Serializable, ou4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2658065756886586092L;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,6 +84,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
     public boolean isLikeStatusFromNet;
     public boolean isMask;
     public int isMem;
+    public boolean isNickNameInVerifying;
     public int isOriginalAuthor;
     public int is_bawu;
     public int is_bazhu;
@@ -109,6 +110,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
     public ArrayList<IconData> mTShowIconInfoNew;
     public List<BazhuGradeData> managerForum;
     public String name_show;
+    public String nickNameInVerifying;
     public UserPendantData pendantData;
     public String portrait;
     public String portraith;
@@ -138,6 +140,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
                 return;
             }
         }
+        this.isNickNameInVerifying = false;
         this.isLikeStatusFromNet = true;
         this.is_like = 0;
         this.likeStatus = 0;
@@ -312,7 +315,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.fansNickName : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.yv4
+    @Override // com.repackage.ou4
     public int getFansNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -404,7 +407,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.is_god_user : invokeV.intValue;
     }
 
-    @Override // com.repackage.yv4
+    @Override // com.repackage.ou4
     public boolean getIsLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -477,7 +480,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.likeNum : invokeV.intValue;
     }
 
-    @Override // com.repackage.yv4
+    @Override // com.repackage.ou4
     public int getLikeStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -520,7 +523,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.pendantData : (UserPendantData) invokeV.objValue;
     }
 
-    @Override // com.repackage.yv4
+    @Override // com.repackage.ou4
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -587,7 +590,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) ? this.uk : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.yv4
+    @Override // com.repackage.ou4
     public String getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -597,7 +600,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
     public long getUserIdLong() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? kg.g(this.userId, 0L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) ? jg.g(this.userId, 0L) : invokeV.longValue;
     }
 
     public String getUserName() {
@@ -660,7 +663,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.yv4
+    @Override // com.repackage.ou4
     public boolean isGod() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -765,6 +768,8 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
             this.userName = null;
         }
         this.name_show = user.name_show;
+        this.nickNameInVerifying = user.editing_nickname;
+        this.isNickNameInVerifying = user.is_nickname_editing.intValue() == 1;
         this.portrait = user.portrait;
         this.portraith = user.portraith;
         List<Icon> list = user.iconinfo;
@@ -972,7 +977,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         }
     }
 
-    @Override // com.repackage.yv4
+    @Override // com.repackage.ou4
     public void setFansNum(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048671, this, i) == null) {
@@ -1079,7 +1084,7 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         }
     }
 
-    @Override // com.repackage.yv4
+    @Override // com.repackage.ou4
     public void setIsFromNetWork(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048686, this, z) == null) {
@@ -1130,164 +1135,171 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         }
     }
 
-    public void setIsNearlyAt(int i) {
+    public void setIsMyFriend(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048692, this, i) == null) {
+            this.is_myfriend = i;
+        }
+    }
+
+    public void setIsNearlyAt(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048693, this, i) == null) {
             this.is_nearlyAt = i;
         }
     }
 
     public void setIsOriginalAuthor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048693, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048694, this, i) == null) {
             this.isOriginalAuthor = i;
         }
     }
 
     public void setLeft_call_num(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048694, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048695, this, i) == null) {
             this.left_call_num = i;
         }
     }
 
     public void setLevel_id(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048695, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048696, this, i) == null) {
             this.level_id = i;
         }
     }
 
     public void setLikeNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048696, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048697, this, i) == null) {
             this.likeNum = i;
         }
     }
 
-    @Override // com.repackage.yv4
+    @Override // com.repackage.ou4
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048697, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048698, this, i) == null) {
             this.likeStatus = i;
         }
     }
 
     public void setName_show(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048698, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048699, this, str) == null) {
             this.name_show = str;
         }
     }
 
     public void setNewGodData(NewGodData newGodData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048699, this, newGodData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048700, this, newGodData) == null) {
             this.mNewGodData = newGodData;
         }
     }
 
     public void setPendantData(UserPendantData userPendantData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048700, this, userPendantData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048701, this, userPendantData) == null) {
             this.pendantData = userPendantData;
         }
     }
 
     public void setPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048701, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048702, this, str) == null) {
             this.portrait = str;
         }
     }
 
     public void setPortraitH(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048702, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048703, this, str) == null) {
             this.portraith = str;
         }
     }
 
     public void setPrivSetsData(PrivSetsData privSetsData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048703, this, privSetsData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048704, this, privSetsData) == null) {
             this.privSetsData = privSetsData;
         }
     }
 
     public void setSealPrefix(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048704, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048705, this, str) == null) {
             this.sealPrefix = str;
         }
     }
 
     public void setTShowInfo(ArrayList<IconData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048705, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048706, this, arrayList) == null) {
             this.mTShowIconInfo = arrayList;
         }
     }
 
     public void setTbVipInfoData(UserTbVipInfoData userTbVipInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048706, this, userTbVipInfoData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048707, this, userTbVipInfoData) == null) {
             this.bigVData = userTbVipInfoData;
         }
     }
 
     public void setThreadNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048707, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048708, this, i) == null) {
             this.threadNum = i;
         }
     }
 
     public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048708, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048709, this, i) == null) {
             this.type = i;
         }
     }
 
     public void setUk(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048709, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048710, this, str) == null) {
             this.uk = str;
         }
     }
 
     public void setUserId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048710, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048711, this, str) == null) {
             this.userId = str;
         }
     }
 
     public void setUserIdLong(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048711, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048712, this, j) == null) {
             this.userId = String.valueOf(j);
         }
     }
 
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048712, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048713, this, str) == null) {
             this.userName = str;
         }
     }
 
     public void setVirtualUserUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048713, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048714, this, str) == null) {
             this.virtualUserUrl = str;
         }
     }
 
     public void setmRelation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048714, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048715, this, i) == null) {
             this.mRelation = i;
         }
     }
@@ -1295,9 +1307,9 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
     public boolean showBazhuGrade() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048715, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048716, this)) == null) {
             BazhuGradeData bazhuGradeData = this.mBazhuGrade;
-            if (bazhuGradeData == null || li.isEmpty(bazhuGradeData.getDesc())) {
+            if (bazhuGradeData == null || ki.isEmpty(bazhuGradeData.getDesc())) {
                 return false;
             }
             return (this.is_bawu == 1 && "manager".equals(this.bawu_type)) ? this.privSetsData.getBazhuShowInside() != 3 : this.privSetsData.getBazhuShowOutside() != 3;
@@ -1305,24 +1317,24 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
         return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x010c  */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0129  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x0146  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0163 A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x017a A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:41:0x0187 A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x01b6 A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x01dc A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:54:0x0221 A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x022e A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x023b A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0250  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0251  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x0264 A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x028e  */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x02cd A[Catch: Exception -> 0x030a, LOOP:4: B:76:0x02cd->B:78:0x02d3, LOOP_START, PHI: r2 
-      PHI: (r2v1 int) = (r2v0 int), (r2v2 int) binds: [B:75:0x02cb, B:78:0x02d3] A[DONT_GENERATE, DONT_INLINE], TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
-    /* JADX WARN: Removed duplicated region for block: B:81:0x02f7 A[Catch: Exception -> 0x030a, TryCatch #0 {Exception -> 0x030a, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:19:0x00e7, B:22:0x010d, B:24:0x0113, B:27:0x012a, B:29:0x0130, B:32:0x0147, B:34:0x014d, B:36:0x0163, B:38:0x017a, B:39:0x017f, B:41:0x0187, B:42:0x018c, B:44:0x01b6, B:46:0x01c4, B:48:0x01ca, B:49:0x01cc, B:51:0x01dc, B:52:0x0219, B:54:0x0221, B:55:0x0226, B:57:0x022e, B:58:0x0233, B:60:0x023b, B:61:0x0240, B:65:0x0252, B:67:0x0264, B:68:0x0279, B:71:0x028f, B:73:0x0295, B:74:0x02b8, B:76:0x02cd, B:78:0x02d3, B:79:0x02e7, B:81:0x02f7, B:82:0x0301), top: B:90:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0121  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x013e  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x015b  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0178 A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x018f A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x019c A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x01cb A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x01f1 A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0236 A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0243 A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0250 A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0265  */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0266  */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0279 A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x02a3  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x02e2 A[Catch: Exception -> 0x031f, LOOP:4: B:80:0x02e2->B:82:0x02e8, LOOP_START, PHI: r2 
+      PHI: (r2v1 int) = (r2v0 int), (r2v2 int) binds: [B:79:0x02e0, B:82:0x02e8] A[DONT_GENERATE, DONT_INLINE], TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x030c A[Catch: Exception -> 0x031f, TryCatch #0 {Exception -> 0x031f, blocks: (B:7:0x0009, B:9:0x009c, B:11:0x00a4, B:12:0x00a7, B:16:0x00c3, B:23:0x00fc, B:26:0x0122, B:28:0x0128, B:31:0x013f, B:33:0x0145, B:36:0x015c, B:38:0x0162, B:40:0x0178, B:42:0x018f, B:43:0x0194, B:45:0x019c, B:46:0x01a1, B:48:0x01cb, B:50:0x01d9, B:52:0x01df, B:53:0x01e1, B:55:0x01f1, B:56:0x022e, B:58:0x0236, B:59:0x023b, B:61:0x0243, B:62:0x0248, B:64:0x0250, B:65:0x0255, B:69:0x0267, B:71:0x0279, B:72:0x028e, B:75:0x02a4, B:77:0x02aa, B:78:0x02cd, B:80:0x02e2, B:82:0x02e8, B:83:0x02fc, B:85:0x030c, B:86:0x0316), top: B:94:0x0009 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1370,13 +1382,15 @@ public class MetaData extends OrmObject implements Serializable, yv4 {
                 this.userName = null;
             }
             this.name_show = jSONObject.optString("name_show");
+            this.nickNameInVerifying = jSONObject.optString("editing_nickname");
+            boolean z2 = true;
+            this.isNickNameInVerifying = jSONObject.optInt("is_nickname_editing", 0) == 1;
             this.portrait = jSONObject.optString("portrait");
             this.portraith = jSONObject.optString("portraith");
             this.fansNum = jSONObject.optInt(PersonInfoActivityConfig.FANS_NUM);
             this.likeNum = jSONObject.optInt("my_like_num");
             this.threadNum = jSONObject.optInt("post_num");
             int optInt = jSONObject.optInt("has_concerned");
-            boolean z2 = true;
             if (optInt != 1 && optInt != 2) {
                 z = false;
                 this.mHadConcerned = z;

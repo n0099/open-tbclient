@@ -1,86 +1,191 @@
 package com.repackage;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.content.DialogInterface;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder;
+import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kv7 extends vu7<hs7, PbLoadMoreItemViewHolder> {
+public class kv7 implements qn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId o;
-    public View.OnClickListener p;
-    public int q;
+    public Context a;
+    public BdUniqueId b;
+    public lv7 c;
+    public at4 d;
+    public ct4 e;
+    public HttpMessageListener f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kv7(gz7 gz7Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(gz7Var, bdUniqueId);
+    /* loaded from: classes6.dex */
+    public class a implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kv7 a;
+
+        public a(kv7 kv7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kv7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kv7Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().removeMessage(this.a.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kv7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(kv7 kv7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kv7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kv7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof UEGReportResponsedMessage)) {
+                if (this.a.d != null) {
+                    this.a.d.h(false);
+                }
+                UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
+                String url = uEGReportResponsedMessage.getUrl();
+                if (!StringUtils.isNull(url)) {
+                    this.a.i(url);
+                    return;
+                }
+                String errorString = uEGReportResponsedMessage.getErrorString();
+                if (StringUtils.isNull(errorString)) {
+                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c33);
+                }
+                this.a.e.b(errorString);
+            }
+        }
+    }
+
+    public kv7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gz7Var, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((gz7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = bdUniqueId2;
-        this.q = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        this.f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
+        this.a = context;
+        this.c = new lv7();
+        ct4 ct4Var = new ct4();
+        this.e = ct4Var;
+        ct4Var.a = 1000L;
     }
 
-    @Override // com.repackage.vu7, com.repackage.eo
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        c0(i, view2, viewGroup, (hs7) obj, (PbLoadMoreItemViewHolder) viewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: b0 */
-    public PbLoadMoreItemViewHolder M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.qn8
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05f4, viewGroup, false), this.o) : (PbLoadMoreItemViewHolder) invokeL.objValue;
-    }
-
-    public View c0(int i, View view2, ViewGroup viewGroup, hs7 hs7Var, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, hs7Var, pbLoadMoreItemViewHolder})) == null) {
-            super.S(i, view2, viewGroup, hs7Var, pbLoadMoreItemViewHolder);
-            if (hs7Var.b) {
-                pbLoadMoreItemViewHolder.g(hs7Var.a);
-            } else {
-                pbLoadMoreItemViewHolder.f(hs7Var.a, this.q);
-            }
-            pbLoadMoreItemViewHolder.e(this.p);
-            pbLoadMoreItemViewHolder.d();
-            return view2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            j();
+            this.c.a(str);
         }
-        return (View) invokeCommon.objValue;
     }
 
-    public void d0(View.OnClickListener onClickListener) {
+    @Override // com.repackage.qn8
+    public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.p = onClickListener;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
+            this.b = bdUniqueId;
+            this.c.c(bdUniqueId);
+            this.f.setTag(bdUniqueId);
+            this.f.setSelfListener(true);
+            MessageManager.getInstance().registerListener(this.f);
+        }
+    }
+
+    @Override // com.repackage.qn8
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            j();
+            this.c.b(str);
+        }
+    }
+
+    public final void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a, this.a.getString(R.string.obfuscated_res_0x7f0f0df5), str, true)));
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.d == null) {
+                b9<?> a2 = f9.a(this.a);
+                TbPageContext tbPageContext = a2 instanceof TbPageContext ? (TbPageContext) a2 : null;
+                if (tbPageContext == null) {
+                    return;
+                }
+                at4 at4Var = new at4(tbPageContext);
+                this.d = at4Var;
+                at4Var.e(new a(this));
+            }
+            this.d.h(true);
         }
     }
 }

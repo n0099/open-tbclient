@@ -24,8 +24,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.du4;
-import com.repackage.li;
+import com.repackage.ki;
+import com.repackage.ts4;
 import com.repackage.x8;
 /* loaded from: classes3.dex */
 public class DealIntentService extends BdBaseService {
@@ -161,7 +161,7 @@ public class DealIntentService extends BdBaseService {
                 long j = this.a.getExtras().getLong("task_id");
                 long j2 = this.a.getExtras().getLong("service_id");
                 String stringExtra2 = this.a.getStringExtra("task_id");
-                if (!li.isEmpty(stringExtra2) && j == 0) {
+                if (!ki.isEmpty(stringExtra2) && j == 0) {
                     j = Long.parseLong(stringExtra2);
                 }
                 if (j > 0) {
@@ -182,7 +182,7 @@ public class DealIntentService extends BdBaseService {
                     param.param("is_live_lcs", i3);
                 }
                 int i4 = this.a.getExtras().getInt("KeyOfNotiId", -1);
-                int i5 = (i4 == 16 || i4 == 17) ? 3 : i4 != 19 ? (i4 == 29 || i4 == 24 || i4 == 25) ? 1 : 0 : 2;
+                int i5 = (i4 == 16 || i4 == 17) ? 3 : i4 != 19 ? i4 != 29 ? i4 != 24 ? i4 != 25 ? 0 : 12 : 10 : 11 : 2;
                 if (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("HotThreadList")) {
                     i5 = 6;
                 } else if ((!TextUtils.isEmpty(stringExtra) && stringExtra.contains("HotInteraction")) || (!TextUtils.isEmpty(stringExtra) && stringExtra.contains("frs?kw="))) {
@@ -199,7 +199,7 @@ public class DealIntentService extends BdBaseService {
                 }
                 if (x8.g().b() != null) {
                     if (5 == this.a.getIntExtra(DealIntentService.KEY_CLASS, -1)) {
-                        if (x8.g().b().getClass().getName().equalsIgnoreCase(du4.c())) {
+                        if (x8.g().b().getClass().getName().equalsIgnoreCase(ts4.c())) {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 5);
                         } else {
                             this.a.putExtra(DealIntentService.KEY_CLASS, 21);

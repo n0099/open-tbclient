@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -241,10 +242,10 @@ public class HttpMessage extends Message<List<Map.Entry<String, Object>>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (this.mHeaders.containsKey("Cookie") && (parseKVString = parseKVString(this.mHeaders.get("Cookie"), ";")) != null) {
+                if (this.mHeaders.containsKey("Cookie") && (parseKVString = parseKVString(this.mHeaders.get("Cookie"), ParamableElem.DIVIDE_PARAM)) != null) {
                     String str3 = parseKVString.containsKey(str) ? parseKVString.get(str) : null;
                     parseKVString.put(str, str2);
-                    addHeader("Cookie", map2KVString(";", parseKVString));
+                    addHeader("Cookie", map2KVString(ParamableElem.DIVIDE_PARAM, parseKVString));
                     return str3;
                 }
                 addHeader("Cookie", str + '=' + str2 + WebvttCueParser.CHAR_SEMI_COLON);

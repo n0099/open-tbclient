@@ -1,9 +1,13 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.SpannableString;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.EditText;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,15 +16,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hx2;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class uw2 {
+public class uw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean d;
+    public static uw2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
-    public int b;
-    public String c;
-    public Bundle d;
+    public Bitmap a;
+    public HashMap<String, vw2> b;
+    public List<String> c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +49,7 @@ public abstract class uw2 {
                 return;
             }
         }
-        e = eh1.a;
+        d = rf1.a;
     }
 
     public uw2() {
@@ -51,33 +65,147 @@ public abstract class uw2 {
                 return;
             }
         }
-        this.a = new Bundle();
-        this.c = "";
-        this.d = new Bundle();
+        this.b = new HashMap<>();
+        this.c = new ArrayList();
     }
 
-    public abstract void b(@NonNull Bundle bundle);
-
-    public void c() {
+    public static uw2 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            d(this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (uw2.class) {
+                    if (e == null) {
+                        e = new uw2();
+                    }
+                }
+            }
+            return e;
+        }
+        return (uw2) invokeV.objValue;
+    }
+
+    public Bitmap a(String str) {
+        InterceptResult invokeL;
+        vw2 vw2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            HashMap<String, vw2> hashMap = this.b;
+            if (hashMap == null || (vw2Var = hashMap.get(str)) == null) {
+                return null;
+            }
+            return vw2Var.a();
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
+    }
+
+    public Bitmap d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Bitmap) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<String> list = this.c;
+            return list != null && list.size() > 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (d) {
+                Log.d("EmojiInfoManager", "get emoji info from " + str);
+            }
+            File file = new File(str);
+            if (file.exists() && file.isDirectory()) {
+                String E = kf4.E(new File(str + File.separator + "emoji.json"));
+                if (TextUtils.isEmpty(E)) {
+                    if (d) {
+                        Log.d("EmojiInfoManager", "读取emoji配置文件失败");
+                        return;
+                    }
+                    return;
+                }
+                try {
+                    JSONArray optJSONArray = new JSONObject(E).optJSONArray("packages");
+                    if (optJSONArray == null) {
+                        return;
+                    }
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
+                    if (optJSONObject == null) {
+                        return;
+                    }
+                    String optString = optJSONObject.optString("package_icon");
+                    if (!TextUtils.isEmpty(optString)) {
+                        this.a = BitmapFactory.decodeFile(str + File.separator + optString);
+                    }
+                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
+                    this.c.clear();
+                    this.b.clear();
+                    if (optJSONArray2 != null) {
+                        int length = optJSONArray2.length();
+                        for (int i = 0; i < length; i++) {
+                            JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
+                            String optString2 = jSONObject.optString("id");
+                            String optString3 = jSONObject.optString("text");
+                            String optString4 = jSONObject.optString("icon");
+                            Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + optString4);
+                            if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
+                                this.c.add(optString3);
+                                this.b.put(optString3, new vw2(optString2, optString3, decodeFile));
+                            }
+                        }
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            } else if (d) {
+                Log.d("EmojiInfoManager", "文件路径错误");
+            }
         }
     }
 
-    public void d(@Nullable Bundle bundle) {
+    public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
+        InterceptResult invokeLLL;
+        Object aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            if (e) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
+            if (d) {
+                Log.d("EmojiInfoManager", "parseEmotion in UI thread, use cache");
             }
-            if (cx2.a(this.c)) {
-                return;
+            SpannableString spannableString = new SpannableString(charSequence);
+            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
+            while (matcher.find()) {
+                String group = matcher.group();
+                int start = matcher.start();
+                Bitmap a = c().a(group);
+                if (a == null) {
+                    break;
+                }
+                int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
+                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a, textSize, textSize, true);
+                if (createScaledBitmap != null) {
+                    if (textView instanceof EditText) {
+                        aVar = new hx2.b(context.getApplicationContext(), createScaledBitmap);
+                    } else {
+                        aVar = new hx2.a(context.getApplicationContext(), createScaledBitmap);
+                    }
+                    spannableString.setSpan(aVar, start, group.length() + start, 33);
+                }
             }
-            if (e) {
-                Log.d("MDelegate-Delegation", "messenger delegation finish with send result to client: " + this.b + " observer: " + this.c);
-            }
-            vw2.c(this.b, this.c, bundle);
+            return spannableString;
         }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

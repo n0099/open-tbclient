@@ -1,49 +1,220 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.widget.FrameLayout;
+import android.widget.GridView;
+import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.write.write.WriteActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
 public class rw8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b9 a;
-    public List<CloudMusicData.MusicTagList.MusicList> b;
-    public c c;
-    public String d;
+    public Context a;
+    public x25 b;
+    public EditorTools c;
+    public int d;
+    public int e;
+    public BaseActivity f;
+    public LinkedList<ImageFileInfo> g;
+    public GridView h;
+    public e i;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ rw8 c;
+        public final /* synthetic */ rw8 a;
 
-        public a(rw8 rw8Var, CloudMusicData.MusicTagList.MusicList musicList, int i) {
+        public a(rw8 rw8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rw8Var, musicList, Integer.valueOf(i)};
+                Object[] objArr = {rw8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rw8Var;
+        }
+
+        @Override // com.repackage.rw8.e
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.g == null) {
+                return;
+            }
+            if (this.a.g.size() - 1 >= i) {
+                ImageFileInfo imageFileInfo = (ImageFileInfo) this.a.g.remove(i);
+                if (imageFileInfo.isTempFile()) {
+                    rb.f().a(new DiskFileOperate(imageFileInfo.getFilePath(), null, DiskFileOperate.Action.DELETE));
+                }
+            }
+            int size = this.a.g.size();
+            if (this.a.c != null) {
+                this.a.c.A(new sz4(this.a.d, -1, null));
+                if (size > 0) {
+                    this.a.c.A(new sz4(2, 10, String.valueOf(size)));
+                } else {
+                    this.a.c.A(new sz4(2, 10, null));
+                }
+                if (this.a.g.size() == 1 && size == 0) {
+                    this.a.c.A(new sz4(1, 2, null));
+                }
+            }
+            this.a.k();
+            ((WriteActivity) this.a.f).updateChoseFile(this.a.g);
+            this.a.h();
+            this.a.notifyDataSetChanged();
+            this.a.h.invalidateViews();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements t25 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+
+        public b(rw8 rw8Var, ViewGroup viewGroup) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rw8Var, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+        }
+
+        @Override // com.repackage.t25
+        public void a(um umVar, String str, boolean z) {
+            ViewGroup viewGroup;
+            TbImageView tbImageView;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, umVar, str, z) == null) || (viewGroup = this.a) == null || (tbImageView = (TbImageView) viewGroup.findViewWithTag(str)) == null || umVar == null) {
+                return;
+            }
+            tbImageView.invalidate();
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ rw8 c;
+
+        public c(rw8 rw8Var, ViewGroup viewGroup, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rw8Var, viewGroup, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = rw8Var;
+            this.a = viewGroup;
+            this.b = z;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x0085, code lost:
+            if (r3.length() != 0) goto L20;
+         */
+        @Override // android.view.View.OnClickListener
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void onClick(View view2) {
+            int indexOfChild;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (indexOfChild = this.a.indexOfChild(view2)) < 0) {
+                return;
+            }
+            boolean z = true;
+            if (this.b && (this.c.f instanceof WriteActivity)) {
+                if (this.c.g != null && this.c.g.size() > 0) {
+                    this.c.g.remove(this.c.g.size() - 1);
+                }
+                ((WriteActivity) this.c.f).updateChoseFile(this.c.g);
+                ((WriteActivity) this.c.f).openImageActivity(null);
+                return;
+            }
+            ImageFileInfo imageFileInfo = (ImageFileInfo) this.c.getItem(indexOfChild);
+            if (imageFileInfo != null) {
+                File file = new File(imageFileInfo.getFilePath());
+                if (file.exists()) {
+                }
+            }
+            z = false;
+            if (!z) {
+                li.K(this.c.a, R.string.obfuscated_res_0x7f0f0533);
+            } else if (this.c.c != null) {
+                if (this.c.j()) {
+                    this.c.k();
+                }
+                ((WriteActivity) this.c.f).updateChoseFile(this.c.g);
+                this.c.c.A(new sz4(15, 0, Integer.valueOf(indexOfChild)));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ rw8 b;
+
+        public d(rw8 rw8Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rw8Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -53,73 +224,31 @@ public class rw8 extends BaseAdapter {
                     return;
                 }
             }
-            this.c = rw8Var;
-            this.a = musicList;
-            this.b = i;
+            this.b = rw8Var;
+            this.a = i;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.c.c == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b.i == null) {
                 return;
             }
-            this.c.c.v0(view2, this.a.resource, this.b);
+            this.b.i.a(this.a);
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TbImageView b;
-        public View c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public TextView g;
-        public View h;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0302);
-                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f0802b4);
-                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080392);
-            }
-        }
+    public interface e {
+        void a(int i);
     }
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void v0(View view2, String str, int i);
-    }
-
-    public rw8(b9 b9Var) {
+    public rw8(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var};
+            Object[] objArr = {baseActivity, writeImagesInfo, gridView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -129,131 +258,198 @@ public class rw8 extends BaseAdapter {
                 return;
             }
         }
-        this.d = "";
-        this.a = b9Var;
-        this.b = new ArrayList();
-    }
-
-    public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || list == null) {
-            return;
-        }
-        for (CloudMusicData.MusicTagList.MusicList musicList : list) {
-            if (!this.b.contains(musicList)) {
-                this.b.add(musicList);
-            }
-        }
-        notifyDataSetChanged();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public CloudMusicData.MusicTagList.MusicList getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b.get(i) : (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void e(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    public void f(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            getItem(i).isLoading = z;
-            notifyDataSetChanged();
-        }
+        this.a = null;
+        this.b = new x25();
+        this.c = null;
+        this.d = 13;
+        this.e = 6;
+        this.f = null;
+        this.g = null;
+        this.h = null;
+        this.i = new a(this);
+        this.f = baseActivity;
+        this.a = baseActivity.getActivity();
+        this.h = gridView;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            LinkedList<ImageFileInfo> linkedList = this.g;
+            if (linkedList == null) {
+                return 0;
+            }
+            return linkedList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            LinkedList<ImageFileInfo> linkedList = this.g;
+            if (linkedList == null) {
+                return null;
+            }
+            if (linkedList.size() - 1 >= i) {
+                return this.g.get(i);
+            }
+            return 0;
+        }
+        return invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
     }
 
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
-        b bVar;
+        x25 x25Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01e5, viewGroup, false);
-                bVar = new b();
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0914a0);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09149d);
-                bVar.a = tbImageView;
-                tbImageView.setDrawerType(1);
-                bVar.a.setIsRound(true);
-                bVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0802fe);
-                bVar.a.setDefaultBgResource(R.color.transparent);
-                bVar.a.setBorderWidth(mi.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
-                bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                bVar.a.setConrers(15);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09149e);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914a1);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09149a);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09149c);
-                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09149b);
-                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f091258);
-                view2.setTag(bVar);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+            boolean z = false;
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06cc, viewGroup, false);
+            LinkedList<ImageFileInfo> linkedList = this.g;
+            um umVar = null;
+            ImageFileInfo imageFileInfo = (linkedList == null || linkedList.size() - 1 < i) ? null : this.g.get(i);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f090f69);
+            FrameLayout frameLayout = (FrameLayout) findViewById.findViewById(R.id.obfuscated_res_0x7f091c99);
+            TbImageView tbImageView = (TbImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f090fb6);
+            ImageView imageView = (ImageView) findViewById.findViewById(R.id.obfuscated_res_0x7f09075f);
+            String filePath = imageFileInfo != null ? imageFileInfo.getFilePath() : "";
+            LinkedList<ImageFileInfo> linkedList2 = this.g;
+            if (linkedList2 != null && i == linkedList2.size() - 1 && filePath.startsWith("android.resource://")) {
+                z = true;
+            }
+            if (z) {
+                imageView.setVisibility(8);
+                SkinManager.setImageResource(tbImageView, R.drawable.btn_addpic_n);
             } else {
-                bVar = (b) view2.getTag();
+                SkinManager.setImageResource(imageView, R.drawable.obfuscated_res_0x7f08078e);
             }
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            CloudMusicData.MusicTagList.MusicList musicList = this.b.get(i);
-            if (musicList != null) {
-                bVar.d.setText(musicList.name);
-                bVar.a.K(musicList.image, 10, false);
-                bVar.e.setText(musicList.author);
-                bVar.f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
-                if (musicList.isLoading) {
-                    bVar.c.setVisibility(0);
-                } else {
-                    bVar.c.setVisibility(4);
-                }
-                if (musicList.equals(sw8.b().a())) {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f080394);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(0);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                    bVar.g.setOnClickListener(new a(this, musicList, i));
-                } else if (sw8.b().a() == null && getItem(i) != null && !TextUtils.isEmpty(this.d) && this.d.equals(String.valueOf(getItem(i).music_id))) {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f080392);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(8);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                } else {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f080392);
-                    bVar.a.setDrawBorder(false);
-                    bVar.g.setVisibility(8);
-                }
+            frameLayout.setForeground(SkinManager.getDrawable(R.drawable.bg_add_photo_foregroundselector));
+            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070273);
+            ImageOperation g = g35.g(dimensionPixelSize, dimensionPixelSize);
+            if (imageFileInfo != null) {
+                imageFileInfo.clearPageActions();
+                imageFileInfo.addPageAction(g);
+                tbImageView.setTag(imageFileInfo.toCachedKey(true));
             }
-            return view2;
+            b bVar = new b(this, viewGroup);
+            if (imageFileInfo != null && (x25Var = this.b) != null) {
+                umVar = x25Var.d(imageFileInfo, bVar, true);
+            }
+            if (umVar != null) {
+                tbImageView.invalidate();
+            }
+            inflate.setOnClickListener(new c(this, viewGroup, z));
+            imageView.setOnClickListener(new d(this, i));
+            return inflate;
         }
         return (View) invokeILL.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LinkedList<ImageFileInfo> linkedList = this.g;
+            if (linkedList != null && linkedList.size() != 0) {
+                if (this.g.size() >= this.e) {
+                    return;
+                }
+                if (this.g.size() > 0) {
+                    LinkedList<ImageFileInfo> linkedList2 = this.g;
+                    if (linkedList2.get(linkedList2.size() - 1).getFilePath().startsWith("android.resource://")) {
+                        return;
+                    }
+                }
+                i();
+                return;
+            }
+            i();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ImageFileInfo imageFileInfo = new ImageFileInfo();
+            imageFileInfo.setFilePath("android.resource://" + this.a.getPackageName() + "/" + R.drawable.btn_addpic_n);
+            imageFileInfo.setTempFile(true);
+            if (this.g == null) {
+                this.g = new LinkedList<>();
+            }
+            this.g.add(imageFileInfo);
+            notifyDataSetChanged();
+        }
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            LinkedList<ImageFileInfo> linkedList = this.g;
+            if (linkedList != null && linkedList.size() != 0) {
+                LinkedList<ImageFileInfo> linkedList2 = this.g;
+                if (linkedList2.get(linkedList2.size() - 1).getFilePath().startsWith("android.resource://")) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        LinkedList<ImageFileInfo> linkedList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (linkedList = this.g) == null || linkedList.size() <= 0) {
+            return;
+        }
+        int size = this.g.size() - 1;
+        if (this.g.get(size).getFilePath().startsWith("android.resource://")) {
+            this.g.remove(size);
+        }
+    }
+
+    public void l(WriteImagesInfo writeImagesInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, writeImagesInfo) == null) {
+            if (writeImagesInfo == null) {
+                writeImagesInfo = new WriteImagesInfo();
+            }
+            if (this.g == null) {
+                this.g = new LinkedList<>();
+            }
+            this.g.clear();
+            if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
+                this.g.addAll(writeImagesInfo.getChosedFiles());
+            }
+            h();
+            notifyDataSetInvalidated();
+        }
+    }
+
+    public void m(EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, editorTools) == null) {
+            this.c = editorTools;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.e = i;
+        }
     }
 }

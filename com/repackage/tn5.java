@@ -1,7 +1,90 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface tn5 {
-    void a(ThreadData threadData);
+public class tn5 extends wm<qn5, LiveTabConcernItemViewLineHolder> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
+    public go5 j;
+    public lo5 k;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tn5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), qn5.d);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: Z */
+    public LiveTabConcernItemViewLineHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            go5 go5Var = new go5(this.i, viewGroup);
+            this.j = go5Var;
+            lo5 lo5Var = this.k;
+            if (lo5Var != null) {
+                go5Var.t(lo5Var);
+            }
+            return new LiveTabConcernItemViewLineHolder(this.j);
+        }
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, qn5 qn5Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
+        InterceptResult invokeCommon;
+        go5 go5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qn5Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder == null || (go5Var = liveTabConcernItemViewLineHolder.a) == null) {
+                return null;
+            }
+            go5Var.l(qn5Var);
+            return liveTabConcernItemViewLineHolder.b();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void b0(lo5 lo5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, lo5Var) == null) {
+            this.k = lo5Var;
+            go5 go5Var = this.j;
+            if (go5Var != null) {
+                go5Var.t(lo5Var);
+            }
+        }
+    }
 }

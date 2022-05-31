@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.s4a;
-import com.repackage.s5a;
-import com.repackage.v4a;
+import com.repackage.m1a;
+import com.repackage.m2a;
+import com.repackage.p1a;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayFlowType;
-/* loaded from: classes9.dex */
-public interface IYYPayWayView extends s5a {
+/* loaded from: classes8.dex */
+public interface IYYPayWayView extends m2a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class PayViewState {
         public static final /* synthetic */ PayViewState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -77,19 +77,19 @@ public interface IYYPayWayView extends s5a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
-        void a(v4a v4aVar, s4a s4aVar, AppCustomExpand appCustomExpand);
+        void a(p1a p1aVar, m1a m1aVar, AppCustomExpand appCustomExpand);
 
         void onRefreshViewFail(int i, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<PayWayInfo> a;
-        public s4a b;
+        public m1a b;
         public AppCustomExpand c;
         public boolean d;
         public AbsViewEventHandler e;

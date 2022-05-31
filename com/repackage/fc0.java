@@ -1,102 +1,45 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.graphics.Color;
-import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
-public class fc0 extends ec0 {
+import java.io.File;
+/* loaded from: classes5.dex */
+public class fc0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755712770, "Lcom/repackage/fc0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755712770, "Lcom/repackage/fc0;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755712770, "Lcom/repackage/fc0;")) == null) {
+            return;
         }
-        b = new HashMap<>();
-    }
-
-    public fc0() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
-        b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
-        b.put("color_F5F5F51", new String[]{"#F4F5F6", "", "", ""});
-        b.put("color_F5F5F52", new String[]{"#F4F5F6", "", "", ""});
-        b.put("color_F5F5F53", new String[]{"#F4F5F6", "", "", ""});
-        b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
-        b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
-        b.put("color_858585", new String[]{"#858585", "", "", ""});
-        b.put("color_525252", new String[]{"#525252", "", "", ""});
-        b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
-        b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
-        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
-        b.put("color_8585852", new String[]{"#858585", "", "", ""});
-        b.put("color_5252522", new String[]{"#525252", "", "", ""});
-        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
-        b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
-        b.put("color_222222", new String[]{"#222222", "", "", ""});
-        b.put("color_888888", new String[]{"#888888", "", "", ""});
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755712770, "Lcom/repackage/fc0;");
+        }
     }
 
-    @Override // com.repackage.ec0
-    @SuppressLint({"Range"})
-    public int a(Context context, boolean z, String str) {
-        InterceptResult invokeCommon;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
-            if (b.containsKey(str)) {
-                String str2 = "";
-                try {
-                    str2 = b.get(str)[0];
-                    if (z) {
-                        str2 = b.get(str)[3];
-                    }
-                } catch (Exception e) {
-                    LiveFeedPageSdk.m("getColor Exception: " + e.getMessage());
-                }
-                if (xb0.a(str2)) {
-                    return -16777216;
-                }
-                try {
-                    return Color.parseColor(str2);
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return -16777216;
-                }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new File(str).delete() : invokeL.booleanValue;
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            File parentFile = new File(str).getParentFile();
+            if (parentFile.exists()) {
+                return;
             }
-            return -16777216;
+            parentFile.mkdirs();
         }
-        return invokeCommon.intValue;
     }
 }

@@ -29,9 +29,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dg5;
-import com.repackage.gs4;
-import com.repackage.mi;
+import com.repackage.li;
+import com.repackage.wq4;
+import com.repackage.xe5;
 import java.util.Locale;
 /* loaded from: classes3.dex */
 public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
@@ -554,7 +554,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             this.G = (int) TypedValue.applyDimension(1, this.G, displayMetrics);
             this.I = i;
             this.J = i2;
-            int f = mi.f(getContext(), R.dimen.tbds74);
+            int f = li.f(getContext(), R.dimen.tbds74);
             this.K = f;
             int i4 = this.I;
             this.L = (this.J * 1.0f) / i4;
@@ -572,21 +572,21 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             this.p.setStyle(Paint.Style.FILL);
             this.p.setColor(SkinManager.getColor(R.color.CAM_X0301));
             this.q = new RectF();
-            this.Q = mi.f(getContext(), R.dimen.tbds20);
-            this.R = mi.f(getContext(), R.dimen.tbds16);
-            this.S = mi.f(getContext(), R.dimen.tbds25);
+            this.Q = li.f(getContext(), R.dimen.tbds20);
+            this.R = li.f(getContext(), R.dimen.tbds16);
+            this.S = li.f(getContext(), R.dimen.tbds25);
             this.a = new LinearLayout.LayoutParams(-2, -1);
-            this.b = new LinearLayout.LayoutParams(mi.f(getContext(), R.dimen.tbds200), -1);
-            this.B = mi.f(getContext(), R.dimen.tbds22);
-            this.A = mi.f(getContext(), R.dimen.tbds20);
-            this.D = mi.f(getContext(), R.dimen.tbds15);
+            this.b = new LinearLayout.LayoutParams(li.f(getContext(), R.dimen.tbds200), -1);
+            this.B = li.f(getContext(), R.dimen.tbds22);
+            this.A = li.f(getContext(), R.dimen.tbds20);
+            this.D = li.f(getContext(), R.dimen.tbds15);
             if (this.g0 == null) {
                 this.g0 = getResources().getConfiguration().locale;
             }
             if (!this.s || this.N == null) {
                 return;
             }
-            this.P = mi.f(getContext(), R.dimen.tbds32);
+            this.P = li.f(getContext(), R.dimen.tbds32);
             TextView textView = new TextView(getContext());
             this.O = textView;
             textView.setGravity(17);
@@ -594,7 +594,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             this.O.setSingleLine();
             this.O.setTextColor(this.x);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
-            layoutParams2.leftMargin = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds_30);
+            layoutParams2.leftMargin = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds_30);
             layoutParams2.gravity = 16;
             this.N.addView(this.O, layoutParams2);
         }
@@ -610,8 +610,8 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         this.i = this.h.getAdapter().getCount();
         boolean z = false;
         for (int i = 0; i < this.i; i++) {
-            if (this.h.getAdapter() instanceof dg5) {
-                z = ((dg5) this.h.getAdapter()).a(i);
+            if (this.h.getAdapter() instanceof xe5) {
+                z = ((xe5) this.h.getAdapter()).a(i);
             }
             w(i, this.h.getAdapter().getPageTitle(i).toString(), z);
         }
@@ -959,7 +959,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             tabTextView.setHasRedDot(z);
             tabTextView.setText(str);
             if (this.i0 != 0) {
-                gs4.d(tabTextView).y(this.i0);
+                wq4.d(tabTextView).y(this.i0);
             }
             tabTextView.setGravity(17);
             tabTextView.setTextSize(0, this.I);
@@ -1089,7 +1089,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
         this.I = 17;
         this.J = 17;
         this.T = 0;
-        this.U = R.drawable.obfuscated_res_0x7f080e7b;
+        this.U = R.drawable.obfuscated_res_0x7f080e8c;
         this.V = false;
         this.W = false;
         this.i0 = 0;

@@ -27,17 +27,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.mi;
-import com.repackage.oo4;
-import com.repackage.oq4;
-import com.repackage.pq4;
-import com.repackage.py;
-import com.repackage.vm4;
-import com.repackage.y65;
+import com.repackage.cx;
+import com.repackage.dn4;
+import com.repackage.dp4;
+import com.repackage.ep4;
+import com.repackage.kl4;
+import com.repackage.li;
+import com.repackage.w55;
+import com.repackage.wq4;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
-public class RecommendForumLayout extends LinearLayout implements py {
+public class RecommendForumLayout extends LinearLayout implements cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
@@ -78,28 +78,28 @@ public class RecommendForumLayout extends LinearLayout implements py {
         }
     }
 
-    public void a(pq4 pq4Var) {
+    public void a(ep4 ep4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pq4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, ep4Var) == null) {
             this.g.setOnClickListener(this.o);
-            if (!TextUtils.isEmpty(pq4Var.d) && pq4Var.e != 0) {
-                this.f.setText(pq4Var.d);
+            if (!TextUtils.isEmpty(ep4Var.d) && ep4Var.e != 0) {
+                this.f.setText(ep4Var.d);
             } else {
-                this.f.setText(R.string.obfuscated_res_0x7f0f0f67);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0f78);
                 if (this.e.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                    ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+                    ((ViewGroup.MarginLayoutParams) this.e.getLayoutParams()).topMargin = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds38);
                     this.e.requestLayout();
                 }
             }
             if (!this.j) {
                 this.g.setVisibility(8);
             }
-            if (pq4Var != null && pq4Var.i() != null && pq4Var.i().size() > 0) {
-                ArrayList<? extends y65> arrayList = new ArrayList<>();
-                ArrayList<oq4> i = pq4Var.i();
+            if (ep4Var != null && ep4Var.i() != null && ep4Var.i().size() > 0) {
+                ArrayList<? extends w55> arrayList = new ArrayList<>();
+                ArrayList<dp4> i = ep4Var.i();
                 if (this.h) {
                     if (this.i) {
-                        arrayList.add(new oo4());
+                        arrayList.add(new dn4());
                     }
                     if (i != null) {
                         arrayList.addAll(i);
@@ -109,7 +109,7 @@ public class RecommendForumLayout extends LinearLayout implements py {
                         arrayList.addAll(i);
                     }
                     if (this.i) {
-                        arrayList.add(new oo4());
+                        arrayList.add(new dn4());
                     }
                 }
                 this.d.e(arrayList);
@@ -121,16 +121,16 @@ public class RecommendForumLayout extends LinearLayout implements py {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0710, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0707, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0920a2);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09225a);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f092048);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ff);
             this.f = textView;
-            gs4.d(textView).z(R.dimen.T_X07);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea2);
-            this.b = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091a71);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091a6a);
+            wq4.d(textView).z(R.dimen.T_X07);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e67);
+            this.b = (PullLeftRefreshLayout) findViewById(R.id.obfuscated_res_0x7f091a22);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091a1b);
             HorizontalRecommendForumAdapter horizontalRecommendForumAdapter = new HorizontalRecommendForumAdapter(this.a, this.l);
             this.d = horizontalRecommendForumAdapter;
             int i = this.l;
@@ -143,7 +143,7 @@ public class RecommendForumLayout extends LinearLayout implements py {
             this.c.setAdapter(this.d);
             this.c.setClipChildren(false);
             this.d.notifyDataSetChanged();
-            this.f.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0f67));
+            this.f.setText(this.a.getPageActivity().getString(R.string.obfuscated_res_0x7f0f0f78));
             RefreshView refreshView = new RefreshView(getContext());
             this.k = refreshView;
             this.b.setRefreshViewAndListener(refreshView);
@@ -154,17 +154,17 @@ public class RecommendForumLayout extends LinearLayout implements py {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            gs4 d = gs4.d(this);
+            wq4 d = wq4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            gs4.d(this.f).v(R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0805e7, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+            wq4.d(this.f).v(R.color.CAM_X0105);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0805e5, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             this.k.d();
             this.d.notifyDataSetChanged();
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
@@ -172,10 +172,10 @@ public class RecommendForumLayout extends LinearLayout implements py {
         }
     }
 
-    public void setData(pq4 pq4Var) {
+    public void setData(ep4 ep4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, pq4Var) == null) {
-            a(pq4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, ep4Var) == null) {
+            a(ep4Var);
         }
     }
 
@@ -207,10 +207,10 @@ public class RecommendForumLayout extends LinearLayout implements py {
         }
     }
 
-    public void setOnItemCoverListener(vm4<oq4> vm4Var) {
+    public void setOnItemCoverListener(kl4<dp4> kl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, vm4Var) == null) {
-            this.d.g(vm4Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, kl4Var) == null) {
+            this.d.g(kl4Var);
         }
     }
 

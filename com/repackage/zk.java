@@ -1,464 +1,191 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.IBundleInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.pm.BundleInfoGroup;
+import com.baidu.nps.pm.manager.NPSPackageManager;
+import com.baidu.nps.utils.SourceData;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class zk implements IBundleInfo {
+public class zk {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean b;
+    public static boolean c;
+    public static zk d;
     public transient /* synthetic */ FieldHolder $fh;
-    public PackageInfo a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
+    public volatile nl a;
 
-    public zk(PackageInfo packageInfo) {
+    /* loaded from: classes7.dex */
+    public static class a implements d51 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.d51
+        public void onProgress(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            }
+        }
+
+        @Override // com.repackage.d51
+        public void onResult(int i, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("Plug-in predownload status{\"code\": " + i + ", \"msg\": " + str + "}");
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964021004, "Lcom/repackage/zk;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964021004, "Lcom/repackage/zk;");
+                return;
+            }
+        }
+        d = new zk();
+    }
+
+    public zk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {packageInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = true;
-        this.f = false;
-        this.a = packageInfo;
-        String str = packageInfo.extraServer;
-        if (packageInfo.isAllowSilence()) {
-            this.j = 1;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !c && nl.m()) {
+            c = true;
+            NPSPackageManager.getInstance().downloadAllBundles();
         }
-        if (this.a.isOnlyWifi()) {
-            this.l = 1;
-        }
-        if (this.a.isAllowSilenceUpdate()) {
-            this.k = 1;
-        }
-        if (TextUtils.isEmpty(str)) {
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || b) {
             return;
         }
-        try {
-            BdLog.e("LiveNPSPluginManager=" + str);
-            JSONObject jSONObject = new JSONObject(str);
-            this.b = jSONObject.optString("description");
-            this.c = jSONObject.optString("icon_url");
-            this.g = jSONObject.optInt("force_update");
-            this.h = jSONObject.optInt("min_version");
-            this.i = jSONObject.optInt(PackageTable.ABI);
-        } catch (JSONException unused) {
+        b = true;
+        NPSPackageManager.getInstance().fetchBundleInfo();
+    }
+
+    public static zk e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d : (zk) invokeV.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            a();
         }
     }
 
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public int getAbi() {
-        InterceptResult invokeV;
+    public static void i(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getApkPath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.filePath : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getDependence() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getDownloadUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.downloadUrl : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getExt() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.extraServer : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getMd5() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.md5 : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public int getMinVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.name : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getPackageName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.packageName : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public String getSignature() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.sign : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public int getSilence() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public int getSilenceUpdate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public long getSize() {
-        int i;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            try {
-                i = Integer.parseInt(this.a.size);
-            } catch (Exception e) {
-                e.printStackTrace();
-                i = 0;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            if (str != null && str.trim().length() != 0) {
+                SourceData sourceData = new SourceData();
+                sourceData.source = "";
+                NPSPackageManager.getInstance().preDownload(str, new a(), 1, sourceData);
+            } else if (BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("PackageName of Plug-in is null.");
             }
-            return i;
         }
-        return invokeV.longValue;
     }
 
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public int getType() {
+    @NonNull
+    public List<BundleInfo> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (Map.Entry<String, BundleInfoGroup> entry : NPSPackageManager.getInstance().getAllBundleGroup().entrySet()) {
+                BundleInfoGroup value = entry.getValue();
+                BundleInfo bundleByType = value.getBundleByType(3);
+                if (bundleByType == null) {
+                    bundleByType = value.getBundleByType(2);
+                }
+                if (bundleByType != null) {
+                    arrayList.add(bundleByType);
+                }
+            }
+            return arrayList;
         }
-        return invokeV.intValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public long getUpdateV() {
+    public RequestParams.Channel d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.a.updateVersion : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            g();
+            return this.a.l();
+        }
+        return (RequestParams.Channel) invokeV.objValue;
     }
 
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public int getVersionCode() {
+    public nl f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? (int) this.a.version : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public int getWifiOnly() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.l : invokeV.intValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public boolean isBroken() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            g();
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (nl) invokeV.objValue;
     }
 
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public boolean isForbidden() {
-        InterceptResult invokeV;
+    public final synchronized void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.a.disable == 1 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public boolean isNeedRemove() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public boolean isRemovable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public boolean isVisible() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public boolean needForceUpdate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.g == 1 : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setAbi(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setApkPath(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.a.filePath = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setBroken(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setDependence(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setDescription(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setDownloadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.a.downloadUrl = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setExt(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            this.a.extraServer = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setForbidden(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setForceUpdate(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setIconUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setMd5(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
-            this.a.md5 = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setMinVersion(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
-            this.a.name = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setNeedRemove(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setPackageName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, str) == null) {
-            this.a.packageName = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setRemovable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSignature(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
-            this.a.sign = str;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSilence(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSilenceUpdate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSize(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            PackageInfo packageInfo = this.a;
-            packageInfo.size = j + "";
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setUpdateV(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
-            this.a.updateVersion = j;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setVersionCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
-            this.a.version = i;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    @Override // com.baidu.nps.pm.IBundleInfo
-    public void setWifiOnly(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
-            this.l = i;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                if (this.a == null) {
+                    this.a = new nl();
+                }
+            }
         }
     }
 }

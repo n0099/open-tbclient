@@ -5,7 +5,7 @@ import android.os.IBinder;
 import com.bytedance.pangle.plugin.Plugin;
 /* loaded from: classes4.dex */
 public interface a {
-    void attach(Plugin plugin2);
+    void attach(Plugin plugin);
 
     IBinder onBind(Intent intent);
 

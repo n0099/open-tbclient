@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qp;
+import com.repackage.io;
 /* loaded from: classes.dex */
 public class BdSoundGate {
     public static /* synthetic */ Interceptable $ic;
@@ -86,7 +86,7 @@ public class BdSoundGate {
     public void d(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            b().c(i, 0.0f, qp.a(i2), 0.0f);
+            b().c(i, 0.0f, io.a(i2), 0.0f);
         }
     }
 

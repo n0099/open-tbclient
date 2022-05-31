@@ -1,197 +1,271 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.R;
-import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s78 extends u78 {
+public class s78 implements o78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoItemData M0;
-    public VideoSerializeVideoThreadInfo N0;
-    public ThreadData O0;
+    public List<AdvertAppInfo> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s78(Context context, View view2) {
-        super(context, view2);
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-58735616, "Lcom/repackage/s78$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-58735616, "Lcom/repackage/s78$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[IAdBaseAsyncController.Type.values().length];
+            a = iArr;
+            try {
+                iArr[IAdBaseAsyncController.Type.PIC_PAGE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[IAdBaseAsyncController.Type.VIDEO_FLOW.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    public s78() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 5000;
-    }
-
-    @Override // com.repackage.u78
-    public void O() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i = this.p;
-            if (i == this.e || i == this.n) {
-                x0();
             }
         }
     }
 
-    @Override // com.repackage.u78
-    public void P() {
+    @Override // com.repackage.o78
+    public wm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f = 32;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.w) {
+                return new y78(baseFragmentActivity, bdUniqueId);
+            }
+            if (bdUniqueId == AdvertAppInfo.u) {
+                return new x78(baseFragmentActivity, bdUniqueId);
+            }
+            return null;
         }
+        return (wm) invokeLL.objValue;
     }
 
-    @Override // com.repackage.u78
-    public void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.u78
-    public void d0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.d0();
-            this.Q.setOnTouchListener(null);
-            this.Q.setOnClickListener(this);
-        }
-    }
-
-    @Override // com.repackage.u78, com.repackage.r78
-    public boolean onBackPress() {
+    @Override // com.repackage.o78
+    public j78 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? y68.t() : (j78) invokeV.objValue;
     }
 
-    @Override // com.repackage.u78, android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @Override // com.repackage.o78
+    public e78 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
-            return;
-        }
-        if (view2.getId() == R.id.obfuscated_res_0x7f092380) {
-            W();
-            return;
-        }
-        if (!ki.z()) {
-            mi.M(this.O, R.string.obfuscated_res_0x7f0f0c65);
-        } else {
-            w0(ThreadCardUtils.computeViewArea(this.Q));
-        }
-        View.OnClickListener onClickListener = this.z0;
-        if (onClickListener != null) {
-            onClickListener.onClick(getMainView());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ii5.l() : (e78) invokeV.objValue;
     }
 
-    @Override // com.repackage.u78, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
+    @Override // com.repackage.o78
+    public wm<?, ?> d(n78 n78Var, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            startPlay();
-        }
-    }
-
-    @Override // com.repackage.u78, com.repackage.r78
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
-            super.setData(threadData);
-            this.O0 = threadData;
-            if (this.T) {
-                VideoItemData videoItemData = new VideoItemData();
-                this.M0 = videoItemData;
-                videoItemData.buildWithThreadData(threadData);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, n78Var, bdUniqueId)) == null) {
+            if (n78Var == null || bdUniqueId == null) {
+                return null;
             }
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-            this.N0 = videoSerializeVideoThreadInfo;
-            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.N0;
-            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
-            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
-            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
-            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
+            if (bdUniqueId == AdvertAppInfo.t) {
+                return new v78(n78Var, bdUniqueId);
+            }
+            return new w78(n78Var, bdUniqueId);
         }
+        return (wm) invokeLL.objValue;
     }
 
-    public final void w0(Rect rect) {
+    @Override // com.repackage.o78
+    public void e() {
+        List<AdvertAppInfo> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) || this.O0 == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.a) == null) {
             return;
         }
-        if (this.M0 == null) {
-            this.M0 = new VideoItemData();
-        }
-        ArrayList arrayList = new ArrayList();
-        this.M0.buildWithThreadData(this.O0);
-        arrayList.add(this.M0);
-        String str = null;
-        ThreadData threadData = this.O0;
-        if (threadData != null && threadData.getBaijiahaoData() != null) {
-            str = this.O0.getBaijiahaoData().oriUgcNid;
-        }
-        Context context = this.O;
-        boolean z = this.T;
-        String str2 = this.h0;
-        fd5.e(context, arrayList, str, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, this.O0.isJumpToFrsVideoTabPlay, true);
+        StringUtils.string(Integer.valueOf(list.size()));
     }
 
-    public void x0() {
+    @Override // com.repackage.o78
+    public List<AdvertAppInfo> f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            n0(this.f);
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public s78(Context context, View view2, boolean z) {
-        this(context, view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a == null) {
+                this.a = new ArrayList();
             }
+            return this.a;
         }
-        m0(z);
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.repackage.o78
+    public wm<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, tbPageContext, bdUniqueId, str)) == null) {
+            if (bdUniqueId == AdvertAppInfo.v) {
+                return new t78(tbPageContext, bdUniqueId, str);
+            }
+            if (bdUniqueId != null) {
+                return new u78(tbPageContext, bdUniqueId, str);
+            }
+            return null;
+        }
+        return (wm) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.o78
+    @Nullable
+    public IAdBaseAsyncController h(IAdBaseAsyncController.Type type, IAdBaseAsyncController.a aVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, type, aVar)) == null) {
+            int i = a.a[type.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    return null;
+                }
+                return new j98(aVar);
+            }
+            return new z88(aVar);
+        }
+        return (IAdBaseAsyncController) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.o78
+    public l78 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? y68.t() : (l78) invokeV.objValue;
+    }
+
+    @Override // com.repackage.o78
+    public void j(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, advertAppInfo) == null) {
+            AdWebVideoActivity.setStaticInfo(advertAppInfo, 0, "DETAIL");
+        }
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r13v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r5v14 */
+    @Override // com.repackage.o78
+    public void k(@NonNull HashMap<String, String> hashMap, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, hashMap, context) == null) {
+            Bundle bundle = new Bundle();
+            JSONObject jSONObject = null;
+            try {
+                JSONObject jSONObject2 = hashMap.get(WriteActivityConfig.VIDEO_INFO) != null ? new JSONObject(hashMap.get(WriteActivityConfig.VIDEO_INFO)) : null;
+                if (jSONObject2 != null) {
+                    bundle.putString("video_url", jSONObject2.optString("video_url", ""));
+                    bundle.putString(AdWebVideoActivityConfig.KEY_VIDEO_THUMB_URL, jSONObject2.optString("poster_image", ""));
+                    float floatValue = Float.valueOf(jSONObject2.optString("video_aspect_ratio", "1")).floatValue();
+                    bundle.putFloat(AdWebVideoActivityConfig.KEY_VIDEO_RATIO, floatValue);
+                    if (floatValue < 1.0f) {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 14);
+                    } else {
+                        bundle.putInt(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
+                    }
+                    bundle.putInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, jSONObject2.optInt("duration", 0));
+                    bundle.putString(WebViewActivityConfig.TAG_AD_DEEPLINK_URL, jSONObject2.optString("page_url", ""));
+                    String str = hashMap.get("url");
+                    try {
+                        if (TextUtils.isEmpty(str)) {
+                            str = jSONObject2.optString("page_url", "");
+                        }
+                        JSONObject jSONObject3 = jSONObject2.get(AdWebVideoActivityConfig.KEY_TAIL_FRAME) != null ? new JSONObject(jSONObject2.optString(AdWebVideoActivityConfig.KEY_TAIL_FRAME)) : null;
+                        JSONObject jSONObject4 = hashMap.get("download") != null ? new JSONObject(hashMap.get("download")) : null;
+                        if (jSONObject4 != null) {
+                            bundle.putString(WebViewActivityConfig.TAG_DOWNLOAD_AD_ID, jSONObject4.optString("key", ""));
+                            jSONObject = new JSONObject();
+                            jSONObject.put("pkgname", jSONObject4.optString("key", ""));
+                            jSONObject.put("download_url", jSONObject4.optString("download_url", ""));
+                        }
+                        if (jSONObject3 != null) {
+                            jSONObject3.put("style", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                            jSONObject3.put("button_scheme", jSONObject3.optString("button_scheme", ""));
+                            jSONObject3.put("scheme", jSONObject2.optString("page_url", ""));
+                            jSONObject3.put("ext_data", jSONObject);
+                            if (jSONObject4 != null) {
+                                jSONObject3.put("pkgname", jSONObject4.optString("key", ""));
+                                jSONObject3.put("style", "apk_download");
+                            }
+                        }
+                        t88 t88Var = new t88();
+                        t88Var.b(jSONObject3);
+                        bundle.putString(AdWebVideoActivityConfig.KEY_TAIL_FRAME, t88Var.d());
+                        jSONObject = str;
+                    } catch (JSONException e) {
+                        e = e;
+                        jSONObject = str;
+                        e.printStackTrace();
+                        bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get("ext_info"));
+                        AdWebVideoActivity.setConfigAndJump(new AdWebVideoActivityConfig(context, "", jSONObject, true, true, true, bundle));
+                    }
+                }
+            } catch (JSONException e2) {
+                e = e2;
+            }
+            bundle.putString(WebViewActivityConfig.TAG_AD_EXT_INFO, hashMap.get("ext_info"));
+            AdWebVideoActivity.setConfigAndJump(new AdWebVideoActivityConfig(context, "", jSONObject, true, true, true, bundle));
+        }
     }
 }

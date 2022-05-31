@@ -1,69 +1,103 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTaskParallelType;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class g90 {
+public final class g90 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<String, List<f90>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public kc0 a;
-    public BdAsyncTaskParallelType b;
-    public int c;
 
-    public g90(BdAsyncTaskParallelType bdAsyncTaskParallelType, kc0 kc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdAsyncTaskParallelType, kc0Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755723341, "Lcom/repackage/g90;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755723341, "Lcom/repackage/g90;");
                 return;
             }
         }
-        this.a = null;
-        this.b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.c = 1;
-        if (bdAsyncTaskParallelType != null && kc0Var != null) {
-            this.b = bdAsyncTaskParallelType;
-            this.a = kc0Var;
-            return;
-        }
-        throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
+        a = new ConcurrentHashMap<>();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @JvmStatic
+    @JvmOverloads
+    public static final f90 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (f90) invokeL.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    @JvmStatic
+    @JvmOverloads
+    public static final f90 b(String str, String pageId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            kc0 kc0Var = this.a;
-            if (kc0Var == null) {
-                return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, pageId)) == null) {
+            Intrinsics.checkNotNullParameter(pageId, "pageId");
+            LiveFeedPageSdk.n("LiveFeedPlayerPool", "getPlayer pageId= " + pageId + WebvttCueParser.CHAR_SPACE + a.size());
+            List<f90> list = a.get(pageId);
+            if (list == null) {
+                list = new ArrayList<>();
             }
-            return kc0Var.b();
+            if (!list.isEmpty() && list.size() >= 2) {
+                f90 f90Var = list.get(0);
+                Collections.swap(list, 0, 1);
+                if (f90Var.isPlaying()) {
+                    f90Var.detachFromContainer();
+                    f90Var.stop();
+                }
+                LiveFeedPageSdk.n("LiveFeedPlayerPool", "getPlayer " + f90Var);
+                return f90Var;
+            }
+            f90 f90Var2 = new f90(new h90(str, 0, null, null, 14, null));
+            list.add(f90Var2);
+            a.put(pageId, list);
+            return f90Var2;
         }
-        return invokeV.intValue;
+        return (f90) invokeLL.objValue;
     }
 
-    public BdAsyncTaskParallelType getType() {
-        InterceptResult invokeV;
+    public static /* synthetic */ f90 c(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = "";
+        }
+        return b(str, str2);
+    }
+
+    @JvmStatic
+    public static final void d(String pageId) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (BdAsyncTaskParallelType) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, pageId) == null) {
+            Intrinsics.checkNotNullParameter(pageId, "pageId");
+            LiveFeedPageSdk.n("LiveFeedPlayerPool", "release playerMap= " + a.size());
+            List<f90> list = a.get(pageId);
+            if (list == null || list.isEmpty()) {
+                return;
+            }
+            for (f90 f90Var : list) {
+                f90Var.detachFromContainer();
+                f90Var.release();
+            }
+            list.clear();
+            a.remove(pageId);
+        }
     }
 }

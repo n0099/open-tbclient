@@ -204,14 +204,14 @@ public class j extends com.kwad.sdk.h.e {
     }
 
     public static View a(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, a aVar, AdTemplate adTemplate, final b bVar) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d045e, viewGroup, false);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0454, viewGroup, false);
         com.kwad.sdk.reward.b.a.a e = aVar.e();
         com.kwad.sdk.reward.b.a.a.a(e, inflate.getContext(), adTemplate);
-        ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f091133)).a(e.m());
-        KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091132), aVar.g(), adTemplate, 12);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091130);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091131);
-        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091134);
+        ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f5)).a(e.m());
+        KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f4), aVar.g(), adTemplate, 12);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f2);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f3);
+        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f6);
         String str = e.l() + "";
         String format = String.format(d, str);
         int indexOf = format.indexOf(str);
@@ -247,10 +247,10 @@ public class j extends com.kwad.sdk.h.e {
     }
 
     public static View a(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, a aVar, final b bVar) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d046c, viewGroup, false);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09115b)).setText(aVar.b());
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091060);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091063);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0462, viewGroup, false);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09111d)).setText(aVar.b());
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091022);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091025);
         textView.setText(aVar.c());
         textView2.setText(aVar.d());
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.6
@@ -302,12 +302,12 @@ public class j extends com.kwad.sdk.h.e {
 
     public static View b(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, a aVar, AdTemplate adTemplate, final b bVar) {
         com.kwad.sdk.reward.b.kwai.a f;
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d045e, viewGroup, false);
-        ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f091133)).a(aVar.f().j());
-        KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091132), aVar.g(), adTemplate, 12);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091130);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091131);
-        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091134);
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0454, viewGroup, false);
+        ((RewardTaskStepView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f5)).a(aVar.f().j());
+        KSImageLoader.loadAppIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f4), aVar.g(), adTemplate, 12);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f2);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f3);
+        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910f6);
         String str = f.i() + "";
         String format = String.format(d, str);
         int indexOf = format.indexOf(str);
@@ -343,9 +343,9 @@ public class j extends com.kwad.sdk.h.e {
     }
 
     public static View b(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, a aVar, final b bVar) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0456, viewGroup, false);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091100)).setText(aVar.b());
-        inflate.findViewById(R.id.obfuscated_res_0x7f0910fc).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.12
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d044c, viewGroup, false);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910bf)).setText(aVar.b());
+        inflate.findViewById(R.id.obfuscated_res_0x7f0910bb).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.12
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 dialogFragment.dismiss();
@@ -355,7 +355,7 @@ public class j extends com.kwad.sdk.h.e {
                 }
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f0910fe).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.13
+        inflate.findViewById(R.id.obfuscated_res_0x7f0910bd).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.13
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 b bVar2 = b.this;
@@ -364,7 +364,7 @@ public class j extends com.kwad.sdk.h.e {
                 }
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f0910fd).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.2
+        inflate.findViewById(R.id.obfuscated_res_0x7f0910bc).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 dialogFragment.dismiss();
@@ -374,15 +374,15 @@ public class j extends com.kwad.sdk.h.e {
                 }
             }
         });
-        KSImageLoader.loadCircleIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0910ff), aVar.g(), inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bba));
+        KSImageLoader.loadCircleIcon((ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0910be), aVar.g(), inflate.getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bcb));
         return inflate;
     }
 
     public static View c(final DialogFragment dialogFragment, LayoutInflater layoutInflater, ViewGroup viewGroup, a aVar, AdTemplate adTemplate, final b bVar) {
-        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d045b, viewGroup, false);
-        KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09111f), aVar.g, adTemplate);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09111e)).setText(aVar.b());
-        inflate.findViewById(R.id.obfuscated_res_0x7f09111b).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.3
+        View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0451, viewGroup, false);
+        KSImageLoader.loadImage((KSCornerImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0910e1), aVar.g, adTemplate);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910e0)).setText(aVar.b());
+        inflate.findViewById(R.id.obfuscated_res_0x7f0910dd).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 dialogFragment.dismiss();
@@ -392,7 +392,7 @@ public class j extends com.kwad.sdk.h.e {
                 }
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f09111d).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.4
+        inflate.findViewById(R.id.obfuscated_res_0x7f0910df).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 b bVar2 = b.this;
@@ -401,7 +401,7 @@ public class j extends com.kwad.sdk.h.e {
                 }
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f09111c).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.5
+        inflate.findViewById(R.id.obfuscated_res_0x7f0910de).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.reward.j.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 dialogFragment.dismiss();

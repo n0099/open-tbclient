@@ -1,176 +1,236 @@
 package com.repackage;
 
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.open.SocialOperation;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ub4 extends yb4 {
+public class ub4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ub4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public long e;
-    public String f;
-    public long g;
-    public String h;
-    public String i;
-    public long j;
-    public long k;
-    public long l;
+    public a a;
+    public volatile boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ub4(String str, int i) {
-        super(i);
+    /* loaded from: classes7.dex */
+    public static class a extends qf4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_host");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public ub4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = -1L;
-        this.g = -1L;
-        this.j = -1L;
-        this.k = 0L;
-        this.d = str;
+        this.b = false;
+        this.a = new a();
     }
 
-    public long f() {
+    public static ub4 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : invokeV.longValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.longValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public long n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.longValue;
-    }
-
-    public ub4 o(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
-            this.g = j;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (ub4.class) {
+                    if (c == null) {
+                        c = new ub4();
+                    }
+                }
+            }
+            return c;
         }
-        return (ub4) invokeJ.objValue;
+        return (ub4) invokeV.objValue;
     }
 
-    public void p(long j) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.l = j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.contains("version")) {
+                return this.a.getString("version", "0");
+            }
+            return f() ? this.a.getString("version", "0") : "0";
         }
+        return (String) invokeV.objValue;
     }
 
-    public ub4 q(long j) {
-        InterceptResult invokeJ;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            this.j = j;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String c2 = c("failureUrl");
+            return !TextUtils.isEmpty(c2) ? c2 : "";
         }
-        return (ub4) invokeJ.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public ub4 r(String str) {
+    public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.h = str;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String string = this.a.getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                if (f()) {
+                    String string2 = this.a.getString(str, "");
+                    if (!TextUtils.isEmpty(string2)) {
+                        return string2;
+                    }
+                }
+                return null;
+            }
+            return string;
         }
-        return (ub4) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public ub4 s(String str) {
-        InterceptResult invokeL;
+    public Long d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            this.f = str;
-            return this;
-        }
-        return (ub4) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Long.valueOf(this.a.getLong("identity", 0L)) : (Long) invokeV.objValue;
     }
 
-    public ub4 t(String str) {
-        InterceptResult invokeL;
+    public synchronized boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            this.i = str;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                if (this.b) {
+                    return true;
+                }
+                String D = kf4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
+                HashSet hashSet = null;
+                if (TextUtils.isEmpty(D)) {
+                    File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
+                    D = file.exists() ? kf4.E(file) : null;
+                }
+                if (TextUtils.isEmpty(D)) {
+                    return false;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(D);
+                    String optString = jSONObject.optString("hostName");
+                    String optString2 = jSONObject.optString("schemeHead");
+                    String optString3 = jSONObject.optString("shareCallbackUrl");
+                    String optString4 = jSONObject.optString("failureUrl");
+                    int optInt = jSONObject.optInt("version");
+                    JSONArray optJSONArray = jSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        hashSet = new HashSet();
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            hashSet.add(optJSONArray.optString(i));
+                        }
+                    }
+                    HashSet hashSet2 = hashSet;
+                    int optInt2 = jSONObject.optInt("officialNo");
+                    int optInt3 = jSONObject.optInt("containerNo");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("confsk");
+                    long j = 0;
+                    if (optJSONObject != null) {
+                        String optString5 = optJSONObject.optString("value");
+                        long optLong = optJSONObject.optLong("identity");
+                        if (q64.b() != null) {
+                            q64.b().d(optString5.getBytes());
+                        }
+                        j = optLong;
+                    }
+                    h(new tb4(null, optInt2, optInt3, optString, optString3, optString4, String.valueOf(optInt), hashSet2, optString2, Long.valueOf(j)));
+                    this.b = true;
+                    return true;
+                } catch (JSONException unused) {
+                    return false;
+                }
+            }
         }
-        return (ub4) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ub4 u(long j) {
-        InterceptResult invokeJ;
+    public boolean g(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
-            this.e = j;
-            return this;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            int i = this.a.getInt("use_openbundleid", -1);
+            return i == -1 ? z : i == 1;
         }
-        return (ub4) invokeJ.objValue;
+        return invokeZ.booleanValue;
     }
 
-    public void v(long j) {
+    public final void h(tb4 tb4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.k = j;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, tb4Var) == null) || tb4Var == null || TextUtils.isEmpty(tb4Var.d) || TextUtils.isEmpty(tb4Var.i) || TextUtils.isEmpty(tb4Var.g)) {
+            return;
+        }
+        SharedPreferences.Editor putString = this.a.edit().putString("hostName", tb4Var.d).putString("schemeHead", tb4Var.i).putString("shareCallbackUrl", tb4Var.e).putString("failureUrl", tb4Var.f).putString("version", tb4Var.g);
+        Set<String> set = tb4Var.h;
+        if (set != null && !set.isEmpty()) {
+            putString.putStringSet(SocialOperation.GAME_SIGNATURE, tb4Var.h);
+        }
+        Long l = tb4Var.j;
+        if (l != null) {
+            putString.putLong("identity", l.longValue());
+        }
+        putString.apply();
+    }
+
+    public void i(tb4 tb4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, tb4Var) == null) || tb4Var == null) {
+            return;
+        }
+        SharedPreferences.Editor putString = this.a.edit().putString("hostName", tb4Var.d).putString("schemeHead", tb4Var.i).putString("shareCallbackUrl", tb4Var.e).putString("failureUrl", tb4Var.f).putString("contentType", tb4Var.a).putInt("containerNo", tb4Var.c).putInt("officialNo", tb4Var.b).putString("version", tb4Var.g);
+        Set<String> set = tb4Var.h;
+        if (set != null && !set.isEmpty()) {
+            putString.putStringSet(SocialOperation.GAME_SIGNATURE, tb4Var.h);
+        }
+        putString.apply();
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a.edit().putInt("use_openbundleid", i).apply();
         }
     }
 }

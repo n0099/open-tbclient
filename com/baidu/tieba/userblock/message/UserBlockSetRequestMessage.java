@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.PermissionList;
 import tbclient.SetUserBlack.DataReq;
 import tbclient.SetUserBlack.SetUserBlackReqIdl;
@@ -54,7 +54,7 @@ public class UserBlockSetRequestMessage extends NetMessage {
             builder2.chat = Integer.valueOf(this.chat);
             builder.perm_list = builder2.build(true);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             SetUserBlackReqIdl.Builder builder3 = new SetUserBlackReqIdl.Builder();
             builder3.data = builder.build(false);

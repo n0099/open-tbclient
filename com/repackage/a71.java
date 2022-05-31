@@ -1,140 +1,110 @@
 package com.repackage;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.BaseDexClassLoader;
-import dalvik.system.PathClassLoader;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Enumeration;
+import com.heytap.mcssdk.mode.CommandMessage;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a71 extends BaseDexClassLoader {
+public final class a71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClassLoader a;
-    public ClassLoader b;
-    public Context c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a71(String str, String str2, String str3, Context context) {
-        super(str, new File(str2), str3, ClassLoader.getSystemClassLoader());
+    public static final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (File) objArr2[1], (String) objArr2[2], (ClassLoader) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = n81.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = n81.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
             }
         }
-        this.c = context;
-        this.a = context.getClass().getClassLoader();
-        this.b = ClassLoader.getSystemClassLoader();
+        return (String) invokeV.objValue;
     }
 
-    public final Class<?> a(String str) throws ClassNotFoundException {
-        Class<?> cls;
+    public static final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Context a = n81.a();
+            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
+            PackageManager packageManager = a.getPackageManager();
+            try {
+                Context a2 = n81.a();
+                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
+                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
+                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
+                return str;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final void c(t61 t61Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, t61Var, str) == null) || t61Var == null) {
+            return;
+        }
+        boolean z = false;
+        if (str == null || StringsKt__StringsJVMKt.isBlank(str)) {
+            return;
+        }
+        String a = t61Var.a("Cookie");
+        String str2 = "BDUSS=" + str;
+        if ((a == null || StringsKt__StringsJVMKt.isBlank(a)) ? true : true) {
+            t61Var.d("Cookie", str2);
+            return;
+        }
+        t61Var.d("Cookie", a + "; " + str2);
+    }
+
+    public static final void d(t61 t61Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, t61Var) == null) || t61Var == null) {
+            return;
+        }
+        t61Var.d("channel", "cashiersdk");
+        t61Var.d("deviceType", "ANDROID");
+        t61Var.d("osVersion", Build.VERSION.RELEASE);
+        t61Var.d(CommandMessage.SDK_VERSION, "2.8.7.9");
+        t61Var.d("appVersion", b());
+        t61Var.d("sdkPgName", a());
+        t61Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
+    }
+
+    public static final s61 e(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                cls = this.b.loadClass(str);
-            } catch (ClassNotFoundException unused) {
-                cls = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            s61 s61Var = new s61();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    s61Var.d(next, jSONObject.optString(next));
+                }
             }
-            if (cls != null) {
-                return cls;
-            }
-            try {
-                cls = super.findClass(str);
-            } catch (ClassNotFoundException unused2) {
-            }
-            if (cls != null) {
-                return cls;
-            }
-            throw new ClassNotFoundException("Didn't find class: " + str + " in own classloader.");
+            return s61Var;
         }
-        return (Class) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public String findLibrary(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String findLibrary = super.findLibrary(str);
-            return findLibrary != null ? findLibrary : ((PathClassLoader) this.a).findLibrary(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public URL findResource(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            URL findResource = super.findResource(str);
-            return findResource != null ? findResource : this.a.getResource(str);
-        }
-        return (URL) invokeL.objValue;
-    }
-
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Enumeration<URL> findResources(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            Enumeration<URL> findResources = super.findResources(str);
-            if (findResources != null) {
-                return findResources;
-            }
-            try {
-                return this.a.getResources(str);
-            } catch (IOException unused) {
-                return findResources;
-            }
-        }
-        return (Enumeration) invokeL.objValue;
-    }
-
-    @Override // java.lang.ClassLoader
-    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
-            Class<?> findLoadedClass = findLoadedClass(str);
-            if (findLoadedClass != null) {
-                return findLoadedClass;
-            }
-            try {
-                findLoadedClass = a(str);
-            } catch (ClassNotFoundException unused) {
-            }
-            if (findLoadedClass != null) {
-                return findLoadedClass;
-            }
-            try {
-                findLoadedClass = this.a.loadClass(str);
-            } catch (ClassNotFoundException unused2) {
-            }
-            if (findLoadedClass != null) {
-                return findLoadedClass;
-            }
-            throw new ClassNotFoundException("Didn't find class \"" + str + "\"");
-        }
-        return (Class) invokeLZ.objValue;
+        return (s61) invokeL.objValue;
     }
 }

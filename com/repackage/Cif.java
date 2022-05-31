@@ -9,9 +9,11 @@ public interface Cif {
     @NonNull
     public static final ServiceReference a = new ServiceReference("tbadkcore", "IHttpsExperiment");
 
-    List<sf> getHttpsWhileList();
+    List<rf> getHttpsWhileList();
 
     boolean isFullHttps();
+
+    boolean isIpv6();
 
     boolean isSwitchOn();
 }

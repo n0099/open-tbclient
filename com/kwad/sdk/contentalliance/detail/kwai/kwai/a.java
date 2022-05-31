@@ -6,11 +6,11 @@ import androidx.annotation.NonNull;
 public class a {
     public volatile boolean a;
     public long b;
-    public C0290a c = new C0290a();
+    public C0291a c = new C0291a();
 
     /* renamed from: com.kwad.sdk.contentalliance.detail.kwai.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0290a {
+    public static class C0291a {
         public long a = 0;
         public int b = 0;
 
@@ -48,7 +48,7 @@ public class a {
     }
 
     @NonNull
-    public C0290a d() {
+    public C0291a d() {
         if (this.a) {
             this.c.a(SystemClock.elapsedRealtime() - this.b);
             this.a = false;

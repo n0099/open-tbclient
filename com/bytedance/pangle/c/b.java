@@ -44,22 +44,22 @@ public final class b {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int a = 4;
         public transient /* synthetic */ FieldHolder $fh;
-        public final InterfaceC0252a b;
+        public final InterfaceC0253a b;
 
         /* renamed from: com.bytedance.pangle.c.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public interface InterfaceC0252a {
+        public interface InterfaceC0253a {
             Object a(File file, DexFile dexFile);
         }
 
         /* renamed from: com.bytedance.pangle.c.b$a$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0253b implements InterfaceC0252a {
+        public static class C0254b implements InterfaceC0253a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final Constructor<?> a;
 
-            public C0253b(Class<?> cls) {
+            public C0254b(Class<?> cls) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public final class b {
                 constructor.setAccessible(true);
             }
 
-            @Override // com.bytedance.pangle.c.b.a.InterfaceC0252a
+            @Override // com.bytedance.pangle.c.b.a.InterfaceC0253a
             public final Object a(File file, DexFile dexFile) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public final class b {
         }
 
         /* loaded from: classes4.dex */
-        public static class c implements InterfaceC0252a {
+        public static class c implements InterfaceC0253a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final Constructor<?> a;
@@ -113,7 +113,7 @@ public final class b {
                 constructor.setAccessible(true);
             }
 
-            @Override // com.bytedance.pangle.c.b.a.InterfaceC0252a
+            @Override // com.bytedance.pangle.c.b.a.InterfaceC0253a
             public final Object a(File file, DexFile dexFile) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public final class b {
         }
 
         /* loaded from: classes4.dex */
-        public static class d implements InterfaceC0252a {
+        public static class d implements InterfaceC0253a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final Constructor<?> a;
@@ -147,7 +147,7 @@ public final class b {
                 constructor.setAccessible(true);
             }
 
-            @Override // com.bytedance.pangle.c.b.a.InterfaceC0252a
+            @Override // com.bytedance.pangle.c.b.a.InterfaceC0253a
             public final Object a(File file, DexFile dexFile) {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
@@ -171,7 +171,7 @@ public final class b {
         }
 
         public a() {
-            InterfaceC0252a dVar;
+            InterfaceC0253a dVar;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,7 +187,7 @@ public final class b {
             Class<?> cls = Class.forName("dalvik.system.DexPathList$Element");
             try {
                 try {
-                    dVar = new C0253b(cls);
+                    dVar = new C0254b(cls);
                 } catch (NoSuchMethodException unused) {
                     dVar = new d(cls);
                 }
@@ -206,11 +206,11 @@ public final class b {
                 Object[] objArr = new Object[size];
                 for (int i = 0; i < size; i++) {
                     File file = list.get(i);
-                    InterfaceC0252a interfaceC0252a = aVar.b;
+                    InterfaceC0253a interfaceC0253a = aVar.b;
                     String path = file.getPath();
                     File parentFile = file.getParentFile();
                     String name = file.getName();
-                    objArr[i] = interfaceC0252a.a(file, DexFile.loadDex(path, new File(parentFile, name.substring(0, name.length() - a) + ".dex").getPath(), 0));
+                    objArr[i] = interfaceC0253a.a(file, DexFile.loadDex(path, new File(parentFile, name.substring(0, name.length() - a) + ".dex").getPath(), 0));
                 }
                 try {
                     b.a(obj, "dexElements", objArr);
@@ -410,7 +410,7 @@ public final class b {
 
     /* renamed from: com.bytedance.pangle.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C0254b {
+    public static final class C0255b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -499,7 +499,7 @@ public final class b {
         }
         int i = Build.VERSION.SDK_INT;
         if (i >= 19) {
-            C0254b.a(classLoader, list, file);
+            C0255b.a(classLoader, list, file);
         } else if (i >= 14) {
             a.a(classLoader, list);
         } else {

@@ -1,153 +1,113 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.core.util.BdLog;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.permissionhelper.context.ContextCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes7.dex */
-public final class yv {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a d;
+public class yv {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "yv";
     public transient /* synthetic */ FieldHolder $fh;
-    public final com.baidu.bdtask.strategy.impl.lifecycle.b a;
-    public final com.baidu.bdtask.strategy.impl.lifecycle.c b;
-    public final com.baidu.bdtask.framework.redux.d<com.baidu.bdtask.ctrl.b, rr> c;
-
-    /* loaded from: classes7.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final yv a(com.baidu.bdtask.framework.redux.d<com.baidu.bdtask.ctrl.b, rr> dVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) ? new yv(dVar, null) : (yv) invokeL.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964021624, "Lcom/repackage/yv;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964021624, "Lcom/repackage/yv;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964021624, "Lcom/repackage/yv;")) == null) {
+            return;
         }
-        d = new a(null);
-    }
-
-    public yv(com.baidu.bdtask.framework.redux.d<com.baidu.bdtask.ctrl.b, rr> dVar) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.c = dVar;
-        this.a = new com.baidu.bdtask.strategy.impl.lifecycle.b(dVar);
-        this.b = new com.baidu.bdtask.strategy.impl.lifecycle.c(this.c);
-    }
-
-    public void a(SubTaskState subTaskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            if (f(subTaskState).isPassiveTask()) {
-                this.b.h(subTaskState);
-            } else if (f(subTaskState).isInitiActiveTask()) {
-                this.a.h(subTaskState);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1964021624, "Lcom/repackage/yv;");
         }
     }
 
-    public void b(SubTaskState subTaskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subTaskState) == null) {
-            if (f(subTaskState).isPassiveTask()) {
-                this.b.i(subTaskState);
-            } else if (f(subTaskState).isInitiActiveTask()) {
-                this.a.i(subTaskState);
-            }
-        }
-    }
-
-    public void c(SubTaskState subTaskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            if (f(subTaskState).isPassiveTask()) {
-                this.b.j(subTaskState);
-            } else if (f(subTaskState).isInitiActiveTask()) {
-                this.a.j(subTaskState);
-            }
-        }
-    }
-
-    public void d(SubTaskState subTaskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, subTaskState) == null) {
-            if (f(subTaskState).isPassiveTask()) {
-                this.b.k(subTaskState);
-            } else if (f(subTaskState).isInitiActiveTask()) {
-                this.a.k(subTaskState);
-            }
-        }
-    }
-
-    public void e(SubTaskState subTaskState) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, subTaskState) == null) {
-            if (f(subTaskState).isPassiveTask()) {
-                this.b.l(subTaskState);
-            } else if (f(subTaskState).isInitiActiveTask()) {
-                this.a.l(subTaskState);
-            }
-        }
-    }
-
-    public final TaskInfo f(SubTaskState subTaskState) {
+    public static boolean a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, subTaskState)) == null) ? subTaskState.getTaskInfo() : (TaskInfo) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null) {
+                return false;
+            }
+            try {
+                return ContextCompat.checkPermissionGranted(context, "android.permission.CAMERA");
+            } catch (Throwable th) {
+                BdLog.c(a, th);
+                return !ApiUtil.shouldCheckPermission();
+            }
+        }
+        return invokeL.booleanValue;
     }
 
-    public /* synthetic */ yv(com.baidu.bdtask.framework.redux.d dVar, DefaultConstructorMarker defaultConstructorMarker) {
-        this(dVar);
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001d, code lost:
+        if (com.baidu.permissionhelper.context.ContextCompat.checkPermissionGranted(r5, "android.permission.READ_EXTERNAL_STORAGE") != false) goto L17;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            boolean z = false;
+            if (context == null) {
+                return false;
+            }
+            try {
+                boolean checkPermissionGranted = ContextCompat.checkPermissionGranted(context, "android.permission.WRITE_EXTERNAL_STORAGE");
+                if (Build.VERSION.SDK_INT >= 16) {
+                    if (!checkPermissionGranted) {
+                    }
+                    z = true;
+                    return z;
+                }
+                return checkPermissionGranted;
+            } catch (Throwable th) {
+                BdLog.c(a, th);
+                return !ApiUtil.shouldCheckPermission();
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (context == null) {
+                return false;
+            }
+            SharedPreferences sharedPreferences = context.getSharedPreferences(a, 0);
+            if (sharedPreferences == null) {
+                return true;
+            }
+            String str = "permission_request_code=" + String.valueOf(i);
+            boolean z = sharedPreferences.getBoolean(str, true);
+            d(context, str);
+            return z;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void d(Context context, String str) {
+        SharedPreferences sharedPreferences;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) || context == null || (sharedPreferences = context.getSharedPreferences(a, 0)) == null) {
+            return;
+        }
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putBoolean(str, false);
+        edit.apply();
     }
 }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bi8;
+import com.repackage.cf8;
 import com.repackage.f9;
 /* loaded from: classes3.dex */
 public class PbLocationInfoView extends TextView {
@@ -54,7 +54,7 @@ public class PbLocationInfoView extends TextView {
                     drawable.setBounds(this.b);
                 }
                 setCompoundDrawables(drawable, null, null, null);
-                bi8.b((TbPageContextSupport) f9.b(getContext()), (Animatable) drawable);
+                cf8.b((TbPageContextSupport) f9.b(getContext()), (Animatable) drawable);
                 return;
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_tips_site);
@@ -94,12 +94,12 @@ public class PbLocationInfoView extends TextView {
             this.a = i;
             if (i == 1) {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a4a);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a51);
                 }
                 setText(str);
             } else {
                 if (str == null) {
-                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a47);
+                    str = getResources().getString(R.string.obfuscated_res_0x7f0f0a4e);
                 }
                 setText(str);
             }

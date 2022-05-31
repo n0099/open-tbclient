@@ -1,326 +1,116 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qz0;
 /* loaded from: classes6.dex */
-public class nj0 extends pz0 {
+public class nj0 {
     public static /* synthetic */ Interceptable $ic;
+    public static pj0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nj0(SQLiteDatabase sQLiteDatabase) {
-        super(sQLiteDatabase);
+    /* loaded from: classes6.dex */
+    public static class a implements pj0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.pj0
+        public <T extends oj0> void a(@Nullable T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            }
+        }
+
+        @Override // com.repackage.pj0
+        public <T extends oj0> void b(@NonNull Object obj, @NonNull rj0<T> rj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, rj0Var) == null) {
+            }
+        }
+
+        @Override // com.repackage.pj0
+        public <T extends oj0> void c(@NonNull Object obj, int i, @NonNull rj0<T> rj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, rj0Var) == null) {
+                b(obj, rj0Var);
+            }
+        }
+
+        @Override // com.repackage.pj0
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755467715, "Lcom/repackage/nj0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755467715, "Lcom/repackage/nj0;");
+        }
+    }
+
+    public nj0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sQLiteDatabase};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((SQLiteDatabase) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.repackage.pz0, com.repackage.qz0
-    public synchronized qz0.a a(xz0 xz0Var, oz0... oz0VarArr) {
-        InterceptResult invokeLL;
-        qz0.a a;
+    public static pj0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, xz0Var, oz0VarArr)) == null) {
-            synchronized (this) {
-                a = super.a(xz0Var, oz0VarArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (nj0.class) {
+                    if (a == null) {
+                        a = (pj0) ServiceManager.getService(pj0.a);
+                    }
+                    if (a == null) {
+                        a = new a();
+                    }
+                }
             }
             return a;
         }
-        return (qz0.a) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.pz0, com.repackage.qz0
-    public synchronized void beginTransaction() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                try {
-                    super.beginTransaction();
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized int delete(String str, yz0 yz0Var) {
-        InterceptResult invokeLL;
-        int delete;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, yz0Var)) == null) {
-            synchronized (this) {
-                try {
-                    delete = super.delete(str, yz0Var);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return delete;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.repackage.pz0, com.repackage.qz0
-    public synchronized void endTransaction() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                try {
-                    super.endTransaction();
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized long insert(xz0 xz0Var) {
-        InterceptResult invokeL;
-        long insert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, xz0Var)) == null) {
-            synchronized (this) {
-                try {
-                    insert = super.insert(xz0Var);
-                } catch (Exception unused) {
-                    return -1L;
-                }
-            }
-            return insert;
-        }
-        return invokeL.longValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized boolean query(xz0 xz0Var, yz0 yz0Var) {
-        InterceptResult invokeLL;
-        boolean query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, xz0Var, yz0Var)) == null) {
-            synchronized (this) {
-                try {
-                    query = super.query(xz0Var, yz0Var);
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return query;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.pz0, com.repackage.qz0
-    public synchronized void setTransactionSuccessful() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            synchronized (this) {
-                try {
-                    super.setTransactionSuccessful();
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    @Override // com.repackage.pz0, com.repackage.qz0
-    public synchronized int update(xz0 xz0Var, oz0... oz0VarArr) {
-        InterceptResult invokeLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, xz0Var, oz0VarArr)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(xz0Var, oz0VarArr);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized int delete(xz0 xz0Var, oz0... oz0VarArr) {
-        InterceptResult invokeLL;
-        int delete;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, xz0Var, oz0VarArr)) == null) {
-            synchronized (this) {
-                try {
-                    delete = super.delete(xz0Var, oz0VarArr);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return delete;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized long insert(String str, String[] strArr, Object... objArr) {
-        InterceptResult invokeLLL;
-        long insert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, str, strArr, objArr)) == null) {
-            synchronized (this) {
-                try {
-                    insert = super.insert(str, strArr, objArr);
-                } catch (Exception unused) {
-                    return -1L;
-                }
-            }
-            return insert;
-        }
-        return invokeLLL.longValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized boolean query(xz0 xz0Var, oz0... oz0VarArr) {
-        InterceptResult invokeLL;
-        boolean query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, xz0Var, oz0VarArr)) == null) {
-            synchronized (this) {
-                try {
-                    query = super.query(xz0Var, oz0VarArr);
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return query;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized int update(Class<? extends xz0> cls, yz0 yz0Var, oz0[] oz0VarArr, Object... objArr) {
-        InterceptResult invokeLLLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048590, this, cls, yz0Var, oz0VarArr, objArr)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(cls, yz0Var, oz0VarArr, objArr);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLLLL.intValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized Cursor query(String str, oz0[] oz0VarArr, yz0 yz0Var) {
-        InterceptResult invokeLLL;
-        Cursor query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, oz0VarArr, yz0Var)) == null) {
-            synchronized (this) {
-                try {
-                    query = super.query(str, oz0VarArr, yz0Var);
-                } catch (Exception unused) {
-                    return new a01(null);
-                }
-            }
-            return query;
-        }
-        return (Cursor) invokeLLL.objValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized int update(xz0 xz0Var, yz0 yz0Var) {
-        InterceptResult invokeLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, xz0Var, yz0Var)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(xz0Var, yz0Var);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLL.intValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized Cursor query(zz0 zz0Var) {
-        InterceptResult invokeL;
-        Cursor query;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, zz0Var)) == null) {
-            synchronized (this) {
-                try {
-                    query = super.query(zz0Var);
-                } catch (Exception unused) {
-                    return new a01(null);
-                }
-            }
-            return query;
-        }
-        return (Cursor) invokeL.objValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized int update(String str, ContentValues contentValues, yz0 yz0Var) {
-        InterceptResult invokeLLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, contentValues, yz0Var)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(str, contentValues, yz0Var);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLLL.intValue;
-    }
-
-    @Override // com.repackage.pz0
-    public synchronized int update(String str, Column[] columnArr, yz0 yz0Var) {
-        InterceptResult invokeLLL;
-        int update;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, str, columnArr, yz0Var)) == null) {
-            synchronized (this) {
-                try {
-                    update = super.update(str, columnArr, yz0Var);
-                } catch (Exception unused) {
-                    return -1;
-                }
-            }
-            return update;
-        }
-        return invokeLLL.intValue;
+        return (pj0) invokeV.objValue;
     }
 }

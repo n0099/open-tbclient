@@ -106,6 +106,8 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_FRS_AD_LIST_ITEM_CLICK = "c13194";
     public static final String KEY_FRS_REQUEST_PAGE = "c14587";
     public static final String KEY_H5_OFFLINE_PACKAGE_DOWNLOAD = "c13435";
+    public static final String KEY_HOME_LIVE_ICON_CLICK = "c14695";
+    public static final String KEY_HOME_LIVE_ICON_SHOW = "c14694";
     public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK = "c14372";
     public static final String KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW = "c14367";
     public static final String KEY_IMAGE_VIEWER_DOWNLOAD_DIALOG_SUCCESS = "c14047";
@@ -170,6 +172,8 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_TOPIC_DETAIL_TO_PB_AGREE_CLICK = "c14394";
     public static final String KEY_TRANSFER_BTN_CLICK = "c13567";
     public static final String KEY_UPDATE_OFFLINE_PACK = "c14055";
+    public static final String KEY_USER_BAN_PAY_HINT_CLICK = "c14685";
+    public static final String KEY_USER_BAN_PAY_HINT_SHOW = "c14684";
     public static final String KEY_VIDEO_ACCOUNT_ADD_COLLECTION_CLICK = "c14182";
     public static final String KEY_VIDEO_ACCOUNT_ATTENTION_CLICK = "c14185";
     public static final String KEY_VIDEO_ACCOUNT_ATTENTION_LIST_PAGE = "c14262";

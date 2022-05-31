@@ -17,10 +17,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.jk5;
-import com.repackage.sd5;
-import com.repackage.vd5;
-import com.repackage.zc5;
+import com.repackage.dj5;
+import com.repackage.mc5;
+import com.repackage.pc5;
+import com.repackage.tb5;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
@@ -39,12 +39,12 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
 
         /* renamed from: com.baidu.tieba.addresslist.im.newFriend.RecommendFriendModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0178a extends sd5<Void> {
+        public class C0177a extends mc5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ List a;
 
-            public C0178a(a aVar, List list) {
+            public C0177a(a aVar, List list) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -63,7 +63,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.sd5
+            @Override // com.repackage.mc5
             /* renamed from: a */
             public Void doInBackground() {
                 InterceptResult invokeV;
@@ -73,7 +73,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     if (list == null || list.size() <= 0) {
                         return null;
                     }
-                    jk5.f().m(this.a);
+                    dj5.f().m(this.a);
                     return null;
                 }
                 return (Void) invokeV.objValue;
@@ -81,7 +81,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements zc5<Void> {
+        public class b implements tb5<Void> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
@@ -107,7 +107,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.repackage.zc5
+            @Override // com.repackage.tb5
             /* renamed from: a */
             public void onReturnDataInUI(Void r5) {
                 Interceptable interceptable = $ic;
@@ -159,7 +159,7 @@ public class RecommendFriendModel extends BdBaseModel<NewFriendsActivity> {
                     }
                     return;
                 }
-                vd5.c(new C0178a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
+                pc5.c(new C0177a(this, recommendFriendResponseMessage.getDatas()), new b(this, errMsg));
             }
         }
     }

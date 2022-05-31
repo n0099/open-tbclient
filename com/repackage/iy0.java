@@ -1,47 +1,24 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.database.Cursor;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class iy0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static void a(Cursor cursor, ky0... ky0VarArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? ly0.l().getString("key_clarity_lifecycle", "") : (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ly0.l().getString("key_clarity_login", "") : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ly0.l().getString("key_clarity_mobile", "") : (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? ly0.l().getString("key_clarity_smart", "") : (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ly0.l().getString("key_clarity_wifi", "") : (String) invokeV.objValue;
-    }
-
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ly0.l().getInt("key_clarity_user", -2) : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeLL(65536, null, cursor, ky0VarArr) == null) {
+            int i = 0;
+            for (ky0 ky0Var : ky0VarArr) {
+                for (Column column : ky0Var.b().c()) {
+                    hy0.h(column, cursor, i);
+                    i++;
+                }
+            }
+        }
     }
 }

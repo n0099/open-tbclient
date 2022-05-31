@@ -1,46 +1,51 @@
 package com.repackage;
 
-import android.util.Log;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public final class pl9 implements Runnable {
+public class pl9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ ol9 b;
+    public final /* synthetic */ dm9 a;
 
-    public pl9(ol9 ol9Var, AtomicBoolean atomicBoolean) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pl9(dm9 dm9Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ol9Var, atomicBoolean};
+            Object[] objArr = {dm9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = ol9Var;
-        this.a = atomicBoolean;
+        this.a = dm9Var;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.getAndSet(true)) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
+            this.a.e = true;
+            this.a.k.removeMessages(11);
+            int wt = this.a.e() ? this.a.f.getWt() : 0;
+            nn9 a = rn9.a(this.a.b);
+            a.e(new vn9(this.a.f), 2002, wt * 1000);
+            a.m();
+            this.a.h.onFail(PBError.TIMEOUT);
         }
-        Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-        ol9 ol9Var = this.b;
-        jl9 jl9Var = ol9Var.c;
-        jl9.n(ol9Var.a, ol9Var.b);
     }
 }

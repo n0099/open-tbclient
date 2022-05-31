@@ -17,7 +17,7 @@ import com.vivo.push.util.x;
 import com.vivo.push.util.z;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class c<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;

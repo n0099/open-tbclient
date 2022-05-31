@@ -34,14 +34,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b28;
-import com.repackage.iu4;
-import com.repackage.kg;
-import com.repackage.n18;
-import com.repackage.sd5;
-import com.repackage.vd5;
-import com.repackage.y18;
-import com.repackage.zc5;
+import com.repackage.hz7;
+import com.repackage.jg;
+import com.repackage.kz7;
+import com.repackage.mc5;
+import com.repackage.pc5;
+import com.repackage.tb5;
+import com.repackage.wy7;
+import com.repackage.ys4;
 /* loaded from: classes3.dex */
 public class PersonCenterFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -51,7 +51,7 @@ public class PersonCenterFragment extends BaseFragment {
     @Deprecated
     public boolean c;
     public boolean d;
-    public y18 e;
+    public hz7 e;
     public long f;
     public String g;
     public String h;
@@ -131,7 +131,7 @@ public class PersonCenterFragment extends BaseFragment {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2016560) {
-                this.a.I0(false);
+                this.a.K0(false);
             }
         }
     }
@@ -223,7 +223,7 @@ public class PersonCenterFragment extends BaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class e extends sd5<Boolean> {
+    public class e extends mc5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterFragment a;
@@ -248,7 +248,7 @@ public class PersonCenterFragment extends BaseFragment {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.repackage.sd5
+        @Override // com.repackage.mc5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -256,9 +256,9 @@ public class PersonCenterFragment extends BaseFragment {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_FEEDBACK_TIP);
                 netWork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
                 String postNetData = netWork.postNetData();
-                b28 b28Var = new b28();
-                b28Var.c(postNetData);
-                if (b28Var.b() == 0 && b28Var.a() > 0) {
+                kz7 kz7Var = new kz7();
+                kz7Var.c(postNetData);
+                if (kz7Var.b() == 0 && kz7Var.a() > 0) {
                     return Boolean.TRUE;
                 }
                 return Boolean.FALSE;
@@ -268,7 +268,7 @@ public class PersonCenterFragment extends BaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class f implements zc5<Boolean> {
+    public class f implements tb5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterFragment a;
@@ -292,7 +292,7 @@ public class PersonCenterFragment extends BaseFragment {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.zc5
+        @Override // com.repackage.tb5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -331,7 +331,7 @@ public class PersonCenterFragment extends BaseFragment {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.a.J0();
+                this.a.L0();
                 return false;
             }
             return invokeV.booleanValue;
@@ -363,11 +363,11 @@ public class PersonCenterFragment extends BaseFragment {
         this.n = new g(this);
     }
 
-    public final void I0(boolean z) {
+    public final void K0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (!z) {
-                J0();
+                L0();
             } else if (getPageContext() == null || getPageContext().getPageActivity() == null) {
             } else {
                 Looper.myQueue().removeIdleHandler(this.n);
@@ -376,35 +376,35 @@ public class PersonCenterFragment extends BaseFragment {
         }
     }
 
-    public final void J0() {
+    public final void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long m = iu4.k().m("key_feedback_tip", 0L);
+            long m = ys4.k().m("key_feedback_tip", 0L);
             if (!TbadkCoreApplication.isLogin() || System.currentTimeMillis() - m <= StringHelper.MS_TO_HOUR * 4) {
                 return;
             }
-            vd5.b(new e(this), new f(this));
-            iu4.k().x("key_feedback_tip", System.currentTimeMillis());
+            pc5.b(new e(this), new f(this));
+            ys4.k().x("key_feedback_tip", System.currentTimeMillis());
         }
     }
 
-    public final void K0(Bundle bundle) {
+    public final void M0(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             Intent intent = getActivity().getIntent();
             if (intent != null) {
-                this.a = intent.getLongExtra("user_id", kg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+                this.a = intent.getLongExtra("user_id", jg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
                 this.b = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_USER_SELF, true);
                 this.c = intent.getBooleanExtra(PersonPolymericActivityConfig.IS_BIGV, false);
             } else if (bundle != null) {
-                this.a = bundle.getLong("user_id", kg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+                this.a = bundle.getLong("user_id", jg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
                 this.b = bundle.getBoolean(PersonPolymericActivityConfig.IS_USER_SELF, true);
                 this.c = bundle.getBoolean(PersonPolymericActivityConfig.IS_BIGV, false);
             }
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.m85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -422,7 +422,7 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            n18.d().h(System.currentTimeMillis() - n18.d().a());
+            wy7.d().h(System.currentTimeMillis() - wy7.d().a());
         }
     }
 
@@ -436,7 +436,7 @@ public class PersonCenterFragment extends BaseFragment {
                 this.d = getArguments().getBoolean(PersonPolymericActivityConfig.RESOURCE_TYPE);
             }
             getPageStayDurationItem().k = "1";
-            I0(true);
+            K0(true);
             MessageManager.getInstance().registerListener(this.j);
             MessageManager.getInstance().registerListener(this.k);
             MessageManager.getInstance().registerListener(this.l);
@@ -449,9 +449,9 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            y18 y18Var = this.e;
-            if (y18Var != null) {
-                y18Var.f(i);
+            hz7 hz7Var = this.e;
+            if (hz7Var != null) {
+                hz7Var.f(i);
             }
         }
     }
@@ -460,7 +460,7 @@ public class PersonCenterFragment extends BaseFragment {
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            n18.d().g(System.currentTimeMillis());
+            wy7.d().g(System.currentTimeMillis());
             super.onCreate(bundle);
         }
     }
@@ -470,11 +470,11 @@ public class PersonCenterFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            K0(bundle);
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e0, (ViewGroup) null);
-            y18 y18Var = new y18(inflate, getPageContext(), getUniqueId());
-            this.e = y18Var;
-            y18Var.e();
+            M0(bundle);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02dc, (ViewGroup) null);
+            hz7 hz7Var = new hz7(inflate, getPageContext(), getUniqueId());
+            this.e = hz7Var;
+            hz7Var.e();
             this.i = false;
             if (!TbadkCoreApplication.getInst().checkInterrupt()) {
                 this.e.j();
@@ -490,9 +490,9 @@ public class PersonCenterFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            y18 y18Var = this.e;
-            if (y18Var != null) {
-                y18Var.g();
+            hz7 hz7Var = this.e;
+            if (hz7Var != null) {
+                hz7Var.g();
             }
         }
     }
@@ -543,7 +543,7 @@ public class PersonCenterFragment extends BaseFragment {
                     this.e.j();
                 }
                 this.e.l();
-                iu4.k().u("key_feedback_tip_tab_show", false);
+                ys4.k().u("key_feedback_tip_tab_show", false);
                 if (TbSingleton.getInstance().isShowShoubaiDynamicGuide()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921423));
                 }

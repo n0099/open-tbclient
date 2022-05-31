@@ -1,19 +1,7 @@
 package com.repackage;
+
+import com.baidu.searchbox.widget.SlideInterceptor;
 /* loaded from: classes7.dex */
-public interface wk1 {
-    void a(String str, bo2 bo2Var);
-
-    int getDuration();
-
-    boolean isPlaying();
-
-    void onRelease();
-
-    void pause();
-
-    void play();
-
-    void seek(int i);
-
-    void stop();
+public interface wk1 extends SlideInterceptor {
+    double C();
 }

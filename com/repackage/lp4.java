@@ -1,75 +1,65 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.BannerImage;
+import tbclient.SeniorLottery;
 /* loaded from: classes6.dex */
-public class lp4 extends BaseCardInfo implements ro {
+public class lp4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<mo4> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755521407, "Lcom/repackage/lp4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755521407, "Lcom/repackage/lp4;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
+    public jo4 a;
+    public List<ym4> b;
+    public List<zm4> c;
+    public List<io4> d;
 
     public lp4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void a(SeniorLottery seniorLottery) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void parserProtobuf(List<BannerImage> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, seniorLottery) == null) || seniorLottery == null) {
             return;
         }
-        this.a.clear();
-        int min = Math.min(list.size(), 10);
-        for (int i = 0; i < min; i++) {
-            mo4 mo4Var = new mo4();
-            mo4Var.f(list.get(i));
-            this.a.add(mo4Var);
+        jo4 jo4Var = new jo4();
+        this.a = jo4Var;
+        jo4Var.a(seniorLottery.theme);
+        this.b = new ArrayList();
+        int size = seniorLottery.award_info.size();
+        for (int i = 0; i < size; i++) {
+            ym4 ym4Var = new ym4();
+            ym4Var.a(seniorLottery.award_info.get(i));
+            this.b.add(ym4Var);
+        }
+        String str = seniorLottery.myaward;
+        this.c = new ArrayList();
+        int size2 = seniorLottery.luck_users.size();
+        for (int i2 = 0; i2 < size2; i2++) {
+            zm4 zm4Var = new zm4();
+            zm4Var.a(seniorLottery.luck_users.get(i2));
+            this.c.add(zm4Var);
+        }
+        String str2 = seniorLottery.act_desc;
+        this.d = new ArrayList();
+        int size3 = seniorLottery.act_regular.size();
+        for (int i3 = 0; i3 < size3; i3++) {
+            io4 io4Var = new io4();
+            io4Var.a(seniorLottery.act_regular.get(i3));
+            this.d.add(io4Var);
         }
     }
 }

@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.uw5;
-import com.repackage.zq5;
+import com.repackage.nv5;
+import com.repackage.sp5;
 /* loaded from: classes3.dex */
-public class ConcernTabRecommendTitleView extends uw5<zq5> {
+public class ConcernTabRecommendTitleView extends nv5<sp5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder i;
@@ -49,8 +49,8 @@ public class ConcernTabRecommendTitleView extends uw5<zq5> {
                 }
             }
             this.a = view2;
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092071);
-            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0907e1);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092017);
+            this.c = this.a.findViewById(R.id.obfuscated_res_0x7f0907c5);
         }
     }
 
@@ -77,14 +77,14 @@ public class ConcernTabRecommendTitleView extends uw5<zq5> {
         m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.repackage.uw5
+    @Override // com.repackage.nv5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0779 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d076c : invokeV.intValue;
     }
 
-    @Override // com.repackage.uw5
+    @Override // com.repackage.nv5
     public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
@@ -100,15 +100,15 @@ public class ConcernTabRecommendTitleView extends uw5<zq5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uw5
+    @Override // com.repackage.nv5
     /* renamed from: s */
-    public void l(zq5 zq5Var) {
+    public void l(sp5 sp5Var) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, zq5Var) == null) || (viewHolder = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, sp5Var) == null) || (viewHolder = this.i) == null) {
             return;
         }
-        if (zq5Var.a) {
+        if (sp5Var.a) {
             viewHolder.c.setVisibility(0);
         } else {
             viewHolder.c.setVisibility(8);

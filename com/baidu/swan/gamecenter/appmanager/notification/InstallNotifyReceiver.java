@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk2;
-import com.repackage.qs3;
-import com.repackage.sr3;
-import com.repackage.us3;
+import com.repackage.dr3;
+import com.repackage.fq3;
+import com.repackage.hr3;
+import com.repackage.oi2;
 /* loaded from: classes2.dex */
 public class InstallNotifyReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -76,7 +76,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String a = bk2.n().a();
+            String a = oi2.n().a();
             if (!TextUtils.isEmpty(a)) {
                 if (a.equals(BaseWebViewActivity.SHOUBAI_SCHEME)) {
                     return "baiduboxapp://swan/T43rINkXjgPfdKNXTuhQER2KdACVdB00/pages/download/index?_baiduboxapp=%7B%22from%22%3A%221151005410000000%22%2C%22ext%22%3A%7B%7D%7D";
@@ -106,7 +106,7 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
             if (TextUtils.isEmpty(stringExtra)) {
                 return;
             }
-            sr3.n().q(stringExtra, this.mOpportunity);
+            fq3.n().q(stringExtra, this.mOpportunity);
         }
     }
 
@@ -114,9 +114,9 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, intent) == null) {
             if (!TextUtils.isEmpty(this.mOpportunity)) {
-                us3.b("notifyList", this.mOpportunity);
+                hr3.b("notifyList", this.mOpportunity);
             }
-            SchemeRouter.invoke(bk2.c(), getInstallPageUrlScheme());
+            SchemeRouter.invoke(oi2.c(), getInstallPageUrlScheme());
         }
     }
 
@@ -144,18 +144,18 @@ public class InstallNotifyReceiver extends BroadcastReceiver {
         }
         if (c == 0) {
             if (!TextUtils.isEmpty(this.mOpportunity) && !TextUtils.isEmpty(stringExtra)) {
-                us3.c("notifyClick", this.mOpportunity, stringExtra);
+                hr3.c("notifyClick", this.mOpportunity, stringExtra);
             }
             startInstall(intent);
         } else if (c == 1) {
             if (!TextUtils.isEmpty(this.mOpportunity)) {
-                us3.b("notifyClick", this.mOpportunity);
+                hr3.b("notifyClick", this.mOpportunity);
             }
             startInstallPage(intent);
         } else if (c != 2) {
         } else {
-            qs3.f().l();
-            qs3.f().n("todayfirst");
+            dr3.f().l();
+            dr3.f().n("todayfirst");
         }
     }
 

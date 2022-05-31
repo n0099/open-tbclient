@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -61,7 +62,7 @@ public class m implements k {
             sb.append("\r\n");
             sb.append("Content-Type:");
             sb.append(str4);
-            sb.append(";");
+            sb.append(ParamableElem.DIVIDE_PARAM);
             if (z) {
                 sb.append("charset=");
                 sb.append(this.qI.name());

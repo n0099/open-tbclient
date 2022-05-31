@@ -232,7 +232,7 @@ public class e extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) a(R.id.obfuscated_res_0x7f09109f);
+        KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) a(R.id.obfuscated_res_0x7f091061);
         this.f = ksAutoCloseView;
         ksAutoCloseView.setViewListener(new KsAutoCloseView.a() { // from class: com.kwad.sdk.d.kwai.e.1
             @Override // com.kwad.sdk.widget.KsAutoCloseView.a

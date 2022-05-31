@@ -1,12 +1,13 @@
 package com.repackage;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface rx5 {
-    String from();
+public class rx5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+    public abstract String a();
 
-    void setFrom(String str);
+    public abstract String b();
 }

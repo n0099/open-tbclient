@@ -36,7 +36,7 @@ public class au {
             a = true;
             cls.getDeclaredMethod("InitEntry", Context.class).invoke(cls, context);
         } catch (Throwable th) {
-            com.xiaomi.channel.commonutils.logger.b.m109a("mdid:load lib error " + th);
+            com.xiaomi.channel.commonutils.logger.b.m108a("mdid:load lib error " + th);
         }
     }
 
@@ -52,7 +52,7 @@ public class au {
                 }
                 return false;
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("mdid:check error " + th);
+                com.xiaomi.channel.commonutils.logger.b.m108a("mdid:check error " + th);
                 return false;
             }
         }

@@ -1,27 +1,47 @@
 package com.repackage;
 
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xm {
+public abstract class xm {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wm a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
-    public static synchronized wm a() {
-        InterceptResult invokeV;
-        wm wmVar;
+    public xm() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (xm.class) {
-                if (a == null) {
-                    a = new wm();
-                }
-                wmVar = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return wmVar;
         }
-        return (wm) invokeV.objValue;
+        this.a = null;
     }
+
+    public abstract View a();
+
+    public final View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null) {
+                this.a = a();
+            }
+            return this.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public abstract void c();
 }

@@ -1,86 +1,17 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TreeMap;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 /* loaded from: classes6.dex */
-public final class m72 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final boolean c;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+public interface m72 {
+    String a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755546455, "Lcom/repackage/m72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755546455, "Lcom/repackage/m72;");
-                return;
-            }
-        }
-        b = eh1.a;
-        bk2.g0().getSwitch("swan_slave_ready", false);
-        c = false;
-    }
+    @Nullable
+    V8EngineConfiguration.CodeCacheSetting b();
 
-    public m72() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void c(p62 p62Var);
 
-    public static va2 a(m72 m72Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, m72Var)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + m72Var);
-            }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put("slaveId", m72Var.a);
-            return new va2("SlaveReady", treeMap);
-        }
-        return (va2) invokeL.objValue;
-    }
+    void d(p62 p62Var);
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
-            }
-            return c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
+    String getInitBasePath();
 }

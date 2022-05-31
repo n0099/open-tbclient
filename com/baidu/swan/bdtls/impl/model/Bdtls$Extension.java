@@ -19,13 +19,13 @@ import com.google.protobuf.GeneratedMessageLite;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.Parser;
-import com.repackage.xj3;
-import com.repackage.yj3;
+import com.repackage.ki3;
+import com.repackage.li3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectStreamException;
 /* loaded from: classes2.dex */
-public final class Bdtls$Extension extends GeneratedMessageLite implements yj3 {
+public final class Bdtls$Extension extends GeneratedMessageLite implements li3 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DATA_FIELD_NUMBER = 2;
     public static Parser<Bdtls$Extension> PARSER = null;
@@ -69,7 +69,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements yj3 {
     }
 
     /* loaded from: classes2.dex */
-    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements yj3 {
+    public static final class b extends GeneratedMessageLite.Builder<Bdtls$Extension, b> implements li3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -159,7 +159,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements yj3 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (xj3) null);
+                Bdtls$Extension bdtls$Extension = new Bdtls$Extension(this, (ki3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bdtls$Extension.type_ = this.b;
@@ -339,7 +339,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements yj3 {
         bdtls$Extension.initFields();
     }
 
-    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, xj3 xj3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$Extension(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, ki3 ki3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -468,7 +468,7 @@ public final class Bdtls$Extension extends GeneratedMessageLite implements yj3 {
         }
     }
 
-    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, xj3 xj3Var) {
+    public /* synthetic */ Bdtls$Extension(GeneratedMessageLite.Builder builder, ki3 ki3Var) {
         this(builder);
     }
 

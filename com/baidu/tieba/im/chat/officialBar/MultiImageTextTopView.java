@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a97;
-import com.repackage.c87;
+import com.repackage.a67;
 import com.repackage.ff;
-import com.repackage.p57;
-import com.repackage.v67;
+import com.repackage.r37;
+import com.repackage.u47;
+import com.repackage.y67;
 /* loaded from: classes3.dex */
 public class MultiImageTextTopView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -83,12 +83,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v67.a a;
+        public final /* synthetic */ u47.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ MultiImageTextTopView d;
 
-        public b(MultiImageTextTopView multiImageTextTopView, v67.a aVar, TbPageContext tbPageContext, int i) {
+        public b(MultiImageTextTopView multiImageTextTopView, u47.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class MultiImageTextTopView extends RelativeLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            v67.a aVar;
+            u47.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = this.a) == null || StringUtils.isNull(aVar.d)) {
                 return;
@@ -119,12 +119,12 @@ public class MultiImageTextTopView extends RelativeLayout {
             UrlManager.getInstance().dealOneLink(this.b, new String[]{this.a.d});
             if (this.c == 1) {
                 TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                p57 l = a97.l(this.a.f);
+                r37 l = y67.l(this.a.f);
                 if (l != null) {
                     TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, StampMissionHttpRequestMessage.KEY_TASK_TYPE, l.a, "task_id", l.b, "loc", "0");
                     int i = this.a.g;
                     if ((i == 1 || i == 3) && !"0".equals(l.b)) {
-                        c87.c().a(l.b);
+                        a67.c().a(l.b);
                     }
                 }
                 StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -163,12 +163,12 @@ public class MultiImageTextTopView extends RelativeLayout {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0555, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0920f0);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d054b, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092096);
             this.b = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09210f);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091d3e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920b5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce9);
             setOnLongClickListener(new a(this));
         }
     }
@@ -197,7 +197,7 @@ public class MultiImageTextTopView extends RelativeLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, v67.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, u47.a aVar, View view2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048579, this, tbPageContext, aVar, view2, i) == null) {
             setPadding((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201), (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201));

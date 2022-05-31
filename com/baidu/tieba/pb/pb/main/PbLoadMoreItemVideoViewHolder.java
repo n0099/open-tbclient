@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
+import com.repackage.wq4;
 /* loaded from: classes3.dex */
 public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
@@ -37,10 +37,10 @@ public class PbLoadMoreItemVideoViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = view2;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0916b7);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916b6);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09166c);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09166b);
         this.c = textView;
-        gs4 d = gs4.d(textView);
+        wq4 d = wq4.d(textView);
         d.z(R.dimen.T_X12);
         d.A(R.string.F_X01);
         d.v(R.color.CAM_X0107);

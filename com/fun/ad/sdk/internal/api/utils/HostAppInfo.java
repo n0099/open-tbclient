@@ -28,7 +28,7 @@ import com.fun.i0;
 import com.fun.openid.sdk.FunOpenIDSdk;
 import com.fun.openid.sdk.OnGetOaidListener;
 import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.repackage.ie9;
+import com.repackage.cb9;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
 import java.util.HashSet;
@@ -328,7 +328,7 @@ public class HostAppInfo {
             }
             this.k = String.valueOf(displayMetrics.heightPixels);
             this.l = String.valueOf(displayMetrics.widthPixels);
-            if (TextUtils.isEmpty(ie9.a)) {
+            if (TextUtils.isEmpty(cb9.a)) {
                 SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
                 String string = defaultSharedPreferences.getString("u_tok", "");
                 if (TextUtils.isEmpty(string)) {
@@ -345,9 +345,9 @@ public class HostAppInfo {
                     string = substring;
                     defaultSharedPreferences.edit().putString("u_tok", string).apply();
                 }
-                ie9.a = string;
+                cb9.a = string;
             }
-            this.n = ie9.a;
+            this.n = cb9.a;
         }
     }
 }

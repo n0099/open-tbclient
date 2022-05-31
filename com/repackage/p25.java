@@ -1,9 +1,9 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface p25 {
-    void a(boolean z);
+    void a();
 
-    int getHeight();
+    void onLoadFail();
 
-    void refreshHeight(int i);
+    void onLoadSuccess();
 }

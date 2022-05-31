@@ -27,21 +27,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.i6a;
-import com.repackage.j6a;
-import com.repackage.m3a;
-import com.repackage.q5a;
-import com.repackage.s5a;
-import com.repackage.x4a;
-import com.repackage.y4a;
+import com.repackage.c3a;
+import com.repackage.d3a;
+import com.repackage.g0a;
+import com.repackage.k2a;
+import com.repackage.m2a;
+import com.repackage.r1a;
+import com.repackage.s1a;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
 import java.net.URL;
 import tv.athena.revenue.payui.model.NativeOperationParams;
 import tv.athena.revenue.payui.webview.UrlPageParams;
-/* loaded from: classes9.dex */
-public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
+/* loaded from: classes8.dex */
+public class YYPayWebView extends LinearLayout implements m2a, d3a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
@@ -50,7 +50,7 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
     public boolean d;
     public Context e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,15 +163,15 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface c {
         String getToken();
 
         void onNativeOperation(NativeOperationParams nativeOperationParams);
 
-        void onOpenNewUrl(y4a y4aVar, x4a x4aVar);
+        void onOpenNewUrl(s1a s1aVar, r1a r1aVar);
 
-        void onUpdateTopUi(x4a x4aVar);
+        void onUpdateTopUi(r1a r1aVar);
 
         void onUrlLoading(WebView webView, String str);
     }
@@ -197,7 +197,7 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
         }
     }
 
-    @Override // com.repackage.j6a.e
+    @Override // com.repackage.d3a.e
     public void a(UrlPageParams urlPageParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, urlPageParams) == null) {
@@ -208,12 +208,12 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
             RLog.debug("YYPayWebView", "onUpdateTopUi pageParams: %s", urlPageParams);
             c cVar = this.a;
             if (cVar != null) {
-                cVar.onUpdateTopUi(new x4a(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
+                cVar.onUpdateTopUi(new r1a(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
             }
         }
     }
 
-    @Override // com.repackage.j6a.e
+    @Override // com.repackage.d3a.e
     public void b(UrlPageParams urlPageParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlPageParams) == null) {
@@ -223,7 +223,7 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
             }
             RLog.debug("YYPayWebView", "onOpenUrl pageParams: %s", urlPageParams);
             if (this.a != null) {
-                this.a.onOpenNewUrl(new y4a(urlPageParams.url, urlPageParams.pageType), new x4a(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
+                this.a.onOpenNewUrl(new s1a(urlPageParams.url, urlPageParams.pageType), new r1a(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
             }
         }
     }
@@ -232,7 +232,7 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Object[] objArr = m3a.a;
+            Object[] objArr = g0a.a;
             if (objArr == null || objArr.length <= 0 || str == null) {
                 return null;
             }
@@ -257,14 +257,14 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.repackage.s5a
+    @Override // com.repackage.m2a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.j6a.e
+    @Override // com.repackage.d3a.e
     public String getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -282,8 +282,8 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
     public final void h(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, context, attributeSet) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d065c, (ViewGroup) this, true);
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092477);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0651, (ViewGroup) this, true);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f09241d);
             this.b = webView;
             this.e = context;
             WebSettings settings = webView.getSettings();
@@ -301,12 +301,12 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
                     settings.setMixedContentMode(0);
                 }
             }
-            this.b.addJavascriptInterface(new j6a(this), "YYPaySdkJsInterface");
+            this.b.addJavascriptInterface(new d3a(this), "YYPaySdkJsInterface");
             this.b.setWebViewClient(new a(this));
             if (Build.VERSION.SDK_INT < 23) {
                 this.b.setWebChromeClient(new b(this));
             }
-            i6a.a(this.b);
+            c3a.a(this.b);
             this.d = !Env.instance().isTestEnv();
             RLog.info("YYPayWebView", "isEnableBackupDomain=" + this.d);
         }
@@ -315,7 +315,7 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            RLog.info("YYPayWebView", "loadUrl: " + q5a.a(str));
+            RLog.info("YYPayWebView", "loadUrl: " + k2a.a(str));
             this.b.loadUrl(str);
         }
     }
@@ -368,7 +368,7 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
         }
     }
 
-    @Override // com.repackage.j6a.e
+    @Override // com.repackage.d3a.e
     public void onNativeOperation(NativeOperationParams nativeOperationParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, nativeOperationParams) == null) {
@@ -384,7 +384,7 @@ public class YYPayWebView extends LinearLayout implements s5a, j6a.e {
         }
     }
 
-    @Override // com.repackage.s5a
+    @Override // com.repackage.m2a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {

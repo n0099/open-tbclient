@@ -32,9 +32,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.mi;
-import com.repackage.nr4;
+import com.repackage.dq4;
+import com.repackage.li;
+import com.repackage.wq4;
 import java.util.List;
 import java.util.Locale;
 import tbclient.ItemInfo;
@@ -112,17 +112,17 @@ public class FrsTopItemInfoView extends LinearLayout {
         public final /* synthetic */ FrsTopItemInfoView a;
 
         /* loaded from: classes3.dex */
-        public class a implements nr4.e {
+        public class a implements dq4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ nr4 a;
+            public final /* synthetic */ dq4 a;
 
-            public a(b bVar, nr4 nr4Var) {
+            public a(b bVar, dq4 dq4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, nr4Var};
+                    Object[] objArr = {bVar, dq4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -132,13 +132,13 @@ public class FrsTopItemInfoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = nr4Var;
+                this.a = dq4Var;
             }
 
-            @Override // com.repackage.nr4.e
-            public void onClick(nr4 nr4Var) {
+            @Override // com.repackage.dq4.e
+            public void onClick(dq4 dq4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
                     this.a.dismiss();
                 }
             }
@@ -166,10 +166,10 @@ public class FrsTopItemInfoView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.a instanceof FrsActivity)) {
-                nr4 nr4Var = new nr4((FrsActivity) this.a.a);
-                nr4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0408));
-                nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0407, new a(this, nr4Var));
-                nr4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
+                dq4 dq4Var = new dq4((FrsActivity) this.a.a);
+                dq4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f040b));
+                dq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f040a, new a(this, dq4Var));
+                dq4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
             }
         }
     }
@@ -187,12 +187,12 @@ public class FrsTopItemInfoView extends LinearLayout {
                 return;
             }
         }
-        u = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06c8);
-        v = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f070a);
-        w = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
-        x = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
-        y = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
-        z = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
+        u = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06cf);
+        v = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0711);
+        w = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds8);
+        x = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds21);
+        y = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28);
+        z = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds42);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -226,32 +226,32 @@ public class FrsTopItemInfoView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0351, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d034a, this);
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090fb7);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090faa);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090fb9);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e0e);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090f79);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090f6d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090f7b);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090dd3);
             this.e = imageView;
             imageView.setOnClickListener(this.t);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09036c);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091788);
-            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f090fae);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f092047);
-            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090916);
-            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0922dc);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09065a);
-            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091de0);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091ae3);
-            this.o = findViewById(R.id.obfuscated_res_0x7f0903cf);
-            this.b.setText(R.string.obfuscated_res_0x7f0f06c6);
-            this.l.setText(R.string.obfuscated_res_0x7f0f06c4);
-            this.f.setText(R.string.obfuscated_res_0x7f0f06c5);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090368);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09173d);
+            this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f090f71);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091fed);
+            this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0908fc);
+            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f092281);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09063b);
+            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091d8b);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a93);
+            this.o = findViewById(R.id.obfuscated_res_0x7f0903ca);
+            this.b.setText(R.string.obfuscated_res_0x7f0f06cd);
+            this.l.setText(R.string.obfuscated_res_0x7f0f06cb);
+            this.f.setText(R.string.obfuscated_res_0x7f0f06cc);
             if (DeviceInfoUtil.isXiaoMi()) {
                 this.f.setPadding(0, -w, 0, 0);
             }
             this.k.setPlaceHolder(1);
-            this.m.setStarSpacing(mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10));
+            this.m.setStarSpacing(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10));
             this.j.setOnClickListener(this.s);
         }
     }
@@ -259,31 +259,31 @@ public class FrsTopItemInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            gs4 d = gs4.d(this);
+            wq4 d = wq4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            gs4 d2 = gs4.d(this.b);
+            wq4 d2 = wq4.d(this.b);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0109);
-            gs4 d3 = gs4.d(this.d);
+            wq4 d3 = wq4.d(this.d);
             d3.A(R.string.F_X02);
             d3.v(R.color.CAM_X0105);
-            gs4 d4 = gs4.d(this.f);
+            wq4 d4 = wq4.d(this.f);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
-            gs4 d5 = gs4.d(this.i);
+            wq4 d5 = wq4.d(this.i);
             d5.v(R.color.CAM_X0109);
             d5.A(R.string.F_X01);
-            gs4 d6 = gs4.d(this.l);
+            wq4 d6 = wq4.d(this.l);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0105);
             this.h.d();
             this.m.f();
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f0805e7, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f0805e5, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0210);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080614, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080612, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
@@ -318,7 +318,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             double d = this.q;
             if (d > 0.0d && d <= 10.0d) {
                 this.f.setText(String.valueOf(d));
-                this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06c7, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(intValue)}));
+                this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ce, new Object[]{StringHelper.numberUniformFormatExtraWithRoundInt(intValue)}));
                 if (itemTable.is_commented.intValue() == 1 && itemTable.comment_star.intValue() >= 0 && itemTable.comment_star.intValue() <= 5) {
                     this.m.setStarCount(itemTable.comment_star.intValue());
                 }
@@ -328,7 +328,7 @@ public class FrsTopItemInfoView extends LinearLayout {
                 this.h.setData(itemTable.item_plot, intValue);
                 return;
             }
-            this.f.setText(R.string.obfuscated_res_0x7f0f06c5);
+            this.f.setText(R.string.obfuscated_res_0x7f0f06cc);
             this.f.setTextSize(0, z);
             layoutParams.topMargin = y;
             layoutParams.height = z;
@@ -336,7 +336,7 @@ public class FrsTopItemInfoView extends LinearLayout {
             layoutParams2.topMargin = x;
             this.g.setGravity(17);
             this.g.setLayoutParams(layoutParams2);
-            this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06c7, new Object[]{"0"}));
+            this.g.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f06ce, new Object[]{"0"}));
             this.m.setStarCount(0.0f);
             this.i.setVisibility(8);
             this.c.setVisibility(8);

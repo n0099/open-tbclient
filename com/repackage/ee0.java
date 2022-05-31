@@ -1,161 +1,262 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.os.Process;
-import android.telephony.TelephonyManager;
+import android.opengl.GLES20;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.Rotation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ee0 {
-    public static /* synthetic */ Interceptable $ic;
+public class ee0 extends be0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String G = "attribute vec4 position;\nattribute vec4 inputTextureCoordinate;\nvarying vec2 textureCoordinate;\n";
+    public static int[] H;
+    public static int I;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] A;
+    public int[] B;
+    public int[] C;
+    public FloatBuffer D;
+    public List<Integer> E;
+    public int F;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            ae0.c("DpNetworkUtils", "getNetWorkInfo()");
-            if (context == null) {
-                return null;
-            }
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager != null) {
-                    return connectivityManager.getActiveNetworkInfo();
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ ee0 b;
+
+        public a(ee0 ee0Var, List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ee0Var, list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } catch (Exception unused) {
             }
-            return null;
+            this.b = ee0Var;
+            this.a = list;
         }
-        return (NetworkInfo) invokeL.objValue;
-    }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ae0.c("DpNetworkUtils", "shouldCheckPermission()");
-            return Build.VERSION.SDK_INT >= 23;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            ae0.c("DpNetworkUtils", "checkPermissionGranted()");
-            return str != null && context.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:37:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, context)) != null) {
-            return invokeL.booleanValue;
-        }
-        ae0.c("DpNetworkUtils", "checkPhonePermission()");
-        boolean z2 = true;
-        if (!b()) {
-            return true;
-        }
-        if (context == null) {
-            return false;
-        }
-        try {
-            if (!c(context, "android.permission.CALL_PHONE") && !c(context, "android.permission.MODIFY_PHONE_STATE") && !c(context, "android.permission.READ_PHONE_STATE") && !c(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
-                z = false;
-                if (Build.VERSION.SDK_INT < 16) {
-                    if (!z) {
-                        if (!c(context, "android.permission.READ_CALL_LOG")) {
-                            z2 = false;
-                        }
-                    }
-                    return z2;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.E = this.a;
+                for (int i = 0; i < this.a.size(); i++) {
+                    this.b.C[i] = ((Integer) this.a.get(i)).intValue();
                 }
-                return z;
             }
-            z = true;
-            if (Build.VERSION.SDK_INT < 16) {
-            }
-        } catch (Throwable unused) {
-            return false;
         }
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        int i;
-        TelephonyManager telephonyManager;
-        String subscriberId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            ae0.c("DpNetworkUtils", "getNetworkStatisticsData()");
-            NetworkInfo a = a(context);
-            int i2 = 3;
-            if (a == null || a.getState() != NetworkInfo.State.CONNECTED) {
-                i = 0;
-            } else if (a.getType() == 0) {
-                switch (a.getSubtype()) {
-                    case 1:
-                    case 2:
-                    case 4:
-                    case 7:
-                    case 11:
-                        i = 2;
-                        break;
-                    case 3:
-                    case 5:
-                    case 6:
-                    case 8:
-                    case 9:
-                    case 10:
-                    case 12:
-                    case 14:
-                    case 15:
-                        i = 3;
-                        break;
-                    case 13:
-                        i = 4;
-                        break;
-                    default:
-                        i = 1;
-                        break;
-                }
-            } else {
-                i = a.getType() == 1 ? 100 : a.getType() == 9 ? 101 : 999;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755740639, "Lcom/repackage/ee0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int i3 = 99;
-            try {
-                if (!d(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = telephonyManager.getSubscriberId()) == null) {
-                    i2 = 0;
-                } else {
-                    if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {
-                        if (!subscriberId.startsWith("46001")) {
-                            i2 = subscriberId.startsWith("46003") ? 2 : 99;
-                        }
-                    }
-                    i2 = 1;
-                }
-                i3 = i2;
-            } catch (Throwable th) {
-                ae0.e("DpNetworkUtils", "network changed: " + th);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755740639, "Lcom/repackage/ee0;");
+                return;
             }
-            return i + "_" + i3;
         }
-        return (String) invokeL.objValue;
+        H = new int[]{33987, 33988, 33989, 33990, 33991, 33992, 33993, 33994, 33995, 33996};
+        I = 1;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ee0(String str, String str2) {
+        super(str, str2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.F = 3553;
+        if (!TextUtils.isEmpty(str2) && str2.contains("samplerExternalOES")) {
+            this.F = 36197;
+        }
+        int i3 = I;
+        this.A = new int[i3];
+        this.B = new int[i3];
+        this.C = new int[i3];
+        for (int i4 = 0; i4 < I; i4++) {
+            this.C[i4] = -1;
+        }
+        this.D = ByteBuffer.allocateDirect(je0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        X(Rotation.NORMAL, false, false);
+    }
+
+    public static String W(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (I <= H.length) {
+                I = i;
+                StringBuilder sb = new StringBuilder(G);
+                for (int i2 = 0; i2 < i; i2++) {
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("attribute vec4 inputTextureCoordinate");
+                    int i3 = i2 + 2;
+                    sb2.append(i3);
+                    sb.append(sb2.toString());
+                    sb.append(";\n");
+                    sb.append("varying vec2 textureCoordinate" + i3);
+                    sb.append(";\n");
+                }
+                sb.append("\nvoid main()\n{\n    gl_Position = position;\n    textureCoordinate = inputTextureCoordinate.xy;\n");
+                for (int i4 = 0; i4 < i; i4++) {
+                    sb.append("    ");
+                    StringBuilder sb3 = new StringBuilder();
+                    sb3.append("textureCoordinate");
+                    int i5 = i4 + 2;
+                    sb3.append(i5);
+                    sb.append(sb3.toString());
+                    sb.append(" = ");
+                    sb.append("inputTextureCoordinate" + i5);
+                    sb.append(".xy");
+                    sb.append(";\n");
+                }
+                sb.append("}");
+                return sb.toString();
+            }
+            throw new RuntimeException("too many textures !!!");
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void X(Rotation rotation, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.D.clear();
+            this.D.put(je0.b(rotation, z, z2)).position(0);
+        }
+    }
+
+    public void Y(List<Integer> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null || list.size() == 0) {
+            return;
+        }
+        B(new a(this, list));
+    }
+
+    @Override // com.repackage.be0
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+            return;
+        }
+        int i = 0;
+        while (true) {
+            int[] iArr = this.A;
+            if (i >= iArr.length) {
+                return;
+            }
+            GLES20.glDisableVertexAttribArray(iArr[i]);
+            i++;
+        }
+    }
+
+    @Override // com.repackage.be0
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+            return;
+        }
+        int i = 0;
+        while (true) {
+            int[] iArr = this.A;
+            if (i >= iArr.length) {
+                return;
+            }
+            if (this.C[i] != -1) {
+                GLES20.glEnableVertexAttribArray(iArr[i]);
+                GLES20.glActiveTexture(H[i]);
+                GLES20.glBindTexture(this.F, this.C[i]);
+                GLES20.glUniform1i(this.B[i], i + 3);
+                this.D.position(0);
+                GLES20.glVertexAttribPointer(this.A[i], 2, 5126, false, 0, (Buffer) this.D);
+            }
+            i++;
+        }
+    }
+
+    @Override // com.repackage.be0
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.be0
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048581, this) != null) {
+            return;
+        }
+        super.t();
+        int i = 0;
+        while (true) {
+            int[] iArr = this.A;
+            if (i >= iArr.length) {
+                return;
+            }
+            int j = j();
+            StringBuilder sb = new StringBuilder();
+            sb.append("inputTextureCoordinate");
+            int i2 = i + 2;
+            sb.append(i2);
+            iArr[i] = GLES20.glGetAttribLocation(j, sb.toString());
+            int[] iArr2 = this.B;
+            int j2 = j();
+            iArr2[i] = GLES20.glGetUniformLocation(j2, "inputImageTexture" + i2);
+            i++;
+        }
+    }
+
+    @Override // com.repackage.be0
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.u();
+            List<Integer> list = this.E;
+            if (list != null) {
+                Y(list);
+            }
+        }
     }
 }

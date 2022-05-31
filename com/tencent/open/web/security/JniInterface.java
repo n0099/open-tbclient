@@ -12,7 +12,7 @@ import com.tencent.connect.auth.AuthAgent;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.f;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class JniInterface {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isJniOk;

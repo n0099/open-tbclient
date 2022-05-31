@@ -15,18 +15,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.mi;
-import com.repackage.pg;
-import com.repackage.ur4;
-import com.repackage.wr4;
-import com.repackage.yr4;
+import com.repackage.kq4;
+import com.repackage.li;
+import com.repackage.mq4;
+import com.repackage.og;
+import com.repackage.oq4;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MyFansUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b9 g;
-    public wr4 h;
+    public mq4 h;
     public String i;
     public int j;
 
@@ -39,7 +39,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
 
         /* renamed from: com.baidu.tieba.myAttentionAndFans.MyFansUserLikeButton$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0207a implements yr4.d {
+        public class C0207a implements oq4.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
@@ -64,7 +64,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 this.a = view2;
             }
 
-            @Override // com.repackage.yr4.d
+            @Override // com.repackage.oq4.d
             public void onClick() {
                 View.OnClickListener onClickListener;
                 Interceptable interceptable = $ic;
@@ -79,12 +79,12 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 } else {
                     TiebaStatic.log(new StatisticItem("c12773").param("obj_param1", this.b.b.i));
                 }
-                pg.b(this.b.b.h, this.b.b.g);
+                og.b(this.b.b.h, this.b.b.g);
             }
         }
 
         /* loaded from: classes3.dex */
-        public class b implements yr4.c {
+        public class b implements oq4.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -107,13 +107,13 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 this.a = aVar;
             }
 
-            @Override // com.repackage.yr4.c
+            @Override // com.repackage.oq4.c
             public void onClick() {
                 Interceptable interceptable = $ic;
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.b.h == null) {
                     return;
                 }
-                pg.b(this.a.b.h, this.a.b.g);
+                og.b(this.a.b.h, this.a.b.g);
             }
         }
 
@@ -150,18 +150,18 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
                 if (this.b.c) {
                     if (this.b.g != null) {
                         if (this.b.h == null) {
-                            yr4 yr4Var = new yr4(this.b.g.getContext());
-                            yr4Var.q(this.b.g.getString(R.string.obfuscated_res_0x7f0f0432));
+                            oq4 oq4Var = new oq4(this.b.g.getContext());
+                            oq4Var.q(this.b.g.getString(R.string.obfuscated_res_0x7f0f0438));
                             ArrayList arrayList = new ArrayList();
-                            ur4 ur4Var = new ur4(this.b.g.getString(R.string.obfuscated_res_0x7f0f0428), yr4Var);
-                            ur4Var.m(new C0207a(this, view2));
-                            arrayList.add(ur4Var);
-                            yr4Var.m(new b(this));
-                            yr4Var.j(arrayList);
-                            this.b.h = new wr4(this.b.g, yr4Var);
+                            kq4 kq4Var = new kq4(this.b.g.getString(R.string.obfuscated_res_0x7f0f042e), oq4Var);
+                            kq4Var.m(new C0207a(this, view2));
+                            arrayList.add(kq4Var);
+                            oq4Var.m(new b(this));
+                            oq4Var.j(arrayList);
+                            this.b.h = new mq4(this.b.g, oq4Var);
                             this.b.h.l(0.7f);
                         }
-                        pg.j(this.b.h, this.b.g);
+                        og.j(this.b.h, this.b.g);
                         return;
                     }
                     return;
@@ -192,7 +192,7 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         this.j = 1;
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.repackage.zv4
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.repackage.pu4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
@@ -200,23 +200,23 @@ public class MyFansUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.repackage.zv4
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, com.repackage.pu4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.c = z;
             if (!z) {
-                setTextSize(0, mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+                setTextSize(0, li.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
                 setText(this.b);
             } else if (i == 1) {
-                setTextSize(0, mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+                setTextSize(0, li.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
                 setText(this.a);
             } else if (i != 2) {
-                setTextSize(0, mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+                setTextSize(0, li.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
                 setText(this.a);
             } else {
-                setTextSize(0, mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
-                setText(R.string.obfuscated_res_0x7f0f0514);
+                setTextSize(0, li.f(getContext(), R.dimen.obfuscated_res_0x7f0701e8));
+                setText(R.string.obfuscated_res_0x7f0f051b);
             }
             g(TbadkCoreApplication.getInst().getSkinType());
         }

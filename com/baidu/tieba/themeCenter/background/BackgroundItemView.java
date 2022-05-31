@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.op8;
+import com.repackage.li;
+import com.repackage.qm8;
 /* loaded from: classes4.dex */
 public class BackgroundItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -36,7 +36,7 @@ public class BackgroundItemView extends LinearLayout {
     public DressItemData i;
     public int j;
     public int k;
-    public op8 l;
+    public qm8 l;
     public View.OnClickListener m;
 
     /* loaded from: classes4.dex */
@@ -142,23 +142,23 @@ public class BackgroundItemView extends LinearLayout {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int k = (mi.k(this.a) - mi.f(this.a, R.dimen.obfuscated_res_0x7f070309)) / 3;
+            int k = (li.k(this.a) - li.f(this.a, R.dimen.obfuscated_res_0x7f070309)) / 3;
             this.j = k;
             this.k = (int) (k / 0.66d);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012d, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012a, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090361);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091793);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09035d);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091748);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081221);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081221);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091de9);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081233);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081233);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091d94);
             this.e = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081221);
-            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081221);
-            this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090617);
-            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f6e);
-            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f0923e0);
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081233);
+            this.e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081233);
+            this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09060f);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091f14);
+            SkinProgressView skinProgressView = (SkinProgressView) this.b.findViewById(R.id.obfuscated_res_0x7f092385);
             this.h = skinProgressView;
             skinProgressView.setOnClickListener(this.m);
             this.c.setOnClickListener(this.m);
@@ -169,10 +169,10 @@ public class BackgroundItemView extends LinearLayout {
         }
     }
 
-    public void setController(op8 op8Var) {
+    public void setController(qm8 qm8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, op8Var) == null) {
-            this.l = op8Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qm8Var) == null) {
+            this.l = qm8Var;
         }
     }
 

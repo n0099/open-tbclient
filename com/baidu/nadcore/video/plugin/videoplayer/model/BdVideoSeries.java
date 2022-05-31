@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ay0;
-import com.repackage.iw0;
-import com.repackage.nq0;
-import com.repackage.oq0;
-import com.repackage.pw0;
-import com.repackage.uy0;
-import com.repackage.wp0;
+import com.repackage.ap0;
+import com.repackage.bp0;
+import com.repackage.cv0;
+import com.repackage.hx0;
+import com.repackage.jo0;
+import com.repackage.nw0;
+import com.repackage.vu0;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Locale;
@@ -55,7 +55,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public String mBrief;
     public ClarityUrlList mClarityList;
     public String mClarityTitle;
-    public List<iw0> mCommentList;
+    public List<vu0> mCommentList;
     public long mCreateTime;
     public String mDetailId;
     public int mDurationMs;
@@ -171,8 +171,8 @@ public class BdVideoSeries implements Serializable, Cloneable {
         if (TextUtils.isEmpty(extLog)) {
             return;
         }
-        JSONObject c = uy0.c(extLog);
-        uy0.f(c, "lastpage_pd", str);
+        JSONObject c = hx0.c(extLog);
+        hx0.f(c, "lastpage_pd", str);
         bdVideoSeries.setExtLog(c.toString());
     }
 
@@ -185,7 +185,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
                     int parseInt = Integer.parseInt(str);
                     return parseInt < 0 ? "" : getTextWithSecond(parseInt);
                 } catch (Exception e) {
-                    ay0.f("getFormattedLengthString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
+                    nw0.f("getFormattedLengthString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
                 }
             }
             return "";
@@ -270,7 +270,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
             try {
                 return Double.parseDouble(str);
             } catch (NumberFormatException e) {
-                ay0.a(e.getMessage());
+                nw0.a(e.getMessage());
                 return d;
             }
         }
@@ -287,7 +287,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
             try {
                 return Integer.parseInt(str);
             } catch (NumberFormatException e) {
-                ay0.a(e.getMessage());
+                nw0.a(e.getMessage());
                 return i;
             }
         }
@@ -308,7 +308,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             setIsUpdate(false);
-            ay0.a("is update: " + getIsUpdate());
+            nw0.a("is update: " + getIsUpdate());
             List<BdVideo> list = this.mVideoList;
             if (list != null) {
                 boolean z = false;
@@ -403,7 +403,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public String getClarityTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TextUtils.isEmpty(this.mClarityTitle) ? wp0.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b68) : this.mClarityTitle : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TextUtils.isEmpty(this.mClarityTitle) ? jo0.b().getResources().getString(R.string.obfuscated_res_0x7f0f0b6e) : this.mClarityTitle : (String) invokeV.objValue;
     }
 
     public long getCreateTime() {
@@ -490,7 +490,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         return (String) invokeV.objValue;
     }
 
-    public List<iw0> getHotComments() {
+    public List<vu0> getHotComments() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.mCommentList : (List) invokeV.objValue;
@@ -1062,7 +1062,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public boolean isInteractVideo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) ? RESOURCE_TYPE_INTERACT.equals(getResourceType()) && nq0.a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) ? RESOURCE_TYPE_INTERACT.equals(getResourceType()) && ap0.a() : invokeV.booleanValue;
     }
 
     public boolean isOffline() {
@@ -1186,7 +1186,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
             try {
                 setClarityUrlList(new JSONArray(str));
             } catch (JSONException e) {
-                if (wp0.f()) {
+                if (jo0.f()) {
                     e.printStackTrace();
                 }
                 this.mClarityList = new ClarityUrlList();
@@ -1236,7 +1236,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            searchID = uy0.c(str).optString("searchID");
+            searchID = hx0.c(str).optString("searchID");
         }
     }
 
@@ -1303,7 +1303,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         }
     }
 
-    public void setHotCommentList(List<iw0> list) {
+    public void setHotCommentList(List<vu0> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048708, this, list) == null) {
             this.mCommentList = list;
@@ -1779,7 +1779,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
             ClarityUrlList.c clarityByOriginRank = this.mClarityList.getClarityByOriginRank(clarityUrlList.getCurrentClarityUrl().b);
             if (clarityByOriginRank != null) {
                 this.mClarityList.setCurrentClarityUrl(clarityByOriginRank);
-                if (oq0.b()) {
+                if (bp0.b()) {
                     this.mClarityList.setMultiRateSwitchRank(clarityByOriginRank.c);
                     return;
                 }
@@ -1792,7 +1792,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
     public void updateClarityUrlListFromMPD() {
         JSONArray b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048773, this) == null) || (b = pw0.b(this.mMPD)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048773, this) == null) || (b = cv0.b(this.mMPD)) == null) {
             return;
         }
         updateClarityUrlList(b, true);
@@ -1817,7 +1817,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public BdVideoSeries m40clone() {
+    public BdVideoSeries m38clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -1852,7 +1852,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048691, this, str, z) == null) {
             if (z) {
-                JSONArray b = pw0.b(str);
+                JSONArray b = cv0.b(str);
                 if (b != null) {
                     setClarityUrlList(b);
                     return;
@@ -1874,7 +1874,7 @@ public class BdVideoSeries implements Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048771, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             if (z2) {
-                JSONArray b = pw0.b(str);
+                JSONArray b = cv0.b(str);
                 if (b != null) {
                     updateClarityUrlList(b, z);
                     return;

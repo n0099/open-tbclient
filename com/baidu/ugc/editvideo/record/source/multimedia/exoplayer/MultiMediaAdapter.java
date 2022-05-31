@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.repackage.ab9;
+import com.repackage.u79;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -155,9 +155,9 @@ public abstract class MultiMediaAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
-                int b = ab9.b(this.mItems);
+                int b = u79.b(this.mItems);
                 for (int i = 0; i < b; i++) {
-                    ItemInfo itemInfo = (ItemInfo) ab9.c(this.mItems, i);
+                    ItemInfo itemInfo = (ItemInfo) u79.c(this.mItems, i);
                     if (itemInfo != null) {
                         destroyPlayer(itemInfo.position, itemInfo.data);
                     }
@@ -171,12 +171,12 @@ public abstract class MultiMediaAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             synchronized (this) {
-                int b = ab9.b(this.mItems);
+                int b = u79.b(this.mItems);
                 int i2 = -1;
                 int i3 = 0;
                 while (true) {
                     if (i3 < b) {
-                        ItemInfo itemInfo = (ItemInfo) ab9.c(this.mItems, i3);
+                        ItemInfo itemInfo = (ItemInfo) u79.c(this.mItems, i3);
                         if (itemInfo != null && itemInfo.position == i) {
                             destroyPlayer(itemInfo.position, itemInfo.data);
                             i2 = i3;
@@ -187,7 +187,7 @@ public abstract class MultiMediaAdapter {
                         break;
                     }
                 }
-                ab9.g(this.mItems, i2);
+                u79.g(this.mItems, i2);
             }
         }
     }
@@ -200,9 +200,9 @@ public abstract class MultiMediaAdapter {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            int b = ab9.b(this.mItems);
+            int b = u79.b(this.mItems);
             for (int i2 = 0; i2 < b; i2++) {
-                ItemInfo itemInfo = (ItemInfo) ab9.c(this.mItems, i2);
+                ItemInfo itemInfo = (ItemInfo) u79.c(this.mItems, i2);
                 if (itemInfo != null && itemInfo.position == i) {
                     return itemInfo;
                 }
@@ -253,15 +253,15 @@ public abstract class MultiMediaAdapter {
                 } else {
                     i3 = -1;
                 }
-                int b = ab9.b(this.mItems);
+                int b = u79.b(this.mItems);
                 for (int i4 = 0; i4 < b; i4++) {
-                    ItemInfo itemInfo2 = (ItemInfo) ab9.c(this.mItems, i4);
+                    ItemInfo itemInfo2 = (ItemInfo) u79.c(this.mItems, i4);
                     if (itemInfo2 != null && itemInfo2.position != i2 && itemInfo2.position != i3 && itemInfo2.position != this.mCurItem) {
                         destroyPlayer(itemInfo2.position, itemInfo2.data);
                     }
                 }
                 this.mItems.clear();
-                ab9.a(this.mItems, this.mChangedList);
+                u79.a(this.mItems, this.mChangedList);
                 this.mChangedList.clear();
                 if (!isPlayerType) {
                     this.mCurItem = -1;
@@ -274,13 +274,13 @@ public abstract class MultiMediaAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, multiMediaData, i) == null) {
             synchronized (this) {
-                int b = ab9.b(this.mItems);
+                int b = u79.b(this.mItems);
                 for (int i2 = 0; i2 < b; i2++) {
-                    ItemInfo itemInfo = (ItemInfo) ab9.c(this.mItems, i2);
+                    ItemInfo itemInfo = (ItemInfo) u79.c(this.mItems, i2);
                     if (itemInfo != null) {
                         if (multiMediaData == null || itemInfo.data == null || !TextUtils.equals(multiMediaData.uuid, itemInfo.data.uuid)) {
                             destroyPlayer(itemInfo.position, itemInfo.data);
-                            ab9.g(this.mItems, i2);
+                            u79.g(this.mItems, i2);
                         } else {
                             itemInfo.position = i;
                         }

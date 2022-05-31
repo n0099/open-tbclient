@@ -2,18 +2,13 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class o94 {
+public class o94 implements p94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public long f;
 
     public o94() {
         Interceptable interceptable = $ic;
@@ -25,13 +20,14 @@ public abstract class o94 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0;
+    }
+
+    @Override // com.repackage.p94
+    public b94 b(String str, int i) throws Exception {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? z84.a(str, i) : (b94) invokeLI.objValue;
     }
 }

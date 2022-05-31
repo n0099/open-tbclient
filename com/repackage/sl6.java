@@ -1,34 +1,26 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: NavBarLogic.java */
 /* loaded from: classes7.dex */
-public class sl6 {
+public final /* synthetic */ class sl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
 
-    public sl6(String str, String str2, String str3) {
+    @NonNull
+    public static tl6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (UbsABTestHelper.isFrsModifyABTestA()) {
+                return new vl6();
             }
+            return new ul6();
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
+        return (tl6) invokeV.objValue;
     }
 }

@@ -1,48 +1,61 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Matrix;
-import android.view.WindowManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.webrtc.TextureBufferImpl;
-import org.webrtc.VideoFrame;
-/* compiled from: CameraSession.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class mx9 {
+public abstract class mx9<E> extends kx9<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinkedQueueNode<E> producerNode;
 
-    public static VideoFrame.TextureBuffer a(TextureBufferImpl textureBufferImpl, boolean z, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{textureBufferImpl, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
-            Matrix matrix = new Matrix();
-            matrix.preTranslate(0.5f, 0.5f);
-            if (z) {
-                matrix.preScale(-1.0f, 1.0f);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755483773, "Lcom/repackage/mx9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            matrix.preRotate(i);
-            matrix.preTranslate(-0.5f, -0.5f);
-            return textureBufferImpl.applyTransformMatrix(matrix, textureBufferImpl.getWidth(), textureBufferImpl.getHeight());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755483773, "Lcom/repackage/mx9;");
+                return;
+            }
         }
-        return (VideoFrame.TextureBuffer) invokeCommon.objValue;
+        a = ny9.a(mx9.class, "producerNode");
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
+    public mx9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            int rotation = ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRotation();
-            if (rotation != 1) {
-                if (rotation != 2) {
-                    return rotation != 3 ? 0 : 270;
-                }
-                return 180;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return 90;
         }
-        return invokeL.intValue;
+    }
+
+    public final LinkedQueueNode<E> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) ny9.a.f(this, a) : (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final void c(LinkedQueueNode<E> linkedQueueNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.producerNode = linkedQueueNode;
+        }
     }
 }

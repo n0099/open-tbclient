@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.HistorySwan.DataReq;
 import tbclient.HistorySwan.HistorySwanReqIdl;
 /* loaded from: classes3.dex */
@@ -42,7 +42,7 @@ public class SmartAppBrowseHistoryRequestMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             HistorySwanReqIdl.Builder builder2 = new HistorySwanReqIdl.Builder();
             builder2.data = builder.build(false);

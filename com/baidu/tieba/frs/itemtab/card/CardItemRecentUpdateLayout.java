@@ -19,13 +19,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.gv4;
-import com.repackage.mi;
-import com.repackage.py;
+import com.repackage.cx;
+import com.repackage.li;
+import com.repackage.wq4;
+import com.repackage.wt4;
 import tbclient.RecentUpdate;
 /* loaded from: classes3.dex */
-public class CardItemRecentUpdateLayout extends LinearLayout implements py {
+public class CardItemRecentUpdateLayout extends LinearLayout implements cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -102,14 +102,14 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements py {
                 CardItemRecentUpdateLayout cardItemRecentUpdateLayout = this.a;
                 cardItemRecentUpdateLayout.i = !cardItemRecentUpdateLayout.i;
                 if (!this.a.i) {
-                    this.a.g.setText(R.string.obfuscated_res_0x7f0f05c7);
+                    this.a.g.setText(R.string.obfuscated_res_0x7f0f05ce);
                     this.a.f.setMaxLines(3);
                     return;
                 }
-                this.a.g.setText(R.string.obfuscated_res_0x7f0f062d);
+                this.a.g.setText(R.string.obfuscated_res_0x7f0f0634);
                 this.a.f.setMaxLines(Integer.MAX_VALUE);
                 this.a.f.setText(this.a.h);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new gv4(10)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wt4(10)));
             }
         }
     }
@@ -138,28 +138,28 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements py {
     public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a4, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f9b);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090f9c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f98);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090f9a);
-            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f99);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01a1, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090f5f);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090f60);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f5c);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090f5e);
+            this.e = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090f5d);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView = new MultiLineEllipsizeTextView(context);
             this.f = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.f;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05c7))));
-            gs4 d = gs4.d(this.f);
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05ce))));
+            wq4 d = wq4.d(this.f);
             d.z(R.dimen.T_X06);
             d.w(R.dimen.M_T_X002);
-            this.f.setPadding(mi.f(context, R.dimen.M_W_X005), 0, 0, mi.f(context, R.dimen.M_H_X005));
+            this.f.setPadding(li.f(context, R.dimen.M_W_X005), 0, 0, li.f(context, R.dimen.M_H_X005));
             this.e.addView(this.f, new LinearLayout.LayoutParams(-1, -2));
             this.f.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(context);
             this.g = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f05c7);
-            gs4.d(this.f).z(R.dimen.T_X06);
-            this.g.setPadding(mi.f(context, R.dimen.M_W_X005), mi.f(context, R.dimen.M_H_X005), 0, mi.f(context, R.dimen.M_H_X005));
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f05ce);
+            wq4.d(this.f).z(R.dimen.T_X06);
+            this.g.setPadding(li.f(context, R.dimen.M_W_X005), li.f(context, R.dimen.M_H_X005), 0, li.f(context, R.dimen.M_H_X005));
             this.g.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 85;
@@ -168,29 +168,29 @@ public class CardItemRecentUpdateLayout extends LinearLayout implements py {
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            gs4 d = gs4.d(this);
+            wq4 d = wq4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            gs4 d2 = gs4.d(this.a);
+            wq4 d2 = wq4.d(this.a);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            gs4 d3 = gs4.d(this.b);
+            wq4 d3 = wq4.d(this.b);
             d3.A(R.string.F_X01);
             d3.v(R.color.CAM_X0108);
-            gs4 d4 = gs4.d(this.c);
+            wq4 d4 = wq4.d(this.c);
             d4.A(R.string.F_X01);
             d4.v(R.color.CAM_X0108);
-            gs4 d5 = gs4.d(this.f);
+            wq4 d5 = wq4.d(this.f);
             d5.A(R.string.F_X01);
             d5.v(R.color.CAM_X0105);
-            gs4 d6 = gs4.d(this.g);
+            wq4 d6 = wq4.d(this.g);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0304);
-            gs4.d(this.d).f(R.color.CAM_X0111);
+            wq4.d(this.d).f(R.color.CAM_X0111);
         }
     }
 

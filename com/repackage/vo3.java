@@ -1,15 +1,64 @@
 package com.repackage;
 
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface vo3 {
-    void a(DownloadInfo downloadInfo);
+public class vo3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static Handler a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755224489, "Lcom/repackage/vo3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755224489, "Lcom/repackage/vo3;");
+                return;
+            }
+        }
+        a = new Handler(Looper.getMainLooper());
+    }
 
-    DownloadInfo c(String str);
+    public static void a(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65537, null, runnable, j) == null) {
+            a.postDelayed(runnable, j);
+        }
+    }
 
-    void close();
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
+            a.removeCallbacks(runnable);
+        }
+    }
 
-    void delete(DownloadInfo downloadInfo);
+    public static void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            d(runnable, 0L);
+        }
+    }
+
+    public static void d(Runnable runnable, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
+            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
+                a.postDelayed(runnable, j);
+            } else {
+                runnable.run();
+            }
+        }
+    }
 }

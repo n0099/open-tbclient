@@ -1,13 +1,40 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.view.ViewGroup;
-import com.baidu.tieba.passaccount.app.LoginDialogActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.repackage.lo7;
 /* loaded from: classes6.dex */
-public interface pq7 {
-    void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup);
+public class pq7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    Intent getResultIntent();
-
-    void onViewChangeSkinType(int i);
+    public static sq7 a(TbPageContext tbPageContext, IBaseDialogData iBaseDialogData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, iBaseDialogData)) == null) {
+            if (tbPageContext == null || tbPageContext.getPageActivity() == null || iBaseDialogData == null || iBaseDialogData.getType() != 1) {
+                return null;
+            }
+            StatisticItem statisticItem = new StatisticItem(lo7.a.a);
+            int i = 0;
+            int from = iBaseDialogData.getFrom();
+            if (from == 0) {
+                i = 2;
+            } else if (from == 1) {
+                i = 3;
+            } else if (from == 2) {
+                i = 4;
+            }
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
+            return new qq7(tbPageContext, (CustomDialogData) iBaseDialogData);
+        }
+        return (sq7) invokeLL.objValue;
+    }
 }

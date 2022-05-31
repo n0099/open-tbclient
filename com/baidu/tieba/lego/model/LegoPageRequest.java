@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
-import com.repackage.mi;
+import com.repackage.dc5;
+import com.repackage.li;
 import tbclient.Lego.DataReq;
 import tbclient.Lego.LegoReqIdl;
 /* loaded from: classes3.dex */
@@ -56,14 +56,14 @@ public class LegoPageRequest extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             builder.page_type = Integer.valueOf(this.pageType);
             builder.pn = Integer.valueOf(this.pn);
             builder.rn = Integer.valueOf(this.rn);
-            builder.scr_w = Integer.valueOf(mi.k(TbadkCoreApplication.getInst()));
-            builder.scr_h = Integer.valueOf(mi.i(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(mi.h(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(li.k(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(li.i(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(li.h(TbadkCoreApplication.getInst()));
             if (!TextUtils.isEmpty(this.params)) {
                 builder.params = this.params;
             }

@@ -1,53 +1,82 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.util.io.AssetUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.InputType;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public class sb3 {
+public final class sb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
 
-    public sb3() {
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                kf4.d(context.getAssets().open(str, 0));
+                return true;
+            } catch (IOException unused) {
+                kf4.d(null);
+                return false;
+            } catch (Throwable th) {
+                kf4.d(null);
+                throw th;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    @NonNull
-    public static sb3 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static String b(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            sb3 sb3Var = new sb3();
-            if (jSONObject == null) {
-                return sb3Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            InputStream inputStream2 = null;
+            r0 = null;
+            String str2 = null;
+            try {
+                inputStream = context.getAssets().open(str);
+            } catch (IOException e) {
+                e = e;
+                inputStream = null;
+            } catch (Throwable th) {
+                th = th;
+                kf4.d(inputStream2);
+                throw th;
             }
-            sb3Var.a = jSONObject.optString("SSID");
-            sb3Var.b = jSONObject.optString("BSSID");
-            sb3Var.e = jSONObject.optBoolean("maunal");
-            sb3Var.d = jSONObject.optString(InputType.PASSWORD);
-            sb3Var.c = jSONObject.optString("identity");
-            return sb3Var;
+            if (inputStream == null) {
+                kf4.d(inputStream);
+                return null;
+            }
+            try {
+                try {
+                    str2 = nf4.b(inputStream);
+                } catch (IOException e2) {
+                    e = e2;
+                    if (rf1.a) {
+                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
+                    }
+                    kf4.d(inputStream);
+                    return str2;
+                }
+                kf4.d(inputStream);
+                return str2;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream2 = inputStream;
+                kf4.d(inputStream2);
+                throw th;
+            }
         }
-        return (sb3) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 }

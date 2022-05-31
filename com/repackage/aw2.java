@@ -1,138 +1,127 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class aw2 extends y32 {
+public class aw2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public g22<Boolean> c;
-    public String d;
-    public String e;
-    public long f;
-    public final j84<t94> g;
 
-    /* loaded from: classes5.dex */
-    public class a extends z32<aw2> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aw2 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(aw2 aw2Var, aw2 aw2Var2) {
-            super(aw2Var2);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755842443, "Lcom/repackage/aw2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aw2Var, aw2Var2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((y32) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = aw2Var;
-        }
-
-        @Override // com.repackage.z32
-        public void r(@NonNull t94 t94Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t94Var) == null) {
-                this.b.c.a(Boolean.TRUE);
-            }
-        }
-
-        @Override // com.repackage.z32
-        public void u(t94 t94Var, nc3 nc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t94Var, nc3Var) == null) {
-                this.b.c.a(Boolean.FALSE);
-            }
-        }
-    }
-
-    public aw2(String str, String str2, long j, g22<Boolean> g22Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), g22Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755842443, "Lcom/repackage/aw2;");
                 return;
             }
         }
-        this.g = new a(this, this);
-        this.c = g22Var;
-        this.d = str;
-        this.e = str2;
-        this.f = j;
+        a = rf1.a;
     }
 
-    @Override // com.repackage.n84
-    public void D(m94 m94Var) {
-        t94 p;
+    public static void a(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m94Var) == null) {
-            super.D(m94Var);
-            if (m94Var != null) {
-                if (m94Var.a == 1010 && (p = bw2.p(this.d, this.e, this.f)) != null) {
-                    p.d = p.b();
-                    p84.i().x(p);
-                }
-                mw2.b("fetch plugin error: " + m94Var.toString());
-            } else {
-                mw2.b("fetch plugin error");
+        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
+            if (a) {
+                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
             }
-            this.c.a(Boolean.FALSE);
+            int i = message.arg1;
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            iv2.a(i, str2, str, bundle);
         }
     }
 
-    @Override // com.repackage.n84
-    public void F() {
+    public static void b(Message message) {
+        Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.F();
-            mw2.b("fetch plugin success");
+        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
+            Bundle bundle2 = (Bundle) message.obj;
+            String str = "";
+            String str2 = null;
+            if (bundle2 != null) {
+                str2 = bundle2.getString("ai_apps_delegation_name", null);
+                str = bundle2.getString("ai_apps_observer_id", "");
+                bundle = bundle2.getBundle("ai_apps_data");
+            } else {
+                bundle = null;
+            }
+            iv2.a(-1000, str2, str, bundle);
         }
     }
 
-    @Override // com.repackage.n84
-    public void G() {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void c(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.G();
-            mw2.b("no package");
-            this.c.a(Boolean.FALSE);
+        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (a) {
+                    throw new RuntimeException("delegation msg obj is not a bundle");
+                }
+                return;
+            }
+            Bundle bundle = (Bundle) obj;
+            kv2 kv2Var = new kv2(bundle.getString("key_observer_id", ""));
+            kv2Var.setResult(bundle.getBundle("key_result_data"));
+            lv2.b().c(kv2Var);
         }
     }
 
-    @Override // com.repackage.n84
-    public void H(ae4 ae4Var) {
+    @SuppressLint({"BDThrowableCheck"})
+    public static void d(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ae4Var) == null) {
-            super.H(ae4Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
+            Object obj = message.obj;
+            if (!(obj instanceof Bundle)) {
+                if (a) {
+                    throw new RuntimeException("delegation msg obj is not a bundle");
+                }
+                return;
+            }
+            Bundle bundle = (Bundle) obj;
+            kv2 kv2Var = new kv2(bundle.getString("key_observer_id", ""));
+            kv2Var.setResult(bundle.getBundle("key_result_data"));
+            lv2.b().c(kv2Var);
         }
     }
 
-    @Override // com.repackage.n84
-    public j84<t94> y() {
-        InterceptResult invokeV;
+    public static void e(int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (j84) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
+            xv2 e = xv2.e();
+            zv2 zv2Var = new zv2(126, bundle);
+            zv2Var.a(i);
+            e.h(zv2Var);
+        }
+    }
+
+    public static void f(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
+            xv2.e().h(new zv2(21, bundle));
+        }
     }
 }

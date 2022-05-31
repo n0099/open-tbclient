@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.sdk.Log;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class VideoFreeFlowConfigManager implements INoProGuard {
@@ -87,7 +88,7 @@ public class VideoFreeFlowConfigManager implements INoProGuard {
                                 String str3 = this.c;
                                 String trim2 = str3.substring(str3.indexOf(VideoFreeFlowConfigManager.PROXY) + 5).trim();
                                 if (!TextUtils.isEmpty(trim2)) {
-                                    String[] split2 = trim2.split(";");
+                                    String[] split2 = trim2.split(ParamableElem.DIVIDE_PARAM);
                                     if (split2.length > 0 && !TextUtils.isEmpty(split2[0])) {
                                         this.e = split2[0];
                                     }

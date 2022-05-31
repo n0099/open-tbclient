@@ -1,52 +1,21 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.nadcore.download.consts.AdDownloadCode;
 /* loaded from: classes7.dex */
-public class vi0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vi0 {
+    void a(ei0 ei0Var);
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final Handler a;
-        public transient /* synthetic */ FieldHolder $fh;
+    void b(ei0 ei0Var, AdDownloadCode adDownloadCode);
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(73089559, "Lcom/repackage/vi0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(73089559, "Lcom/repackage/vi0$a;");
-                    return;
-                }
-            }
-            a = new Handler(Looper.getMainLooper());
-        }
-    }
+    void c(ei0 ei0Var);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
-    }
+    void d(ei0 ei0Var);
 
-    public static void b(@Nullable Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, runnable) == null) || runnable == null) {
-            return;
-        }
-        a.a.post(runnable);
-    }
+    void e(ei0 ei0Var);
+
+    void f(ei0 ei0Var, float f);
+
+    void g(ei0 ei0Var);
+
+    void h(ei0 ei0Var);
 }

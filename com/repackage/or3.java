@@ -1,27 +1,20 @@
 package com.repackage;
 
-import com.baidu.sapi2.activity.BaseActivity;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rl2;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class or3 {
+public class or3 implements cl1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile or3 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
+    public jr3 a;
+    public nr3 b;
 
     public or3() {
         Interceptable interceptable = $ic;
@@ -36,82 +29,46 @@ public class or3 {
                 return;
             }
         }
-        this.a = "swan";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        if (u03.a0() == null) {
-            return;
-        }
-        rl2.a V = u03.a0().V();
-        this.a = n73.n(V.G());
-        this.c = V.H();
-        this.b = V.T();
-        this.f = V.s0().getString("aiapp_extra_need_download", "");
-        this.g = V.W();
-        this.h = V.e0();
-        this.i = V.V();
-        this.d = V.v1();
-        this.e = V.w1();
+        c();
     }
 
-    public String a() {
+    public static or3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", this.a);
-                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.c);
-                jSONObject.put("source", this.b);
-                jSONObject.put("needDown", this.f);
-                jSONObject.put("scheme", this.g);
-                jSONObject.put("extPage", this.h);
-                jSONObject.put("launchId", this.i);
-                jSONObject.put("appVersion", this.d);
-                jSONObject.put("thirdVersion", this.e);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (or3.class) {
+                    if (c == null) {
+                        c = new or3();
+                    }
+                }
             }
-            return jSONObject.toString();
+            return c;
         }
-        return (String) invokeV.objValue;
+        return (or3) invokeV.objValue;
     }
 
-    public or3(JSONObject jSONObject) {
+    @Override // com.repackage.cl1
+    public hr1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull lc2 lc2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, lc2Var)) == null) {
+            if (this.a.e(str)) {
+                return this.a.a(str, jSONObject, lc2Var);
             }
+            if (this.a.f()) {
+                return this.b.a(str, jSONObject, lc2Var);
+            }
+            return new hr1(10001, "authorize fail.");
         }
-        this.a = "swan";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = "";
-        if (jSONObject == null || jSONObject.length() == 0) {
-            return;
+        return (hr1) invokeLLL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new jr3();
+            this.b = new nr3();
         }
-        this.a = jSONObject.optString("from", "swan");
-        this.c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-        this.b = jSONObject.optString("source");
-        this.f = jSONObject.optString("needDown");
-        this.g = jSONObject.optString("scheme");
-        this.h = jSONObject.optString("extPage");
-        this.i = jSONObject.optString("launchId", null);
-        this.d = jSONObject.optString("appVersion");
-        this.e = jSONObject.optString("thirdVersion");
     }
 }

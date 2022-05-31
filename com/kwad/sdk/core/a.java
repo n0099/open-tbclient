@@ -14,7 +14,7 @@ public class a {
 
     /* renamed from: com.kwad.sdk.core.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class C0292a {
+    public static final class C0293a {
         public static final a a = new a();
     }
 
@@ -24,7 +24,7 @@ public class a {
     }
 
     public static a a() {
-        return C0292a.a;
+        return C0293a.a;
     }
 
     public DownloadParams a(String str) {

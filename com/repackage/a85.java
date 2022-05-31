@@ -1,158 +1,170 @@
 package com.repackage;
 
-import android.view.View;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.view.NovelInfoCardView;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class a85 {
+public class a85 extends z75 {
     public static /* synthetic */ Interceptable $ic;
-    public static a85 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755902893, "Lcom/repackage/a85;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755902893, "Lcom/repackage/a85;");
-        }
-    }
+    public long A;
+    public long B;
+    public long C;
+    public long D;
+    public HashMap<String, String> E;
+    public boolean b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
+    public long k;
+    public long l;
+    public long m;
+    public long n;
+    public long o;
+    public long p;
+    public long q;
+    public long r;
+    public boolean s;
+    public int t;
+    public long u;
+    public int v;
+    public long w;
+    public long x;
+    public boolean y;
+    public long z;
 
     public a85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || ki.isEmpty(str) || ki.isEmpty(str2)) {
+            return;
+        }
+        this.E.put(str, str2);
+    }
+
+    public void c() {
+        e85 e85Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (e85Var = (e85) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+            return;
+        }
+        e85Var.b(this);
+    }
+
+    public void d(int i) {
+        e85 e85Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (e85Var = (e85) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+            return;
+        }
+        e85Var.c(this, i);
+    }
+
+    public void e(boolean z) {
+        e85 e85Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (e85Var = (e85) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+            return;
+        }
+        e85Var.d(this, z);
+    }
+
+    public a85(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = true;
-        this.d = true;
-        this.e = true;
-        this.f = true;
-        this.g = true;
-        this.a = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds144);
-        this.b = mi.i(TbadkCoreApplication.getInst());
-    }
-
-    public static a85 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (h == null) {
-                synchronized (a85.class) {
-                    if (h == null) {
-                        h = new a85();
-                    }
-                }
-            }
-            return h;
-        }
-        return (a85) invokeV.objValue;
-    }
-
-    public boolean b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
-                return false;
-            }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int i = iArr[1];
-            return i > 0 && i < this.b - this.a;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c(String str, String str2, e05 e05Var, View view2, NovelInfoCardView novelInfoCardView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, e05Var, view2, novelInfoCardView) == null) || e05Var == null || view2 == null || novelInfoCardView == null || novelInfoCardView.getVisibility() != 0) {
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
+        if (responsedMessage == null) {
             return;
         }
-        String valueOf = String.valueOf(e05Var.h());
-        if (b(view2) && view2.getVisibility() == 0) {
-            if (this.c) {
-                this.c = false;
-                d85.b(CommonStatisticKey.KEY_PB_NOVEL_INFO_READ_MORE_BUTTON_SHOW, valueOf, str, str2);
-            }
+        this.a = i;
+        this.s = z;
+        if (z) {
+            this.r = responsedMessage.getDownSize();
+            this.A = responsedMessage.getOrginalMessage().getClientLogID();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+            db dbVar = responsedMessage.performanceData;
+            this.w = dbVar.k;
+            this.x = dbVar.l;
+            this.t = dbVar.i;
+            this.u = dbVar.j;
         } else {
-            this.c = true;
+            this.q = responsedMessage.getDownSize();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
         }
-        if (b(novelInfoCardView)) {
-            if (this.d) {
-                this.d = false;
-                d85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 4, valueOf, str, str2);
-            }
-        } else {
-            this.d = true;
-        }
-        if (b(novelInfoCardView.getNovelCoverPage())) {
-            if (this.e) {
-                this.e = false;
-                d85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 3, valueOf, str, str2);
-            }
-        } else {
-            this.e = true;
-        }
-        if (e05Var.i()) {
-            if (b(novelInfoCardView.getNovelStateButton())) {
-                if (this.g) {
-                    this.g = false;
-                    d85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 2, valueOf, str, str2);
-                    return;
-                }
-                return;
-            }
-            this.g = true;
-        } else if (b(novelInfoCardView.getNovelStateButton())) {
-            if (this.f) {
-                this.f = false;
-                d85.a(CommonStatisticKey.KEY_PB_NOVEL_INFO_CARD_VIEW_SHOW, 1, valueOf, str, str2);
-            }
-        } else {
-            this.f = true;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            h = null;
-            this.c = true;
-            this.d = true;
-            this.e = true;
-            this.f = true;
-            this.g = true;
-        }
+        this.c = j;
+        this.d = j4;
+        this.e = j2;
+        this.o = j3;
+        this.m = j5;
+        this.b = !responsedMessage.hasError();
+        db dbVar2 = responsedMessage.performanceData;
+        this.f = dbVar2.a;
+        this.g = dbVar2.b;
+        this.h = dbVar2.c;
+        this.i = dbVar2.d;
+        this.j = dbVar2.e;
+        this.k = dbVar2.f;
+        this.l = dbVar2.g;
+        long j7 = dbVar2.h;
+        this.n = j7;
+        this.n = j7 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
+        this.v = responsedMessage.getError();
+        this.y = z2;
+        this.p = j6;
     }
 }

@@ -1,214 +1,197 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.view.View;
+import android.widget.ImageView;
+import androidx.annotation.IdRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
-import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.File;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class mr8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public VlogEditManager b;
-    public int c;
-    public int d;
-    public TextWordsEntity.TextStyleEntity e;
-    public TextWordsEntity.TextFontEntity f;
-    public int g;
-    public String h;
+    public static /* synthetic */ Interceptable $ic = null;
 
-    public mr8(Context context, VlogEditManager vlogEditManager) {
+    /* renamed from: e */
+    public static final int obfuscated = 2131232801;
+
+    /* renamed from: f */
+    public static final int obfuscated = 2131232800;
+    public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public ImageView b;
+    public b c;
+    public CustomMessageListener d;
+
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mr8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(mr8 mr8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mr8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mr8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
+                boolean booleanValue = ((Boolean) customResponsedMessage.getData()).booleanValue();
+                if (this.a.c != null) {
+                    this.a.c.a(booleanValue);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755489570, "Lcom/repackage/mr8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755489570, "Lcom/repackage/mr8;");
+        }
+    }
+
+    public mr8(View view2, @IdRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, vlogEditManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {view2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = -1;
-        this.h = "";
-        this.a = context;
-        this.b = vlogEditManager;
+        this.d = new a(this, 2921647);
+        MessageManager.getInstance().registerListener(this.d);
+        this.a = view2;
+        if (view2 != null) {
+            ImageView imageView = (ImageView) view2.findViewById(i);
+            this.b = imageView;
+            if (imageView != null) {
+                imageView.setVisibility(0);
+            }
+        }
+        j(d());
     }
 
-    public void a(int i, String str, MultiMediaData multiMediaData, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
-        TextWordsEntity.TextStyleEntity textStyleEntity2;
-        TextWordsEntity.TextFontEntity textFontEntity2;
+    public static StatisticItem b(String str, String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, multiMediaData, textStyleEntity, textFontEntity}) == null) || multiMediaData == null) {
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) ? new StatisticItem(str).param("obj_locate", c(i)).param("tid", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()) : (StatisticItem) invokeLLI.objValue;
+    }
+
+    public static String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? (i == 4 || i == 3) ? "2" : "1" : (String) invokeI.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbSingleton.getInstance().isDanmuSwitchOpen() : invokeV.booleanValue;
+    }
+
+    public void e(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+            TiebaStatic.log(b("c14474", str, i).param("obj_type", d() ? "1" : "0"));
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+            ImageView imageView = this.b;
+            if (imageView != null) {
+                imageView.setOnClickListener(null);
+            }
+            this.c = null;
+        }
+    }
+
+    public void g(View.OnClickListener onClickListener) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) || (imageView = this.b) == null) {
             return;
         }
-        if (108 == i && TextUtils.isEmpty(str)) {
-            multiMediaData.setExt("text", mb9.l(R.string.obfuscated_res_0x7f0f148c));
-        }
-        if (this.g != -1 && !TextUtils.isEmpty(str)) {
-            multiMediaData.setExt("text", str);
-        }
-        if (textStyleEntity != null) {
-            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE, TextWordsEntity.TextStyleEntity.toJson(textStyleEntity).toString());
-        } else {
-            try {
-                String ext = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_STYLE);
-                if (!TextUtils.isEmpty(ext)) {
-                    textStyleEntity2 = TextWordsEntity.TextStyleEntity.parse(new JSONObject(ext));
-                } else {
-                    textStyleEntity2 = this.e;
-                }
-                textStyleEntity = textStyleEntity2;
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-        }
-        if (textFontEntity != null) {
-            multiMediaData.setExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT, TextWordsEntity.TextFontEntity.toJson(textFontEntity).toString());
-        } else {
-            try {
-                String ext2 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_FONT);
-                if (!TextUtils.isEmpty(ext2)) {
-                    textFontEntity2 = TextWordsEntity.TextFontEntity.parse(new JSONObject(ext2));
-                } else {
-                    textFontEntity2 = this.f;
-                }
-                textFontEntity = textFontEntity2;
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-            }
-        }
-        String ext3 = multiMediaData.getExt(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_TEMP_PATH);
-        String videoTmpDir = FileHelper.getVideoTmpDir();
-        String str2 = System.currentTimeMillis() + ".jpg";
-        Bitmap h = jr8.d().h(this.a, multiMediaData.getExt("text"), textStyleEntity, textFontEntity);
-        if (!TextUtils.isEmpty(multiMediaData.path) && !multiMediaData.path.equals(ext3)) {
-            FileUtils.delete(new File(multiMediaData.path));
-        }
-        FileUtils.saveBitmap2PNG(videoTmpDir, str2, h, 100);
-        multiMediaData.path = videoTmpDir + File.separator + str2;
-        int i2 = multiMediaData.width;
-        int i3 = multiMediaData.height;
-        multiMediaData.width = h.getWidth();
-        int height = h.getHeight();
-        multiMediaData.height = height;
-        if (this.g == -1) {
-            multiMediaData.scaleType = "adaptive";
-            multiMediaData.type = 0;
-            multiMediaData.start = this.b.getCurrentPlayTime();
-            multiMediaData.end = this.b.getCurrentPlayTime() + 3000;
-            multiMediaData.x = (this.c - multiMediaData.width) / 2.0f;
-            multiMediaData.y = (this.d - multiMediaData.height) / 2.0f;
-            if (TextUtils.equals(this.h, "cover_sticker")) {
-                this.b.addCoverStickerData(multiMediaData);
-            } else {
-                this.b.addStickerData(multiMediaData, this.h);
-            }
-        } else {
-            float f = multiMediaData.x + (i2 / 2.0f);
-            float f2 = multiMediaData.y + (i3 / 2.0f);
-            multiMediaData.x = f - (multiMediaData.width / 2.0f);
-            multiMediaData.y = f2 - (height / 2.0f);
-            if (TextUtils.equals(this.h, "cover_sticker")) {
-                this.b.replaceCoverStickerData(multiMediaData);
-            } else {
-                this.b.replaceStickerData(this.g, multiMediaData, this.h);
-            }
-        }
-        h.recycle();
+        imageView.setOnClickListener(onClickListener);
     }
 
-    public void b(MultiMediaData multiMediaData) {
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, multiMediaData) == null) || multiMediaData == null || TextUtils.isEmpty(multiMediaData.path)) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            boolean z = !d();
+            TbSingleton.getInstance().setDanmuSwitchOpen(z);
+            j(z);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921647, Boolean.valueOf(z)));
+        }
+    }
+
+    public void j(boolean z) {
+        ImageView imageView;
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (imageView = this.b) == null || (view2 = this.a) == null) {
             return;
         }
-        FileUtils.delete(new File(multiMediaData.path));
-    }
-
-    public void c(@NonNull List<MultiMediaData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setUpEditLayer("cover_sticker");
-            this.b.addCoverStickerDataList(list);
-            for (MultiMediaData multiMediaData : list) {
-                e(0);
-                a(116, null, multiMediaData, null, null);
-            }
-        }
-    }
-
-    public boolean d(MultiMediaData multiMediaData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, multiMediaData)) == null) {
-            if (multiMediaData == null) {
-                return false;
-            }
-            String ext = multiMediaData.getExt("text");
-            if (TextUtils.isEmpty(ext)) {
-                return false;
-            }
-            return ext.equals(mb9.l(R.string.obfuscated_res_0x7f0f148c));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void f(TextWordsEntity.TextFontEntity textFontEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, textFontEntity) == null) {
-            this.f = textFontEntity;
-        }
-    }
-
-    public void g(TextWordsEntity.TextStyleEntity textStyleEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, textStyleEntity) == null) {
-            this.e = textStyleEntity;
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void i(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
-            this.c = i;
-            this.d = i2;
-        }
+        imageView.setImageDrawable(view2.getResources().getDrawable(z ? obfuscated : obfuscated));
     }
 }

@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ay0;
-import com.repackage.wx0;
+import com.repackage.jw0;
+import com.repackage.nw0;
 /* loaded from: classes2.dex */
 public class BdThumbSeekBarView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -785,9 +785,9 @@ public class BdThumbSeekBarView extends View {
         this.m = 0.0f;
         this.n = 0;
         if (this.h == null) {
-            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080da1);
+            this.h = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080db2);
         }
-        this.i = wx0.a(this, 0.0f);
+        this.i = jw0.a(this, 0.0f);
         if (this.j == null) {
             d(1.5f);
         }
@@ -798,6 +798,6 @@ public class BdThumbSeekBarView extends View {
         this.e = (int) ((i2 * f) + 0.5d);
         this.f = (int) (50.0f * f);
         this.g = (int) (f * 3.0f);
-        ay0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
+        nw0.b(com.baidu.searchbox.player.widget.BdThumbSeekBarView.TAG, "mUITraceHeight: " + this.e);
     }
 }

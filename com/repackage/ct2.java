@@ -1,46 +1,88 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface ct2 {
-    public static final ct2 a = new a();
+public class ct2 implements dt2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements ct2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.repackage.ct2
-        public <T extends xl2<T>> void a(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                t.x("rescue_refractory_period", 0L);
-                t.x("suspend_delay_time", -1L);
-                t.t("should_suspend_master_timer", false);
-                t.t("should_suspend_all", false);
-                t.t("should_suspend_slave_timer", false);
-                t.t("should_suspend_web_view_timer", false);
-                t.t("should_suspend_v8_timer", false);
+    public ct2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    <T extends xl2<T>> void a(T t);
+    @Override // com.repackage.dt2
+    public List<ps2> a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String optString = jSONObject.optString("apiName");
+            c("api-name " + optString);
+            if (TextUtils.isEmpty(optString)) {
+                return arrayList;
+            }
+            int optInt = jSONObject.optInt("count");
+            c("api-count " + optInt);
+            if (optInt > 0 && (optJSONObject = jSONObject.optJSONObject("caller")) != null) {
+                b(optString, optJSONObject.optJSONObject("swan"), arrayList, 0);
+                b(optString, optJSONObject.optJSONObject("boxjs"), arrayList, 1);
+                return arrayList;
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void b(String str, @Nullable JSONObject jSONObject, @NonNull List<ps2> list, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, list, i) == null) || jSONObject == null || jSONObject.length() <= 0) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray(FetchLog.START_TIME);
+        JSONArray optJSONArray2 = jSONObject.optJSONArray(FetchLog.END_TIME);
+        if (optJSONArray == null || optJSONArray2 == null) {
+            return;
+        }
+        int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+        for (int i2 = 0; i2 < min; i2++) {
+            ps2 ps2Var = new ps2();
+            ps2Var.g(i);
+            ps2Var.f(str);
+            ps2Var.i(optJSONArray.optLong(i2));
+            ps2Var.h(optJSONArray2.optLong(i2));
+            list.add(ps2Var);
+        }
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && dt2.a) {
+            Log.d("Api-Parser", str);
+        }
+    }
 }

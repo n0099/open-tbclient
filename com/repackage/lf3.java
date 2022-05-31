@@ -1,127 +1,70 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
+import com.repackage.og3;
 /* loaded from: classes6.dex */
-public abstract class lf3<OuT> implements Runnable {
+public class lf3 extends hv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final of3<OuT> a;
-    public OuT b;
 
     /* loaded from: classes6.dex */
-    public static class a extends lf3<OuT> {
+    public class a implements og3.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CountDownLatch c;
+        public final /* synthetic */ lf3 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(of3 of3Var, CountDownLatch countDownLatch) {
-            super(of3Var, null);
+        public a(lf3 lf3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {of3Var, countDownLatch};
+                Object[] objArr = {lf3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((of3) objArr2[0], (a) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = countDownLatch;
+            this.a = lf3Var;
         }
 
-        @Override // com.repackage.lf3
-        public void c() {
+        @Override // com.repackage.og3.c
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.countDown();
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.d.putString("result", str);
+                this.a.c();
             }
         }
     }
 
-    public /* synthetic */ lf3(of3 of3Var, a aVar) {
-        this(of3Var);
-    }
-
-    public static <OuT> OuT a(Looper looper, of3<OuT> of3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, of3Var)) == null) {
-            if (of3Var == null) {
-                return null;
-            }
-            if (looper != null && Thread.currentThread() != looper.getThread()) {
-                CountDownLatch countDownLatch = new CountDownLatch(1);
-                a aVar = new a(of3Var, countDownLatch);
-                new Handler(looper).post(aVar);
-                try {
-                    countDownLatch.await();
-                } catch (InterruptedException e) {
-                    ux1.o("Awaiting", "callOnLooper: Thread=" + Thread.currentThread().getName() + " ret by InterruptedException " + e);
-                    e.printStackTrace();
-                }
-                return aVar.b;
-            }
-            return of3Var.create();
-        }
-        return (OuT) invokeLL.objValue;
-    }
-
-    public static <OuT> OuT b(of3<OuT> of3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, of3Var)) == null) ? (OuT) a(Looper.getMainLooper(), of3Var) : (OuT) invokeL.objValue;
-    }
-
-    public abstract void c();
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                try {
-                    this.b = this.a.create();
-                } catch (Exception e) {
-                    ux1.o("Awaiting", "catch: " + e + "\n" + Log.getStackTraceString(e));
-                }
-            } finally {
-                c();
-            }
-        }
-    }
-
-    public lf3(of3<OuT> of3Var) {
+    public lf3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {of3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = null;
-        this.a = of3Var;
+    }
+
+    @Override // com.repackage.hv2
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            hf3.n(bundle.getString("key_result_client_id"), bundle.getStringArrayList("key_param_tpl_list"), new a(this));
+        }
     }
 }

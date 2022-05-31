@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j94;
-import com.repackage.ud4;
+import com.repackage.hc4;
+import com.repackage.w74;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final ud4 LOG;
+    public static final hc4 LOG;
     public static final String TAG = "PMSDBProviderProxy";
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile j94 mProvider;
+    public volatile w74 mProvider;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 return;
             }
         }
-        LOG = ud4.c();
+        LOG = hc4.c();
     }
 
     public PMSDBProviderProxy() {
@@ -111,20 +111,20 @@ public class PMSDBProviderProxy extends ContentProvider {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) ? getProvider().delete(uri, str, strArr) : invokeLLL.intValue;
     }
 
-    public j94 getProvider() {
+    public w74 getProvider() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mProvider == null) {
-                synchronized (j94.class) {
+                synchronized (w74.class) {
                     if (this.mProvider == null) {
-                        this.mProvider = new j94(getContext());
+                        this.mProvider = new w74(getContext());
                     }
                 }
             }
             return this.mProvider;
         }
-        return (j94) invokeV.objValue;
+        return (w74) invokeV.objValue;
     }
 
     @Override // android.content.ContentProvider

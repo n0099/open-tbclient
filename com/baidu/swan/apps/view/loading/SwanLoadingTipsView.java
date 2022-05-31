@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oe3;
+import com.repackage.bd3;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import kotlin.Metadata;
 import kotlin.Unit;
@@ -69,7 +69,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                oe3.b0(this.a.e, 2000L);
+                bd3.b0(this.a.e, 2000L);
             }
         }
 
@@ -210,7 +210,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             this.a = null;
             Runnable runnable = this.e;
             if (runnable != null) {
-                oe3.d0(runnable);
+                bd3.d0(runnable);
             }
             ObjectAnimator objectAnimator = this.c;
             if (objectAnimator != null) {
@@ -240,8 +240,8 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            View.inflate(context, R.layout.obfuscated_res_0x7f0d00b0, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090191);
+            View.inflate(context, R.layout.obfuscated_res_0x7f0d00ac, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09018e);
         }
     }
 

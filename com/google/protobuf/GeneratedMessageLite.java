@@ -22,14 +22,14 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class GeneratedMessageLite extends AbstractMessageLite implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.protobuf.GeneratedMessageLite$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$protobuf$WireFormat$JavaType;
         public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface ExtendableMessageOrBuilder<MessageType extends ExtendableMessage> extends MessageLiteOrBuilder {
         <Type> Type getExtension(GeneratedExtension<MessageType, Type> generatedExtension);
 
@@ -72,7 +72,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         <Type> boolean hasExtension(GeneratedExtension<MessageType, Type> generatedExtension);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class ExtensionDescriptor implements FieldSet.FieldDescriptorLite<ExtensionDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -166,7 +166,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class GeneratedExtension<ContainingType extends MessageLite, Type> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -226,7 +226,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -331,7 +331,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new SerializedForm(this) : invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ExtendableBuilder<MessageType extends ExtendableMessage<MessageType>, BuilderType extends ExtendableBuilder<MessageType, BuilderType>> extends Builder<MessageType, BuilderType> implements ExtendableMessageOrBuilder<MessageType> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -371,7 +371,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
             if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.extensionsIsMutable) {
                 return;
             }
-            this.extensions = this.extensions.m103clone();
+            this.extensions = this.extensions.m102clone();
             this.extensionsIsMutable = true;
         }
 
@@ -532,13 +532,13 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class ExtendableMessage<MessageType extends ExtendableMessage<MessageType>> extends GeneratedMessageLite implements ExtendableMessageOrBuilder<MessageType> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final FieldSet<ExtensionDescriptor> extensions;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public class ExtensionWriter {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -832,7 +832,7 @@ public abstract class GeneratedMessageLite extends AbstractMessageLite implement
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static abstract class Builder<MessageType extends GeneratedMessageLite, BuilderType extends Builder> extends AbstractMessageLite.Builder<BuilderType> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

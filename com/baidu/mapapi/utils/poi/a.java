@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public final class a implements a.InterfaceC0120a<c> {
+public final class a implements a.InterfaceC0119a<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
@@ -34,7 +34,7 @@ public final class a implements a.InterfaceC0120a<c> {
         this.a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0120a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0119a
     public void a(HttpClient.HttpStateError httpStateError) {
         String str;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public final class a implements a.InterfaceC0120a<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0120a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0119a
     public void a(c cVar) {
         String str;
         Interceptable interceptable = $ic;

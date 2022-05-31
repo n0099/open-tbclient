@@ -1,27 +1,20 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes6.dex */
-public class lu0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile ku0 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lu0 {
+    void a(@Nullable gs0 gs0Var);
 
-    public static synchronized ku0 a() {
-        InterceptResult invokeV;
-        ku0 ku0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (lu0.class) {
-                if (a == null) {
-                    a = new ku0();
-                }
-                ku0Var = a;
-            }
-            return ku0Var;
-        }
-        return (ku0) invokeV.objValue;
-    }
+    void b(@NonNull is0 is0Var);
+
+    void c(int i, @NonNull fs0 fs0Var);
+
+    void d(@NonNull er0 er0Var);
+
+    void e(fs0 fs0Var);
+
+    void f(@NonNull is0 is0Var);
+
+    void release();
 }

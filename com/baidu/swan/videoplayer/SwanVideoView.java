@@ -27,13 +27,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ii4;
-import com.repackage.li4;
-import com.repackage.mi4;
-import com.repackage.ni4;
-import com.repackage.oi4;
-import com.repackage.qh4;
-import com.repackage.th4;
+import com.repackage.ah4;
+import com.repackage.bh4;
+import com.repackage.dg4;
+import com.repackage.gg4;
+import com.repackage.vg4;
+import com.repackage.yg4;
+import com.repackage.zg4;
 import java.io.IOException;
 import java.util.Map;
 /* loaded from: classes2.dex */
@@ -50,18 +50,18 @@ public class SwanVideoView extends FrameLayout {
     public MediaPlayer.OnErrorListener H;
     public MediaPlayer.OnBufferingUpdateListener I;
     public MediaPlayer.OnSeekCompleteListener J;
-    public qh4.a K;
+    public dg4.a K;
     public int a;
     public boolean b;
     public Uri c;
     public Map<String, String> d;
     public MediaController e;
-    public mi4 f;
-    public ni4 g;
-    public oi4 h;
-    public li4 i;
+    public zg4 f;
+    public ah4 g;
+    public bh4 h;
+    public yg4 i;
     public MediaTipStateLayer j;
-    public ii4 k;
+    public vg4 k;
     public MediaPlayer l;
     public int m;
     public Context n;
@@ -72,11 +72,11 @@ public class SwanVideoView extends FrameLayout {
     public boolean s;
     public View t;
     public int u;
-    public qh4 v;
+    public dg4 v;
     public int w;
     public int x;
     public FrameLayout y;
-    public th4 z;
+    public gg4 z;
 
     /* loaded from: classes2.dex */
     public class a extends MediaGestureLayout.c {
@@ -379,7 +379,7 @@ public class SwanVideoView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class h implements qh4.a {
+    public class h implements dg4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SwanVideoView a;
@@ -402,15 +402,15 @@ public class SwanVideoView extends FrameLayout {
             this.a = swanVideoView;
         }
 
-        @Override // com.repackage.qh4.a
-        public void a(qh4.b bVar) {
+        @Override // com.repackage.dg4.a
+        public void a(dg4.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             }
         }
 
-        @Override // com.repackage.qh4.a
-        public void b(qh4.b bVar, int i, int i2) {
+        @Override // com.repackage.dg4.a
+        public void b(dg4.b bVar, int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, i, i2) == null) && bVar.b() == this.a.v && this.a.l != null) {
                 SwanVideoView swanVideoView = this.a;
@@ -418,8 +418,8 @@ public class SwanVideoView extends FrameLayout {
             }
         }
 
-        @Override // com.repackage.qh4.a
-        public void c(qh4.b bVar, int i, int i2, int i3) {
+        @Override // com.repackage.dg4.a
+        public void c(dg4.b bVar, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, bVar, i, i2, i3) == null) {
             }
@@ -520,9 +520,9 @@ public class SwanVideoView extends FrameLayout {
                 setCurrentState(4);
             }
             this.b = false;
-            th4 th4Var = this.z;
-            if (th4Var != null) {
-                th4Var.onPause();
+            gg4 gg4Var = this.z;
+            if (gg4Var != null) {
+                gg4Var.onPause();
             }
         }
     }
@@ -532,9 +532,9 @@ public class SwanVideoView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             E();
             this.b = false;
-            qh4 qh4Var = this.v;
-            if (qh4Var != null) {
-                qh4Var.release();
+            dg4 dg4Var = this.v;
+            if (dg4Var != null) {
+                dg4Var.release();
             }
             MediaController mediaController = this.e;
             if (mediaController != null) {
@@ -545,14 +545,14 @@ public class SwanVideoView extends FrameLayout {
             if (this.h != null) {
                 this.h = null;
             }
-            ni4 ni4Var = this.g;
-            if (ni4Var != null) {
-                ni4Var.release();
+            ah4 ah4Var = this.g;
+            if (ah4Var != null) {
+                ah4Var.release();
                 this.g = null;
             }
-            mi4 mi4Var = this.f;
-            if (mi4Var != null) {
-                mi4Var.f();
+            zg4 zg4Var = this.f;
+            if (zg4Var != null) {
+                zg4Var.f();
                 this.f = null;
             }
             if (this.z != null) {
@@ -711,20 +711,20 @@ public class SwanVideoView extends FrameLayout {
             if (mediaController != null && this.s) {
                 mediaController.k();
             }
-            oi4 oi4Var = this.h;
-            if (oi4Var != null) {
-                oi4Var.e(str);
+            bh4 bh4Var = this.h;
+            if (bh4Var != null) {
+                bh4Var.e(str);
             }
         }
     }
 
     public void R() {
-        ni4 ni4Var;
+        ah4 ah4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (ni4Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (ah4Var = this.g) == null) {
             return;
         }
-        ni4Var.m();
+        ah4Var.m();
     }
 
     public void S(boolean z) {
@@ -744,24 +744,24 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public void U() {
-        ni4 ni4Var;
+        ah4 ah4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (ni4Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048596, this) == null) || (ah4Var = this.g) == null) {
             return;
         }
-        ni4Var.n();
+        ah4Var.n();
     }
 
     public void V(boolean z) {
-        mi4 mi4Var;
+        zg4 zg4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (mi4Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || (zg4Var = this.f) == null) {
             return;
         }
         if (z) {
-            mi4Var.h();
+            zg4Var.h();
         } else {
-            mi4Var.b();
+            zg4Var.b();
         }
     }
 
@@ -770,9 +770,9 @@ public class SwanVideoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             this.r = z;
-            mi4 mi4Var = this.f;
-            if (mi4Var != null) {
-                mi4Var.i(z);
+            zg4 zg4Var = this.f;
+            if (zg4Var != null) {
+                zg4Var.i(z);
             }
             if (!z || (mediaController = this.e) == null) {
                 return;
@@ -789,12 +789,12 @@ public class SwanVideoView extends FrameLayout {
         int i = this.a;
         if (i != -1 && i != 5) {
             if (w()) {
-                th4 th4Var = this.z;
-                if (th4Var != null) {
+                gg4 gg4Var = this.z;
+                if (gg4Var != null) {
                     if (this.a == 4) {
-                        th4Var.onResume();
+                        gg4Var.onResume();
                     } else {
-                        th4Var.onStart();
+                        gg4Var.onStart();
                     }
                 }
                 this.l.start();
@@ -864,9 +864,9 @@ public class SwanVideoView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            qh4 qh4Var = this.v;
-            if (qh4Var != null) {
-                return qh4Var.getBitmap();
+            dg4 dg4Var = this.v;
+            if (dg4Var != null) {
+                return dg4Var.getBitmap();
             }
             return null;
         }
@@ -940,10 +940,10 @@ public class SwanVideoView extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.l.getVideoHeight() : invokeV.intValue;
     }
 
-    public th4 getVideoPlayerCallback() {
+    public gg4 getVideoPlayerCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.z : (th4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) ? this.z : (gg4) invokeV.objValue;
     }
 
     public int getVideoWidth() {
@@ -955,7 +955,7 @@ public class SwanVideoView extends FrameLayout {
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d4, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c7, (ViewGroup) null);
             this.t = inflate;
             addView(inflate);
         }
@@ -964,7 +964,7 @@ public class SwanVideoView extends FrameLayout {
     public final void q(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, context) == null) {
-            this.i = new li4(context);
+            this.i = new yg4(context);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
             this.i.h(new a(this));
@@ -973,7 +973,7 @@ public class SwanVideoView extends FrameLayout {
         }
     }
 
-    public final void r(MediaPlayer mediaPlayer, qh4.b bVar) {
+    public final void r(MediaPlayer mediaPlayer, dg4.b bVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048617, this, mediaPlayer, bVar) == null) || mediaPlayer == null) {
             return;
@@ -1037,9 +1037,9 @@ public class SwanVideoView extends FrameLayout {
             if (mediaController != null) {
                 mediaController.p(z);
             }
-            ii4 ii4Var = this.k;
-            if (ii4Var != null) {
-                ii4Var.g(z);
+            vg4 vg4Var = this.k;
+            if (vg4Var != null) {
+                vg4Var.g(z);
             }
             MediaTipStateLayer mediaTipStateLayer = this.j;
             if (mediaTipStateLayer != null) {
@@ -1072,11 +1072,11 @@ public class SwanVideoView extends FrameLayout {
         }
     }
 
-    public void setMediaGesture(@NonNull ii4 ii4Var) {
+    public void setMediaGesture(@NonNull vg4 vg4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, ii4Var) == null) {
-            this.k = ii4Var;
-            this.i.e(ii4Var);
+        if (interceptable == null || interceptable.invokeL(1048626, this, vg4Var) == null) {
+            this.k = vg4Var;
+            this.i.e(vg4Var);
         }
     }
 
@@ -1093,10 +1093,10 @@ public class SwanVideoView extends FrameLayout {
         }
     }
 
-    public void setRenderView(qh4 qh4Var) {
+    public void setRenderView(dg4 dg4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048628, this, qh4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048628, this, dg4Var) == null) {
             if (this.v != null) {
                 MediaPlayer mediaPlayer = this.l;
                 if (mediaPlayer != null) {
@@ -1108,14 +1108,14 @@ public class SwanVideoView extends FrameLayout {
                 this.v = null;
                 this.y.removeView(view2);
             }
-            if (qh4Var == null) {
+            if (dg4Var == null) {
                 return;
             }
-            this.v = qh4Var;
-            qh4Var.setAspectRatio(this.u);
+            this.v = dg4Var;
+            dg4Var.setAspectRatio(this.u);
             int i2 = this.w;
             if (i2 > 0 && (i = this.x) > 0) {
-                qh4Var.setVideoSize(i2, i);
+                dg4Var.setVideoSize(i2, i);
             }
             View view3 = this.v.getView();
             view3.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
@@ -1125,12 +1125,12 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public void setSilentTips(String str) {
-        mi4 mi4Var;
+        zg4 zg4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048629, this, str) == null) || (mi4Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048629, this, str) == null) || (zg4Var = this.f) == null) {
             return;
         }
-        mi4Var.g(str);
+        zg4Var.g(str);
     }
 
     public void setSurface(Surface surface) {
@@ -1174,13 +1174,13 @@ public class SwanVideoView extends FrameLayout {
         }
     }
 
-    public void setVideoPlayerCallback(th4 th4Var) {
+    public void setVideoPlayerCallback(gg4 gg4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, th4Var) == null) {
-            this.z = th4Var;
+        if (interceptable == null || interceptable.invokeL(1048633, this, gg4Var) == null) {
+            this.z = gg4Var;
             MediaController mediaController = this.e;
             if (mediaController != null) {
-                mediaController.setToggleScreenListener(th4Var);
+                mediaController.setToggleScreenListener(gg4Var);
             }
         }
     }
@@ -1199,9 +1199,9 @@ public class SwanVideoView extends FrameLayout {
             } else {
                 this.u = 3;
             }
-            qh4 qh4Var = this.v;
-            if (qh4Var != null) {
-                qh4Var.setAspectRatio(this.u);
+            dg4 dg4Var = this.v;
+            if (dg4Var != null) {
+                dg4Var.setAspectRatio(this.u);
             }
         }
     }
@@ -1216,12 +1216,12 @@ public class SwanVideoView extends FrameLayout {
     }
 
     public final void t() {
-        ni4 ni4Var;
+        ah4 ah4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048636, this) == null) || (ni4Var = this.g) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048636, this) == null) || (ah4Var = this.g) == null) {
             return;
         }
-        ni4Var.e();
+        ah4Var.e();
         this.g.d();
     }
 
@@ -1241,7 +1241,7 @@ public class SwanVideoView extends FrameLayout {
             this.y.setBackgroundColor(-16777216);
             addView(this.y, layoutParams);
             q(context);
-            this.h = new oi4(getContext());
+            this.h = new bh4(getContext());
             addView(this.h.a(), new FrameLayout.LayoutParams(-1, -1));
             this.e = new MediaController(context);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
@@ -1249,11 +1249,11 @@ public class SwanVideoView extends FrameLayout {
             this.e.setVisibility(8);
             addView(this.e, layoutParams2);
             this.e.i(this);
-            this.f = new mi4(getContext());
+            this.f = new zg4(getContext());
             addView(this.f.a(), new FrameLayout.LayoutParams(-1, -1));
-            ni4 ni4Var = new ni4(getContext());
-            this.g = ni4Var;
-            ni4Var.b(this);
+            ah4 ah4Var = new ah4(getContext());
+            this.g = ah4Var;
+            ah4Var.b(this);
             addView(this.g.c(), new FrameLayout.LayoutParams(-1, -1));
             this.j = new MediaTipStateLayer(getContext());
             addView(this.j.b(), new FrameLayout.LayoutParams(-1, -1));

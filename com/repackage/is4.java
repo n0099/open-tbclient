@@ -1,38 +1,60 @@
 package com.repackage;
 
-import android.graphics.Paint;
-import android.text.Spanned;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class is4 {
+public class is4 extends cs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Paint.FontMetricsInt fontMetricsInt, int i) {
-        int i2;
-        int i3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public is4(as4 as4Var) {
+        super(as4Var);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, fontMetricsInt, i) == null) || (i3 = (i2 = fontMetricsInt.descent) - fontMetricsInt.ascent) <= 0) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {as4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((as4) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        int round = Math.round(i2 * ((i * 1.0f) / i3));
-        fontMetricsInt.descent = round;
-        fontMetricsInt.ascent = round - i;
     }
 
-    public static boolean b(CharSequence charSequence) {
-        InterceptResult invokeL;
+    @ds4("appointNotice")
+    public void appointNotice(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, charSequence)) == null) {
-            if (charSequence instanceof Spanned) {
-                Spanned spanned = (Spanned) charSequence;
-                return ((EMTextView.a[]) spanned.getSpans(0, spanned.length(), EMTextView.a.class)).length > 0;
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        int optInt = jSONObject.optInt("activityId");
+        int optInt2 = jSONObject.optInt("state");
+        String optString = jSONObject.optString("curNum");
+        bz4 bz4Var = new bz4();
+        bz4Var.a(optInt);
+        bz4Var.c(optInt2);
+        bz4Var.b(optString);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, bz4Var));
+    }
+
+    @Override // com.repackage.cs4
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "TBHY_EXT_FocusFeed" : (String) invokeV.objValue;
     }
 }

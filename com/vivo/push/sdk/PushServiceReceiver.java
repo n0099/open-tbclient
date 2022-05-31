@@ -20,7 +20,7 @@ import com.vivo.push.e;
 import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 import com.vivo.push.util.r;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static HandlerThread a;
@@ -28,7 +28,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
     public static a c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

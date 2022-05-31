@@ -1,116 +1,104 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zi2;
+import com.repackage.di2;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class av2 implements nf3<HybridUbcFlow> {
+public class av2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements nf3<HybridUbcFlow> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(av2 av2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755843404, "Lcom/repackage/av2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(HybridUbcFlow hybridUbcFlow) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) || av2.a(hybridUbcFlow)) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755843404, "Lcom/repackage/av2;");
                 return;
             }
-            long f = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_first_paint", "naStart");
+        }
+        a = rf1.a;
+    }
+
+    public static void a() {
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (list = di2.q().list()) == null || list.length <= 0) {
+            return;
+        }
+        for (String str : list) {
+            if (!TextUtils.isEmpty(str)) {
+                g84 g84Var = new g84();
+                g84Var.g = str;
+                g84Var.i = -1L;
+                c74.i().f(g84Var);
             }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("slave_first_rendered", "naStart");
+        }
+        di2.e.d();
+    }
+
+    public static void b(String str) {
+        File s;
+        String[] list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str) || (s = di2.s(str)) == null || (list = s.list()) == null || list.length <= 1) {
+            return;
+        }
+        List<g84> q = ou2.q(str);
+        for (String str2 : list) {
+            long j = -1;
+            try {
+                j = Long.parseLong(str2);
+            } catch (NumberFormatException e) {
+                if (a) {
+                    zu2.b(Log.getStackTraceString(e));
+                }
             }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("fe_page_show", "naStart");
+            if (!c(j, q)) {
+                kf4.L(di2.t(str, str2));
+                zu2.b("delete plugin name = " + str + " ; version = " + str2);
             }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_page_show", "naStart");
+        }
+        g84 g84Var = null;
+        if (q != null) {
+            if (q.size() == 1) {
+                g84Var = q.get(0);
+            } else if (q.size() >= 2) {
+                g84Var = q.get(1);
             }
-            if (f <= 0) {
-                f = hybridUbcFlow.f("na_receive_intent", "naStart");
-            }
-            if (f <= 0) {
-                f = System.currentTimeMillis();
-            }
-            Bundle bundle = new Bundle();
-            bundle.putLong("property_launch_cost", f);
-            kx2 e = kx2.e();
-            mx2 mx2Var = new mx2(20, bundle);
-            mx2Var.f(true);
-            e.h(mx2Var);
-            hu2.j().c(f);
-            xu2.e().f();
+        }
+        if (g84Var != null) {
+            c74.i().f(g84Var);
         }
     }
 
-    public av2() {
+    public static boolean c(long j, List<g84> list) {
+        InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
+            if (j >= 0 && list != null && list.size() != 0) {
+                int min = Math.min(list.size(), 2);
+                for (int i = 0; i < min; i++) {
+                    g84 g84Var = list.get(i);
+                    if (g84Var != null && (j == g84Var.i || j == wc3.c(g84Var.j))) {
+                        return true;
+                    }
+                }
             }
+            return false;
         }
-    }
-
-    public static boolean a(HybridUbcFlow hybridUbcFlow) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridUbcFlow)) == null) ? hybridUbcFlow.p("performanceEnd") && !hybridUbcFlow.p("na_first_meaningful_paint") : invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.nf3
-    /* renamed from: b */
-    public void onCallback(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("670");
-            hybridUbcFlow.D("preload_scene", "1");
-            hybridUbcFlow.E("from", "swan");
-            hybridUbcFlow.H("component_reporter", new vt2());
-            hybridUbcFlow.H("component_reporter", new ys2());
-            hybridUbcFlow.H("component_reporter", new st2());
-            hybridUbcFlow.H("component_reporter", new xt2());
-            hybridUbcFlow.H("callback_on_submit", new zi2.a());
-            hybridUbcFlow.H("fmp_callback", new dv2("fmp_callback"));
-            hybridUbcFlow.H("fmp_callback", new rv2());
-            hybridUbcFlow.H("callback_on_submit", new dv2("callback_on_submit"));
-            hybridUbcFlow.H("callback_on_submit", new sc3());
-            hybridUbcFlow.H("callback_on_submit", new a(this));
-        }
+        return invokeJL.booleanValue;
     }
 }

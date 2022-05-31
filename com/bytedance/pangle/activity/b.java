@@ -19,7 +19,7 @@ public interface b {
 
     String getPluginPkgName();
 
-    void setPlugin(Plugin plugin2);
+    void setPlugin(Plugin plugin);
 
     void setTargetActivity(IPluginActivity iPluginActivity);
 

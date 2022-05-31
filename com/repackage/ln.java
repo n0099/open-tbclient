@@ -1,10 +1,16 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes6.dex */
-public interface ln {
-    static {
-        new ServiceReference(AppBeforeCreateSpeedStats.TITAN_DETAILS, "TitanInfo");
-    }
+public interface ln<V extends ViewGroup> {
+    int getContentViewsCount();
+
+    int getFooterViewsCount();
+
+    int getHeaderViewsCount();
+
+    V getListView();
+
+    boolean removeHeaderView(View view2);
 }

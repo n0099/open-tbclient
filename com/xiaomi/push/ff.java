@@ -53,13 +53,13 @@ public class ff {
                     return gk.a(this.a, flVar);
                 }
                 if (name.equals("presence")) {
-                    return gk.m391a(this.a);
+                    return gk.m390a(this.a);
                 }
                 if (this.a.getName().equals("stream")) {
                     return null;
                 }
                 if (this.a.getName().equals("error")) {
-                    throw new fw(gk.m392a(this.a));
+                    throw new fw(gk.m391a(this.a));
                 }
                 if (!this.a.getName().equals("warning")) {
                     this.a.getName().equals("bind");

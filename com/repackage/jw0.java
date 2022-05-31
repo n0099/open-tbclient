@@ -1,59 +1,89 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideo;
-import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Arrays;
+import java.util.Locale;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.StringCompanionObject;
+@JvmName(name = "BdPlayerUtils")
 /* loaded from: classes6.dex */
-public class jw0 {
+public final class jw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(BdVideoSeries bdVideoSeries) {
-        InterceptResult invokeL;
+    public static final int a(View view2, float f) {
+        InterceptResult invokeLF;
+        Context context;
+        Resources resources;
+        DisplayMetrics displayMetrics;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdVideoSeries)) == null) {
-            if (bdVideoSeries == null || bdVideoSeries.getSelectedVideo() == null) {
-                return 0;
-            }
-            return wx0.c(bdVideoSeries.getSelectedVideo().getTotalLength());
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65536, null, view2, f)) == null) {
+            return (int) ((f * ((view2 == null || (context = view2.getContext()) == null || (resources = context.getResources()) == null || (displayMetrics = resources.getDisplayMetrics()) == null) ? 1.0f : displayMetrics.density)) + 0.5f);
         }
-        return invokeL.intValue;
+        return invokeLF.intValue;
     }
 
-    public static void b(@Nullable BdVideoSeries bdVideoSeries, int i, int i2) {
+    public static final String b(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65537, null, bdVideoSeries, i, i2) == null) || bdVideoSeries == null || bdVideoSeries.getSelectedVideo() == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
+            }
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            if (i2 == 0 && !z) {
+                StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
+                String format = String.format(Locale.US, "%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i3), Integer.valueOf(i4)}, 2));
+                Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(locale, format, *args)");
+                return format;
+            }
+            StringCompanionObject stringCompanionObject2 = StringCompanionObject.INSTANCE;
+            String format2 = String.format(Locale.US, "%02d:%02d:%02d", Arrays.copyOf(new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}, 3));
+            Intrinsics.checkNotNullExpressionValue(format2, "java.lang.String.format(locale, format, *args)");
+            return format2;
         }
-        bdVideoSeries.setPositionMs(i);
-        bdVideoSeries.setDurationMs(i2);
-        BdVideo selectedVideo = bdVideoSeries.getSelectedVideo();
-        selectedVideo.setCurrentLength((i / 1000) + "");
-        BdVideo selectedVideo2 = bdVideoSeries.getSelectedVideo();
-        selectedVideo2.setTotalLength((i2 / 1000) + "");
+        return (String) invokeCommon.objValue;
     }
 
-    @NonNull
-    public static String c(String str) {
+    @JvmOverloads
+    public static final int c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    int d = wx0.d(str, -1);
-                    return d < 0 ? "" : wx0.b(d, false);
-                } catch (Exception e) {
-                    ay0.k("toTimeString(" + str + SmallTailInfo.EMOTION_SUFFIX, e);
-                }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? e(str, 0, 2, null) : invokeL.intValue;
+    }
+
+    @JvmOverloads
+    public static final int d(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            if (str == null || str.length() == 0) {
+                return i;
             }
-            return "";
+            try {
+                return Integer.parseInt(str);
+            } catch (NumberFormatException e) {
+                nw0.f("parseInt catch exception:", e);
+                return i;
+            }
         }
-        return (String) invokeL.objValue;
+        return invokeLI.intValue;
+    }
+
+    public static /* synthetic */ int e(String str, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
+        }
+        return d(str, i);
     }
 }

@@ -1,10 +1,8 @@
 package com.repackage;
 
-import android.content.pm.PackageInfo;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wr3 extends zs3 {
+public class wr3 extends mr3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,12 +31,12 @@ public class wr3 extends zs3 {
                 return;
             }
         }
-        c = eh1.a;
+        c = rf1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wr3() {
-        super("checkAppInstalled");
+        super("GetSwanGameDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,39 +52,49 @@ public class wr3 extends zs3 {
         }
     }
 
-    @Override // com.repackage.zs3
-    public us1 a(@NonNull JSONObject jSONObject, @NonNull yd2 yd2Var) {
+    public static boolean b(Long l, Long l2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, yd2Var)) == null) {
-            if (c) {
-                Log.d("checkAppInstalled", "handle: " + jSONObject);
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                yd2Var.onFail(31010, "package name is empty");
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) ? l.longValue() / 86400000 == l2.longValue() / 86400000 : invokeLL.booleanValue;
+    }
+
+    @Override // com.repackage.mr3
+    public hr1 a(@NonNull JSONObject jSONObject, @NonNull lc2 lc2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, lc2Var)) == null) {
+            if (jSONObject == null) {
+                lc2Var.onFail(202, "params may be error");
                 return null;
             }
-            try {
-                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-                if (c) {
-                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
+            if (c) {
+                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("swanGameId");
+            if (TextUtils.isEmpty(optString)) {
+                lc2Var.onFail(202, "params may be error");
+            } else {
+                p73 a = v73.a();
+                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                    p73 a2 = v73.a();
+                    a2.putLong(optString + "_Duration", 0L);
                 }
-                if (packageInfo != null) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject3.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
+                p73 a3 = v73.a();
+                long j = a3.getLong(optString + "_Duration", 0L);
+                JSONObject jSONObject2 = new JSONObject();
+                JSONObject jSONObject3 = new JSONObject();
+                try {
+                    jSONObject3.put("swanGameDuration", j);
                     jSONObject2.put("data", jSONObject3);
-                    yd2Var.a(jSONObject2);
-                } else {
-                    yd2Var.onFail(31016, "no package info");
+                } catch (JSONException e) {
+                    if (c) {
+                        e.printStackTrace();
+                    }
                 }
-            } catch (Exception unused) {
-                yd2Var.onFail(31011, "app is not installed");
+                lc2Var.a(jSONObject2);
             }
             return null;
         }
-        return (us1) invokeLL.objValue;
+        return (hr1) invokeLL.objValue;
     }
 }

@@ -1,14 +1,172 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.ErrorData;
-import com.repackage.pu4;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
+import android.media.MediaMetadataRetriever;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public interface a66 extends pu4.g {
-    void R(int i, int i2);
+public class a66 extends z56 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c();
+    public a66(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = z;
+    }
 
-    void onServerError(ErrorData errorData);
+    public static int h(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i3 > i2 || i4 > i) {
+                int round = Math.round(i3 / i2);
+                int round2 = Math.round(i4 / i);
+                if (round >= round2) {
+                    round = round2;
+                }
+                if (round >= 3) {
+                    if (round < 6.5d) {
+                        return 4;
+                    }
+                    if (round < 8) {
+                        return 8;
+                    }
+                }
+                return round;
+            }
+            return 1;
+        }
+        return invokeLII.intValue;
+    }
 
-    void p0(p66 p66Var);
+    public static Bitmap i(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            BitmapFactory.decodeFile(str, options);
+            options.inSampleSize = h(options, i, i2);
+            options.inJustDecodeBounds = false;
+            return BitmapFactory.decodeFile(str, options);
+        }
+        return (Bitmap) invokeLII.objValue;
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0064 -> B:39:0x005f). Please submit an issue!!! */
+    @Override // com.repackage.z56
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            f66 f66Var = this.a;
+            if (f66Var.e) {
+                this.b.onError(f66Var.f, "is cartoon style !!");
+                return;
+            }
+            MultiMediaData multiMediaData = f66Var.c;
+            if (multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
+                String str = multiMediaData.path;
+                if (multiMediaData.type == 1) {
+                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime(multiMediaData.start * 1000);
+                            if (this.a.d != 0.0f) {
+                                g(new e66(), c(frameAtTime, this.a.d, multiMediaData));
+                            } else {
+                                g(new e66(), frameAtTime);
+                            }
+                        } catch (IllegalArgumentException e) {
+                            e.printStackTrace();
+                        } catch (Exception unused) {
+                        }
+                        return;
+                    } finally {
+                        mediaMetadataRetriever.release();
+                    }
+                }
+                Bitmap k = k(str);
+                if (k != null) {
+                    g(new e66(), k);
+                    return;
+                }
+                return;
+            }
+            this.b.onError(this.a.f, "multiMediaData is null !!");
+        }
+    }
+
+    public final int j(String str) {
+        ExifInterface exifInterface;
+        int attributeInt;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                exifInterface = new ExifInterface(str);
+            } catch (IOException unused) {
+                exifInterface = null;
+            }
+            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt("Orientation", -1)) != -1) {
+                if (attributeInt == 3) {
+                    return 180;
+                }
+                if (attributeInt == 6) {
+                    return 90;
+                }
+                if (attributeInt == 8) {
+                    return 270;
+                }
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public Bitmap k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            f66 f66Var = this.a;
+            Bitmap i = i(str, f66Var.a, f66Var.b);
+            if (i == null) {
+                return null;
+            }
+            int j = j(str);
+            Matrix matrix = new Matrix();
+            matrix.setRotate(j);
+            return Bitmap.createBitmap(i, 0, 0, i.getWidth(), i.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
 }

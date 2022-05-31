@@ -1,51 +1,99 @@
 package com.repackage;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.tieba.frs.voiceroom.VoiceRoomListActivity;
+import com.baidu.tieba.frs.voiceroom.VoiceRoomStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class tb6 {
+public final class tb6 extends db1<j45> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rb6 a;
 
-    public tb6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    /* loaded from: classes7.dex */
+    public static final class a implements j45 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.j45
+        public void a(TbPageContext<?> tbPageContext, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, tbPageContext, j) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                d(tbPageContext, Intrinsics.stringPlus("bdtiebalive://video/mixlive?room_id=", Long.valueOf(j)));
+            }
+        }
+
+        @Override // com.repackage.j45
+        public void b(Context context, Frs$From from, Long l, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, from, l, str) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                Intrinsics.checkNotNullParameter(from, "from");
+                VoiceRoomListActivity.Companion.a(context, from, l, str);
+            }
+        }
+
+        @Override // com.repackage.j45
+        public void c(Long l, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, l, str) == null) {
+                VoiceRoomStat.d(l, str);
+            }
+        }
+
+        public void d(TbPageContext<?> tbPageContext, String scheme) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, scheme) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                Intrinsics.checkNotNullParameter(scheme, "scheme");
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{scheme});
+            }
+        }
+    }
+
+    public tb6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (bdTypeListView == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new pb6(tbPageContext, yb6.d, tbPageContext.getUniqueId()));
-        rb6 rb6Var = new rb6(tbPageContext, zb6.h, tbPageContext.getUniqueId());
-        this.a = rb6Var;
-        arrayList.add(rb6Var);
-        arrayList.add(new qb6(tbPageContext, yb6.c, tbPageContext.getUniqueId()));
-        arrayList.add(new sb6(tbPageContext, yb6.e, tbPageContext.getUniqueId()));
-        bdTypeListView.a(arrayList);
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.db1
+    /* renamed from: a */
+    public j45 createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.a.b0(onClickListener);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (j45) invokeV.objValue;
     }
 }

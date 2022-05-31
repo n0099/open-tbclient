@@ -1,272 +1,314 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.util.TiePlusHelper;
+import com.baidu.tbadk.widget.ProgressButton;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.kwad.yoga.YogaNodeJNIBase;
 /* loaded from: classes7.dex */
-public class ze5 {
+public class ze5 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RectF a;
-    public final Rect b;
-    public final RectF c;
-    public final int d;
-    public final int e;
-    public float f;
-    public final List<ye5> g;
-    public final int h;
-    public ye5 i;
-    public final Rect j;
-    public final Matrix k;
+    public View a;
+    public View b;
+    public TbImageView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
+    public ImageView j;
+    public ProgressButton k;
+    public final TiePlusHelper l;
+    public final boolean m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public c r;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755114873, "Lcom/repackage/ze5;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ze5 a;
+
+        public a(ze5 ze5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ze5Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755114873, "Lcom/repackage/ze5;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.l.onClick(view2);
+                if (this.a.r != null) {
+                    this.a.r.a();
+                }
+            }
         }
     }
 
-    public ze5(int i, int i2, int[] iArr) {
+    /* loaded from: classes7.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ze5 a;
+
+        public b(ze5 ze5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ze5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ze5(@NonNull Context context, TiePlusHelper tiePlusHelper, boolean z) {
+        super(context, true, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), iArr};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {context, tiePlusHelper, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (DialogInterface.OnCancelListener) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new RectF();
-        this.b = new Rect();
-        this.f = 1.0f;
-        this.g = new ArrayList();
-        this.k = new Matrix();
-        this.e = i2;
-        this.d = i;
-        this.c = new RectF(0.0f, 0.0f, i, i2);
-        this.j = new Rect(0, 0, iArr[0], iArr[1]);
-        this.h = i / 2;
+        this.l = tiePlusHelper;
+        this.m = z;
     }
 
-    public void a(Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rect) == null) {
-            if (rect.left < 0) {
-                rect.left = 0;
-            }
-            if (rect.top < 0) {
-                rect.top = 0;
-            }
-            int i = rect.right;
-            int i2 = this.j.right;
-            if (i > i2) {
-                rect.right = i2;
-            }
-            int i3 = rect.bottom;
-            int i4 = this.j.bottom;
-            if (i3 > i4) {
-                rect.bottom = i4;
-            }
-        }
-    }
-
-    public boolean b(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3)) == null) {
-            if (i3 == k()) {
-                return j(i, i2, i3).intersect(this.b);
-            }
-            return false;
-        }
-        return invokeIII.booleanValue;
-    }
-
-    public ye5 c() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ye5(this.h) : (ye5) invokeV.objValue;
-    }
-
-    public List<ye5> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (List) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public Rect f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : (Rect) invokeV.objValue;
-    }
-
-    public Rect g(ye5 ye5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, ye5Var)) == null) {
-            if (ye5Var == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int k = li.k(getContext());
+            if (k < 975.0d) {
+                return 759;
             }
-            return ye5Var.e();
-        }
-        return (Rect) invokeL.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public Rect j(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048585, this, i, i2, i3)) == null) {
-            int i4 = this.h;
-            int i5 = i4 * i3 * i2;
-            int i6 = i4 * i3 * i;
-            return new Rect(i5, i6, (i3 * i4) + i5, (i3 * i4) + i6);
-        }
-        return (Rect) invokeIII.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i = 1;
-            while (i < Math.round(this.f)) {
-                i *= 2;
-            }
-            return i;
+            return (k * 322) / 414;
         }
         return invokeV.intValue;
     }
 
-    public float l() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.floatValue;
-    }
-
-    public Point[] m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            o();
-            int k = k();
-            Rect rect = this.b;
-            int i = this.h;
-            int i2 = (rect.top / k) / i;
-            int i3 = (rect.left / k) / i;
-            Point point = new Point();
-            point.y = i2;
-            point.x = i3;
-            Point point2 = new Point();
-            point2.y = (((rect.bottom / k) / i) * k) + 1;
-            point2.x = (((rect.right / k) / i) * k) + 1;
-            return new Point[]{point, point2};
-        }
-        return (Point[]) invokeV.objValue;
-    }
-
-    public ye5 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.i : (ye5) invokeV.objValue;
-    }
-
-    public Rect o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            this.k.mapRect(this.a, this.c);
-            u(this.b, this.a);
-            return this.b;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public void p(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.k.postTranslate(f, f2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = findViewById(R.id.obfuscated_res_0x7f0907c5);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090283);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09028e);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09028f);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09027e);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090289);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09028a);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0907fe);
+            this.k = (ProgressButton) findViewById(R.id.obfuscated_res_0x7f0907fb);
+            this.j = (ImageView) findViewById(R.id.obfuscated_res_0x7f09245f);
+            this.c.setPlaceHolder(2);
+            this.c.setConrers(15);
+            e();
+            this.h.setTag(Byte.valueOf((byte) YogaNodeJNIBase.HAS_NEW_LAYOUT));
+            this.g.setTag((byte) 17);
+            this.i.setTag((byte) 18);
+            if (!StringUtils.isNull(this.n)) {
+                this.d.setText(this.n);
+            }
+            if (!StringUtils.isNull(this.q)) {
+                this.c.K(this.q, 10, false);
+            }
+            if (!StringUtils.isNull(this.o)) {
+                this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0295), this.o));
+            }
+            if (!StringUtils.isNull(this.p)) {
+                this.f.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f04e4), this.p));
+            }
+            this.g.setOnClickListener(this.l);
+            this.h.setOnClickListener(this.l);
+            this.i.setOnClickListener(this.l);
+            this.k.setOnClickListener(new a(this));
+            this.k.setUseLongText(true);
+            this.j.setOnClickListener(new b(this));
         }
     }
 
-    public void q(float f) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
-            this.k.postScale(f, f);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            wq4 d = wq4.d(this.a);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0201);
+            wq4 d2 = wq4.d(this.d);
+            d2.A(R.string.F_X02);
+            d2.v(R.color.CAM_X0105);
+            wq4.d(this.e).v(R.color.CAM_X0108);
+            wq4.d(this.f).v(R.color.CAM_X0108);
+            wq4.d(this.g).v(R.color.CAM_X0304);
+            wq4.d(this.h).v(R.color.CAM_X0304);
+            wq4.d(this.i).v(R.color.CAM_X0107);
+            wq4.d(this.b).f(R.color.CAM_X0107);
+            WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080917, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
+            this.k.i();
         }
     }
 
-    public void r(float f, float f2, float f3) {
+    public ze5 f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            this.k.postScale(f, f, f2, f3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.p = str;
+            return this;
+        }
+        return (ze5) invokeL.objValue;
+    }
+
+    public ze5 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.q = str;
+            return this;
+        }
+        return (ze5) invokeL.objValue;
+    }
+
+    public ze5 h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            this.n = str;
+            return this;
+        }
+        return (ze5) invokeL.objValue;
+    }
+
+    public ze5 i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.o = str;
+            return this;
+        }
+        return (ze5) invokeL.objValue;
+    }
+
+    public void j(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
+            this.r = cVar;
         }
     }
 
-    public void s(float f) {
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048594, this, f) == null) {
-            this.f = f;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onAttachedToWindow();
+            this.l.f(this.k);
+            if (this.m) {
+                MessageManager.getInstance().registerListener(this.l);
+            }
+            if (StringUtils.isNull(this.l.q()) || StringUtils.isNull(this.l.m())) {
+                return;
+            }
+            TiePlusHelper tiePlusHelper = this.l;
+            tiePlusHelper.Z(tiePlusHelper.q(), this.l.m(), getContext(), this.k);
+            TiePlusHelper tiePlusHelper2 = this.l;
+            tiePlusHelper2.Y(tiePlusHelper2.q(), getContext(), this.i);
         }
     }
 
-    public void t(Bitmap bitmap) {
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, bitmap) == null) || bitmap == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
+            super.onCreate(bundle);
+            getWindow().setBackgroundDrawableResource(R.color.transparent);
+            View inflate = getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d081d, (ViewGroup) null);
+            this.a = inflate;
+            setContentView(inflate);
+            WindowManager.LayoutParams attributes = getWindow().getAttributes();
+            attributes.width = c();
+            getWindow().setAttributes(attributes);
+            d();
         }
-        ye5 ye5Var = new ye5(bitmap);
-        this.i = ye5Var;
-        ye5Var.i(0, 0, this.d, this.e);
     }
 
-    public final void u(Rect rect, RectF rectF) {
+    @Override // android.app.Dialog, android.view.Window.Callback
+    public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, rect, rectF) == null) {
-            rect.set(Math.round(rectF.left), Math.round(rectF.top), Math.round(rectF.right), Math.round(rectF.bottom));
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.onDetachedFromWindow();
+            this.l.C(this.k);
+            if (this.m) {
+                MessageManager.getInstance().unRegisterListener(this.l);
+            }
         }
     }
 }

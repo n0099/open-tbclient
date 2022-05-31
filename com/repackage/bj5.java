@@ -1,108 +1,171 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.addresslist.relationship.ContactComparator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.security.PublicKey;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class bj5 {
     public static /* synthetic */ Interceptable $ic;
+    public static bj5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<a> a;
+    public List<px4> b;
 
-    public static boolean a(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, file)) == null) {
-            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
-                try {
-                    PublicKey e = ui.e(di.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-                    if (e == null) {
-                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "publicKeyCode is null").param("obj_source", file.getName()));
-                        return false;
-                    }
-                    byte[] b = b(str);
-                    if (b != null && b.length > 0) {
-                        byte[] b2 = ui.b(e, b);
-                        if (b2 != null && b2.length > 0) {
-                            String trim = new String(b2, "UTF-8").trim();
-                            String b3 = si.b(new FileInputStream(file));
-                            if (b3 != null) {
-                                b3 = b3.trim();
-                            }
-                            if (!TextUtils.isEmpty(b3) && !TextUtils.isEmpty(trim)) {
-                                if (b3.equalsIgnoreCase(trim)) {
-                                    return true;
-                                }
-                                TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 != serverMD5").param("obj_source", file.getName()));
-                                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
-                                return false;
-                            }
-                            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 or serverMD5 is null").param("obj_source", file.getName()));
-                            return false;
-                        }
-                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "des is null").param("obj_source", file.getName()));
-                        return false;
-                    }
-                    TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "server_data is null").param("obj_source", file.getName()));
-                    return false;
-                } catch (Exception e2) {
-                    StatisticItem statisticItem = new StatisticItem("c10836");
-                    TiebaStatic.log(statisticItem.param("obj_type", "exception:" + e2.getMessage()).param("obj_source", file.getName()));
-                    BdLog.e("download MD5 RSA ERROR！Exception:" + e2.getMessage() + " ; file:" + file.getName());
-                    return false;
-                }
-            }
-            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "checkRSA input args is null"));
-            return false;
-        }
-        return invokeLL.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void j(List<px4> list);
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    public bj5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null) {
-                char[] charArray = str.toCharArray();
-                int length = charArray.length / 2;
-                byte[] bArr = new byte[length];
-                if (charArray.length % 2 != 0) {
-                    return null;
-                }
-                int i = 0;
-                int i2 = 0;
-                while (true) {
-                    int i3 = i + 1;
-                    if (i3 >= charArray.length || i2 >= length) {
-                        break;
-                    }
-                    bArr[i2] = (byte) ((c(charArray[i]) << 4) | c(charArray[i3]));
-                    i2++;
-                    i = i3 + 1;
-                }
-                return bArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            throw new IllegalArgumentException("binary string is null");
         }
-        return (byte[]) invokeL.objValue;
+        this.a = new ArrayList();
     }
 
-    public static int c(char c) {
-        InterceptResult invokeCommon;
+    public static synchronized bj5 d() {
+        InterceptResult invokeV;
+        bj5 bj5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
-            int digit = Character.digit(c, 16);
-            if (digit != -1) {
-                return digit;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (bj5.class) {
+                if (c == null) {
+                    c = new bj5();
+                }
+                bj5Var = c;
             }
-            throw new RuntimeException("Illegal hexadecimal character " + c);
+            return bj5Var;
         }
-        return invokeCommon.intValue;
+        return (bj5) invokeV.objValue;
+    }
+
+    public void a(px4 px4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, px4Var) == null) || this.b == null || px4Var == null) {
+            return;
+        }
+        String a2 = px4Var.a();
+        if (TextUtils.isEmpty(a2)) {
+            a2 = "#";
+            px4Var.j("#");
+        }
+        String e = px4Var.e();
+        if (e == null) {
+            e = "";
+        }
+        boolean z = false;
+        boolean z2 = false;
+        for (px4 px4Var2 : this.b) {
+            if (e.equals(px4Var2.e())) {
+                z = true;
+            }
+            if (a2.equals(px4Var2.a())) {
+                z2 = true;
+            }
+        }
+        if (z) {
+            return;
+        }
+        if (!z2) {
+            px4 px4Var3 = new px4();
+            px4Var3.j(a2);
+            this.b.add(px4Var3);
+        }
+        this.b.add(px4Var);
+        Collections.sort(this.b, new ContactComparator());
+        e();
+    }
+
+    public void b(long j) {
+        List<px4> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || (list = this.b) == null) {
+            return;
+        }
+        String str = null;
+        Iterator<px4> it = list.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            px4 next = it.next();
+            if (next.d() == j) {
+                str = next.a();
+                this.b.remove(next);
+                break;
+            }
+        }
+        if (str != null) {
+            ArrayList arrayList = new ArrayList();
+            for (px4 px4Var : this.b) {
+                if (str.equals(px4Var.a())) {
+                    arrayList.add(px4Var);
+                }
+            }
+            if (arrayList.size() <= 1) {
+                this.b.removeAll(arrayList);
+            }
+        }
+        e();
+    }
+
+    public List<px4> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            for (a aVar : this.a) {
+                aVar.j(this.b);
+            }
+        }
+    }
+
+    public void f(a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || this.a.contains(aVar)) {
+            return;
+        }
+        this.a.add(aVar);
+    }
+
+    public void g(List<px4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b = list;
+            if (list != null) {
+                Collections.sort(list, new ContactComparator());
+            }
+            e();
+        }
+    }
+
+    public void h(a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        this.a.remove(aVar);
     }
 }

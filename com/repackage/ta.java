@@ -69,7 +69,7 @@ public class ta {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qaVar) == null) || qaVar == null) {
             return;
         }
-        mi.c();
+        li.c();
         if (qaVar instanceof oa) {
             FrameHelper.insert(this.a, (oa) qaVar);
         } else if (qaVar instanceof va) {
@@ -86,7 +86,7 @@ public class ta {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, raVar) == null) || raVar == null) {
             return;
         }
-        mi.c();
+        li.c();
         if (raVar instanceof na) {
             FrameHelper.insert(this.d, (na) raVar);
         } else if (raVar instanceof ua) {
@@ -103,7 +103,7 @@ public class ta {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, qaVar) == null) || qaVar == null) {
             return;
         }
-        mi.c();
+        li.c();
         if (qaVar instanceof oa) {
             this.a.remove(qaVar);
         } else if (qaVar instanceof va) {

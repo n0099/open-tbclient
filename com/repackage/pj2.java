@@ -1,6 +1,11 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +13,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.am2;
-import com.repackage.sj2;
-import java.io.IOException;
-import java.nio.channels.Pipe;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class pj2 extends sj2.f {
+public class pj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final k84 e;
+    public WeakReference<Activity> mActivityRef;
+    public CallbackHandler mCallbackHandler;
+    public Context mContext;
+    public fy1 mJsContainer;
+    public UnitedSchemeMainDispatcher mMainDispatcher;
 
     static {
         InterceptResult invokeClinit;
@@ -33,70 +38,59 @@ public class pj2 extends sj2.f {
                 return;
             }
         }
-        f = eh1.a;
+        DEBUG = rf1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pj2(String str, k84 k84Var) {
-        super("check_sign");
+    @SuppressLint({"BDThrowableCheck"})
+    public pj2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, fy1 fy1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, k84Var};
+            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, fy1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = str;
-        this.e = k84Var;
-    }
-
-    @Override // com.repackage.sj2.f
-    public boolean f(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        InterceptResult invokeLL;
-        nc3 nc3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
-            zl2 d = zl2.d(bundle.getString("launch_id"));
-            am2.b e = d.e();
-            e.b("SignChecker");
-            e.d(1);
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                try {
-                    nc3Var = m42.a(sourceChannel, this.d, this.e);
-                } catch (IOException e2) {
-                    if (f) {
-                        e2.printStackTrace();
-                    }
-                    nc3 nc3Var2 = new nc3();
-                    nc3Var2.k(11L);
-                    nc3Var2.i(2300L);
-                    nc3Var2.f("inputStream IOException:" + e2.toString());
-                    rc3.a().f(nc3Var2);
-                    d.g("SignChecker", nc3Var2.toString());
-                    hf3.a(sourceChannel);
-                    nc3Var = nc3Var2;
-                }
-                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-                boolean z = nc3Var == null;
-                if (nc3Var != null) {
-                    d.g("SignChecker", nc3Var.toString());
-                    b().putLong("result_error_code", nc3Var.a());
-                }
-                d.g("SignChecker", "done: " + z);
-                return z;
-            } finally {
-                hf3.a(sourceChannel);
+        this.mContext = context;
+        this.mMainDispatcher = unitedSchemeMainDispatcher;
+        this.mCallbackHandler = callbackHandler;
+        this.mJsContainer = fy1Var;
+        if (DEBUG) {
+            if (context == null || unitedSchemeMainDispatcher == null) {
+                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
             }
         }
-        return invokeLL.booleanValue;
+    }
+
+    public Context getDispatchContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Activity> weakReference = this.mActivityRef;
+            Activity activity = weakReference != null ? weakReference.get() : null;
+            return activity == null ? this.mContext : activity;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public void setActivityRef(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || activity == null) {
+            return;
+        }
+        this.mActivityRef = new WeakReference<>(activity);
+    }
+
+    public void setCallbackHandler(CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
+            this.mCallbackHandler = callbackHandler;
+        }
     }
 }

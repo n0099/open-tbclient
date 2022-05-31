@@ -47,7 +47,7 @@ public class KsAdWebView extends com.kwad.sdk.core.page.widget.webview.a {
             if (KsAdWebView.this.c != null && KsAdWebView.this.d) {
                 com.kwad.sdk.core.response.a.d.j(KsAdWebView.this.c).adConversionInfo.appDownloadUrl = str;
                 KsAdWebView.this.c.isWebViewDownload = true;
-                com.kwad.sdk.core.download.a.a.a(new a.C0295a(KsAdWebView.this.getContext2()).a(KsAdWebView.this.c).c(true));
+                com.kwad.sdk.core.download.a.a.a(new a.C0296a(KsAdWebView.this.getContext2()).a(KsAdWebView.this.c).c(true));
                 return;
             }
             try {

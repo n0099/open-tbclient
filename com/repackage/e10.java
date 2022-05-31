@@ -1,64 +1,38 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.crashpad.ZeusLogUploader;
+import com.baidu.crashpad.ZwCrashpad;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidKeyException;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e10 {
+public final class e10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g10 a;
 
-    public e10() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            ZwCrashpad.setEnabled(true);
+            File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir();
+            Context appContext = AppRuntime.getAppContext();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("clientDir", appContext.getApplicationInfo().nativeLibraryDir);
+                jSONObject.put("handlerDir", appContext.getApplicationInfo().nativeLibraryDir);
+                jSONObject.put("dumpCopyDir", processCrashpadDir.getAbsolutePath());
+            } catch (JSONException unused) {
             }
-        }
-    }
-
-    public static e10 a() throws NoSuchPaddingException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            e10 e10Var = new e10();
-            g10 g10Var = new g10();
-            e10Var.a = g10Var;
-            g10Var.e("PKCS1Padding");
-            return e10Var;
-        }
-        return (e10) invokeV.objValue;
-    }
-
-    public void b(int i, h10 h10Var) throws InvalidKeyException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, h10Var) == null) {
-            this.a.a(i, h10Var, f10.a);
-        }
-    }
-
-    public final byte[] c(byte[] bArr) throws IllegalBlockSizeException, BadPaddingException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null) {
-                return this.a.d(bArr, 0, bArr.length);
+            if (jSONObject.length() == 0) {
+                return;
             }
-            throw new IllegalArgumentException("Null input buffer");
+            ZwCrashpad.doInitGeneric(appContext, jSONObject.toString());
+            ZeusLogUploader.setEnabled(false);
         }
-        return (byte[]) invokeL.objValue;
     }
 }

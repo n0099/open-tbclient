@@ -18,14 +18,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c65;
-import com.repackage.iu4;
-import com.repackage.ki;
-import com.repackage.on4;
-import com.repackage.qn4;
-import com.repackage.rw4;
-import com.repackage.us4;
-import com.repackage.yf;
+import com.repackage.dm4;
+import com.repackage.fm4;
+import com.repackage.hv4;
+import com.repackage.ji;
+import com.repackage.kr4;
+import com.repackage.xf;
+import com.repackage.y45;
+import com.repackage.ys4;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
 public class HttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
@@ -36,9 +40,6 @@ public class HttpRequest {
     public static final String CLIENT_TYPE = "_client_type";
     public static final String CLIENT_VERSION = "_client_version";
     public static final String FROM = "from";
-    public static final String IMAGE_FROM_FRS = "frs";
-    public static final String IMAGE_FROM_OTHER = "other";
-    public static final String IMAGE_FROM_PB = "pb";
     public static final String MAC = "mac";
     public static final String MAC_REVERSAL = "cam";
     public static final String NET_CLASS = "net";
@@ -52,16 +53,25 @@ public class HttpRequest {
     public static final String TBS = "tbs";
     public static final String USER_AGENT = "user_agent";
     public transient /* synthetic */ FieldHolder $fh;
+    public String charSet;
     public boolean mCanHttpsDownToHttp;
-    public int mImageType;
+    public HashMap<String, byte[]> mFileData;
+    public String mFrom;
+    public boolean mIsBDImage;
+    public boolean mIsBaiduServer;
     public boolean mIsFromCDN;
+    public boolean mIsJson;
     public boolean mIsNeedAddCommenParam;
     public boolean mIsNeedTbs;
     public boolean mIsRequestImage;
     public boolean mIsUseCurrentBDUSS;
     public boolean mNeedBackgroundLogin;
     public boolean mNeedSig;
-    public final NetWorkParam netWorkParam;
+    public String mNetType;
+    public ArrayList<BasicNameValuePair> mPostData;
+    public boolean mRequestGzip;
+    public String mSeqId;
+    public String mUrl;
 
     public HttpRequest() {
         Interceptable interceptable = $ic;
@@ -76,7 +86,6 @@ public class HttpRequest {
                 return;
             }
         }
-        this.netWorkParam = new NetWorkParam();
         this.mIsNeedTbs = false;
         this.mNeedBackgroundLogin = true;
         this.mIsUseCurrentBDUSS = true;
@@ -84,7 +93,10 @@ public class HttpRequest {
         this.mCanHttpsDownToHttp = false;
         this.mIsFromCDN = false;
         this.mIsRequestImage = false;
-        this.mImageType = 0;
+        this.mRequestGzip = true;
+        this.mIsBaiduServer = true;
+        this.mIsJson = true;
+        this.charSet = "UTF-8";
     }
 
     public void addBdussData(INetWorkCore iNetWorkCore) {
@@ -97,10 +109,10 @@ public class HttpRequest {
             } else if (!TbadkCoreApplication.getInst().isRemoteProcess()) {
                 return;
             } else {
-                b = c65.b();
+                b = y45.b();
             }
             if (TbadkCoreApplication.getInst().isRemoteProcess() && TextUtils.isEmpty(b)) {
-                currentAccountInfo = on4.e();
+                currentAccountInfo = dm4.e();
                 if (currentAccountInfo == null) {
                     return;
                 }
@@ -110,7 +122,7 @@ public class HttpRequest {
                 return;
             }
             iNetWorkCore.addPostData(BDUSS, b);
-            String a = qn4.a(currentAccountInfo);
+            String a = fm4.a(currentAccountInfo);
             if (StringUtils.isNull(a)) {
                 return;
             }
@@ -128,7 +140,7 @@ public class HttpRequest {
             }
             iNetWorkCore.addPostData("_client_version", TbConfig.getVersion());
             if (TbadkCoreApplication.getInst().getImei() != null) {
-                if (ComplianceParmasHelper.isNeedChange(this.netWorkParam.mUrl)) {
+                if (ComplianceParmasHelper.isNeedChange(this.mUrl)) {
                     iNetWorkCore.addPostData(ComplianceParmasHelper.getRenameKey(PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
                 } else {
                     iNetWorkCore.addPostData(PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
@@ -146,11 +158,11 @@ public class HttpRequest {
             if (from != null && from.length() > 0) {
                 iNetWorkCore.addPostData("from", from);
             }
-            int I = ki.I();
+            int I = ji.I();
             iNetWorkCore.addPostData("net_type", String.valueOf(I));
-            String a = rw4.b().a();
+            String a = hv4.b().a();
             if (TbSingleton.getInstance().isVisitPreviewServer()) {
-                a = a + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ";";
+                a = a + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ParamableElem.DIVIDE_PARAM;
             }
             if (1 == I) {
                 if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
@@ -165,11 +177,11 @@ public class HttpRequest {
                 }
                 z = false;
             }
-            yf.s(z);
-            yf.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
+            xf.s(z);
+            xf.n(a + "BAIDUID=" + TbSingleton.getInstance().getBaiduIdForAnti());
             if (this.mIsNeedTbs) {
                 if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    iNetWorkCore.addPostData(TBS, c65.f());
+                    iNetWorkCore.addPostData(TBS, y45.f());
                 } else {
                     iNetWorkCore.addPostData(TBS, TbadkCoreApplication.getInst().getTbs());
                 }
@@ -186,10 +198,10 @@ public class HttpRequest {
             iNetWorkCore.addPostData("model", Build.MODEL);
             iNetWorkCore.addPostData(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
             iNetWorkCore.addPostData("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            if (iu4.k().l("android_safe_sdk_open", 0) == 1) {
+            if (ys4.k().l("android_safe_sdk_open", 0) == 1) {
                 iNetWorkCore.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
             }
-            if (ComplianceParmasHelper.isNeedChange(this.netWorkParam.mUrl)) {
+            if (ComplianceParmasHelper.isNeedChange(this.mUrl)) {
                 iNetWorkCore.addPostData(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
                 iNetWorkCore.addPostData(ComplianceParmasHelper.getRenameKey(ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
             } else {
@@ -205,8 +217,8 @@ public class HttpRequest {
             iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
             iNetWorkCore.addPostData(CommonUrlParamManager.PARAM_CMODE, PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
             iNetWorkCore.addPostData("is_teenager", "0");
-            iNetWorkCore.addPostData("start_type", us4.f + "");
-            iNetWorkCore.addPostData("start_scheme", us4.e());
+            iNetWorkCore.addPostData("start_type", kr4.f + "");
+            iNetWorkCore.addPostData("start_scheme", kr4.e());
         }
     }
 
@@ -214,26 +226,20 @@ public class HttpRequest {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.netWorkParam.mUrl;
+            String str = this.mUrl;
             if (str == null) {
                 return null;
             }
             String str2 = TbConfig.SERVER_ADDRESS;
             if (str.startsWith(str2)) {
-                int indexOf = this.netWorkParam.mUrl.indexOf(63);
+                int indexOf = this.mUrl.indexOf(63);
                 if (indexOf < 0) {
-                    indexOf = this.netWorkParam.mUrl.length();
+                    indexOf = this.mUrl.length();
                 }
-                return this.netWorkParam.mUrl.substring(str2.length(), indexOf);
+                return this.mUrl.substring(str2.length(), indexOf);
             }
-            return this.netWorkParam.mUrl;
+            return this.mUrl;
         }
         return (String) invokeV.objValue;
-    }
-
-    public NetWorkParam getNetWorkParam() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.netWorkParam : (NetWorkParam) invokeV.objValue;
     }
 }

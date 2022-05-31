@@ -1,56 +1,21 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
 /* loaded from: classes5.dex */
-public abstract class d12<T> extends Handler {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface d12 {
+    void F(v52 v52Var);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d12(Looper looper) {
-        super(looper);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {looper};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    String c();
 
-    public abstract void a(@NonNull T t);
+    void d(vx1 vx1Var);
 
-    public abstract void b(@NonNull T t);
+    void destroy();
 
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.repackage.d12<T> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // android.os.Handler
-    public void handleMessage(@NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-            int i = message.what;
-            if (i == 1) {
-                a(message.obj);
-            } else if (i != 2) {
-            } else {
-                b(message.obj);
-            }
-        }
-    }
+    void f(Activity activity);
+
+    fy1 h();
+
+    void loadUrl(String str);
+
+    void r(int i);
 }

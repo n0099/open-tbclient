@@ -1,141 +1,353 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.SwanAppActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fx1;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class lc3 extends r23 {
+public class lc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements fx1.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ lc3 b;
-
-        public a(lc3 lc3Var, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755533931, "Lcom/repackage/lc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lc3Var, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = lc3Var;
-            this.a = callbackHandler;
-        }
-
-        @Override // com.repackage.fx1.i
-        public void a(String str, String str2, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                this.b.k(str, str2, this.a, 0, jSONObject);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lc3(r13 r13Var) {
-        super(r13Var, "/swanAPI/openTextarea");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755533931, "Lcom/repackage/lc3;");
                 return;
             }
         }
+        a = rf1.a;
+        HashMap hashMap = new HashMap(14);
+        b = hashMap;
+        hashMap.put("android.permission.ACCESS_FINE_LOCATION", "定位");
+        b.put("android.permission.ACCESS_COARSE_LOCATION", "定位");
+        b.put("android.permission.RECORD_AUDIO", "录音");
+        b.put("android.permission.READ_CONTACTS", "读取联系人");
+        b.put("android.permission.ACCESS_NETWORK_STATE", "访问网络状态");
+        b.put("android.permission.REORDER_TASKS", "开机自启");
+        b.put("android.permission.INTERNET", "网络");
+        b.put("android.permission.REQUEST_INSTALL_PACKAGES", "安装软件包");
+        b.put("android.permission.READ_CALENDAR", "读取日历");
+        b.put("android.permission.WRITE_CALENDAR", "写入日历");
+        b.put("android.permission.WRITE_EXTERNAL_STORAGE", "存储");
+        b.put("android.permission.READ_EXTERNAL_STORAGE", "存储");
+        b.put("android.permission.CAMERA", "相机");
+        b.put("android.permission.WRITE_SETTINGS", "系统设置");
+        b.put("android.permission.SYSTEM_ALERT_WINDOW", "悬浮窗");
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLLL;
+    public static Map<String, ComponentName> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (r23.b) {
-                Log.d("OpenTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            ux1.i("OpenTextAreaAction", "OpenTextAreaAction paramsJson: " + optParamsAsJo);
-            gx1 gx1Var = new gx1();
-            try {
-                gx1Var.a(optParamsAsJo);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                ux1.d("OpenTextAreaAction", "model parse exception:", e);
-            }
-            SwanAppActivity activity = hm2.U().getActivity();
-            if (activity == null) {
-                ux1.c("OpenTextAreaAction", "activity is null when add textarea");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add textarea");
-                return false;
-            }
-            d02 V = hm2.U().V();
-            if (V == null) {
-                ux1.c("OpenTextAreaAction", "fragmentManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
-                return false;
-            }
-            c02 o = V.o();
-            if (o == null) {
-                ux1.c("OpenTextAreaAction", "fragment is null when add input");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
-                return false;
-            }
-            lw1 insert = new fx1(context, gx1Var, activity, o, new a(this, callbackHandler)).insert();
-            if (!insert.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(RomUtils.MANUFACTURER_HUAWEI, new ComponentName("com.huawei.systemmanager", "com.huawei.permissionmanager.ui.MainActivity"));
+            hashMap.put("letv", new ComponentName("com.letv.android.letvsafe", "com.letv.android.letvsafe.PermissionAndApps"));
+            hashMap.put("lg", new ComponentName("com.android.settings", "com.android.settings.Settings$AccessLockSummaryActivity"));
+            hashMap.put("sony", new ComponentName("com.sonymobile.cta", "com.sonymobile.cta.SomcCTAMainActivity"));
+            return hashMap;
         }
-        return invokeLLLL.booleanValue;
+        return (Map) invokeV.objValue;
     }
 
-    public final void k(String str, String str2, CallbackHandler callbackHandler, int i, JSONObject jSONObject) {
+    public static Map<String, String> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, callbackHandler, Integer.valueOf(i), jSONObject}) == null) {
-            ux1.i("OpenTextAreaAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
-            if (TextUtils.isEmpty(str2)) {
-                nx1.a("OpenTextAreaAction", "sendAsyncCallback with a empty callback");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(pd3.a, "com.coloros.safecenter");
+            hashMap.put(RomUtils.MANUFACTURER_VIVO, "com.bairenkeji.icaller");
+            hashMap.put("coolpad", "com.yulong.android.security:remote");
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65539, null)) != null) {
+            return (String) invokeV.objValue;
+        }
+        BufferedReader bufferedReader2 = null;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop ro.miui.ui.version.name").getInputStream()), 1024);
+            try {
+                try {
+                    String readLine = bufferedReader.readLine();
+                    kf4.d(bufferedReader);
+                    return readLine;
+                } catch (IOException e) {
+                    e = e;
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                    kf4.d(bufferedReader);
+                    return null;
+                }
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader2 = bufferedReader;
+                kf4.d(bufferedReader2);
+                throw th;
+            }
+        } catch (IOException e2) {
+            e = e2;
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
+            kf4.d(bufferedReader2);
+            throw th;
+        }
+    }
+
+    public static PackageInfo d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(str, 0);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return null;
+            }
+        }
+        return (PackageInfo) invokeLL.objValue;
+    }
+
+    public static ResolveInfo e(Context context, PackageInfo packageInfo) {
+        InterceptResult invokeLL;
+        List<ResolveInfo> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, packageInfo)) == null) {
+            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(packageInfo.packageName);
+            try {
+                list = context.getPackageManager().queryIntentActivities(intent, 0);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                list = null;
+            }
+            if (list == null || list.size() == 0) {
+                return null;
+            }
+            return list.get(0);
+        }
+        return (ResolveInfo) invokeLL.objValue;
+    }
+
+    public static void f(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
+            intent.setData(Uri.fromParts("package", context.getPackageName(), null));
+            startActivity(context, intent);
+        }
+    }
+
+    public static void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, context) == null) || context == null) {
+            return;
+        }
+        String str = Build.MANUFACTURER;
+        if (TextUtils.isEmpty(str)) {
+            f(context);
+            return;
+        }
+        String lowerCase = str.toLowerCase();
+        if (a) {
+            Log.d("SwanAppPermissionHelper", "goPermissionPage : " + lowerCase);
+        }
+        if (TextUtils.equals(lowerCase, RomUtils.MANUFACTURER_XIAOMI)) {
+            i(context);
+        } else if (TextUtils.equals(lowerCase, "meizu")) {
+            h(context);
+        } else {
+            Map<String, ComponentName> a2 = a();
+            if (a2.containsKey(lowerCase)) {
+                k(context, a2.get(lowerCase));
+                return;
+            }
+            Map<String, String> b2 = b();
+            if (b2.containsKey(lowerCase)) {
+                l(context, b2.get(lowerCase));
             } else {
-                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                f(context);
+            }
+        }
+    }
+
+    public static void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, context) == null) {
+            try {
+                Intent intent = new Intent("com.meizu.safe.security.SHOW_APPSEC");
+                intent.addCategory("android.intent.category.DEFAULT");
+                intent.putExtra("packageName", context.getPackageName());
+                context.startActivity(intent);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                f(context);
+            }
+        }
+    }
+
+    public static void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            String c = c();
+            if (a) {
+                Log.d("SwanAppPermissionHelper", "goPermissionPageForXiaomi rom version : " + c);
+            }
+            Intent intent = new Intent();
+            if (!"V10".equals(c) && !"V9".equals(c) && !"V8".equals(c)) {
+                if (!"V7".equals(c) && !"V6".equals(c)) {
+                    f(context);
+                    return;
+                }
+                intent.setAction("miui.intent.action.APP_PERM_EDITOR");
+                intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.AppPermissionsEditorActivity");
+                intent.putExtra("extra_pkgname", context.getPackageName());
+                startActivity(context, intent);
+                return;
+            }
+            intent.setAction("miui.intent.action.APP_PERM_EDITOR");
+            intent.setClassName("com.miui.securitycenter", "com.miui.permcenter.permissions.PermissionsEditorActivity");
+            intent.putExtra("extra_pkgname", context.getPackageName());
+            startActivity(context, intent);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean j(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) {
+            if (context != null && !TextUtils.isEmpty(str)) {
+                if (Build.VERSION.SDK_INT < 23) {
+                    return true;
+                }
+                int i = -1;
+                try {
+                    i = ContextCompat.checkSelfPermission(context, str);
+                } catch (Exception e) {
+                    if (a) {
+                        throw e;
+                    }
+                }
+                return i == 0;
+            } else if (a) {
+                throw new IllegalArgumentException("context or permission is null");
+            } else {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void k(Context context, ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, context, componentName) == null) {
+            try {
+                Intent intent = new Intent(context.getPackageName());
+                intent.setComponent(componentName);
+                context.startActivity(intent);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                f(context);
+            }
+        }
+    }
+
+    public static void l(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, str) == null) {
+            PackageInfo d = d(context, str);
+            if (d == null) {
+                f(context);
+                return;
+            }
+            ResolveInfo e = e(context, d);
+            if (e == null) {
+                f(context);
+                return;
+            }
+            try {
+                Intent intent = new Intent("android.intent.action.MAIN");
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.setComponent(new ComponentName(e.activityInfo.packageName, e.activityInfo.name));
+                context.startActivity(intent);
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+                f(context);
+            }
+        }
+    }
+
+    public static String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            String str2 = b.get(str);
+            return str2 == null ? "" : str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void startActivity(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, intent) == null) {
+            if (context != null && intent != null) {
+                try {
+                    context.startActivity(intent);
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                }
+            } else if (a) {
+                Log.e("SwanAppPermissionHelper", "context or intent is null");
             }
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l98;
+import com.repackage.s68;
 import com.squareup.wire.Wire;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ import tbclient.GetWebviewCacheInfo.Offpack;
 public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, l98> mModuleInfos;
+    public Map<String, s68> mModuleInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WebViewCacheResHttpMsg() {
@@ -40,7 +40,7 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
         }
     }
 
-    public Map<String, l98> getModuleInfos() {
+    public Map<String, s68> getModuleInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mModuleInfos : (Map) invokeV.objValue;
@@ -63,9 +63,9 @@ public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
             this.mModuleInfos.clear();
             for (Offpack offpack : getWebviewCacheInfoResIdl.data.offpack_list) {
                 if (offpack != null && !TextUtils.isEmpty(offpack.mod_name)) {
-                    l98 l98Var = new l98();
-                    l98Var.e(offpack);
-                    this.mModuleInfos.put(offpack.mod_name, l98Var);
+                    s68 s68Var = new s68();
+                    s68Var.e(offpack);
+                    this.mModuleInfos.put(offpack.mod_name, s68Var);
                 }
             }
         }

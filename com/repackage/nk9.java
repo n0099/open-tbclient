@@ -1,7 +1,53 @@
 package com.repackage;
 
-import android.content.Context;
+import android.view.ViewTreeObserver;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface nk9 {
-    void onBlock(Context context, tk9 tk9Var);
+public class nk9 implements ViewTreeObserver.OnScrollChangedListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ jl9 a;
+    public final /* synthetic */ ml9 b;
+
+    public nk9(ml9 ml9Var, jl9 jl9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ml9Var, jl9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = ml9Var;
+        this.a = jl9Var;
+    }
+
+    @Override // android.view.ViewTreeObserver.OnScrollChangedListener
+    public void onScrollChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                if (this.b.b || !this.b.b(this.b.a)) {
+                    return;
+                }
+                this.b.e.removeMessages(1101);
+                this.b.a.getViewTreeObserver().removeOnScrollChangedListener(this);
+                if (this.a != null) {
+                    this.a.a();
+                }
+                this.b.b = true;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

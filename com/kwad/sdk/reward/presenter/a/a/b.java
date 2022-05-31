@@ -127,7 +127,7 @@ public class b extends g implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = a(R.id.obfuscated_res_0x7f091084);
+        this.b = a(R.id.obfuscated_res_0x7f091046);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

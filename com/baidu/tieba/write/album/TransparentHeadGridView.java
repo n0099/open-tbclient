@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes4.dex */
 public class TransparentHeadGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
@@ -264,7 +264,7 @@ public class TransparentHeadGridView extends GridView {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.l = context;
             setOnScrollListener(this.p);
-            this.h = (int) (mi.i(context) * 0.22f);
+            this.h = (int) (li.i(context) * 0.22f);
         }
     }
 

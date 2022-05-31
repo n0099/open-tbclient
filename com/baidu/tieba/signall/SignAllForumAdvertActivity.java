@@ -16,10 +16,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co;
+import com.repackage.eg;
 import com.repackage.fg;
-import com.repackage.gg;
-/* loaded from: classes4.dex */
+import com.repackage.um;
+/* loaded from: classes3.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,8 +31,8 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public ImageView mIcon;
     public NavigationBar mNavigationBar;
 
-    /* loaded from: classes4.dex */
-    public class a extends fg<co> {
+    /* loaded from: classes3.dex */
+    public class a extends eg<um> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SignAllForumAdvertActivity a;
@@ -56,19 +56,19 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        public void onLoaded(co coVar, String str, int i) {
+        @Override // com.repackage.eg
+        public void onLoaded(um umVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, coVar, str, i) == null) {
-                super.onLoaded((a) coVar, str, i);
-                if (coVar == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, umVar, str, i) == null) {
+                super.onLoaded((a) umVar, str, i);
+                if (umVar == null) {
                     this.a.finish();
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,15 +158,15 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d076a);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
+            setContentView(R.layout.obfuscated_res_0x7f0d075d);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
             this.mNavigationBar = navigationBar;
-            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f118a));
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d54);
-            this.mAdvertPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091d4f);
-            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091d4e);
-            this.mAdvertPic.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081221);
-            gg.h().m(this.mAdPic, 10, new a(this), null);
+            navigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f119c));
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cff);
+            this.mAdvertPic = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091cfa);
+            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091cf9);
+            this.mAdvertPic.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081233);
+            fg.h().m(this.mAdPic, 10, new a(this), null);
             this.mAdvertPic.K(this.mAdPic, 10, false);
             this.mAdvertPic.setOnClickListener(new b(this));
             this.mCloseBtn.setOnClickListener(new c(this));

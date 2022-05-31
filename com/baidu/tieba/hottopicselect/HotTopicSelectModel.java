@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.hj8;
-import com.repackage.ki;
-import com.repackage.o37;
-import com.repackage.q37;
+import com.repackage.ig8;
+import com.repackage.ji;
+import com.repackage.r17;
+import com.repackage.t17;
 import com.repackage.wa;
 /* loaded from: classes3.dex */
 public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
@@ -177,11 +177,11 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public interface c {
         void onHotSelectDataNoSearchFailed(String str);
 
-        void onHotSelectDataNoSearchSuccess(q37 q37Var, q37 q37Var2, q37 q37Var3);
+        void onHotSelectDataNoSearchSuccess(t17 t17Var, t17 t17Var2, t17 t17Var3);
 
         void onHotSelectDataSearchFailed(String str);
 
-        void onHotSelectDataSearchSuccess(q37 q37Var);
+        void onHotSelectDataSearchSuccess(t17 t17Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -254,7 +254,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
                 if (z) {
                     this.b.onHotSelectDataSearchFailed("");
                 } else {
-                    this.b.onHotSelectDataNoSearchFailed(this.a.getString(R.string.obfuscated_res_0x7f0f0c2d));
+                    this.b.onHotSelectDataNoSearchFailed(this.a.getString(R.string.obfuscated_res_0x7f0f0c33));
                 }
             } else if (z) {
                 this.b.onHotSelectDataSearchFailed("");
@@ -279,7 +279,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.f = new a(this, 2016491);
-            hj8.b(2016491, o37.class);
+            ig8.b(2016491, r17.class);
             registerListener(this.f);
         }
     }
@@ -288,8 +288,8 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.e = new b(this, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
-            hj8.h(309416, HotSelectSocketResponseMessage.class, false, false);
-            hj8.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
+            ig8.h(309416, HotSelectSocketResponseMessage.class, false, false);
+            ig8.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
             registerListener(this.e);
         }
     }
@@ -307,7 +307,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.g = "";
             this.c = false;
-            if (!ki.z()) {
+            if (!ji.z()) {
                 D();
             } else if (this.d) {
             } else {
@@ -322,7 +322,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.g = str;
             this.c = true;
-            if (!ki.z()) {
+            if (!ji.z()) {
                 this.b.onHotSelectDataSearchFailed("");
             } else if (this.d) {
             } else {

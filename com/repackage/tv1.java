@@ -1,141 +1,172 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.util.Base64;
-import android.view.View;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.tachikoma.core.component.button.StyleHelper;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class tv1 extends rv1 {
+public final class tv1 extends ou1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
+    public String L;
+    public int M;
+    public String N;
+    public String O;
+    public boolean P;
+    public boolean Q;
+    public boolean R;
+    public boolean S;
+    public boolean T;
+    public int U;
+    public int V;
+    public boolean W;
+    public boolean X;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tv1(String str) {
-        super(str);
+    public tv1() {
+        super("textArea", "componentId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = le3.g((float) jSONObject.optDouble("x"));
-            this.l = le3.g((float) jSONObject.optDouble("y"));
-            this.m = le3.g((float) jSONObject.optDouble("width"));
-            this.n = le3.g((float) jSONObject.optDouble("height"));
-        } catch (Exception e) {
-            ux1.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
+        this.L = "";
+        this.N = "";
+        this.O = "";
+    }
+
+    private void i() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.j) == null) {
+            return;
+        }
+        int g = yc3.g(c(jSONObject, "minHeight", 0.0f));
+        if (g < 0) {
+            g = 0;
+        }
+        this.U = g;
+        int g2 = yc3.g(c(this.j, "maxHeight", 2.1474836E9f));
+        if (g2 < 0) {
+            g2 = Integer.MAX_VALUE;
+        }
+        this.V = g2;
+    }
+
+    @Override // com.repackage.ou1, com.repackage.tu1, com.repackage.vu1, com.repackage.xu1, com.repackage.gp2
+    public void a(JSONObject jSONObject) throws JSONException {
+        np2 np2Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.t = jSONObject.optString("value");
+        this.L = jSONObject.optString("placeholder");
+        o(jSONObject);
+        this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
+        boolean optBoolean = jSONObject.optBoolean("autoHeight", false);
+        this.Q = optBoolean;
+        if (optBoolean && (np2Var = this.h) != null) {
+            np2Var.j(-2);
+            this.h.k(true);
+        }
+        boolean optBoolean2 = jSONObject.optBoolean("fixed");
+        this.R = optBoolean2;
+        np2 np2Var2 = this.h;
+        if (np2Var2 != null) {
+            np2Var2.i(optBoolean2);
+        }
+        this.S = jSONObject.optBoolean("showConfirmBar", true);
+        this.T = jSONObject.optBoolean("adjustPosition", true);
+        this.W = jSONObject.optBoolean(StyleHelper.KEY_ONDISABLE, false);
+        this.X = jSONObject.optInt("confirmHold") == 1;
+        i();
+    }
+
+    @Override // com.repackage.ou1, com.repackage.tu1, com.repackage.vu1, com.repackage.xu1
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            this.W = jSONObject.optBoolean(StyleHelper.KEY_ONDISABLE, this.W);
+            this.L = jSONObject.optString("placeholder", this.L);
+            this.t = jSONObject.optString("value", this.t);
+            this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
+            this.S = jSONObject.optBoolean("showConfirmBar", this.S);
+            this.T = jSONObject.optBoolean("adjustPosition", this.T);
+            n(jSONObject);
+            p(jSONObject);
+            o(jSONObject);
+            i();
         }
     }
 
-    public final byte[] h(@NonNull Bitmap bitmap) {
-        InterceptResult invokeL;
+    public final void n(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int i = width * height;
-            int[] iArr = new int[i];
-            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
-            byte[] bArr = new byte[i * 4];
-            for (int i2 = 0; i2 < i; i2++) {
-                int i3 = iArr[i2];
-                int i4 = i2 * 4;
-                bArr[i4] = (byte) Color.red(i3);
-                bArr[i4 + 1] = (byte) Color.green(i3);
-                bArr[i4 + 2] = (byte) Color.blue(i3);
-                bArr[i4 + 3] = (byte) Color.alpha(i3);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public JSONObject i(@NonNull View view2) {
-        InterceptResult invokeL;
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            int measuredWidth = view2.getMeasuredWidth();
-            int measuredHeight = view2.getMeasuredHeight();
-            int i2 = 0;
-            if (measuredWidth > 0 && measuredHeight > 0) {
-                int i3 = this.k;
-                this.k = (i3 < 0 || i3 >= measuredWidth) ? 0 : 0;
-                int i4 = this.l;
-                this.l = (i4 < 0 || i4 >= measuredHeight) ? 0 : 0;
-                int i5 = this.m;
-                if (i5 <= 0 || this.k + i5 > measuredWidth) {
-                    i5 = measuredWidth - this.k;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("autoHeight", this.Q);
+            this.Q = optBoolean;
+            np2 np2Var = this.h;
+            if (np2Var != null) {
+                if (optBoolean) {
+                    np2Var.j(-2);
+                    this.h.k(true);
+                    return;
                 }
-                this.m = i5;
-                int i6 = this.n;
-                if (i6 <= 0 || this.l + i6 > measuredHeight) {
-                    i6 = measuredHeight - this.l;
+                int c = np2Var.c();
+                int i = this.K;
+                if (i > 0) {
+                    c = i;
                 }
-                this.n = i6;
-                Bitmap createBitmap = Bitmap.createBitmap(this.m, i6, Bitmap.Config.ARGB_4444);
-                Canvas canvas = new Canvas(createBitmap);
-                canvas.drawARGB(0, 0, 0, 0);
-                canvas.translate(-this.k, -this.l);
-                view2.draw(canvas);
-                Bitmap j = j(createBitmap);
-                str = Base64.encodeToString(h(j), 2);
-                i2 = j.getWidth();
-                i = j.getHeight();
-            } else {
-                ux1.b("canvasGetImageData", "canvas size is invalid.");
-                str = "";
-                i = 0;
+                this.h.j(c);
+                this.h.k(false);
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i);
-                jSONObject.put("data", str);
-            } catch (Exception e) {
-                ux1.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    @NonNull
-    public final Bitmap j(@NonNull Bitmap bitmap) {
-        InterceptResult invokeL;
+    public final void o(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
-            float l = 1.0f / le3.l(bk2.c());
-            Matrix matrix = new Matrix();
-            matrix.postScale(l, l);
-            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("placeholderStyle")) == null) {
+            return;
         }
-        return (Bitmap) invokeL.objValue;
+        this.M = optJSONObject.optInt(TtmlNode.ATTR_TTS_FONT_SIZE);
+        this.N = optJSONObject.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
+        this.O = optJSONObject.optString("color");
+    }
+
+    public final void p(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("fixed", this.R);
+            this.R = optBoolean;
+            np2 np2Var = this.h;
+            if (np2Var != null) {
+                np2Var.i(optBoolean);
+            }
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.P = z;
+        }
     }
 }

@@ -19,13 +19,13 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.IRemoteUBCService;
 import com.baidu.ubc.UBC;
 import com.baidu.ubc.UBCManager;
-import com.repackage.fc1;
-import com.repackage.i49;
-import com.repackage.t39;
+import com.repackage.l19;
+import com.repackage.sa1;
+import com.repackage.w09;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class IPCService implements i49 {
+public class IPCService implements l19 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class IPCService implements i49 {
                 return;
             }
         }
-        a = t39.m();
+        a = w09.m();
     }
 
     public IPCService() {
@@ -60,14 +60,14 @@ public class IPCService implements i49 {
         }
     }
 
-    @Override // com.repackage.i49
+    @Override // com.repackage.l19
     public IBinder a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? IPCServiceManager.f(str, true) : (IBinder) invokeL.objValue;
     }
 
-    @Override // com.repackage.i49
+    @Override // com.repackage.l19
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -216,7 +216,7 @@ public class IPCService implements i49 {
                     if (interceptable2 == null || (invokeLLI = interceptable2.invokeLLI(1048585, this, str, str2, i)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i);
                         if (IPCService.a && beginFlow != null) {
-                            Log.d("UBCIPCService", " process name " + fc1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
+                            Log.d("UBCIPCService", " process name " + sa1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                         }
                         return beginFlow;
                     }
@@ -230,7 +230,7 @@ public class IPCService implements i49 {
                     if (interceptable2 == null || (invokeLLIL = interceptable2.invokeLLIL(1048586, this, str, str2, i, str3)) == null) {
                         Flow beginFlow = ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).beginFlow(str, str2, i);
                         if (IPCService.a && beginFlow != null) {
-                            Log.d("UBCIPCService", " process name " + fc1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
+                            Log.d("UBCIPCService", " process name " + sa1.b() + " flow hashCode " + beginFlow.hashCode() + " flow id " + str + " handle id " + beginFlow.getHandle());
                         }
                         return beginFlow;
                     }

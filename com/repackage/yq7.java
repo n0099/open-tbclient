@@ -1,384 +1,728 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.drawable.Drawable;
-import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.data.IconData;
+import com.baidu.tbadk.switchs.NickNameActivitySwitch;
+import com.baidu.tbadk.widget.richText.TbRichText;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.payment.PaymentConfirmActivity;
-import com.baidu.tieba.payment.data.PaymentConfirmInfoData;
-import com.baidu.tieba.wallet.CurrencyHelper;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import com.baidu.tieba.pb.pb.main.PbCommenFloorItemViewHolder;
+import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"ResourceAsColor"})
+import com.repackage.yv5;
+import java.util.ArrayList;
+import java.util.Date;
 /* loaded from: classes7.dex */
-public class yq7 extends z8<PaymentConfirmActivity> {
+public class yq7 {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseIntArray a;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public PaymentConfirmActivity a;
-    public ViewGroup b;
-    public NavigationBar c;
-    public ViewGroup d;
-    public ViewGroup e;
-    public TbImageView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public CheckBox m;
-    public ViewGroup n;
-    public TbImageView o;
-    public TextView p;
-    public TextView q;
-    public ViewGroup r;
-    public EditText s;
-    public ViewGroup t;
-    public TextView u;
-    public TextView v;
-    public boolean w;
-    public int x;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yq7(PaymentConfirmActivity paymentConfirmActivity, boolean z, int i) {
-        super(paymentConfirmActivity.getPageContext());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {paymentConfirmActivity, Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((b9) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PbCommenFloorItemViewHolder a;
+        public final /* synthetic */ String b;
+
+        public a(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pbCommenFloorItemViewHolder, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pbCommenFloorItemViewHolder;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int measuredWidth = this.a.e.getMeasuredWidth();
+                String str = this.b;
+                PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder = this.a;
+                mt7.a(measuredWidth, str, pbCommenFloorItemViewHolder.f, pbCommenFloorItemViewHolder.g, pbCommenFloorItemViewHolder.F, pbCommenFloorItemViewHolder.I, pbCommenFloorItemViewHolder.H);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755133070, "Lcom/repackage/yq7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755133070, "Lcom/repackage/yq7;");
                 return;
             }
         }
-        this.w = false;
-        this.a = paymentConfirmActivity;
-        this.w = z;
-        this.x = i;
-        paymentConfirmActivity.setContentView(R.layout.obfuscated_res_0x7f0d0662);
-        v(paymentConfirmActivity);
-        u(paymentConfirmActivity);
+        new SparseArray();
+        a = new SparseIntArray();
+        b = i(R.dimen.tbds16);
     }
 
-    public final SpannableString e(String str, int i, int i2, int i3) {
-        InterceptResult invokeLIII;
+    public static void a(TbRichTextView tbRichTextView, View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048576, this, str, i, i2, i3)) == null) {
-            SpannableString spannableString = new SpannableString(str);
-            spannableString.setSpan(new ForegroundColorSpan(i3), i, i2, 33);
-            return spannableString;
-        }
-        return (SpannableString) invokeLIII.objValue;
-    }
-
-    public void g() {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (editText = this.s) == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(65537, null, tbRichTextView, view2, z) == null) || tbRichTextView == null || view2 == null) {
             return;
         }
-        editText.setText("");
+        int k = (((li.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - tbRichTextView.getPaddingLeft()) - tbRichTextView.getPaddingRight();
+        if (tbRichTextView.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) tbRichTextView.getLayoutParams();
+            k = (k - marginLayoutParams.leftMargin) - marginLayoutParams.rightMargin;
+        }
+        int i = k - (z ? i(R.dimen.tbds90) : 0);
+        tbRichTextView.getLayoutStrategy().q(i);
+        tbRichTextView.getLayoutStrategy().H = i - i(R.dimen.tbds122);
+        tbRichTextView.getLayoutStrategy().p((int) (k * 1.618f));
     }
 
-    public void h(PaymentConfirmInfoData paymentConfirmInfoData, boolean z) {
-        PaymentConfirmInfoData.OrderInfo.Cpath cpath;
+    public static void b(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, paymentConfirmInfoData, z) == null) || paymentConfirmInfoData == null) {
+        if (interceptable == null || interceptable.invokeLLZ(65538, null, pbCommenFloorItemViewHolder, postData, z) == null) {
+            if (!TextUtils.isEmpty(postData.u()) && z) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbCommenFloorItemViewHolder.n.getLayoutParams();
+                layoutParams.topMargin = i(R.dimen.obfuscated_res_0x7f0701d5);
+                layoutParams.bottomMargin = i(R.dimen.obfuscated_res_0x7f0701d5);
+                pbCommenFloorItemViewHolder.n.setLayoutParams(layoutParams);
+                pbCommenFloorItemViewHolder.n.k0(postData.u());
+            } else {
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) pbCommenFloorItemViewHolder.n.getLayoutParams();
+                layoutParams2.bottomMargin = 0;
+                layoutParams2.topMargin = 0;
+                pbCommenFloorItemViewHolder.n.setLayoutParams(layoutParams2);
+                pbCommenFloorItemViewHolder.n.setPadding(0, 0, 0, 0);
+                pbCommenFloorItemViewHolder.n.k0(null);
+            }
+            pbCommenFloorItemViewHolder.n.setTextViewCheckSelection(false);
+        }
+    }
+
+    public static void c(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData, boolean z, boolean z2) {
+        ImageView imageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{pbCommenFloorItemViewHolder, postData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (imageView = pbCommenFloorItemViewHolder.u) == null || postData == null) {
             return;
         }
-        this.e.setVisibility(0);
-        PaymentConfirmInfoData.GoodsInfo goods_info = paymentConfirmInfoData.getGoods_info();
-        if (goods_info != null) {
-            this.f.K(goods_info.getGoods_pic(), 10, false);
-            this.g.setText(goods_info.getGoods_name());
-            String numFormatOver10000 = StringHelper.numFormatOver10000(goods_info.getGoods_num());
-            this.h.setText(x(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d80, numFormatOver10000) + goods_info.getGoods_unit(), numFormatOver10000, SkinManager.getColor(R.color.CAM_X0305)));
-            int goods_duration = goods_info.getGoods_duration();
-            if (goods_duration > 0) {
-                String numFormatOver100002 = StringHelper.numFormatOver10000(goods_duration);
-                this.i.setText(x(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d85, numFormatOver100002), numFormatOver100002, SkinManager.getColor(R.color.CAM_X0305)));
-            } else {
-                this.i.setText(e(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d86), 3, 5, SkinManager.getColor(R.color.CAM_X0305)));
-            }
-            this.j.setCompoundDrawablesWithIntrinsicBounds(CurrencySwitchUtil.getMoneyIcon(goods_info.getCurrency()), (Drawable) null, (Drawable) null, (Drawable) null);
-            if (CurrencySwitchUtil.isYyIsConvert(goods_info.getCurrency())) {
-                this.j.setText(CurrencyHelper.getFormatOverBaiwanNum(goods_info.getCurrency(), goods_info.getTdou_num()));
-            } else {
-                this.j.setText(StringHelper.numFormatOver10000wan(goods_info.getTdou_num()));
-            }
-            this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d7f, goods_info.getGoods_name()));
+        if (z2) {
+            imageView.setVisibility(8);
             if (z) {
-                SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
-                this.l.setText(k(goods_info.getTdou_num(), goods_info.getCurrency()));
-            } else {
-                SkinManager.setViewTextColor(this.l, R.color.CAM_X0301, 1);
-                if (CurrencySwitchUtil.isYyIsConvert(goods_info.getCurrency())) {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f0d97);
-                } else {
-                    this.l.setText(R.string.obfuscated_res_0x7f0f0d84);
-                }
+                pbCommenFloorItemViewHolder.C.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb7));
+                return;
             }
-        }
-        PaymentConfirmInfoData.OrderInfo order_info = paymentConfirmInfoData.getOrder_info();
-        if (order_info != null && (cpath = order_info.getCpath()) != null) {
-            PaymentConfirmInfoData.OrderInfo.Cpath.Member member = cpath.getMember();
-            if (member != null) {
-                String icon = member.getIcon();
-                String desc = member.getDesc();
-                if (!StringUtils.isNull(icon) && !StringUtils.isNull(desc)) {
-                    this.n.setVisibility(0);
-                    this.o.K(icon, 10, false);
-                    this.p.setText(desc);
-                } else {
-                    this.n.setVisibility(8);
-                }
-            }
-            if (cpath.getTip_exist() == 1) {
-                this.m.setButtonDrawable(SkinManager.getDrawable(R.drawable.payment_confirm_price_tip_check_button));
-                this.m.setVisibility(0);
-                this.m.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d87, Integer.valueOf(cpath.getTip_days())));
-            } else {
-                this.m.setVisibility(8);
-            }
-        }
-        if (z) {
-            if (this.w) {
-                this.q.setText(R.string.obfuscated_res_0x7f0f034e);
-            } else {
-                this.q.setText(R.string.obfuscated_res_0x7f0f07d2);
-            }
-        } else if (CurrencySwitchUtil.isYyIsConvert(this.x)) {
-            this.q.setText(R.string.obfuscated_res_0x7f0f079d);
-        } else {
-            this.q.setText(R.string.obfuscated_res_0x7f0f079a);
-        }
-    }
-
-    public void i(boolean z) {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (editText = this.s) == null) {
             return;
         }
-        editText.setEnabled(z);
+        imageView.setVisibility(z ? 0 : 8);
     }
 
-    public void j(boolean z) {
+    public static void d(xq7 xq7Var, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData, ThreadData threadData) {
+        boolean z;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.q.setEnabled(z);
+        if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, xq7Var, pbCommenFloorItemViewHolder, postData, threadData) == null) || pbCommenFloorItemViewHolder == null || postData == null) {
+            return;
         }
+        boolean z2 = true;
+        if (postData.A() > 0 && threadData != null && !threadData.isBjh()) {
+            String format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f096b), Integer.valueOf(postData.A()));
+            pbCommenFloorItemViewHolder.E.setVisibility(0);
+            pbCommenFloorItemViewHolder.E.setText(format);
+            z = true;
+        } else {
+            pbCommenFloorItemViewHolder.E.setVisibility(8);
+            z = false;
+        }
+        xy4 M = postData.M();
+        z2 = (M == null || StringUtils.isNull(M.b()) || threadData == null || threadData.isBjh()) ? false : false;
+        if (z) {
+            pbCommenFloorItemViewHolder.i.setVisibility(0);
+            i = b;
+        } else {
+            pbCommenFloorItemViewHolder.i.setVisibility(8);
+            i = 0;
+        }
+        if (z2) {
+            pbCommenFloorItemViewHolder.j.setVisibility(0);
+            i2 = b;
+        } else {
+            pbCommenFloorItemViewHolder.j.setVisibility(8);
+            i2 = 0;
+        }
+        pbCommenFloorItemViewHolder.h.setPadding(i, 0, i2, 0);
+        if (StringUtils.SimpleDateFormat(new Date(), "yyyy").equals(StringUtils.SimpleDateFormat(new Date(postData.X()), "yyyy"))) {
+            pbCommenFloorItemViewHolder.h.setText(StringHelper.getFormatTimeShort(postData.X()));
+        } else {
+            pbCommenFloorItemViewHolder.h.setText(StringHelper.getFormatTime(postData.X()));
+        }
+        if (z2) {
+            pbCommenFloorItemViewHolder.k.setVisibility(0);
+            pbCommenFloorItemViewHolder.k.setPadding(b, 0, 0, 0);
+            pbCommenFloorItemViewHolder.k.setText(M.b());
+            return;
+        }
+        pbCommenFloorItemViewHolder.k.setVisibility(8);
     }
 
-    public final SpannableStringBuilder k(long j, int i) {
-        InterceptResult invokeCommon;
+    public static void e(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData, ThreadData threadData, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            String str = "" + j;
-            if (CurrencySwitchUtil.isYyIsConvert(i)) {
-                str = "" + CurrencyHelper.getFormatOverBaiwanNum(i, j);
+        if (!(interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{pbCommenFloorItemViewHolder, postData, threadData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || pbCommenFloorItemViewHolder == null || postData == null || postData.q() == null) {
+            return;
+        }
+        if (threadData != null) {
+            postData.q().threadId = threadData.getTid();
+            postData.q().forumId = String.valueOf(threadData.getFid());
+        }
+        if (i == 0) {
+            postData.q().objType = 1;
+        } else {
+            postData.q().objType = 2;
+        }
+        postData.q().isInPost = true;
+        if (z) {
+            pbCommenFloorItemViewHolder.D.setAgreeAlone(true);
+            pbCommenFloorItemViewHolder.D.setData(postData.q());
+        }
+        if (threadData != null && threadData.isUgcThreadType()) {
+            pbCommenFloorItemViewHolder.l.setAgreeAlone(true);
+        }
+        pbCommenFloorItemViewHolder.l.setData(postData.q());
+    }
+
+    public static void f(xq7 xq7Var, PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData, View view2, boolean z, boolean z2, boolean z3, TbRichTextView.s sVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{xq7Var, pbCommenFloorItemViewHolder, postData, view2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), sVar}) == null) || pbCommenFloorItemViewHolder == null || postData == null) {
+            return;
+        }
+        Activity pageActivity = xq7Var.getPageContext().getPageActivity();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pbCommenFloorItemViewHolder.n.getLayoutParams();
+        if (layoutParams == null) {
+            layoutParams = new LinearLayout.LayoutParams(-2, -2);
+        }
+        layoutParams.rightMargin = li.f(pageActivity, R.dimen.M_W_X007);
+        layoutParams.leftMargin = li.f(pageActivity, R.dimen.tbds148);
+        layoutParams.topMargin = 0;
+        layoutParams.bottomMargin = 0;
+        if (z) {
+            pbCommenFloorItemViewHolder.n.k0(null);
+            pbCommenFloorItemViewHolder.n.setBackgroundDrawable(null);
+            pbCommenFloorItemViewHolder.n.getLayoutStrategy().g(R.drawable.obfuscated_res_0x7f081233);
+        } else {
+            pbCommenFloorItemViewHolder.n.getLayoutStrategy().g(R.drawable.icon_click);
+        }
+        pbCommenFloorItemViewHolder.n.getLayoutStrategy().x(R.drawable.pic_video);
+        a(pbCommenFloorItemViewHolder.n, view2, !StringUtils.isNull(postData.u()));
+        pbCommenFloorItemViewHolder.n.setLayoutParams(layoutParams);
+        pbCommenFloorItemViewHolder.n.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
+        pbCommenFloorItemViewHolder.n.setIsFromCDN(z2);
+        pbCommenFloorItemViewHolder.n.setText(postData.P(), true, sVar);
+        SparseArray sparseArray = (SparseArray) pbCommenFloorItemViewHolder.n.getTag();
+        if (sparseArray == null) {
+            sparseArray = new SparseArray();
+        }
+        sparseArray.put(R.id.obfuscated_res_0x7f091e54, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091e6d, Boolean.valueOf(z3));
+        pbCommenFloorItemViewHolder.n.setTag(sparseArray);
+        pbCommenFloorItemViewHolder.b.setTag(R.id.obfuscated_res_0x7f091e67, sparseArray);
+    }
+
+    public static void g(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, pbCommenFloorItemViewHolder, postData) == null) {
+            if (postData != null && postData.U() != null) {
+                TbRichText P = postData.P();
+                rx7.c(postData.U(), pbCommenFloorItemViewHolder.L, false, false, P != null && StringUtils.isNull(P.toString()) && StringUtils.isNull(postData.u()));
+                return;
             }
-            String t = t(str);
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(t);
-            int indexOf = t.indexOf(str);
-            if (indexOf >= 0) {
-                spannableStringBuilder.insert(indexOf, (CharSequence) " ");
-                ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305));
-                yn ynVar = new yn(getPageContext().getPageActivity(), CurrencySwitchUtil.getMoneyIconBitmap(i), 1);
-                int i2 = indexOf + 1;
-                spannableStringBuilder.setSpan(ynVar, indexOf, i2, 33);
-                spannableStringBuilder.setSpan(foregroundColorSpan, i2, str.length() + i2, 33);
+            pbCommenFloorItemViewHolder.L.setVisibility(8);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:161:0x04a7  */
+    /* JADX WARN: Removed duplicated region for block: B:164:0x04b0  */
+    /* JADX WARN: Removed duplicated region for block: B:165:0x04b2  */
+    /* JADX WARN: Removed duplicated region for block: B:172:0x04c5  */
+    /* JADX WARN: Removed duplicated region for block: B:175:0x0506  */
+    /* JADX WARN: Removed duplicated region for block: B:178:0x0510  */
+    /* JADX WARN: Removed duplicated region for block: B:182:0x0568  */
+    /* JADX WARN: Removed duplicated region for block: B:195:0x05cc  */
+    /* JADX WARN: Removed duplicated region for block: B:201:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void h(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, PostData postData, View view2, int i, xq7 xq7Var, ThreadData threadData, boolean z, boolean z2) {
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        boolean z7;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{pbCommenFloorItemViewHolder, postData, view2, Integer.valueOf(i), xq7Var, threadData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || pbCommenFloorItemViewHolder == null || postData == null) {
+            return;
+        }
+        if (postData.s() != null) {
+            postData.s().isBaijiahaoUser();
+        }
+        boolean z8 = false;
+        if (postData.P) {
+            SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.d, R.color.CAM_X0204);
+            pbCommenFloorItemViewHolder.d.setVisibility(0);
+        } else {
+            pbCommenFloorItemViewHolder.d.setVisibility(8);
+        }
+        String userId = (threadData == null || threadData.getAuthor() == null) ? null : threadData.getAuthor().getUserId();
+        pbCommenFloorItemViewHolder.m.setTag(null);
+        pbCommenFloorItemViewHolder.m.setUserId(null);
+        pbCommenFloorItemViewHolder.f.setText((CharSequence) null);
+        pbCommenFloorItemViewHolder.G.getHeadView().setUserId(null);
+        pbCommenFloorItemViewHolder.n.setIsHost(false);
+        if (postData.s() != null) {
+            if (userId != null && !userId.equals("0") && userId.equals(postData.s().getUserId())) {
+                pbCommenFloorItemViewHolder.n.setIsHost(true);
             }
-            return spannableStringBuilder;
-        }
-        return (SpannableStringBuilder) invokeCommon.objValue;
-    }
-
-    public ViewGroup l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (ViewGroup) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            EditText editText = this.s;
-            return editText != null ? editText.getText().toString() : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public CheckBox n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.m : (CheckBox) invokeV.objValue;
-    }
-
-    public EditText o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.s : (EditText) invokeV.objValue;
-    }
-
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            w95.a(this.a.getPageContext(), this.b);
-            this.c.onChangeSkinType(this.a.getPageContext(), i);
-        }
-    }
-
-    public TextView q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.v : (TextView) invokeV.objValue;
-    }
-
-    public ViewGroup r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.r == null) {
-                this.r = (ViewGroup) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03e4, (ViewGroup) null, false);
-                w95.a(this.a.getPageContext(), this.r);
-                this.s = (EditText) this.r.findViewById(R.id.obfuscated_res_0x7f0907ae);
-                this.t = (ViewGroup) this.r.findViewById(R.id.obfuscated_res_0x7f091688);
-                this.u = (TextView) this.r.findViewById(R.id.obfuscated_res_0x7f091687);
-                this.v = (TextView) this.r.findViewById(R.id.obfuscated_res_0x7f09168a);
+            ArrayList<IconData> iconInfo = postData.s().getIconInfo();
+            ArrayList<IconData> tShowInfoNew = postData.s().getTShowInfoNew();
+            UserIconBox userIconBox = pbCommenFloorItemViewHolder.I;
+            if (userIconBox != null) {
+                userIconBox.setTag(R.id.obfuscated_res_0x7f091ea3, postData.s().getUserId());
+                pbCommenFloorItemViewHolder.I.setOnClickListener(xq7Var.getEventController().c);
+                int f = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds40);
+                int f2 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+                UserIconBox userIconBox2 = pbCommenFloorItemViewHolder.I;
+                i2 = R.id.obfuscated_res_0x7f091ea3;
+                userIconBox2.g(iconInfo, 2, f, f, f2);
+            } else {
+                i2 = R.id.obfuscated_res_0x7f091ea3;
             }
-            return this.r;
+            if (pbCommenFloorItemViewHolder.H != null) {
+                if (tShowInfoNew != null && tShowInfoNew.size() > 0 && tShowInfoNew.get(0) != null) {
+                    pbCommenFloorItemViewHolder.H.setTag(tShowInfoNew.get(0).getUrl());
+                }
+                pbCommenFloorItemViewHolder.H.setOnClickListener(xq7Var.getEventController().d);
+                int f3 = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds48);
+                pbCommenFloorItemViewHolder.H.h(tShowInfoNew, 3, f3, f3, li.f(TbadkCoreApplication.getInst(), R.dimen.tbds8), true);
+            }
+            if (ListUtils.isEmpty(tShowInfoNew) && !postData.s().isBigV()) {
+                if (UbsABTestHelper.isPBPlanA()) {
+                    if (DeviceInfoUtil.isMate30()) {
+                        mt7.k(pbCommenFloorItemViewHolder.f);
+                    } else {
+                        wq4.d(pbCommenFloorItemViewHolder.f).A(R.string.F_X02);
+                    }
+                    SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0108, 1);
+                } else {
+                    SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0106, 1);
+                }
+            } else {
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0301, 1);
+            }
+            String avater = postData.s().getAvater();
+            pbCommenFloorItemViewHolder.f.setTag(i2, postData.s().getUserId());
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091eab, postData.s().getUserName());
+            pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091ead, postData.s().getVirtualUserUrl());
+            String name_show = postData.s().getName_show();
+            String userName = postData.s().getUserName();
+            if (NickNameActivitySwitch.isOn() && name_show != null && !name_show.equals(userName)) {
+                pbCommenFloorItemViewHolder.f.setText(mo7.b(xq7Var.getPageContext().getPageActivity(), pbCommenFloorItemViewHolder.f.getText().toString()));
+                pbCommenFloorItemViewHolder.f.setGravity(16);
+                pbCommenFloorItemViewHolder.f.setTag(R.id.obfuscated_res_0x7f091e7b, mo7.a());
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0312, 1);
+            }
+            if (postData.s().getPendantData() != null && !StringUtils.isNull(postData.s().getPendantData().getImgUrl())) {
+                pbCommenFloorItemViewHolder.G.setBigVDimenSize(R.dimen.tbds36);
+                pbCommenFloorItemViewHolder.G.j(postData.s(), 4);
+                pbCommenFloorItemViewHolder.m.setVisibility(8);
+                pbCommenFloorItemViewHolder.G.setVisibility(0);
+                pbCommenFloorItemViewHolder.G.getHeadView().K(avater, 28, false);
+                pbCommenFloorItemViewHolder.G.getHeadView().setUserId(postData.s().getUserId());
+                pbCommenFloorItemViewHolder.G.getHeadView().setUserName(postData.s().getUserName());
+                pbCommenFloorItemViewHolder.G.m(postData.s().getPendantData().getImgUrl());
+            } else {
+                pbCommenFloorItemViewHolder.m.setGodIconWidth(R.dimen.tbds36);
+                UtilHelper.showHeadImageViewBigV(pbCommenFloorItemViewHolder.m, postData.s(), 4);
+                pbCommenFloorItemViewHolder.m.setUserId(postData.s().getUserId());
+                pbCommenFloorItemViewHolder.m.setUserName(postData.s().getUserName(), postData.Z());
+                pbCommenFloorItemViewHolder.m.setTag(R.id.obfuscated_res_0x7f091ead, postData.s().getVirtualUserUrl());
+                pbCommenFloorItemViewHolder.m.setImageDrawable(null);
+                pbCommenFloorItemViewHolder.m.K(avater, 28, false);
+                pbCommenFloorItemViewHolder.m.setVisibility(0);
+                pbCommenFloorItemViewHolder.G.setVisibility(8);
+            }
+            m(pbCommenFloorItemViewHolder.g, postData, userId, threadData);
         }
-        return (ViewGroup) invokeV.objValue;
+        int level_id = (!xq7Var.isSimpleForum() || postData.s() == null) ? 0 : postData.s().getLevel_id();
+        if (threadData != null && threadData.isUgcThreadType()) {
+            level_id = 0;
+        }
+        if (level_id > 0) {
+            pbCommenFloorItemViewHolder.F.setVisibility(0);
+            SkinManager.setImageResource(pbCommenFloorItemViewHolder.F, BitmapHelper.getGradeResourceIdInEnterForum(level_id));
+        } else {
+            pbCommenFloorItemViewHolder.F.setVisibility(8);
+        }
+        if (pbCommenFloorItemViewHolder.I.getChildCount() != 1) {
+            pbCommenFloorItemViewHolder.I.getChildCount();
+        }
+        pbCommenFloorItemViewHolder.g.getVisibility();
+        pbCommenFloorItemViewHolder.H.getChildCount();
+        int e = mt7.e();
+        String name_show2 = postData.s() != null ? postData.s().getName_show() : "";
+        int d = rc5.d(name_show2);
+        if (postData.s() != null && !StringUtils.isNull(postData.s().getSealPrefix())) {
+            int i3 = e - 2;
+            if (d > i3) {
+                name_show2 = rc5.n(name_show2, i3) + StringHelper.STRING_MORE;
+            }
+        } else if (d > e) {
+            name_show2 = rc5.n(name_show2, e) + StringHelper.STRING_MORE;
+        }
+        if (postData.s() != null && !StringUtils.isNull(postData.s().getSealPrefix())) {
+            pbCommenFloorItemViewHolder.f.setText(j(xq7Var, postData.s().getSealPrefix(), name_show2));
+        } else {
+            pbCommenFloorItemViewHolder.f.setText(name_show2);
+            pbCommenFloorItemViewHolder.e.post(new a(pbCommenFloorItemViewHolder, name_show2));
+        }
+        SparseArray sparseArray = new SparseArray();
+        sparseArray.put(R.id.obfuscated_res_0x7f091e54, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091e70, postData);
+        sparseArray.put(R.id.obfuscated_res_0x7f091e72, view2);
+        sparseArray.put(R.id.obfuscated_res_0x7f091e7e, Integer.valueOf(i));
+        sparseArray.put(R.id.obfuscated_res_0x7f091e7d, Integer.valueOf(postData.A()));
+        sparseArray.put(R.id.obfuscated_res_0x7f091e64, postData.I());
+        boolean z9 = (postData.s() == null || StringUtils.isNull(postData.s().getVirtualUserUrl())) ? false : true;
+        if (threadData == null || xq7Var.getUserIdentify() == 0 || k(threadData)) {
+            z3 = false;
+            z4 = false;
+        } else {
+            z3 = (xq7Var.getUserIdentify() == 1002 || xq7Var.getUserIdentify() == 3) ? false : true;
+            z4 = (xq7Var.getUserIdentify() == 3 || threadData.isBjh()) ? false : true;
+            if (postData != null && postData.s() != null) {
+                String userId2 = postData.s().getUserId();
+                if (UtilHelper.isCurrentAccount(userId2)) {
+                    z3 = false;
+                }
+                if (userId2 == null || userId2.equals("0") || userId2.length() == 0) {
+                    z3 = false;
+                }
+            }
+        }
+        if (threadData != null && threadData.getAuthor() != null && postData.s() != null) {
+            String userId3 = threadData.getAuthor().getUserId();
+            String userId4 = postData.s().getUserId();
+            if (UtilHelper.isCurrentAccount(userId3)) {
+                if (UtilHelper.isCurrentAccount(userId4)) {
+                    z5 = false;
+                    z4 = true;
+                    z6 = true;
+                } else {
+                    z5 = true;
+                    z4 = true;
+                    z6 = false;
+                }
+                z7 = true;
+                if (postData != null && postData.s() != null && UtilHelper.isCurrentAccount(postData.s().getUserId())) {
+                    z4 = true;
+                    z6 = true;
+                }
+                if (z9) {
+                    z3 = false;
+                    z5 = false;
+                    z4 = false;
+                }
+                int i4 = postData.A() != 1 ? 0 : 1;
+                if (threadData != null && threadData.isUgcThreadType()) {
+                    z3 = false;
+                    z5 = false;
+                }
+                if (!z3) {
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e97, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e73, Integer.valueOf(xq7Var.getUserIdentify()));
+                    if (postData.s() != null) {
+                        sparseArray.put(R.id.obfuscated_res_0x7f091e61, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091e62, postData.s().getName_show());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091e63, postData.s().getPortrait());
+                    }
+                } else {
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e97, Boolean.FALSE);
+                }
+                if (!z5) {
+                    sparseArray.put(R.id.obfuscated_res_0x7f091eaa, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e6b, Integer.valueOf(TbadkCoreApplication.getCurrentMemberType()));
+                    if (postData.s() != null) {
+                        sparseArray.put(R.id.obfuscated_res_0x7f091ea6, postData.s().getUserId());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091ea7, postData.s().getUserName());
+                        sparseArray.put(R.id.obfuscated_res_0x7f091ea5, postData.s().getName_show());
+                    }
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ea9, threadData.getId());
+                    sparseArray.put(R.id.obfuscated_res_0x7f091ea8, postData.I());
+                } else {
+                    sparseArray.put(R.id.obfuscated_res_0x7f091eaa, Boolean.FALSE);
+                }
+                if (!z4 && threadData != null) {
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e95, Boolean.TRUE);
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e73, Integer.valueOf(xq7Var.getUserIdentify()));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e57, Boolean.valueOf(z6));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e58, Integer.valueOf(i4));
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e56, postData.I());
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e68, Boolean.valueOf((z2 || postData.d0()) ? true : true));
+                } else {
+                    sparseArray.put(R.id.obfuscated_res_0x7f091e95, Boolean.FALSE);
+                }
+                sparseArray.put(R.id.obfuscated_res_0x7f091e6c, Boolean.valueOf(z7));
+                pbCommenFloorItemViewHolder.n.setTag(sparseArray);
+                if (z) {
+                    return;
+                }
+                pbCommenFloorItemViewHolder.J.setTag(sparseArray);
+                return;
+            }
+        }
+        z5 = false;
+        z6 = false;
+        z7 = false;
+        if (postData != null) {
+            z4 = true;
+            z6 = true;
+        }
+        if (z9) {
+        }
+        if (postData.A() != 1) {
+        }
+        if (threadData != null) {
+            z3 = false;
+            z5 = false;
+        }
+        if (!z3) {
+        }
+        if (!z5) {
+        }
+        if (!z4) {
+        }
+        sparseArray.put(R.id.obfuscated_res_0x7f091e95, Boolean.FALSE);
+        sparseArray.put(R.id.obfuscated_res_0x7f091e6c, Boolean.valueOf(z7));
+        pbCommenFloorItemViewHolder.n.setTag(sparseArray);
+        if (z) {
+        }
     }
 
-    public TextView s() {
-        InterceptResult invokeV;
+    public static int i(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.q : (TextView) invokeV.objValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
+            int i2 = a.get(i, -1);
+            if (i2 != -1) {
+                return i2;
+            }
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
+            a.put(i, dimensionPixelSize);
+            return dimensionPixelSize;
+        }
+        return invokeI.intValue;
     }
 
-    public final String t(String str) {
+    public static SpannableStringBuilder j(xq7 xq7Var, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, xq7Var, str, str2)) == null) {
+            ArrayList arrayList = new ArrayList();
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            if (str2 == null || str == null) {
+                return spannableStringBuilder;
+            }
+            arrayList.add(new yv5.a(str, R.drawable.pic_smalldot_title));
+            return yv5.h(xq7Var.getPageContext().getPageActivity(), str2, arrayList, true);
+        }
+        return (SpannableStringBuilder) invokeLLL.objValue;
+    }
+
+    public static boolean k(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? this.w ? this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d82, str) : this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d83, str) : (String) invokeL.objValue;
-    }
-
-    public final void u(PaymentConfirmActivity paymentConfirmActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, paymentConfirmActivity) == null) {
-            this.d = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f09169f);
-            this.e = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f0916a0);
-            this.f = (TbImageView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091693);
-            this.g = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091690);
-            this.h = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091692);
-            this.i = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091697);
-            this.j = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091694);
-            this.k = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091691);
-            this.l = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091696);
-            this.m = (CheckBox) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f09169c);
-            this.n = (ViewGroup) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f09169a);
-            this.o = (TbImageView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091699);
-            this.p = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f091698);
-            this.q = (TextView) paymentConfirmActivity.findViewById(R.id.obfuscated_res_0x7f09169d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            return threadData.isBlocked();
         }
+        return invokeL.booleanValue;
     }
 
-    public final void v(PaymentConfirmActivity paymentConfirmActivity) {
+    public static void l(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder, kp7 kp7Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, paymentConfirmActivity) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09169e);
-            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.obfuscated_res_0x7f09169b);
-            this.c = navigationBar;
-            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            if (CurrencySwitchUtil.isYyIsConvert(this.x)) {
-                if (this.w) {
-                    this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d96));
+        if (!(interceptable == null || interceptable.invokeLLZ(65548, null, pbCommenFloorItemViewHolder, kp7Var, z) == null) || pbCommenFloorItemViewHolder == null) {
+            return;
+        }
+        if (pbCommenFloorItemViewHolder.a != TbadkCoreApplication.getInst().getSkinType()) {
+            if (UbsABTestHelper.isPBPlanA()) {
+                if (DeviceInfoUtil.isMate30()) {
+                    mt7.k(pbCommenFloorItemViewHolder.f);
                 } else {
-                    this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d98));
+                    wq4.d(pbCommenFloorItemViewHolder.f).A(R.string.F_X02);
                 }
-            } else if (this.w) {
-                this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d7e));
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0108, 1);
             } else {
-                this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d89));
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.f, R.color.CAM_X0106, 1);
             }
-        }
-    }
-
-    public void w() {
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (viewGroup = this.r) == null || viewGroup.getParent() == null) {
-            return;
-        }
-        ((ViewGroup) this.r.getParent()).removeAllViews();
-    }
-
-    public final SpannableString x(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048594, this, str, str2, i)) == null) {
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2) && (indexOf = str.indexOf(str2)) >= 0) {
-                return e(str, indexOf, str2.length() + indexOf, i);
+            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.h, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.i, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.j, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.E, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.k, R.color.CAM_X0109, 1);
+            pbCommenFloorItemViewHolder.n.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            pbCommenFloorItemViewHolder.o.b();
+            if (z) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(pbCommenFloorItemViewHolder.J, R.drawable.obfuscated_res_0x7f0805e9, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.B, R.drawable.obfuscated_res_0x7f080976, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.z, R.drawable.obfuscated_res_0x7f080977, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.A, (int) R.color.CAM_X0109);
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.C, (int) R.color.CAM_X0109);
             }
-            return new SpannableString(str);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.t, R.drawable.obfuscated_res_0x7f080976, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(pbCommenFloorItemViewHolder.u, R.drawable.obfuscated_res_0x7f080977, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL_PRESS);
+            if (kp7Var != null) {
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.r, (int) R.color.CAM_X0108);
+                pbCommenFloorItemViewHolder.r.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right, SkinManager.getColor(R.color.CAM_X0108), null), (Drawable) null);
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.s, (int) R.color.CAM_X0108);
+                SkinManager.setBackgroundShapeDrawable(pbCommenFloorItemViewHolder.q, li.f(TbadkCoreApplication.getInst(), R.dimen.tbds21), R.color.CAM_X0206, R.color.CAM_X0206);
+                pbCommenFloorItemViewHolder.q.d();
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.P, R.color.CAM_X0304, 1);
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.N, R.color.CAM_X0106, 1);
+                SkinManager.setBackgroundResource(pbCommenFloorItemViewHolder.M, R.color.CAM_X0205);
+                SkinManager.setBackgroundResource(pbCommenFloorItemViewHolder.O, R.color.CAM_X0109);
+                SkinManager.setImageResource(pbCommenFloorItemViewHolder.Q, R.drawable.icon_arrow_more_gray);
+                SkinManager.setViewTextColor(pbCommenFloorItemViewHolder.T, (int) R.color.CAM_X0107);
+                if (pbCommenFloorItemViewHolder.R.getVisibility() == 8) {
+                    pbCommenFloorItemViewHolder.r.setVisibility(8);
+                    pbCommenFloorItemViewHolder.s.setVisibility(8);
+                    pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f03f3);
+                } else if (StringUtils.isNull(kp7Var.k())) {
+                    pbCommenFloorItemViewHolder.T.setText(kp7Var.k());
+                } else {
+                    pbCommenFloorItemViewHolder.T.setText(R.string.obfuscated_res_0x7f0f05d0);
+                }
+            } else {
+                pbCommenFloorItemViewHolder.q.setVisibility(8);
+                pbCommenFloorItemViewHolder.r.setVisibility(8);
+                pbCommenFloorItemViewHolder.s.setVisibility(8);
+                pbCommenFloorItemViewHolder.M.setVisibility(8);
+                pbCommenFloorItemViewHolder.T.setVisibility(8);
+            }
+            SkinManager.setBackgroundColor(pbCommenFloorItemViewHolder.K, R.color.CAM_X0203);
         }
-        return (SpannableString) invokeLLI.objValue;
+        pbCommenFloorItemViewHolder.a = TbadkCoreApplication.getInst().getSkinType();
     }
 
-    public void y(int i) {
-        ViewGroup viewGroup;
+    public static void m(TextView textView, PostData postData, String str, ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || (viewGroup = this.t) == null) {
-            return;
-        }
-        if (i == 5) {
-            viewGroup.setVisibility(0);
-            this.u.setText("");
-            this.v.setText(R.string.obfuscated_res_0x7f0f0d91);
-        } else if (i > 0) {
-            viewGroup.setVisibility(0);
-            this.u.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d93, Integer.valueOf(i)));
-            this.v.setText(R.string.obfuscated_res_0x7f0f0d91);
-        } else {
-            viewGroup.setVisibility(0);
-            this.u.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d92));
-            this.v.setText(R.string.obfuscated_res_0x7f0f1016);
-        }
-    }
-
-    public void z(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
-            this.l.setText(k(j, i));
-            this.q.setText(R.string.obfuscated_res_0x7f0f07d2);
+        if (interceptable == null || interceptable.invokeLLLL(65549, null, textView, postData, str, threadData) == null) {
+            if (textView == null && postData == null) {
+                return;
+            }
+            textView.setTag(postData);
+            if (threadData != null && threadData.isUgcThreadType()) {
+                textView.setVisibility(8);
+                textView.setTag(null);
+            } else if (postData.s() != null) {
+                MetaData s = postData.s();
+                if (str != null && !str.equals("0") && str.equals(s.getUserId())) {
+                    textView.setVisibility(0);
+                    textView.setAlpha(1.0f);
+                    textView.setText(R.string.obfuscated_res_0x7f0f0864);
+                    textView.setBackgroundColor(0);
+                    wq4 d = wq4.d(textView);
+                    d.n(R.string.J_X04);
+                    d.l(R.dimen.L_X01);
+                    d.v(R.color.CAM_X0302);
+                    d.k(R.color.CAM_X0302);
+                } else if (s.getIs_bawu() == 1 && postData.e0()) {
+                    wq4 d2 = wq4.d(textView);
+                    d2.v(R.color.CAM_X0101);
+                    d2.n(R.string.J_X04);
+                    d2.f(R.color.CAM_X0302);
+                    textView.setVisibility(0);
+                    textView.setText(R.string.obfuscated_res_0x7f0f0339);
+                } else if (s.getIs_bawu() == 1 && "manager".equals(s.getBawu_type())) {
+                    wq4 d3 = wq4.d(textView);
+                    d3.v(R.color.CAM_X0101);
+                    d3.n(R.string.J_X04);
+                    d3.f(R.color.CAM_X0302);
+                    textView.setVisibility(0);
+                    textView.setText(R.string.obfuscated_res_0x7f0f02f2);
+                } else if (s.getIs_bawu() == 1 && PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(s.getBawu_type())) {
+                    wq4 d4 = wq4.d(textView);
+                    d4.v(R.color.CAM_X0101);
+                    d4.n(R.string.J_X04);
+                    d4.f(R.color.CAM_X0302);
+                    textView.setVisibility(0);
+                    textView.setText(R.string.obfuscated_res_0x7f0f02f3);
+                } else if (s.getIs_bawu() == 1 && "pri_content_assist".equals(s.getBawu_type())) {
+                    wq4 d5 = wq4.d(textView);
+                    d5.v(R.color.CAM_X0101);
+                    d5.n(R.string.J_X04);
+                    d5.f(R.color.CAM_X0302);
+                    textView.setVisibility(0);
+                    textView.setText(R.string.obfuscated_res_0x7f0f02ef);
+                } else if (s.getIs_bawu() == 1 && "pri_manage_assist".equals(s.getBawu_type())) {
+                    wq4 d6 = wq4.d(textView);
+                    d6.v(R.color.CAM_X0101);
+                    d6.n(R.string.J_X04);
+                    d6.f(R.color.CAM_X0302);
+                    textView.setVisibility(0);
+                    textView.setText(R.string.obfuscated_res_0x7f0f02f0);
+                } else {
+                    textView.setVisibility(8);
+                }
+            } else {
+                textView.setVisibility(8);
+            }
         }
     }
 }

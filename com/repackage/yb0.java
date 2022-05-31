@@ -1,123 +1,119 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.view.Surface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yb0 {
+public class yb0 extends zb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long l;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755147702, "Lcom/repackage/yb0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755147702, "Lcom/repackage/yb0;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755147702, "Lcom/repackage/yb0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755147702, "Lcom/repackage/yb0;");
+        }
+    }
+
+    public yb0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Pattern.compile("^((https|http|ftp|rtsp|mms)?://)?(([0-9a-zA-Z_!~*'().&=+$%-]+: )?[0-9a-zA-Z_!~*'().&=+$%-]+@)?(([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-zA-Z_!~*'()-]+\\.)*([0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z]\\.[a-zA-Z]{2,6})(:[0-9]{1,4})?((/?)|(/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+/?)$");
+        this.l = 0L;
     }
 
-    public static String a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.zb0
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.h == 0) {
+                this.h = this.e.presentationTimeUs;
             }
-            String c = c(map);
-            if (TextUtils.isEmpty(c)) {
-                return str;
+            MediaCodec.BufferInfo bufferInfo = this.e;
+            long j = bufferInfo.presentationTimeUs - this.h;
+            bufferInfo.presentationTimeUs = j;
+            long j2 = this.l;
+            if (j < j2) {
+                long j3 = j2 + 10000;
+                this.l = j3;
+                bufferInfo.presentationTimeUs = j3;
             }
-            if (str.contains("?")) {
-                return str + "&" + c;
-            }
-            return str + "?" + c;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(indexOf + 1);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(Map<String, String> map) {
-        InterceptResult invokeL;
-        String encode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (map == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String str : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str2 = map.get(str);
-                if (str != null) {
-                    try {
-                        encode = URLEncoder.encode(str, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        ob0.a(e);
-                    }
+            MediaCodec.BufferInfo bufferInfo2 = this.e;
+            long j4 = bufferInfo2.presentationTimeUs;
+            long j5 = zb0.j;
+            if (j4 > j5 + 500000) {
+                long j6 = this.l;
+                if (j5 > j6) {
+                    bufferInfo2.presentationTimeUs = j5 + 5000;
                 } else {
-                    encode = "";
+                    bufferInfo2.presentationTimeUs = j6 + 5000;
                 }
-                sb.append(encode);
-                sb.append("=");
-                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
             }
-            return sb.toString();
+            if (zb0.j > this.e.presentationTimeUs + 500000) {
+                zb0.k = 1200;
+            }
+            this.l = this.e.presentationTimeUs;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static Map<String, String> d(String str) {
-        InterceptResult invokeL;
+    public void k(bc0 bc0Var, cc0 cc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split("&")) {
-                String[] split = str2.split("=");
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bc0Var, cc0Var) == null) {
+            boolean z = false;
+            if (bc0Var != null && cc0Var != null) {
+                this.c = cc0Var;
+                MediaFormat mediaFormat = new MediaFormat();
+                mediaFormat.setString("mime", bc0Var.c());
+                mediaFormat.setInteger("aac-profile", 2);
+                mediaFormat.setInteger("sample-rate", bc0Var.e());
+                mediaFormat.setInteger("channel-count", bc0Var.b());
+                mediaFormat.setInteger("bitrate", bc0Var.a());
+                mediaFormat.setInteger("max-input-size", bc0Var.d());
                 try {
-                    hashMap.put(URLDecoder.decode(split[0], "UTF-8"), split.length > 1 ? URLDecoder.decode(split[1], "UTF-8") : "");
-                } catch (UnsupportedEncodingException unused) {
+                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(bc0Var.c());
+                    this.d = createEncoderByType;
+                    createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
+                    if (!bc0Var.p()) {
+                        this.g = true;
+                    } else {
+                        this.g = false;
+                    }
+                    z = true;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-            return hashMap;
+            ac0 ac0Var = this.f;
+            if (ac0Var != null) {
+                ac0Var.b(z);
+            }
         }
-        return (Map) invokeL.objValue;
     }
 }

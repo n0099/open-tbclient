@@ -58,8 +58,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
-import com.repackage.bb0;
-import com.repackage.cb0;
+import com.repackage.o90;
+import com.repackage.p90;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Constructor;
@@ -79,7 +79,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public static final Pools.Pool<Rect> y;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<View> a;
-    public final bb0<View> b;
+    public final o90<View> b;
     public final List<View> c;
     public final List<View> d;
     public Paint e;
@@ -1260,7 +1260,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public void n(View view2, Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048612, this, view2, rect) == null) {
-            cb0.a(this, view2, rect);
+            p90.a(this, view2, rect);
         }
     }
 
@@ -2206,7 +2206,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
         this.a = new ArrayList();
-        this.b = new bb0<>();
+        this.b = new o90<>();
         this.c = new ArrayList();
         this.d = new ArrayList();
         this.f = new int[2];
