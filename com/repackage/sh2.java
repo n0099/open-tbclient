@@ -1,48 +1,107 @@
 package com.repackage;
 
+import android.content.Context;
+import android.view.Surface;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class sh2 extends oe2<qh2> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sh2 extends ed2 {
 
-    public sh2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(int i);
+
+        void b(int i);
+
+        void c(String str);
+
+        void d(@NonNull String str);
+
+        void e(String str);
+
+        void f();
+
+        void onEnded();
+
+        void onError(int i);
+
+        void onPrepared();
+
+        void onRelease(String str);
     }
 
-    @Override // com.repackage.oe2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "release" : (String) invokeV.objValue;
-    }
+    void B(boolean z);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.oe2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull qh2 qh2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, qh2Var) == null) {
-            d(qh2Var, command.what, null, false);
-            qh2Var.release();
-        }
-    }
+    void C();
+
+    void G(int i);
+
+    void H();
+
+    void L(int i, int i2, int i3, int i4);
+
+    void N(ZeusPluginFactory.Invoker invoker);
+
+    boolean O(String str, String str2, String str3, boolean z);
+
+    boolean P();
+
+    a Q();
+
+    void T(Map map);
+
+    void U();
+
+    void W();
+
+    int a();
+
+    void b0(String str);
+
+    String c();
+
+    void c0();
+
+    ZeusPluginFactory.Invoker f0();
+
+    void g0(int i);
+
+    Context getContext();
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    int getVideoHeight();
+
+    int getVideoSarDen();
+
+    int getVideoSarNum();
+
+    int getVideoWidth();
+
+    void h0(@NonNull a aVar);
+
+    boolean isPlaying();
+
+    boolean j0();
+
+    void l(boolean z);
+
+    void n0();
+
+    void pause();
+
+    boolean prepareAsync();
+
+    void release();
+
+    void seekTo(int i);
+
+    void setSpeed(float f);
+
+    void setSurface(Surface surface);
+
+    void start();
 }

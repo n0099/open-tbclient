@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wp4;
-import com.repackage.zn4;
+import com.repackage.lo4;
+import com.repackage.om4;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
 /* loaded from: classes3.dex */
-public class SpecialColumnListData extends zn4 implements Parcelable {
+public class SpecialColumnListData extends om4 implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -119,14 +119,14 @@ public class SpecialColumnListData extends zn4 implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mListData : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.zn4
-    public wp4 getNegFeedBackData() {
+    @Override // com.repackage.om4
+    public lo4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (wp4) invokeV.objValue;
+        return (lo4) invokeV.objValue;
     }
 
     public List<SpecialColumnItemData> getResultData() {
@@ -135,7 +135,7 @@ public class SpecialColumnListData extends zn4 implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mResultListData : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.zn4
+    @Override // com.repackage.om4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -151,7 +151,7 @@ public class SpecialColumnListData extends zn4 implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.jn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,25 +1,73 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface db1 {
-    void a();
+public abstract class db1<T> implements eb1<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean DEBUG;
+    public transient /* synthetic */ FieldHolder $fh;
+    public T mCachedInstance;
 
-    void b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755773282, "Lcom/repackage/db1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755773282, "Lcom/repackage/db1;");
+                return;
+            }
+        }
+        DEBUG = AppConfig.isDebug();
+    }
 
-    void c(String str);
+    public db1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    boolean d(String str);
+    public abstract T createService() throws ServiceNotFoundException;
 
-    void e();
-
-    void f(wd1 wd1Var);
-
-    void g();
-
-    @NonNull
-    ViewGroup h();
-
-    void onAdShow();
+    @Override // com.repackage.eb1
+    public final T getService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (this.mCachedInstance == null) {
+                    try {
+                        this.mCachedInstance = createService();
+                    } catch (ServiceNotFoundException e) {
+                        if (DEBUG) {
+                            e.printStackTrace();
+                            throw e;
+                        }
+                    }
+                }
+            }
+            return this.mCachedInstance;
+        }
+        return (T) invokeV.objValue;
+    }
 }

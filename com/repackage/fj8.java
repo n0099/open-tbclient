@@ -1,35 +1,74 @@
 package com.repackage;
 
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes6.dex */
+import tbclient.GetIconList.Setting;
+import tbclient.GetIconList.UserInfo;
+/* loaded from: classes5.dex */
 public class fj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public gj8 f;
-    public String g;
-    public int h;
-    public List<String> i;
 
-    public fj8() {
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i < 0) {
+                i = 0;
             }
+            String valueOf = String.valueOf(i);
+            if (i >= 1000000) {
+                float f = i / 10000.0f;
+                int i2 = i / 10000;
+                if (f > i2) {
+                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14b3);
+                }
+                return i2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14b3);
+            }
+            return valueOf;
         }
+        return (String) invokeI.objValue;
+    }
+
+    public static String b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            String valueOf = String.valueOf(j);
+            if (j >= 1000000) {
+                float f = ((float) j) / 10000.0f;
+                long j2 = j / 10000;
+                if (f > ((float) j2)) {
+                    return String.format("%.1f", Float.valueOf(f)) + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14b3);
+                }
+                return j2 + TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f14b3);
+            }
+            return valueOf;
+        }
+        return (String) invokeJ.objValue;
+    }
+
+    public static int c(UserInfo userInfo, int i, Setting setting) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, userInfo, i, setting)) == null) {
+            if (userInfo == null || userInfo.is_mem == null) {
+                return 0;
+            }
+            return userInfo.is_mem.intValue() != 2 ? i : (setting == null || setting.vip_extra_switch.intValue() != 1 || setting.vip_extra_percent.intValue() <= 0) ? i : ((setting.vip_extra_percent.intValue() * i) / 100) + i;
+        }
+        return invokeLIL.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (int) (i / 100.0f) : invokeI.intValue;
     }
 }

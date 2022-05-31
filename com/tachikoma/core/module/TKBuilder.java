@@ -13,7 +13,7 @@ import com.tachikoma.core.api.IRequestDelegateInner;
 import com.tachikoma.core.api.IWebImageHandlerInner;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "TKBuilder";

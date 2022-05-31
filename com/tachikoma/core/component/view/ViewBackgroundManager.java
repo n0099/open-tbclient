@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import com.tachikoma.core.utility.TKUtility;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ViewBackgroundManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

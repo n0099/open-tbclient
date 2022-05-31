@@ -1,22 +1,18 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.content.res.AssetFileDescriptor;
-import android.content.res.AssetManager;
-import android.content.res.ColorStateList;
-import android.content.res.Configuration;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.content.res.XmlResourceParser;
-import android.graphics.Movie;
-import android.graphics.drawable.Drawable;
-import android.os.Environment;
-import android.text.TextUtils;
-import android.util.AttributeSet;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,17 +20,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.InputStream;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
-public class ex extends Resources {
+/* loaded from: classes5.dex */
+public class ex extends tw {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, qx<String, Integer>> d;
+    public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Resources a;
-    public String b;
-    public Resources c;
+    public ItemCardView h;
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(ex exVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {exVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001440, view2));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,562 +70,136 @@ public class ex extends Resources {
                 return;
             }
         }
-        String str = Environment.getRootDirectory().toString() + File.separator + "baidu/flyflow/plugin_asset";
-        d = new HashMap<>();
+        i = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ex(Resources resources, AssetManager assetManager, DisplayMetrics displayMetrics, Configuration configuration) {
-        super(assetManager, displayMetrics, configuration);
+    public ex(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {resources, assetManager, displayMetrics, configuration};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((AssetManager) objArr2[0], (DisplayMetrics) objArr2[1], (Configuration) objArr2[2]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = resources;
-        new HashMap();
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().l instanceof ItemCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().l.getParent() == null) {
+            this.h = (ItemCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().l;
+        } else {
+            this.h = new ItemCardView(context);
+        }
+        y();
+        r(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
-    public int a(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.mw
+    public View g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (!TextUtils.isEmpty(this.b) && !this.b.equals("com.baidu.browser.theme.default")) {
-                try {
-                    String resourceEntryName = this.c.getResourceEntryName(i);
-                    String resourceTypeName = this.c.getResourceTypeName(i);
-                    qx<String, Integer> qxVar = d.get(resourceTypeName);
-                    if (qxVar == null) {
-                        qxVar = new qx<>(100);
-                        d.put(resourceTypeName, qxVar);
-                    }
-                    Integer c = qxVar.c(resourceEntryName);
-                    if (c == null) {
-                        c = Integer.valueOf(this.a.getIdentifier(resourceEntryName, resourceTypeName, this.b));
-                        if (c.intValue() != 0) {
-                            qxVar.d(resourceEntryName, c);
-                        }
-                    }
-                    return c.intValue();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.cx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
+            this.h.G();
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            r(i);
+            q(0);
+            x(this.h, i, 0);
+        }
+    }
+
+    public int t(ItemData itemData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, itemData)) == null) {
+            ItemCardView itemCardView = this.h;
+            if (itemCardView != null) {
+                return itemCardView.z(itemData);
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ItemCardView itemCardView = this.h;
+            if (itemCardView != null) {
+                return itemCardView.getPosition();
             }
             return 0;
         }
-        return invokeI.intValue;
+        return invokeV.intValue;
     }
 
-    @Override // android.content.res.Resources
-    public XmlResourceParser getAnimation(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bx
+    /* renamed from: v */
+    public void a(om4 om4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getAnimation(a);
+        if (interceptable == null || interceptable.invokeL(1048582, this, om4Var) == null) {
+            if (om4Var != null && om4Var.getThreadData() != null && om4Var.getThreadData().getItem() != null) {
+                this.h.setVisibility(0);
+                this.h.setData(om4Var.getThreadData().itemData, 13, om4Var.getThreadData().tid);
+                return;
             }
-            return this.c.getAnimation(i);
+            this.h.setVisibility(8);
         }
-        return (XmlResourceParser) invokeI.objValue;
     }
 
-    @Override // android.content.res.Resources
-    public boolean getBoolean(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
+    public void w(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.c.getBoolean(i) : invokeI.booleanValue;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.h.setIsShowRightBtn(z);
+        }
     }
 
-    @Override // android.content.res.Resources
-    public int getColor(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
+    public final void x(View view2, int i2, int i3) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? getColor(i, null) : invokeI.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public ColorStateList getColorStateList(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? getColorStateList(i, null) : (ColorStateList) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public Configuration getConfiguration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c.getConfiguration() : (Configuration) invokeV.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public float getDimension(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDimension(a);
+        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i2, i3) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin == i2 && marginLayoutParams.bottomMargin == i3) {
+                return;
             }
-            return this.c.getDimension(i);
-        }
-        return invokeI.floatValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int getDimensionPixelOffset(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDimensionPixelOffset(a);
-            }
-            return this.c.getDimensionPixelOffset(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int getDimensionPixelSize(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDimensionPixelSize(a);
-            }
-            return this.c.getDimensionPixelSize(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public Drawable getDrawable(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDrawable(a);
-            }
-            return this.c.getDrawable(i);
-        }
-        return (Drawable) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    @TargetApi(15)
-    public Drawable getDrawableForDensity(int i, int i2) throws Resources.NotFoundException {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i, i2)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDrawableForDensity(a, i2);
-            }
-            return this.c.getDrawableForDensity(i, i2);
-        }
-        return (Drawable) invokeII.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public float getFraction(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048590, this, i, i2, i3)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getFraction(a, i2, i3);
-            }
-            return this.c.getFraction(i, i2, i3);
-        }
-        return invokeIII.floatValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int[] getIntArray(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getIntArray(a);
-            }
-            return this.c.getIntArray(i);
-        }
-        return (int[]) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int getInteger(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getInteger(a);
-            }
-            return this.c.getInteger(i);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public XmlResourceParser getLayout(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getLayout(a);
-            }
-            return this.c.getLayout(i);
-        }
-        return (XmlResourceParser) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public Movie getMovie(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getMovie(a);
-            }
-            return this.c.getMovie(i);
-        }
-        return (Movie) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getQuantityString(int i, int i2) throws Resources.NotFoundException {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getQuantityString(a, i2);
-            }
-            return this.c.getQuantityString(i, i2);
-        }
-        return (String) invokeII.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public CharSequence getQuantityText(int i, int i2) throws Resources.NotFoundException {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048597, this, i, i2)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getQuantityText(a, i2);
-            }
-            return this.c.getQuantityText(i, i2);
-        }
-        return (CharSequence) invokeII.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getResourceEntryName(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) ? this.c.getResourceEntryName(i) : (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getResourceName(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) ? this.c.getResourceName(i) : (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getResourcePackageName(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) ? this.c.getResourcePackageName(i) : (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getResourceTypeName(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) ? this.c.getResourceTypeName(i) : (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getString(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getString(a);
-            }
-            return this.c.getString(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String[] getStringArray(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getStringArray(a);
-            }
-            return this.c.getStringArray(i);
-        }
-        return (String[]) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public CharSequence getText(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getText(a);
-            }
-            return this.c.getText(i);
-        }
-        return (CharSequence) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public CharSequence[] getTextArray(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getTextArray(a);
-            }
-            return this.c.getTextArray(i);
-        }
-        return (CharSequence[]) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public void getValue(int i, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i), typedValue, Boolean.valueOf(z)}) == null) {
-            int a = a(i);
-            if (a != 0) {
-                this.a.getValue(a, typedValue, z);
-            } else {
-                this.c.getValue(i, typedValue, z);
-            }
+            marginLayoutParams.topMargin = i2;
+            marginLayoutParams.bottomMargin = i3;
+            view2.setLayoutParams(marginLayoutParams);
         }
     }
 
-    @Override // android.content.res.Resources
-    @TargetApi(15)
-    public void getValueForDensity(int i, int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
+    public final void y() {
+        ItemCardView itemCardView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), typedValue, Boolean.valueOf(z)}) == null) {
-            int a = a(i);
-            if (a != 0) {
-                this.a.getValueForDensity(a, i2, typedValue, z);
-            } else {
-                this.c.getValueForDensity(i, i2, typedValue, z);
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (itemCardView = this.h) == null) {
+            return;
         }
+        itemCardView.setOnClickListenerOfRightBtn(new a(this));
     }
 
-    @Override // android.content.res.Resources
-    public XmlResourceParser getXml(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
+    public void z(int i2) {
+        ItemCardView itemCardView;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) ? this.c.getXml(i) : (XmlResourceParser) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public TypedArray obtainAttributes(AttributeSet attributeSet, int[] iArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048612, this, attributeSet, iArr)) == null) ? this.c.obtainAttributes(attributeSet, iArr) : (TypedArray) invokeLL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public TypedArray obtainTypedArray(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) ? this.c.obtainTypedArray(i) : (TypedArray) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public InputStream openRawResource(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) {
-            int a = a(i);
-            if (a != 0 && (resources = this.a) != null) {
-                try {
-                    InputStream openRawResource = resources.openRawResource(a);
-                    if (openRawResource != null) {
-                        return openRawResource;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return this.c.openRawResource(i);
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (itemCardView = this.h) == null) {
+            return;
         }
-        return (InputStream) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public AssetFileDescriptor openRawResourceFd(int i) throws Resources.NotFoundException {
-        InterceptResult invokeI;
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i)) == null) {
-            int a = a(i);
-            if (a != 0 && (resources = this.a) != null) {
-                try {
-                    AssetFileDescriptor openRawResourceFd = resources.openRawResourceFd(a);
-                    if (openRawResourceFd != null) {
-                        return openRawResourceFd;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return this.c.openRawResourceFd(i);
-        }
-        return (AssetFileDescriptor) invokeI.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public int getColor(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, theme)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getColor(a);
-            }
-            return this.c.getColor(i);
-        }
-        return invokeIL.intValue;
-    }
-
-    @Override // android.content.res.Resources
-    public ColorStateList getColorStateList(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, theme)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getColorStateList(a);
-            }
-            return this.c.getColorStateList(i);
-        }
-        return (ColorStateList) invokeIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    @TargetApi(21)
-    public Drawable getDrawable(int i, Resources.Theme theme) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, theme)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getDrawable(a, null);
-            }
-            return this.c.getDrawable(i, theme);
-        }
-        return (Drawable) invokeIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getQuantityString(int i, int i2, Object... objArr) throws Resources.NotFoundException {
-        InterceptResult invokeIIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i, i2, objArr)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getQuantityString(a, i2, objArr);
-            }
-            return this.c.getQuantityString(i, i2, objArr);
-        }
-        return (String) invokeIIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public String getString(int i, Object... objArr) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, objArr)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getString(a, objArr);
-            }
-            return this.c.getString(i, objArr);
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public CharSequence getText(int i, CharSequence charSequence) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i, charSequence)) == null) {
-            int a = a(i);
-            if (a != 0) {
-                return this.a.getText(a, charSequence);
-            }
-            return this.c.getText(i, charSequence);
-        }
-        return (CharSequence) invokeIL.objValue;
-    }
-
-    @Override // android.content.res.Resources
-    public void getValue(String str, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048609, this, str, typedValue, z) == null) {
-            this.c.getValue(str, typedValue, z);
-        }
-    }
-
-    @Override // android.content.res.Resources
-    public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
-        InterceptResult invokeIL;
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i, typedValue)) == null) {
-            int a = a(i);
-            if (a != 0 && (resources = this.a) != null) {
-                try {
-                    InputStream openRawResource = resources.openRawResource(a, typedValue);
-                    if (openRawResource != null) {
-                        return openRawResource;
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return this.c.openRawResource(i, typedValue);
-        }
-        return (InputStream) invokeIL.objValue;
+        itemCardView.setPosition(i2);
     }
 }

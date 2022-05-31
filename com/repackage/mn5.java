@@ -1,17 +1,18 @@
 package com.repackage;
 
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mn5 extends ProviderDelegation {
+public class mn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SdkLiveInfoData a;
 
     public mn5() {
         Interceptable interceptable = $ic;
@@ -27,15 +28,23 @@ public class mn5 extends ProviderDelegation {
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("result", nn5.b(AppRuntime.getAppContext()));
-            return bundle2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a != null && jg.g(this.a.liveId, 0L) > 0;
         }
-        return (Bundle) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void b(JSONObject jSONObject, String str) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("live_info")) == null) {
+            return;
+        }
+        SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
+        this.a = sdkLiveInfoData;
+        sdkLiveInfoData.fromJson(optJSONObject, str);
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.nh8;
-/* loaded from: classes4.dex */
+import com.repackage.oe8;
+/* loaded from: classes3.dex */
 public class StampMissionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public class StampMissionModel extends BdBaseModel {
     public boolean b;
     public HttpMessageListener c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,11 +72,11 @@ public class StampMissionModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a();
 
-        void b(nh8 nh8Var);
+        void b(oe8 oe8Var);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

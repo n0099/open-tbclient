@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nd7;
-import com.repackage.qd7;
+import com.repackage.bb7;
+import com.repackage.eb7;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
@@ -18,7 +18,7 @@ public class OnePicInfoCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String desc;
-    public final List<nd7> iconList;
+    public final List<bb7> iconList;
     public final String pic;
     public final int tBgColor;
     public final int tBgColorN;
@@ -45,20 +45,20 @@ public class OnePicInfoCard extends BaseCardInfo {
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = qd7.b(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = qd7.b(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = eb7.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = eb7.b(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
         this.iconList = new ArrayList(length);
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject != null) {
-                nd7 nd7Var = new nd7();
-                nd7Var.c = optJSONObject.optInt("type");
-                nd7Var.a = optJSONObject.optString("url");
-                nd7Var.b = optJSONObject.optString("urlNight");
-                nd7Var.d = optJSONObject.optString("content", "");
-                this.iconList.add(nd7Var);
+                bb7 bb7Var = new bb7();
+                bb7Var.c = optJSONObject.optInt("type");
+                bb7Var.a = optJSONObject.optString("url");
+                bb7Var.b = optJSONObject.optString("urlNight");
+                bb7Var.d = optJSONObject.optString("content", "");
+                this.iconList.add(bb7Var);
             }
         }
     }
@@ -69,7 +69,7 @@ public class OnePicInfoCard extends BaseCardInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.desc : (String) invokeV.objValue;
     }
 
-    public List<nd7> getIconList() {
+    public List<bb7> getIconList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.iconList : (List) invokeV.objValue;

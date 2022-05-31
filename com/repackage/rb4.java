@@ -2,137 +2,127 @@ package com.repackage;
 
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import java.util.Set;
-/* loaded from: classes7.dex */
-public class rb4 extends yb4 {
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class rb4 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, sb4> a;
+    public static HashMap<String, sb4> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> d;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public long b;
-        public long c;
-
-        public a(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 6;
-            }
-            return invokeV.intValue;
-        }
-
-        public long c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
-        }
-
-        public long d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.longValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                if (super.equals(obj)) {
-                    return true;
-                }
-                if (obj instanceof a) {
-                    a aVar = (a) obj;
-                    return TextUtils.equals(this.a, aVar.a) && this.b == aVar.b && this.c == aVar.c;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void f(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                this.b = j;
-                this.c = j2;
-            }
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Objects.hash(this.a, Long.valueOf(this.b), Long.valueOf(this.c)) : invokeV.intValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rb4(Set<a> set) {
-        super(-1);
+    public rb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {set};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = set;
     }
 
-    public Set<a> f() {
+    @NonNull
+    public static sb4 a(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a == null) {
+                synchronized (rb4.class) {
+                    if (a == null) {
+                        HashMap<String, sb4> hashMap = new HashMap<>();
+                        a = hashMap;
+                        e(hashMap, "download_api_ctrl");
+                    }
+                }
+            }
+            return c(str, a);
+        }
+        return (sb4) invokeL.objValue;
+    }
+
+    @NonNull
+    public static sb4 b(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (b == null) {
+                synchronized (rb4.class) {
+                    if (b == null) {
+                        HashMap<String, sb4> hashMap = new HashMap<>();
+                        b = hashMap;
+                        e(hashMap, "preload_api_ctrl");
+                    }
+                }
+            }
+            return c(str, b);
+        }
+        return (sb4) invokeL.objValue;
+    }
+
+    @NonNull
+    public static sb4 c(@Nullable String str, @NonNull HashMap<String, sb4> hashMap) {
+        InterceptResult invokeLL;
+        sb4 sb4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, hashMap)) == null) {
+            if (TextUtils.isEmpty(str) || (sb4Var = hashMap.get(str)) == null) {
+                sb4 sb4Var2 = hashMap.get("default");
+                return sb4Var2 != null ? sb4Var2 : sb4.a();
+            }
+            return sb4Var;
+        }
+        return (sb4) invokeLL.objValue;
+    }
+
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? q64.c().a("SwanDownloadApiStrategy").getString("version", "0") : (String) invokeV.objValue;
+    }
+
+    public static void e(@NonNull HashMap<String, sb4> hashMap, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, hashMap, str) == null) {
+            try {
+                JSONObject optJSONObject = new JSONObject(q64.c().a("SwanDownloadApiStrategy").getString("data", StringUtil.EMPTY_ARRAY)).optJSONObject(str);
+                if (optJSONObject != null) {
+                    Iterator<String> keys = optJSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!TextUtils.isEmpty(next)) {
+                            hashMap.put(next, sb4.b(optJSONObject.optJSONObject(next)));
+                        }
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void f(@Nullable JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+        if4 a2 = q64.c().a("SwanDownloadApiStrategy");
+        a2.putString("version", optString);
+        a2.putString("data", optJSONObject != null ? optJSONObject.toString() : null);
     }
 }

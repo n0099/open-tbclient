@@ -34,7 +34,7 @@ public class DebugCriusActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             CriusLoader.init(this);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0033);
+            setContentView(R.layout.obfuscated_res_0x7f0d0032);
         }
     }
 }

@@ -1,212 +1,279 @@
 package com.repackage;
 
-import android.text.Editable;
-import android.text.Spannable;
-import android.text.Spanned;
 import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
-import android.widget.EditText;
+import android.util.Base64InputStream;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.regex.Pattern;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vz8 {
+public abstract class vz8 implements p09 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
+    public c19 a;
     public String b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755213763, "Lcom/repackage/vz8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755213763, "Lcom/repackage/vz8;");
+                return;
+            }
+        }
+        c = w09.m();
+    }
 
     public vz8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new c19();
+        this.b = "";
     }
 
-    public boolean a(EditText editText) {
-        InterceptResult invokeL;
-        Editable text;
+    @Override // com.repackage.p09
+    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
-            if (editText == null || (text = editText.getText()) == null) {
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? i(this.b, jSONObject, z, z2) : invokeCommon.booleanValue;
+    }
+
+    @Override // com.repackage.p09
+    public boolean b(File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(this.b, file, j, z, z2) : invokeCommon.booleanValue;
+    }
+
+    public final HashMap<String, String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>(2);
+            hashMap.put("Content-type", "application/x-www-form-urlencoded");
+            hashMap.put(BaseContentUploader.NB, "1");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final String d(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = w09.k(z);
+            }
+            return this.b;
+        }
+        return (String) invokeZ.objValue;
+    }
+
+    public final String e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            boolean isUBCDebug = this.a.isUBCDebug();
+            if (TextUtils.isEmpty(str)) {
+                str = d(isUBCDebug);
+            }
+            if (z2) {
+                c2 = w09.h(str);
+            } else {
+                c2 = w09.c(str);
+            }
+            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
+                c2 = c29.a(c2, "debug", "1");
+            }
+            if (z) {
+                c2 = c29.a(c2, "reallog", "1");
+            }
+            return b09.o().E() ? c29.a(c2, "beta", "1") : c2;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final boolean f(z09 z09Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, z09Var)) == null) {
+            if (z09Var == null) {
                 return false;
             }
-            int d = d(text);
-            if (d > 0) {
-                editText.requestFocus();
-                editText.setSelection(d);
-                return true;
+            if (!z09Var.e()) {
+                if (c) {
+                    Log.d("UploadManager", "postByteRequest, fail: " + z09Var.d());
+                } else {
+                    y09.a().i(z09Var.d(), null);
+                }
+                if (b09.o().M()) {
+                    g(z09Var.c());
+                }
+                z09Var.a();
+                return false;
             }
-            editText.setSelection(editText.getSelectionEnd());
-            return false;
+            try {
+                int i = new JSONObject(z09Var.b()).getInt("error");
+                if (i != 0) {
+                    if (c) {
+                        Log.d("UploadManager", "server error");
+                    }
+                    if (!c) {
+                        y09.a().k(i);
+                    }
+                }
+            } catch (Exception e) {
+                if (c) {
+                    Log.d("UploadManager", "body tostring fail:" + e.getMessage());
+                } else {
+                    y09.a().j(Log.getStackTraceString(e));
+                }
+            }
+            z09Var.a();
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean b(EditText editText, EditText editText2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void g(int i) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
-            if (ListUtils.isEmpty(c())) {
-                return false;
+        if (interceptable != null && interceptable.invokeI(1048582, this, i) != null) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        boolean z = true;
+        if (i == 403 || i == 408 || i == 499) {
+            j = 60000;
+        } else if (i < 500 || i >= 600) {
+            z = false;
+            if (z) {
+                return;
             }
-            return a(editText) || a(editText2);
+            b09.o().Z(currentTimeMillis);
+            return;
+        } else {
+            j = 300000;
         }
-        return invokeLL.booleanValue;
+        currentTimeMillis += j;
+        if (z) {
+        }
     }
 
-    public ArrayList<String> c() {
-        InterceptResult invokeV;
+    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public int d(Spanned spanned) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
-            if (spanned == null) {
-                return 0;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) != null) {
+            return invokeCommon.booleanValue;
+        }
+        if (file == null || !file.exists()) {
+            return false;
+        }
+        String e = e(str, z, z2);
+        HashMap<String, String> c2 = c();
+        if (d19.m().p() && j > 0) {
+            c2.put("Content-Length", String.valueOf(j));
+        }
+        InputStream inputStream2 = null;
+        try {
+            inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
+            try {
+                try {
+                    boolean f = f(j(e, inputStream, c2));
+                    x19.b(inputStream);
+                    return f;
+                } catch (Exception e2) {
+                    e = e2;
+                    if (c) {
+                        Log.d("UploadManager", "postByteRequest, Exception: ", e);
+                    } else {
+                        y09.a().i(null, Log.getStackTraceString(e));
+                    }
+                    x19.b(inputStream);
+                    return false;
+                }
+            } catch (Throwable th) {
+                th = th;
+                inputStream2 = inputStream;
+                x19.b(inputStream2);
+                throw th;
             }
-            BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
-            int length = spanned.length();
-            return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? length : spanned.getSpanEnd(backgroundColorSpanArr[0]);
+        } catch (Exception e3) {
+            e = e3;
+            inputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return invokeL.intValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        byte[] a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public boolean f(Spannable spannable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, spannable)) == null) ? Pattern.compile("@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+").matcher(spannable).find() : invokeL.booleanValue;
-    }
-
-    public void g(EditText editText, boolean z) {
-        Editable text;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, editText, z) == null) || editText == null || (text = editText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (jSONObject != null && (a = z19.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
+                a[0] = ContentUtil.GZIP_HEAD_1;
+                a[1] = ContentUtil.GZIP_HEAD_2;
+                String e = e(str, z, z2);
+                HashMap<String, String> c2 = c();
+                if (d19.m().p()) {
+                    c2.put("Content-Length", String.valueOf(a.length));
+                }
+                try {
+                    return f(k(e, a, c2));
+                } catch (IOException e2) {
+                    if (c) {
+                        Log.d("UploadManager", "postByteRequest, Exception: ", e2);
+                    } else {
+                        y09.a().i(null, Log.getStackTraceString(e2));
+                    }
+                }
             }
+            return false;
         }
-        yc5.j(text);
-        k(text);
+        return invokeCommon.booleanValue;
     }
 
-    public void h(SpanGroupEditText spanGroupEditText) {
-        Editable text;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, spanGroupEditText) == null) || spanGroupEditText == null || (text = spanGroupEditText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
-            }
-        }
-        yc5.k(spanGroupEditText);
-    }
+    public abstract z09 j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
 
-    public void i(EditText editText, EditText editText2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, editText2) == null) {
-            j(editText, true);
-            j(editText2, false);
-            b(editText, editText2);
-        }
-    }
-
-    public void j(EditText editText, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048585, this, editText, z) == null) || editText == null) {
-            return;
-        }
-        g(editText, z);
-    }
-
-    public final void k(Spannable spannable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, spannable) == null) || spannable == null || ListUtils.isEmpty(this.a)) {
-            return;
-        }
-        String obj = spannable.toString();
-        if (TextUtils.isEmpty(obj)) {
-            return;
-        }
-        Iterator<String> it = this.a.iterator();
-        while (it.hasNext()) {
-            l(spannable, obj, it.next());
-        }
-    }
-
-    public final void l(Spannable spannable, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048587, this, spannable, str, str2) == null) || spannable == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        int indexOf = str.indexOf(str2);
-        int length = str2.length();
-        while (indexOf >= 0) {
-            int i = indexOf + length;
-            int color = SkinManager.getColor(R.color.CAM_X0101);
-            int color2 = SkinManager.getColor(R.color.cp_cont_h_alpha85);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
-            BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
-            spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
-            spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
-            indexOf = str.indexOf(str2, i);
-        }
-    }
-
-    public void m(EditText editText, EditText editText2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, editText, editText2) == null) {
-            i(editText, editText2);
-        }
-    }
-
-    public void n(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, arrayList) == null) {
-            this.a = arrayList;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.b = str;
-        }
-    }
+    public abstract z09 k(String str, byte[] bArr, Map<String, String> map) throws IOException;
 }

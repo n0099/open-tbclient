@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.ki;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -75,7 +75,7 @@ public class StatisticItem {
     public void delete(String str) {
         int indexOf;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || li.isEmpty(str) || (indexOf = this.params.indexOf(str)) < 0 || this.params.size() <= indexOf + 1) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || ki.isEmpty(str) || (indexOf = this.params.indexOf(str)) < 0 || this.params.size() <= indexOf + 1) {
             return;
         }
         this.params.remove(indexOf);
@@ -129,7 +129,7 @@ public class StatisticItem {
         InterceptResult invokeL;
         int indexOf;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? !li.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? !ki.isEmpty(str) && (indexOf = this.params.indexOf(str)) >= 0 && this.params.size() > indexOf + 1 : invokeL.booleanValue;
     }
 
     public StatisticItem key(String str) {

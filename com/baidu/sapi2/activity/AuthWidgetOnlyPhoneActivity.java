@@ -9,7 +9,6 @@ import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.dto.PassNameValuePair;
 import com.baidu.sapi2.result.SapiResult;
-import com.baidu.tbadk.core.atomData.YoungsterVerifyActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -79,7 +78,7 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d04d4);
+            setContentView(R.layout.obfuscated_res_0x7f0d04ca);
             this.t = getIntent().getStringExtra("EXTRA_PARAM_AUTH_ID");
             this.u = getIntent().getStringExtra(EXTRA_PARAM_SCENE);
             init();
@@ -251,7 +250,7 @@ public class AuthWidgetOnlyPhoneActivity extends BaseActivity {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new PassNameValuePair("u", w));
             arrayList.add(new PassNameValuePair("scene", this.u));
-            arrayList.add(new PassNameValuePair(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, this.t));
+            arrayList.add(new PassNameValuePair("authid", this.t));
             this.sapiWebView.loadAuthWidget(arrayList);
         }
     }

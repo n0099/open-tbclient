@@ -289,7 +289,7 @@ public class ImageClipActivity extends Activity {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d04c4);
+            setContentView(R.layout.obfuscated_res_0x7f0d04ba);
             this.e = getIntent().getIntExtra(EXTRA_PARAM_FROM_BUSINESS, 0);
             int intExtra = getIntent().getIntExtra(EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, 512);
             this.f = intExtra;
@@ -297,8 +297,8 @@ public class ImageClipActivity extends Activity {
                 this.f = 512;
             }
             this.f *= 1024;
-            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091b6d);
-            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091b6b);
+            this.h = (ClipBoxView) findViewById(R.id.obfuscated_res_0x7f091b1b);
+            this.i = (ZoomImageView) findViewById(R.id.obfuscated_res_0x7f091b19);
             if (this.e == 1) {
                 ClipBoxView clipBoxView = this.h;
                 clipBoxView.E = ClipBoxView.G;
@@ -309,9 +309,9 @@ public class ImageClipActivity extends Activity {
                 clipBoxView2.E = ClipBoxView.G;
                 clipBoxView2.F = false;
             }
-            setPendingTransition(R.anim.obfuscated_res_0x7f01010e, R.anim.obfuscated_res_0x7f01010d, R.anim.obfuscated_res_0x7f01010c, R.anim.obfuscated_res_0x7f01010f);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091e29);
-            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f090493);
+            setPendingTransition(R.anim.obfuscated_res_0x7f010110, R.anim.obfuscated_res_0x7f01010f, R.anim.obfuscated_res_0x7f01010e, R.anim.obfuscated_res_0x7f010111);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091dcf);
+            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f09048e);
             if (Build.VERSION.SDK_INT >= 19) {
                 b(getIntent());
             } else {

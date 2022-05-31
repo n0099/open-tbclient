@@ -24,13 +24,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j15;
-import com.repackage.mi;
-import com.repackage.r15;
-import com.repackage.w05;
-import com.repackage.yu4;
+import com.repackage.f05;
+import com.repackage.li;
+import com.repackage.n05;
+import com.repackage.ot4;
+import com.repackage.sz4;
 /* loaded from: classes3.dex */
-public class SendNoLaunchView extends FrameLayout implements j15 {
+public class SendNoLaunchView extends FrameLayout implements f05 {
     public static /* synthetic */ Interceptable $ic;
     public static final int j;
     public static final int k;
@@ -78,7 +78,7 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.g(new w05(8, -1, null));
+                this.a.g(new sz4(8, -1, null));
             }
         }
     }
@@ -112,14 +112,14 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.i) {
-                    this.a.g(new w05(1, 3, null));
+                    this.a.g(new sz4(1, 3, null));
                     SendNoLaunchView sendNoLaunchView = this.a;
-                    sendNoLaunchView.g(new w05(14, 0, Integer.valueOf(sendNoLaunchView.getToolId())));
+                    sendNoLaunchView.g(new sz4(14, 0, Integer.valueOf(sendNoLaunchView.getToolId())));
                     return;
                 }
                 BdTopToast bdTopToast = new BdTopToast(this.a.h);
                 bdTopToast.i(false);
-                bdTopToast.h(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f00be));
+                bdTopToast.h(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f00bf));
                 bdTopToast.j((ViewGroup) this.a.getRootView());
             }
         }
@@ -138,11 +138,11 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
                 return;
             }
         }
-        j = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds39);
-        k = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        l = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        m = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
-        n = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds68);
+        j = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds39);
+        k = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        l = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        m = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
+        n = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds68);
         o = 1;
         p = 0;
     }
@@ -226,7 +226,7 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -238,37 +238,37 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.f = new TBSpecificationBtn(getContext());
-            this.f.setLayoutParams(new FrameLayout.LayoutParams(mi.f(getContext(), R.dimen.tbds151) + j, mi.f(getContext(), R.dimen.tbds75) + (k * 2)));
+            this.f.setLayoutParams(new FrameLayout.LayoutParams(li.f(getContext(), R.dimen.tbds151) + j, li.f(getContext(), R.dimen.tbds75) + (k * 2)));
             TBSpecificationBtn tBSpecificationBtn = this.f;
             int i = j;
             int i2 = k;
             tBSpecificationBtn.setPadding(i, i2, 0, i2);
             this.f.setEnabled(false);
             this.f.setTextSize(R.dimen.T_X08);
-            this.f.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1101));
+            this.f.setText(getContext().getString(R.string.obfuscated_res_0x7f0f1112));
             addView(this.f);
             this.f.setVisibility(8);
         }
     }
 
-    @Override // com.repackage.j15
-    public void g(w05 w05Var) {
+    @Override // com.repackage.f05
+    public void g(sz4 sz4Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, w05Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, sz4Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(w05Var);
+        editorTools.A(sz4Var);
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -276,7 +276,7 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -286,15 +286,15 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
         }
     }
 
-    @Override // com.repackage.x05
-    public void onAction(w05 w05Var) {
+    @Override // com.repackage.tz4
+    public void onAction(sz4 sz4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, w05Var) == null) || w05Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sz4Var) == null) || sz4Var == null) {
             return;
         }
-        int i = w05Var.a;
+        int i = sz4Var.a;
         if (i == 4) {
-            Object obj = w05Var.c;
+            Object obj = sz4Var.c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
                 this.c[0] = true;
             } else {
@@ -322,13 +322,13 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
                     this.c[2] = false;
                     break;
                 case 12:
-                    Object obj2 = w05Var.c;
-                    if (obj2 instanceof r15) {
-                        r15 r15Var = (r15) obj2;
-                        WriteImagesInfo writeImagesInfo = r15Var.a;
+                    Object obj2 = sz4Var.c;
+                    if (obj2 instanceof n05) {
+                        n05 n05Var = (n05) obj2;
+                        WriteImagesInfo writeImagesInfo = n05Var.a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.d[0] = r15Var.a.getChosedFiles().size();
+                                this.d[0] = n05Var.a.getChosedFiles().size();
                             } else {
                                 this.d[0] = 0;
                             }
@@ -360,20 +360,20 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
         setSendBtnUseable(this.e);
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             if (this.f != null) {
-                yu4 yu4Var = new yu4();
-                yu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                this.f.setConfig(yu4Var);
+                ot4 ot4Var = new ot4();
+                ot4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                this.f.setConfig(ot4Var);
             }
-            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f08097d, R.color.CAM_X0105, null);
+            WebPManager.setPureDrawable(this.g, R.drawable.obfuscated_res_0x7f080989, R.color.CAM_X0105, null);
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, editorTools) == null) {
@@ -388,7 +388,7 @@ public class SendNoLaunchView extends FrameLayout implements j15 {
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {

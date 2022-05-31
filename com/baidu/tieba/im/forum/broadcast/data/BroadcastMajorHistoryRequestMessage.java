@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import java.util.List;
 import tbclient.CommonReq;
 import tbclient.GetForumBroadcastList.DataReq;
@@ -57,7 +57,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1125common = this.f1003common;
+            builder.f1123common = this.f1003common;
             builder.query_type = Integer.valueOf(this.queryType);
             builder.forum_id = Long.valueOf(this.forumId);
             builder.need_cnt = Integer.valueOf(this.needCount);
@@ -65,7 +65,7 @@ public class BroadcastMajorHistoryRequestMessage extends NetMessage {
             builder.bcast_ids = this.bcastIds;
             builder.staff_id64 = Long.valueOf(this.lastId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             GetForumBroadcastListReqIdl.Builder builder2 = new GetForumBroadcastListReqIdl.Builder();
             builder2.data = builder.build(false);

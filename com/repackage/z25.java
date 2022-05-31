@@ -1,5 +1,7 @@
 package com.repackage;
+
+import com.baidu.tbadk.img.ImageFileInfo;
 /* loaded from: classes7.dex */
 public interface z25 {
-    void a();
+    String a(ImageFileInfo imageFileInfo);
 }

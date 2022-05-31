@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
 import com.meizu.cloud.pushsdk.handler.MzPushMessage;
-import com.repackage.tl9;
+import com.repackage.ni9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -39,7 +39,7 @@ public class e {
                 }
                 c(jSONObject.getString("value"));
             } catch (JSONException e) {
-                tl9.b("SecurityMessage", "covert json error " + e.getMessage());
+                ni9.b("SecurityMessage", "covert json error " + e.getMessage());
             }
         }
 
@@ -81,7 +81,7 @@ public class e {
                             }
                         }
                     } catch (JSONException e) {
-                        tl9.b("SecurityMessage", "parse notification message error " + e.getMessage());
+                        ni9.b("SecurityMessage", "parse notification message error " + e.getMessage());
                         if (TextUtils.isEmpty(null)) {
                             jSONObject = new JSONObject(notificationMessage);
                         }
@@ -102,14 +102,14 @@ public class e {
             }
         } catch (Exception unused2) {
         }
-        tl9.d("SecurityMessage", "encrypt message " + str);
+        ni9.d("SecurityMessage", "encrypt message " + str);
         return str;
     }
 
     public static boolean a(String str, MessageV3 messageV3) {
         String str2;
         e e = e(str);
-        tl9.b("SecurityMessage", "securityMessage " + e);
+        ni9.b("SecurityMessage", "securityMessage " + e);
         if (System.currentTimeMillis() / 1000 > e.a()) {
             str2 = "message expire";
         } else if (!messageV3.getTitle().contains(e.c())) {
@@ -139,7 +139,7 @@ public class e {
         } else {
             str2 = "invalid click type";
         }
-        tl9.b("SecurityMessage", str2);
+        ni9.b("SecurityMessage", str2);
         return false;
     }
 
@@ -166,7 +166,7 @@ public class e {
                 eVar.d(jSONObject.getString("pm"));
             }
         } catch (Exception e) {
-            tl9.b("SecurityMessage", "parse decryptSign error " + e.getMessage());
+            ni9.b("SecurityMessage", "parse decryptSign error " + e.getMessage());
         }
         return eVar;
     }

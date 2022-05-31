@@ -1,51 +1,39 @@
 package com.repackage;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.EditText;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kt7;
-import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes6.dex */
-public abstract class et7<V extends kt7, D extends IBaseDialogData> implements jt7 {
+/* loaded from: classes5.dex */
+public class et7 extends es7<ct7, PbPageNewsInfoHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AlertDialog a;
-    public TbPageContext b;
-    public Context c;
-    public DialogInterface.OnKeyListener d;
-    public DialogInterface.OnCancelListener e;
-    public int f;
-    public boolean g;
-    public V h;
+    public kp7 o;
+    public PbPageNewsInfoHolder.b p;
 
-    /* loaded from: classes6.dex */
-    public class a implements ViewHelper.ViewCallback {
+    /* loaded from: classes5.dex */
+    public class a implements PbPageNewsInfoHolder.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
+        public final /* synthetic */ et7 a;
 
-        public a(et7 et7Var, AtomicBoolean atomicBoolean) {
+        public a(et7 et7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {et7Var, atomicBoolean};
+                Object[] objArr = {et7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,117 +43,77 @@ public abstract class et7<V extends kt7, D extends IBaseDialogData> implements j
                     return;
                 }
             }
-            this.a = atomicBoolean;
+            this.a = et7Var;
         }
 
-        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
-        public boolean onViewFound(View view2) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.pb.pb.main.PbPageNewsInfoHolder.b
+        public void a(ct7 ct7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                if (view2 instanceof EditText) {
-                    this.a.set(true);
-                    return true;
-                }
-                return false;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, ct7Var) == null) || ct7Var == null) {
+                return;
             }
-            return invokeL.booleanValue;
+            ew7.a(this.a.o, ct7Var, ct7Var.h0, 5);
         }
     }
 
-    public et7(TbPageContext tbPageContext, V v, D d) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public et7(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, v, d};
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((pw7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = -1;
-        this.g = false;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.h = v;
-        d(d);
+        this.p = new a(this);
     }
 
-    public void d(D d) {
-        V v;
+    @Override // com.repackage.es7, com.repackage.wm
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        d0(i, view2, viewGroup, (ct7) obj, (PbPageNewsInfoHolder) viewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: c0 */
+    public PbPageNewsInfoHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, d) == null) || (v = this.h) == null) {
-            return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbPageNewsInfoHolder(this.j.getPageContext(), LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d067c, viewGroup, false), this.p) : (PbPageNewsInfoHolder) invokeL.objValue;
+    }
+
+    public View d0(int i, View view2, ViewGroup viewGroup, ct7 ct7Var, PbPageNewsInfoHolder pbPageNewsInfoHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ct7Var, pbPageNewsInfoHolder})) == null) {
+            super.S(i, view2, viewGroup, ct7Var, pbPageNewsInfoHolder);
+            if (ct7Var == null) {
+                return view2;
+            }
+            ct7Var.h0 = i + 1;
+            ew7.d(this.j.getUniqueId(), this.o, ct7Var, ct7Var.h0, 5);
+            pbPageNewsInfoHolder.i(ct7Var);
+            pbPageNewsInfoHolder.j(TbadkCoreApplication.getInst().getSkinType());
+            return view2;
         }
-        v.b(d);
+        return (View) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.jt7
-    public void dismiss() {
-        AlertDialog alertDialog;
+    public void t(kp7 kp7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alertDialog = this.a) == null) {
-            return;
-        }
-        pg.a(alertDialog, this.b.getPageActivity());
-    }
-
-    @Override // com.repackage.jt7
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            AlertDialog alertDialog = this.a;
-            if (alertDialog != null) {
-                pg.i(alertDialog, this.b.getPageActivity());
-                return;
-            }
-            if (this.g) {
-                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003e6).create();
-            } else {
-                this.a = new AlertDialog.Builder(this.c).create();
-            }
-            this.a.setCanceledOnTouchOutside(c());
-            this.a.setCancelable(b());
-            this.a.setOnKeyListener(this.d);
-            DialogInterface.OnCancelListener onCancelListener = this.e;
-            if (onCancelListener != null) {
-                this.a.setOnCancelListener(onCancelListener);
-            }
-            pg.i(this.a, this.b.getPageActivity());
-            if (this.a.getWindow().getDecorView().getParent() == null) {
-                return;
-            }
-            Window window = this.a.getWindow();
-            if (this.f == -1) {
-                this.f = 17;
-            }
-            window.setGravity(this.f);
-            window.setBackgroundDrawableResource(R.drawable.obfuscated_res_0x7f081221);
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.dimAmount = 0.7f;
-            attributes.width = -1;
-            DisplayMetrics q = mi.q(this.b.getPageActivity());
-            if (q != null) {
-                int a2 = a();
-                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
-                    attributes.width = q.heightPixels - (a2 * 2);
-                } else {
-                    attributes.width = q.widthPixels - (a2 * 2);
-                }
-            }
-            attributes.height = -2;
-            window.setAttributes(attributes);
-            window.setContentView(this.h.getViewGroup());
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
-            if (atomicBoolean.get()) {
-                window.clearFlags(131080);
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, kp7Var) == null) {
+            this.o = kp7Var;
         }
     }
 }

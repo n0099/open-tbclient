@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iu4;
-/* loaded from: classes4.dex */
+import com.repackage.ys4;
+/* loaded from: classes3.dex */
 public abstract class StampMission {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public abstract class StampMission {
     public final String d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -81,7 +81,7 @@ public abstract class StampMission {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic = null;
         public static int a = 3;
@@ -123,7 +123,7 @@ public abstract class StampMission {
         this.a = type;
         this.c = i;
         this.d = "key_cur_user_stamp_mission_progress_" + TbadkCoreApplication.getCurrentAccount() + type.name();
-        this.b = iu4.k().l(this.d, 0);
+        this.b = ys4.k().l(this.d, 0);
     }
 
     public int a() {
@@ -142,7 +142,7 @@ public abstract class StampMission {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int l = iu4.k().l(this.d, 0) + 1;
+            int l = ys4.k().l(this.d, 0) + 1;
             this.b = l;
             int i = this.c;
             if (l > i) {
@@ -151,7 +151,7 @@ public abstract class StampMission {
             if (l == i) {
                 return false;
             }
-            iu4.k().w(this.d, this.b);
+            ys4.k().w(this.d, this.b);
             return true;
         }
         return invokeV.booleanValue;
@@ -161,14 +161,14 @@ public abstract class StampMission {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.b = Math.min(i, this.c);
-            iu4.k().w(this.d, this.b);
+            ys4.k().w(this.d, this.b);
         }
     }
 
     public void delete() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            iu4.k().D(this.d);
+            ys4.k().D(this.d);
         }
     }
 

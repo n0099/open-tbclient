@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.VideoRedIcon.DataReq;
 import tbclient.VideoRedIcon.VideoRedIconReqIdl;
 /* loaded from: classes3.dex */
@@ -49,7 +49,7 @@ public class VideoRedIconRequest extends NetMessage {
                 builder.call_from = this.callFrom;
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             VideoRedIconReqIdl.Builder builder2 = new VideoRedIconReqIdl.Builder();
             builder2.data = builder.build(false);

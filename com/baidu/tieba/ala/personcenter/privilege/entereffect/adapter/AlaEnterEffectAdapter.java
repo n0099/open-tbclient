@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eo;
+import com.repackage.wm;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectAdapter extends eo<AlaEnterEffectData, ViewHolder> {
+public class AlaEnterEffectAdapter extends wm<AlaEnterEffectData, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context i;
@@ -71,17 +71,17 @@ public class AlaEnterEffectAdapter extends eo<AlaEnterEffectData, ViewHolder> {
         public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbImageView tbImageView = (TbImageView) b().findViewById(R.id.obfuscated_res_0x7f0901cd);
+                TbImageView tbImageView = (TbImageView) b().findViewById(R.id.obfuscated_res_0x7f0901ca);
                 this.a = tbImageView;
                 tbImageView.setAutoChangeStyle(false);
-                this.b = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d3);
-                this.c = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d4);
-                this.d = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d5);
-                this.e = (ImageView) b().findViewById(R.id.obfuscated_res_0x7f0901ca);
-                this.f = (ProgressBar) b().findViewById(R.id.obfuscated_res_0x7f0901d1);
-                this.g = b().findViewById(R.id.obfuscated_res_0x7f0901dd);
-                this.h = b().findViewById(R.id.obfuscated_res_0x7f0901ce);
-                this.i = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901c7);
+                this.b = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d0);
+                this.c = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d1);
+                this.d = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901d2);
+                this.e = (ImageView) b().findViewById(R.id.obfuscated_res_0x7f0901c7);
+                this.f = (ProgressBar) b().findViewById(R.id.obfuscated_res_0x7f0901ce);
+                this.g = b().findViewById(R.id.obfuscated_res_0x7f0901da);
+                this.h = b().findViewById(R.id.obfuscated_res_0x7f0901cb);
+                this.i = (TextView) b().findViewById(R.id.obfuscated_res_0x7f0901c4);
             }
         }
     }
@@ -125,16 +125,16 @@ public class AlaEnterEffectAdapter extends eo<AlaEnterEffectData, ViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: a0 */
     public ViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d00f0, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new ViewHolder(LayoutInflater.from(this.i).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null)) : (ViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: b0 */
     public View S(int i, View view2, ViewGroup viewGroup, AlaEnterEffectData alaEnterEffectData, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
@@ -145,20 +145,20 @@ public class AlaEnterEffectAdapter extends eo<AlaEnterEffectData, ViewHolder> {
             if (alaEnterEffectData.isUsing()) {
                 SkinManager.setViewTextColor(viewHolder.c, R.color.obfuscated_res_0x7f060780, 1, this.j);
                 SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d6, this.j);
-                viewHolder.c.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0214));
+                viewHolder.c.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0215));
                 viewHolder.a.setAlpha(1.0f);
             } else if (alaEnterEffectData.isOwn) {
                 SkinManager.setViewTextColor(viewHolder.c, R.color.CAM_X0302, 1, this.j);
                 SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d4, this.j);
-                viewHolder.c.setText(this.i.getString(R.string.obfuscated_res_0x7f0f020d));
+                viewHolder.c.setText(this.i.getString(R.string.obfuscated_res_0x7f0f020e));
                 viewHolder.a.setAlpha(1.0f);
             } else {
                 SkinManager.setViewTextColor(viewHolder.c, R.color.CAM_X0109, 1, this.j);
                 SkinManager.setBackgroundResource(viewHolder.c, R.drawable.obfuscated_res_0x7f0801d3, this.j);
-                viewHolder.c.setText(this.i.getString(R.string.obfuscated_res_0x7f0f020c));
+                viewHolder.c.setText(this.i.getString(R.string.obfuscated_res_0x7f0f020d));
                 viewHolder.a.setAlpha(0.7f);
             }
-            viewHolder.d.setText(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f021b, StringHelper.formatDayTime((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
+            viewHolder.d.setText(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f021c, StringHelper.formatDayTime((alaEnterEffectData.end_time * 1000) - System.currentTimeMillis())));
             int i2 = alaEnterEffectData.downLoadStatus;
             if (i2 == 100) {
                 viewHolder.e.setVisibility(0);
@@ -174,7 +174,7 @@ public class AlaEnterEffectAdapter extends eo<AlaEnterEffectData, ViewHolder> {
             SkinManager.setViewTextColor(viewHolder.i, R.color.CAM_X0109, 1, this.j);
             if (2 == alaEnterEffectData.categoryType) {
                 SkinManager.setViewTextColor(viewHolder.i, R.color.CAM_X0305, 1, this.j);
-                viewHolder.i.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0212, AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price), alaEnterEffectData.time));
+                viewHolder.i.setText(this.i.getString(R.string.obfuscated_res_0x7f0f0213, AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price), alaEnterEffectData.time));
                 Drawable moneyIcon = CurrencySwitchUtil.getMoneyIcon();
                 int dimensionPixelSize = this.i.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
                 moneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);

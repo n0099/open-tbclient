@@ -1,147 +1,69 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hd3;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class ff3 extends hd3.a {
+import java.util.Map;
+@Service
+/* loaded from: classes5.dex */
+public class ff3 implements xk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755709794, "Lcom/repackage/ff3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755709794, "Lcom/repackage/ff3;");
-                return;
-            }
-        }
-        c = eh1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ff3(boolean z) {
-        super(z);
+    public ff3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        String str = z ? "swan_js_native_v8_ab.txt" : "swan_js_native_webview_ab.txt";
-        this.b = qj2.g().getPath() + File.separator + "js_native" + File.separator + str;
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        boolean z;
+    @Override // com.repackage.yk3
+    public void a(e03 e03Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            String str = qj2.g().getPath() + File.separator + "js_native" + File.separator;
-            if ((i & 1) != 0) {
-                z = xg4.M(str + "swan_js_native_v8_ab.txt");
-            } else {
-                z = true;
-            }
-            if ((i & 2) != 0) {
-                return z & xg4.M(str + "swan_js_native_webview_ab.txt");
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeL(1048576, this, e03Var) == null) {
+            e03Var.b(new wg3(e03Var));
+            e03Var.b(new ah3(e03Var));
+            e03Var.b(new uh3(e03Var));
+            e03Var.b(new th3(e03Var));
+            e03Var.b(new jh3(e03Var));
+            e03Var.b(new bh3(e03Var));
+            e03Var.b(new yg3(e03Var));
+            e03Var.b(new hh3(e03Var));
+            e03Var.b(new xg3(e03Var));
+            e03Var.b(new vg3(e03Var));
+            e03Var.b(new ug3(e03Var));
+            e03Var.b(new zg3(e03Var));
+            e03Var.b(new yh3(e03Var));
         }
-        return invokeI.booleanValue;
     }
 
+    @Override // com.repackage.yk3
     @Nullable
-    public final List<String> b(boolean z, String str) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            List<JSONObject> b = df3.b(z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW, z ? "swan/v8_ab" : "swan/webview_ab");
-            if (b != null) {
-                File file = new File(str);
-                ArrayList arrayList = new ArrayList();
-                for (JSONObject jSONObject : b) {
-                    if (jSONObject != null) {
-                        arrayList.add(jSONObject.toString());
-                    }
-                }
-                if (file.exists()) {
-                    xg4.L(file);
-                }
-                xg4.h(file);
-                xg4.P(arrayList, file);
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeZL.objValue;
-    }
-
-    public boolean c(@NonNull JSONArray jSONArray) {
+    public Map<String, Object> b(@NonNull in1 in1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            if (jSONArray.length() <= 0 || !xg4.v(this.b)) {
-                return false;
-            }
-            return ef3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(this.a ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW));
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, in1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(in1Var) : (Map) invokeL.objValue;
     }
 
-    public List<String> d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.yk3
+    @Nullable
+    public Map<String, Object> c(@NonNull in1 in1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
-            }
-            if (!zc4.b() && !TextUtils.equals(zc4.a(), "0")) {
-                File file = new File(this.b);
-                if (file.exists()) {
-                    xg4.L(file);
-                }
-            }
-            if (xg4.v(this.b)) {
-                if (c) {
-                    Log.d("SwanAppCompat", "start create cache");
-                }
-                return xg4.F(new File(this.b));
-            }
-            return b(this.a, this.b);
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, in1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(in1Var) : (Map) invokeL.objValue;
     }
 }

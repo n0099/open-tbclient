@@ -1,100 +1,82 @@
 package com.repackage;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public interface vv2 {
-    public static final vv2 a = new a();
+public class vv2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, ProviderDelegation> a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements vv2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755217793, "Lcom/repackage/vv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755217793, "Lcom/repackage/vv2;");
+                return;
+            }
+        }
+        a = new ConcurrentHashMap();
+        c(gn1.a());
+        c(oi2.s().d());
+    }
+
+    public vv2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Nullable
+    public static ProviderDelegation a(@NonNull Class<? extends ProviderDelegation> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) ? a.get(cls.getName()) : (ProviderDelegation) invokeL.objValue;
+    }
+
+    @Nullable
+    public static ProviderDelegation b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? a.get(str) : (ProviderDelegation) invokeL.objValue;
+    }
+
+    public static void c(@Nullable Map<Class, Object> map) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) || map == null) {
+            return;
+        }
+        for (Class cls : map.keySet()) {
+            if (cls != null) {
+                Object obj = map.get(cls);
+                if (obj instanceof ProviderDelegation) {
+                    a.put(cls.getName(), (ProviderDelegation) obj);
                 }
             }
         }
-
-        @Override // com.repackage.vv2
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.repackage.vv2
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.vv2
-        public Object c(Activity activity, String str, b bVar, boolean z) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, bVar, Boolean.valueOf(z)})) == null) {
-                return null;
-            }
-            return invokeCommon.objValue;
-        }
-
-        @Override // com.repackage.vv2
-        public void d(Activity activity, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, activity, obj) == null) {
-            }
-        }
-
-        @Override // com.repackage.vv2
-        public boolean e(Activity activity, int i, String[] strArr, int[] iArr, Object obj) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{activity, Integer.valueOf(i), strArr, iArr, obj})) == null) {
-                return false;
-            }
-            return invokeCommon.booleanValue;
-        }
-
-        @Override // com.repackage.vv2
-        public void f(Activity activity, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, activity, obj) == null) {
-            }
-        }
     }
-
-    /* loaded from: classes7.dex */
-    public interface b {
-    }
-
-    void a(String str);
-
-    boolean b();
-
-    Object c(Activity activity, String str, b bVar, boolean z);
-
-    void d(Activity activity, Object obj);
-
-    boolean e(Activity activity, int i, String[] strArr, int[] iArr, Object obj);
-
-    void f(Activity activity, Object obj);
 }

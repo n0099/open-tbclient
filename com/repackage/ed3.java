@@ -1,123 +1,27 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.view.View;
+import android.net.Uri;
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class ed3 {
+public final class ed3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
-            }
-        }
+    public static Uri a(@NonNull Context context, @NonNull File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, file)) == null) ? FileProvider.getUriForFile(context, b().a(context), file) : (Uri) invokeLL.objValue;
     }
 
-    public static void a(d02 d02Var, Context context) {
+    public static vi1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, d02Var, context) == null) {
-            b(d02Var, context, 2);
-        }
-    }
-
-    public static void b(d02 d02Var, Context context, int i) {
-        View S;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, d02Var, context, i) == null) || d02Var == null || d02Var.k() < i) {
-            return;
-        }
-        a02 j = d02Var.j(d02Var.k() - i);
-        a02 m = d02Var.m();
-        if (m == null || !m.D0) {
-            float o = le3.o(context) >> 2;
-            if (j == null || (S = j.S()) == null) {
-                return;
-            }
-            ObjectAnimator.ofFloat(S, AnimationProperty.TRANSLATE_X, -o, 0.0f).setDuration(300L).start();
-        }
-    }
-
-    public static void c(d02 d02Var, Context context) {
-        View S;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, d02Var, context) == null) || d02Var == null || d02Var.k() < 2) {
-            return;
-        }
-        a02 j = d02Var.j(d02Var.k() - 2);
-        float o = le3.o(context) >> 2;
-        if (j == null || (S = j.S()) == null) {
-            return;
-        }
-        ObjectAnimator ofFloat = ObjectAnimator.ofFloat(S, AnimationProperty.TRANSLATE_X, 0.0f, -o);
-        ofFloat.setDuration(300L).start();
-        ofFloat.addListener(new a(S));
-    }
-
-    public static void d(@NonNull qe4 qe4Var, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65539, null, qe4Var, str, i, i2) == null) || qe4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
-                }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
-            }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
-        }
-        if (c != 0) {
-            if (c == 1 || c == 2) {
-                return;
-            }
-            qe4Var.i(i, i2);
-            return;
-        }
-        d02 V = hm2.U().V();
-        a02 j = V.j(V.k() - 1);
-        if (j == null || !j.D0) {
-            qe4Var.i(i, i2);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? oi2.p() : (vi1) invokeV.objValue;
     }
 }

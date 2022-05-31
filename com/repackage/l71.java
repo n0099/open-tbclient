@@ -1,234 +1,89 @@
 package com.repackage;
 
-import android.content.pm.Signature;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.lang.ref.WeakReference;
-import java.security.cert.Certificate;
-import java.util.Enumeration;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class l71 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static WeakReference<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public LruCache<String, Bitmap> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755576277, "Lcom/repackage/l71;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a extends LruCache<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(l71 l71Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l71Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755576277, "Lcom/repackage/l71;");
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) ? bitmap.getByteCount() / 1024 : invokeLL.intValue;
+        }
+    }
+
+    public l71() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new Object();
+        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0085, code lost:
-        r11 = com.repackage.l71.a;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0087, code lost:
-        monitor-enter(r11);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x0088, code lost:
-        com.repackage.l71.b = r1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:52:0x008a, code lost:
-        monitor-exit(r11);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x008b, code lost:
-        if (r4 == null) goto L90;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x008e, code lost:
-        if (r4.length <= 0) goto L90;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0090, code lost:
-        r11 = r4.length;
-        r1 = new android.content.pm.Signature[r4.length];
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:57:0x0094, code lost:
-        if (r6 >= r11) goto L85;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:58:0x0096, code lost:
-        r1[r6] = new android.content.pm.Signature(r4[r6].getEncoded());
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x00a3, code lost:
-        r6 = r6 + 1;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x00a6, code lost:
-        r0.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:62:0x00aa, code lost:
-        r0.close();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Signature[] a(String str) {
+    public void a(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            String b = q71.b(str);
+            if (b(b) == null) {
+                this.a.put(b, bitmap);
+            }
+        }
+    }
+
+    public final Bitmap b(String str) {
         InterceptResult invokeL;
-        JarFile jarFile;
-        byte[] bArr;
-        JarFile jarFile2;
-        Signature[] signatureArr;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65537, null, str)) != null) {
-            return (Signature[]) invokeL.objValue;
-        }
-        synchronized (a) {
-            WeakReference<byte[]> weakReference = b;
-            jarFile = null;
-            if (weakReference != null) {
-                b = null;
-                bArr = weakReference.get();
-            } else {
-                bArr = null;
-            }
-            if (bArr == null) {
-                bArr = new byte[8192];
-                weakReference = new WeakReference<>(bArr);
-            }
-        }
-        try {
-            jarFile2 = new JarFile(str);
-            try {
-                Enumeration<JarEntry> entries = jarFile2.entries();
-                Certificate[] certificateArr = null;
-                while (true) {
-                    int i = 0;
-                    if (!entries.hasMoreElements()) {
-                        break;
-                    }
-                    JarEntry nextElement = entries.nextElement();
-                    if (!nextElement.isDirectory() && !nextElement.getName().startsWith("META-INF/")) {
-                        Certificate[] b2 = b(jarFile2, nextElement, bArr);
-                        if (b2 == null) {
-                            try {
-                                jarFile2.close();
-                            } catch (IOException unused) {
-                            }
-                            return null;
-                        } else if (certificateArr == null) {
-                            certificateArr = b2;
-                        } else {
-                            for (int i2 = 0; i2 < certificateArr.length; i2++) {
-                                int i3 = 0;
-                                while (true) {
-                                    if (i3 >= b2.length) {
-                                        z = false;
-                                        break;
-                                    } else if (certificateArr[i2] != null && certificateArr[i2].equals(b2[i3])) {
-                                        z = true;
-                                        break;
-                                    } else {
-                                        i3++;
-                                    }
-                                }
-                                if (!z || certificateArr.length != b2.length) {
-                                    try {
-                                        jarFile2.close();
-                                    } catch (IOException unused2) {
-                                    }
-                                    return null;
-                                }
-                            }
-                            continue;
-                        }
-                    }
-                }
-            } catch (Exception unused3) {
-                if (jarFile2 != null) {
-                    try {
-                        jarFile2.close();
-                    } catch (IOException unused4) {
-                    }
-                }
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                jarFile = jarFile2;
-                if (jarFile != null) {
-                    try {
-                        jarFile.close();
-                    } catch (IOException unused5) {
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception unused6) {
-            jarFile2 = null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
-        return signatureArr;
-        return null;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a.get(str) : (Bitmap) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0031, code lost:
-        if (r1 == null) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0033, code lost:
-        r1.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0038, code lost:
-        if (r1 == null) goto L23;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x003b, code lost:
-        return null;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Certificate[] b(JarFile jarFile, JarEntry jarEntry, byte[] bArr) {
-        InterceptResult invokeLLL;
-        BufferedInputStream bufferedInputStream;
+    public Bitmap c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, jarFile, jarEntry, bArr)) != null) {
-            return (Certificate[]) invokeLLL.objValue;
-        }
-        BufferedInputStream bufferedInputStream2 = null;
-        try {
-            bufferedInputStream = new BufferedInputStream(jarFile.getInputStream(jarEntry));
-            while (bufferedInputStream.read(bArr, 0, bArr.length) != -1) {
-                try {
-                } catch (IOException unused) {
-                } catch (RuntimeException unused2) {
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedInputStream2 = bufferedInputStream;
-                    if (bufferedInputStream2 != null) {
-                        try {
-                            bufferedInputStream2.close();
-                        } catch (IOException unused3) {
-                        }
-                    }
-                    throw th;
-                }
-            }
-            Certificate[] certificates = jarEntry != null ? jarEntry.getCertificates() : null;
-            try {
-                bufferedInputStream.close();
-            } catch (IOException unused4) {
-            }
-            return certificates;
-        } catch (IOException unused5) {
-            bufferedInputStream = null;
-        } catch (RuntimeException unused6) {
-            bufferedInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(q71.b(str)) : (Bitmap) invokeL.objValue;
     }
 }

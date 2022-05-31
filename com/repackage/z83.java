@@ -1,58 +1,73 @@
 package com.repackage;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.media.AudioManager;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class z83 implements x83 {
+public class z83 {
     public static /* synthetic */ Interceptable $ic;
+    public static z83 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public y83 a;
+    public final ConcurrentHashMap<String, b> a;
+    public AudioManager b;
+    public boolean c;
+    public BroadcastReceiver d;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z83 this$0;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(142443007, "Lcom/repackage/z83$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(142443007, "Lcom/repackage/z83$a;");
+        public a(z83 z83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z83Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[PathType.values().length];
-            a = iArr;
-            try {
-                iArr[PathType.RELATIVE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PathType.ERROR.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PathType.BD_FILE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            this.this$0 = z83Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.media.VOLUME_CHANGED_ACTION".equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
+                if (this.this$0.b == null) {
+                    this.this$0.b = (AudioManager) oi2.c().getSystemService("audio");
+                }
+                for (Map.Entry entry : this.this$0.a.entrySet()) {
+                    ((b) entry.getValue()).a(this.this$0.b != null ? this.this$0.b.getStreamVolume(3) : 0);
+                }
             }
         }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i);
     }
 
     public z83() {
@@ -65,196 +80,124 @@ public class z83 implements x83 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ConcurrentHashMap<>();
+        this.d = new a(this);
     }
 
-    @Override // com.repackage.x83
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            u03 a0 = u03.a0();
-            return a0 == null ? str : c83.H(str, a0);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.x83
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? c83.G(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.x83
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            u03 a0 = u03.a0();
-            return a0 == null ? "" : c83.n(a0.b, str, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.x83
-    @NonNull
-    public synchronized y83 d() {
+    public static z83 e() {
         InterceptResult invokeV;
-        y83 y83Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new a93();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (z83.class) {
+                    if (e == null) {
+                        e = new z83();
+                    }
                 }
-                y83Var = this.a;
             }
-            return y83Var;
+            return e;
         }
-        return (y83) invokeV.objValue;
+        return (z83) invokeV.objValue;
     }
 
-    @Override // com.repackage.x83
-    public String e(String str) {
-        InterceptResult invokeL;
+    public static void h() {
+        z83 z83Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            u03 a0 = u03.a0();
-            if (a0 == null) {
-                return null;
-            }
-            return c83.L(str, a0, a0.j0());
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (z83Var = e) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        z83Var.g();
     }
 
-    @Override // com.repackage.x83
-    public String f() {
+    private void registerReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.media.VOLUME_CHANGED_ACTION");
+            oi2.c().registerReceiver(this.d, intentFilter);
+            this.c = true;
+        }
+    }
+
+    private void unregisterReceiver() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
+            try {
+                oi2.c().unregisterReceiver(this.d);
+                this.c = false;
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public void d(@NonNull String str, @NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (this) {
+            this.a.put(str, bVar);
+            if (!this.c) {
+                registerReceiver();
+            }
+            if (rf1.a) {
+                Log.d("SystemVolumeManager", "Id = " + str + " listener added, listeners count: " + this.a.size());
+            }
+        }
+    }
+
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            u03 a0 = u03.a0();
-            return a0 == null ? "" : c83.z(a0.b);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.x83
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            u03 a0 = u03.a0();
-            return a0 == null ? str : c83.I(str, a0.b);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.x83
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            String t = xg4.t(str);
-            if (TextUtils.isEmpty(t)) {
-                return g(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = (AudioManager) oi2.c().getSystemService("audio");
             }
-            return g(str) + "." + t;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.x83
-    public String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            u03 a0 = u03.a0();
-            if (a0 == null) {
-                return null;
+            AudioManager audioManager = this.b;
+            if (audioManager != null) {
+                return audioManager.getStreamMaxVolume(3);
             }
-            return c83.M(str, a0.b);
+            return 100;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.repackage.x83
-    public boolean j(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                this.a.clear();
+                this.b = null;
+                this.c = false;
+            }
+            e = null;
+        }
+    }
+
+    public boolean i(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            PathType s = c83.s(str);
-            if (z) {
-                s = o(str, s);
+            synchronized (this) {
+                b remove = this.a.remove(str);
+                if (this.a.size() == 0 && this.c) {
+                    unregisterReceiver();
+                }
+                if (rf1.a && remove != null) {
+                    Log.d("SystemVolumeManager", "Id = " + str + " listener removed, listeners count: " + this.a.size());
+                }
+                z = remove != null;
             }
-            return s != PathType.ERROR;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // com.repackage.x83
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            u03 a0 = u03.a0();
-            return a0 == null ? "" : c83.x(a0.b);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.x83
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? c83.F(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.x83
-    public String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) ? c83.K(str) : (String) invokeL.objValue;
-    }
-
-    public final boolean n(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            int indexOf = str.indexOf("../");
-            if (indexOf != 0) {
-                return indexOf > 0;
-            }
-            String substring = str.substring(3);
-            return !TextUtils.isEmpty(substring) && substring.contains("../");
+            return z;
         }
         return invokeL.booleanValue;
-    }
-
-    public final PathType o(String str, PathType pathType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, pathType)) == null) {
-            int i = a.a[pathType.ordinal()];
-            if (i == 1) {
-                return n(str) ? PathType.ERROR : pathType;
-            } else if (i != 2) {
-                return i != 3 ? PathType.ERROR : pathType;
-            } else {
-                StringBuilder sb = new StringBuilder();
-                sb.append("bdfile://code");
-                sb.append(File.separator);
-                return (str.startsWith(sb.toString()) || "bdfile://code".equals(str)) ? PathType.RELATIVE : pathType;
-            }
-        }
-        return (PathType) invokeLL.objValue;
     }
 }

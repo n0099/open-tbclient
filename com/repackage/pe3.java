@@ -1,150 +1,64 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.ClipData;
-import android.content.ClipboardManager;
+import android.app.Activity;
 import android.content.Context;
+import android.content.ContextWrapper;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ly2;
 /* loaded from: classes6.dex */
-public abstract class pe3 {
+public class pe3 implements ly2.c {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout a;
 
-    @TargetApi(11)
     /* loaded from: classes6.dex */
-    public static class a extends pe3 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static ClipboardManager b;
-        public static ClipData c;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ pe3 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-102290058, "Lcom/repackage/pe3$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-102290058, "Lcom/repackage/pe3$a;");
-            }
-        }
-
-        @SuppressLint({"ServiceCast"})
-        public a() {
+        public a(pe3 pe3Var, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pe3Var, viewGroup};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            b = (ClipboardManager) pe3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+            this.b = pe3Var;
+            this.a = viewGroup;
         }
 
-        @Override // com.repackage.pe3
-        public CharSequence a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    c = b.getPrimaryClip();
-                } catch (Exception e) {
-                    if (eh1.a) {
-                        throw e;
-                    }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.a == null) {
+                    this.b.a = new FrameLayout(this.a.getContext());
+                    this.b.a.setBackgroundResource(R.color.obfuscated_res_0x7f0603c8);
                 }
-                ClipData clipData = c;
-                return (clipData == null || clipData.getItemCount() <= 0) ? "" : c.getItemAt(0).getText();
-            }
-            return (CharSequence) invokeV.objValue;
-        }
-
-        @Override // com.repackage.pe3
-        public void c(CharSequence charSequence) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
-                c = newPlainText;
-                try {
-                    b.setPrimaryClip(newPlainText);
-                } catch (RuntimeException e) {
-                    if (eh1.a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends pe3 {
-        public static /* synthetic */ Interceptable $ic;
-        public static android.text.ClipboardManager b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-102290027, "Lcom/repackage/pe3$b;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-102290027, "Lcom/repackage/pe3$b;");
-            }
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            b = (android.text.ClipboardManager) pe3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
-        }
-
-        @Override // com.repackage.pe3
-        public CharSequence a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.getText() : (CharSequence) invokeV.objValue;
-        }
-
-        @Override // com.repackage.pe3
-        public void c(CharSequence charSequence) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-                b.setText(charSequence);
+                this.a.removeView(this.b.a);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+                layoutParams.gravity = 17;
+                this.a.addView(this.b.a, layoutParams);
             }
         }
     }
@@ -159,24 +73,57 @@ public abstract class pe3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    public static pe3 b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ly2.c
+    public void a(ly2 ly2Var, ly2.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            a = context.getApplicationContext();
-            if (bd3.c()) {
-                return new a();
-            }
-            return new b();
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, ly2Var, bVar) == null) || ly2Var == null || bVar == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
         }
-        return (pe3) invokeL.objValue;
+        f(ly2Var);
+        ViewGroup viewGroup = (ViewGroup) ly2Var.findViewById(16908290);
+        if (viewGroup != null) {
+            if (oi2.M().a()) {
+                d(viewGroup, bVar.r);
+            } else {
+                e(viewGroup);
+            }
+        }
     }
 
-    public abstract CharSequence a();
+    public final void d(ViewGroup viewGroup, View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, view2) == null) || viewGroup == null || view2 == null || !(viewGroup instanceof FrameLayout)) {
+            return;
+        }
+        view2.post(new a(this, viewGroup));
+    }
 
-    public abstract void c(CharSequence charSequence);
+    public final void e(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
+            return;
+        }
+        viewGroup.removeView(frameLayout);
+        this.a = null;
+    }
+
+    public final void f(ly2 ly2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ly2Var) == null) {
+            Context context = ly2Var.getContext();
+            if (ly2Var.getContext() instanceof ContextWrapper) {
+                context = ((ContextWrapper) ly2Var.getContext()).getBaseContext();
+            }
+            if (context instanceof Activity) {
+                qb3.b((Activity) context, ly2Var);
+            }
+        }
+    }
 }

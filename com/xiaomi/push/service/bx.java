@@ -35,7 +35,7 @@ public class bx implements av.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.e();
-            if (av.a().m638a() <= 0) {
+            if (av.a().m637a() <= 0) {
                 XMPushService xMPushService = this.a;
                 xMPushService.a(new XMPushService.f(xMPushService, 12, null));
             }

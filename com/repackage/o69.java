@@ -1,5 +1,9 @@
 package com.repackage;
 /* loaded from: classes6.dex */
 public interface o69 {
-    String a(String str) throws Exception;
+    void a();
+
+    void b(long j);
+
+    void onUpdateProgress(int i);
 }

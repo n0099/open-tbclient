@@ -1,68 +1,131 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.os.Binder;
+import android.os.IBinder;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class za1 {
+public abstract class za1 {
     public static /* synthetic */ Interceptable $ic;
-    public static xa1 a;
-    public static ya1 b;
+    public static final HashMap<String, za1> a;
+    public static final ConcurrentHashMap<String, b> b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755118841, "Lcom/repackage/za1;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755118841, "Lcom/repackage/za1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755118841, "Lcom/repackage/za1;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755118841, "Lcom/repackage/za1;");
+        a = new HashMap<>();
+        b = new ConcurrentHashMap<>();
+    }
+
+    public static void a(String str, IBinder iBinder, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, iBinder, z) == null) {
+            if (Binder.getCallingUid() == Process.myUid()) {
+                if (a.get(str) == null) {
+                    b bVar = new b(null);
+                    bVar.a = iBinder;
+                    bVar.b = z;
+                    b.put(str, bVar);
+                    return;
+                }
+                throw new IllegalArgumentException();
+            }
+            throw new SecurityException();
         }
     }
 
-    public static xa1 a() {
-        InterceptResult invokeV;
+    public static IBinder d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (pl0.class) {
-                    if (a == null) {
-                        a = (xa1) ServiceManager.getService(xa1.a);
-                    }
-                    if (a == null) {
-                        a = xa1.b;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            za1 za1Var = a.get(str);
+            if (za1Var != null) {
+                za1Var.b();
+                return za1Var.c();
             }
-            return a;
+            b bVar = b.get(str);
+            if (bVar != null) {
+                if (!bVar.b && Binder.getCallingUid() != Process.myUid()) {
+                    throw new SecurityException();
+                }
+                return bVar.a;
+            }
+            return null;
         }
-        return (xa1) invokeV.objValue;
+        return (IBinder) invokeL.objValue;
     }
 
-    public static ya1 b() {
-        InterceptResult invokeV;
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (pl0.class) {
-                    if (b == null) {
-                        b = (ya1) ServiceManager.getService(ya1.a);
-                    }
-                    if (b == null) {
-                        b = ya1.b;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (Binder.getCallingUid() == Process.myUid()) {
+                return b.remove(str) != null;
+            }
+            throw new SecurityException();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && Binder.getCallingUid() != Process.myUid()) {
+            throw new SecurityException();
+        }
+    }
+
+    public abstract IBinder c();
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public IBinder a;
+        public boolean b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return b;
+            this.b = false;
         }
-        return (ya1) invokeV.objValue;
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
     }
 }

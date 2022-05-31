@@ -22,7 +22,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Set<String> a;
-    public final b.InterfaceC0281b b;
+    public final b.InterfaceC0282b b;
     public final b.a c;
     public boolean d;
     public boolean e;
@@ -39,7 +39,7 @@ public class c {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                this((b.InterfaceC0281b) objArr[0], (b.a) objArr[1]);
+                this((b.InterfaceC0282b) objArr[0], (b.a) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,12 +47,12 @@ public class c {
         }
     }
 
-    public c(b.InterfaceC0281b interfaceC0281b, b.a aVar) {
+    public c(b.InterfaceC0282b interfaceC0282b, b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC0281b, aVar};
+            Object[] objArr = {interfaceC0282b, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -63,13 +63,13 @@ public class c {
             }
         }
         this.a = new HashSet();
-        if (interfaceC0281b == null) {
+        if (interfaceC0282b == null) {
             throw new IllegalArgumentException("Cannot pass null library loader");
         }
         if (aVar == null) {
             throw new IllegalArgumentException("Cannot pass null library installer");
         }
-        this.b = interfaceC0281b;
+        this.b = interfaceC0282b;
         this.c = aVar;
     }
 

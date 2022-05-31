@@ -15,6 +15,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.concurrent.Executor;
@@ -66,8 +67,8 @@ public class DataFetchProducer extends LocalFetchProducer {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str.contains(";")) {
-                String[] split = str.split(";");
+            if (str.contains(ParamableElem.DIVIDE_PARAM)) {
+                String[] split = str.split(ParamableElem.DIVIDE_PARAM);
                 return split[split.length - 1].equals("base64");
             }
             return false;

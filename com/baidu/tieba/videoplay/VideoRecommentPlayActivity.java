@@ -41,11 +41,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li5;
-import com.repackage.mi;
+import com.repackage.fh5;
+import com.repackage.lh4;
+import com.repackage.li;
+import com.repackage.mh4;
 import com.repackage.x8;
-import com.repackage.yi4;
-import com.repackage.zi4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -58,7 +58,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public VideoVerticalPageFragment mFragment;
     public String mFrom;
     public boolean mIsFromSchema;
-    public li5 mNEGFeedBackManager;
+    public fh5 mNEGFeedBackManager;
     public String mNid;
     public CustomMessageListener mSuspendedViewAnimationListener;
     public List<VideoItemData> mVideoDataList;
@@ -266,7 +266,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 arrayList.addAll(VideoPlayActivityConfig.bigDataList);
             }
             if (ListUtils.isEmpty(this.mVideoDataList)) {
-                mi.M(this, R.string.obfuscated_res_0x7f0f0c2a);
+                li.N(this, R.string.obfuscated_res_0x7f0f0c30);
                 finish();
                 return;
             }
@@ -274,7 +274,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             this.mFragment = videoVerticalPageFragment;
             videoVerticalPageFragment.setArguments(getIntent().getExtras());
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(R.id.obfuscated_res_0x7f0923cc, this.mFragment);
+            beginTransaction.add(R.id.obfuscated_res_0x7f092371, this.mFragment);
             beginTransaction.commitAllowingStateLoss();
             getSupportFragmentManager().executePendingTransactions();
             ImageView imageView = new ImageView(getPageContext().getPageActivity());
@@ -404,7 +404,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             super.onActivityResult(i, i2, intent);
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null) {
-                videoVerticalPageFragment.m0(i, i2, intent);
+                videoVerticalPageFragment.o0(i, i2, intent);
             }
         }
     }
@@ -413,7 +413,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            WebPManager.setPureDrawable(this.mBackImage, R.drawable.obfuscated_res_0x7f0809df, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.setPureDrawable(this.mBackImage, R.drawable.obfuscated_res_0x7f0809eb, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.onChangeSkinType(i);
@@ -449,8 +449,8 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0879);
-            this.mNEGFeedBackManager = new li5(getPageContext(), "client_videomiddle");
+            setContentView(R.layout.obfuscated_res_0x7f0d086c);
+            this.mNEGFeedBackManager = new fh5(getPageContext(), "client_videomiddle");
             initData();
             initFragment();
             addNoAdjustSoftInputHeightListener();
@@ -469,9 +469,9 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            li5 li5Var = this.mNEGFeedBackManager;
-            if (li5Var != null) {
-                li5Var.h();
+            fh5 fh5Var = this.mNEGFeedBackManager;
+            if (fh5Var != null) {
+                fh5Var.h();
             }
         }
     }
@@ -484,10 +484,10 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (i == 4) {
                 VideoVerticalPageFragment videoVerticalPageFragment = this.mFragment;
                 if (videoVerticalPageFragment != null) {
-                    if (videoVerticalPageFragment.u0()) {
+                    if (videoVerticalPageFragment.w0()) {
                         return false;
                     }
-                    this.mFragment.T();
+                    this.mFragment.U();
                 }
                 finish();
                 return false;
@@ -520,7 +520,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
                 videoVerticalPageFragment.setPrimary(false);
                 this.mFragment.setUserVisibleHint(false);
             }
-            zi4.y().G();
+            mh4.x().F();
         }
     }
 
@@ -533,7 +533,7 @@ public class VideoRecommentPlayActivity extends BaseFragmentActivity {
             if (videoVerticalPageFragment != null) {
                 videoVerticalPageFragment.setPrimary(true);
                 this.mFragment.setUserVisibleHint(true);
-                zi4.y().R(yi4.a0, this.mFragment.X());
+                mh4.x().Q(lh4.a0, this.mFragment.Y());
             }
         }
     }

@@ -1,177 +1,221 @@
 package com.repackage;
 
+import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public final class lx0 {
+public abstract class lx0 implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public yv0 a;
-    public PlayerStatus b;
-    public StringBuilder c;
+    @NonNull
+    public final SharedPreferences a;
 
-    public lx0() {
+    public lx0(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = PlayerStatus.IDLE;
-        d();
+        this.a = d(str, i);
     }
 
-    public void a(rs0 rs0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rs0Var) == null) {
-            if (rs0Var.getType() == 4 || rs0Var.getType() == 2) {
-                String c = rs0Var.c();
-                char c2 = 65535;
-                switch (c.hashCode()) {
-                    case -525235558:
-                        if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
-                            c2 = 2;
-                            break;
-                        }
-                        break;
-                    case -461848373:
-                        if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
-                            c2 = 3;
-                            break;
-                        }
-                        break;
-                    case 154871702:
-                        if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
-                            c2 = 1;
-                            break;
-                        }
-                        break;
-                    case 1370689931:
-                        if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
-                            c2 = 0;
-                            break;
-                        }
-                        break;
-                }
-                if (c2 == 0) {
-                    int g = rs0Var.g(1);
-                    if (904 == g || 956 == g) {
-                        g(PlayerStatus.PLAYING);
-                    }
-                } else if (c2 == 1) {
-                    g(PlayerStatus.COMPLETE);
-                } else if (c2 == 2) {
-                    g(PlayerStatus.PREPARED);
-                } else if (c2 != 3) {
-                } else {
-                    g(PlayerStatus.ERROR);
-                }
-            }
-        }
-    }
-
-    public void b(@NonNull yv0 yv0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yv0Var) == null) {
-            this.a = yv0Var;
-        }
-    }
-
-    @NonNull
-    public PlayerStatus c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (PlayerStatus) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
-            for (PlayerStatus playerStatus : playerStatusArr) {
-                if (playerStatus == c()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.contains(str) : invokeL.booleanValue;
     }
 
-    public void f() {
+    public abstract SharedPreferences d(String str, int i);
+
+    public void e(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h();
-            this.b = PlayerStatus.IDLE;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
+            this.a.edit().putBoolean(str, z).apply();
         }
     }
 
-    public void g(PlayerStatus playerStatus) {
-        PlayerStatus playerStatus2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, playerStatus) == null) || playerStatus == (playerStatus2 = this.b)) {
-            return;
-        }
-        this.b = playerStatus;
-        yv0 yv0Var = this.a;
-        if (yv0Var != null) {
-            yv0Var.d(ms0.w(playerStatus2, playerStatus));
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public String toString() {
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (wp0.f()) {
-                StringBuilder sb = this.c;
-                if (sb == null) {
-                    this.c = new StringBuilder();
-                } else if (sb.length() > 0) {
-                    StringBuilder sb2 = this.c;
-                    sb2.delete(0, sb2.length());
-                }
-                StringBuilder sb3 = this.c;
-                sb3.append("，Courier :");
-                sb3.append(this.a);
-                sb3.append("，status :");
-                sb3.append(this.b);
-                sb3.append("，hash :");
-                sb3.append(hashCode());
-                sb3.append("】");
-                return this.c.toString();
-            }
-            return super.toString();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.edit() : (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    public void f(String str, float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLF(1048580, this, str, f) == null) {
+            this.a.edit().putFloat(str, f).apply();
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void g(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            this.a.edit().putInt(str, i).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            try {
+                return this.a.getAll();
+            } catch (Exception e) {
+                k(e.getMessage());
+                return null;
+            }
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            try {
+                return this.a.getBoolean(str, z);
+            } catch (ClassCastException e) {
+                k(e.getMessage());
+                return z;
+            }
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            try {
+                return this.a.getFloat(str, f);
+            } catch (ClassCastException e) {
+                k(e.getMessage());
+                return f;
+            }
+        }
+        return invokeLF.floatValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            try {
+                return this.a.getInt(str, i);
+            } catch (ClassCastException e) {
+                k(e.getMessage());
+                return i;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            try {
+                return this.a.getLong(str, j);
+            } catch (ClassCastException e) {
+                k(e.getMessage());
+                return j;
+            }
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public String getString(String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            try {
+                return this.a.getString(str, str2);
+            } catch (ClassCastException e) {
+                k(e.getMessage());
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    @Nullable
+    public Set<String> getStringSet(String str, @Nullable Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
+            try {
+                return this.a.getStringSet(str, set);
+            } catch (ClassCastException e) {
+                k(e.getMessage());
+                return set;
+            }
+        }
+        return (Set) invokeLL.objValue;
+    }
+
+    public void h(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048589, this, str, j) == null) {
+            this.a.edit().putLong(str, j).apply();
+        }
+    }
+
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            this.a.edit().putString(str, str2).apply();
+        }
+    }
+
+    public abstract void j(String str, String str2, boolean z);
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, onSharedPreferenceChangeListener) == null) {
+            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, onSharedPreferenceChangeListener) == null) {
+            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        }
     }
 }

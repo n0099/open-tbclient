@@ -1,157 +1,184 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
-import android.net.Uri;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import androidx.room.RoomMasterTable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.h02;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.jn1;
+import com.repackage.m43;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ng3 {
+public class ng3 extends kn1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755470505, "Lcom/repackage/ng3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public class a extends jn1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ng3 d;
+
+        /* renamed from: com.repackage.ng3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0482a implements ae3<k43<m43.e>> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ jn1.b a;
+            public final /* synthetic */ a b;
+
+            public C0482a(a aVar, jn1.b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = bVar;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755470505, "Lcom/repackage/ng3;");
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.repackage.ae3
+            /* renamed from: a */
+            public void onCallback(k43<m43.e> k43Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, k43Var) == null) {
+                    if (f43.h(k43Var)) {
+                        this.a.a(this.b.d.z());
+                        return;
+                    }
+                    int b = k43Var.b();
+                    this.a.a(new hr1(b, f43.f(b)));
+                }
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ng3 ng3Var, String str) {
+            super(str);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ng3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = ng3Var;
+        }
+
+        @Override // com.repackage.jn1
+        @NonNull
+        public hr1 d(@NonNull JSONObject jSONObject, @NonNull jn1.b bVar) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bVar)) == null) {
+                hz2 a0 = hz2.a0();
+                if (a0 == null) {
+                    return new hr1(1001, "null swan runtime");
+                }
+                a0.d0().g(gz2.J(), "mapp_i_get_bduss", new C0482a(this, bVar));
+                return hr1.f();
+            }
+            return (hr1) invokeLL.objValue;
+        }
+
+        @Override // com.repackage.jn1
+        @NonNull
+        public hr1 e(@NonNull JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) ? this.d.z() : (hr1) invokeL.objValue;
+        }
+
+        @Override // com.repackage.jn1
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? gz2.J().D() && gz2.J().r().d0().f("mapp_i_get_bduss") : invokeV.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ng3(@NonNull in1 in1Var) {
+        super(in1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {in1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((in1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = eh1.a;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String n = t03.J().r().V().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return str;
-            }
-            try {
-                List<String> c = me3.c(new URI(n).getRawQuery());
-                if (c.size() > 0) {
-                    for (int i = 0; i < c.size(); i++) {
-                        String str2 = c.get(i);
-                        if (!TextUtils.isEmpty(str2)) {
-                            String[] split = str2.split("=");
-                            if (split.length > 1) {
-                                str = me3.a(str, split[0], split[1]);
-                            }
-                        }
-                    }
-                }
-                return str;
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                ux1.i("SwanWebModeUtils", "appendWebUrlQuery: " + e.getMessage());
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDOfflineUrl"})
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (h02.b.a()) {
-                str = d() + "?appKey=" + t03.J().r().getAppId();
-            }
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String e = e();
-            String valueOf = String.valueOf(mg3.c().g());
-            String a2 = a(str);
-            String c = c();
-            ux1.i("SwanWebModeUtils", "appendWebUrlQuery: launchUrl : " + a2 + " rawPath : " + c);
-            return Uri.parse(a2).buildUpon().path(c).appendQueryParameter("_swebfr", e).appendQueryParameter("_swebcode", valueOf).appendQueryParameter("_swebHost", bk2.n().a()).build().toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
+    @Override // com.repackage.kn1
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String n = t03.J().r().V().n("mPage");
-            if (TextUtils.isEmpty(n)) {
-                return "";
-            }
-            try {
-                return new URI(n).getPath();
-            } catch (URISyntaxException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return "";
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PrivateAccount" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kn1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "GetBdussApi" : (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"SwanBindApiNote"})
+    public hr1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getBduss", false);
+            return m(str, new a(this, "getBDUSS"));
         }
-        return (String) invokeV.objValue;
+        return (hr1) invokeL.objValue;
     }
 
     @NonNull
-    public static String d() {
+    public final hr1 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String string = i93.a().getString("web_mode_host_key", "");
-            return TextUtils.isEmpty(string) ? "http://radar.bcc-szth.baidu.com:8312" : string;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? oe3.G() ? "41" : RoomMasterTable.DEFAULT_ID : (String) invokeV.objValue;
-    }
-
-    public static boolean f(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
-            String optString = jSONObject.optString("invokeFrom");
-            return !TextUtils.isEmpty(optString) && TextUtils.equals(optString, "swanWeb");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(nc3 nc3Var, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, nc3Var, i)) == null) {
-            if (i == 6) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String i = hf3.i(gz2.J());
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("bduss", i);
+                return new hr1(0, jSONObject);
+            } catch (JSONException e) {
+                p("#getBdussResult json put data fail", e, false);
+                return new hr1(1001, "json put data fail");
             }
-            if (nc3Var == null) {
-                return false;
-            }
-            return nc3Var.h() == 1013 || nc3Var.h() == 1015;
         }
-        return invokeLI.booleanValue;
+        return (hr1) invokeV.objValue;
     }
 }

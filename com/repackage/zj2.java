@@ -1,246 +1,102 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Looper;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.repackage.vc3;
+import java.io.File;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class zj2 extends DataInputStream {
+public class zj2 implements lk2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final yj2<String, byte[]> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements yj2<String, byte[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.yj2
-        @Nullable
-        public String call(@Nullable byte[] bArr) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-                if (bArr == null) {
-                    return null;
-                }
-                return bArr.length == 0 ? "" : new String(bArr);
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements yj2<Boolean, byte[]> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zj2 a;
-
-        public b(zj2 zj2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zj2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zj2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.yj2
-        @Nullable
-        public Boolean call(@Nullable byte[] bArr) throws Exception {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-                return Boolean.valueOf(bArr != null);
-            }
-            return (Boolean) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755110161, "Lcom/repackage/zj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755110161, "Lcom/repackage/zj2;");
-                return;
-            }
-        }
-        a = new a();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zj2(InputStream inputStream) throws IOException {
-        super(inputStream);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((InputStream) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public Map<String, Boolean> a() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f(new b(this)) : (Map) invokeV.objValue;
-    }
-
-    public byte[] c() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int readInt = readInt();
-            if (readInt >= 0) {
-                byte[] bArr = new byte[readInt];
-                if (readInt == read(bArr)) {
-                    return bArr;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public <T> T d(@NonNull yj2<T, byte[]> yj2Var) {
+    public static SwanAppConfigData a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yj2Var)) == null) {
-            try {
-                return yj2Var.call(c());
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file == null || !file.exists()) {
                 return null;
             }
+            long currentTimeMillis = System.currentTimeMillis();
+            SwanAppConfigData b = tz2.b(file.getAbsolutePath());
+            if (lk2.a) {
+                long currentTimeMillis2 = System.currentTimeMillis();
+                StringBuilder sb = new StringBuilder();
+                sb.append("buildAppJsonConfig cost = ");
+                sb.append(currentTimeMillis2 - currentTimeMillis);
+                sb.append("ms ; current thread is main = ");
+                sb.append(Looper.getMainLooper() == Looper.myLooper());
+                sb.append(" ; path = ");
+                sb.append(file);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return b;
         }
-        return (T) invokeL.objValue;
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    public <T> List<T> e(yj2<T, byte[]> yj2Var) throws IOException {
+    public static SwanAppConfigData b(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, yj2Var)) == null) {
-            int readInt = readInt();
-            if (readInt < 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            if (file == null || !file.exists()) {
                 return null;
             }
-            ArrayList arrayList = new ArrayList(readInt);
-            for (int i = 0; i < readInt; i++) {
-                try {
-                    arrayList.add(yj2Var.call(c()));
-                } catch (Exception e) {
-                    e.printStackTrace();
+            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) ak2.c().b(file.getAbsolutePath());
+            if (swanAppConfigData == null) {
+                swanAppConfigData = kt2.e().j(file);
+                if (swanAppConfigData == null) {
+                    swanAppConfigData = a(file);
                 }
+                ak2.c().d(file.getAbsolutePath(), swanAppConfigData);
+            } else if (lk2.a) {
+                Log.d("SwanPerformance", "adopt cached app.json");
             }
-            return arrayList;
+            return swanAppConfigData;
         }
-        return (List) invokeL.objValue;
+        return (SwanAppConfigData) invokeL.objValue;
     }
 
-    public <T> Map<String, T> f(yj2<T, byte[]> yj2Var) throws IOException {
-        InterceptResult invokeL;
-        List<String> j;
-        List<T> e;
+    public static Boolean c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, yj2Var)) == null) {
-            if (readInt() >= 0 && (j = j()) != null && (e = e(yj2Var)) != null && j.size() == e.size()) {
-                HashMap hashMap = new HashMap();
-                for (int i = 0; i < j.size(); i++) {
-                    hashMap.put(j.get(i), e.get(i));
-                }
-                return hashMap;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            Boolean bool = (Boolean) ak2.c().b("getNightModeStateCache");
+            if (bool == null) {
+                return Boolean.valueOf(oi2.M().a());
             }
-            return null;
+            if (z) {
+                ak2.c().e("getNightModeStateCache");
+            }
+            return bool;
         }
-        return (Map) invokeL.objValue;
+        return (Boolean) invokeZ.objValue;
     }
 
-    public String g() {
+    public static List<vc3.a> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return a.call(c());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            List<vc3.a> list = (List) ak2.c().b("getStorageListCache");
+            if (list == null) {
+                List<vc3.a> d = vc3.d();
+                ak2.c().d("getStorageListCache", d);
+                return d;
             }
+            return list;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public List<String> j() throws IOException {
-        InterceptResult invokeV;
+    public static void e(Boolean bool) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? e(a) : (List) invokeV.objValue;
-    }
-
-    public List<String> k(List<String> list) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
-            List<String> j = j();
-            return j == null ? list : j;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
+            ak2.c().d("getNightModeStateCache", bool);
         }
-        return (List) invokeL.objValue;
-    }
-
-    public Map<String, String> l() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f(a) : (Map) invokeV.objValue;
     }
 }

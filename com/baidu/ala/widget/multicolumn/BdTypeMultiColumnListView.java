@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huewu.pla.lib.internal.PLA_AdapterView;
-import com.repackage.eo;
-import com.repackage.ro;
+import com.repackage.jn;
+import com.repackage.wm;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes.dex */
@@ -123,18 +123,18 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         }
     }
 
-    public void addAdapter(eo<ro, TypeAdapter.ViewHolder> eoVar) {
+    public void addAdapter(wm<jn, TypeAdapter.ViewHolder> wmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, eoVar) == null) {
-            this.mTypeAdapter.a(eoVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, wmVar) == null) {
+            this.mTypeAdapter.a(wmVar);
             setAdapter((ListAdapter) this.mTypeAdapter);
         }
     }
 
-    public void addAdapters(List<eo> list) {
+    public void addAdapters(List<wm> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            Iterator<eo> it = list.iterator();
+            Iterator<wm> it = list.iterator();
             while (it.hasNext()) {
                 this.mTypeAdapter.a(it.next());
             }
@@ -142,19 +142,19 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         }
     }
 
-    public List<ro> getData() {
+    public List<jn> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTypeAdapter.d() : (List) invokeV.objValue;
     }
 
-    public ro getItem(int i) {
+    public jn getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.mTypeAdapter.getItem(i) : (ro) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.mTypeAdapter.getItem(i) : (jn) invokeI.objValue;
     }
 
-    public void setData(List<? extends ro> list) {
+    public void setData(List<? extends jn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
             this.mTypeAdapter.h(list);

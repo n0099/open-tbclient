@@ -1,25 +1,87 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class tu8 implements View.OnTouchListener {
+public class tu8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ tu8 a = new tu8();
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ tu8() {
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? uo8.d : (String) invokeV.objValue;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public final boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) ? VideoVerticalPageFragment.u1(view2, motionEvent) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? uo8.c : (String) invokeV.objValue;
+    }
+
+    public static String c(String str, Bitmap bitmap, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, str, bitmap, str2)) != null) {
+            return (String) invokeLLL.objValue;
+        }
+        String str3 = "";
+        FileOutputStream fileOutputStream = null;
+        try {
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            try {
+            } catch (Exception e2) {
+                e = e2;
+            }
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            File file = new File(str);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File file2 = new File(file, str2);
+            if (!file2.exists()) {
+                file2.createNewFile();
+            }
+            FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
+            try {
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream2);
+                fileOutputStream2.flush();
+                str3 = file2.getAbsolutePath();
+                fileOutputStream2.close();
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream = fileOutputStream2;
+                e.printStackTrace();
+                if (fileOutputStream != null) {
+                    fileOutputStream.close();
+                }
+                return str3;
+            } catch (Throwable th) {
+                th = th;
+                fileOutputStream = fileOutputStream2;
+                if (fileOutputStream != null) {
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+            return str3;
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 }

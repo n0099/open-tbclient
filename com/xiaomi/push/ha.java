@@ -94,26 +94,26 @@ public class ha implements XMPushService.l {
             if (!bg.b(this.f448a) || heVar == null || TextUtils.isEmpty(a(this.f448a.getPackageName())) || !new File(this.f448a.getFilesDir(), "tiny_data.data").exists() || a) {
                 return false;
             }
-            return !com.xiaomi.push.service.aq.a(this.f448a).a(hk.aV.a(), false) || i.m476a(this.f448a) || i.m479b(this.f448a);
+            return !com.xiaomi.push.service.aq.a(this.f448a).a(hk.aV.a(), false) || i.m475a(this.f448a) || i.m478b(this.f448a);
         }
         return invokeL.booleanValue;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.l
     /* renamed from: a  reason: collision with other method in class */
-    public void mo409a() {
+    public void mo408a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a(this.f448a);
             if (this.b && a()) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
+                com.xiaomi.channel.commonutils.logger.b.m108a("TinyData TinyDataCacheProcessor.pingFollowUpAction ts:" + System.currentTimeMillis());
                 he a2 = hd.a(this.f448a).a();
                 if (a(a2)) {
                     a = true;
                     hb.a(this.f448a, a2);
                     return;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m109a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
+                com.xiaomi.channel.commonutils.logger.b.m108a("TinyData TinyDataCacheProcessor.pingFollowUpAction !canUpload(uploader) ts:" + System.currentTimeMillis());
             }
         }
     }

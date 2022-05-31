@@ -1,29 +1,62 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.HashSet;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ye3 {
+public class ye3 extends e13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    @SafeVarargs
-    public static <E> HashSet<E> a(E... eArr) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ye3(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher) {
+        super(unitedSchemeBaseDispatcher, "/swanAPI/debug/setWebDegradeDebugHost");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eArr)) == null) {
-            if (eArr != null && eArr.length > 0) {
-                HashSet<E> hashSet = new HashSet<>(eArr.length);
-                Collections.addAll(hashSet, eArr);
-                return hashSet;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {unitedSchemeBaseDispatcher};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return new HashSet<>();
         }
-        return (HashSet) invokeL.objValue;
+    }
+
+    @Override // com.repackage.e13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
+            JSONObject a = e13.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                hw1.c("Api-SetWebDegradeDebugHostAction", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            String optString = a.optString("host");
+            if (TextUtils.isEmpty(optString)) {
+                v73.a().edit().remove("web_mode_host_key").apply();
+                return true;
+            }
+            v73.a().edit().putString("web_mode_host_key", optString).apply();
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

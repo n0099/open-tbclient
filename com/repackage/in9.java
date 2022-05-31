@@ -1,88 +1,79 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class in9 implements View.OnTouchListener {
+public class in9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BlockingQueue b;
+    public static final ThreadFactory c;
+    public static in9 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ un9 a;
+    public ThreadPoolExecutor a;
 
-    public in9(un9 un9Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755612547, "Lcom/repackage/in9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755612547, "Lcom/repackage/in9;");
+                return;
+            }
+        }
+        b = new LinkedBlockingQueue(210);
+        c = new fn9();
+    }
+
+    public in9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {un9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = un9Var;
+        this.a = new ThreadPoolExecutor(5, 60, 1L, TimeUnit.SECONDS, b, c);
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Info info;
+    public static synchronized in9 a() {
+        InterceptResult invokeV;
+        in9 in9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.a.j = true;
-                this.a.k = System.currentTimeMillis();
-                this.a.l = motionEvent.getX();
-                this.a.m = motionEvent.getY();
-                this.a.n = (int) motionEvent.getRawX();
-                this.a.o = (int) motionEvent.getRawY();
-                this.a.v = System.currentTimeMillis();
-                this.a.p = (int) motionEvent.getX();
-                this.a.q = (int) motionEvent.getY();
-                un9.d(this.a, view2);
-            } else if (action == 1) {
-                this.a.w = (int) motionEvent.getRawX();
-                this.a.x = (int) motionEvent.getRawY();
-                this.a.r = (int) motionEvent.getX();
-                this.a.s = (int) motionEvent.getY();
-                this.a.y = System.currentTimeMillis();
-                Math.abs(motionEvent.getX() - this.a.l);
-                Math.abs(motionEvent.getY() - this.a.m);
-                if (System.currentTimeMillis() - this.a.k < 2000) {
-                    un9 un9Var = this.a;
-                    if (un9Var.j && (info = un9Var.c) != null && vp9.d(info, un9Var.h)) {
-                        this.a.h = System.currentTimeMillis();
-                        un9 un9Var2 = this.a;
-                        Context context = un9Var2.a;
-                        String open = un9Var2.c.getOpen();
-                        un9 un9Var3 = this.a;
-                        vp9.a(context, open, un9Var3.c, un9Var3.g, un9Var3.h().toString());
-                        tq9 a = xq9.a(this.a.a);
-                        a.h(new br9(this.a.c), null);
-                        a.l("desc", this.a.h().toString());
-                        a.m();
-                        un9 un9Var4 = this.a;
-                        ro9.p(un9Var4.c, un9Var4.h().toString());
-                        sn9 sn9Var = this.a.f;
-                        if (sn9Var != null) {
-                            sn9Var.onClicked();
-                        }
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (in9.class) {
+                if (d == null) {
+                    d = new in9();
                 }
+                in9Var = d;
             }
-            return true;
+            return in9Var;
         }
-        return invokeLL.booleanValue;
+        return (in9) invokeV.objValue;
+    }
+
+    public static void b(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
+            a().a.execute(runnable);
+        }
     }
 }

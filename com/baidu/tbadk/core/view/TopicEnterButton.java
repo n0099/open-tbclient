@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
+import com.repackage.ki;
 import com.repackage.li;
-import com.repackage.mi;
+import com.repackage.wq4;
 /* loaded from: classes3.dex */
 public class TopicEnterButton extends AppCompatTextView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -45,9 +45,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        c = mi.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        d = (((((mi.k(TbadkCoreApplication.getInst()) / 2) - mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
+        b = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        c = li.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        d = (((((li.k(TbadkCoreApplication.getInst()) / 2) - li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -77,7 +77,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             this.a = recommendTopicListData;
             if (recommendTopicListData != null) {
                 String topicName = recommendTopicListData.getTopicName();
-                if (li.isEmpty(topicName)) {
+                if (ki.isEmpty(topicName)) {
                     setVisibility(8);
                     return;
                 }
@@ -105,7 +105,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            gs4 d2 = gs4.d(this);
+            wq4 d2 = wq4.d(this);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0304);
@@ -113,7 +113,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             d2.n(R.string.J_X01);
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
-            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080898, WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08089d, WebPManager.ResourceStateType.NORMAL_PRESS);
             setCompoundDrawablePadding(b);
             if (maskDrawable != null) {
                 int i = c;
@@ -127,7 +127,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void onClick(View view2) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (recommendTopicListData = this.a) == null || li.isEmpty(recommendTopicListData.getTopicName())) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (recommendTopicListData = this.a) == null || ki.isEmpty(recommendTopicListData.getTopicName())) {
             return;
         }
         new HotTopicActivityConfig(view2.getContext()).createNormalConfig(null, this.a.getTopicName(), "2").start();

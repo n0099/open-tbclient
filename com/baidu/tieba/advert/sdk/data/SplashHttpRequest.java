@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-import com.repackage.cl5;
-import com.repackage.ql5;
+import com.repackage.kk5;
+import com.repackage.wj5;
 /* loaded from: classes3.dex */
 public class SplashHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
@@ -70,17 +70,17 @@ public class SplashHttpRequest extends HttpMessage {
             return;
         }
         addParam("pid", adInfo.placeId);
-        addParam("ver", ql5.b(context));
+        addParam("ver", kk5.b(context));
         addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-        addParam(SearchJsBridge.COOKIE_MOD, cl5.c());
+        addParam(SearchJsBridge.COOKIE_MOD, wj5.c());
         addParam("ot", 2);
-        addParam(SearchJsBridge.COOKIE_OV, cl5.d());
+        addParam(SearchJsBridge.COOKIE_OV, wj5.d());
         addParam(CommandMessage.SDK_VERSION, "1.1.4");
-        addParam("nt", cl5.b(context).intValue());
+        addParam("nt", wj5.b(context).intValue());
         addParam(Config.EXCEPTION_CRASH_TYPE, 2);
-        addParam(TbConfig.SW_APID, cl5.f(context).intValue());
-        addParam("sh", cl5.e(context).intValue());
-        addParam("imei", cl5.a(context));
+        addParam(TbConfig.SW_APID, wj5.f(context).intValue());
+        addParam("sh", wj5.e(context).intValue());
+        addParam("imei", wj5.a(context));
         addParam("fmt", "json");
         addParam("adw", adInfo.adWidth);
         addParam("adh", adInfo.adHeight);

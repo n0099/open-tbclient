@@ -1,29 +1,23 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.PidLoader;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class gk9 {
+public class gk9 implements lk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, PidLoaderCreator> a;
-    public final Map<Ssp.Pid, PidLoader> b;
+    public final /* synthetic */ ok9 a;
 
-    public gk9(Map<String, PidLoaderCreator> map) {
+    public gk9(ok9 ok9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map};
+            Object[] objArr = {ok9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,34 +27,39 @@ public class gk9 {
                 return;
             }
         }
-        this.b = new HashMap();
-        this.a = map;
+        this.a = ok9Var;
     }
 
-    public PidLoader a(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    @Override // com.repackage.lk9
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
-            synchronized (this.b) {
-                PidLoader pidLoader = this.b.get(pid);
-                if (pidLoader != null) {
-                    return pidLoader;
-                }
-                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
-                if (pidLoaderCreator == null) {
-                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
-                    return null;
-                }
-                PidLoader create = pidLoaderCreator.create(pid);
-                if (create == null) {
-                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
-                    return null;
-                }
-                xj9 xj9Var = new xj9(create);
-                this.b.put(pid, xj9Var);
-                return xj9Var;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
-        return (PidLoader) invokeL.objValue;
+    }
+
+    @Override // com.repackage.lk9
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            ok9 ok9Var = this.a;
+            if (pm9.d(ok9Var.c, ok9Var.h)) {
+                this.a.h = System.currentTimeMillis();
+                ok9 ok9Var2 = this.a;
+                pm9.a(ok9Var2.a, str, ok9Var2.c, ok9Var2.g, str2);
+                nn9 a = rn9.a(this.a.a);
+                a.h(new vn9(this.a.c), str);
+                a.l("desc", str2);
+                a.m();
+                mk9 mk9Var = this.a.f;
+                if (mk9Var != null) {
+                    mk9Var.onClicked();
+                }
+                ll9.p(this.a.c, str2);
+                return true;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

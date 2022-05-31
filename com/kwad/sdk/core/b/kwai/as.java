@@ -18,9 +18,9 @@ public class as implements com.kwad.sdk.core.d<l.a> {
             aVar.b = "";
         }
         aVar.c = jSONObject.optInt(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
-        b.C0312b c0312b = new b.C0312b();
-        aVar.d = c0312b;
-        c0312b.parseJson(jSONObject.optJSONObject("logParam"));
+        b.C0313b c0313b = new b.C0313b();
+        aVar.d = c0313b;
+        c0313b.parseJson(jSONObject.optJSONObject("logParam"));
     }
 
     /* JADX DEBUG: Method merged with bridge method */

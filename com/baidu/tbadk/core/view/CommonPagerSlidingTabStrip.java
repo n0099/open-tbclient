@@ -605,7 +605,7 @@ public class CommonPagerSlidingTabStrip extends HorizontalScrollView {
         this.v = null;
         this.w = 0;
         this.x = 0;
-        this.y = R.drawable.obfuscated_res_0x7f080e7b;
+        this.y = R.drawable.obfuscated_res_0x7f080e8c;
         l();
     }
 }

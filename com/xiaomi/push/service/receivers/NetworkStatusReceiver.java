@@ -104,7 +104,7 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            if (!an.a(context).m143a() && b.m150a(context).m159c() && !b.m150a(context).m162f()) {
+            if (!an.a(context).m142a() && b.m149a(context).m158c() && !b.m149a(context).m161f()) {
                 try {
                     Intent intent = new Intent();
                     intent.setComponent(new ComponentName(context, "com.xiaomi.push.service.XMPushService"));
@@ -114,9 +114,9 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
             }
-            gq.m398a(context);
-            if (bg.b(context) && an.a(context).m146b()) {
-                an.a(context).m147c();
+            gq.m397a(context);
+            if (bg.b(context) && an.a(context).m145b()) {
+                an.a(context).m146c();
             }
             if (bg.b(context)) {
                 if ("syncing".equals(ae.a(context).a(at.a))) {

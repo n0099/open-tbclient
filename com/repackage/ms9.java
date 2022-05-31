@@ -1,46 +1,5 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class ms9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public int b;
-    public int c;
-    public is9 d;
-    public List e;
-    public int f;
-    public int g;
-    public boolean h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-
-    public ms9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = 0;
-        this.c = 0;
-        this.e = new ArrayList();
-        this.m = 0;
-    }
+public interface ms9 extends rs9 {
+    String f();
 }

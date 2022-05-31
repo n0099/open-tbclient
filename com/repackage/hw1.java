@@ -1,372 +1,226 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Interpolator;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import androidx.core.view.animation.PathInterpolatorCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iw1;
-import com.tachikoma.core.component.anim.AnimationProperty;
-import com.tachikoma.core.component.anim.TimeFunctionConst;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.bumptech.glide.load.engine.GlideException;
+import java.util.Date;
 /* loaded from: classes6.dex */
-public abstract class hw1<V extends View, M extends iw1> extends jw1<V, M> {
+public class hw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppComponentContainerView a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ iw1 c;
-
-        public a(hw1 hw1Var, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, iw1 iw1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hw1Var, swanAppComponentContainerView, Boolean.valueOf(z), iw1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanAppComponentContainerView;
-            this.b = z;
-            this.c = iw1Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755633937, "Lcom/repackage/hw1;")) == null) {
+            return;
         }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    if (this.b) {
-                        marginLayoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                    } else {
-                        marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                    }
-                    this.c.h.l(marginLayoutParams.leftMargin);
-                    this.c.h.m(marginLayoutParams.topMargin);
-                    this.a.setLayoutParams(marginLayoutParams);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hw1(@Nullable Context context, @NonNull M m) {
-        super(context, m);
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (kw1) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755633937, "Lcom/repackage/hw1;");
         }
     }
 
-    @Nullable
-    public final ValueAnimator F(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull iw1 iw1Var, @NonNull iw1 iw1Var2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppComponentContainerView, iw1Var, iw1Var2)) == null) {
-            if (iw1Var2.j != null) {
-                float b = ud3.b(iw1Var.j, NativeConstants.OPACITY, 1.0f);
-                float b2 = ud3.b(iw1Var2.j, NativeConstants.OPACITY, b);
-                if (b != b2) {
-                    return ObjectAnimator.ofFloat(swanAppComponentContainerView, AnimationProperty.OPACITY, b, b2);
-                }
-            }
-            return null;
-        }
-        return (ValueAnimator) invokeLLL.objValue;
-    }
-
-    public final AnimatorSet G(long j, @NonNull Interpolator interpolator, List<Animator> list) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), interpolator, list})) == null) {
-            if (j <= 0 || list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (Animator animator : list) {
-                if (animator != null) {
-                    arrayList.add(animator);
-                }
-            }
-            if (arrayList.size() == 0) {
-                return null;
-            }
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.setInterpolator(interpolator);
-            animatorSet.setDuration(j);
-            animatorSet.playTogether(arrayList);
-            return animatorSet;
-        }
-        return (AnimatorSet) invokeCommon.objValue;
-    }
-
-    @Nullable
-    public final ValueAnimator H(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull iw1 iw1Var, @NonNull iw1 iw1Var2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{swanAppComponentContainerView, iw1Var, iw1Var2, Boolean.valueOf(z)})) == null) {
-            ar2 ar2Var = iw1Var.h;
-            if (ar2Var == null || iw1Var2.h == null) {
-                return null;
-            }
-            int d = z ? ar2Var.d() : ar2Var.e();
-            ar2 ar2Var2 = iw1Var2.h;
-            int d2 = z ? ar2Var2.d() : ar2Var2.e();
-            if (d != d2) {
-                ValueAnimator ofInt = ValueAnimator.ofInt(d, d2);
-                ofInt.addUpdateListener(new a(this, swanAppComponentContainerView, z, iw1Var2));
-                return ofInt;
-            }
-            return null;
-        }
-        return (ValueAnimator) invokeCommon.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jw1
-    @NonNull
-    /* renamed from: I */
-    public mx1 k(@NonNull M m, @NonNull M m2) {
+    public static String a(@Nullable String str, @Nullable String str2) {
         InterceptResult invokeLL;
-        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, m, m2)) == null) {
-            mx1 k = super.k(m, m2);
-            if (m2.j != null && ((jSONObject = m.j) == null || !TextUtils.equals(jSONObject.toString(), m2.j.toString()))) {
-                k.b(4);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str2;
             }
-            return k;
+            return PreferencesUtil.LEFT_MOUNT + str + "] " + str2;
         }
-        return (mx1) invokeLL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public final boolean J() {
-        InterceptResult invokeV;
-        JSONObject jSONObject;
+    public static void b(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? s(4) && t() && (jSONObject = ((iw1) n()).q) != null && !TextUtils.isEmpty(jSONObject.optString("duration")) : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final Interpolator K(@NonNull String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            switch (str.hashCode()) {
-                case -1965120668:
-                    if (str.equals(TimeFunctionConst.Timing.EASE_IN)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1102672091:
-                    if (str.equals(TimeFunctionConst.Timing.LINEAR)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -789192465:
-                    if (str.equals(TimeFunctionConst.Timing.EASE_OUT)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -361990811:
-                    if (str.equals(TimeFunctionConst.Timing.EASE_IN_OUT)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3105774:
-                    if (str.equals("ease")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            return PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f);
-                        }
-                        return PathInterpolatorCompat.create(0.42f, 0.0f, 0.58f, 1.0f);
-                    }
-                    return PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, objArr) == null) && rf1.a && objArr != null) {
+            StringBuilder sb = new StringBuilder();
+            for (Object obj : objArr) {
+                if (obj != null) {
+                    sb.append(obj.toString());
                 }
-                return PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f);
             }
-            return PathInterpolatorCompat.create(0.0f, 0.0f, 1.0f, 1.0f);
+            Log.d(str, sb.toString());
         }
-        return (Interpolator) invokeL.objValue;
     }
 
-    public final boolean L() {
-        InterceptResult invokeV;
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? N(false) : invokeV.booleanValue;
-    }
-
-    public final boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? N(true) : invokeV.booleanValue;
-    }
-
-    public final boolean N(boolean z) {
-        InterceptResult invokeZ;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            SwanAppComponentContainerView m = m();
-            iw1 iw1Var = (iw1) p();
-            iw1 iw1Var2 = (iw1) n();
-            if (m == null || iw1Var == null || (jSONObject = iw1Var2.q) == null || TextUtils.isEmpty(jSONObject.optString("duration"))) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            m("error", str, str2);
+            oi2.p0().e(str, str2);
+            if (rf1.a) {
+                Log.e(str, str2);
             }
-            ArrayList arrayList = new ArrayList();
-            if (z) {
-                arrayList.add(H(m, iw1Var, iw1Var2, false));
-                arrayList.add(H(m, iw1Var, iw1Var2, true));
+        }
+    }
+
+    public static void d(String str, String str2, Throwable th) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
+            if (th != null) {
+                str3 = "Exception:" + th.getMessage() + "\n" + str2;
             } else {
-                arrayList.add(F(m, iw1Var, iw1Var2));
+                str3 = str2;
             }
-            AnimatorSet G = G(iw1Var2.r, K(iw1Var2.s), arrayList);
-            if (G != null) {
-                G.start();
-            }
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.jw1
-    /* renamed from: O */
-    public void C(@NonNull V v, @NonNull M m, @NonNull mx1 mx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, v, m, mx1Var) == null) {
-            super.C(v, m, mx1Var);
-            if (mx1Var.a(4)) {
-                R(v, m);
-                Q(v, m);
-                P(v, m);
+            m("error", str, str3);
+            oi2.p0().e(str, str2, th);
+            if (rf1.a) {
+                Log.e(str, str2, th);
             }
         }
     }
 
-    public void P(@NonNull View view2, @NonNull M m) {
+    public static void e(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, view2, m) == null) || m.j == null) {
-            return;
-        }
-        if (jw1.h) {
-            Log.d("Component-View", "renderAlpha");
-        }
-        if (J()) {
-            if (jw1.h) {
-                Log.d("Component-View", "renderAlpha with animation");
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
+            String a2 = a(str2, str3);
+            oi2.p0().e(str, a2, th);
+            if (z) {
+                m("error", str, a2);
             }
-            if (L()) {
-                return;
-            }
-            ux1.o("Component-View", "performAlphaUpdateAnimation fail");
-            return;
         }
-        float f = m.p;
-        if (f >= 0.0f && f <= 1.0f) {
-            view2.setAlpha(f);
-            return;
-        }
-        ux1.o("Component-View", "alpha invalid: " + m.p);
     }
 
-    public void Q(@NonNull V v, @NonNull M m) {
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) || m.j == null) {
-            return;
-        }
-        if (jw1.h) {
-            Log.d("Component-View", "renderBackground");
-        }
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(m.k);
-        gradientDrawable.setCornerRadius(m.n);
-        gradientDrawable.setStroke(m.l, m.m);
-        v.setBackground(gradientDrawable);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? a : invokeV.booleanValue;
     }
 
-    public void R(@NonNull V v, @NonNull M m) {
+    public static String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, v, m) == null) || m.j == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace != null && stackTrace.length > 5) {
+                return stackTrace[5].getFileName();
+            }
+            return AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0153);
         }
-        if (jw1.h) {
-            Log.d("Component-View", "renderPadding");
+        return (String) invokeV.objValue;
+    }
+
+    public static int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace == null || stackTrace.length <= 5) {
+                return -1;
+            }
+            return stackTrace[5].getLineNumber();
         }
-        JSONArray jSONArray = m.o;
-        if (jSONArray == null) {
-            return;
+        return invokeV.intValue;
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            m("info", str, str2);
+            oi2.p0().i(str, str2);
+            if (rf1.a) {
+                Log.i(str, str2);
+            }
         }
-        if (jSONArray.length() == 4) {
-            v.setPadding(le3.g((float) jSONArray.optDouble(3, 0.0d)), le3.g((float) jSONArray.optDouble(0, 0.0d)), le3.g((float) jSONArray.optDouble(1, 0.0d)), le3.g((float) jSONArray.optDouble(2, 0.0d)));
-            return;
+    }
+
+    public static void j(String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, str2, str3, Boolean.valueOf(z)}) == null) {
+            String a2 = a(str2, str3);
+            oi2.p0().i(str, a2);
+            if (z) {
+                m("info", str, a2);
+            }
         }
-        ux1.c("Component-View", "invalid padding array length: " + jSONArray.length());
+    }
+
+    public static void k(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
+            oi2.p0().i(str, str2);
+            if (rf1.a) {
+                Log.i(str, str2);
+            }
+        }
+    }
+
+    public static void l(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, th) == null) {
+            oi2.p0().e(str, str2, th);
+            if (rf1.a) {
+                Log.e(str, str2, th);
+            }
+        }
+    }
+
+    public static void m(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65549, null, str, str2, str3) == null) && a && !TextUtils.isEmpty(str3)) {
+            StringBuilder sb = new StringBuilder();
+            String b = vb3.b(new Date(), "yyyy-MM-dd HH:mm:ss");
+            String g = g();
+            int h = h();
+            sb.append(b);
+            sb.append(GlideException.IndentedAppendable.INDENT);
+            sb.append(g);
+            sb.append(GlideException.IndentedAppendable.INDENT);
+            sb.append("line:");
+            sb.append(h);
+            sb.append("\n");
+            sb.append("module:");
+            sb.append(str2);
+            sb.append("\n");
+            sb.append(str3);
+            uk2.U().q().i0(str, sb.toString());
+        }
+    }
+
+    public static void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
+            a = z;
+        }
+    }
+
+    public static void o(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) {
+            m("warn", str, str2);
+            oi2.p0().w(str, str2);
+            if (rf1.a) {
+                Log.w(str, str2);
+            }
+        }
+    }
+
+    public static void p(String str, String str2, String str3, @Nullable Throwable th, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65552, null, new Object[]{str, str2, str3, th, Boolean.valueOf(z)}) == null) {
+            String a2 = a(str2, str3);
+            oi2.p0().w(str, a2, th);
+            if (z) {
+                m("warn", str, a2);
+            }
+        }
     }
 }

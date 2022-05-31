@@ -1,104 +1,148 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.qj2;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class nw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static nw2 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public WeakReference<mw2> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755455160, "Lcom/repackage/nw2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<hz2> a;
+        public WeakReference<py1> b;
+        public String c;
+        public MediaModel d;
+
+        public b(nw2 nw2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755455160, "Lcom/repackage/nw2;");
-                return;
-            }
-        }
-        a = eh1.a;
-    }
-
-    public static void a() {
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (list = qj2.q().list()) == null || list.length <= 0) {
-            return;
-        }
-        for (String str : list) {
-            if (!TextUtils.isEmpty(str)) {
-                t94 t94Var = new t94();
-                t94Var.g = str;
-                t94Var.i = -1L;
-                p84.i().f(t94Var);
-            }
-        }
-        qj2.e.d();
-    }
-
-    public static void b(String str) {
-        File s;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str) || (s = qj2.s(str)) == null || (list = s.list()) == null || list.length <= 1) {
-            return;
-        }
-        List<t94> q = bw2.q(str);
-        for (String str2 : list) {
-            long j = -1;
-            try {
-                j = Long.parseLong(str2);
-            } catch (NumberFormatException e) {
-                if (a) {
-                    mw2.b(Log.getStackTraceString(e));
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            if (!c(j, q)) {
-                xg4.L(qj2.t(str, str2));
-                mw2.b("delete plugin name = " + str + " ; version = " + str2);
-            }
         }
-        t94 t94Var = null;
-        if (q != null) {
-            if (q.size() == 1) {
-                t94Var = q.get(0);
-            } else if (q.size() >= 2) {
-                t94Var = q.get(1);
-            }
-        }
-        if (t94Var != null) {
-            p84.i().f(t94Var);
+
+        public /* synthetic */ b(nw2 nw2Var, a aVar) {
+            this(nw2Var);
         }
     }
 
-    public static boolean c(long j, List<t94> list) {
-        InterceptResult invokeJL;
+    public nw2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    t94 t94Var = list.get(i);
-                    if (t94Var != null && (j == t94Var.i || j == je3.c(t94Var.j))) {
-                        return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static nw2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (nw2.class) {
+                    if (c == null) {
+                        c = new nw2();
                     }
                 }
             }
+            return c;
+        }
+        return (nw2) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            mw2 mw2Var = this.b.get();
+            if (mw2Var != null) {
+                mw2Var.B1();
+                return true;
+            }
             return false;
         }
-        return invokeJL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public void d(String str, MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, mediaModel) == null) {
+            hz2 L = hz2.L();
+            py1 H = uk2.U().H();
+            if (L != null && H != null) {
+                b bVar = new b(this, null);
+                this.a = bVar;
+                bVar.a = new WeakReference<>(L);
+                this.a.b = new WeakReference<>(H);
+                b bVar2 = this.a;
+                bVar2.c = str;
+                bVar2.d = mediaModel;
+                return;
+            }
+            this.a = null;
+        }
+    }
+
+    public void e(hz2 hz2Var, ReplyEditorParams replyEditorParams, jw2 jw2Var) {
+        py1 H;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, hz2Var, replyEditorParams, jw2Var) == null) || (H = uk2.U().H()) == null || hz2Var == null) {
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("params", replyEditorParams);
+        b bVar = this.a;
+        if (bVar != null && hz2Var == bVar.a.get() && H == this.a.b.get()) {
+            bundle.putBoolean(MediaTrackConfig.AE_IMPORT_DRAFT, true);
+            bundle.putString("content", this.a.c);
+            bundle.putParcelable("image", this.a.d);
+        }
+        mw2 mw2Var = new mw2();
+        mw2Var.i1(bundle);
+        mw2Var.O1(jw2Var);
+        mw2Var.s1(H.v(), "ReplyEditor");
+        this.b = new WeakReference<>(mw2Var);
     }
 }

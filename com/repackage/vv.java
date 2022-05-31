@@ -1,129 +1,178 @@
 package com.repackage;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.browser.core.async.BdRunnable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wv;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes7.dex */
-public final class vv implements wv {
+public class vv {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
+    public static vv e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final xv a;
-    public final com.baidu.bdtask.strategy.e b;
+    public ExecutorService a;
+    public Handler b;
+    public Handler c;
+    public List<uv> d;
 
     /* loaded from: classes7.dex */
-    public static final class a {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vv a;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vv vvVar, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vvVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vvVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i == 0) {
+                    if (this.a.d != null) {
+                        Iterator it = this.a.d.iterator();
+                        while (it.hasNext()) {
+                            uv uvVar = (uv) it.next();
+                            if (this.a.e(uvVar)) {
+                                this.a.a.submit(uvVar);
+                                it.remove();
+                            }
+                        }
+                    }
+                } else if (i == 1) {
+                    if (message.obj instanceof uv) {
+                        this.a.d.add((uv) message.obj);
+                    }
+                } else if (i != 2) {
+                } else {
+                    Object obj = message.obj;
+                    if (obj instanceof BdRunnable) {
+                        post((BdRunnable) obj);
+                    }
                 }
             }
         }
-
-        public final vv a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new vv(null) : (vv) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964024507, "Lcom/repackage/vv;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964024507, "Lcom/repackage/vv;");
-                return;
-            }
-        }
-        c = new a(null);
     }
 
     public vv() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new xv();
-        this.b = new com.baidu.bdtask.strategy.e();
+        this.d = new ArrayList();
+        this.a = Executors.newFixedThreadPool(5);
+        Executors.newSingleThreadExecutor();
+        this.b = new a(this, tv.a("threadpool").getLooper());
+        this.c = new Handler(Looper.getMainLooper());
     }
 
-    @Override // com.repackage.wv
-    public void a(SubTaskState subTaskState) {
+    public static vv f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            wv.a.c(this, subTaskState);
-            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
-                this.a.a(subTaskState);
-            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
-                this.b.a(subTaskState);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (vv.class) {
+                    if (e == null) {
+                        e = new vv();
+                    }
+                }
             }
+            return e;
+        }
+        return (vv) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.removeMessages(0);
+            this.b.sendEmptyMessage(0);
         }
     }
 
-    @Override // com.repackage.wv
-    public boolean b(TaskInfo taskInfo, int i) {
-        InterceptResult invokeLI;
+    public final boolean e(uv uvVar) {
+        InterceptResult invokeL;
+        List<BdRunnable> d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
-            if (taskInfo.isInitiActiveTask()) {
-                return this.a.b(taskInfo, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uvVar)) == null) {
+            if (uvVar != null && (d = uvVar.d()) != null) {
+                for (int i = 0; i < d.size(); i++) {
+                    BdRunnable bdRunnable = d.get(i);
+                    if (bdRunnable != null && !bdRunnable.c()) {
+                        return false;
+                    }
+                }
             }
-            if (taskInfo.isPassiveTask()) {
-                return this.b.b(taskInfo, i);
-            }
-            return false;
+            return true;
         }
-        return invokeLI.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public void c(SubTaskState subTaskState) {
+    public void g(BdRunnable bdRunnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
-                this.a.c(subTaskState);
-            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
-                this.b.c(subTaskState);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdRunnable) == null) || bdRunnable == null) {
+            return;
+        }
+        if (bdRunnable instanceof uv) {
+            if (e((uv) bdRunnable)) {
+                this.a.submit(bdRunnable);
+                return;
+            } else {
+                this.b.obtainMessage(1, bdRunnable).sendToTarget();
+                return;
             }
+        }
+        try {
+            this.a.submit(bdRunnable);
+        } catch (Error e2) {
+            bdRunnable.a(e2);
+        } catch (Exception e3) {
+            bdRunnable.onException(e3);
         }
     }
 
-    public /* synthetic */ vv(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
+    public void h(BdRunnable bdRunnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bdRunnable) == null) {
+            this.c.post(bdRunnable);
+        }
     }
 }

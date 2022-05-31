@@ -1,58 +1,82 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.PBError;
 /* loaded from: classes6.dex */
-public class pn9 extends Handler {
+public class pn9 implements xn9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ so9 a;
+    public final /* synthetic */ tn9 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pn9(so9 so9Var, Looper looper) {
-        super(looper);
+    public pn9(tn9 tn9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {so9Var, looper};
+            Object[] objArr = {tn9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = so9Var;
+        this.a = tn9Var;
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
+    @Override // com.repackage.xn9
+    public void a(boolean z) {
+        xn9 xn9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            super.handleMessage(message);
-            if (message.what != 1101) {
-                return;
-            }
-            this.a.e.removeMessages(1101);
-            so9 so9Var = this.a;
-            if (!so9Var.b && so9Var.b(so9Var.a)) {
-                po9 po9Var = this.a.c;
-                if (po9Var != null) {
-                    po9Var.a();
-                }
-                this.a.b = true;
-                return;
-            }
-            this.a.e.sendEmptyMessageDelayed(1101, 300L);
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (xn9Var = this.a.b) == null) {
+            return;
         }
+        xn9Var.a(z);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onClicked() {
+        xn9 xn9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (xn9Var = this.a.b) == null) {
+            return;
+        }
+        xn9Var.onClicked();
+    }
+
+    @Override // com.repackage.xn9
+    public void onDisplayed() {
+        xn9 xn9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (xn9Var = this.a.b) == null) {
+            return;
+        }
+        xn9Var.onDisplayed();
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onFail(PBError pBError) {
+        xn9 xn9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, pBError) == null) || (xn9Var = this.a.b) == null) {
+            return;
+        }
+        xn9Var.onFail(pBError);
+    }
+
+    @Override // com.win.opensdk.PBListener
+    public void onLoaded() {
+        xn9 xn9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (xn9Var = this.a.b) == null) {
+            return;
+        }
+        xn9Var.onLoaded();
     }
 }

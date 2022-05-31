@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -99,7 +100,7 @@ public final class b {
                                 stringBuffer.append(",");
                                 stringBuffer.append(eVar.c);
                                 if (i != list.size() - 1) {
-                                    stringBuffer.append(";");
+                                    stringBuffer.append(ParamableElem.DIVIDE_PARAM);
                                 }
                             }
                         } catch (Exception e) {
@@ -293,7 +294,7 @@ public final class b {
             }
             ArrayList<e> arrayList = new ArrayList<>();
             try {
-                for (String str2 : str.trim().split(";")) {
+                for (String str2 : str.trim().split(ParamableElem.DIVIDE_PARAM)) {
                     String[] split = str2.trim().split(",");
                     if (split.length >= 3) {
                         e eVar = new e();

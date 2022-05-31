@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.va9;
+import com.repackage.p79;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(18)
@@ -54,7 +54,7 @@ public class InnerMuxerWrapper {
         if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        va9.i(str2);
+        p79.i(str2);
     }
 
     public synchronized int addTrack(MediaFormat mediaFormat) {

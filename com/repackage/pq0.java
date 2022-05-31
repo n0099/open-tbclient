@@ -1,82 +1,17 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class pq0 {
+public abstract class pq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, lv0> a;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final pq0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-91297148, "Lcom/repackage/pq0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-91297148, "Lcom/repackage/pq0$b;");
-                    return;
-                }
-            }
-            a = new pq0(null);
-        }
-    }
-
-    public /* synthetic */ pq0(a aVar) {
-        this();
-    }
-
-    public static pq0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (pq0) invokeV.objValue;
-    }
-
-    @Nullable
-    public lv0 b(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (lv0) invokeL.objValue;
-    }
-
-    public void c(@Nullable String str, @Nullable lv0 lv0Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, lv0Var) == null) || lv0Var == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a.put(str, lv0Var);
-    }
-
-    @Nullable
-    public lv0 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.a.remove(str) : (lv0) invokeL.objValue;
-    }
+    public final ArrayList<lu0> a;
 
     public pq0() {
         Interceptable interceptable = $ic;
@@ -91,6 +26,38 @@ public class pq0 {
                 return;
             }
         }
-        this.a = new HashMap<>(2);
+        this.a = new ArrayList<>();
+    }
+
+    public void b(@NonNull lu0 lu0Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, lu0Var) == null) || this.a.contains(lu0Var)) {
+            return;
+        }
+        gx0.b(this.a, lu0Var);
+    }
+
+    public void c(@NonNull er0 er0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, er0Var) == null) {
+            int size = this.a.size();
+            for (int i = 0; i < size; i++) {
+                lu0 lu0Var = (lu0) gx0.d(this.a, i);
+                if (lu0Var != null) {
+                    if (i == 0) {
+                        lu0Var.d(er0Var);
+                    } else {
+                        lu0Var.d(er0.a(er0Var));
+                    }
+                }
+            }
+        }
+    }
+
+    public void d(@NonNull lu0 lu0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lu0Var) == null) {
+            gx0.j(this.a, lu0Var);
+        }
     }
 }

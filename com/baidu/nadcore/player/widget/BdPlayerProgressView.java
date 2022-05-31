@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wx0;
+import com.repackage.jw0;
 /* loaded from: classes2.dex */
 public class BdPlayerProgressView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -238,8 +238,8 @@ public class BdPlayerProgressView extends View {
         this.c = com.baidu.searchbox.player.widget.BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
         this.h = 0;
         this.i = 0;
-        this.h = wx0.a(this, 120.0f);
-        this.i = wx0.a(this, 15.0f);
+        this.h = jw0.a(this, 120.0f);
+        this.i = jw0.a(this, 15.0f);
         TypedArray typedArray = null;
         try {
             typedArray = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040475, R.attr.obfuscated_res_0x7f040476, R.attr.obfuscated_res_0x7f040477, R.attr.obfuscated_res_0x7f040478});

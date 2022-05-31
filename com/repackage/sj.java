@@ -4,19 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.SocketException;
 /* loaded from: classes7.dex */
-public class sj extends wj {
+public class sj extends uj {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SocketException a;
+    public Exception a;
 
-    public sj(SocketException socketException) {
+    public sj(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {socketException};
+            Object[] objArr = {exc};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,6 +25,6 @@ public class sj extends wj {
                 return;
             }
         }
-        this.a = socketException;
+        this.a = exc;
     }
 }

@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc1;
-import com.repackage.s20;
+import com.repackage.f10;
+import com.repackage.sa1;
 /* loaded from: classes2.dex */
 public class Loki {
     public static /* synthetic */ Interceptable $ic = null;
@@ -66,7 +66,7 @@ public class Loki {
     @TimeSpendTrace(tag = "AppInit")
     public static void init(@NonNull Context context, @NonNull BaseUncaughtExceptionHandler baseUncaughtExceptionHandler) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, baseUncaughtExceptionHandler) == null) || isLokiService(fc1.b())) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, context, baseUncaughtExceptionHandler) == null) || isLokiService(sa1.b())) {
             return;
         }
         retryUpload(context);
@@ -86,7 +86,7 @@ public class Loki {
 
     public static void initService(@Nullable LogSystemProcessor logSystemProcessor) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, null, logSystemProcessor) == null) && isLokiService(fc1.b())) {
+        if ((interceptable == null || interceptable.invokeL(65545, null, logSystemProcessor) == null) && isLokiService(sa1.b())) {
             LokiService.mProcessor = logSystemProcessor;
         }
     }
@@ -123,7 +123,7 @@ public class Loki {
 
     public static void retryUpload(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && fc1.f() && LogSystemUploaderStrategy.checkFlag()) {
+        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && sa1.f() && LogSystemUploaderStrategy.checkFlag()) {
             LogSystemServiceUtil.startLogHandlerService(context);
         }
     }
@@ -151,34 +151,34 @@ public class Loki {
         Track.getInstance().startTrack(AppRuntime.getAppContext());
     }
 
-    public static void initNative(@NonNull Context context, @NonNull s20 s20Var) {
+    public static void initNative(@NonNull Context context, @NonNull f10 f10Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, context, s20Var) == null) {
-            initNative(context, s20Var, true);
+        if (interceptable == null || interceptable.invokeLL(65541, null, context, f10Var) == null) {
+            initNative(context, f10Var, true);
         }
     }
 
     public static void initNative(@NonNull Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65543, null, context, z) == null) || isLokiService(fc1.b())) {
+        if (!(interceptable == null || interceptable.invokeLZ(65543, null, context, z) == null) || isLokiService(sa1.b())) {
             return;
         }
-        NativeCrashCapture.init(context, new s20(context), z);
+        NativeCrashCapture.init(context, new f10(context), z);
     }
 
     public static void initService() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && isLokiService(fc1.b())) {
+        if ((interceptable == null || interceptable.invokeV(65544, null) == null) && isLokiService(sa1.b())) {
             LokiService.mProcessor = new LogSystemProcessor();
         }
     }
 
-    public static void initNative(@NonNull Context context, @NonNull s20 s20Var, boolean z) {
+    public static void initNative(@NonNull Context context, @NonNull f10 f10Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, context, s20Var, z) == null) || isLokiService(fc1.b())) {
+        if (!(interceptable == null || interceptable.invokeLLZ(65542, null, context, f10Var, z) == null) || isLokiService(sa1.b())) {
             return;
         }
-        NativeCrashCapture.init(context, s20Var, z);
+        NativeCrashCapture.init(context, f10Var, z);
     }
 
     public static void init(@NonNull Context context) {

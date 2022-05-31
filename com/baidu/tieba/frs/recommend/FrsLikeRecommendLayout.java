@@ -28,20 +28,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.an6;
-import com.repackage.bp;
-import com.repackage.gs4;
-import com.repackage.ni8;
-import com.repackage.py;
-import com.repackage.ro;
-import com.repackage.wm6;
-import com.repackage.xm6;
-import com.repackage.zm6;
+import com.repackage.cl6;
+import com.repackage.cx;
+import com.repackage.dl6;
+import com.repackage.fl6;
+import com.repackage.gl6;
+import com.repackage.jn;
+import com.repackage.of8;
+import com.repackage.tn;
+import com.repackage.wq4;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes3.dex */
-public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
+public class FrsLikeRecommendLayout extends ConstraintLayout implements cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -49,12 +49,12 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
     public TextView c;
     public ImageView d;
     public BdTypeRecyclerView e;
-    public wm6 f;
-    public xm6 g;
+    public cl6 f;
+    public dl6 g;
     public ValueAnimator h;
-    public zm6 i;
+    public fl6 i;
     public boolean j;
-    public List<ni8> k;
+    public List<of8> k;
     public int l;
 
     /* loaded from: classes3.dex */
@@ -266,21 +266,21 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         }
     }
 
-    private bp getItemClickListener() {
+    private tn getItemClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? new bp() { // from class: com.repackage.vm6
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? new tn() { // from class: com.repackage.zk6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.repackage.bp
-            public final void b(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            @Override // com.repackage.tn
+            public final void b(View view2, jn jnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, roVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                    FrsLikeRecommendLayout.this.l(view2, roVar, bdUniqueId, viewGroup, i, j);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view2, jnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                    FrsLikeRecommendLayout.this.l(view2, jnVar, bdUniqueId, viewGroup, i, j);
                 }
             }
-        } : (bp) invokeV.objValue;
+        } : (tn) invokeV.objValue;
     }
 
     public final void g() {
@@ -325,14 +325,14 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         this.h.start();
     }
 
-    public void i(@NonNull TbPageContext<?> tbPageContext, @NonNull String str, @NonNull List<ni8> list) {
+    public void i(@NonNull TbPageContext<?> tbPageContext, @NonNull String str, @NonNull List<of8> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, str, list) == null) || this.e == null || ListUtils.isEmpty(list)) {
             return;
         }
-        xm6 xm6Var = new xm6(tbPageContext, str);
-        this.g = xm6Var;
-        xm6Var.l(list.size());
+        dl6 dl6Var = new dl6(tbPageContext, str);
+        this.g = dl6Var;
+        dl6Var.l(list.size());
         this.k = list;
         h();
     }
@@ -347,14 +347,14 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
     public final void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0331, this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091b16);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b56);
-            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090b55);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b52);
-            wm6 wm6Var = new wm6(getContext());
-            this.f = wm6Var;
-            wm6Var.V(getItemClickListener());
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032a, this);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091ac5);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b3f);
+            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090b3e);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b3b);
+            cl6 cl6Var = new cl6(getContext());
+            this.f = cl6Var;
+            cl6Var.V(getItemClickListener());
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
@@ -366,21 +366,21 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         }
     }
 
-    public /* synthetic */ void l(View view2, ro roVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, final int i, long j) {
-        xm6 xm6Var;
-        if (roVar instanceof ni8) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090b53) {
-                xm6 xm6Var2 = this.g;
-                if (xm6Var2 != null) {
-                    xm6Var2.g((ni8) roVar);
+    public /* synthetic */ void l(View view2, jn jnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, final int i, long j) {
+        dl6 dl6Var;
+        if (jnVar instanceof of8) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090b3c) {
+                dl6 dl6Var2 = this.g;
+                if (dl6Var2 != null) {
+                    dl6Var2.g((of8) jnVar);
                 }
-            } else if (view2.getId() != R.id.obfuscated_res_0x7f090a50 || (xm6Var = this.g) == null) {
+            } else if (view2.getId() != R.id.obfuscated_res_0x7f090a3a || (dl6Var = this.g) == null) {
             } else {
-                xm6Var.h((ni8) roVar, i, new an6() { // from class: com.repackage.um6
+                dl6Var.h((of8) jnVar, i, new gl6() { // from class: com.repackage.bl6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.repackage.an6
+                    @Override // com.repackage.gl6
                     public final void a() {
                         Interceptable interceptable = $ic;
                         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -396,9 +396,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         if (onClickListener != null) {
             onClickListener.onClick(view2);
         }
-        xm6 xm6Var = this.g;
-        if (xm6Var != null) {
-            xm6Var.i();
+        dl6 dl6Var = this.g;
+        if (dl6Var != null) {
+            dl6Var.i();
         }
     }
 
@@ -410,20 +410,20 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (bdTypeRecyclerView = this.e) == null || this.f == null) {
             return;
         }
-        ro C = bdTypeRecyclerView.C(i);
-        if (C instanceof ni8) {
-            ((ni8) C).e = true;
+        jn C = bdTypeRecyclerView.C(i);
+        if (C instanceof of8) {
+            ((of8) C).e = true;
             this.f.H();
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048586, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                gs4 d2 = gs4.d(textView);
+                wq4 d2 = wq4.d(textView);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0101);
             }
@@ -431,9 +431,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0622, null);
             }
-            wm6 wm6Var = this.f;
-            if (wm6Var != null) {
-                wm6Var.H();
+            cl6 cl6Var = this.f;
+            if (cl6Var != null) {
+                cl6Var.H();
             }
         }
     }
@@ -443,9 +443,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            xm6 xm6Var = this.g;
-            if (xm6Var != null) {
-                xm6Var.d();
+            dl6 dl6Var = this.g;
+            if (dl6Var != null) {
+                dl6Var.d();
             }
             q();
         }
@@ -467,7 +467,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         if (!(interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) || (imageView = this.d) == null) {
             return;
         }
-        imageView.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.tm6
+        imageView.setOnClickListener(new View.OnClickListener() { // from class: com.repackage.al6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -481,20 +481,20 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements py {
         });
     }
 
-    public void setHeightChangeListener(zm6 zm6Var) {
+    public void setHeightChangeListener(fl6 fl6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, zm6Var) == null) {
-            this.i = zm6Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, fl6Var) == null) {
+            this.i = fl6Var;
         }
     }
 
     public void setThemeColor(ThemeColorInfo themeColorInfo) {
-        wm6 wm6Var;
+        cl6 cl6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, themeColorInfo) == null) || (wm6Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, themeColorInfo) == null) || (cl6Var = this.f) == null) {
             return;
         }
-        wm6Var.c0(themeColorInfo);
+        cl6Var.c0(themeColorInfo);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

@@ -15,9 +15,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.mi;
-/* loaded from: classes4.dex */
+import com.repackage.li;
+import com.repackage.wq4;
+/* loaded from: classes3.dex */
 public class CountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class CountDownView extends LinearLayout {
     public TextView e;
     public CountDownTimer f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class CountDownView extends LinearLayout {
     private void setTimeSkin(TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, textView) == null) {
-            gs4 d = gs4.d(textView);
+            wq4 d = wq4.d(textView);
             d.n(R.string.J_X06);
             d.z(R.dimen.T_X04);
             d.v(R.color.CAM_X0302);
@@ -116,7 +116,7 @@ public class CountDownView extends LinearLayout {
             this.e = new TextView(getContext());
             this.e.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
             this.e.setText(getContext().getResources().getString(i));
-            gs4 d = gs4.d(this.e);
+            wq4 d = wq4.d(this.e);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X08);
             addView(this.e);
@@ -128,7 +128,7 @@ public class CountDownView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                gs4 d = gs4.d(textView);
+                wq4 d = wq4.d(textView);
                 d.v(R.color.CAM_X0108);
                 d.z(R.dimen.T_X08);
             }
@@ -160,26 +160,26 @@ public class CountDownView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.b = new TextView(getContext());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(mi.f(getContext(), R.dimen.tbds104), mi.f(getContext(), R.dimen.tbds104));
-            layoutParams.setMargins(mi.f(getContext(), R.dimen.M_W_X004), 0, mi.f(getContext(), R.dimen.M_W_X004), 0);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(li.f(getContext(), R.dimen.tbds104), li.f(getContext(), R.dimen.tbds104));
+            layoutParams.setMargins(li.f(getContext(), R.dimen.M_W_X004), 0, li.f(getContext(), R.dimen.M_W_X004), 0);
             this.b.setLayoutParams(layoutParams);
             this.b.setGravity(17);
             addView(this.b);
-            b(R.string.obfuscated_res_0x7f0f0896);
+            b(R.string.obfuscated_res_0x7f0f089c);
             this.c = new TextView(getContext());
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(mi.f(getContext(), R.dimen.tbds104), mi.f(getContext(), R.dimen.tbds104));
-            layoutParams2.setMargins(mi.f(getContext(), R.dimen.M_W_X004), 0, mi.f(getContext(), R.dimen.M_W_X004), 0);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(li.f(getContext(), R.dimen.tbds104), li.f(getContext(), R.dimen.tbds104));
+            layoutParams2.setMargins(li.f(getContext(), R.dimen.M_W_X004), 0, li.f(getContext(), R.dimen.M_W_X004), 0);
             this.c.setLayoutParams(layoutParams2);
             this.c.setGravity(17);
             addView(this.c);
-            b(R.string.obfuscated_res_0x7f0f0aca);
+            b(R.string.obfuscated_res_0x7f0f0ad1);
             this.d = new TextView(getContext());
-            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(mi.f(getContext(), R.dimen.tbds104), mi.f(getContext(), R.dimen.tbds104));
-            layoutParams3.setMargins(mi.f(getContext(), R.dimen.M_W_X004), 0, mi.f(getContext(), R.dimen.M_W_X004), 0);
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(li.f(getContext(), R.dimen.tbds104), li.f(getContext(), R.dimen.tbds104));
+            layoutParams3.setMargins(li.f(getContext(), R.dimen.M_W_X004), 0, li.f(getContext(), R.dimen.M_W_X004), 0);
             this.d.setLayoutParams(layoutParams3);
             this.d.setGravity(17);
             addView(this.d);
-            b(R.string.obfuscated_res_0x7f0f13f3);
+            b(R.string.obfuscated_res_0x7f0f1405);
         }
     }
 
@@ -188,7 +188,7 @@ public class CountDownView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a = new TextView(getContext());
             this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            this.a.setText(R.string.obfuscated_res_0x7f0f0458);
+            this.a.setText(R.string.obfuscated_res_0x7f0f045e);
             addView(this.a);
         }
     }
@@ -206,7 +206,7 @@ public class CountDownView extends LinearLayout {
     public final void h(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00d5);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f00d6);
             this.b.setText(String.format(string, Long.valueOf(j)));
             this.c.setText(String.format(string, Long.valueOf(j2)));
             this.d.setText(String.format(string, Long.valueOf(j3)));

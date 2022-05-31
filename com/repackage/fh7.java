@@ -1,14 +1,13 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class fh7 extends qc1<LiveLikeProxyService> {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class fh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,12 +25,11 @@ public class fh7 extends qc1<LiveLikeProxyService> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.qc1
-    /* renamed from: a */
-    public LiveLikeProxyService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new gh7() : (LiveLikeProxyService) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            jSONObject.optString("error_code");
+            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+        }
     }
 }

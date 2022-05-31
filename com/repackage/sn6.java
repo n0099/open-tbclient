@@ -1,26 +1,27 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: LikeSign.java */
 /* loaded from: classes7.dex */
-public final /* synthetic */ class sn6 {
+public class sn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull TBSpecificationBtn tBSpecificationBtn) {
+    public static void a(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, tBSpecificationBtn) == null) && UbsABTestHelper.isFrsModifyABTestA()) {
-            Object tag = tBSpecificationBtn.getTag(R.id.obfuscated_res_0x7f090fb0);
-            if ((tag instanceof Boolean) && ((Boolean) tag).booleanValue()) {
-                yu4 yu4Var = (yu4) tBSpecificationBtn.getStyleConfig();
-                yu4Var.t(R.color.CAM_X0105);
-                tBSpecificationBtn.setConfig(yu4Var);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, str) == null) {
+            TbSingleton.getInstance().setSchemaForStartOtherAppAfterSwanApp(str);
         }
+    }
+
+    public static void b(TbPageContext<?> tbPageContext, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, tbPageContext, str, str2, str3) == null) || UtilHelper.isMatchScheme(tbPageContext.getPageActivity().getBaseContext(), str, str3) || str2 == null) {
+            return;
+        }
+        do8.a(tbPageContext, str2);
     }
 }

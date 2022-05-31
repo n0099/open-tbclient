@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.dc7;
+import com.repackage.r97;
 import com.squareup.wire.Wire;
 import tbclient.GetTagList.GetTagListResIdl;
 /* loaded from: classes3.dex */
@@ -46,7 +46,7 @@ public class ResponseSocketGetLabelMessage extends SocketResponsedMessage {
             return;
         }
         RequestGetLabelMessage requestGetLabelMessage = getOrginalMessage().getExtra() instanceof RequestGetLabelMessage ? (RequestGetLabelMessage) getOrginalMessage().getExtra() : null;
-        dc7 labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
+        r97 labelDataSet = requestGetLabelMessage != null ? requestGetLabelMessage.getLabelDataSet() : null;
         if (labelDataSet != null) {
             labelDataSet.c(getTagListResIdl.data);
         }

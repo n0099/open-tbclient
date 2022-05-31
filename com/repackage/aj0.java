@@ -1,17 +1,10 @@
 package com.repackage;
+
+import android.content.DialogInterface;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface aj0 {
-    void setBackgroundColor(int i);
-
-    void setBorderRadius(float f);
-
-    void setProgressColor(int i);
-
-    void setStrokeColor(int i);
-
-    void setStrokeWidth(float f);
-
-    void setTextColor(int i);
-
-    void setTextSize(float f);
+public class aj0 implements DialogInterface.OnKeyListener {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

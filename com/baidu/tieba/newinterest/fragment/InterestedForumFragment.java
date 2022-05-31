@@ -20,8 +20,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kp7;
-import com.repackage.xu4;
+import com.repackage.nt4;
+import com.repackage.tm7;
 /* loaded from: classes3.dex */
 public class InterestedForumFragment extends BaseInterestedForumFragment {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     public TBSpecificationBtn h;
     public TextView i;
     public TextView j;
-    public kp7 k;
+    public tm7 k;
     public FrameLayout l;
     public TBSpecificationBtn m;
 
@@ -49,7 +49,7 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
         }
     }
 
-    public static InterestedForumFragment G0(int i, boolean z, String[] strArr) {
+    public static InterestedForumFragment I0(int i, boolean z, String[] strArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), strArr})) == null) {
@@ -64,7 +64,7 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
         return (InterestedForumFragment) invokeCommon.objValue;
     }
 
-    public static InterestedForumFragment H0(int i, String[] strArr) {
+    public static InterestedForumFragment J0(int i, String[] strArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, strArr)) == null) {
@@ -79,7 +79,7 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     }
 
     @Override // com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment
-    public void D0() {
+    public void F0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             hideLoadingView(this.f);
@@ -87,7 +87,7 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
     }
 
     @Override // com.baidu.tieba.newinterest.fragment.BaseInterestedForumFragment
-    public void E0(String str) {
+    public void G0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             hideLoadingView(this.f);
@@ -95,33 +95,33 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
         }
     }
 
-    public final void I0() {
+    public final void K0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090f30);
-            TextView textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090f3f);
+            this.j = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090ef5);
+            TextView textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090f04);
             this.i = textView;
             textView.setTypeface(Typeface.DEFAULT_BOLD);
             SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0107);
-            this.g = (BdRecyclerView) this.f.findViewById(R.id.obfuscated_res_0x7f090f35);
-            this.l = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0903de);
-            xu4 xu4Var = new xu4();
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f090f1b);
+            this.g = (BdRecyclerView) this.f.findViewById(R.id.obfuscated_res_0x7f090efa);
+            this.l = (FrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f0903d9);
+            nt4 nt4Var = new nt4();
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f090ee0);
             this.m = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds42);
-            this.m.setConfig(xu4Var);
-            this.m.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1454));
+            this.m.setConfig(nt4Var);
+            this.m.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1468));
             this.m.setEnabled(false);
             this.m.setOnClickListener(this);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f091ca6);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.f.findViewById(R.id.obfuscated_res_0x7f091c54);
             this.h = tBSpecificationBtn2;
-            tBSpecificationBtn2.setText(getString(R.string.obfuscated_res_0x7f0f10da));
-            this.k = new kp7(this, this.g, this.m, this.h, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
+            tBSpecificationBtn2.setText(getString(R.string.obfuscated_res_0x7f0f10ea));
+            this.k = new tm7(this, this.g, this.m, this.h, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
         }
     }
 
-    public final void J0() {
+    public final void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.h.setOnClickListener(this);
@@ -174,9 +174,9 @@ public class InterestedForumFragment extends BaseInterestedForumFragment {
                 this.b = getArguments().getBoolean(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM);
                 this.c = getArguments().getStringArray(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
             }
-            this.f = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02dc, viewGroup, false);
-            I0();
-            J0();
+            this.f = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02d8, viewGroup, false);
+            K0();
+            L0();
             initData();
             return this.f;
         }

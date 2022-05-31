@@ -1,9 +1,5 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +7,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class at3 implements pm1 {
+public class at3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, zs3> a;
+    public String a;
+    public String b;
+    public String c;
+    public float d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public float i;
+    public String j;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +35,7 @@ public class at3 implements pm1 {
                 return;
             }
         }
-        b = eh1.a;
+        boolean z = rf1.a;
     }
 
     public at3() {
@@ -49,70 +51,23 @@ public class at3 implements pm1 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        c();
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = 0.0f;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = 0;
+        this.i = 1.0f;
     }
 
-    @Override // com.repackage.pm1
-    public us1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull yd2 yd2Var) {
-        InterceptResult invokeLLL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, yd2Var)) == null) ? b(str, jSONObject, yd2Var) : (us1) invokeLLL.objValue;
-    }
-
-    public final us1 b(String str, JSONObject jSONObject, yd2 yd2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, yd2Var)) == null) {
-            zs3 zs3Var = this.a.get(str);
-            if (zs3Var != null) {
-                if (b) {
-                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
-                }
-                return zs3Var.a(jSONObject, yd2Var);
-            }
-            if (b) {
-                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
-            }
-            return new us1(10002, "no such api.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "url : " + this.c + "; AutoPlay : " + this.e + "; Volume :" + this.i + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
         }
-        return (us1) invokeLLL.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d(new xs3());
-            d(new ys3());
-            d(new vr3());
-            d(new zr3());
-            d(new wr3());
-            d(new ot3());
-            d(new xr3());
-            d(new et3());
-            d(new lt3());
-            d(new ur3());
-            d(new bs3());
-            d(new yr3());
-            d(new as3());
-            d(new ht3());
-            d(new nt3());
-            d(new it3());
-            d(new kt3());
-            d(new jt3());
-        }
-    }
-
-    public void d(zs3 zs3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zs3Var) == null) {
-            if (b && TextUtils.isEmpty(zs3Var.a)) {
-                throw new IllegalArgumentException("action name is null");
-            }
-            if (b && this.a.containsKey(zs3Var.a)) {
-                throw new IllegalArgumentException("duplicate action: " + zs3Var);
-            }
-            this.a.put(zs3Var.a, zs3Var);
-        }
+        return (String) invokeV.objValue;
     }
 }

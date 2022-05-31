@@ -1,19 +1,18 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ds3 {
+public class ds3 extends j63 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ds3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
+    public String k;
 
     public ds3() {
         Interceptable interceptable = $ic;
@@ -28,37 +27,29 @@ public class ds3 {
                 return;
             }
         }
-        this.a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
+        this.k = "";
     }
 
-    public static ds3 a() {
+    @Override // com.repackage.j63
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ds3.class) {
-                    if (b == null) {
-                        b = new ds3();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("error_code", this.k);
+            } catch (JSONException e) {
+                if (j63.j) {
+                    e.printStackTrace();
                 }
             }
-            return b;
+            if (j63.j) {
+                Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+            }
+            return super.f();
         }
-        return (ds3) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getBoolean("gamecenter_wifi_resume_download_flag", false) : invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putBoolean("gamecenter_wifi_resume_download_flag", z);
-            edit.apply();
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

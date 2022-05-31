@@ -1,144 +1,101 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sz2;
-import com.repackage.yz2;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class p02 extends sz2 {
+public class p02 extends i02<JSONObject, hr1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout k;
-    public a l;
 
     /* loaded from: classes6.dex */
-    public static class a extends sz2.b {
+    public static class a implements j02 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View g;
+        public String a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
         }
 
-        @Override // com.repackage.yz2.a
-        public /* bridge */ /* synthetic */ yz2.a U(int i) {
-            d0(i);
-            return this;
-        }
-
-        @Override // com.repackage.sz2.b, com.repackage.yz2.a
-        public yz2 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                p02 p02Var = (p02) super.c();
-                p02Var.q(this);
-                return p02Var;
-            }
-            return (yz2) invokeV.objValue;
-        }
-
-        public a c0(View view2) {
+        public static j02 b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-                this.g = view2;
-                return this;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                a aVar = new a();
+                aVar.a = str;
+                return aVar;
             }
-            return (a) invokeL.objValue;
+            return (j02) invokeL.objValue;
         }
 
-        public a d0(int i) {
-            InterceptResult invokeI;
+        @Override // com.repackage.j02
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                super.U(i);
-                return this;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                g02 g02Var = new g02();
+                g02Var.g(this.a);
+                g02Var.f(SceneType.SCENE_SKELETON_DEV_TIMEOUT);
             }
-            return (a) invokeI.objValue;
-        }
-
-        @Override // com.repackage.yz2.a
-        public yz2 h(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? new p02(context) : (yz2) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p02(Context context) {
-        super(context);
+    public p02() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.repackage.sz2
-    public View k(ViewGroup viewGroup) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.m02
+    @NonNull
+    /* renamed from: c */
+    public hr1 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.g).inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
-            this.k = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091dd1);
-            p();
-            return inflate;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new hr1(202);
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return new hr1(202, "data is required");
+            }
+            String optString = optJSONObject.optString("path");
+            if (TextUtils.isEmpty(optString)) {
+                return new hr1(202, "path is required");
+            }
+            wz1 b = wz1.b();
+            if (!b.d()) {
+                b.g(a.b(optString));
+            }
+            return new hr1(0);
         }
-        return (View) invokeL.objValue;
-    }
-
-    public final void p() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.l) == null) {
-            return;
-        }
-        this.k.addView(aVar.g);
-    }
-
-    public void q(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.l = aVar;
-        }
+        return (hr1) invokeL.objValue;
     }
 }

@@ -1,50 +1,142 @@
 package com.repackage;
 
+import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.content.DialogInterface;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import java.io.File;
-import org.json.JSONObject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface np3 {
-    String a();
+public class np3 extends Dialog {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public DialogInterface.OnClickListener a;
 
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ np3 a;
 
-    String c();
+        public a(np3 np3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {np3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = np3Var;
+        }
 
-    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull uo3 uo3Var);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                np3 np3Var = this.a;
+                DialogInterface.OnClickListener onClickListener = np3Var.a;
+                if (onClickListener != null) {
+                    onClickListener.onClick(np3Var, -2);
+                }
+            }
+        }
+    }
 
-    String e();
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ np3 a;
 
-    String getAppId();
+        public b(np3 np3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {np3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = np3Var;
+        }
 
-    String getAppKey();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                np3 np3Var = this.a;
+                DialogInterface.OnClickListener onClickListener = np3Var.a;
+                if (onClickListener != null) {
+                    onClickListener.onClick(np3Var, -1);
+                }
+            }
+        }
+    }
 
-    String getSdkVersion();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public np3(@NonNull Context context) {
+        super(context, R.style.obfuscated_res_0x7f100001);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+    }
 
-    String k();
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09216e);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092189);
+            c34.a(textView);
+            c34.a(textView2);
+            textView.setOnClickListener(new a(this));
+            textView2.setOnClickListener(new b(this));
+        }
+    }
 
-    String l(String str);
-
-    String m();
-
-    int n();
-
-    String o(String str);
-
-    int p();
-
-    int q();
-
-    Uri r(@NonNull Context context, @NonNull File file);
-
-    String s();
-
-    JSONObject t();
-
-    boolean u(View view2);
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d00a7);
+            setCancelable(false);
+            a();
+        }
+    }
 }

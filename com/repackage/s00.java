@@ -1,96 +1,59 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.SecureRandom;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
+@Autowired
 /* loaded from: classes7.dex */
 public class s00 {
     public static /* synthetic */ Interceptable $ic;
-    public static final SecureRandom b;
     public transient /* synthetic */ FieldHolder $fh;
-    public u00 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755374498, "Lcom/repackage/s00;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a implements u00 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755374498, "Lcom/repackage/s00;");
-                return;
-            }
-        }
-        b = new SecureRandom();
-    }
-
-    public s00() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        this.a = null;
-        this.a = new u00(new r00(), 16);
-    }
 
-    public static byte[] c(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bArr, bArr2, bArr3)) == null) {
-            s00 s00Var = new s00();
-            s00Var.a(2, bArr, bArr2);
-            return s00Var.b(bArr3);
-        }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr, byte[] bArr2, byte[] bArr3) throws Exception {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bArr, bArr2, bArr3)) == null) {
-            s00 s00Var = new s00();
-            s00Var.a(1, bArr, bArr2);
-            return s00Var.b(bArr3);
-        }
-        return (byte[]) invokeLLL.objValue;
-    }
-
-    public void a(int i, byte[] bArr, byte[] bArr2) throws InvalidAlgorithmParameterException, InvalidKeyException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i, bArr, bArr2) == null) {
-            this.a.d(i, bArr, bArr2, b);
-        }
-    }
-
-    public final byte[] b(byte[] bArr) throws IllegalBlockSizeException, BadPaddingException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null) {
-                return this.a.e(bArr, 0, bArr.length);
+        @Override // com.repackage.u00
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
             }
-            throw new IllegalArgumentException("Null input buffer");
+            return (String) invokeV.objValue;
         }
-        return (byte[]) invokeL.objValue;
+    }
+
+    @Inject(force = false)
+    public static t00 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? pb8.a() : (t00) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static u00 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new a() : (u00) invokeV.objValue;
     }
 }

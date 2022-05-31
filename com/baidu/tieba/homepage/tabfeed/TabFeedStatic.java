@@ -3,12 +3,10 @@ package com.baidu.tieba.homepage.tabfeed;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.HomePageTabFeedCollegeSecondActivityConfig;
 import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity;
 import com.baidu.tieba.homepage.topic.local.LocalChannelTopicListActivity;
 import com.baidu.tieba.homepage.topic.local.message.LocalChannelTopicListResponseMessage;
 import com.baidu.tieba.nearby.NearbyFriendsActivity;
@@ -38,7 +36,6 @@ public class TabFeedStatic {
                 return;
             }
         }
-        TbadkCoreApplication.getInst().RegisterIntent(HomePageTabFeedCollegeSecondActivityConfig.class, HomePageTabFeedCollegeSecondActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(NearbyFriendsActivityConfig.class, NearbyFriendsActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(LocalChannelTopicListActivityConfig.class, LocalChannelTopicListActivity.class);
         b();

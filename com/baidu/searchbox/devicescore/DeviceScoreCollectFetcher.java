@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.qc1;
+import com.repackage.db1;
 /* loaded from: classes2.dex */
-public class DeviceScoreCollectFetcher extends qc1<IScoreMetaDataCollect> {
+public class DeviceScoreCollectFetcher extends db1<IScoreMetaDataCollect> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,7 +28,7 @@ public class DeviceScoreCollectFetcher extends qc1<IScoreMetaDataCollect> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.repackage.qc1
+    @Override // com.repackage.db1
     public IScoreMetaDataCollect createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

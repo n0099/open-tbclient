@@ -59,7 +59,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c9, viewGroup, false) : (View) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c5, viewGroup, false) : (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -95,7 +95,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
                 this.f.clearAnimation();
                 this.f.startAnimation(this.l);
             }
-            this.h.setText(R.string.obfuscated_res_0x7f0f01aa);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01ab);
         }
     }
 
@@ -120,7 +120,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
             this.f.clearAnimation();
             this.f.setVisibility(4);
             this.g.setVisibility(0);
-            this.h.setText(R.string.obfuscated_res_0x7f0f01ae);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01af);
         }
     }
 
@@ -130,7 +130,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.f.clearAnimation();
             this.f.startAnimation(this.k);
-            this.h.setText(R.string.obfuscated_res_0x7f0f01ab);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01ac);
         }
     }
 
@@ -139,7 +139,7 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.f.clearAnimation();
-            this.h.setText(R.string.obfuscated_res_0x7f0f01aa);
+            this.h.setText(R.string.obfuscated_res_0x7f0f01ab);
         }
     }
 
@@ -156,13 +156,13 @@ public class BigBgHeaderLoadingLayout extends LoadingLayout {
     public final void n(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0919ba);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919b8);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f0919bb);
-            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f0919bc);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0919be);
-            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f0919c0);
-            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919b9);
+            this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09196b);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091969);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09196c);
+            this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09196d);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09196f);
+            this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091971);
+            this.m = (ImageView) findViewById(R.id.obfuscated_res_0x7f09196a);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
             this.k = rotateAnimation;
             rotateAnimation.setDuration(120L);

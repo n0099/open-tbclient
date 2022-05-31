@@ -1,34 +1,32 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.R;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yz2;
 /* loaded from: classes7.dex */
-public class rx1 {
+public class rx1 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements DialogInterface.OnClickListener {
+    public class a implements be3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u03 a;
+        public final /* synthetic */ Bundle a;
+        public final /* synthetic */ rx1 b;
 
-        public a(u03 u03Var) {
+        public a(rx1 rx1Var, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u03Var};
+                Object[] objArr = {rx1Var, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,56 +36,65 @@ public class rx1 {
                     return;
                 }
             }
-            this.a = u03Var;
+            this.b = rx1Var;
+            this.a = bundle;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.be3
+        /* renamed from: a */
+        public Bundle create() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                SwanAppActivity x = this.a.x();
-                if (x != null && Build.VERSION.SDK_INT >= 21) {
-                    x.finishAndRemoveTask();
-                }
-                System.exit(0);
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.c(this.a) : (Bundle) invokeV.objValue;
+        }
+    }
+
+    public rx1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public final Bundle c(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("type");
+            tx1 tx1Var = new tx1();
+            String string = bundle.getString("param1");
+            Bundle bundle2 = new Bundle();
+            if (i == 1) {
+                bundle2.putBoolean("result", tx1Var.shouldAcceptCookie(string, bundle.getString("param2")));
+                return bundle2;
+            } else if (i == 2) {
+                bundle2.putBoolean("result", tx1Var.shouldSendCookie(string, bundle.getString("param2")));
+                return bundle2;
+            } else if (i == 3) {
+                tx1Var.storeCookie(string, bundle.getStringArrayList("param2"));
+                return bundle2;
+            } else if (i != 4) {
+                return bundle2;
+            } else {
+                bundle2.putString("result", tx1Var.getCookie(string));
+                return bundle2;
+            }
+        }
+        return (Bundle) invokeL.objValue;
     }
 
-    public static void b(boolean z) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void c(Context context, boolean z) {
-        u03 L;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (L = u03.L()) == null) {
-            return;
-        }
-        sx1.c(z);
-        int i = z ? R.string.obfuscated_res_0x7f0f019b : R.string.obfuscated_res_0x7f0f010f;
-        yz2.a aVar = new yz2.a(context);
-        aVar.V(context.getString(R.string.obfuscated_res_0x7f0f014b));
-        aVar.x(context.getString(i));
-        aVar.n(new cg3());
-        aVar.m(false);
-        aVar.O(R.string.obfuscated_res_0x7f0f0112, new a(L));
-        aVar.X();
-    }
-
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            c(context, !a());
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) yd3.b(new a(this, bundle)) : (Bundle) invokeL.objValue;
     }
 }

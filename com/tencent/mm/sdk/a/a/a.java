@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.sdk.b.c;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.mm.sdk.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0648a {
+    /* loaded from: classes7.dex */
+    public static class C0650a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String j;
@@ -24,7 +24,7 @@ public final class a {
         public String l;
         public String m;
 
-        public C0648a() {
+        public C0650a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,28 +39,28 @@ public final class a {
         }
     }
 
-    public static boolean a(Context context, C0648a c0648a) {
+    public static boolean a(Context context, C0650a c0650a) {
         InterceptResult invokeLL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c0648a)) == null) {
-            if (context == null || c0648a == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c0650a)) == null) {
+            if (context == null || c0650a == null) {
                 str = "send fail, invalid argument";
-            } else if (!c.a(c0648a.m)) {
+            } else if (!c.a(c0650a.m)) {
                 String str2 = null;
-                if (!c.a(c0648a.l)) {
-                    str2 = c0648a.l + ".permission.MM_MESSAGE";
+                if (!c.a(c0650a.l)) {
+                    str2 = c0650a.l + ".permission.MM_MESSAGE";
                 }
-                Intent intent = new Intent(c0648a.m);
-                Bundle bundle = c0648a.k;
+                Intent intent = new Intent(c0650a.m);
+                Bundle bundle = c0650a.k;
                 if (bundle != null) {
                     intent.putExtras(bundle);
                 }
                 String packageName = context.getPackageName();
                 intent.putExtra("_mmessage_sdkVersion", 570490883);
                 intent.putExtra("_mmessage_appPackage", packageName);
-                intent.putExtra("_mmessage_content", c0648a.j);
-                intent.putExtra("_mmessage_checksum", b.a(c0648a.j, 570490883, packageName));
+                intent.putExtra("_mmessage_content", c0650a.j);
+                intent.putExtra("_mmessage_checksum", b.a(c0650a.j, 570490883, packageName));
                 context.sendBroadcast(intent, str2);
                 com.tencent.mm.sdk.b.a.c("MicroMsg.SDK.MMessage", "send mm message, intent=" + intent + ", perm=" + str2);
                 return true;

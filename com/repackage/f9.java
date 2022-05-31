@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Field;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class f9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,8 +24,8 @@ public class f9 {
             if (context instanceof c9) {
                 return ((c9) context).getPageContext();
             }
-            Field b = ci.b(context.getClass(), e9.class);
-            if (b == null || (a = ci.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
+            Field b = bi.b(context.getClass(), e9.class);
+            if (b == null || (a = bi.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
                 return null;
             }
             return ((c9) a).getPageContext();
@@ -44,8 +44,8 @@ public class f9 {
             if (context instanceof c9) {
                 return (c9) context;
             }
-            Field b = ci.b(context.getClass(), e9.class);
-            if (b == null || (a = ci.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
+            Field b = bi.b(context.getClass(), e9.class);
+            if (b == null || (a = bi.a(context, b)) == null || !(a instanceof e9) || !(a instanceof c9)) {
                 return null;
             }
             return (c9) a;
@@ -70,8 +70,8 @@ public class f9 {
                     return (e9) orignalPage;
                 }
             }
-            Field b = ci.b(context.getClass(), e9.class);
-            if (b == null || (a = ci.a(context, b)) == null || !(a instanceof e9)) {
+            Field b = bi.b(context.getClass(), e9.class);
+            if (b == null || (a = bi.a(context, b)) == null || !(a instanceof e9)) {
                 return null;
             }
             return (e9) a;

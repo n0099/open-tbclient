@@ -22,15 +22,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a47;
-import com.repackage.c97;
-import com.repackage.gs4;
-import com.repackage.j15;
-import com.repackage.mi;
-import com.repackage.ng;
-import com.repackage.w05;
+import com.repackage.a77;
+import com.repackage.d27;
+import com.repackage.f05;
+import com.repackage.li;
+import com.repackage.mg;
+import com.repackage.sz4;
+import com.repackage.wq4;
 /* loaded from: classes.dex */
-public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceView {
+public class SendVoiceView extends LinearLayout implements f05, d27, ISendVoiceView {
     public static /* synthetic */ Interceptable $ic;
     public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
     public EditorTools e;
     public FloatNewRecordView f;
     public PopupWindow g;
-    public c97 h;
+    public a77 h;
     public boolean i;
     public long j;
 
@@ -91,7 +91,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
                 return;
             }
         }
-        k = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+        k = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -121,9 +121,9 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         this.a = context;
         int i3 = k;
         setPadding(0, i3, 0, i3);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0758, this);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f5e);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fff);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d074c, this);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f04);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc1);
         setFocusable(true);
         setFocusableInTouchMode(true);
         a();
@@ -144,9 +144,9 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
-                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0aed));
+                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0af3));
             } else {
-                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0aee));
+                this.b.setText(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0af4));
             }
         }
     }
@@ -160,7 +160,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         this.f.d();
     }
 
-    @Override // com.repackage.a47
+    @Override // com.repackage.d27
     public void closeRecordCancel() {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
@@ -170,7 +170,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         this.f.closeRecordCancel();
     }
 
-    @Override // com.repackage.a47
+    @Override // com.repackage.d27
     public void closeRecordTooShort() {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
@@ -203,7 +203,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -211,7 +211,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         }
     }
 
-    @Override // com.repackage.a47
+    @Override // com.repackage.d27
     public void f() {
         PopupWindow popupWindow;
         Interceptable interceptable = $ic;
@@ -220,17 +220,17 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         }
     }
 
-    @Override // com.repackage.j15
-    public void g(w05 w05Var) {
+    @Override // com.repackage.f05
+    public void g(sz4 sz4Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, w05Var) == null) || (editorTools = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, sz4Var) == null) || (editorTools = this.e) == null) {
             return;
         }
-        editorTools.A(w05Var);
+        editorTools.A(sz4Var);
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -247,7 +247,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         this.f.g();
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -255,14 +255,14 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public boolean isOnCancle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -276,26 +276,26 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.x05
-    public void onAction(w05 w05Var) {
+    @Override // com.repackage.tz4
+    public void onAction(sz4 sz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, w05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, sz4Var) == null) {
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             TextView textView = this.b;
             if (textView != null) {
-                gs4.d(textView).v(R.color.CAM_X0107);
+                wq4.d(textView).v(R.color.CAM_X0107);
             }
             ImageView imageView = this.c;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080929, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080934, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
-            gs4 d = gs4.d(this);
+            wq4 d = wq4.d(this);
             d.n(R.string.J_X01);
             d.l(R.dimen.L_X01);
             d.k(R.color.CAM_X0209);
@@ -303,7 +303,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onDeletedVoice(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
@@ -323,14 +323,14 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onSendVoice(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048595, this, str, i) == null) {
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(1048596, this, i, str) == null) && !StringUtils.isNull(str) && i == 3) {
@@ -338,7 +338,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onShowRecordTime(int i) {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
@@ -348,7 +348,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         this.f.onShowRecordTime(i);
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onShowRecording(int i) {
         FloatNewRecordView floatNewRecordView;
         Interceptable interceptable = $ic;
@@ -358,7 +358,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         this.f.onShowRecording(i);
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onStartedRecorder(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
@@ -368,7 +368,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onStopingRecorder() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -382,13 +382,10 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                c97 c97Var = this.h;
-                if (c97Var != null && c97Var.a()) {
+                a77 a77Var = this.h;
+                if (a77Var != null && a77Var.a()) {
                     this.j = System.currentTimeMillis();
-                    c97 c97Var2 = this.h;
-                    if (c97Var2 != null) {
-                        c97Var2.startRecord();
-                    }
+                    this.h.startRecord();
                     closeRecordCancel();
                     b(true);
                     h();
@@ -396,33 +393,33 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
                 }
             } else if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
                 if (this.i && motionEvent.getAction() == 2) {
-                    if (motionEvent.getY() < -1.0f && Math.abs(motionEvent.getY()) > mi.d(this.a, 67.0f)) {
+                    if (motionEvent.getY() < -1.0f && Math.abs(motionEvent.getY()) > li.d(this.a, 67.0f)) {
                         c();
                     } else {
                         h();
                     }
                 }
             } else {
-                if (motionEvent.getY() < -1.0f && Math.abs(motionEvent.getY()) > mi.d(this.a, 67.0f)) {
-                    c97 c97Var3 = this.h;
-                    if (c97Var3 != null) {
-                        c97Var3.c();
+                if (motionEvent.getY() < -1.0f && Math.abs(motionEvent.getY()) > li.d(this.a, 67.0f)) {
+                    a77 a77Var2 = this.h;
+                    if (a77Var2 != null) {
+                        a77Var2.c();
                     }
                     closeRecordCancel();
                     f();
                 } else {
-                    c97 c97Var4 = this.h;
-                    if (c97Var4 != null && !c97Var4.b()) {
+                    a77 a77Var3 = this.h;
+                    if (a77Var3 != null && !a77Var3.b()) {
                         this.h.c();
                         f();
                     } else {
-                        c97 c97Var5 = this.h;
-                        if (c97Var5 != null) {
-                            c97Var5.stopRecord();
+                        a77 a77Var4 = this.h;
+                        if (a77Var4 != null) {
+                            a77Var4.stopRecord();
                         }
                         if (System.currentTimeMillis() > 0 && System.currentTimeMillis() - this.j < 1000) {
                             d();
-                            ng.a().postDelayed(new a(this), 2000L);
+                            mg.a().postDelayed(new a(this), 2000L);
                         } else {
                             f();
                         }
@@ -437,7 +434,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, editorTools) == null) {
@@ -453,7 +450,7 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
         }
     }
 
-    @Override // com.repackage.j15
+    @Override // com.repackage.f05
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
@@ -462,10 +459,10 @@ public class SendVoiceView extends LinearLayout implements j15, a47, ISendVoiceV
     }
 
     @Override // com.baidu.tieba.im.chat.ISendVoiceView
-    public void setTouchCallBack(c97 c97Var) {
+    public void setTouchCallBack(a77 a77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, c97Var) == null) {
-            this.h = c97Var;
+        if (interceptable == null || interceptable.invokeL(1048605, this, a77Var) == null) {
+            this.h = a77Var;
         }
     }
 }

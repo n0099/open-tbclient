@@ -1,24 +1,26 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.sapi2.utils.enums.Domain;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.text.TextUtils;
+import androidx.collection.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class pw4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Domain a;
-    public static boolean b;
-    public static qw4 c;
+    public static final pw4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public Map<String, qw4> b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,49 +35,87 @@ public class pw4 {
                 return;
             }
         }
-        a = Domain.DOMAIN_ONLINE;
-        b = true;
-        c = null;
+        d = new pw4(false);
     }
 
-    public static void a() {
+    public pw4(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (TbConfig.USE_OLD_LOGIN) {
-                b = true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (Build.VERSION.SDK_INT < 9) {
-                if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
-                    b = false;
-                } else {
-                    b = true;
-                }
-            } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
-                b = false;
-            } else {
-                b = true;
-            }
-            if (Build.VERSION.SDK_INT > 10 || b || !UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
-                return;
-            }
-            TbadkCoreApplication.getInst().incPassportV6CrashCount();
-            b = true;
         }
+        this.a = z;
     }
 
-    public static qw4 b() {
-        InterceptResult invokeV;
+    public static pw4 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (qw4) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
+            pw4 pw4Var = new pw4(true);
+            pw4Var.a(optJSONObject);
+            return pw4Var;
+        }
+        return (pw4) invokeL.objValue;
     }
 
-    public static void c() {
-        CustomResponsedMessage runTask;
+    public final void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || c != null || (runTask = MessageManager.getInstance().runTask(2001268, qw4.class)) == null || runTask.getData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        c = (qw4) runTask.getData();
+        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
+        int length = optJSONArray == null ? 0 : optJSONArray.length();
+        this.b = new ArrayMap(length);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                qw4 d2 = qw4.d(optJSONObject);
+                if (!TextUtils.isEmpty(d2.a())) {
+                    this.b.put(d2.a(), d2);
+                }
+            }
+        }
+        try {
+            this.c = Integer.parseInt(jSONObject.optString("freq"));
+        } catch (Exception unused) {
+            this.c = 0;
+        }
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public qw4 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.b == null || TextUtils.isEmpty(str)) {
+                return null;
+            }
+            return this.b.get(str);
+        }
+        return (qw4) invokeL.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

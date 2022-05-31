@@ -1,146 +1,141 @@
 package com.repackage;
 
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
+import android.util.Patterns;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidubce.http.Headers;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class a42 {
+public final class a42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x009e, code lost:
-        if (r10.equals("1") != false) goto L13;
-     */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00b7  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00cd  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x0115  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int a(String str) {
-        InterceptResult invokeL;
+    public static w32 a(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String str2;
+        String str3;
+        InputStream inputStream;
+        int i;
+        HttpURLConnection httpURLConnection;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            char c = 0;
-            if (TextUtils.isEmpty(str)) {
-                return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, map)) == null) {
+            String str5 = null;
+            if (TextUtils.isEmpty(str) || !Patterns.WEB_URL.matcher(str).matches()) {
+                return null;
             }
-            int hashCode = str.hashCode();
-            switch (hashCode) {
-                case 49:
-                    break;
-                case 50:
-                    if (str.equals("2")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 51:
-                    if (str.equals("3")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 52:
-                    if (str.equals("4")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 53:
-                    if (str.equals("5")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 54:
-                    if (str.equals("6")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 55:
-                    if (str.equals("7")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 56:
-                    if (str.equals("8")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 57:
-                    if (str.equals("9")) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    switch (hashCode) {
-                        case 1567:
-                            if (str.equals("10")) {
-                                c = '\t';
-                                break;
+            String scheme = Uri.parse(str).getScheme();
+            int i2 = 200;
+            HttpURLConnection httpURLConnection2 = null;
+            while (true) {
+                try {
+                    httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                    try {
+                        httpURLConnection.setRequestMethod("GET");
+                        if (map != null) {
+                            for (Map.Entry<String, String> entry : map.entrySet()) {
+                                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
                             }
-                            c = 65535;
+                        }
+                        httpURLConnection.setUseCaches(false);
+                        httpURLConnection.setDoInput(true);
+                        httpURLConnection.setConnectTimeout(m32.a().e());
+                        httpURLConnection.setReadTimeout(m32.a().h());
+                        String headerField = httpURLConnection.getHeaderField(Headers.LOCATION);
+                        String scheme2 = headerField == null ? null : Uri.parse(headerField).getScheme();
+                        if (headerField == null || (scheme2 != null && scheme2.equals(scheme))) {
                             break;
-                        case 1568:
-                            if (str.equals("11")) {
-                                c = '\n';
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        case 1569:
-                            if (str.equals("12")) {
-                                c = 11;
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        default:
-                            c = 65535;
-                            break;
+                        }
+                        scheme = scheme2;
+                        httpURLConnection2 = httpURLConnection;
+                        str = headerField;
+                    } catch (Exception e) {
+                        e = e;
+                        httpURLConnection2 = httpURLConnection;
+                        str2 = null;
+                        if (q32.a) {
+                            Log.e("HybridIntercept", Log.getStackTraceString(e));
+                        }
+                        str3 = str2;
+                        inputStream = null;
+                        i = i2;
+                        httpURLConnection = httpURLConnection2;
+                        HashMap hashMap = new HashMap();
+                        str4 = "UTF-8";
+                        if (httpURLConnection != null) {
+                        }
+                        String str6 = str4;
+                        String str7 = str5;
+                        if (TextUtils.isEmpty(str3)) {
+                        }
+                        return new w32(i, str3, inputStream, hashMap, str6, str7);
                     }
+                } catch (Exception e2) {
+                    e = e2;
+                }
             }
-            switch (c) {
-                case 0:
-                    return 6;
-                case 1:
-                    return 5;
-                case 2:
-                    return 8;
-                case 3:
-                    return 9;
-                case 4:
-                    return 10;
-                case 5:
-                    return 11;
-                case 6:
-                    return 12;
-                case 7:
-                    return 13;
-                case '\b':
-                    return 14;
-                case '\t':
-                    return 15;
-                case '\n':
-                    return 11;
-                case 11:
-                    return 12;
-                default:
-                    return 7;
+            i2 = httpURLConnection.getResponseCode();
+            str3 = httpURLConnection.getResponseMessage();
+            try {
+                inputStream = httpURLConnection.getInputStream();
+                i = i2;
+            } catch (Exception e3) {
+                httpURLConnection2 = httpURLConnection;
+                str2 = str3;
+                e = e3;
+                if (q32.a) {
+                }
+                str3 = str2;
+                inputStream = null;
+                i = i2;
+                httpURLConnection = httpURLConnection2;
+                HashMap hashMap2 = new HashMap();
+                str4 = "UTF-8";
+                if (httpURLConnection != null) {
+                }
+                String str62 = str4;
+                String str72 = str5;
+                if (TextUtils.isEmpty(str3)) {
+                }
+                return new w32(i, str3, inputStream, hashMap2, str62, str72);
             }
+            HashMap hashMap22 = new HashMap();
+            str4 = "UTF-8";
+            if (httpURLConnection != null) {
+                str4 = httpURLConnection.getContentEncoding() != null ? httpURLConnection.getContentEncoding() : "UTF-8";
+                str5 = httpURLConnection.getContentType();
+                Map<String, List<String>> headerFields = httpURLConnection.getHeaderFields();
+                if (headerFields != null) {
+                    for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
+                        List<String> value = entry2.getValue();
+                        if (!value.isEmpty()) {
+                            hashMap22.put(entry2.getKey(), value.get(0));
+                        }
+                    }
+                }
+            }
+            String str622 = str4;
+            String str722 = str5;
+            if (TextUtils.isEmpty(str3)) {
+                str3 = "ok";
+            }
+            return new w32(i, str3, inputStream, hashMap22, str622, str722);
         }
-        return invokeL.intValue;
+        return (w32) invokeLL.objValue;
     }
 }

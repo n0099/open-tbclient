@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fb6;
-import com.repackage.gb6;
+import com.repackage.v96;
+import com.repackage.w96;
 /* loaded from: classes3.dex */
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fb6 mDelegate;
+    public v96 mDelegate;
 
     public ForumSquareActivity() {
         Interceptable interceptable = $ic;
@@ -30,17 +30,17 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.m85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a073" : (String) invokeV.objValue;
     }
 
-    public fb6 getDelegate() {
+    public v96 getDelegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate : (fb6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mDelegate : (v96) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -48,9 +48,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            gb6 gb6Var = this.mDelegate.d;
-            if (gb6Var != null) {
-                gb6Var.a(i);
+            w96 w96Var = this.mDelegate.d;
+            if (w96Var != null) {
+                w96Var.a(i);
             }
         }
     }
@@ -60,9 +60,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            fb6 fb6Var = new fb6(this, getPageContext());
-            this.mDelegate = fb6Var;
-            fb6Var.k(getIntent());
+            v96 v96Var = new v96(this, getPageContext());
+            this.mDelegate = v96Var;
+            v96Var.k(getIntent());
             this.mDelegate.m();
         }
     }

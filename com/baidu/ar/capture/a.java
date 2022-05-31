@@ -14,17 +14,17 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HandlerThread kY;
-    public HandlerC0054a kZ;
+    public HandlerC0053a kZ;
     public String mTag;
 
     /* renamed from: com.baidu.ar.capture.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class HandlerC0054a extends Handler {
+    public static final class HandlerC0053a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public HandlerC0054a(Looper looper) {
+        public HandlerC0053a(Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -91,12 +91,12 @@ public class a {
     }
 
     public void execute(Runnable runnable) {
-        HandlerC0054a handlerC0054a;
+        HandlerC0053a handlerC0053a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) || (handlerC0054a = this.kZ) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) || (handlerC0053a = this.kZ) == null) {
             return;
         }
-        handlerC0054a.a(runnable);
+        handlerC0053a.a(runnable);
     }
 
     public void start() {
@@ -105,16 +105,16 @@ public class a {
             HandlerThread handlerThread = new HandlerThread(this.mTag);
             this.kY = handlerThread;
             handlerThread.start();
-            this.kZ = new HandlerC0054a(this.kY.getLooper());
+            this.kZ = new HandlerC0053a(this.kY.getLooper());
         }
     }
 
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            HandlerC0054a handlerC0054a = this.kZ;
-            if (handlerC0054a != null) {
-                handlerC0054a.release();
+            HandlerC0053a handlerC0053a = this.kZ;
+            if (handlerC0053a != null) {
+                handlerC0053a.release();
                 this.kZ = null;
             }
             HandlerThread handlerThread = this.kY;

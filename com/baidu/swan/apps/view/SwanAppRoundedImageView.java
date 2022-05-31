@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ez2;
+import com.repackage.rx2;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes2.dex */
 public class SwanAppRoundedImageView extends ImageView {
@@ -162,7 +162,7 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, drawable) == null) {
             if (this.d && drawable != null) {
-                this.f = ez2.b(drawable, this.g, this.a, this.b, this.c);
+                this.f = rx2.b(drawable, this.g, this.a, this.b, this.c);
             } else {
                 this.f = drawable;
             }
@@ -177,13 +177,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.c = i;
         Drawable drawable = this.e;
-        if (drawable instanceof ez2) {
-            ((ez2) drawable).d(i);
+        if (drawable instanceof rx2) {
+            ((rx2) drawable).d(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof ez2) {
-                ((ez2) drawable2).d(i);
+            if (drawable2 instanceof rx2) {
+                ((rx2) drawable2).d(i);
             }
         }
         if (this.b > 0) {
@@ -198,13 +198,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.b = i;
         Drawable drawable = this.e;
-        if (drawable instanceof ez2) {
-            ((ez2) drawable).e(i);
+        if (drawable instanceof rx2) {
+            ((rx2) drawable).e(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof ez2) {
-                ((ez2) drawable2).e(i);
+            if (drawable2 instanceof rx2) {
+                ((rx2) drawable2).e(i);
             }
         }
         invalidate();
@@ -217,13 +217,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.a = i;
         Drawable drawable = this.e;
-        if (drawable instanceof ez2) {
-            ((ez2) drawable).f(i);
+        if (drawable instanceof rx2) {
+            ((rx2) drawable).f(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof ez2) {
-                ((ez2) drawable2).f(i);
+            if (drawable2 instanceof rx2) {
+                ((rx2) drawable2).f(i);
             }
         }
     }
@@ -233,11 +233,11 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bitmap) == null) {
             if (bitmap != null) {
-                ez2 ez2Var = new ez2(bitmap, this.a, this.b, this.c);
-                this.e = ez2Var;
+                rx2 rx2Var = new rx2(bitmap, this.a, this.b, this.c);
+                this.e = rx2Var;
                 ImageView.ScaleType scaleType = this.g;
                 if (scaleType != null) {
-                    ez2Var.h(scaleType);
+                    rx2Var.h(scaleType);
                 }
             } else {
                 this.e = null;
@@ -251,7 +251,7 @@ public class SwanAppRoundedImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, drawable) == null) {
             if (drawable != null) {
-                this.e = ez2.b(drawable, this.g, this.a, this.b, this.c);
+                this.e = rx2.b(drawable, this.g, this.a, this.b, this.c);
             } else {
                 this.e = null;
             }
@@ -267,19 +267,19 @@ public class SwanAppRoundedImageView extends ImageView {
         this.d = z;
         if (z) {
             Drawable drawable = this.f;
-            if (drawable instanceof ez2) {
-                ((ez2) drawable).h(this.g);
-                ((ez2) this.f).f(this.a);
-                ((ez2) this.f).e(this.b);
-                ((ez2) this.f).d(this.c);
+            if (drawable instanceof rx2) {
+                ((rx2) drawable).h(this.g);
+                ((rx2) this.f).f(this.a);
+                ((rx2) this.f).e(this.b);
+                ((rx2) this.f).d(this.c);
             } else {
                 setBackgroundDrawable(drawable);
             }
         } else {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof ez2) {
-                ((ez2) drawable2).e(0);
-                ((ez2) this.f).f(0.0f);
+            if (drawable2 instanceof rx2) {
+                ((rx2) drawable2).e(0);
+                ((rx2) this.f).f(0.0f);
             }
         }
         invalidate();
@@ -307,12 +307,12 @@ public class SwanAppRoundedImageView extends ImageView {
                 break;
         }
         Drawable drawable = this.e;
-        if ((drawable instanceof ez2) && ((ez2) drawable).c() != scaleType) {
-            ((ez2) this.e).h(scaleType);
+        if ((drawable instanceof rx2) && ((rx2) drawable).c() != scaleType) {
+            ((rx2) this.e).h(scaleType);
         }
         Drawable drawable2 = this.f;
-        if ((drawable2 instanceof ez2) && ((ez2) drawable2).c() != scaleType) {
-            ((ez2) this.f).h(scaleType);
+        if ((drawable2 instanceof rx2) && ((rx2) drawable2).c() != scaleType) {
+            ((rx2) this.f).h(scaleType);
         }
         setWillNotCacheDrawing(true);
         requestLayout();

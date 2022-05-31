@@ -1,15 +1,239 @@
 package com.repackage;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.game.guide.download.GamenowDownloadButtomView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.util.Base64Encoder;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
 public class qp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static final boolean r;
+    public static int s;
     public transient /* synthetic */ FieldHolder $fh;
+    public GamenowDownloadButtomView a;
+    public xp3 b;
+    public hn3 c;
+    public GameGuideConfigInfo.CloseInfo d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public int k;
+    public int l;
+    public int m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qp3 a;
+
+        public a(qp3 qp3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qp3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qp3Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (!this.a.h.equals("wdview")) {
+                    if (this.a.h.equals("gbview") && this.a.d != null) {
+                        if (this.a.d.type != 0 && this.a.d.type != 1) {
+                            if (this.a.d.type == 2) {
+                                cq3.n().b("gbADialogClick", "0", "", "");
+                            }
+                        } else {
+                            cq3.n().b("gbBDialogClick", "0", "", "");
+                        }
+                    }
+                } else {
+                    cq3.n().j("0", this.a.k, this.a.l);
+                }
+                this.a.s(true);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-63502145, "Lcom/repackage/qp3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-63502145, "Lcom/repackage/qp3$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[DownloadState.values().length];
+            a = iArr;
+            try {
+                iArr[DownloadState.DOWNLOADING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[DownloadState.DOWNLOADED.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[DownloadState.NOT_START.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[DownloadState.INSTALLED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends ov2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String c;
+        public String d;
+        public hn3 e;
+        public String f;
+        public String g;
+
+        public c(String str, String str2, hn3 hn3Var, String str3, String str4) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, hn3Var, str3, str4};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = str;
+            this.c = str2;
+            this.e = hn3Var;
+            this.f = str3;
+            this.g = str4;
+        }
+
+        @Override // com.repackage.mv2
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 0L;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.repackage.mv2
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ov2, com.repackage.mv2
+        public void onEvent(@NonNull kv2 kv2Var) {
+            Bundle a;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kv2Var) == null) || (a = kv2Var.a()) == null) {
+                return;
+            }
+            qp3.q(a, this.e, this.d, this.c, this.f, this.g);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final qp3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-63502083, "Lcom/repackage/qp3$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-63502083, "Lcom/repackage/qp3$d;");
+                    return;
+                }
+            }
+            a = new qp3();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -24,6 +248,602 @@ public class qp3 {
                 return;
             }
         }
-        a = new String("(function() {\n  var isIOS = (/iphone|ipad|ipod/i).test(window.navigator.userAgent.toLowerCase());\n  if (isIOS) {\n    console = {};\n    console.log = function(log) {\n      var iframe = document.createElement('iframe');\n      iframe.setAttribute('src', 'ios-log: ' + log);\n      document.documentElement.appendChild(iframe);\n      iframe.parentNode.removeChild(iframe);\n      iframe = null;\n    };\n    console.debug = console.info = console.warn = console.error = console.log;\n  }\n}());\n\n\n(function() {\n  var isIOS = (/iphone|ipad|ipod/i).test(window.navigator.userAgent.toLowerCase());\n  // var baidu = window.baidu = window.baidu || {};\n  // var mob = baidu.mobads = baidu.mobads || {};\n  var mobadsSdk = window.MobadsSdk = window.MobadsSdk || {};\n\n  var mraid = window.mraid = {};\n\n  ////////////////////////////////////////////////////////////\n\n  // Bridge interface to SDK\n\n  var bridge = window.mobadssdkbridge = {\n    // change default fireReady to true\n    nativeSDKFiredReady: true,\n    nativeCallQueue: [],\n    nativeCallInFlight: false,\n    lastSizeChangeProperties: null\n  };\n\n  bridge.fireChangeEvent = function(properties) {\n    for (var p in properties) {\n      if (properties.hasOwnProperty(p)) {\n        // Change handlers defined by MRAID below\n        var handler = changeHandlers[p];\n        handler(properties[p]);\n      }\n    }\n  };\n\n  bridge.nativeCallComplete = function(command) {\n    if (this.nativeCallQueue.length === 0) {\n      this.nativeCallInFlight = false;\n      return;\n    }\n\n    var nextCall = this.nativeCallQueue.shift();\n    window.location = nextCall;\n  };\n\n  bridge.executeNativeCall = function(args) {\n    var command = args.shift();\n\n    if (!this.nativeSDKFiredReady) {\n        console.log('rejecting ' + command + ' because mraid is not ready');\n        bridge.notifyErrorEvent('mraid is not ready', command);\n        return;\n    }\n\n    var call = 'mobadssdk://' + command;\n\n    var key, value;\n    var isFirstArgument = true;\n\n    for (var i = 0; i < args.length; i += 2) {\n      key = args[i];\n      value = args[i + 1];\n\n      if (value === null) continue;\n\n      if (isFirstArgument) {\n        call += '?';\n        isFirstArgument = false;\n      } else {\n        call += '&';\n      }\n\n      call += encodeURIComponent(key) + '=' + encodeURIComponent(value);\n    }\n\n    if (this.nativeCallInFlight) {\n      this.nativeCallQueue.push(call);\n    } else {\n      this.nativeCallInFlight = true;\n      window.location = call;\n    }\n  };\n\n  // not-support\n  // bridge.setCurrentPosition = function(x, y, width, height) {\n  //   currentPosition = {\n  //     x: x,\n  //     y: y,\n  //     width: width,\n  //     height: height\n  //   };\n  //   broadcastEvent(EVENTS.INFO, 'Set current position to ' + stringify(currentPosition));\n  // };\n\n // not-support\n  // bridge.setDefaultPosition = function(x, y, width, height) {\n  //   defaultPosition = {\n  //     x: x,\n  //     y: y,\n  //     width: width,\n  //     height: height\n  //   };\n  //   broadcastEvent(EVENTS.INFO, 'Set default position to ' + stringify(defaultPosition));\n  // };\n  \n  // bridge.setMaxSize = function(width, height) {\n  //   maxSize = {\n  //     width: width,\n  //     height: height\n  //   };\n\n  //   expandProperties.width = width;\n  //   expandProperties.height = height;\n\n  //   broadcastEvent(EVENTS.INFO, 'Set max size to ' + stringify(maxSize));\n  // };\n\n  bridge.setPlacementType = function(_placementType) {\n    placementType = _placementType;\n    broadcastEvent(EVENTS.INFO, 'Set placement type to ' + stringify(placementType));\n  };\n\n // not- supported\n  bridge.setScreenSize = function(width, height) {\n    screenSize = {\n      width: width,\n      height: height\n    };\n    broadcastEvent(EVENTS.INFO, 'Set screen size to ' + stringify(screenSize));\n  };\n\n  bridge.setState = function(_state) {\n    state = _state;\n    broadcastEvent(EVENTS.INFO, 'Set state to ' + stringify(state));\n    broadcastEvent(EVENTS.STATECHANGE, state);\n  };\n\n  bridge.setIsViewable = function(_isViewable) {\n    isViewable = _isViewable;\n    broadcastEvent(EVENTS.INFO, 'Set isViewable to ' + stringify(isViewable));\n    broadcastEvent(EVENTS.VIEWABLECHANGE, isViewable);\n  };\n\n  bridge.setSupports = function(sms, tel, calendar, storePicture, inlineVideo) {\n    supportProperties = {\n      sms: sms,\n      tel: tel,\n      calendar: calendar,\n      storePicture: storePicture,\n      inlineVideo: inlineVideo\n    };\n  };\n\n // 通过预埋接口方式供创意调用，故总是 ready\n  bridge.notifyReadyEvent = function() {\n    this.nativeSDKFiredReady = true;\n    broadcastEvent(EVENTS.READY);\n  };\n\n  bridge.notifyErrorEvent = function(message, action) {\n    broadcastEvent(EVENTS.ERROR, message, action);\n  };\n\n  // Temporary aliases while we migrate to the new API\n  bridge.fireReadyEvent = bridge.notifyReadyEvent;\n  bridge.fireErrorEvent = bridge.notifyErrorEvent;\n\n  // bridge.notifySizeChangeEvent = function(width, height) {\n  //   if (this.lastSizeChangeProperties &&\n  //         width == this.lastSizeChangeProperties.width && height ==   // this.lastSizeChangeProperties.height) {\n  //     return;\n  //   }\n\n  //   this.lastSizeChangeProperties = {\n  //       width: width,\n  //       height: height\n  //   };\n  //   broadcastEvent(EVENTS.SIZECHANGE, width, height);\n  // };\n\n  bridge.notifyStateChangeEvent = function() {\n    if (state === STATES.LOADING) {\n      broadcastEvent(EVENTS.INFO, 'Native SDK initialized.');\n    }\n\n    broadcastEvent(EVENTS.INFO, 'Set state to ' + stringify(state));\n    broadcastEvent(EVENTS.STATECHANGE, state);\n  };\n\n  bridge.notifyViewableChangeEvent = function() {\n    broadcastEvent(EVENTS.INFO, 'Set isViewable to ' + stringify(isViewable));\n    broadcastEvent(EVENTS.VIEWABLECHANGE, isViewable);\n  };\n\n  // adserv -  baidu.mobads.Interface for Native replacement //////////////////////////////\n  bridge.play = function () {\n    if (window.baidu.mobads.Interface && window.baidu.mobads.Interface.play) {\n      window.baidu.mobads.Interface.play();\n    }\n  }\n  bridge.pause = function () {\n    if (window.baidu.mobads.Interface && window.baidu.mobads.Interface.pause) {\n      window.baidu.mobads.Interface.pause();\n    }\n  }\n  bridge.interPresent = function () {\n    if (window.baidu.mobads.Interface && window.baidu.mobads.Interface.interPresent) {\n      window.baidu.mobads.Interface.interPresent();\n    }\n  }\n  bridge.preLoad = function () {\n    if (window.baidu.mobads.Interface && window.baidu.mobads.Interface.preLoad) {\n      window.baidu.mobads.Interface.preLoad();\n    }\n  }\n  bridge.onAdPlayEnd = function () {\n    if (window.baidu.mobads.Interface && window.baidu.mobads.Interface.onAdPlayEnd) {\n      window.baidu.mobads.Interface.onAdPlayEnd();\n    }\n  }\n  bridge.refresh = function () {\n    if (window.baidu.mobads.Interface && window.baidu.mobads.Interface.refresh) {\n      window.baidu.mobads.Interface.refresh();\n    }\n  }\n  bridge.onDetached = function () {\n    if (window.baidu.mobads.Interface && window.baidu.mobads.Interface.onDetached) {\n      window.baidu.mobads.Interface.onDetached();\n    }\n  }\n\n  // Constants. ////////////////////////////////////////\n\n  var VERSION = mobadsSdk.VERSION = '1.0';\n  var MRAID_VERSION = '1.0';\n  var STATES = mobadsSdk.STATES = {\n    LOADING: 'loading',\n    DEFAULT: 'default',\n    EXPANDED: 'expanded',\n    HIDDEN: 'hidden',\n    RESIZED: 'resized'\n  };\n\n  var EVENTS = mobadsSdk.EVENTS = {\n    ERROR: 'error',\n    INFO: 'info',\n    READY: 'ready', // always be ready\n    STATECHANGE: 'stateChange',\n    VIEWABLECHANGE: 'viewableChange',\n    SIZECHANGE: 'sizeChange' // not support\n  };\n\n  var PLACEMENT_TYPES = mobadsSdk.PLACEMENT_TYPES = {\n    UNKNOWN: 'unknown',\n    INLINE: 'inline',\n    INTERSTITIAL: 'interstitial'\n  };\n\n  // External MRAID state: may be directly or indirectly modified by the ad JS. \n\n  // Properties which define the behavior of an expandable ad.\n  var expandProperties = {\n    width: false,\n    height: false,\n    useCustomClose: false,\n    isModal: true\n  };\n\n// not support\n  var resizeProperties = {\n    width: false, \n    height: false,\n    offsetX: false, \n    offsetY: false,\n    customClosePosition: 'top-right',\n    allowOffscreen: true\n  };\n\n  // not support\n  var orientationProperties = {\n    allowOrientationChange: true,\n    forceOrientation: 'none'\n  };\n\n  var supportProperties = {\n    sms: false,\n    tel: false,\n    calendar: false,\n    storePicture: false,\n    inlineVideo: false\n  };\n\n  // default is undefined so that notifySizeChangeEvent can track changes\n  var lastSizeChangeProperties;\n\n  var maxSize = {};\n\n  var currentPosition = {};\n\n  var defaultPosition = {};\n\n  var screenSize = {};\n\n  var hasSetCustomClose = false;\n\n  var listeners = {};\n\n  // Internal MRAID state. Modified by the native SDK. /////////////////////////////////\n\n  var state = STATES.DEFAULT;\n\n  var isViewable = true;\n\n  var placementType = PLACEMENT_TYPES.UNKNOWN;\n\n  var hostSDKVersion = {\n    'major': 0,\n    'minor': 0,\n    'patch': 0\n  };\n\n  //////////////////////////////////////////////////////////////////////\n\n  var EventListeners = function(event) {\n    this.event = event;\n    this.count = 0;\n    var listeners = {};\n\n    this.add = function(func) {\n      var id = Math.random().toString(36).slice(2);\n      if (!listeners[id]) {\n        listeners[id] = func;\n        this.count++;\n      }\n    };\n\n    this.remove = function(func) {\n      var id = String(func);\n      if (listeners[id]) {\n        listeners[id] = null;\n        delete listeners[id];\n        this.count--;\n        return true;\n      } else {\n        return false;\n      }\n    };\n\n    this.removeAll = function() {\n      for (var id in listeners) {\n        if (listeners.hasOwnProperty(id)) this.remove(listeners[id]);\n      }\n    };\n\n    this.broadcast = function(args) {\n      for (var id in listeners) {\n        if (listeners.hasOwnProperty(id)) listeners[id].apply(mraid, args);\n      }\n    };\n\n    this.toString = function() {\n      var out = [event, ':'];\n      for (var id in listeners) {\n        if (listeners.hasOwnProperty(id)) out.push('|', id, '|');\n      }\n      return out.join('');\n    };\n  };\n\n  var broadcastEvent = function() {\n    var args = new Array(arguments.length);\n    var l = arguments.length;\n    for (var i = 0; i < l; i++) args[i] = arguments[i];\n    var event = args.shift();\n    if (listeners[event]) listeners[event].broadcast(args);\n  };\n\n  var contains = function(value, array) {\n    for (var i in array) {\n      if (array[i] === value) return true;\n    }\n    return false;\n  };\n\n  var clone = function(obj) {\n    if (obj === null) return null;\n    var f = function() {};\n    f.prototype = obj;\n    return new f();\n  };\n\n  var stringify = function(obj) {\n    if (typeof obj === 'object') {\n      var out = [];\n      if (obj.push) {\n        // Array.\n        for (var p in obj) out.push(obj[p]);\n        return '[' + out.join(',') + ']';\n      } else {\n        // Other object.\n        for (var p in obj) out.push('' + p + '=' + obj[p]);\n        return '{' + out.join(',') + '}';\n      }\n    } else return String(obj);\n  };\n\n  // Functions that will be invoked by the native SDK whenever a 'change' event occurs.\n  var changeHandlers = {\n    state: function(val) {\n      if (state === STATES.LOADING) {\n        broadcastEvent(EVENTS.INFO, 'Native SDK initialized.');\n      }\n      state = val;\n      broadcastEvent(EVENTS.INFO, 'Set state to ' + stringify(val));\n      broadcastEvent(EVENTS.STATECHANGE, state);\n    },\n\n    viewable: function(val) {\n      isViewable = val;\n      broadcastEvent(EVENTS.INFO, 'Set isViewable to ' + stringify(val));\n      broadcastEvent(EVENTS.VIEWABLECHANGE, isViewable);\n    },\n\n    placementType: function(val) {\n      broadcastEvent(EVENTS.INFO, 'Set placementType to ' + stringify(val));\n      placementType = val;\n    },\n\n    sizeChange: function(val) {\n      broadcastEvent(EVENTS.INFO, 'Set screenSize to ' + stringify(val));\n      for (var key in val) {\n        if (val.hasOwnProperty(key)) screenSize[key] = val[key];\n      }\n    },\n\n    supports: function(val) {\n      broadcastEvent(EVENTS.INFO, 'Set supports to ' + stringify(val));\n      supportProperties = val;\n    },\n\n    hostSDKVersion: function(val) {\n      // val is expected to be formatted like 'X.Y.Z[-+]identifier'.\n      var versions = val.split('.').map(function(version) {\n        return parseInt(version, 10);\n      }).filter(function(version) {\n        return version >= 0;\n      });\n\n      if (versions.length >= 3) {\n        hostSDKVersion['major'] = parseInt(versions[0], 10);\n        hostSDKVersion['minor'] = parseInt(versions[1], 10);\n        hostSDKVersion['patch'] = parseInt(versions[2], 10);\n        broadcastEvent(EVENTS.INFO, 'Set hostSDKVersion to ' + stringify(hostSDKVersion));\n      }\n    }\n  };\n\n  var validate = function(obj, validators, action, merge) {\n    if (!merge) {\n      // Check to see if any required properties are missing.\n      if (obj === null) {\n        broadcastEvent(EVENTS.ERROR, 'Required object not provided.', action);\n        return false;\n      } else {\n        for (var i in validators) {\n          if (validators.hasOwnProperty(i) && obj[i] === undefined) {\n            broadcastEvent(EVENTS.ERROR, 'Object is missing required property: ' + i, action);\n            return false;\n          }\n        }\n      }\n    }\n\n    for (var prop in obj) {\n      var validator = validators[prop];\n      var value = obj[prop];\n      if (validator && !validator(value)) {\n        // Failed validation.\n        broadcastEvent(EVENTS.ERROR, 'Value of property ' + prop + ' is invalid: ' + value, action);\n        return false;\n      }\n    }\n    return true;\n  };\n\n  var expandPropertyValidators = {\n    useCustomClose: function(v) { return (typeof v === 'boolean'); },\n  };\n\n  ///////////////////////////////////////////////////////////////////\n\n  mobadsSdk.addEventListener = function(event, listener) {\n    if (!event || !listener) {\n      broadcastEvent(EVENTS.ERROR, 'Both event and ', 'addEventListener');\n    } else if (!contains(event, EVENTS)) {\n      broadcastEvent(EVENTS.ERROR, 'Unknown MRAID event: ' + event, 'addEventListener');\n    } else {\n      if (!listeners[event]) {\n        listeners[event] = new EventListeners(event);\n      }\n      listeners[event].add(listener);\n    }\n  };\n  mraid.addEventListener = mobadsSdk.addEventListener;\n\n  mobadsSdk.randomInt = function(min, max) {\n  return Math.floor(Math.random() * (max - min + 1) + min);\n};\nmobadsSdk.isFunction = function(source) {\n  return '[object Function]' === Object.prototype.toString.call(source);\n};\n    mobadsSdk.fireAnonymousEvent = function (token, res) {\n        var frameId = '';\n        if (token != null) {\n            var tmp = token.split('##');\n            if (tmp && tmp.length > 1) {\n                frameId = tmp[1];\n            }\n        }\n        if (frameId != '') {\n            var interfaceObj = window['baidu' + frameId].mobads.Interface;\n            if (interfaceObj && interfaceObj.natFireEvent) {\n                interfaceObj.natFireEvent(token, res);\n                return;\n            }\n        } else {\n            if (window.baidu.mobads.Interface && window.baidu.mobads.Interface.natFireEvent) {\n                window.baidu.mobads.Interface.natFireEvent(token, res);\n                return;\n            }\n        }\n        res = res || '';\n        if (token !== '' && mobadsSdk.__anoymousEvents         && mobadsSdk.__anoymousEvents[token] &&\n            mobadsSdk.isFunction(mobadsSdk.__anoymousEvents[token])) {\n            mobadsSdk.__anoymousEvents[token](res);\n            if (mobadsSdk.__anoymousEvents[token] &&\n                !mobadsSdk.__anoymousEvents[token].multi) {\n                delete mobadsSdk.__anoymousEvents[token];\n            }\n        }\n    };\nmobadsSdk.addAnonymousEvent = function(eventHandler, eventType) {\n  if (window.baidu.mobads.U && window.baidu.mobads.U.natRegEv) {\n    var tokenU = window.baidu.mobads.U.natRegEv(eventHandler, eventType);\n    return tokenU;\n  }\n  eventType = eventType || '';\n  mobadsSdk.__anoymousEvents = mobadsSdk.__anoymousEvents || {};\n  var token = '_' + eventType + '_' + new Date().getTime() + '_' + mobadsSdk.randomInt(0, 4294967296);\n  mobadsSdk.__anoymousEvents[token] = eventHandler;\n  return token;\n};\n  \n\n  mobadsSdk.close = function() {\n    if (state === STATES.HIDDEN) {\n      broadcastEvent(EVENTS.ERROR, 'Ad cannot be closed when it is already hidden.',\n        'close');\n    } else bridge.executeNativeCall(['close']);\n  };\n  mraid.close = mobadsSdk.close;\n\n// native not support expand-with-url\n  mobadsSdk.expand = function(URL) {\n    if (!(this.getState() === STATES.DEFAULT || this.getState() === STATES.RESIZED)) {\n      broadcastEvent(EVENTS.ERROR, 'Ad can only be expanded from ', 'expand');\n    } else {\n      var toUrl = URL? URL : '';\n      var json = {\n        shouldUseCustomClose: expandProperties.useCustomClose,\n        url: toUrl\n      }\n      var args = ['expand',\n        'json', JSON.stringify(json)\n      ];\n\n      bridge.executeNativeCall(args);\n    }\n  };\n  mraid.expand = mobadsSdk.expand;\n\n  mobadsSdk.getExpandProperties = function() {\n    var properties = {\n      width: expandProperties.width,\n      height: expandProperties.height,\n      useCustomClose: expandProperties.useCustomClose,\n      isModal: expandProperties.isModal\n    };\n    return properties;\n  };\n  mraid.getExpandProperties = mobadsSdk.getExpandProperties;\n\n  // not support\n  mobadsSdk.getCurrentPosition = function() {\n    return {\n      x: currentPosition.x,\n      y: currentPosition.y,\n      width: currentPosition.width,\n      height: currentPosition.height\n    };\n  };\n  mraid.getCurrentPosition = mobadsSdk.getCurrentPosition;\n\n  // not support\n  mobadsSdk.getDefaultPosition = function() {\n    return {\n      x: defaultPosition.x,\n      y: defaultPosition.y,\n      width: defaultPosition.width,\n      height: defaultPosition.height\n    };\n  };\n  mraid.getDefaultPosition = mobadsSdk.getDefaultPosition;\n\n// not-support\n  mobadsSdk.getMaxSize = function() {\n    return {\n      width: maxSize.width,\n      height: maxSize.height\n    };\n  };\n  mraid.getMaxSize = mobadsSdk.getMaxSize;\n\n  mobadsSdk.getPlacementType = function() {\n    return placementType;\n  };\n  mraid.getPlacementType = mobadsSdk.getPlacementType;\n\n // not-support\n  mobadsSdk.getScreenSize = function() {\n    return {\n      width: screenSize.width,\n      height: screenSize.height\n    };\n  };\n  mraid.getScreenSize = mobadsSdk.getScreenSize;\n\n  mobadsSdk.getState = function() {\n    return state;\n  };\n  mraid.getState = mobadsSdk.getState;\n\n  mobadsSdk.isViewable = function() {\n    return isViewable;\n  };\n  mraid.isViewable = mobadsSdk.isViewable;\n\n  // different from mraid.getVersion\n  mobadsSdk.getVersion = function() {\n    return mobadsSdk.VERSION;\n  };\n  // mraid.getVersion != mobadsSdk.getVersion;\n  mraid.getVersion = function() {\n    return MRAID_VERSION;\n  };\n  // compatiable by setActionUrl\n  mobadsSdk.open = function(URL) {\n    if (!URL) broadcastEvent(EVENTS.ERROR, 'URL is required.', 'open');\n    else {\n      var json = {\n        act: 1,\n        url: URL\n      }\n      mobadsSdk.setActionUrl(JSON.stringify(json));\n    }\n  };\n  mraid.open = mobadsSdk.open;\n\n  mobadsSdk.removeEventListener = function(event, listener) {\n    if (!event) {\n      broadcastEvent(EVENTS.ERROR, 'Event is required.', 'removeEventListener');\n      return;\n    }\n\n    if (listener) {\n      // If we have a valid event, we'll try to remove the listener from it.\n      var success = false;\n      if (listeners[event]) {\n        success = listeners[event].remove(listener);\n      }\n\n      // If we didn't have a valid event or couldn't\n      if (!success) {\n        broadcastEvent(EVENTS.ERROR, 'Listener not currently reg', 'removeEventListener');\n        return;\n      }\n\n    } else if (!listener && listeners[event]) {\n      listeners[event].removeAll();\n    }\n\n    if (listeners[event] && listeners[event].count === 0) {\n      listeners[event] = null;\n      delete listeners[event];\n    }\n  };\n  mraid.removeEventListener = mobadsSdk.removeEventListener;\n\n  mobadsSdk.setExpandProperties = function(properties) {\n    if (validate(properties, expandPropertyValidators, 'setExpandProperties', true)) {\n      if (properties.hasOwnProperty('useCustomClose')) {\n        expandProperties.useCustomClose = properties.useCustomClose;\n      }\n    }\n  };\n  mraid.setExpandProperties = mobadsSdk.setExpandProperties;\n\n  mobadsSdk.useCustomClose = function(shouldUseCustomClose) {\n    expandProperties.useCustomClose = shouldUseCustomClose;\n    hasSetCustomClose = true;\n    var json = {\n      shouldUseCustomClose: shouldUseCustomClose\n    }\n    var args = ['useCustomClose',\n    'json', JSON.stringify(json)\n    ]\n    bridge.executeNativeCall(args);\n  };\n  mraid.useCustomClose = mobadsSdk.useCustomClose;\n\n  // MRAID 2.0 APIs ///////////////////////////////////////////////////////\n\n  mobadsSdk.supports = function(feature) {\n    return supportProperties[feature];\n  };\n  mraid.supports = mobadsSdk.supports;\n\n// Adserv self-use APIs //////////////////////////////////////////////////\n  mobadsSdk.getConfs = function (token) {\n      // fetch param from bridge.P\n      bridge.P.bridgeVersion = VERSION; // add bridge version\n      mobadsSdk.fireAnonymousEvent(token, JSON.stringify(bridge.P));\n  };\n\n    mobadsSdk.setActionUrl = function (jsonStr) {\n        var args = ['setActionUrl',\n            'json', jsonStr\n        ];\n        bridge.executeNativeCall(args);\n    };\n\n    mobadsSdk.setPrivacyActionUrl = function (jsonStr) {\n        var args = ['setPrivacyActionUrl',\n            'json', jsonStr\n        ];\n        bridge.executeNativeCall(args);\n    };\n\n    mobadsSdk.setPermissionActionUrl = function (jsonStr) {\n        var args = ['setPermissionActionUrl',\n            'json', jsonStr\n        ];\n        bridge.executeNativeCall(args);\n    };\n\n    mobadsSdk.pauseDownload = function (pkg) {\n        var args = ['pauseDownload',\n            'pkg', pkg\n        ];\n        bridge.executeNativeCall(args);\n    };\n    mobadsSdk.getDownloadStatus = function (token, pkg) {\n        var args = ['getDownloadStatus',\n            'token', token,\n            'pkg', pkg\n        ];\n        bridge.executeNativeCall(args);\n    };\n    mobadsSdk.onInited = function () {\n        var args = ['onInited'];\n        bridge.executeNativeCall(args);\n    };\n\n  mobadsSdk.getAdViewState = function (token) {\n    var args = ['getAdViewState',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n\n  mobadsSdk.printLog = function (jsonPar) {\n        var args = ['printLog',\n            'json', jsonPar\n        ];\n        bridge.executeNativeCall(args);\n  };\n\n  mobadsSdk.confirm = function (token, jsonPar) {\n    var args = ['confirm',\n    'json', jsonPar,\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n\n  mobadsSdk.onAdFailed = function (jsonPar) {\n      var args = ['onAdFailed',\n      'json', jsonPar\n      ];\n        bridge.executeNativeCall(args);\n  };\n\n  mobadsSdk.onAdShow = function () {\n      var args = ['onAdShow'];\n        bridge.executeNativeCall(args);\n  };\n  // !#New-SDK-not-use# Native在\n  mobadsSdk.onAdClick = function () {\n      var args = ['onAdClick'];\n        bridge.executeNativeCall(args);\n  };\n\n  mobadsSdk.onAdSwitch = function () {\n      var args = ['onAdSwitch'];\n        bridge.executeNativeCall(args);\n  };\n\n  mobadsSdk.setVisibility = function (v) {\n    var json = {\n      visibility : v\n    }\n      var args = ['setVisibility',\n            'json', JSON.stringify(json)\n        ];\n        bridge.executeNativeCall(args);\n  };\n\n  // deprecated #not-used-for-all#\n  mobadsSdk.getVisibility = function (token) {\n    var args = ['getVisibility',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n\n  mobadsSdk.getActiveType = function (token) {\n    var args = ['getActiveType',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n  mobadsSdk.onInterstitialPreloadEnd = function (ready) {\n    var json = {\n      isready : ready\n    }\n    var args = ['onInterstitialPreloadEnd', \n       'json', JSON.stringify(json)\n       ];\n       bridge.executeNativeCall(args);\n  };\n  mobadsSdk.onAdPlayEnd = function () {\n    var args = ['onAdPlayEnd'];\n        bridge.executeNativeCall(args);\n  };\n  mobadsSdk.getAppStatus = function (token, jsonStr) {\n    var args = ['getAppStatus',\n    'json', jsonStr,\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n  // setAppTip:msg\n  mobadsSdk.setAppTip = function (message) {\n    var json = {\n      msg : message\n    }\n    var args = ['setAppTip', \n       'json', JSON.stringify(json)\n       ];\n       bridge.executeNativeCall(args);\n  };\n  // !#android-not-use#\n  mobadsSdk.setStopped = function (toStop) {\n    var json = {\n      stop : toStop\n    }\n    var args = ['setStopped', \n       'json', JSON.stringify(json)\n       ];\n       bridge.executeNativeCall(args);\n  };\n  // getInstalled:token\n  mobadsSdk.getInstalled = function (token) {\n    var args = ['getInstalled',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n  // #android-only#getSysInstalled:token\n  mobadsSdk.getSysInstalled = function (token) {\n    var args = ['getSysInstalled',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n  // #android-only#getCurrentApp:token\n  mobadsSdk.getCurrentApp = function (token) {\n    var args = ['getCurrentApp',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n  // #android-only#getRecentAll:token\n  mobadsSdk.getRecentAll = function (token) {\n    var args = ['getRecentAll',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n  // #android-only#getRecentDiff:token\n  mobadsSdk.getRecentDiff = function (token) {\n    var args = ['getRecentDiff',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n  // #android-only#\n  mobadsSdk.getWifiScans = function (token) {\n    var args = ['getWifiScans',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n\n  // #not support for all# should add ids in query not dzzb\n  mobadsSdk.getIds = function (token) {\n    var args = ['getIds',\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n  mobadsSdk.openApp = function (jsonStr) {\n    var args = ['openApp',\n    'json', jsonStr\n    ];\n    bridge.executeNativeCall(args);\n  };\n  // #android-only#\n  mobadsSdk.installApp = function (jsonStr) {\n    var args = ['installApp',\n    'json', jsonStr\n    ];\n    bridge.executeNativeCall(args);\n  };\n  mobadsSdk.playVideoForInterstitial = function (jsonStr) {\n    var args = ['playVideoForInterstitial',\n    'json', jsonStr\n    ];\n    bridge.executeNativeCall(args);\n  };\n  // #android-only#\n  mobadsSdk.getVersionCodeByPkg = function (token, pkg) {\n    var json = {\n      pk : pkg\n    }\n    var args = ['getVersionCodeByPkg',\n    'json', JSON.stringify(json),\n    'token', token\n    ];\n    bridge.executeNativeCall(args);\n  };\n\n  // #ios-only now#\n  mobadsSdk.setIAPBuy = function (iap) {\n    var json = {\n      isIAP : iap\n    }\n    var args = ['setIAPBuy',\n    'json', JSON.stringify(json)\n    ];\n    bridge.executeNativeCall(args);\n  };\n\n  // Determining SDK version //////////////////////////////////////////\n\n  mobadsSdk.getHostSDKVersion = function() {\n    return hostSDKVersion;\n  }\n  mraid.getHostSDKVersion = mobadsSdk.getHostSDKVersion;\n  function init() {\n      bridge.fireAnonymousEvent = mobadsSdk.fireAnonymousEvent;\n  };\n  init();\n").replaceAll("(?m)^\\s+", "").replaceAll("(?m)^//.*(?=\\n)", "");
+        r = rf1.a;
+        s = 0;
+    }
+
+    public qp3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.j = "";
+        this.n = "";
+        this.o = "";
+        this.p = "";
+    }
+
+    public static String f(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
+            if (map != null) {
+                for (String str2 : map.keySet()) {
+                    if (!TextUtils.isEmpty(map.get(str2))) {
+                        str = pf4.a(str, str2, map.get(str2));
+                    }
+                }
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void g(String str, String str2, String str3, String str4, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i)}) == null) && TextUtils.equals(kp3.a, str) && TextUtils.equals(str2, "checkPackageExpired")) {
+            cq3.n().m(str3, str4, i);
+        }
+    }
+
+    public static qp3 n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? d.a : (qp3) invokeV.objValue;
+    }
+
+    public static void q(@NonNull Bundle bundle, hn3 hn3Var, String str, String str2, String str3, String str4) {
+        String string;
+        char c2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{bundle, hn3Var, str, str2, str3, str4}) == null) || (string = bundle.getString("functionType")) == null || hn3Var == null) {
+            return;
+        }
+        String string2 = bundle.getString("resultData", "");
+        if (r) {
+            Log.d("DownloadButtonManager", "handleResult:function = " + string + ",result = " + string2);
+        }
+        int hashCode = string.hashCode();
+        if (hashCode != -1013362275) {
+            if (hashCode == -530890460 && string.equals("onSuccess")) {
+                c2 = 0;
+            }
+            c2 = 65535;
+        } else {
+            if (string.equals("onFail")) {
+                c2 = 1;
+            }
+            c2 = 65535;
+        }
+        if (c2 != 0) {
+            if (c2 != 1) {
+                return;
+            }
+            if (!TextUtils.isEmpty(string2) && string2.equals(DownloadState.NOT_START.name())) {
+                hn3Var.c(DownloadState.NOT_START, 0);
+            }
+            g(str, str2, str3, str4, 0);
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(string2);
+            int optInt = jSONObject.optInt("progress", -1);
+            if (optInt > -1) {
+                hn3Var.a(optInt);
+            }
+            if (jSONObject.optBoolean("installed")) {
+                hn3Var.c(DownloadState.INSTALLED, optInt);
+                return;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                return;
+            }
+            int optInt2 = optJSONObject.optInt("status", 0);
+            int value = DownloadState.NOT_START.value();
+            if (optInt2 == 0) {
+                hn3Var.c(DownloadState.DOWNLOADING, optInt);
+                value = DownloadState.DOWNLOADING.value();
+            } else if (optInt2 == 1) {
+                hn3Var.c(DownloadState.DOWNLOADING, optInt);
+                value = DownloadState.DOWNLOADING.value();
+            } else if (optInt2 == 2) {
+                hn3Var.c(DownloadState.DOWNLOAD_PAUSED, optInt);
+                value = DownloadState.DOWNLOAD_PAUSED.value();
+            } else if (optInt2 == 3) {
+                hn3Var.c(DownloadState.DOWNLOAD_FAILED, optInt);
+                value = DownloadState.DOWNLOAD_FAILED.value();
+            } else if (optInt2 == 4) {
+                hn3Var.c(DownloadState.DELETED, optInt);
+                value = DownloadState.DELETED.value();
+            } else if (optInt2 == 5) {
+                hn3Var.c(DownloadState.DOWNLOADED, optInt);
+                value = DownloadState.DOWNLOADED.value();
+            }
+            g(str, str2, str3, str4, value);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void A(String str, String str2, String str3, int i) {
+        xp3 xp3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLI(1048576, this, str, str2, str3, i) == null) || (xp3Var = this.b) == null) {
+            return;
+        }
+        DownloadState downloadState = xp3Var.a;
+        if (downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) {
+            String str4 = this.o;
+            if (TextUtils.equals(kp3.a, this.b.c)) {
+                str4 = k(1, str, str2, str3);
+                if (!TextUtils.isEmpty(this.q)) {
+                    this.b.c(this.q);
+                }
+            }
+            this.b.b = str4;
+            this.f = str;
+            if (i >= 0) {
+                this.g = String.valueOf(i);
+            }
+        }
+        s(false);
+    }
+
+    public final void B() {
+        xp3 xp3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (xp3Var = this.b) == null) {
+            return;
+        }
+        int i = b.a[xp3Var.a.ordinal()];
+        if (i == 1 || i == 2) {
+            this.a.j(oi2.c().getResources().getColor(R.color.obfuscated_res_0x7f060395));
+            this.a.h(oi2.c().getResources().getColor(R.color.obfuscated_res_0x7f060395));
+            this.a.i(oi2.c().getResources().getColor(R.color.obfuscated_res_0x7f060399));
+        } else if (i != 3) {
+            this.a.j(-1);
+            this.a.h(oi2.c().getResources().getColor(R.color.obfuscated_res_0x7f060395));
+            this.a.i(oi2.c().getResources().getColor(R.color.obfuscated_res_0x7f060399));
+        } else {
+            this.a.j(-1);
+            this.a.i(oi2.c().getResources().getColor(R.color.obfuscated_res_0x7f060398));
+        }
+    }
+
+    public final void C(String str) {
+        xp3 xp3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (xp3Var = this.b) == null) {
+            return;
+        }
+        xp3Var.c = str;
+    }
+
+    public void D(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            y(i);
+        }
+    }
+
+    public void E(DownloadState downloadState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, downloadState) == null) {
+            z(downloadState);
+        }
+    }
+
+    public final void F() {
+        xp3 xp3Var;
+        String string;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (xp3Var = this.b) == null) {
+            return;
+        }
+        if (xp3Var.a == DownloadState.DOWNLOADING) {
+            GamenowDownloadButtomView gamenowDownloadButtomView = this.a;
+            if (gamenowDownloadButtomView != null && gamenowDownloadButtomView.getVisibility() != 8) {
+                if (this.b.d < this.a.getMax()) {
+                    String string2 = oi2.c().getResources().getString(R.string.obfuscated_res_0x7f0f015c);
+                    string = String.format(string2, this.b.d + "%");
+                } else {
+                    string = oi2.c().getResources().getString(R.string.obfuscated_res_0x7f0f0166);
+                }
+                this.a.setText(string);
+                this.a.setProgress(this.b.d);
+            }
+        } else {
+            String string3 = oi2.c().getResources().getString(v(this.b.a));
+            if (this.b.a == DownloadState.DOWNLOADED) {
+                this.a.setProgress(100);
+            }
+            xp3 xp3Var2 = this.b;
+            if (xp3Var2.a == DownloadState.DOWNLOAD_PAUSED) {
+                this.a.setProgress(xp3Var2.d);
+            }
+            this.a.setText(string3);
+            DownloadState downloadState = this.b.a;
+            if ((downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) && !TextUtils.isEmpty(this.e)) {
+                this.a.setText(this.e);
+            }
+        }
+        if (this.a != null) {
+            B();
+            this.a.setState(this.b.a);
+            this.a.postInvalidate();
+        }
+    }
+
+    public final byte[] h(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            if (bArr == null) {
+                return null;
+            }
+            return Base64Encoder.B64Encode(bArr);
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public GamenowDownloadButtomView i(hn3 hn3Var, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, hn3Var, str, str2)) == null) ? j(hn3Var, str, str2, 0, 0) : (GamenowDownloadButtomView) invokeLLL.objValue;
+    }
+
+    public GamenowDownloadButtomView j(hn3 hn3Var, String str, String str2, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{hn3Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            this.h = str;
+            this.i = str2;
+            this.k = i;
+            this.l = i2;
+            GameGuideConfigInfo z = fp3.o.z();
+            int color = oi2.c().getResources().getColor(R.color.obfuscated_res_0x7f060395);
+            int color2 = oi2.c().getResources().getColor(R.color.obfuscated_res_0x7f060ab9);
+            if (z != null) {
+                this.j = z.configName;
+                this.o = z.targetAppDownloadUrl;
+                String str3 = z.targetAppPackageId;
+                this.p = str3;
+                if (TextUtils.equals(kp3.a, str3)) {
+                    this.q = z.gamenowApkId;
+                }
+                char c2 = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != -1252040192) {
+                    if (hashCode == -792126734 && str.equals("wdview")) {
+                        c2 = 0;
+                    }
+                } else if (str.equals("gbview")) {
+                    c2 = 1;
+                }
+                if (c2 == 0) {
+                    GameGuideConfigInfo.DialogInfo dialogInfo = z.dialogInfo;
+                    if (dialogInfo != null) {
+                        this.e = dialogInfo.buttonText;
+                        this.m = dialogInfo.targetType;
+                        this.n = dialogInfo.target;
+                    }
+                } else if (c2 == 1) {
+                    GameGuideConfigInfo.CloseInfo closeInfo = z.closeInfo;
+                    this.d = closeInfo;
+                    if (closeInfo != null) {
+                        try {
+                            if (!TextUtils.isEmpty(closeInfo.downloadBackgroundColor) && !this.d.downloadBackgroundColor.equals(StringUtil.NULL_STRING)) {
+                                color = Color.parseColor(this.d.downloadBackgroundColor);
+                            }
+                            if (!TextUtils.isEmpty(this.d.downloadTextColor) && !this.d.downloadTextColor.equals(StringUtil.NULL_STRING)) {
+                                color2 = Color.parseColor(this.d.downloadTextColor);
+                            }
+                        } catch (IllegalArgumentException e) {
+                            if (r) {
+                                e.printStackTrace();
+                            }
+                        }
+                        GameGuideConfigInfo.CloseInfo closeInfo2 = this.d;
+                        this.e = closeInfo2.buttonText;
+                        this.m = closeInfo2.targetType;
+                        this.n = closeInfo2.target;
+                    }
+                }
+            }
+            String str4 = this.o;
+            if (TextUtils.equals(kp3.a, this.p)) {
+                str4 = k(this.m, this.n, "", "");
+            }
+            this.b = xp3.a(str4, this.p);
+            if (!TextUtils.isEmpty(this.q)) {
+                this.b.c(this.q);
+            }
+            this.c = hn3Var;
+            GamenowDownloadButtomView gamenowDownloadButtomView = new GamenowDownloadButtomView(oi2.c());
+            this.a = gamenowDownloadButtomView;
+            gamenowDownloadButtomView.k(yc3.g(16.0f));
+            gamenowDownloadButtomView.f(true);
+            gamenowDownloadButtomView.j(color2);
+            gamenowDownloadButtomView.h(color);
+            gamenowDownloadButtomView.i(oi2.c().getResources().getColor(R.color.obfuscated_res_0x7f060399));
+            gamenowDownloadButtomView.g(true);
+            this.a.setText(this.e);
+            this.a.setVisibility(0);
+            this.a.setProgress(s);
+            this.a.setState(DownloadState.NOT_START);
+            r();
+            t();
+            return this.a;
+        }
+        return (GamenowDownloadButtomView) invokeCommon.objValue;
+    }
+
+    public final String k(int i, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
+            String str4 = TextUtils.isEmpty(this.o) ? "https://gamenow.baidu.com/api/download/newest_gamenow" : this.o;
+            this.o = str4;
+            if (i == 0) {
+                return str4;
+            }
+            String i2 = oi2.h0().i(AppRuntime.getAppContext());
+            int J = fp3.o.J();
+            StringBuffer stringBuffer = new StringBuffer();
+            if (!TextUtils.isEmpty(i2)) {
+                stringBuffer.append(i2);
+            }
+            stringBuffer.append(",");
+            stringBuffer.append(J);
+            if (i == 1) {
+                if (TextUtils.isEmpty(str) || str.equals(StringUtil.NULL_STRING)) {
+                    str = gz2.J().getAppId();
+                }
+                stringBuffer.append(",");
+                stringBuffer.append(str);
+                if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+                    stringBuffer.append(",");
+                    stringBuffer.append(str2);
+                    stringBuffer.append(",");
+                    stringBuffer.append(str3);
+                }
+            }
+            str = (i != 2 || TextUtils.isEmpty(str)) ? "" : "";
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("ext", new String(h(stringBuffer.toString().getBytes())));
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject2.put(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT, str);
+                }
+                jSONObject.put("path", "operate");
+                jSONObject.put("data", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            fp3 fp3Var = fp3.o;
+            String str5 = (fp3Var == null || fp3Var.z() == null || TextUtils.isEmpty(fp3.o.z().gamenowChannel)) ? "2101000000" : fp3.o.z().gamenowChannel;
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            String str6 = new String(h(jSONObject.toString().getBytes()));
+            linkedHashMap.put("channel", str5);
+            linkedHashMap.put("suffix", str6);
+            linkedHashMap.put(BreakpointSQLiteKey.FILENAME, "");
+            String f = f(this.o, linkedHashMap);
+            if (!TextUtils.isEmpty(f)) {
+                f = oi2.o().m(f);
+            }
+            if (r) {
+                Log.e("DownloadButtonManager", "channel is " + str5);
+                Log.e("DownloadButtonManager", "ext is " + stringBuffer.toString());
+                Log.e("DownloadButtonManager", "suffixObj is " + jSONObject.toString());
+                Log.e("DownloadButtonManager", "downloadUrl is " + f);
+            }
+            return f;
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b.b : (String) invokeV.objValue;
+    }
+
+    public final void p(String str, hn3 hn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, hn3Var) == null) || this.b == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        JSONObject jSONObject2 = new JSONObject();
+        try {
+            jSONObject.put("key_download_package_name", this.b.c);
+            jSONObject.put("key_download_url", this.b.b);
+            jSONObject2.put("from_view", this.h);
+            jSONObject2.put("from_value", this.i);
+            jSONObject2.put(GameGuideConfigInfo.KEY_CONFIG_NAME, this.j);
+            jSONObject2.put("apk_id", this.b.b());
+            jSONObject.put("download_params", jSONObject2.toString());
+            if (TextUtils.equals(str, "checkPackageExpired")) {
+                jSONObject.put(GameGuideConfigInfo.KEY_PACKAGE_EXPIRE, fp3.o.z() == null ? 0L : fp3.o.z().packageExpire);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Bundle bundle = new Bundle();
+        bundle.putString("operation", str);
+        bundle.putString("ubc_params", new bq3().a());
+        bundle.putString("data", jSONObject.toString());
+        cw2 z = gz2.J().z();
+        if (z != null) {
+            z.W(bundle, tp3.class, new c(this.b.c, str, hn3Var, this.h, this.i));
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.a.setOnClickListener(new a(this));
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            if (!SwanAppNetworkUtils.i(AppRuntime.getAppContext())) {
+                Toast.makeText(oi2.c(), oi2.c().getResources().getString(R.string.obfuscated_res_0x7f0f0184), 0).show();
+                return;
+            }
+            xp3 xp3Var = this.b;
+            if (xp3Var == null) {
+                return;
+            }
+            DownloadState downloadState = xp3Var.a;
+            if (downloadState == DownloadState.NOT_START || downloadState == DownloadState.DELETED) {
+                if (r) {
+                    Log.d("DownloadButtonManager", "download start");
+                }
+                p("startDownload", this.c);
+            }
+            if (this.b.a == DownloadState.DOWNLOADING && z) {
+                if (r) {
+                    Log.d("DownloadButtonManager", "download pause");
+                }
+                p("pauseDownload", this.c);
+            }
+            if (this.b.a == DownloadState.DOWNLOAD_PAUSED) {
+                if (r) {
+                    Log.d("DownloadButtonManager", "download resume");
+                }
+                p("resumeDownload", this.c);
+            }
+            if (this.b.a == DownloadState.DOWNLOAD_FAILED) {
+                if (r) {
+                    Log.d("DownloadButtonManager", "download retry");
+                }
+                p("startDownload", this.c);
+            }
+            if (this.b.a == DownloadState.DOWNLOADED) {
+                if (r) {
+                    Log.d("DownloadButtonManager", "download install");
+                }
+                this.c.b();
+                p("installApp", this.c);
+            }
+            if (this.b.a == DownloadState.INSTALLED) {
+                if (r) {
+                    Log.d("DownloadButtonManager", "open app");
+                }
+                String e = this.c.e();
+                if (TextUtils.isEmpty(this.b.c) && !TextUtils.isEmpty(e)) {
+                    C(e);
+                }
+                p("open_manual", this.c);
+            }
+        }
+    }
+
+    public void t() {
+        xp3 xp3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (xp3Var = this.b) == null || TextUtils.isEmpty(xp3Var.c) || TextUtils.isEmpty(this.p) || this.c == null) {
+            return;
+        }
+        if (bd3.F(oi2.c(), this.b.c)) {
+            E(DownloadState.INSTALLED);
+            g(this.p, "checkPackageExpired", this.h, this.i, DownloadState.INSTALLED.value());
+            return;
+        }
+        p("checkPackageExpired", this.c);
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.c = null;
+            this.a = null;
+            this.b = null;
+        }
+    }
+
+    public final int v(DownloadState downloadState) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, downloadState)) == null) {
+            switch (b.a[downloadState.ordinal()]) {
+                case 1:
+                    return R.string.obfuscated_res_0x7f0f0168;
+                case 2:
+                    return R.string.obfuscated_res_0x7f0f0164;
+                case 3:
+                    return R.string.obfuscated_res_0x7f0f0166;
+                case 4:
+                default:
+                    return R.string.obfuscated_res_0x7f0f0163;
+                case 5:
+                    return R.string.obfuscated_res_0x7f0f0165;
+                case 6:
+                    return R.string.obfuscated_res_0x7f0f0167;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public void w(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void x(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public final void y(int i) {
+        xp3 xp3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || (xp3Var = this.b) == null || i == xp3Var.d) {
+            return;
+        }
+        xp3Var.d = i;
+        F();
+    }
+
+    public final void z(DownloadState downloadState) {
+        xp3 xp3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, downloadState) == null) || (xp3Var = this.b) == null || downloadState == xp3Var.a) {
+            return;
+        }
+        xp3Var.a = downloadState;
+        F();
     }
 }

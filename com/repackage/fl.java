@@ -1,20 +1,14 @@
 package com.repackage;
 
-import android.app.Application;
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.nps.interfa.IHostAppRuntime;
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
 @Service
-/* loaded from: classes6.dex */
-public class fl implements IHostAppRuntime {
+/* loaded from: classes5.dex */
+public class fl implements IWebViewDataDirectoryManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,14 +26,10 @@ public class fl implements IHostAppRuntime {
         }
     }
 
-    @Override // com.baidu.nps.interfa.IHostAppRuntime
-    public Application getApplication() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nps.interfa.IWebViewDataDirectoryManager
+    public void setDataDirectorySuffix() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Log.e("TAG", "" + BdBaseApplication.getInst());
-            return BdBaseApplication.getInst();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (Application) invokeV.objValue;
     }
 }

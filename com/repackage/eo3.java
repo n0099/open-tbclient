@@ -1,59 +1,176 @@
 package com.repackage;
 
 import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-import com.baidu.swan.game.ad.jsbridge.CommandType;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.go3;
-import com.repackage.up3;
-import java.util.Map;
-import java.util.TreeMap;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class eo3 implements fp3, go3.e {
+import com.repackage.ho3;
+import okhttp3.Response;
+/* loaded from: classes5.dex */
+public class eo3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public String b;
-    public String c;
-    public io3 d;
-    public fo3 e;
-    public tp3 f;
-    public AdElementInfo g;
-    public go3 h;
-    public boolean i;
-    public String j;
-    public boolean k;
-    public mo3 l;
-    public Map<String, String> m;
-    public jp3 n;
+    public sn3 b;
+    public boolean c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eo3 a;
+        public final /* synthetic */ jo3 a;
+        public final /* synthetic */ xn3 b;
+        public final /* synthetic */ eo3 c;
 
-        public a(eo3 eo3Var) {
+        /* renamed from: com.repackage.eo3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0412a extends ResponseCallback<AdResponseInfo> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public int a;
+            public final /* synthetic */ a b;
+
+            /* renamed from: com.repackage.eo3$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class RunnableC0413a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AdElementInfo a;
+                public final /* synthetic */ C0412a b;
+
+                public RunnableC0413a(C0412a c0412a, AdElementInfo adElementInfo) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0412a, adElementInfo};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = c0412a;
+                    this.a = adElementInfo;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.b.c.b == null) {
+                        return;
+                    }
+                    this.b.b.c.b.c(this.a);
+                }
+            }
+
+            public C0412a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = 0;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: a */
+            public void onSuccess(AdResponseInfo adResponseInfo, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLI(1048576, this, adResponseInfo, i) == null) {
+                    a aVar = this.b;
+                    aVar.c.j(aVar.a, "requestSuccess", aVar.b);
+                    if (adResponseInfo == null) {
+                        this.b.c.g("200000");
+                    } else if (adResponseInfo.getAdInstanceList().size() <= 0) {
+                        if (!this.b.c.c) {
+                            a aVar2 = this.b;
+                            aVar2.c.j(aVar2.a, "requestNoAd", aVar2.b);
+                        }
+                        if (this.a == 1 && this.b.a.i.c() == "video" && ap3.h()) {
+                            a aVar3 = this.b;
+                            aVar3.c.h(aVar3.b, aVar3.a, this);
+                            return;
+                        }
+                        this.a = 0;
+                        String errorCode = adResponseInfo.getErrorCode();
+                        if (errorCode.equals("0")) {
+                            errorCode = "201000";
+                        }
+                        this.b.c.g(errorCode);
+                    } else {
+                        vo3.c(new RunnableC0413a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
+                    }
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            /* renamed from: b */
+            public AdResponseInfo parseResponse(Response response, int i) {
+                InterceptResult invokeLI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                    if (response != null && response.body() != null) {
+                        this.a++;
+                        if (!response.isSuccessful()) {
+                            return null;
+                        }
+                        try {
+                            String string = response.body().string();
+                            if (!TextUtils.isEmpty(string)) {
+                                if (this.b.c.c) {
+                                    return new AdResponseInfo(string, this.b.c.c);
+                                }
+                                return new AdResponseInfo(string);
+                            }
+                        } catch (Exception | OutOfMemoryError unused) {
+                        }
+                    }
+                    return null;
+                }
+                return (AdResponseInfo) invokeLI.objValue;
+            }
+
+            @Override // com.baidu.searchbox.http.callback.ResponseCallback
+            public void onFail(Exception exc) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                    this.b.c.g("3010002");
+                    a aVar = this.b;
+                    aVar.c.j(aVar.a, "requestFail", aVar.b);
+                }
+            }
+        }
+
+        public a(eo3 eo3Var, jo3 jo3Var, xn3 xn3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eo3Var};
+                Object[] objArr = {eo3Var, jo3Var, xn3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,113 +180,52 @@ public class eo3 implements fp3, go3.e {
                     return;
                 }
             }
-            this.a = eo3Var;
+            this.c = eo3Var;
+            this.a = jo3Var;
+            this.b = xn3Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
+            jo3 jo3Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.h == null || this.a.h.f() == null || !this.a.n.c(this.a.h.f())) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (jo3Var = this.a) == null || jo3Var.i == null) {
                 return;
             }
-            this.a.n.removeView(this.a.h.f());
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements hp3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eo3 a;
-
-        public b(eo3 eo3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            C0412a c0412a = new C0412a(this);
+            if (NetworkUtils.f(this.c.a)) {
+                if (this.c.c) {
+                    jo3 jo3Var2 = this.a;
+                    if (jo3Var2 instanceof ko3) {
+                        ko3 ko3Var = (ko3) jo3Var2;
+                        if (this.b == null || ko3Var.i() == null) {
+                            return;
+                        }
+                        this.b.a(ko3Var.g(), ko3Var.i(), c0412a);
+                        return;
+                    }
                 }
-            }
-            this.a = eo3Var;
-        }
-
-        @Override // com.repackage.hp3
-        public void d(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            }
-        }
-
-        @Override // com.repackage.hp3
-        public void f(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && this.a.k) {
-                this.a.A(view2);
-                if (this.a.d != null) {
-                    this.a.d.onClick();
+                this.c.c = false;
+                String g = this.a.g();
+                xn3 xn3Var = this.b;
+                if (xn3Var != null) {
+                    xn3Var.f(g, c0412a);
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements dp3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eo3 a;
-
-        public c(eo3 eo3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eo3Var;
-        }
-
-        @Override // com.repackage.dp3
-        public void b(CommandType commandType, Uri uri) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, commandType, uri) == null) || this.a.g == null) {
+                this.c.j(this.a, "request", this.b);
                 return;
             }
-            String clickUrl = this.a.g.getClickUrl();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("monitorUrl", cq3.b("landingPageLoad", this.a.m));
-            } catch (JSONException unused) {
-            }
-            this.a.n.a(clickUrl, jSONObject);
-            cq3.g(this.a.g, this.a.f);
-            cq3.n("lpClick", this.a.m, this.a.f);
-            cq3.n("click", this.a.m, this.a.f);
+            this.c.g("3010003");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
         public final /* synthetic */ eo3 b;
 
-        public d(eo3 eo3Var, String str) {
+        public b(eo3 eo3Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -191,213 +247,19 @@ public class eo3 implements fp3, go3.e {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fo3 fo3Var = this.b.e;
-                boolean z = fo3Var.c != fo3Var.e;
-                this.b.x();
-                if (this.b.h != null) {
-                    this.b.h.e(this.b.e.c);
-                    this.b.n.f(this.b.h.f(), new do3(mq3.a(this.b.e.a), mq3.a(this.b.e.b), mq3.a(this.b.e.e), mq3.a(this.b.e.f)));
-                }
-                if (this.a.equals("width") && z && this.b.d != null) {
-                    io3 io3Var = this.b.d;
-                    fo3 fo3Var2 = this.b.e;
-                    io3Var.c(fo3Var2.e, fo3Var2.f);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eo3 a;
-
-        public e(eo3 eo3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eo3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.h == null || !this.a.n.c(this.a.h.f())) {
-                    if (this.a.d != null) {
-                        this.a.d.b(false);
-                        this.a.d.onError("3010010");
-                        return;
-                    }
-                    return;
-                }
-                this.a.h.l();
-                if (this.a.d != null) {
-                    this.a.d.b(true);
-                }
-                cq3.n("showSuccess", this.a.m, this.a.f);
-                if (this.a.i) {
-                    return;
-                }
-                this.a.i = true;
-                if (this.a.k) {
-                    eq3.f(this.a.g, this.a.f);
-                    return;
-                }
-                cq3.j(this.a.g, this.a.f);
-                String str = this.a.c;
-                eo3 eo3Var = this.a;
-                cq3.f(str, eo3Var.b, eo3Var.j, this.a.f);
-                cq3.n("show", this.a.m, this.a.f);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements hp3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eo3 a;
-
-        public f(eo3 eo3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eo3Var;
-        }
-
-        @Override // com.repackage.hp3
-        public void d(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.b == null) {
                 return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("url", str2);
-                if (this.a.l == null) {
-                    this.a.l = new mo3(this.a.a, this.a.g, this.a.f);
-                }
-                this.a.l.k(str);
-                lp3.b().d(this.a.a, jSONObject, DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD, this.a.l);
-            } catch (JSONException unused) {
-            }
-        }
-
-        @Override // com.repackage.hp3
-        public void f(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            }
+            this.b.b.a(this.a);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eo3 a;
-
-        public g(eo3 eo3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eo3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.h == null) {
-                return;
-            }
-            this.a.h.g();
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eo3 a;
-
-        public h(eo3 eo3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eo3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.h != null) {
-                    this.a.n.removeView(this.a.h.f());
-                }
-                this.a.h = null;
-                this.a.d = null;
-                this.a.g = null;
-                if (this.a.l != null) {
-                    this.a.l.i();
-                    this.a.l = null;
-                }
-            }
-        }
-    }
-
-    public eo3(String str, String str2, io3 io3Var, jp3 jp3Var) {
+    public eo3(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, io3Var, jp3Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -407,256 +269,85 @@ public class eo3 implements fp3, go3.e {
                 return;
             }
         }
-        this.e = null;
-        this.m = new TreeMap();
-        Context appContext = AppRuntime.getAppContext();
-        this.a = appContext;
-        this.c = str;
-        this.b = str2;
-        this.d = io3Var;
-        this.n = jp3Var;
-        this.f = new tp3(appContext);
-        this.k = false;
-        E(10, 10, 350, 50);
-        D();
+        this.a = context;
     }
 
-    public final void A(View view2) {
-        AdElementInfo adElementInfo;
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || !this.k || (adElementInfo = this.g) == null || this.e == null || view2 == null) {
-            return;
-        }
-        eq3.d(adElementInfo, this.f);
-        bq3 bq3Var = new bq3();
-        bq3Var.a = String.valueOf(this.e.c);
-        bq3Var.b = String.valueOf(this.e.d);
-        bq3Var.c = String.valueOf(this.e.c);
-        bq3Var.d = String.valueOf(this.e.d);
-        bq3Var.e = String.valueOf((int) view2.getX());
-        bq3Var.f = String.valueOf((int) view2.getY());
-        bq3Var.g = String.valueOf((int) view2.getX());
-        bq3Var.h = String.valueOf((int) view2.getY());
-        if (this.g.getActionType() == 2) {
-            eq3.a(bq3Var, this.g, this.f, new f(this));
-            return;
-        }
-        AdElementInfo adElementInfo2 = this.g;
-        if (adElementInfo2 != null) {
-            this.n.a(eq3.c(adElementInfo2.getClickUrl(), bq3Var), new JSONObject());
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            vo3.c(new b(this, str));
         }
     }
 
-    public void B() {
+    public void h(xn3 xn3Var, jo3 jo3Var, ResponseCallback<AdResponseInfo> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            iq3.c(new g(this));
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            go3 go3Var = new go3(this.a, this.g, this.b, this.k);
-            this.h = go3Var;
-            go3Var.i(this);
-            if (this.k) {
-                this.h.k(new b(this));
-            } else {
-                this.h.j(new c(this));
-            }
-            this.h.e(this.e.c);
-            if (this.n.c(this.h.f())) {
-                this.n.removeView(this.h.f());
-            }
-            if (this.n.d(this.h.f(), new do3(mq3.a(this.e.a), mq3.a(this.e.b), mq3.a(this.e.e), mq3.a(this.e.f)))) {
-                io3 io3Var = this.d;
-                if (io3Var != null) {
-                    io3Var.a(true, "");
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xn3Var, jo3Var, responseCallback) == null) {
+            if (NetworkUtils.f(this.a)) {
+                this.c = true;
+                if (jo3Var instanceof ko3) {
+                    ko3 ko3Var = (ko3) jo3Var;
+                    if (xn3Var == null || ko3Var.i() == null) {
+                        return;
+                    }
+                    xn3Var.a(ko3Var.g(), ko3Var.i(), responseCallback);
                     return;
                 }
+                ho3.b bVar = new ho3.b();
+                bVar.m(ap3.c());
+                bVar.j(ap3.d());
+                bVar.o(jo3Var.i.g());
+                bVar.l(zo3.i(this.a));
+                bVar.i(zo3.h(this.a));
+                ko3 ko3Var2 = new ko3(this.a, bVar.h(), 5, 5);
+                if (xn3Var == null || ko3Var2.i() == null) {
+                    return;
+                }
+                xn3Var.a(ko3Var2.g(), ko3Var2.i(), responseCallback);
                 return;
             }
-            io3 io3Var2 = this.d;
-            if (io3Var2 != null) {
-                io3Var2.onError("3010000");
-            }
+            g("3010003");
         }
     }
 
-    public final void D() {
-        wp3 vp3Var;
+    public void i(jo3 jo3Var, xn3 xn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            cq3.n("loadApi", this.m, this.f);
-            String appKey = lp3.b().getAppKey();
-            up3.b bVar = new up3.b();
-            bVar.m(this.c);
-            bVar.j(this.b);
-            bVar.o(appKey);
-            bVar.n("game");
-            bVar.k(SpeedStatsUtils.UBC_VALUE_BANNER);
-            bVar.l(this.e.c);
-            bVar.i(this.e.d);
-            up3 h2 = bVar.h();
-            if (this.k) {
-                vp3Var = new xp3(this.a, h2, 1, z());
-            } else {
-                vp3Var = new vp3(this.a, h2);
-                this.j = vp3Var.c();
-            }
-            rp3 rp3Var = new rp3(this.a, false);
-            rp3Var.k(this);
-            rp3Var.i(vp3Var, this.f);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jo3Var, xn3Var) == null) {
+            uo3.d(new a(this, jo3Var, xn3Var), "execAdRequest");
         }
     }
 
-    public void E(int i, int i2, int i3, int i4) {
+    public final void j(jo3 jo3Var, String str, xn3 xn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) {
-            this.e = new fo3(i, i2, i3, i4);
-            x();
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, jo3Var, str, xn3Var) == null) {
+            po3.n(str, po3.a(jo3Var.i.c(), jo3Var.i.f(), jo3Var.i.e(), jo3Var.i.b(), false), xn3Var);
         }
     }
 
-    public void F(Map<String, String> map) {
+    public void k(sn3 sn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, map) == null) {
-            this.m = map;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sn3Var) == null) {
+            this.b = sn3Var;
         }
     }
 
-    public void G(JsObject jsObject) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public eo3(Context context, boolean z) {
+        this(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
-            iq3.c(new e(this));
-        }
-    }
-
-    public void H(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            iq3.c(new d(this, str));
-        }
-    }
-
-    @Override // com.repackage.fp3
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            io3 io3Var = this.d;
-            if (io3Var != null) {
-                io3Var.onError(str);
-            }
-            String appId = lp3.b().getAppId();
-            if (appId.lastIndexOf("_dev") >= 0 && appId.lastIndexOf("_dev") < appId.length() && str.equals("201000")) {
-                w();
-            }
-            io3 io3Var2 = this.d;
-            if (io3Var2 != null) {
-                io3Var2.a(false, "");
-            }
-        }
-    }
-
-    @Override // com.repackage.go3.e
-    public void b() {
-        io3 io3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (io3Var = this.d) == null) {
-            return;
-        }
-        io3Var.onClose();
-    }
-
-    @Override // com.repackage.fp3
-    public void c(AdElementInfo adElementInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, adElementInfo) == null) {
-            this.g = adElementInfo;
-            C();
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            go3 go3Var = new go3(this.a);
-            this.h = go3Var;
-            go3Var.e(this.e.c);
-            if (this.h.f() == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                this((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (this.n.c(this.h.f())) {
-                this.n.removeView(this.h.f());
-            }
-            this.n.d(this.h.f(), new do3(mq3.a(this.e.a), mq3.a(this.e.b), mq3.a(this.e.e), mq3.a(this.e.f)));
-            this.h.f().postDelayed(new a(this), 20000L);
         }
-    }
-
-    public final void x() {
-        fo3 fo3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (fo3Var = this.e) == null) {
-            return;
-        }
-        if (mq3.a(fo3Var.c) < 300) {
-            this.e.c = mq3.p(300.0f);
-        }
-        int q = lp3.b().q();
-        int p = lp3.b().p();
-        if (mq3.a(this.e.c) > q) {
-            this.e.c = mq3.p(q);
-        }
-        fo3 fo3Var2 = this.e;
-        fo3Var2.d = (int) (fo3Var2.c / ho3.a);
-        if (fo3Var2.a < 0) {
-            fo3Var2.a = 0;
-        }
-        int p2 = mq3.p(q);
-        fo3 fo3Var3 = this.e;
-        int i = p2 - fo3Var3.c;
-        if (fo3Var3.a > i) {
-            fo3Var3.a = i;
-        }
-        fo3 fo3Var4 = this.e;
-        if (fo3Var4.b < 0) {
-            fo3Var4.b = 0;
-        }
-        int p3 = mq3.p(p);
-        fo3 fo3Var5 = this.e;
-        int i2 = p3 - fo3Var5.d;
-        if (fo3Var5.b > i2) {
-            fo3Var5.b = i2;
-        }
-        fo3 fo3Var6 = this.e;
-        fo3Var6.e = fo3Var6.c;
-        fo3Var6.f = fo3Var6.d;
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            iq3.c(new h(this));
-        }
-    }
-
-    public final int z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.e == null) {
-                return 2;
-            }
-            int p = mq3.p(lp3.b().p());
-            int i = this.e.b;
-            int i2 = p / 3;
-            if (i < i2) {
-                return 1;
-            }
-            return i < i2 * 2 ? 4 : 2;
-        }
-        return invokeV.intValue;
+        this.c = z;
     }
 }

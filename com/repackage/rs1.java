@@ -1,104 +1,60 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.v8.NodeJS;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class rs1 implements qs1 {
+public class rs1 extends ns1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, cu2> a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755339871, "Lcom/repackage/rs1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755339871, "Lcom/repackage/rs1;");
-                return;
-            }
-        }
-        b = eh1.a;
-    }
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public boolean g;
 
     public rs1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.g = false;
     }
 
-    @Override // com.repackage.qs1
-    public void a(String str) {
+    @Override // com.repackage.ns1
+    public void a(os1 os1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a.containsKey(str)) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, os1Var, canvas) == null) && this.g) {
+            os1Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
+        }
+    }
+
+    @Override // com.repackage.ns1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 5) {
             return;
         }
-        if (b) {
-            Log.d("Api-FirstRecorder", "markStart: " + str);
-        }
-        cu2 cu2Var = new cu2();
-        this.a.put(str, cu2Var);
-        cu2Var.i(System.currentTimeMillis());
-        cu2Var.f(str);
-    }
-
-    @Override // com.repackage.qs1
-    @SuppressLint({"BDThrowableCheck"})
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            cu2 cu2Var = this.a.get(str);
-            if (cu2Var == null) {
-                if (b) {
-                    throw new RuntimeException(str + " markEnd before markStart");
-                }
-            } else if (cu2Var.d() > 0) {
-            } else {
-                cu2Var.h(System.currentTimeMillis());
-                if (b) {
-                    Log.d("Api-FirstRecorder", str + " first called cost " + cu2Var.c());
-                }
-                if (TextUtils.equals(str, "request")) {
-                    if (b) {
-                        Log.d("Api-FirstRecorder", "record first request api called " + cu2Var.toString());
-                    }
-                    HybridUbcFlow p = zt2.p(NodeJS.STARTUP_SCRIPT_NAME);
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
-                    ubcFlowEvent.h(cu2Var.e());
-                    p.F(ubcFlowEvent);
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
-                    ubcFlowEvent2.h(cu2Var.d());
-                    p.F(ubcFlowEvent2);
-                }
-            }
-        }
+        this.a = yc3.g((float) jSONArray.optDouble(0));
+        this.b = yc3.g((float) jSONArray.optDouble(1));
+        this.c = yc3.g((float) jSONArray.optDouble(2));
+        this.d = yc3.g((float) jSONArray.optDouble(3));
+        this.e = yc3.g((float) jSONArray.optDouble(4));
+        this.f = yc3.g((float) jSONArray.optDouble(5));
+        this.g = true;
     }
 }

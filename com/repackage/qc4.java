@@ -1,36 +1,32 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.SharedElementCallback;
+import android.content.Context;
+import android.graphics.Matrix;
+import android.graphics.RectF;
+import android.os.Parcelable;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class qc4 {
     public static /* synthetic */ Interceptable $ic;
-    public static qc4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public String b;
-    public String c;
 
     /* loaded from: classes6.dex */
-    public static class a extends dh4 {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a() {
-            super("updatecore_node_tipmsgs");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -38,96 +34,140 @@ public class qc4 {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public abstract Parcelable a(View view2, Matrix matrix, RectF rectF);
+
+        public abstract View b(Context context, Parcelable parcelable);
+
+        public abstract void c(List<String> list, Map<String, View> map);
+
+        public abstract void d(List<View> list);
+
+        public abstract void e(List<String> list, List<View> list2, List<View> list3);
+
+        public abstract void f(List<String> list, List<View> list2, List<View> list3);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends SharedElementCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public a a;
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = aVar;
         }
-    }
 
-    public qc4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @Override // android.app.SharedElementCallback
+        public Parcelable onCaptureSharedElementSnapshot(View view2, Matrix matrix, RectF rectF) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, view2, matrix, rectF)) == null) ? this.a.a(view2, matrix, rectF) : (Parcelable) invokeLLL.objValue;
+        }
+
+        @Override // android.app.SharedElementCallback
+        public View onCreateSnapshotView(Context context, Parcelable parcelable) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, parcelable)) == null) ? this.a.b(context, parcelable) : (View) invokeLL.objValue;
+        }
+
+        @Override // android.app.SharedElementCallback
+        public void onMapSharedElements(List<String> list, Map<String, View> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, map) == null) {
+                this.a.c(list, map);
             }
         }
-        this.a = new a();
-        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1268);
-        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f1269);
-    }
 
-    public static qc4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (qc4.class) {
-                    if (d == null) {
-                        d = new qc4();
-                    }
-                }
+        @Override // android.app.SharedElementCallback
+        public void onRejectSharedElements(List<View> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+                this.a.d(list);
             }
-            return d;
         }
-        return (qc4) invokeV.objValue;
+
+        @Override // android.app.SharedElementCallback
+        public void onSharedElementEnd(List<String> list, List<View> list2, List<View> list3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048580, this, list, list2, list3) == null) {
+                this.a.e(list, list2, list3);
+            }
+        }
+
+        @Override // android.app.SharedElementCallback
+        public void onSharedElementStart(List<String> list, List<View> list2, List<View> list3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048581, this, list, list2, list3) == null) {
+                this.a.f(list, list2, list3);
+            }
+        }
     }
 
-    public String a(long j) {
-        InterceptResult invokeJ;
+    public static SharedElementCallback a(a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j)), this.b) : (String) invokeJ.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            if (aVar != null) {
+                return new b(aVar);
+            }
+            return null;
+        }
+        return (SharedElementCallback) invokeL.objValue;
     }
 
-    public String c(long j) {
-        InterceptResult invokeJ;
+    public static void b(Activity activity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j)), this.c) : (String) invokeJ.objValue;
+        if (interceptable == null || interceptable.invokeL(65537, null, activity) == null) {
+            activity.finishAfterTransition();
+        }
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static void c(Activity activity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getString("tips_config_version", "0") : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(65538, null, activity) == null) {
+            activity.postponeEnterTransition();
+        }
     }
 
-    public void e(JSONObject jSONObject) {
-        JSONArray optJSONArray;
+    public static void d(Activity activity, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, aVar) == null) {
+            activity.setEnterSharedElementCallback(a(aVar));
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
-            return;
-        }
-        HashMap<String, String> hashMap = new HashMap<>(optJSONArray.length());
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
-        }
-        f(hashMap, optString);
     }
 
-    public void f(HashMap<String, String> hashMap, String str) {
+    public static void e(Activity activity, a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) || hashMap == null || hashMap.isEmpty() || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, aVar) == null) {
+            activity.setExitSharedElementCallback(a(aVar));
         }
-        SharedPreferences.Editor edit = this.a.edit();
-        edit.clear();
-        edit.putString("tips_config_version", str);
-        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            edit.putString(entry.getKey(), entry.getValue());
+    }
+
+    public static void f(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, activity) == null) {
+            activity.startPostponedEnterTransition();
         }
-        edit.apply();
     }
 }

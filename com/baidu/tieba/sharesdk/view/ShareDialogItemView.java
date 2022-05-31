@@ -25,8 +25,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-/* loaded from: classes4.dex */
+import com.repackage.li;
+/* loaded from: classes3.dex */
 public class ShareDialogItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int g;
@@ -34,7 +34,6 @@ public class ShareDialogItemView extends LinearLayout {
     public static final int i;
     public static final int j;
     public static int k;
-    public static int l;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public HeadImageView b;
@@ -56,12 +55,11 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        g = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        h = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        i = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        j = mi.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        g = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        h = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        i = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        j = li.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
         k = 1;
-        l = 2;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -229,7 +227,7 @@ public class ShareDialogItemView extends LinearLayout {
             this.b.setIsRound(true);
             if (metaData.getItemType() == k) {
                 UtilHelper.showHeadImageViewBigVForStranger(this.b, metaData);
-            } else if (metaData.getItemType() == l) {
+            } else {
                 UtilHelper.showHeadImageViewFocusBigV(this.b, metaData);
             }
             b();

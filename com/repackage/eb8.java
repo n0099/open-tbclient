@@ -1,223 +1,99 @@
 package com.repackage;
 
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.view.BaseLegoCardView;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
-import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
-import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
+import android.os.Bundle;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g55;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class eb8 extends fd7 {
+public class eb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements g55.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public a(eb8 eb8Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eb8Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.repackage.g55.a
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AdCardSinglePicView(this.a) : invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements g55.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public b(eb8 eb8Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eb8Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.repackage.g55.a
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AdCardMultiPicView(this.a) : invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements g55.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
-
-        public c(eb8 eb8Var, TbPageContext tbPageContext, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eb8Var, tbPageContext, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = i;
-        }
-
-        @Override // com.repackage.g55.a
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AdCardVideoView(this.a, this.b) : invokeV.objValue;
-        }
-    }
-
-    public eb8() {
+    public static void a(int i, ShareEntity shareEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeIL(65536, null, i, shareEntity) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CANCEL);
+            int i2 = 6;
+            if (i == 2) {
+                i2 = 3;
+            } else if (i == 3) {
+                i2 = 2;
+            } else if (i == 4) {
+                i2 = 4;
+            } else if (i != 6) {
+                i2 = i != 8 ? 0 : 5;
             }
-        }
-    }
-
-    @Override // com.repackage.fd7
-    public <T> yd7 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            int cardType = iCardInfo == null ? -1 : iCardInfo.getCardType();
-            if (cardType == 17 || cardType == 34) {
-                return e(tbPageContext, iCardInfo, i);
+            if (i2 != 0) {
+                statisticItem.param("obj_source", i2);
             }
-            return null;
-        }
-        return (yd7) invokeLLI.objValue;
-    }
-
-    @Override // com.repackage.fd7
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            if (i == 17 || i == 34) {
-                return new AdCard(jSONObject);
+            if (shareEntity == null) {
+                TiebaStatic.log(statisticItem);
+                return;
             }
-            return null;
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    @Override // com.repackage.fd7
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = fd7.a;
-            sparseIntArray.put(17, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = fd7.a;
-            sparseIntArray2.put(33, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = fd7.a;
-            sparseIntArray3.put(34, sparseIntArray3.size() + 1);
-            fd7.b.put(17, BdUniqueId.gen());
-            fd7.b.put(33, BdUniqueId.gen());
-            fd7.b.put(34, BdUniqueId.gen());
+            Bundle stats = shareEntity.getStats();
+            if (stats != null) {
+                statisticItem.param("tid", stats.getString("tid"));
+                statisticItem.param("uid", stats.getString("uid"));
+                statisticItem.param("fid", stats.getString("fid"));
+            }
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    @Override // com.repackage.fd7
-    public String d() {
-        InterceptResult invokeV;
+    public static void b(int i, ShareEntity shareEntity) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_for_RecApp" : (String) invokeV.objValue;
-    }
-
-    public final BaseLegoCardView e(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            if (iCardInfo instanceof AdCard) {
-                AdCard adCard = (AdCard) iCardInfo;
-                int cardType = adCard.getCardType();
-                if (cardType != 17 && cardType != 34) {
-                    BdLog.e("RecAppLegoFactory: specifyAdCardView got wrong card type!");
-                    return null;
-                }
-                int i2 = adCard.goodsStyle;
-                if (i2 != 2) {
-                    if (i2 != 14) {
-                        if (i2 == 6) {
-                            return (AdCardMultiPicView) g55.e().d(1102, new b(this, tbPageContext));
+        if (interceptable == null || interceptable.invokeIL(65537, null, i, shareEntity) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
+            int i2 = 6;
+            if (i == 2) {
+                i2 = 3;
+            } else if (i == 3) {
+                i2 = 2;
+            } else if (i == 4) {
+                i2 = 4;
+            } else if (i != 6) {
+                i2 = i != 8 ? 0 : 5;
+            }
+            if (i2 != 0) {
+                statisticItem.param("obj_source", i2);
+            }
+            if (shareEntity == null) {
+                TiebaStatic.log(statisticItem);
+                return;
+            }
+            Bundle stats = shareEntity.getStats();
+            if (stats != null) {
+                int i3 = stats.getInt("obj_param1");
+                if (i3 != 0) {
+                    statisticItem.param("obj_param1", i3);
+                    if (i3 == 2) {
+                        statisticItem.param("fid", stats.getString("fid"));
+                    } else if (i3 == 3) {
+                        int i4 = stats.getInt("obj_type");
+                        if (i4 != 0) {
+                            statisticItem.param("obj_type", i4);
                         }
-                        if (i2 != 7) {
-                            if (i2 != 8) {
-                                return null;
-                            }
-                        }
+                        statisticItem.param("tid", stats.getString("tid")).param("fid", stats.getString("fid"));
                     }
-                    AdCardVideoView adCardVideoView = (AdCardVideoView) g55.e().d(PackageInfo.CODE_HOST_VERSION, new c(this, tbPageContext, i));
-                    adCardVideoView.setBusinessType(i);
-                    return adCardVideoView;
                 }
-                return (AdCardSinglePicView) g55.e().d(1101, new a(this, tbPageContext));
+                String string = stats.getString(TiebaStatic.Params.OBJ_URL);
+                if (!ki.isEmpty(string)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_URL, string);
+                }
+                int i5 = stats.getInt("obj_locate");
+                int i6 = stats.getInt("source", 0);
+                if (i6 == 10 || i6 == 16 || i6 == 3) {
+                    i5 = i6;
+                }
+                statisticItem.param("obj_locate", i5);
+                if (i6 == 15) {
+                    return;
+                }
             }
-            return null;
+            TiebaStatic.log(statisticItem);
         }
-        return (BaseLegoCardView) invokeLLI.objValue;
     }
 }

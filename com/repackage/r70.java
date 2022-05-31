@@ -1,31 +1,16 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Handler;
 import android.os.HandlerThread;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.IMListener;
-import com.baidu.android.imsdk.IMManager;
-import com.baidu.android.imsdk.account.ILoginListener;
-import com.baidu.android.imsdk.account.LoginManager;
-import com.baidu.android.imsdk.chatmessage.request.IMSendMsg;
+import android.os.Looper;
+import android.os.Message;
+import android.os.Process;
+import android.util.SparseIntArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.internal.IMConfigInternal;
-import com.baidu.android.imsdk.internal.IMConnection;
-import com.baidu.android.imsdk.internal.IMSDK;
-import com.baidu.android.imsdk.internal.ListenerManager;
-import com.baidu.android.imsdk.internal.MessageFactory;
-import com.baidu.android.imsdk.internal.NotifyMessageHandler;
-import com.baidu.android.imsdk.request.Message;
-import com.baidu.android.imsdk.task.TaskManager;
-import com.baidu.android.imsdk.ubc.MessageUbc;
-import com.baidu.android.imsdk.ubc.UBCConstants;
-import com.baidu.android.imsdk.upload.action.IMTrack;
-import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.lcp.sdk.client.bean.BLCPRequest;
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.live.asynctask.BdAsyncTask;
+import com.baidu.live.asynctask.BdAsyncTaskParallelType;
+import com.baidu.sofire.rp.service.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,40 +18,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.ReturnKeyType;
+import java.security.InvalidParameterException;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.LinkedList;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executor;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class r70 {
+/* loaded from: classes6.dex */
+public class r70 implements Executor {
     public static /* synthetic */ Interceptable $ic;
-    public static Handler c;
-    public static final HandlerThread d;
-    public static volatile boolean e;
-    public static volatile Map<Long, Message> f;
-    public static volatile Map<Long, MessageUbc> g;
-    public static volatile r70 h;
-    public static Context i;
+    public static final ThreadFactory k;
+    public static final BlockingQueue<Runnable> l;
+    public static final Executor m;
+    public static volatile r70 n;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicInteger a;
-    public f80 b;
+    public final SparseIntArray a;
+    public final LinkedList<d> b;
+    public final LinkedList<d> c;
+    public final LinkedList<d> d;
+    public volatile int e;
+    public volatile int f;
+    public volatile int g;
+    public volatile int h;
+    public HandlerThread i;
+    public Handler j;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    /* loaded from: classes6.dex */
+    public static class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Intent a;
-        public final /* synthetic */ r70 b;
+        public final AtomicInteger a;
 
-        public a(r70 r70Var, Intent intent) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r70Var, intent};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -76,35 +66,41 @@ public class r70 {
                     return;
                 }
             }
-            this.b = r70Var;
-            this.a = intent;
+            this.a = new AtomicInteger(1);
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.j(this.a);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                String str = "BdAsyncTask #" + String.valueOf(this.a.getAndIncrement());
+                wa0.g(str);
+                return new Thread(runnable, str);
             }
+            return (Thread) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements f80 {
+    /* loaded from: classes6.dex */
+    public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ r70 a;
 
-        public b(r70 r70Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(r70 r70Var, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r70Var};
+                Object[] objArr = {r70Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -113,66 +109,198 @@ public class r70 {
             this.a = r70Var;
         }
 
-        @Override // com.repackage.f80
-        public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
-            MessageUbc messageUbc;
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Object obj;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) {
-                LogUtils.i("IMServiceImpl", "IMService err :" + i + ", methodId :" + j2 + ", data :" + bArr.length + ", Response :" + new String(bArr));
-                int i2 = (j2 > 231L ? 1 : (j2 == 231L ? 0 : -1));
-                if (i2 == 0) {
-                    NotifyMessageHandler.handleRtcReport("begin", new String(bArr));
-                }
-                if (i != 0) {
-                    synchronized (r70.f) {
-                        if (r70.f != null && r70.f.containsKey(Long.valueOf(j3))) {
-                            ((Message) r70.f.get(Long.valueOf(j3))).handleMessageResult(r70.i, null, i, str);
-                            r70.f.remove(Long.valueOf(j3));
-                        }
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                int i = message.what;
+                if (i == 1) {
+                    Object obj2 = message.obj;
+                    if (obj2 == null || !(obj2 instanceof d)) {
+                        return;
                     }
+                    this.a.j((d) obj2);
+                } else if (i == 2 && (obj = message.obj) != null && (obj instanceof d)) {
+                    this.a.i((d) obj);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r70 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(r70 r70Var, s70 s70Var) {
+            super(s70Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r70Var, s70Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((s70) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
+            }
+            this.b = r70Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    JSONObject jSONObject = new JSONObject(new String(bArr));
-                    int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
-                    String optString = jSONObject.optString("msg", "");
-                    if (this.a.i((int) j2)) {
-                        synchronized (r70.f) {
-                            messageUbc = (MessageUbc) r70.g.get(Long.valueOf(j3));
-                            r70.g.remove(Long.valueOf(j3));
+                    try {
+                        if (e() == 4) {
+                            Process.setThreadPriority(-2);
+                        } else if (e() == 3) {
+                            Process.setThreadPriority(-1);
+                        } else if (e() == 2) {
+                            Process.setThreadPriority(0);
+                        } else {
+                            Process.setThreadPriority(10);
                         }
-                        if (messageUbc != null) {
-                            e70.d().f(messageUbc.generateUBCData(String.valueOf(optInt), optString), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
-                        }
+                    } catch (Exception e) {
+                        wa0.d(e.getMessage());
                     }
-                    if (j2 == 96) {
-                        NotifyMessageHandler.handleDeliverMessage(r70.i.getApplicationContext(), jSONObject);
-                    } else if (j2 == 196) {
-                        NotifyMessageHandler.handleMcastMessage(r70.i.getApplicationContext(), jSONObject);
-                    } else if (j2 == 197) {
-                        NotifyMessageHandler.handleConfigMessage(r70.i.getApplicationContext(), jSONObject);
-                    } else if (j2 == 226) {
-                        NotifyMessageHandler.handleMediaNotifyMessage(r70.i.getApplicationContext(), jSONObject);
-                    } else if (i2 == 0) {
-                        NotifyMessageHandler.handleRtcNotifyMessage(r70.i, jSONObject);
-                    } else {
-                        LogUtils.d("IMServiceImpl", "key :" + j3 + "response :" + jSONObject.toString());
-                        synchronized (r70.f) {
-                            if (r70.f != null && r70.f.containsKey(Long.valueOf(j3))) {
-                                ((Message) r70.f.get(Long.valueOf(j3))).handleMessageResult(r70.i, jSONObject, optInt, optString);
-                                r70.f.remove(Long.valueOf(j3));
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    LogUtils.e("IMServiceImpl", "handle response e :", e);
-                    synchronized (r70.f) {
-                        if (r70.f != null && r70.f.containsKey(Long.valueOf(j3))) {
-                            ((Message) r70.f.get(Long.valueOf(j3))).handleMessageResult(r70.i, null, -1, "");
-                            r70.f.remove(Long.valueOf(j3));
-                        }
+                    j();
+                } finally {
+                    if (!h()) {
+                        this.b.j.sendMessageDelayed(this.b.j.obtainMessage(2, this), 1L);
                     }
                 }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static abstract class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public s70<?> a;
+
+        public d(s70<?> s70Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s70Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            if (s70Var != null && s70Var.b() != null) {
+                this.a = s70Var;
+                return;
+            }
+            throw new InvalidParameterException("parameter is null");
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a();
+            }
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.b().j() != null) {
+                    return this.a.b().j().a();
+                }
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.a.b().j() != null) {
+                    return this.a.b().j().b();
+                }
+                return 0;
+            }
+            return invokeV.intValue;
+        }
+
+        public BdAsyncTaskParallelType d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.a.b().j() != null) {
+                    return this.a.b().j().getType();
+                }
+                return BdAsyncTaskParallelType.MAX_PARALLEL;
+            }
+            return (BdAsyncTaskParallelType) invokeV.objValue;
+        }
+
+        public int e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.b().k() : invokeV.intValue;
+        }
+
+        public BdAsyncTask<?, ?, ?> f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.b() : (BdAsyncTask) invokeV.objValue;
+        }
+
+        public boolean g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.isCancelled() : invokeV.booleanValue;
+        }
+
+        public boolean h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.b().m() : invokeV.booleanValue;
+        }
+
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.b().n() : invokeV.booleanValue;
+        }
+
+        public void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                try {
+                    this.a.run();
+                } catch (OutOfMemoryError e) {
+                    wa0.e(e);
+                }
+            }
+        }
+
+        public void k(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+                this.a.b().y(z);
             }
         }
     }
@@ -190,13 +318,10 @@ public class r70 {
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
-        d = handlerThread;
-        handlerThread.start();
-        c = new Handler(d.getLooper());
-        e = true;
-        f = new LinkedHashMap();
-        g = new LinkedHashMap();
+        k = new a();
+        l = new SynchronousQueue();
+        m = new ThreadPoolExecutor(7, 256, 30L, TimeUnit.SECONDS, l, k, new ThreadPoolExecutor.DiscardPolicy());
+        n = null;
     }
 
     public r70() {
@@ -204,194 +329,270 @@ public class r70 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicInteger();
-        this.b = new b(this);
-        h();
+        this.a = new SparseIntArray();
+        this.b = new LinkedList<>();
+        this.c = new LinkedList<>();
+        this.d = new LinkedList<>();
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+        this.h = 0;
+        this.i = null;
+        this.j = null;
+        HandlerThread handlerThread = new HandlerThread("BdAsyncTaskExecutor");
+        this.i = handlerThread;
+        handlerThread.start();
+        this.j = new b(this, this.i.getLooper());
     }
 
-    public static void e(Context context) {
+    public static r70 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            synchronized (f) {
-                if (f == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (n == null) {
+                synchronized (r70.class) {
+                    if (n == null) {
+                        n = new r70();
+                    }
+                }
+            }
+            return n;
+        }
+        return (r70) invokeV.objValue;
+    }
+
+    public final boolean c(int i, d dVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, dVar)) == null) {
+            if (dVar == null) {
+                return false;
+            }
+            BdAsyncTaskParallelType d2 = dVar.d();
+            if (d2 == BdAsyncTaskParallelType.SERIAL) {
+                if (i < 1) {
+                    return true;
+                }
+            } else if (d2 == BdAsyncTaskParallelType.TWO_PARALLEL) {
+                if (i < 2) {
+                    return true;
+                }
+            } else if (d2 == BdAsyncTaskParallelType.THREE_PARALLEL) {
+                if (i < 3) {
+                    return true;
+                }
+            } else if (d2 == BdAsyncTaskParallelType.FOUR_PARALLEL) {
+                if (i < 4) {
+                    return true;
+                }
+            } else if (d2 != BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < dVar.b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    public final synchronized void d(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            synchronized (this) {
+                if (dVar == null) {
                     return;
                 }
-                for (Message message : f.values()) {
-                    if (message != null) {
-                        message.handleMessageResult(context, null, -1, "");
+                this.c.add(dVar);
+                this.b.remove(dVar);
+                m.execute(dVar);
+                this.j.sendMessageDelayed(this.j.obtainMessage(1, dVar), Service.TRIGGER_INTERVAL);
+                int e = dVar.e();
+                if (e == 1) {
+                    this.h++;
+                } else if (e == 2) {
+                    this.g++;
+                } else if (e == 3) {
+                    this.f++;
+                } else if (e == 4) {
+                    this.e++;
+                    if (this.e >= 7) {
+                        wa0.d("SuperHight Task too much num = " + this.e);
                     }
                 }
-            }
-        }
-    }
-
-    public static r70 g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            if (h == null) {
-                synchronized (r70.class) {
-                    if (h == null) {
-                        i = context.getApplicationContext();
-                        h = new r70();
-                    }
+                int c2 = dVar.c();
+                if (c2 != 0) {
+                    this.a.put(c2, this.a.get(c2, 0) + 1);
                 }
             }
-            return h;
-        }
-        return (r70) invokeL.objValue;
-    }
-
-    public void f(Context context, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            LogUtils.e("IMServiceImpl", "IMServiceImpl.getInstance(context).enqueueWork");
-            TaskManager.getInstance(context).submitForNetWork(new a(this, intent));
         }
     }
 
-    public final void h() {
+    @Override // java.util.concurrent.Executor
+    public synchronized void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                LogUtils.d("IMServiceImpl", "isSmallFlow :" + e);
-                IMManager.init(i.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(i.getApplicationContext()));
-                if (e) {
-                    k();
-                } else if (IMSDK.getInstance(i.getApplicationContext()).init()) {
-                } else {
-                    IMConnection.getInstance(i).disconnectedByPeer();
-                }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public final boolean i(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 == 55 : invokeI.booleanValue;
-    }
-
-    public void j(@NonNull Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
-            LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + e);
-            if (intent == null) {
-                intent = new Intent();
-                LogUtils.i("IMServiceImpl", "--- onStart by null intent!");
-            }
-            if (e) {
-                try {
-                    int intExtra = intent.getIntExtra("method", -1);
-                    int intExtra2 = intent.getIntExtra("service_id", -1);
-                    if (intExtra != -1 && intExtra2 != -1) {
-                        if (intExtra == 50 || intExtra == 201) {
-                            k();
-                        }
-                        Message createNewMessage = MessageFactory.getInstance().createNewMessage(i, intExtra, intent);
-                        if (createNewMessage != null) {
-                            if (intExtra == 50) {
-                                boolean z = false;
-                                synchronized (f) {
-                                    LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + f.keySet());
-                                    Iterator<Long> it = f.keySet().iterator();
-                                    while (it.hasNext()) {
-                                        if (it.next().longValue() % 100 == 50) {
-                                            z = true;
-                                        }
-                                    }
-                                }
-                                if (z || LoginManager.getInstance(i.getApplicationContext()).isIMLogined()) {
-                                    StringBuilder sb = new StringBuilder();
-                                    sb.append("cur state is ");
-                                    sb.append(z ? "logining" : "loggined");
-                                    sb.append(" , abandon other 50");
-                                    LogUtils.d("IMServiceImpl", sb.toString());
-                                    return;
-                                }
-                            }
-                            createNewMessage.isSending(true);
-                            BLCPRequest bLCPRequest = new BLCPRequest();
-                            bLCPRequest.a = intExtra2;
-                            long type = createNewMessage.getType();
-                            bLCPRequest.b = type;
-                            if (intExtra2 == 3 && type == 55) {
-                                bLCPRequest.b = 185L;
-                            }
-                            bLCPRequest.c = createNewMessage.getBody().getBytes();
-                            bLCPRequest.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
-                            long j = (bLCPRequest.a * 1000000000000000L) + bLCPRequest.b;
-                            StringBuilder sb2 = new StringBuilder();
-                            sb2.append((System.currentTimeMillis() + "").substring((System.currentTimeMillis() + "").length() - 6));
-                            sb2.append(this.a.incrementAndGet());
-                            bLCPRequest.d = j + (Long.valueOf(sb2.toString()).longValue() * 1000);
-                            synchronized (f) {
-                                if (i((int) bLCPRequest.b) && (createNewMessage instanceof IMSendMsg)) {
-                                    g.put(Long.valueOf(bLCPRequest.d), new MessageUbc(i, ((IMSendMsg) createNewMessage).getChatMsg(), UBCConstants.BCSEND_UBCID));
-                                }
-                                f.put(Long.valueOf(bLCPRequest.d), createNewMessage);
-                                LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.d + ". msg :" + f.keySet().toString());
-                            }
-                            if (intExtra == 50) {
-                                new IMTrack.RequestBuilder(i.getApplicationContext()).method(ReturnKeyType.SEND).requestId("2").errorCode(50L).ext("" + bLCPRequest.d).aliasId(501112L).build();
-                            }
-                            b80.c(bLCPRequest, this.b);
-                            return;
-                        }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            synchronized (this) {
+                if (runnable instanceof s70) {
+                    c cVar = new c(this, (s70) runnable);
+                    if (cVar.h()) {
+                        new Thread(cVar).start();
                         return;
                     }
-                    return;
-                } catch (Exception e2) {
-                    LogUtils.e("IMServiceImpl", "onStartCommand isSmallFlow Exception", e2);
-                    return;
+                    f(cVar);
+                    i(null);
                 }
             }
-            try {
-                if (IMSDK.getInstance(i.getApplicationContext()).handleOnStart(intent)) {
+        }
+    }
+
+    public final synchronized void f(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            synchronized (this) {
+                if (dVar == null) {
                     return;
                 }
-                IMConnection.getInstance(i).disconnectedByPeer();
-            } catch (Exception e3) {
-                LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
-                if (intent.hasExtra(Constants.EXTRA_LISTENER_ID) && ((intent.hasExtra("method") && intent.getIntExtra("method", -1) == 52) || intent.hasExtra(Constants.EXTRA_DISCONNECT))) {
-                    IMListener removeListener = ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
-                    if (removeListener instanceof ILoginListener) {
-                        ((ILoginListener) removeListener).onLogoutResult(6, "IMService onStartCommand Exception", BIMManager.getLoginType(i));
+                int size = this.b.size();
+                int i = 0;
+                while (i < size && this.b.get(i).e() >= dVar.e()) {
+                    i++;
+                }
+                this.b.add(i, dVar);
+            }
+        }
+    }
+
+    public final synchronized void g(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
+            synchronized (this) {
+                if (dVar == null) {
+                    return;
+                }
+                if (dVar.i()) {
+                    this.d.remove(dVar);
+                } else {
+                    this.c.remove(dVar);
+                    this.j.removeMessages(1, dVar);
+                    int e = dVar.e();
+                    if (e == 1) {
+                        this.h--;
+                    } else if (e == 2) {
+                        this.g--;
+                    } else if (e == 3) {
+                        this.f--;
+                    } else if (e == 4) {
+                        this.e--;
                     }
-                } else if (intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
-                    ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
+                    int c2 = dVar.c();
+                    if (c2 != 0) {
+                        int i = this.a.get(c2) - 1;
+                        if (i <= 0) {
+                            this.a.delete(c2);
+                        } else {
+                            this.a.put(c2, i);
+                        }
+                        if (i < 0) {
+                            wa0.d("removeTask error < 0");
+                        }
+                    }
                 }
             }
         }
     }
 
-    public final void k() {
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
+        r0.remove();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void h(BdAsyncTask<?, ?, ?> bdAsyncTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int[] iArr = {96, Constants.METHOD_MEDIA_NOTIFY, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 231};
-            for (int i2 = 0; i2 < 5; i2++) {
-                l(2, Integer.valueOf(iArr[i2]).intValue());
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdAsyncTask) == null) {
+            synchronized (this) {
+                Iterator<d> it = this.b.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    d next = it.next();
+                    if (next != null && next.f() == bdAsyncTask) {
+                        break;
+                    }
+                }
             }
-            l(3, 196);
         }
     }
 
-    public final void l(int i2, int i3) {
+    public synchronized void i(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            e80 e80Var = new e80();
-            e80Var.a = i2;
-            e80Var.b = i3;
-            b80.c(e80Var, this.b);
+        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
+            synchronized (this) {
+                g(dVar);
+                for (int i = 0; i < this.b.size(); i++) {
+                    d dVar2 = this.b.get(i);
+                    if (dVar2 != null) {
+                        int c2 = dVar2.c();
+                        int e = dVar2.e();
+                        if (e != 1) {
+                            if (e != 2) {
+                                if (e != 3) {
+                                    if (e == 4 && c2 == 0) {
+                                        d(dVar2);
+                                        return;
+                                    }
+                                } else if (this.f + this.g + this.h >= 7) {
+                                    return;
+                                }
+                            } else if (this.f + this.g + this.h >= 6) {
+                                return;
+                            }
+                        } else if (this.f + this.g + this.h >= 5) {
+                            return;
+                        }
+                        if (c(this.a.get(c2), dVar2)) {
+                            d(dVar2);
+                            return;
+                        }
+                    }
+                }
+            }
         }
+    }
+
+    public final synchronized void j(d dVar) {
+        d poll;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
+            synchronized (this) {
+                g(dVar);
+                if (!dVar.g()) {
+                    dVar.k(true);
+                    this.d.add(dVar);
+                    if (this.d.size() > 242 && (poll = this.d.poll()) != null) {
+                        poll.a();
+                    }
+                } else {
+                    wa0.d("task TimeOut but it's cancelled()");
+                }
+                i(null);
+            }
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "mWaitingTasks = " + this.b.size() + " mRunningTasks = " + this.c.size() + " mTimeOutTasks = " + this.d.size();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,22 +1,22 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class me1 extends qe1 {
+public class me1 extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
+    public static me1 a;
+    public static Handler b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public long d;
-    public V8ExceptionInfo e;
-    public int f;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public me1() {
+        super("SSOHandlerThread", 10);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,68 +24,36 @@ public class me1 extends qe1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
     }
 
-    @Override // com.repackage.qe1
-    public synchronized void a(int i, V8ExceptionInfo v8ExceptionInfo) {
+    public static Handler a() {
+        InterceptResult invokeV;
+        Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, v8ExceptionInfo) == null) {
-            synchronized (this) {
-                if (this.e == null && v8ExceptionInfo != null) {
-                    this.e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-                    this.f = i;
-                    if (this.b != null) {
-                        this.b.a();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (me1.class) {
+                b();
+                handler = b;
             }
+            return handler;
         }
+        return (Handler) invokeV.objValue;
     }
 
-    public final void d() {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = null;
-            this.d = 0L;
-            this.f = -1;
-        }
-    }
-
-    public synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                if (this.b != null && this.d > 0 && this.e != null) {
-                    if (System.currentTimeMillis() - this.e.exceptionTime > this.a && this.e.exceptionTime > this.d) {
-                        this.b.b(new pe1(this.f, this.e, this.d));
-                        d();
-                    }
-                    return;
-                }
-                Log.e("StuckScreenHandler", "[StuckScreen] 未设置冻屏监听器， 或者异常信息已经被清空（需等待下次上屏）。");
-            }
-        }
-    }
-
-    public synchronized void f(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                this.c = z;
-                if (z) {
-                    this.d = j;
-                    this.e = null;
-                }
-            }
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a == null) {
+            me1 me1Var = new me1();
+            a = me1Var;
+            me1Var.start();
+            b = new Handler(a.getLooper());
         }
     }
 }

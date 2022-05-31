@@ -19,15 +19,16 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.ss7;
-import com.repackage.y95;
+import com.repackage.bq7;
+import com.repackage.li;
+import com.repackage.s85;
 /* loaded from: classes3.dex */
 public class CommentFloatSusPendedView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -35,7 +36,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public ViewGroup c;
-    public y95 d;
+    public s85 d;
     public float e;
     public float f;
     public boolean g;
@@ -47,15 +48,56 @@ public class CommentFloatSusPendedView extends LinearLayout {
     public float m;
     public boolean n;
     public BdUniqueId o;
-    public CustomMessageListener p;
+    public final CustomMessageListener p;
+    public CustomMessageListener q;
 
     /* loaded from: classes3.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommentFloatSusPendedView a;
 
-        public a(CommentFloatSusPendedView commentFloatSusPendedView) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(CommentFloatSusPendedView commentFloatSusPendedView, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {commentFloatSusPendedView, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = commentFloatSusPendedView;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2010045) {
+                Object data = customResponsedMessage.getData();
+                if (TbadkCoreApplication.getInst().getCurrentActivity() == this.a.getContext() && (data instanceof Boolean)) {
+                    this.a.n = !((Boolean) data).booleanValue();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CommentFloatSusPendedView a;
+
+        public b(CommentFloatSusPendedView commentFloatSusPendedView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,12 +121,12 @@ public class CommentFloatSusPendedView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 this.a.k = ((Integer) valueAnimator.getAnimatedValue()).intValue();
                 CommentFloatSusPendedView commentFloatSusPendedView = this.a;
-                commentFloatSusPendedView.r((commentFloatSusPendedView.k * 1.0f) / mi.i(this.a.getContext()));
+                commentFloatSusPendedView.t((commentFloatSusPendedView.k * 1.0f) / li.i(this.a.getContext()));
                 CommentFloatSusPendedView commentFloatSusPendedView2 = this.a;
-                commentFloatSusPendedView2.m = 1.0f - (commentFloatSusPendedView2.k / mi.i(this.a.getContext()));
+                commentFloatSusPendedView2.m = 1.0f - (commentFloatSusPendedView2.k / li.i(this.a.getContext()));
                 if (this.a.k == 0) {
                     this.a.m = 1.0f;
-                } else if (this.a.k == mi.i(this.a.getContext())) {
+                } else if (this.a.k == li.i(this.a.getContext())) {
                     this.a.m = 0.0f;
                     if (this.a.h && (this.a.getContext() instanceof Activity)) {
                         ((Activity) this.a.getContext()).finish();
@@ -96,13 +138,13 @@ public class CommentFloatSusPendedView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends CustomMessageListener {
+    public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommentFloatSusPendedView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(CommentFloatSusPendedView commentFloatSusPendedView, int i) {
+        public c(CommentFloatSusPendedView commentFloatSusPendedView, int i) {
             super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -125,21 +167,21 @@ public class CommentFloatSusPendedView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ss7 ss7Var;
+            bq7 bq7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof ss7) || (ss7Var = (ss7) customResponsedMessage.getData()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof bq7) || (bq7Var = (bq7) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.a.m = ss7Var.d;
-            this.a.e = ss7Var.b;
-            this.a.f = ss7Var.a;
-            this.a.k = ss7Var.c;
-            this.a.h = ss7Var.e;
+            this.a.m = bq7Var.d;
+            this.a.e = bq7Var.b;
+            this.a.f = bq7Var.a;
+            this.a.k = bq7Var.c;
+            this.a.h = bq7Var.e;
             CommentFloatSusPendedView commentFloatSusPendedView = this.a;
-            commentFloatSusPendedView.r((commentFloatSusPendedView.f - this.a.e) / mi.i(this.a.getContext()));
+            commentFloatSusPendedView.t((commentFloatSusPendedView.f - this.a.e) / li.i(this.a.getContext()));
             boolean z = this.a.f > this.a.e;
             if (this.a.h) {
-                this.a.j.setIntValues((int) (this.a.f - this.a.e), mi.i(this.a.getContext()));
+                this.a.j.setIntValues((int) (this.a.f - this.a.e), li.i(this.a.getContext()));
                 this.a.j.setDuration(0L);
                 this.a.j.start();
             }
@@ -197,31 +239,31 @@ public class CommentFloatSusPendedView extends LinearLayout {
                         if (action != 1) {
                             if (action == 2) {
                                 this.f = motionEvent.getRawY();
-                                if (this.e == 0.0f && m()) {
+                                if (this.e == 0.0f && o()) {
                                     this.e = motionEvent.getRawY();
                                 }
-                                if (m() && !this.h) {
-                                    r((this.f - this.e) / mi.i(getContext()));
+                                if (o() && !this.h) {
+                                    t((this.f - this.e) / li.i(getContext()));
                                 }
-                                this.m = 1.0f - ((this.f - this.e) / mi.i(getContext()));
+                                this.m = 1.0f - ((this.f - this.e) / li.i(getContext()));
                             }
                         }
                         this.g = false;
-                        z = this.f > this.e && m();
-                        boolean z2 = this.f - this.e > ((float) this.l) && m();
+                        z = this.f > this.e && o();
+                        boolean z2 = this.f - this.e > ((float) this.l) && o();
                         this.h = z2;
                         if (z2) {
-                            this.j.setIntValues((int) (this.f - this.e), mi.i(getContext()));
+                            this.j.setIntValues((int) (this.f - this.e), li.i(getContext()));
                             this.j.setDuration(300L);
                             this.j.start();
                         } else {
-                            r(0.0f);
+                            t(0.0f);
                             this.m = 1.0f;
                             this.e = 0.0f;
                             this.f = 0.0f;
                             requestLayout();
                         }
-                        if (!this.g || (this.f > this.e && m())) {
+                        if (!this.g || (this.f > this.e && o())) {
                             this.g = true;
                             requestLayout();
                             return true;
@@ -234,7 +276,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
                         }
                     }
                     this.f = motionEvent.getRawY();
-                    if (m()) {
+                    if (o()) {
                         this.e = motionEvent.getRawY();
                     } else {
                         this.e = 0.0f;
@@ -258,39 +300,31 @@ public class CommentFloatSusPendedView extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.booleanValue;
     }
 
-    public boolean m() {
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.p.setTag(this.o);
+            MessageManager.getInstance().registerListener(this.p);
+        }
+    }
+
+    public boolean o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            y95 y95Var = this.d;
-            if (y95Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            s85 s85Var = this.d;
+            if (s85Var == null) {
                 return false;
             }
-            return y95Var.isOnViewTop();
+            return s85Var.isOnViewTop();
         }
         return invokeV.booleanValue;
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.p);
-            this.j.cancel();
-            this.j.removeAllUpdateListeners();
-            clearAnimation();
-        }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             if (!this.i) {
                 float f = this.m;
                 if (f >= 0.0f && this.b != null) {
@@ -306,7 +340,7 @@ public class CommentFloatSusPendedView extends LinearLayout {
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (this.j == null) {
                 super.onLayout(z, i, i2, i3, i4);
                 return;
@@ -330,32 +364,37 @@ public class CommentFloatSusPendedView extends LinearLayout {
         }
     }
 
-    public void p() {
+    public void p(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h = true;
-            this.j.setIntValues(0, mi.i(getContext()));
-            this.j.setDuration(300L);
-            this.j.start();
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.m == 0.0f) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.q);
+            this.j.cancel();
+            this.j.removeAllUpdateListeners();
+            clearAnimation();
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.h = true;
+            this.j.setIntValues(0, li.i(getContext()));
             this.j.setDuration(300L);
             this.j.start();
         }
     }
 
-    public final void r(float f) {
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
-            CustomMessage customMessage = new CustomMessage(2921594);
-            customMessage.setTag(this.o);
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921594, Float.valueOf(f));
-            customResponsedMessage.setOrginalMessage(customMessage);
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.m == 0.0f) {
+            this.j.setDuration(300L);
+            this.j.start();
         }
     }
 
@@ -373,10 +412,10 @@ public class CommentFloatSusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(y95 y95Var) {
+    public void setContentViewTop(s85 s85Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, y95Var) == null) {
-            this.d = y95Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, s85Var) == null) {
+            this.d = s85Var;
         }
     }
 
@@ -405,6 +444,18 @@ public class CommentFloatSusPendedView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bdUniqueId) == null) {
             this.o = bdUniqueId;
+            n();
+        }
+    }
+
+    public final void t(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
+            CustomMessage customMessage = new CustomMessage(2921594);
+            customMessage.setTag(this.o);
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921594, Float.valueOf(f));
+            customResponsedMessage.setOrginalMessage(customMessage);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
     }
 
@@ -450,14 +501,15 @@ public class CommentFloatSusPendedView extends LinearLayout {
         }
         this.m = 0.0f;
         this.n = true;
-        this.p = new b(this, 2921597);
-        this.l = mi.i(context) / 10;
-        this.k = mi.i(context);
-        MessageManager.getInstance().registerListener(this.p);
-        ValueAnimator ofInt = ValueAnimator.ofInt(mi.i(context), 0);
+        this.p = new a(this, 2010045);
+        this.q = new c(this, 2921597);
+        this.l = li.i(context) / 10;
+        this.k = li.i(context);
+        MessageManager.getInstance().registerListener(this.q);
+        ValueAnimator ofInt = ValueAnimator.ofInt(li.i(context), 0);
         this.j = ofInt;
         ofInt.setDuration(300L);
         this.j.setInterpolator(new LinearInterpolator());
-        this.j.addUpdateListener(new a(this));
+        this.j.addUpdateListener(new b(this));
     }
 }

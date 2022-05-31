@@ -1,83 +1,83 @@
 package com.repackage;
 
 import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
+import com.baidu.tieba.frs.view.FrsTopItemInfoView;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class dc6 extends uw5<yb6> {
+public class dc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoDataView i;
-    public int j;
+    public BaseFragment a;
+    public FrsTopItemInfoView b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dc6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public dc6(BaseFragment baseFragment) {
+        FrsViewData frsViewData;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {baseFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = 3;
-        NoDataView a = NoDataViewFactory.a(this.b.getPageActivity(), k(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, mi.f(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070256)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f10b4), null);
-        this.i = a;
-        a.setVisibility(0);
-        m(this.b, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    @Override // com.repackage.uw5
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02c8 : invokeV.intValue;
-    }
-
-    @Override // com.repackage.uw5
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.j == i) {
+        if (baseFragment == null) {
             return;
         }
-        NoDataView noDataView = this.i;
-        if (noDataView != null) {
-            noDataView.f(this.b, i);
+        this.a = baseFragment;
+        this.b = new FrsTopItemInfoView(baseFragment.getContext());
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+        layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        this.b.setLayoutParams(layoutParams);
+        b();
+        BaseFragment baseFragment2 = this.a;
+        if (!(baseFragment2 instanceof FrsCommonTabFragment) || (frsViewData = ((FrsCommonTabFragment) baseFragment2).d) == null || frsViewData.getForum() == null) {
+            return;
         }
-        this.j = i;
+        ForumData forum = frsViewData.getForum();
+        this.b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uw5
-    /* renamed from: s */
-    public void l(yb6 yb6Var) {
+    public void b() {
+        FrsTopItemInfoView frsTopItemInfoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, yb6Var) == null) {
-            m(this.b, TbadkCoreApplication.getInst().getSkinType());
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsTopItemInfoView = this.b) == null) {
+            return;
         }
+        frsTopItemInfoView.e();
+    }
+
+    public void c(ItemInfo itemInfo) {
+        FrsTopItemInfoView frsTopItemInfoView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) || (frsTopItemInfoView = this.b) == null) {
+            return;
+        }
+        frsTopItemInfoView.setData(itemInfo);
     }
 }

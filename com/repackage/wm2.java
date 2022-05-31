@@ -1,36 +1,18 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public class wm2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final wm2 d;
+    public static final boolean a;
+    public static float b;
+    public static float c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicBoolean a;
-    public final List<tm2> b;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,138 +27,9 @@ public class wm2 {
                 return;
             }
         }
-        c = eh1.a;
-        d = new wm2();
-    }
-
-    public wm2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicBoolean(false);
-        ec1<tm2> ec1Var = new vm2().a;
-        this.b = ec1Var == null ? null : ec1Var.getList();
-    }
-
-    public static wm2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? d : (wm2) invokeV.objValue;
-    }
-
-    public void b(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext instanceof Application) {
-                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
-            }
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN : invokeV.booleanValue;
-    }
-
-    public void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            if (c) {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
-            }
-            if (this.b != null) {
-                LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (tm2 tm2Var : this.b) {
-                    if (current == tm2Var.b()) {
-                        tm2Var.a(true, activity);
-                    }
-                }
-            }
-        }
-    }
-
-    public void e(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            if (c) {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
-            }
-            if (this.b != null) {
-                LifecycleProcessType current = LifecycleProcessType.getCurrent();
-                for (tm2 tm2Var : this.b) {
-                    if (current == tm2Var.b()) {
-                        tm2Var.a(false, activity);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends cm2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final /* synthetic */ wm2 b;
-
-        public b(wm2 wm2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wm2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wm2Var;
-            this.a = 0;
-        }
-
-        @Override // com.repackage.cm2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-                int i = this.a + 1;
-                this.a = i;
-                if (i == 1) {
-                    this.b.d(activity);
-                }
-            }
-        }
-
-        @Override // com.repackage.cm2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                int i = this.a - 1;
-                this.a = i;
-                if (i == 0) {
-                    this.b.e(activity);
-                }
-            }
-        }
-
-        public /* synthetic */ b(wm2 wm2Var, a aVar) {
-            this(wm2Var);
-        }
+        a = rf1.a;
+        b = 2.5f;
+        c = 100.0f;
+        d = true;
     }
 }

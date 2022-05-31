@@ -11,6 +11,7 @@ import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
 import com.baidu.tbadk.core.data.NewUserRedPackageData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -22,10 +23,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co;
-import com.repackage.gg;
-import com.repackage.mi;
-import com.repackage.pj4;
+import com.repackage.ci4;
+import com.repackage.fg;
+import com.repackage.li;
+import com.repackage.um;
 /* loaded from: classes3.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +34,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public ImageView mBgImage;
     public ImageView mCloseBtnImage;
     public NewUserRedPackageData mData;
-    public pj4 mGetMoneyModel;
+    public ci4 mGetMoneyModel;
     public View.OnClickListener mOnClickListener;
     public RoundRelativeLayout mRoundCornerLayout;
 
@@ -104,17 +105,17 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        co coVar;
+        um umVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || getIntent() == null) {
             return;
         }
-        NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
+        NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra(NewUserRedPackageActivityConfig.KEY_DATA);
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (coVar = (co) gg.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (umVar = (um) fg.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
-        this.mBgImage.setImageBitmap(coVar.p());
+        this.mBgImage.setImageBitmap(umVar.p());
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -162,17 +163,17 @@ public class NewUserRedPackageActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0047);
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b36);
+            setContentView(R.layout.obfuscated_res_0x7f0d0044);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091ae5);
             this.mRoundCornerLayout = roundRelativeLayout;
-            roundRelativeLayout.setAllCornerRound(mi.f(this, R.dimen.tbds31));
-            this.mBgImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea6);
-            this.mCloseBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ea9);
+            roundRelativeLayout.setAllCornerRound(li.f(this, R.dimen.tbds31));
+            this.mBgImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6b);
+            this.mCloseBtnImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6e);
             this.mBgImage.setOnClickListener(this.mOnClickListener);
             this.mCloseBtnImage.setOnClickListener(this.mOnClickListener);
             setData();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.mGetMoneyModel = new pj4();
+            this.mGetMoneyModel = new ci4();
         }
     }
 }

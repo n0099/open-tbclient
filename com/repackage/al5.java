@@ -1,137 +1,167 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Intent;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.advert.sdk.data.AdInfo;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QzonePublish;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class al5 {
+public class al5 implements ek1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public long j;
-    public long k;
+    public long a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755852921, "Lcom/repackage/al5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755852921, "Lcom/repackage/al5;");
+                return;
+            }
+        }
+        b = rf1.a;
+    }
 
     public al5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.repackage.ek1
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
+            }
+            long m = ys4.k().m("smart_app_tid", 0L);
+            String q = ys4.k().q("smart_app_id", "");
+            String q2 = ys4.k().q("smart_app_name", "");
+            if (this.a == 0 || m == 0) {
                 return;
             }
+            long currentTimeMillis = System.currentTimeMillis() - this.a;
+            i75 i75Var = new i75();
+            i75Var.y(currentTimeMillis);
+            i75Var.s(g());
+            i75Var.C(m);
+            i75Var.i = q;
+            i75Var.j = q2;
+            i75Var.x(h());
+            j75.b().j(true);
+            j75.b().k(TbadkApplication.getInst().getApplicationContext(), i75Var, i());
+            ys4.k().x("smart_app_tid", 0L);
         }
-        this.d = "";
-        this.c = "";
-        this.e = "";
-        this.f = "";
-        this.b = "";
-        this.a = "";
     }
 
-    public static al5 a(AdInfo adInfo) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ek1
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
-            al5 al5Var = new al5();
-            if (adInfo == null) {
-                return al5Var;
-            }
-            al5Var.a = adInfo.adImgUrl;
-            al5Var.b = adInfo.redirectUrl;
-            al5Var.j = adInfo.startShowTime;
-            al5Var.k = adInfo.endShowTime;
-            al5Var.d = adInfo.videoLocalPath;
-            al5Var.e = adInfo.videoJumpUrl;
-            al5Var.f = adInfo.videoMd5;
-            al5Var.g = adInfo.videoDuration;
-            al5Var.h = adInfo.videoWidth;
-            al5Var.i = adInfo.videoHight;
-            al5Var.c = adInfo.adVideoUrl;
-            return al5Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (al5) invokeL.objValue;
     }
 
-    public static al5 b(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ek1
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            al5 al5Var = new al5();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                al5Var.a = jSONObject.optString("adImgUrl");
-                al5Var.b = jSONObject.optString("redirectUrl");
-                al5Var.d = jSONObject.optString("videoLocalPath");
-                al5Var.j = jSONObject.optLong("startShowTime");
-                al5Var.k = jSONObject.optLong("endShowTime");
-                al5Var.e = jSONObject.optString("videoJumpUrl");
-                al5Var.f = jSONObject.optString("videoMd5");
-                al5Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
-                al5Var.h = jSONObject.optInt("videoWidth");
-                al5Var.i = jSONObject.optInt("videoHeight");
-                al5Var.c = jSONObject.optString("adVideoUrl");
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + hz2.L().b);
             }
-            return al5Var;
+            File file = new File(am.b("libBaiduMapSDK_map_v5_4_4.so"));
+            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK_map_v5_4_4.so") == null && cm.a(BdBaseApplication.getInst().getContext(), am.a("libBaiduMapSDK_map_v5_4_4.so"))) {
+                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK_map_v5_4_4.so", am.a("libBaiduMapSDK_map_v5_4_4.so"));
+            }
+            this.a = System.currentTimeMillis();
         }
-        return (al5) invokeL.objValue;
     }
 
-    public boolean c() {
+    @Override // com.repackage.ek1
+    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable ek2 ek2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, ek2Var) == null) {
+            if (b) {
+                Log.e("DefaultSwanAppLifecycle", "onAppExit");
+            }
+            if (ys4.k().h("key_ai_app_guide_display", true)) {
+                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
+                intent.putExtra(DealIntentService.KEY_CLASS, 38);
+                swanAppActivity.startService(intent);
+            }
+        }
+    }
+
+    @Override // com.repackage.ek1
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    @Override // com.repackage.ek1
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        }
+    }
+
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
     }
 
-    public boolean d() {
+    public List<String> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.d) : invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("adImgUrl", this.a);
-                jSONObject.put("redirectUrl", this.b);
-                jSONObject.put("videoLocalPath", this.d);
-                jSONObject.put("startShowTime", this.j);
-                jSONObject.put("endShowTime", this.k);
-                jSONObject.put("videoMd5", this.f);
-                jSONObject.put("videoJumpUrl", this.e);
-                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
-                jSONObject.put("videoWidth", this.h);
-                jSONObject.put("videoHeight", this.i);
-                jSONObject.put("adVideoUrl", this.c);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("a001");
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public g75 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (g75) invokeV.objValue;
     }
 }

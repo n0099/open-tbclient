@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g55;
+import com.repackage.b45;
 /* loaded from: classes2.dex */
 public class InitFragmentViewInAppTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -41,10 +41,10 @@ public class InitFragmentViewInAppTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                g55.e().a(1023, (LinearLayout) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0277, (ViewGroup) null));
-                g55.e().a(1024, new GuidePopupWindow(TbadkCoreApplication.getInst()));
-                g55.e().a(1026, LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0709, (ViewGroup) null));
-                g55.e().a(ARPMessageType.MSG_TYPE_VIDEO_PLAY_INFO_UPDATE, new VideoChannelHeaderLayout(TbadkCoreApplication.getInst()));
+                b45.e().a(1023, (LinearLayout) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0272, (ViewGroup) null));
+                b45.e().a(1024, new GuidePopupWindow(TbadkCoreApplication.getInst()));
+                b45.e().a(1026, LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0700, (ViewGroup) null));
+                b45.e().a(ARPMessageType.MSG_TYPE_VIDEO_PLAY_INFO_UPDATE, new VideoChannelHeaderLayout(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 BdLog.e(e);
             }

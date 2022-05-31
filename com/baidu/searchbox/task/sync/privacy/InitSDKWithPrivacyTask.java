@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc1;
-import com.repackage.li0;
-import com.repackage.o30;
-import com.repackage.u39;
+import com.repackage.b20;
+import com.repackage.sa1;
+import com.repackage.x09;
+import com.repackage.yg0;
 /* loaded from: classes2.dex */
 public class InitSDKWithPrivacyTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -39,7 +39,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             if (TbadkCoreApplication.getInst().isMainProcess(true) || TbadkCoreApplication.getInst().isRemoteProcess()) {
-                li0.c();
+                yg0.c();
             }
         }
     }
@@ -47,7 +47,7 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            o30.a.c(TbadkCoreApplication.getInst()).b().t();
+            b20.a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 
@@ -55,8 +55,8 @@ public class InitSDKWithPrivacyTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (fc1.g()) {
-                u39.a();
+            if (sa1.g()) {
+                x09.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }

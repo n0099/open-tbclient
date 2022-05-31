@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r70;
+import com.repackage.e60;
 /* loaded from: classes.dex */
 public class IMReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,10 +38,10 @@ public class IMReceiver extends BroadcastReceiver {
     private void startService(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            Intent intent = new Intent(context, r70.class);
+            Intent intent = new Intent(context, e60.class);
             intent.setAction(Constants.ACTION_START);
             try {
-                r70.g(context).f(context, intent);
+                e60.g(context).f(context, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }
@@ -86,9 +86,9 @@ public class IMReceiver extends BroadcastReceiver {
                 startService(context);
                 return;
             }
-            intent.setClass(context, r70.class);
+            intent.setClass(context, e60.class);
             try {
-                r70.g(context).f(context, intent);
+                e60.g(context).f(context, intent);
             } catch (Exception e) {
                 LogUtils.e(TAG, "Exception ", e);
             }

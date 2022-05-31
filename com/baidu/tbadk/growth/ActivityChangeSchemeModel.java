@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.du4;
-import com.repackage.v35;
+import com.repackage.r25;
+import com.repackage.ts4;
 import com.repackage.x8;
 import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes3.dex */
@@ -79,17 +79,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    v35.c(scheme);
+                    r25.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.A();
                 } else {
-                    int a = du4.a();
+                    int a = ts4.a();
                     if (a != 2) {
                         this.a.B(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    v35.c(scheme);
+                    r25.c(scheme);
                 }
             }
         }
@@ -132,7 +132,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 Object invoke = x8.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(x8.g().b(), new Object[0]);
-                v35.b(invoke != null ? (String) invoke : null);
+                r25.b(invoke != null ? (String) invoke : null);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -147,13 +147,13 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                v35.b("a025");
+                r25.b("a025");
             } else if (i == 22) {
-                v35.b("a088");
+                r25.b("a088");
             } else if (i == 3) {
-                v35.b("a079");
+                r25.b("a079");
             } else if (i == 8) {
-                v35.b("a011");
+                r25.b("a011");
             }
         }
     }

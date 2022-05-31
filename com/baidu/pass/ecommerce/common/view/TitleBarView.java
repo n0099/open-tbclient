@@ -49,11 +49,11 @@ public class TitleBarView extends RelativeLayout {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d04a9, (ViewGroup) this, true);
-            this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c12);
-            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c11);
-            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c14);
-            this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091c13);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d049f, (ViewGroup) this, true);
+            this.leftBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc0);
+            this.leftImageBtn = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bbf);
+            this.titleTv = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc2);
+            this.rightBtn = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bc1);
         }
     }
 
@@ -61,7 +61,7 @@ public class TitleBarView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.isDarkMode = true;
-            setBackgroundResource(R.drawable.obfuscated_res_0x7f08108b);
+            setBackgroundResource(R.drawable.obfuscated_res_0x7f08109d);
             this.leftBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060975));
             this.titleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06097b));
             this.rightBtn.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060978));

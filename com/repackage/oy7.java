@@ -1,92 +1,58 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.w35;
-import tbclient.ExcPbPage.ExcContent;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BookInfo;
+import tbclient.TbBookrack;
 /* loaded from: classes6.dex */
-public class oy7 implements qy7 {
+public class oy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExcContent a;
-    public SpannableString b;
+    public String a;
+    public int b;
+    public List<py7> c;
+    public String d;
+    public String e;
+    public String f;
 
-    public oy7(ExcContent excContent) {
+    public oy7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = excContent;
     }
 
-    @Override // com.repackage.qy7
-    public boolean a() {
-        InterceptResult invokeV;
+    public void a(TbBookrack tbBookrack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbBookrack) == null) || tbBookrack == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.qy7
-    public CharSequence b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.a) : (CharSequence) invokeV.objValue;
-    }
-
-    public final SpannableString c(ExcContent excContent) {
-        InterceptResult invokeL;
-        String str;
-        int b;
-        w35.a c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
-            if (this.b == null && (b = TbFaceManager.e().b((str = excContent.text))) != 0) {
-                String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.e().f(str) + SmallTailInfo.EMOTION_SUFFIX;
-                this.b = new SpannableString(str2 + " ");
-                wf5 wf5Var = new wf5(TbadkCoreApplication.getInst().getContext(), b);
-                if (TbFaceManager.e().c(str) != null) {
-                    int a = (int) (c.a() * 0.6d);
-                    wf5Var.setBounds(new Rect(0, 0, a, a));
-                } else {
-                    wf5Var.setBounds(new Rect(0, 0, 0, 0));
+        this.a = tbBookrack.booktown;
+        this.b = tbBookrack.num.intValue();
+        this.d = tbBookrack.title;
+        this.e = tbBookrack.icon;
+        this.f = tbBookrack.tip;
+        this.c = new ArrayList();
+        List<BookInfo> list = tbBookrack.book_list;
+        if (list != null) {
+            for (BookInfo bookInfo : list) {
+                if (bookInfo != null) {
+                    py7 py7Var = new py7();
+                    py7Var.a(bookInfo);
+                    this.c.add(py7Var);
                 }
-                this.b.setSpan(new ImageSpan(wf5Var, 0), 0, str2.length(), 33);
             }
-            return this.b;
         }
-        return (SpannableString) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ry7
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
     }
 }

@@ -27,18 +27,18 @@ public final class a implements TTAdManager {
         }
 
         @Override // com.bytedance.sdk.openadsdk.api.plugin.a.b
-        public void a(final InterfaceC0263a<TTAdNative> interfaceC0263a) {
+        public void a(final InterfaceC0264a<TTAdNative> interfaceC0264a) {
             TTAdNative tTAdNative = this.a;
             if (tTAdNative != null) {
-                interfaceC0263a.a(tTAdNative);
+                interfaceC0264a.a(tTAdNative);
             } else {
-                a.this.call(new InterfaceC0263a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.1.1
+                a.this.call(new InterfaceC0264a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.1.1
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                    @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                     public void a(TTAdManager tTAdManager) {
                         AnonymousClass1 anonymousClass1 = AnonymousClass1.this;
                         anonymousClass1.a = tTAdManager.createAdNative(anonymousClass1.b);
-                        interfaceC0263a.a(AnonymousClass1.this.a);
+                        interfaceC0264a.a(AnonymousClass1.this.a);
                     }
                 });
             }
@@ -47,17 +47,17 @@ public final class a implements TTAdManager {
 
     /* renamed from: com.bytedance.sdk.openadsdk.api.plugin.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0263a<T> {
+    public interface InterfaceC0264a<T> {
         void a(T t);
     }
 
     /* loaded from: classes4.dex */
     public interface b<T> {
-        void a(InterfaceC0263a<T> interfaceC0263a);
+        void a(InterfaceC0264a<T> interfaceC0264a);
     }
 
     /* loaded from: classes4.dex */
-    public interface c<T> extends InterfaceC0263a<T> {
+    public interface c<T> extends InterfaceC0264a<T> {
         void a();
     }
 
@@ -69,9 +69,9 @@ public final class a implements TTAdManager {
             this.a = bVar;
         }
 
-        private final void a(CommonListener commonListener, InterfaceC0263a<TTAdNative> interfaceC0263a) {
+        private final void a(CommonListener commonListener, InterfaceC0264a<TTAdNative> interfaceC0264a) {
             try {
-                this.a.a(interfaceC0263a);
+                this.a.a(interfaceC0264a);
             } catch (Throwable th) {
                 if (commonListener != null) {
                     commonListener.onError(4202, "Load ad failed: " + th.getMessage());
@@ -81,9 +81,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadBannerAd(final AdSlot adSlot, final TTAdNative.BannerAdListener bannerAdListener) {
-            a(bannerAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.10
+            a(bannerAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.10
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadBannerAd(adSlot, bannerAdListener);
                 }
@@ -92,9 +92,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadBannerExpressAd(final AdSlot adSlot, final TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
-            a(nativeExpressAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.5
+            a(nativeExpressAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.5
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadBannerExpressAd(adSlot, nativeExpressAdListener);
                 }
@@ -103,9 +103,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadDrawFeedAd(final AdSlot adSlot, final TTAdNative.DrawFeedAdListener drawFeedAdListener) {
-            a(drawFeedAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.8
+            a(drawFeedAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.8
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadDrawFeedAd(adSlot, drawFeedAdListener);
                 }
@@ -114,9 +114,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadExpressDrawFeedAd(final AdSlot adSlot, final TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
-            a(nativeExpressAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.4
+            a(nativeExpressAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.4
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadExpressDrawFeedAd(adSlot, nativeExpressAdListener);
                 }
@@ -125,9 +125,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadFeedAd(final AdSlot adSlot, final TTAdNative.FeedAdListener feedAdListener) {
-            a(feedAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.1
+            a(feedAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadFeedAd(adSlot, feedAdListener);
                 }
@@ -136,9 +136,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadFullScreenVideoAd(final AdSlot adSlot, final TTAdNative.FullScreenVideoAdListener fullScreenVideoAdListener) {
-            a(fullScreenVideoAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.2
+            a(fullScreenVideoAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.2
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadFullScreenVideoAd(adSlot, fullScreenVideoAdListener);
                 }
@@ -147,9 +147,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadInteractionAd(final AdSlot adSlot, final TTAdNative.InteractionAdListener interactionAdListener) {
-            a(interactionAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.11
+            a(interactionAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.11
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadInteractionAd(adSlot, interactionAdListener);
                 }
@@ -158,9 +158,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadInteractionExpressAd(final AdSlot adSlot, final TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
-            a(nativeExpressAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.6
+            a(nativeExpressAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.6
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadInteractionExpressAd(adSlot, nativeExpressAdListener);
                 }
@@ -169,9 +169,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadNativeAd(final AdSlot adSlot, final TTAdNative.NativeAdListener nativeAdListener) {
-            a(nativeAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.9
+            a(nativeAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.9
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadNativeAd(adSlot, nativeAdListener);
                 }
@@ -180,9 +180,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadNativeExpressAd(final AdSlot adSlot, final TTAdNative.NativeExpressAdListener nativeExpressAdListener) {
-            a(nativeExpressAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.3
+            a(nativeExpressAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.3
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadNativeExpressAd(adSlot, nativeExpressAdListener);
                 }
@@ -191,9 +191,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadRewardVideoAd(final AdSlot adSlot, final TTAdNative.RewardVideoAdListener rewardVideoAdListener) {
-            a(rewardVideoAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.14
+            a(rewardVideoAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.14
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadRewardVideoAd(adSlot, rewardVideoAdListener);
                 }
@@ -202,9 +202,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadSplashAd(final AdSlot adSlot, final TTAdNative.SplashAdListener splashAdListener, final int i) {
-            a(splashAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.12
+            a(splashAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.12
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadSplashAd(adSlot, splashAdListener, i);
                 }
@@ -213,9 +213,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadStream(final AdSlot adSlot, final TTAdNative.FeedAdListener feedAdListener) {
-            a(feedAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.7
+            a(feedAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.7
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadStream(adSlot, feedAdListener);
                 }
@@ -224,9 +224,9 @@ public final class a implements TTAdManager {
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative
         public void loadSplashAd(final AdSlot adSlot, final TTAdNative.SplashAdListener splashAdListener) {
-            a(splashAdListener, new InterfaceC0263a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.13
+            a(splashAdListener, new InterfaceC0264a<TTAdNative>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.d.13
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdNative tTAdNative) {
                     tTAdNative.loadSplashAd(adSlot, splashAdListener);
                 }
@@ -235,10 +235,10 @@ public final class a implements TTAdManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void call(final InterfaceC0263a<TTAdManager> interfaceC0263a) {
+    public final void call(final InterfaceC0264a<TTAdManager> interfaceC0264a) {
         if (this.b != null) {
             try {
-                interfaceC0263a.a(this.b);
+                interfaceC0264a.a(this.b);
                 return;
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.api.b.d.c("PluginDefaultAdManager", "Unexpected manager call error: " + th.getMessage());
@@ -252,11 +252,11 @@ public final class a implements TTAdManager {
                 public void run() {
                     try {
                         if (a.this.b != null) {
-                            interfaceC0263a.a(a.this.b);
+                            interfaceC0264a.a(a.this.b);
                             return;
                         }
-                        if (interfaceC0263a instanceof c) {
-                            ((c) interfaceC0263a).a();
+                        if (interfaceC0264a instanceof c) {
+                            ((c) interfaceC0264a).a();
                         }
                         com.bytedance.sdk.openadsdk.api.b.d.c("PluginDefaultAdManager", "Not ready, no manager");
                     } catch (Throwable th2) {
@@ -295,16 +295,16 @@ public final class a implements TTAdManager {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+                @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
                 public void a(TTAdManager tTAdManager) {
                     tTAdManager.getExtra(cls, bundle);
                 }
             });
             return null;
         }
-        call(new InterfaceC0263a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.5
+        call(new InterfaceC0264a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.5
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
             public void a(TTAdManager tTAdManager) {
                 tTAdManager.getExtra(cls, bundle);
             }
@@ -347,9 +347,9 @@ public final class a implements TTAdManager {
         } else {
             bundle = obj;
         }
-        call(new InterfaceC0263a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.2
+        call(new InterfaceC0264a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.2
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
             public void a(TTAdManager tTAdManager) {
                 if (obj instanceof TTPluginListener) {
                     f.a(TTAppContextHolder.getContext()).a((TTPluginListener) obj);
@@ -361,9 +361,9 @@ public final class a implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public void requestPermissionIfNecessary(final Context context) {
-        call(new InterfaceC0263a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.6
+        call(new InterfaceC0264a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.6
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
             public void a(TTAdManager tTAdManager) {
                 tTAdManager.requestPermissionIfNecessary(context);
             }
@@ -372,9 +372,9 @@ public final class a implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public void setThemeStatus(final int i) {
-        call(new InterfaceC0263a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.7
+        call(new InterfaceC0264a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.7
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
             public void a(TTAdManager tTAdManager) {
                 a.this.b.setThemeStatus(i);
             }
@@ -388,9 +388,9 @@ public final class a implements TTAdManager {
 
     @Override // com.bytedance.sdk.openadsdk.TTAdManager
     public void unregister(final Object obj) {
-        call(new InterfaceC0263a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.3
+        call(new InterfaceC0264a<TTAdManager>() { // from class: com.bytedance.sdk.openadsdk.api.plugin.a.3
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0263a
+            @Override // com.bytedance.sdk.openadsdk.api.plugin.a.InterfaceC0264a
             public void a(TTAdManager tTAdManager) {
                 tTAdManager.unregister(obj);
             }

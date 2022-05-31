@@ -1,43 +1,48 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.internal.Util;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class b50 {
+public abstract class b50 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static byte[] a;
-    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public b50(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = b;
-            if (bArr != null) {
-                return bArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr2 = {str, objArr};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            byte[] byteArray = new BigInteger(a50.c).modPow(new BigInteger(a50.d), new BigInteger(a50.e)).toByteArray();
-            b = byteArray;
-            return byteArray;
         }
-        return (byte[]) invokeV.objValue;
+        this.a = Util.format(str, objArr);
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    public abstract void a();
+
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            byte[] bArr = a;
-            if (bArr != null) {
-                return bArr;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String name = Thread.currentThread().getName();
+            Thread.currentThread().setName(this.a);
+            try {
+                a();
+            } finally {
+                Thread.currentThread().setName(name);
             }
-            byte[] byteArray = new BigInteger(a50.a).modPow(new BigInteger(a50.b), new BigInteger(a50.e)).toByteArray();
-            a = byteArray;
-            return byteArray;
         }
-        return (byte[]) invokeV.objValue;
     }
 }

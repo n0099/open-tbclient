@@ -1,34 +1,13 @@
 package com.repackage;
-
-import com.baidu.tieba.memberCenter.tail.data.TailData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class lk7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TailData b;
+public interface lk7 {
+    void netCallback(int i, d17 d17Var);
 
-    public lk7(int i, TailData tailData) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), tailData};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.a = i;
-        this.b = tailData;
-    }
+    void netLoadMoreCallback(int i, c17 c17Var);
+
+    void netPkCallback(int i, long j, long j2, int i2);
+
+    void refreshFullData(int i);
+
+    void shareTopic(d17 d17Var);
 }

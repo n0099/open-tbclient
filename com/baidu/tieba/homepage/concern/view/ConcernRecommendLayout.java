@@ -30,14 +30,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.no;
-import com.repackage.po;
-import com.repackage.py;
-import com.repackage.tq4;
-import com.repackage.vm4;
+import com.repackage.cx;
+import com.repackage.fn;
+import com.repackage.hn;
+import com.repackage.ip4;
+import com.repackage.kl4;
+import com.repackage.li;
 /* loaded from: classes3.dex */
-public class ConcernRecommendLayout extends LinearLayout implements py {
+public class ConcernRecommendLayout extends LinearLayout implements cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -45,7 +45,7 @@ public class ConcernRecommendLayout extends LinearLayout implements py {
     public TextView c;
     public RecyclerView d;
     public ConcernRecommendListAdapter e;
-    public po f;
+    public hn f;
     public int g;
     public CustomMessageListener h;
 
@@ -83,7 +83,7 @@ public class ConcernRecommendLayout extends LinearLayout implements py {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Boolean)) {
                 if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
                     if (this.a.f == null) {
-                        this.a.f = new po(new no());
+                        this.a.f = new hn(new fn());
                     }
                     this.a.f.q(this.a.d, 1);
                 } else if (this.a.f != null) {
@@ -117,36 +117,36 @@ public class ConcernRecommendLayout extends LinearLayout implements py {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01f5, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ef, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092071);
-            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091fdf);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092017);
+            this.d = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091f84);
             ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
             this.e = concernRecommendListAdapter;
             this.d.setAdapter(concernRecommendListAdapter);
             this.d.setClipChildren(false);
             if (TbSingleton.getInstance().isSlideAnimEnable()) {
-                po poVar = new po(new no());
-                this.f = poVar;
-                poVar.q(this.d, 1);
+                hn hnVar = new hn(new fn());
+                this.f = hnVar;
+                hnVar.q(this.d, 1);
             }
-            int f = mi.f(this.a, R.dimen.tbds21);
-            int f2 = mi.f(this.a, R.dimen.tbds44);
+            int f = li.f(this.a, R.dimen.tbds21);
+            int f2 = li.f(this.a, R.dimen.tbds44);
             this.d.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
             this.d.setItemAnimator(new DefaultItemAnimator());
             this.d.addItemDecoration(new SpaceItemDecoration(f2, f, f2));
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.d.getLayoutParams();
             if (UbsABTestHelper.showNewUI()) {
-                layoutParams.bottomMargin = mi.f(this.a, R.dimen.tbds39);
+                layoutParams.bottomMargin = li.f(this.a, R.dimen.tbds39);
             } else {
-                layoutParams.bottomMargin = mi.f(this.a, R.dimen.tbds22);
+                layoutParams.bottomMargin = li.f(this.a, R.dimen.tbds22);
             }
             this.d.setLayoutParams(layoutParams);
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
@@ -166,27 +166,27 @@ public class ConcernRecommendLayout extends LinearLayout implements py {
         }
     }
 
-    public void setData(tq4 tq4Var) {
+    public void setData(ip4 ip4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tq4Var) == null) {
-            if (tq4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, ip4Var) == null) {
+            if (ip4Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(tq4Var.a) && tq4Var.b != 0) {
-                this.c.setTextSize(0, mi.f(this.a, R.dimen.tbds37));
-                this.c.setText(tq4Var.a);
+            if (!TextUtils.isEmpty(ip4Var.a) && ip4Var.b != 0) {
+                this.c.setTextSize(0, li.f(this.a, R.dimen.tbds37));
+                this.c.setText(ip4Var.a);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = tq4Var.b;
+                this.g = ip4Var.b;
             } else {
-                this.c.setTextSize(0, mi.f(this.a, R.dimen.tbds37));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0423);
+                this.c.setTextSize(0, li.f(this.a, R.dimen.tbds37));
+                this.c.setText(R.string.obfuscated_res_0x7f0f0429);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
                 this.g = R.color.CAM_X0105;
             }
             this.e.h(TbadkCoreApplication.getInst().getSkinType());
-            this.e.setData(tq4Var.e());
+            this.e.setData(ip4Var.e());
             this.e.notifyDataSetChanged();
         }
     }
@@ -198,10 +198,10 @@ public class ConcernRecommendLayout extends LinearLayout implements py {
         }
     }
 
-    public void setOnItemCoverListener(vm4<MetaData> vm4Var) {
+    public void setOnItemCoverListener(kl4<MetaData> kl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vm4Var) == null) {
-            this.e.l(vm4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, kl4Var) == null) {
+            this.e.l(kl4Var);
         }
     }
 

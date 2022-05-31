@@ -55,7 +55,7 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
     public int getLayoutResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06e2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06d7 : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
@@ -85,13 +85,13 @@ public class PolyNoticeDialog extends BaseDialogFragment implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, view2, bundle) == null) {
             super.onViewCreated(view2, bundle);
-            this.titleTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918c6);
-            this.tipsTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918c5);
-            this.tipsImageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0918c2);
-            this.singleBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918c4);
-            this.layoutActionOfBtn = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0918c0);
-            this.leftActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918c1);
-            this.rightActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918c3);
+            this.titleTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09187b);
+            this.tipsTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09187a);
+            this.tipsImageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091877);
+            this.singleBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091879);
+            this.layoutActionOfBtn = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091875);
+            this.leftActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091876);
+            this.rightActionBtn = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091878);
             this.singleBtn.setOnClickListener(this);
             this.leftActionBtn.setOnClickListener(this);
             this.rightActionBtn.setOnClickListener(this);

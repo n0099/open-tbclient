@@ -194,7 +194,7 @@ public class ay implements ar {
         if ((interceptable == null || interceptable.invokeL(65545, this, str) == null) && this.f120a == 1 && Looper.myLooper() != Looper.getMainLooper()) {
             synchronized (this.f124a) {
                 try {
-                    com.xiaomi.channel.commonutils.logger.b.m109a("oppo's " + str + " wait...");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("oppo's " + str + " wait...");
                     this.f124a.wait(3000L);
                 } catch (Exception unused) {
                 }
@@ -279,7 +279,7 @@ public class ay implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo188b() {
+    public String mo187b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

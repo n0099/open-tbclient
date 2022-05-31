@@ -1,28 +1,15 @@
 package com.repackage;
 
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
+import java.io.InputStream;
 /* loaded from: classes7.dex */
-public final class wn0 {
+public abstract class wn0<T> implements vn0<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @JvmField
-    public String a;
-    @JvmField
-    public String b;
-    @JvmField
-    public String c;
-    @JvmField
-    public String d;
-    @JvmField
-    public String e;
-    @JvmField
-    public String f;
-    @JvmField
-    public String g;
 
     public wn0() {
         Interceptable interceptable = $ic;
@@ -38,14 +25,11 @@ public final class wn0 {
         }
     }
 
-    public final void a() {
+    @Override // com.repackage.un0
+    public void c(Headers headers, InputStream inputStream, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            this.c = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, headers, inputStream, i) == null) {
+            throw new IllegalStateException("走错路了");
         }
     }
 }

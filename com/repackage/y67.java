@@ -1,377 +1,39 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
-import androidx.collection.LongSparseArray;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sofire.rp.service.Service;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.LocalViewSize;
-import com.baidu.tbadk.coreExtra.message.GroupUpdateMessage;
-import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
-import com.baidu.tieba.im.message.MessageSyncMessage;
-import com.baidu.tieba.im.message.PushCountMessage;
-import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.R;
+import com.baidu.tieba.im.data.MsgCacheData;
+import com.baidu.tieba.im.data.ShareForumMsgData;
+import com.baidu.tieba.im.data.ShareThreadMsgData;
+import com.baidu.tieba.im.data.SystemMsgData;
+import com.baidu.tieba.im.data.VoiceMsgData;
+import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import protobuf.NewpushRepair;
+import java.util.regex.Pattern;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import protobuf.MsgInfo;
 /* loaded from: classes7.dex */
 public class y67 {
     public static /* synthetic */ Interceptable $ic;
-    public static y67 q;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public List<GroupUpdateMessage> e;
-    public int f;
-    public long g;
-    public int h;
-    public final BdUniqueId i;
-    public final Handler j;
-    public LongSparseArray<Long> k;
-    public LongSparseArray<Long> l;
-    public final ga m;
-    public final ya n;
-    public final CustomMessageListener o;
-    public final CustomMessageListener p;
-
-    /* loaded from: classes7.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2008017) {
-                qz4.j().m();
-                y67.l().z();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016002) {
-                y67.l().o();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements ga {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y67 a;
-
-        public c(y67 y67Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y67Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y67Var;
-        }
-
-        @Override // com.repackage.ga
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.repackage.ga
-        public boolean b(int i, String str) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-                this.a.F();
-                return false;
-            }
-            return invokeIL.booleanValue;
-        }
-
-        @Override // com.repackage.ga
-        public void c(hj hjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hjVar) == null) {
-            }
-        }
-
-        @Override // com.repackage.ga
-        public void d(pj pjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, pjVar) == null) {
-            }
-        }
-
-        @Override // com.repackage.ga
-        public void g(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-                this.a.E();
-                y9.a().c(map);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d extends ya {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y67 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(y67 y67Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y67Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y67Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null) {
-                return;
-            }
-            if (socketResponsedMessage.getCmd() == 1003) {
-                if ((socketResponsedMessage instanceof ResponsedMessage) && socketResponsedMessage.getError() == 0) {
-                    this.a.A();
-                }
-            } else if (socketResponsedMessage.getCmd() == 1001 && (socketResponsedMessage instanceof ResponseOnlineMessage)) {
-                ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
-                if (responseOnlineMessage.getError() != 0) {
-                    return;
-                }
-                this.a.e = responseOnlineMessage.getGroupInfos();
-                if (r67.p().A()) {
-                    this.a.o();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y67 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(y67 y67Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y67Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y67Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage)) {
-                if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    this.a.G();
-                } else {
-                    this.a.H();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y67 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(y67 y67Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y67Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y67Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (this.a.k != null) {
-                    this.a.k.clear();
-                }
-                if (this.a.l != null) {
-                    this.a.l.clear();
-                }
-                this.a.e = null;
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class g extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public g() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                int i = message.what;
-                if (i == 2) {
-                    y67.l().j.removeMessages(2);
-                    y67.l().x();
-                } else if (i != 3) {
-                } else {
-                    y67.l().j.removeMessages(3);
-                    if (y67.l().h == 3) {
-                        y67.l().v();
-                    } else {
-                        y67.l().x();
-                    }
-                    y67.l().j.sendMessageDelayed(y67.l().j.obtainMessage(3), y67.l().c);
-                }
-            }
-        }
-
-        public /* synthetic */ g(a aVar) {
-            this();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -386,463 +48,631 @@ public class y67 {
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(2008017));
-        MessageManager.getInstance().registerListener(new b(2016002));
-        q = null;
+        Pattern.compile("(#\\([^#\\)\\(]+\\))");
     }
 
-    public y67() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-        }
-        this.a = 900000;
-        this.b = 360000;
-        this.c = 360000;
-        this.d = 0;
-        this.f = 0;
-        this.g = 0L;
-        this.h = 0;
-        this.i = BdUniqueId.gen();
-        this.j = new g(null);
-        this.k = null;
-        this.l = null;
-        this.m = new c(this);
-        this.n = new d(this, 0);
-        this.o = new e(this, 2001011);
-        this.p = new f(this, 2005016);
-    }
-
-    public static synchronized y67 l() {
-        InterceptResult invokeV;
-        y67 y67Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            synchronized (y67.class) {
-                if (q == null) {
-                    q = new y67();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+                if (TextUtils.isEmpty(optString)) {
+                    return null;
                 }
-                y67Var = q;
-            }
-            return y67Var;
-        }
-        return (y67) invokeV.objValue;
-    }
-
-    public final synchronized void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                if (System.currentTimeMillis() - this.g < Service.TRIGGER_INTERVAL) {
-                    return;
+                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_FAKE)) {
+                    return optString2;
                 }
-                PushCountMessage pushCountMessage = new PushCountMessage();
-                pushCountMessage.setPusherCount(this.f);
-                pushCountMessage.setUpFlowSize(mj.j().p());
-                pushCountMessage.setDownFlowSize(mj.j().i());
-                pushCountMessage.setEnterForeCount(TbadkCoreApplication.getInst().getEnterForeCount());
-                MessageManager.getInstance().sendMessage(pushCountMessage);
-                this.g = System.currentTimeMillis();
-                this.f = 0;
-                mj.j().d();
-                mj.j().e();
-                TbadkCoreApplication.getInst().clearEnterForeCount();
-            }
-        }
-    }
-
-    public void B(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i <= 0) {
-            return;
-        }
-        this.a = i;
-    }
-
-    public void C(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i <= 0) {
-            return;
-        }
-        this.b = i;
-    }
-
-    public final void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i == 1) {
-                if (this.d != 2) {
-                    this.d = 1;
+                if (optJSONObject == null) {
+                    return null;
                 }
-            } else if (i == 3 || i == 2) {
-                this.d = 2;
+                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f098d);
+                }
+                if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
+                    if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN)) {
+                        String optString3 = optJSONObject.optString("userId");
+                        String optString4 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                        if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0989);
+                        }
+                        return optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0988);
+                    } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT)) {
+                        return optJSONObject.optString("userId").equals(TbadkCoreApplication.getCurrentAccount()) ? TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f098d) : optString2;
+                    } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
+                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0989);
+                    } else {
+                        if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_INVITE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_COMMON) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_STRANGER_FIRST_MSG) && optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT)) {
+                        }
+                    }
+                }
+                return optString2;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
         }
+        return (String) invokeL.objValue;
     }
 
-    public void E() {
+    @Nullable
+    public static ShareForumMsgData b(@Nullable ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            j();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMessage)) == null) {
+            if (chatMessage == null || chatMessage.getMsgType() != 33) {
+                return null;
+            }
+            if (chatMessage.getObjContent() != null) {
+                return (ShareForumMsgData) chatMessage.getObjContent();
+            }
+            ShareForumMsgData shareForumMsgData = (ShareForumMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareForumMsgData.class);
+            if (shareForumMsgData != null) {
+                chatMessage.setEncodeContent(shareForumMsgData.toEncodeContent());
+            }
+            chatMessage.setObjContent(shareForumMsgData);
+            return shareForumMsgData;
         }
+        return (ShareForumMsgData) invokeL.objValue;
     }
 
-    public void F() {
+    @Nullable
+    public static ShareThreadMsgData c(@Nullable ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            j();
-            i();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, chatMessage)) == null) {
+            if (chatMessage == null || chatMessage.getMsgType() != 32) {
+                return null;
+            }
+            if (chatMessage.getObjContent() != null) {
+                return (ShareThreadMsgData) chatMessage.getObjContent();
+            }
+            ShareThreadMsgData shareThreadMsgData = (ShareThreadMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareThreadMsgData.class);
+            if (shareThreadMsgData != null) {
+                chatMessage.setEncodeContent(shareThreadMsgData.toEncodeContent());
+            }
+            chatMessage.setObjContent(shareThreadMsgData);
+            return shareThreadMsgData;
         }
+        return (ShareThreadMsgData) invokeL.objValue;
     }
 
-    public void G() {
+    public static final String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            l().c = l().a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null && !optJSONObject.isNull("type")) {
+                        int optInt = optJSONObject.optInt("type");
+                        if (optInt == 0) {
+                            sb.append(optJSONObject.opt("text"));
+                        } else if (optInt == 2) {
+                            sb.append(SmallTailInfo.EMOTION_PREFIX);
+                            sb.append(optJSONObject.opt("c"));
+                            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                    }
+                }
+            } catch (Error e) {
+                e.printStackTrace();
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public void H() {
+    public static String e(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return null;
+            }
+            UserData userInfo = chatMessage.getUserInfo();
+            String userName = (userInfo == null || TextUtils.isEmpty(userInfo.getUserName())) ? "" : chatMessage.getUserInfo().getUserName();
+            if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId()) && userInfo.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                return z(chatMessage);
+            }
+            if (chatMessage.getMsgType() == 11) {
+                return z(chatMessage);
+            }
+            if (chatMessage.getToUserId() != 0) {
+                return z(chatMessage);
+            }
+            if (!TextUtils.isEmpty(userName)) {
+                return userName + ":" + z(chatMessage);
+            }
+            return z(chatMessage);
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void h() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (i = this.d) == 0) {
-            return;
-        }
-        if (i == 1) {
-            s(0L, 0L, 0L);
-        } else {
-            x();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.j.removeMessages(3);
-            this.j.removeMessages(2);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.d = 0;
-        }
-    }
-
-    public final MessageSyncMessage k(LongSparseArray<Long> longSparseArray, int i) {
+    public static int f(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, longSparseArray, i)) == null) {
-            MessageSyncMessage messageSyncMessage = new MessageSyncMessage();
-            messageSyncMessage.setTag(this.i);
-            if (longSparseArray != null && longSparseArray.size() > 0) {
-                messageSyncMessage.setGroupMids(longSparseArray);
-                NewpushRepair makeNewpushRepair = MessageUtils.makeNewpushRepair(longSparseArray);
-                if (makeNewpushRepair != null) {
-                    messageSyncMessage.setNewpushRepire(makeNewpushRepair);
-                }
-            } else {
-                messageSyncMessage.setGroupMids(r67.p().s());
-            }
-            LocalViewSize.ImageSize msgBPicMaxSize = LocalViewSize.getInstance().getMsgBPicMaxSize();
-            if (msgBPicMaxSize != null) {
-                messageSyncMessage.setWidth(msgBPicMaxSize.width);
-                messageSyncMessage.setHeight(msgBPicMaxSize.height);
-            }
-            LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.getInstance().getMsgSPicMaxSize();
-            if (msgSPicMaxSize != null) {
-                messageSyncMessage.setSmallHeight(msgSPicMaxSize.height);
-                messageSyncMessage.setSmallWidth(msgSPicMaxSize.width);
-            }
-            messageSyncMessage.setSyncTypeString(String.valueOf(i));
-            return messageSyncMessage;
-        }
-        return (MessageSyncMessage) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) ? context.getResources().getDimensionPixelSize(i) : invokeLI.intValue;
     }
 
-    public void m(Context context) {
+    public static final String g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, context) == null) {
-            if (context != null) {
-                MessageManager.getInstance().registerListener(this.o);
-                MessageManager.getInstance().registerListener(this.p);
-                tz4.j().p(this.m);
-                MessageManager.getInstance().registerListener(1003, this.n);
-                MessageManager.getInstance().registerListener(1001, this.n);
-                MessageManager.getInstance().registerListener(202101, this.n);
-                z();
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            throw new IllegalArgumentException("MessageSync init param illegal");
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            h();
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || this.e == null) {
-            return;
-        }
-        boolean z = false;
-        LongSparseArray<Long> s = r67.p().s();
-        if (s == null) {
-            this.e = null;
-            return;
-        }
-        Iterator<GroupUpdateMessage> it = this.e.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            GroupUpdateMessage next = it.next();
-            if (next != null && s.get(next.getGroupId()) != null) {
-                if (s.get(next.getGroupId()).longValue() < next.getLastMsgId()) {
-                    z = true;
-                    break;
-                }
-            }
-        }
-        this.h = 3;
-        if (z) {
-            Handler handler = this.j;
-            handler.sendMessage(handler.obtainMessage(3));
-        } else {
-            l().j.sendMessageDelayed(l().j.obtainMessage(3), l().c);
-        }
-        this.e = null;
-    }
-
-    public final void p(LongSparseArray<Long> longSparseArray, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048591, this, longSparseArray, i) == null) {
-            q(longSparseArray, i, 0L);
-        }
-    }
-
-    public final void q(LongSparseArray<Long> longSparseArray, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{longSparseArray, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (MessageManager.getInstance().getSocketClient().r() > 10) {
-                h95.b(false, true, false);
-                Handler handler = this.j;
-                handler.sendMessageDelayed(handler.obtainMessage(2), 2000L);
-                return;
-            }
-            boolean t = MessageManager.getInstance().getSocketClient().t(202003, this.i);
-            int s = MessageManager.getInstance().getSocketClient().s(202003);
-            if (!t && s <= 0) {
-                j();
-                LongSparseArray<Long> longSparseArray2 = null;
-                if (longSparseArray != null && longSparseArray.size() > 0) {
-                    longSparseArray2 = new LongSparseArray<>();
-                    for (int i2 = 0; i2 < longSparseArray.size(); i2++) {
-                        long keyAt = longSparseArray.keyAt(i2);
-                        longSparseArray2.put(keyAt, Long.valueOf(longSparseArray.get(keyAt).longValue()));
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() >= 2) {
+                    String optString = jSONArray.optString(0);
+                    if (1 == jSONArray.optInt(1)) {
+                        sb.append(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09cf));
+                    }
+                    if (optString != null) {
+                        sb.append(optString);
                     }
                 }
-                MessageSyncMessage k = k(longSparseArray2, i);
-                if (i == 3 || i == 2) {
-                    k.setNewpushRepire(r67.p().t());
-                } else if (i == 1 && j > 0) {
-                    k.setNotifyMsgId(j);
-                }
-                MessageManager.getInstance().sendMessage(k);
-                h95.b(true, false, false);
-                if (i == 3 || i == 1 || i == 2) {
-                    LongSparseArray<Long> longSparseArray3 = this.k;
-                    if (longSparseArray3 != null) {
-                        longSparseArray3.clear();
-                    }
-                    LongSparseArray<Long> longSparseArray4 = this.l;
-                    if (longSparseArray4 != null) {
-                        longSparseArray4.clear();
-                        return;
-                    }
-                    return;
-                }
-                return;
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            h95.b(false, false, true);
-            D(i);
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public synchronized void r(LongSparseArray<Long> longSparseArray) {
+    public static String h(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, longSparseArray) == null) {
-            synchronized (this) {
-                if (longSparseArray != null) {
-                    if (longSparseArray.size() != 0) {
-                        this.h = 4;
-                        this.j.removeMessages(3);
-                        l().j.sendMessageDelayed(l().j.obtainMessage(3), l().c);
-                        p(longSparseArray, 4);
-                    }
-                }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65544, null, str, z)) == null) {
+            if (str == null) {
+                return null;
+            }
+            try {
+                return new JSONArray(str).getJSONObject(0).optString(z ? "big_src" : "src");
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (String) invokeLZ.objValue;
     }
 
-    public void s(long j, long j2, long j3) {
+    public static String i(JSONObject jSONObject, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            t(j, j2, j3, false);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65545, null, jSONObject, z)) == null) {
+            return jSONObject.optString(z ? "big_src" : "src");
         }
+        return (String) invokeLZ.objValue;
     }
 
-    public synchronized void t(long j, long j2, long j3, boolean z) {
+    public static MsgCacheData j(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-            synchronized (this) {
-                u(j, j2, j3, z, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, chatMessage)) == null) {
+            try {
+                MsgCacheData msgCacheData = new MsgCacheData();
+                msgCacheData.setRich_content(null);
+                return msgCacheData;
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (MsgCacheData) invokeL.objValue;
     }
 
-    public synchronized void u(long j, long j2, long j3, boolean z, boolean z2) {
-        long longValue;
+    public static r37 k(CommonMsgPojo commonMsgPojo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            synchronized (this) {
-                this.f++;
-                this.h = 1;
-                this.j.removeMessages(3);
-                l().j.sendMessageDelayed(l().j.obtainMessage(3), l().c);
-                if (this.k == null) {
-                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-                    this.k = longSparseArray;
-                    longSparseArray.clear();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, commonMsgPojo)) == null) {
+            if (commonMsgPojo != null && commonMsgPojo.getMsg_type() == 7) {
+                return m(commonMsgPojo.getContent());
+            }
+            return null;
+        }
+        return (r37) invokeL.objValue;
+    }
+
+    public static r37 l(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (split = str.split("_")) == null || split.length != 2) {
+                return null;
+            }
+            r37 r37Var = new r37();
+            r37Var.a = split[0];
+            r37Var.b = split[1];
+            return r37Var;
+        }
+        return (r37) invokeL.objValue;
+    }
+
+    public static r37 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    return l(jSONArray.getJSONObject(0).optString("msg_src"));
                 }
-                if (this.l == null) {
-                    this.l = new LongSparseArray<>();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+        return (r37) invokeL.objValue;
+    }
+
+    public static SystemMsgData n(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        String optString;
+        String optString2;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, chatMessage)) == null) {
+            if (chatMessage == null || chatMessage.getMsgType() != 11 || TextUtils.isEmpty(chatMessage.getContent())) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(chatMessage.getContent());
+                optString = jSONObject.optString(TbEnum.SystemMessage.KEY_EVENT_ID);
+                optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if (!TextUtils.isEmpty(optString) && optJSONObject != null) {
+                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_KICKED_OUT)) {
+                    SystemMsgData systemMsgData = new SystemMsgData();
+                    systemMsgData.setIsSelf(true);
+                    systemMsgData.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f098d));
+                    return systemMsgData;
                 }
-                LongSparseArray<Long> s = r67.p().s();
-                if (0 != j) {
-                    Long l = s.get(j);
-                    Long l2 = this.k.get(j);
-                    if (l == null) {
-                        longValue = (l2 != null && l2.longValue() < j2) ? l2.longValue() : j2;
-                    } else {
-                        longValue = l.longValue();
-                    }
-                    if (longValue > 0) {
-                        this.k.put(j, Long.valueOf(longValue));
-                    }
-                }
-                if (this.k != null && this.k.size() > 0) {
-                    for (int i = 0; i < this.k.size(); i++) {
-                        long keyAt = this.k.keyAt(i);
-                        Long l3 = s.get(keyAt);
-                        if (l3 != null && l3.longValue() > 0) {
-                            this.k.put(keyAt, l3);
-                        }
-                    }
-                }
-                if (!z) {
-                    if (j > 0 && j2 > 0) {
-                        if (this.l.get(j) == null) {
-                            this.l.put(j, Long.valueOf(j2));
+                if (!optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP) && !optString.equals(TbEnum.SystemMessage.EVENT_ID_HIDE_GROUP_WARN)) {
+                    if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_JOIN)) {
+                        String optString3 = optJSONObject.optString("userId");
+                        String optString4 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                        SystemMsgData systemMsgData2 = new SystemMsgData();
+                        if (optString3.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            systemMsgData2.setIsSelf(true);
+                            systemMsgData2.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0989));
                         } else {
-                            long longValue2 = this.l.get(j).longValue();
-                            if (longValue2 <= j2) {
-                                longValue2 = j2;
+                            systemMsgData2.setIsSelf(false);
+                            systemMsgData2.setContent(optString4 + TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0988));
+                        }
+                        return systemMsgData2;
+                    } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_QUIT)) {
+                        String optString5 = optJSONObject.optString("userId");
+                        SystemMsgData systemMsgData3 = new SystemMsgData();
+                        if (optString5.equals(TbadkCoreApplication.getCurrentAccount())) {
+                            systemMsgData3.setIsSelf(true);
+                            systemMsgData3.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f098d));
+                        } else {
+                            systemMsgData3.setIsSelf(false);
+                            systemMsgData3.setContent(optString2);
+                        }
+                        return systemMsgData3;
+                    } else {
+                        if (optString.equals(TbEnum.SystemMessage.EVENT_ID_APPLY_SUC)) {
+                            SystemMsgData systemMsgData4 = new SystemMsgData();
+                            systemMsgData4.setIsSelf(true);
+                            systemMsgData4.setContent(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0989));
+                        } else if (optString.equals(TbEnum.SystemMessage.EVENT_ID_GROUP_ACTIVITYS_IN_CHAT)) {
+                            SystemMsgData systemMsgData5 = new SystemMsgData();
+                            systemMsgData5.setIsSelf(true);
+                            systemMsgData5.setContent(optString2);
+                            return systemMsgData5;
+                        }
+                        return null;
+                    }
+                }
+                SystemMsgData systemMsgData6 = new SystemMsgData();
+                systemMsgData6.setIsSelf(true);
+                systemMsgData6.setContent(optString2);
+                return systemMsgData6;
+            }
+            return null;
+        }
+        return (SystemMsgData) invokeL.objValue;
+    }
+
+    public static long o(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return -1L;
+            }
+            if (jg.g(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
+                return chatMessage.getToUserId();
+            }
+            return chatMessage.getUserId();
+        }
+        return invokeL.longValue;
+    }
+
+    public static VoiceMsgData p(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, chatMessage)) == null) {
+            VoiceMsgData voiceMsgData = null;
+            if (chatMessage == null || chatMessage.getMsgType() != 3) {
+                return null;
+            }
+            if (chatMessage.getObjContent() != null) {
+                return (VoiceMsgData) chatMessage.getObjContent();
+            }
+            String content = chatMessage.getContent();
+            if (TextUtils.isEmpty(content)) {
+                VoiceMsgData voiceMsgData2 = new VoiceMsgData();
+                chatMessage.setObjContent(voiceMsgData2);
+                return voiceMsgData2;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(content);
+                if (jSONArray.length() > 0) {
+                    if (jSONArray.length() > 0) {
+                        try {
+                            voiceMsgData = (VoiceMsgData) OrmObject.objectWithJson(jSONArray.getJSONObject(0), VoiceMsgData.class);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    chatMessage.setObjContent(voiceMsgData);
+                    return voiceMsgData;
+                }
+                return null;
+            } catch (Exception unused) {
+                return voiceMsgData;
+            }
+        }
+        return (VoiceMsgData) invokeL.objValue;
+    }
+
+    public static boolean q(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
+        InterceptResult invokeLL;
+        ShareForumMsgData ofImForumInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, chatMessage, msgInfo)) == null) {
+            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 33 || (ofImForumInfo = ShareForumMsgData.ofImForumInfo(msgInfo.forumInfo)) == null) {
+                return false;
+            }
+            ofImForumInfo.setHasRead(t(chatMessage));
+            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImForumInfo));
+            chatMessage.setObjContent(ofImForumInfo);
+            chatMessage.setEncodeContent(ofImForumInfo.toEncodeContent());
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean r(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
+        InterceptResult invokeLL;
+        ShareThreadMsgData ofImShareThreadInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, chatMessage, msgInfo)) == null) {
+            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 32 || (ofImShareThreadInfo = ShareThreadMsgData.ofImShareThreadInfo(msgInfo.threadInfo)) == null) {
+                return false;
+            }
+            ofImShareThreadInfo.setHasRead(t(chatMessage));
+            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImShareThreadInfo));
+            chatMessage.setObjContent(ofImShareThreadInfo);
+            chatMessage.setEncodeContent(ofImShareThreadInfo.toEncodeContent());
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean s(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, chatMessage)) == null) {
+            if (chatMessage == null) {
+                return true;
+            }
+            String content = chatMessage.getContent();
+            if (StringUtils.isJSONArray(content)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(content);
+                    if (jSONArray.length() > 0) {
+                        return ((JSONObject) jSONArray.get(0)).optInt("switch", -1) == 0;
+                    }
+                    return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean t(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, chatMessage)) == null) {
+            try {
+                if (chatMessage.getMsgType() != 11 && TbadkCoreApplication.isLogin()) {
+                    if (chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                        return true;
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean u(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 4 : invokeL.booleanValue;
+    }
+
+    public static boolean v(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65558, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 6 : invokeL.booleanValue;
+    }
+
+    public static boolean w(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65559, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 2 : invokeL.booleanValue;
+    }
+
+    public static boolean x(ChatMessage chatMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65560, null, chatMessage)) == null) ? chatMessage != null && chatMessage.getMsgType() == 3 : invokeL.booleanValue;
+    }
+
+    public static String y(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeIL = interceptable.invokeIL(65561, null, i, str)) != null) {
+            return (String) invokeIL.objValue;
+        }
+        if (TextUtils.isEmpty(str)) {
+            return null;
+        }
+        if (i == 1 || i == 30) {
+            String d = (str.length() <= 1 || str.charAt(0) != '[') ? null : d(str);
+            if (!TextUtils.isEmpty(d)) {
+                str = d;
+            }
+            if (str == null) {
+                return null;
+            }
+            return str;
+        } else if (i == 2) {
+            return TbadkCoreApplication.getInst().getApp().getString((DataExt.toMapList(str).get(0).get("meme_id") != null ? 1 : 0) != 0 ? R.string.obfuscated_res_0x7f0f09ce : R.string.obfuscated_res_0x7f0f09d4);
+        } else if (i == 3) {
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09d8);
+        } else {
+            if (i == 32) {
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09d7);
+            }
+            if (i == 33) {
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09d2);
+            }
+            if (i == 11) {
+                return a(str);
+            }
+            if (i == 23) {
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09d6);
+            }
+            if (i != 4) {
+                if (i == 5) {
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09d3);
+                }
+                if (i == 6) {
+                    try {
+                        return new JSONObject(str).optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        return "";
+                    }
+                } else if (i == 7) {
+                    String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f09d5);
+                    if (TextUtils.isEmpty(str)) {
+                        return string;
+                    }
+                    try {
+                        JSONArray jSONArray = new JSONArray(str);
+                        if (jSONArray.length() > 0) {
+                            while (r5 < jSONArray.length()) {
+                                String string2 = ((JSONObject) jSONArray.get(r5)).getString("title");
+                                if (!TextUtils.isEmpty(string2)) {
+                                    return string2;
+                                }
+                                r5++;
                             }
-                            this.l.put(j, Long.valueOf(longValue2));
                         }
+                        return string;
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                        return string;
                     }
-                    int size = this.k.size();
-                    ArrayList arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        long keyAt2 = this.k.keyAt(i2);
-                        if (this.k.valueAt(i2).longValue() >= (this.l.get(keyAt2) != null ? this.l.get(keyAt2).longValue() : 0L)) {
-                            arrayList.add(Long.valueOf(j));
-                        }
+                } else if (i != 25) {
+                    if (i == 9) {
+                        return g(str);
                     }
-                    Iterator it = arrayList.iterator();
-                    while (it.hasNext()) {
-                        this.k.remove(((Long) it.next()).longValue());
-                    }
-                }
-                if (this.k.size() == 0) {
-                    j();
-                    this.l.clear();
-                    return;
-                }
-                if (z2) {
-                    q(this.k, 1, j2);
+                    return null;
+                } else if (TextUtils.isEmpty(str)) {
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07e1);
                 } else {
-                    p(this.k, 1);
+                    try {
+                        JSONArray jSONArray2 = new JSONArray(str);
+                        if (jSONArray2.length() > 0) {
+                            JSONObject optJSONObject = jSONArray2.optJSONObject(0);
+                            String optString = optJSONObject.optString("nick_name");
+                            String optString2 = optJSONObject.optString("caller_content");
+                            int optInt = optJSONObject.optInt("remind_count");
+                            int optInt2 = optJSONObject.optInt("msg_type");
+                            if (optInt2 == 1) {
+                                return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07e2), optString, optString2);
+                            }
+                            return optInt2 == 3 ? String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f14dd), Integer.valueOf(optInt)) : optString2;
+                        }
+                        return "";
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
+                        return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f07e1);
+                    }
+                }
+            }
+            try {
+                JSONArray jSONArray3 = new JSONArray(str);
+                if (jSONArray3.length() > 0) {
+                    String optString3 = jSONArray3.getJSONObject(0).optString("face_name");
+                    if (optString3 != null && optString3.startsWith(SmallTailInfo.EMOTION_PREFIX) && optString3.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
+                        return PreferencesUtil.LEFT_MOUNT + optString3.substring(2, optString3.length() - 1) + PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    return optString3;
+                }
+                return null;
+            } catch (JSONException e4) {
+                e4.printStackTrace();
+                try {
+                    String optString4 = new JSONObject(str).optString("face_name");
+                    if (optString4 != null && optString4.startsWith(SmallTailInfo.EMOTION_PREFIX) && optString4.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
+                        return PreferencesUtil.LEFT_MOUNT + optString4.substring(2, optString4.length() - 1) + PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    return optString4;
+                } catch (JSONException e5) {
+                    e5.printStackTrace();
                 }
             }
         }
     }
 
-    public synchronized void v() {
+    public static String z(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            synchronized (this) {
-                y(3);
-            }
-        }
-    }
-
-    public void w(long j, long j2, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            x87.a(j2);
-            u(j, j2, j3, false, true);
-        }
-    }
-
-    public synchronized void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            synchronized (this) {
-                y(2);
-            }
-        }
-    }
-
-    public final synchronized void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            synchronized (this) {
-                this.h = i;
-                p(null, i);
-            }
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            int[] socketGetMsgStratgy = TbadkCoreApplication.getInst().getSocketGetMsgStratgy();
-            if (socketGetMsgStratgy.length == 2) {
-                C(socketGetMsgStratgy[0] * 1000);
-                B(socketGetMsgStratgy[1] * 1000);
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, chatMessage)) == null) ? chatMessage == null ? "" : y(chatMessage.getMsgType(), chatMessage.getContent()) : (String) invokeL.objValue;
     }
 }

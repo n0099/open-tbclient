@@ -1,73 +1,91 @@
 package com.repackage;
 
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.CardBoxMemberPayActivityConfig;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.SendCardInfo;
 /* loaded from: classes7.dex */
-public class xr7 {
+public class xr7 extends pt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
+    public TextView c;
 
-    public xr7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xr7(BaseFragmentActivity baseFragmentActivity, View view2) {
+        super(baseFragmentActivity, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragmentActivity) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = null;
     }
 
-    public boolean a() {
+    @Override // com.repackage.pt7
+    public void c(wr7 wr7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, wr7Var) == null) {
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd2);
+            this.c = textView;
+            textView.setVisibility(8);
+        }
+    }
+
+    public TextView e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e == 3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (TextView) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void f(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e == 1 : invokeV.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || threadData == null || threadData.getPushStatusData() == null) {
             return;
         }
-        this.b = jSONObject.optString("card_logo");
-        this.c = jSONObject.optString("card_name");
-        this.d = jSONObject.optString("card_pro");
-        this.e = jSONObject.optInt("card_get_status");
-        this.a = jSONObject.optLong(CardBoxMemberPayActivityConfig.PACKET_ID);
-        this.f = jSONObject.optString("card_num");
+        int status = threadData.getPushStatusData().getStatus();
+        if (status == 1) {
+            g(true);
+        } else if (status == 2) {
+            g(false);
+        }
     }
 
-    public void d(SendCardInfo sendCardInfo) {
+    public void g(boolean z) {
+        TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) || sendCardInfo == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.c) == null) {
             return;
         }
-        this.b = sendCardInfo.card_logo;
-        this.c = sendCardInfo.card_name;
-        this.d = sendCardInfo.card_pro;
-        this.e = sendCardInfo.card_get_status.intValue();
-        this.a = sendCardInfo.packet_id.longValue();
+        if (z) {
+            textView.setText(R.string.obfuscated_res_0x7f0f0f29);
+            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f080fcb);
+            SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
+            this.c.setClickable(true);
+        } else {
+            textView.setText(R.string.obfuscated_res_0x7f0f0274);
+            SkinManager.setBackgroundResource(this.c, R.drawable.label_bg_gray80);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            this.c.setClickable(false);
+        }
+        this.c.setVisibility(0);
     }
 }

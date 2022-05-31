@@ -5,33 +5,33 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cy9;
-import com.repackage.iy9;
-import com.repackage.ry9;
-import com.repackage.wx9;
-import com.repackage.yx9;
+import com.repackage.cv9;
+import com.repackage.lv9;
+import com.repackage.qu9;
+import com.repackage.su9;
+import com.repackage.wu9;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OnSubscribeFromIterable<T> implements wx9.a<T> {
+public final class OnSubscribeFromIterable<T> implements qu9.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Iterable<? extends T> a;
 
     /* loaded from: classes8.dex */
-    public static final class IterableProducer<T> extends AtomicLong implements yx9 {
+    public static final class IterableProducer<T> extends AtomicLong implements su9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8730475647105475802L;
         public transient /* synthetic */ FieldHolder $fh;
         public final Iterator<? extends T> it;
-        public final cy9<? super T> o;
+        public final wu9<? super T> o;
 
-        public IterableProducer(cy9<? super T> cy9Var, Iterator<? extends T> it) {
+        public IterableProducer(wu9<? super T> wu9Var, Iterator<? extends T> it) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cy9Var, it};
+                Object[] objArr = {wu9Var, it};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,7 +41,7 @@ public final class OnSubscribeFromIterable<T> implements wx9.a<T> {
                     return;
                 }
             }
-            this.o = cy9Var;
+            this.o = wu9Var;
             this.it = it;
         }
 
@@ -49,35 +49,35 @@ public final class OnSubscribeFromIterable<T> implements wx9.a<T> {
         public void fastPath() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                cy9<? super T> cy9Var = this.o;
+                wu9<? super T> wu9Var = this.o;
                 Iterator<? extends T> it = this.it;
-                while (!cy9Var.isUnsubscribed()) {
+                while (!wu9Var.isUnsubscribed()) {
                     try {
-                        cy9Var.onNext((T) it.next());
-                        if (cy9Var.isUnsubscribed()) {
+                        wu9Var.onNext((T) it.next());
+                        if (wu9Var.isUnsubscribed()) {
                             return;
                         }
                         try {
                             if (!it.hasNext()) {
-                                if (cy9Var.isUnsubscribed()) {
+                                if (wu9Var.isUnsubscribed()) {
                                     return;
                                 }
-                                cy9Var.onCompleted();
+                                wu9Var.onCompleted();
                                 return;
                             }
                         } catch (Throwable th) {
-                            iy9.f(th, cy9Var);
+                            cv9.f(th, wu9Var);
                             return;
                         }
                     } catch (Throwable th2) {
-                        iy9.f(th2, cy9Var);
+                        cv9.f(th2, wu9Var);
                         return;
                     }
                 }
             }
         }
 
-        @Override // com.repackage.yx9
+        @Override // com.repackage.su9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || get() == Long.MAX_VALUE) {
@@ -85,7 +85,7 @@ public final class OnSubscribeFromIterable<T> implements wx9.a<T> {
             }
             if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                 fastPath();
-            } else if (j <= 0 || ry9.b(this, j) != 0) {
+            } else if (j <= 0 || lv9.b(this, j) != 0) {
             } else {
                 slowPath(j);
             }
@@ -95,41 +95,41 @@ public final class OnSubscribeFromIterable<T> implements wx9.a<T> {
         public void slowPath(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-                cy9<? super T> cy9Var = this.o;
+                wu9<? super T> wu9Var = this.o;
                 Iterator<? extends T> it = this.it;
                 do {
                     long j2 = 0;
                     while (true) {
                         if (j2 != j) {
-                            if (cy9Var.isUnsubscribed()) {
+                            if (wu9Var.isUnsubscribed()) {
                                 return;
                             }
                             try {
-                                cy9Var.onNext((T) it.next());
-                                if (cy9Var.isUnsubscribed()) {
+                                wu9Var.onNext((T) it.next());
+                                if (wu9Var.isUnsubscribed()) {
                                     return;
                                 }
                                 try {
                                     if (!it.hasNext()) {
-                                        if (cy9Var.isUnsubscribed()) {
+                                        if (wu9Var.isUnsubscribed()) {
                                             return;
                                         }
-                                        cy9Var.onCompleted();
+                                        wu9Var.onCompleted();
                                         return;
                                     }
                                     j2++;
                                 } catch (Throwable th) {
-                                    iy9.f(th, cy9Var);
+                                    cv9.f(th, wu9Var);
                                     return;
                                 }
                             } catch (Throwable th2) {
-                                iy9.f(th2, cy9Var);
+                                cv9.f(th2, wu9Var);
                                 return;
                             }
                         } else {
                             j = get();
                             if (j2 == j) {
-                                j = ry9.g(this, j2);
+                                j = lv9.g(this, j2);
                             }
                         }
                     }
@@ -160,27 +160,27 @@ public final class OnSubscribeFromIterable<T> implements wx9.a<T> {
         throw new NullPointerException("iterable must not be null");
     }
 
-    @Override // com.repackage.wx9.a, com.repackage.ky9
+    @Override // com.repackage.qu9.a, com.repackage.ev9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((cy9) ((cy9) obj));
+        call((wu9) ((wu9) obj));
     }
 
-    public void call(cy9<? super T> cy9Var) {
+    public void call(wu9<? super T> wu9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cy9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, wu9Var) == null) {
             try {
                 Iterator<? extends T> it = this.a.iterator();
                 boolean hasNext = it.hasNext();
-                if (cy9Var.isUnsubscribed()) {
+                if (wu9Var.isUnsubscribed()) {
                     return;
                 }
                 if (!hasNext) {
-                    cy9Var.onCompleted();
+                    wu9Var.onCompleted();
                 } else {
-                    cy9Var.f(new IterableProducer(cy9Var, it));
+                    wu9Var.f(new IterableProducer(wu9Var, it));
                 }
             } catch (Throwable th) {
-                iy9.f(th, cy9Var);
+                cv9.f(th, wu9Var);
             }
         }
     }

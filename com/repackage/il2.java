@@ -1,64 +1,39 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class il2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final jl2[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public ra1<gl2> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755614686, "Lcom/repackage/il2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755614686, "Lcom/repackage/il2;");
+    public il2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new jl2[]{new gl2(), new hl2()};
+        a();
     }
 
-    public static String a() {
-        InterceptResult invokeV;
-        jl2[] jl2VarArr;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (jl2 jl2Var : a) {
-                sb.append(jl2Var.b());
-                sb.append(jl2Var.enable() ? 1 : 0);
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            pa1 b = pa1.b();
+            this.a = b;
+            b.a(new hl2());
         }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static List<jl2> b() {
-        InterceptResult invokeV;
-        jl2[] jl2VarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (jl2 jl2Var : a) {
-                if (jl2Var.enable()) {
-                    arrayList.add(jl2Var);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

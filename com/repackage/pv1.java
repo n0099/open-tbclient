@@ -1,25 +1,21 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pv1 extends au1 {
+public final class pv1 extends tu1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public int e;
-    public int f;
+    public int D;
+    public String E;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pv1() {
+        super("coverView", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,43 +23,33 @@ public class pv1 extends au1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.E = "";
     }
 
-    @Override // com.repackage.au1
-    public void a(bu1 bu1Var, Canvas canvas) {
+    @Override // com.repackage.tu1, com.repackage.vu1, com.repackage.xu1, com.repackage.gp2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) {
-            if (bu1Var.a() == 0) {
-                bu1Var.b(canvas.save());
-            }
-            Matrix matrix = new Matrix();
-            matrix.setValues(new float[]{this.a, this.c, this.e, this.b, this.d, this.f, 0.0f, 0.0f, 1.0f});
-            canvas.concat(matrix);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.au1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 6) {
-                    this.a = (float) jSONArray.optDouble(0);
-                    this.b = (float) jSONArray.optDouble(1);
-                    this.c = (float) jSONArray.optDouble(2);
-                    this.d = (float) jSONArray.optDouble(3);
-                    this.e = le3.g((float) jSONArray.optDouble(4));
-                    this.f = le3.g((float) jSONArray.optDouble(5));
-                }
-            } catch (Exception e) {
-                if (eh1.a) {
-                    e.printStackTrace();
-                }
-            }
+        super.a(jSONObject);
+        this.D = jSONObject.optInt("scrollTop");
+        JSONObject jSONObject3 = this.j;
+        if (jSONObject3 != null) {
+            this.E = jSONObject3.optString("overflowY");
         }
+        np2 np2Var = this.h;
+        if (np2Var == null || (jSONObject2 = this.j) == null) {
+            return;
+        }
+        np2Var.i(jSONObject2.optBoolean("fixed", false));
     }
 }

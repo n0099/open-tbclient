@@ -1,188 +1,385 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.core.util.videoPreload.IVideoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ax5 extends uw5<v26> {
+public class ax5 extends rw5 implements IVideoData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId U;
+    public static String V;
+    public static String W;
+    public static String X;
+    public static String Y;
+    public static String Z;
+    public static String g0;
+    public static String h0;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView i;
-    public LinearLayout j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public LinearLayout n;
-    public ImageView o;
-    public ImageView p;
-    public ImageView q;
-    public ImageView r;
-    public ImageView s;
-    public TextView t;
-    public v26 u;
-    public View v;
+    public boolean R;
+    public boolean S;
+    public int T;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755841389, "Lcom/repackage/ax5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755841389, "Lcom/repackage/ax5;");
+                return;
+            }
+        }
+        U = BdUniqueId.gen();
+        V = "";
+        W = "";
+        X = "";
+        Y = "";
+        h0 = "";
+    }
+
+    public ax5(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {threadData};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        s(k());
+        this.R = false;
+        this.S = true;
+        this.T = 0;
+        this.a = threadData;
     }
 
-    @Override // com.repackage.uw5
-    public int d() {
+    public static boolean R(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? (threadData == null || threadData.getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.rw5
+    public StatisticItem B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d018f : invokeV.intValue;
-    }
-
-    @Override // com.repackage.uw5
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(k(), R.color.CAM_X0201);
-                SkinManager.setBackgroundResource(this.v, R.color.CAM_X0205);
-                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.l, R.color.CAM_X0107, 1);
-                SkinManager.setViewTextColor(this.m, R.color.CAM_X0106, 1);
-                SkinManager.setViewTextColor(this.t, R.color.CAM_X0107, 1);
-                u(this.u);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = 1;
+            StatisticItem y = y(X, true);
+            if (y != null && getThreadData() != null) {
+                ThreadData threadData = getThreadData();
+                y.param("obj_name", (threadData.getTopAgreePost() == null || (threadData.getTopAgreePost().P() == null && threadData.getTopAgreePost().b0() == null)) ? 0 : 1);
+                if (threadData.getAuthor() != null) {
+                    y.param(TiebaStatic.Params.AB_TYPE, threadData.getAuthor().hadConcerned() ? 1 : 0);
+                }
+                if (threadData.getBaijiahaoData() != null) {
+                    y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                    y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
+                y.param(TiebaStatic.Params.OBJ_PARAM5, S(threadData));
+                if (threadData.isAlaLiveUser()) {
+                    y.param(TiebaStatic.Params.OBJ_TO, 2);
+                } else {
+                    y.param(TiebaStatic.Params.OBJ_TO, 1);
+                }
+                if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
+                    int calculateLiveType = YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo());
+                    if (threadData.getAuthor().getAlaInfo().live_status != 1 && threadData.getAuthor().getAlaInfo().friendRoomStatus != 2) {
+                        i = 2;
+                    }
+                    if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
+                        TiebaStaticHelper.addYYParam(y, threadData.getAuthor().getAlaInfo().mYyExtData);
+                    }
+                    y.param(TiebaStatic.Params.OBJ_PARAM7, i);
+                    y.param(TiebaStatic.Params.OBJ_PARAM8, calculateLiveType);
+                }
             }
-            this.a = i;
+            return y;
         }
+        return (StatisticItem) invokeV.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @Override // com.repackage.rw5
+    public StatisticItem C() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StatisticItem y = y(Y, true);
+            if (getThreadData() != null) {
+                ThreadData threadData = getThreadData();
+                if (threadData.getBaijiahaoData() != null) {
+                    y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                    y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
+                y.param(TiebaStatic.Params.OBJ_PARAM5, S(threadData));
+                y.param("nid", threadData.getNid());
+            }
+            return y;
         }
-        e().a(k(), this.u);
+        return (StatisticItem) invokeV.objValue;
     }
 
-    public final void s(View view2) {
+    public StatisticItem N(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09050f);
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090510);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051a);
-            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090511);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090513);
-            this.n = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090519);
-            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090514);
-            this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090515);
-            this.q = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090516);
-            this.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090517);
-            this.s = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090518);
-            this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050e);
-            this.i.setDefaultResource(17170445);
-            this.i.setDefaultBgResource(R.color.CAM_X0205);
-            this.i.setDrawBorder(true);
-            this.i.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.i.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
-            this.i.setRadius(getContext().getResources().getDimensionPixelSize(R.dimen.tbds26));
-            k().setOnClickListener(this);
-            this.v = view2.findViewById(R.id.obfuscated_res_0x7f0907f4);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) ? O(threadData, -1) : (StatisticItem) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uw5
-    /* renamed from: t */
-    public void l(v26 v26Var) {
+    public StatisticItem O(ThreadData threadData, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, v26Var) == null) || v26Var == null || v26Var.e() == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, threadData, i)) == null) {
+            StatisticItem y = y(Y, true);
+            if (y != null) {
+                if (i != -1) {
+                    y.param(TiebaStatic.Params.CLICK_LOCATE, i);
+                }
+                if (getThreadData() != null) {
+                    ThreadData threadData2 = getThreadData();
+                    if (threadData2.getBaijiahaoData() != null) {
+                        y.param(TiebaStatic.Params.OBJ_PARAM4, threadData2.getBaijiahaoData().oriUgcNid);
+                        y.param(TiebaStatic.Params.OBJ_PARAM6, threadData2.getBaijiahaoData().oriUgcVid);
+                    }
+                    y.param(TiebaStatic.Params.OBJ_PARAM5, S(threadData2));
+                }
+            }
+            return y;
         }
-        this.u = v26Var;
-        this.i.K(v26Var.e().avatar, 10, false);
-        this.k.setText(v26Var.e().game_name);
-        this.l.setText(v26Var.e().title_small);
-        this.m.setText(String.valueOf(v26Var.e().game_score));
-        u(v26Var);
-        this.t.setText(this.c.getResources().getString(R.string.obfuscated_res_0x7f0f06e8, StringHelper.numberUniform(v26Var.e().game_score_num)));
+        return (StatisticItem) invokeLI.objValue;
     }
 
-    public final void u(v26 v26Var) {
+    public StatisticItem P() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, v26Var) == null) || v26Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StatisticItem y = y(h0, true);
+            if (y != null && getThreadData() != null) {
+                ThreadData threadData = getThreadData();
+                if (threadData.getBaijiahaoData() != null) {
+                    y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                    y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
+                y.param(TiebaStatic.Params.OBJ_PARAM5, S(threadData));
+            }
+            return y;
         }
-        SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_empty_bg);
-        SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_empty_bg);
-        if (v26Var.e().game_score > 0.0d) {
-            if (v26Var.e().game_score < 2.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (v26Var.e().game_score == 2.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (v26Var.e().game_score < 4.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (v26Var.e().game_score == 4.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (v26Var.e().game_score < 6.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (v26Var.e().game_score == 6.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (v26Var.e().game_score < 8.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (v26Var.e().game_score == 8.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
-            } else if (v26Var.e().game_score < 10.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_half_bg);
-            } else if (v26Var.e().game_score == 10.0d) {
-                SkinManager.setImageResource(this.o, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.p, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.q, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.r, R.drawable.game_comment_score_btn_small_full_bg);
-                SkinManager.setImageResource(this.s, R.drawable.game_comment_score_btn_small_full_bg);
+        return (StatisticItem) invokeV.objValue;
+    }
+
+    public StatisticItem Q(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, threadData)) == null) {
+            StatisticItem y = y(V, true);
+            if (y != null && getThreadData() != null) {
+                ThreadData threadData2 = getThreadData();
+                if (threadData2.getBaijiahaoData() != null) {
+                    y.param(TiebaStatic.Params.OBJ_PARAM4, threadData2.getBaijiahaoData().oriUgcNid);
+                    y.param(TiebaStatic.Params.OBJ_PARAM6, threadData2.getBaijiahaoData().oriUgcVid);
+                    if (threadData2.isAlaLiveUser()) {
+                        y.param(TiebaStatic.Params.OBJ_PARAM2, 2);
+                    } else {
+                        y.param(TiebaStatic.Params.OBJ_PARAM2, 1);
+                    }
+                }
+                if (threadData2.getAuthor() != null && threadData2.getAuthor().getAlaInfo() != null) {
+                    int calculateLiveType = YYLiveUtil.calculateLiveType(threadData2.getAuthor().getAlaInfo());
+                    if (threadData2.getAuthor().getAlaInfo().mYyExtData != null) {
+                        TiebaStaticHelper.addYYParam(y, threadData2.getAuthor().getAlaInfo().mYyExtData);
+                    }
+                    y.param(TiebaStatic.Params.OBJ_PARAM7, calculateLiveType);
+                }
+                y.param(TiebaStatic.Params.OBJ_PARAM5, S(threadData2));
+            }
+            return y;
+        }
+        return (StatisticItem) invokeL.objValue;
+    }
+
+    public int S(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, threadData)) == null) {
+            if (threadData == null) {
+                return 1;
+            }
+            if (threadData.isBJHVideoDynamicThreadType() || threadData.isBJHNormalThreadType()) {
+                return 2;
+            }
+            return (threadData.isBJHArticleThreadType() || threadData.isBJHVideoThreadType()) ? 3 : 1;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.repackage.rw5
+    public StatisticItem g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            ThreadData threadData = this.a;
+            if (threadData != null) {
+                statisticItem.param("fid", threadData.getFid());
+                statisticItem.param("tid", this.a.getTid());
+                if (this.a.isBJHVideoThreadType()) {
+                    statisticItem.param("obj_type", 8);
+                } else if (this.a.isBJHVideoDynamicThreadType()) {
+                    statisticItem.param("obj_type", 9);
+                } else if (this.a.isVideoThreadType()) {
+                    statisticItem.param("obj_type", 2);
+                }
+                statisticItem.param("obj_param1", E() ? 2 : 1);
+                if (this.a.getAuthor() != null) {
+                    statisticItem.param("obj_id", this.a.getAuthor().getUserId());
+                }
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeL.objValue;
+    }
+
+    @Override // com.repackage.om4
+    public String getRecomReason() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ThreadData threadData = this.a;
+            if (threadData == null) {
+                return null;
+            }
+            return threadData.mRecomReason;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.rw5, com.repackage.om4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            ThreadData threadData = this.a;
+            if (threadData == null) {
+                return null;
+            }
+            if (threadData.getResource() != 5) {
+                this.a.setResource(1);
+            }
+            return this.a;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.jn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ThreadData threadData = this.a;
+            if (threadData == null) {
+                return zw5.o0;
+            }
+            if (this.B) {
+                if (this.n) {
+                    return ThreadData.TYPE_VIDEO_WITH_FORUM_HEADER;
+                }
+                return threadData.getType();
+            } else if (this.m) {
+                return zw5.z0;
+            } else {
+                if (this.s) {
+                    return U;
+                }
+                if (this.A) {
+                    return zw5.G0;
+                }
+                if (this.y) {
+                    return zw5.I0;
+                }
+                if (this.x) {
+                    return zw5.H0;
+                }
+                if (this.n) {
+                    return zw5.A0;
+                }
+                if (this.u) {
+                    return zw5.J0;
+                }
+                if (this.v) {
+                    return zw5.K0;
+                }
+                if (this.w) {
+                    return zw5.L0;
+                }
+                if (this.z) {
+                    return zw5.M0;
+                }
+                return U;
             }
         }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.videoPreload.IVideoData
+    public String getVideoUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ThreadData threadData = this.a;
+            if (threadData == null || threadData.getThreadVideoInfo() == null || this.a.getThreadVideoInfo().video_url == null) {
+                return null;
+            }
+            return this.a.getThreadVideoInfo().video_url;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.rw5
+    public boolean isVideoThreadType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.rw5
+    public StatisticItem k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            StatisticItem y = y(W, true);
+            if (y != null && getThreadData() != null) {
+                ThreadData threadData = getThreadData();
+                if (threadData.getBaijiahaoData() != null) {
+                    y.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                    y.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
+                y.param(TiebaStatic.Params.OBJ_PARAM5, S(threadData));
+            }
+            return y;
+        }
+        return (StatisticItem) invokeV.objValue;
     }
 }

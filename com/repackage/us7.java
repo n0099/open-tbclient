@@ -1,43 +1,75 @@
 package com.repackage;
 
-import com.baidu.tieba.tbadkCore.data.PostData;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
+import com.baidu.tieba.pb.pb.main.PbLoadMoreItemVideoViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class us7 {
+public class us7 extends es7<rp7, PbLoadMoreItemVideoViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<PostData> a;
-    public final List<Long> b;
-    public String c;
-    public int d;
+    public View.OnClickListener o;
 
-    public us7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public us7(pw7 pw7Var, BdUniqueId bdUniqueId) {
+        super(pw7Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pw7Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((pw7) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.d = 0;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.es7, com.repackage.wm
+    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        c0(i, view2, viewGroup, (rp7) obj, (PbLoadMoreItemVideoViewHolder) viewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: b0 */
+    public PbLoadMoreItemVideoViewHolder M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbLoadMoreItemVideoViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d05ed, viewGroup, false)) : (PbLoadMoreItemVideoViewHolder) invokeL.objValue;
+    }
+
+    public View c0(int i, View view2, ViewGroup viewGroup, rp7 rp7Var, PbLoadMoreItemVideoViewHolder pbLoadMoreItemVideoViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rp7Var, pbLoadMoreItemVideoViewHolder})) == null) {
+            super.S(i, view2, viewGroup, rp7Var, pbLoadMoreItemVideoViewHolder);
+            pbLoadMoreItemVideoViewHolder.c(this.o);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void d0(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.o = onClickListener;
+        }
     }
 }

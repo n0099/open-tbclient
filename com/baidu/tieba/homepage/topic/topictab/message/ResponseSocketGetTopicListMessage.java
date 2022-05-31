@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ro;
-import com.repackage.t17;
-import com.repackage.v17;
+import com.repackage.jn;
+import com.repackage.wz6;
+import com.repackage.yz6;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ import tbclient.NewTopicList.NewTopicListResIdl;
 public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ro> mTopicDataList;
+    public List<jn> mTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketGetTopicListMessage() {
@@ -43,7 +43,7 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<ro> getTopicDataList() {
+    public List<jn> getTopicDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mTopicDataList : (List) invokeV.objValue;
@@ -67,18 +67,18 @@ public class ResponseSocketGetTopicListMessage extends SocketResponsedMessage {
         int i2 = 1;
         for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
             if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                t17 t17Var = new t17();
-                t17Var.R = i2;
-                t17Var.O(newTopicList);
-                this.mTopicDataList.add(t17Var);
-                v17 v17Var = new v17();
-                v17Var.a = R.dimen.tbds1;
-                v17Var.b = R.color.CAM_X0203;
-                this.mTopicDataList.add(v17Var);
+                wz6 wz6Var = new wz6();
+                wz6Var.R = i2;
+                wz6Var.O(newTopicList);
+                this.mTopicDataList.add(wz6Var);
+                yz6 yz6Var = new yz6();
+                yz6Var.a = R.dimen.tbds1;
+                yz6Var.b = R.color.CAM_X0203;
+                this.mTopicDataList.add(yz6Var);
                 i2++;
             }
         }
-        List<ro> list = this.mTopicDataList;
-        ((v17) ListUtils.getItem(list, list.size() - 1)).a = 0;
+        List<jn> list = this.mTopicDataList;
+        ((yz6) ListUtils.getItem(list, list.size() - 1)).a = 0;
     }
 }

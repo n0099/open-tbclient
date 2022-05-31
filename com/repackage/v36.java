@@ -1,16 +1,22 @@
 package com.repackage;
 
-import android.webkit.JsPromptResult;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class v36 implements p36 {
+public class v36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public MetaData f;
+    public boolean g;
+    public boolean h;
 
     public v36() {
         Interceptable interceptable = $ic;
@@ -22,26 +28,10 @@ public class v36 implements p36 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.repackage.p36
-    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
-            try {
-                o36.f().i(str2, str3);
-            } catch (Throwable unused) {
-                o36.f().e();
-            }
-        }
-    }
-
-    @Override // com.repackage.p36
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showNativeDialog" : (String) invokeV.objValue;
+        this.g = false;
+        this.h = false;
     }
 }

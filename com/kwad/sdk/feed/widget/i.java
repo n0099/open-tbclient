@@ -59,19 +59,19 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void c() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f09101d);
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091098)).setRatio(0.66f);
-        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f091023);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090fdf);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f09105a)).setRatio(0.66f);
+        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f090fe5);
         this.f = roundAngleImageView;
         roundAngleImageView.setRadius(com.kwad.sdk.a.kwai.a.a(getContext(), 3.0f));
-        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101f);
-        this.j = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f09103c);
-        this.i = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09108f);
+        this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe1);
+        this.j = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f090ffe);
+        this.i = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091051);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d042d;
+        return R.layout.obfuscated_res_0x7f0d0423;
     }
 
     @Override // android.view.View.OnClickListener
@@ -79,7 +79,7 @@ public class i extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
         if (view2 == this.g) {
             m();
         } else {
-            com.kwad.sdk.core.download.a.a.a(new a.C0295a(bb.a(this)).a(((com.kwad.sdk.feed.widget.base.a) this).b).a(this.h).a(view2 == this.j ? 1 : 2).a(view2 == this.j).a(new a.b() { // from class: com.kwad.sdk.feed.widget.i.1
+            com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(this)).a(((com.kwad.sdk.feed.widget.base.a) this).b).a(this.h).a(view2 == this.j ? 1 : 2).a(view2 == this.j).a(new a.b() { // from class: com.kwad.sdk.feed.widget.i.1
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     i.this.k();

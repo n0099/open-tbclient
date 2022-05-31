@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr3;
-import com.repackage.lr3;
-import com.repackage.or3;
-import com.repackage.pr3;
-import com.repackage.ud3;
+import com.repackage.bq3;
+import com.repackage.cq3;
+import com.repackage.hc3;
+import com.repackage.sp3;
+import com.repackage.yp3;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -130,7 +130,7 @@ public class InstallActivity extends Activity {
     public static boolean handleInstallApp(WeakReference<Activity> weakReference, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? fr3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? sp3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -141,12 +141,12 @@ public class InstallActivity extends Activity {
             if (i == 1345431) {
                 if (i2 != -1 || TextUtils.isEmpty(this.downloadPackageName)) {
                     if (i2 == 0) {
-                        pr3.n().h("installCancel", new or3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
+                        cq3.n().h("installCancel", new bq3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
                     } else if (i2 == 1 && intent != null) {
-                        pr3.n().g("installFailed", new or3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.downloadUrl);
+                        cq3.n().g("installFailed", new bq3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.downloadUrl);
                     }
-                } else if (lr3.g(AppRuntime.getAppContext(), this.downloadPackageName) && lr3.k(AppRuntime.getAppContext(), this.downloadPackageName)) {
-                    pr3.n().h("openAtOnce", new or3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
+                } else if (yp3.g(AppRuntime.getAppContext(), this.downloadPackageName) && yp3.k(AppRuntime.getAppContext(), this.downloadPackageName)) {
+                    cq3.n().h("openAtOnce", new bq3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
                 }
             }
             finish();
@@ -162,7 +162,7 @@ public class InstallActivity extends Activity {
             if (extras != null) {
                 this.downloadUrl = extras.getString("key_download_url");
                 this.downloadPackageName = extras.getString("key_download_package_name");
-                this.mUbcParams = ud3.d(extras.getString("ubc_params", ""));
+                this.mUbcParams = hc3.d(extras.getString("ubc_params", ""));
                 this.mDownloadParams = extras.getString("download_params");
             }
             sExecutorService.execute(new b(this, this.downloadUrl, this.downloadPackageName, this.mDownloadParams, null));
@@ -179,8 +179,8 @@ public class InstallActivity extends Activity {
                 int i = this.mResumeCount + 1;
                 this.mResumeCount = i;
                 if (i > 1) {
-                    if (!lr3.g(AppRuntime.getAppContext(), this.downloadPackageName)) {
-                        pr3.n().h("installCancel", new or3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
+                    if (!yp3.g(AppRuntime.getAppContext(), this.downloadPackageName)) {
+                        cq3.n().h("installCancel", new bq3(this.mUbcParams), this.downloadPackageName, this.mDownloadParams, this.downloadUrl);
                     }
                     finish();
                 }

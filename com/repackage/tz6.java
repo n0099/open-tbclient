@@ -1,12 +1,9 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.ErrorData;
-import com.repackage.pu4;
+import java.util.List;
 /* loaded from: classes7.dex */
-public interface tz6 extends pu4.g {
-    void J(s07 s07Var);
+public interface tz6 {
+    void loadData();
 
-    void c();
-
-    void onServerError(ErrorData errorData);
+    void netCallback(int i, List<jn> list);
 }

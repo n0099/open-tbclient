@@ -1,28 +1,27 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class zv3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yv3 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int state;
 
-    public zv3() {
+    public static synchronized yv3 a() {
+        InterceptResult invokeV;
+        yv3 yv3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (zv3.class) {
+                if (a == null) {
+                    a = new yv3();
+                }
+                yv3Var = a;
             }
+            return yv3Var;
         }
+        return (yv3) invokeV.objValue;
     }
 }

@@ -101,7 +101,7 @@ public class PushMessageHandler extends BaseService {
             try {
                 context.startService(intent);
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m109a(e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m108a(e.getMessage());
             }
         }
     }
@@ -272,7 +272,7 @@ public class PushMessageHandler extends BaseService {
                 intent.setAction("action_clicked_activity_finish");
                 context.sendBroadcast(intent, d.a(context));
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("callback sync error" + e);
+                com.xiaomi.channel.commonutils.logger.b.m108a("callback sync error" + e);
             }
         }
     }
@@ -295,7 +295,7 @@ public class PushMessageHandler extends BaseService {
                     com.xiaomi.channel.commonutils.logger.b.c("PushMessageHandler.onHandleIntent " + hjVar.d());
                     MiTinyDataClient.upload(context, hjVar);
                 } else if (1 == PushMessageHelper.getPushMode(context)) {
-                    if (m127b()) {
+                    if (m126b()) {
                         com.xiaomi.channel.commonutils.logger.b.d("receive a message before application calling initialize");
                         if (z) {
                             b(context);
@@ -366,7 +366,7 @@ public class PushMessageHandler extends BaseService {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m127b() {
+    public static boolean m126b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? b.isEmpty() : invokeV.booleanValue;
@@ -382,7 +382,7 @@ public class PushMessageHandler extends BaseService {
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo128a() {
+    public boolean mo127a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

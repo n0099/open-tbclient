@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.o30;
+import com.repackage.b20;
 /* loaded from: classes2.dex */
 public class InitSDKIdleTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -33,7 +33,7 @@ public class InitSDKIdleTask extends LaunchTask {
     private void initAxeSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
-            o30.a.c(TbadkCoreApplication.getInst()).b().t();
+            b20.a.c(TbadkCoreApplication.getInst()).b().t();
         }
     }
 

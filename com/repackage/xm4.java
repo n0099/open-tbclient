@@ -1,17 +1,20 @@
 package com.repackage;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
+import tbclient.AppCode;
 /* loaded from: classes7.dex */
 public class xm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public String a;
 
     public xm4() {
         Interceptable interceptable = $ic;
@@ -23,37 +26,37 @@ public class xm4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 1500;
-        this.b = 3000;
-        this.c = 6000;
     }
 
-    public void a(JSONObject jSONObject) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            jSONObject.optInt("wifiSlow", -1);
-            jSONObject.optInt("threeGSlow", -1);
-            jSONObject.optInt("twoGSlow", -1);
-            int optInt = jSONObject.optInt("wifiLog", -1);
-            if (optInt > 0) {
-                this.a = optInt;
-            }
-            int optInt2 = jSONObject.optInt("threeGLog", -1);
-            if (optInt2 > 0) {
-                this.b = optInt2;
-            }
-            int optInt3 = jSONObject.optInt("twoGLog", -1);
-            if (optInt3 > 0) {
-                this.c = optInt3;
-            }
-            jSONObject.optInt("mobile_cdn_switch", 1);
-        } catch (Exception unused) {
+            jSONObject.optString("game_icon");
+            this.a = jSONObject.optString("post_url");
+            jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
         }
+    }
+
+    public void c(AppCode appCode) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, appCode) == null) || appCode == null) {
+            return;
+        }
+        String str = appCode.game_icon;
+        this.a = appCode.post_url;
+        String str2 = appCode.button_text;
     }
 }

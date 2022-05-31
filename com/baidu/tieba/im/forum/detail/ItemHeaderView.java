@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
 public class ItemHeaderView extends RelativeLayout {
@@ -54,13 +54,13 @@ public class ItemHeaderView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a7, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a3, (ViewGroup) this, true);
             setVisibility(8);
-            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090d05);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d04);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a1a);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d03);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d06);
+            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090cc9);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cc8);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a04);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090cc7);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090cca);
             this.b.setPlaceHolder(1);
         }
     }
@@ -86,7 +86,7 @@ public class ItemHeaderView extends RelativeLayout {
             this.c.setCompoundDrawables(null, null, bitmapDrawable, null);
             TextView textView = this.c;
             Context context = this.a;
-            textView.setCompoundDrawablePadding(mi.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
+            textView.setCompoundDrawablePadding(li.d(context, context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224)));
             this.d.setText(recommendForumInfo.authen);
             this.d.setVisibility(0);
         } else {
@@ -95,7 +95,7 @@ public class ItemHeaderView extends RelativeLayout {
         }
         this.e.setText(StringHelper.numberUniformFormat(recommendForumInfo.member_count.intValue()));
         this.f.setText(StringHelper.numberUniformFormat(recommendForumInfo.thread_count.intValue()));
-        int d = mi.d(this.a, 80.0f);
+        int d = li.d(this.a, 80.0f);
         this.b.H(recommendForumInfo.avatar, 10, d, d, false);
         setVisibility(0);
     }

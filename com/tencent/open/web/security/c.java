@@ -10,8 +10,8 @@ import com.tencent.open.a;
 import com.tencent.open.log.SLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class c extends a.C0651a {
+/* loaded from: classes7.dex */
+public class c extends a.C0653a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String d;
@@ -57,7 +57,7 @@ public class c extends a.C0651a {
         webView.loadUrl(stringBuffer2);
     }
 
-    @Override // com.tencent.open.a.C0651a
+    @Override // com.tencent.open.a.C0653a
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -65,7 +65,7 @@ public class c extends a.C0651a {
         }
     }
 
-    @Override // com.tencent.open.a.C0651a
+    @Override // com.tencent.open.a.C0653a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -73,7 +73,7 @@ public class c extends a.C0651a {
         }
     }
 
-    @Override // com.tencent.open.a.C0651a
+    @Override // com.tencent.open.a.C0653a
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class RoundRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -41,7 +41,7 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float f = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        float f = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.a = f;
         this.d = new float[]{f, f, f, f, f, f, f, f};
         a();
@@ -114,7 +114,7 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float f = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        float f = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.a = f;
         this.d = new float[]{f, f, f, f, f, f, f, f};
         a();
@@ -139,7 +139,7 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        float f = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+        float f = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.obfuscated_res_0x7f0701d5);
         this.a = f;
         this.d = new float[]{f, f, f, f, f, f, f, f};
         a();

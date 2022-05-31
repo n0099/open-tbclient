@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes8.dex */
 public class dp extends dq {
     public static /* synthetic */ Interceptable $ic;
@@ -57,7 +58,7 @@ public class dp extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hh mo223a() {
+    public hh mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hh.x : (hh) invokeV.objValue;
@@ -65,7 +66,7 @@ public class dp extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo223a() {
+    public String mo222a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "24" : (String) invokeV.objValue;
@@ -88,7 +89,7 @@ public class dp extends dq {
                     PackageInfo packageInfo = packageManager.getPackageInfo(str2, 16384);
                     if (packageInfo != null) {
                         if (sb.length() > 0) {
-                            sb.append(";");
+                            sb.append(ParamableElem.DIVIDE_PARAM);
                         }
                         try {
                             str = packageManager.getInstallerPackageName(str2);

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.le3;
+import com.repackage.yc3;
 /* loaded from: classes2.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -139,14 +139,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             }
         }
         this.e = 0;
-        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091a74);
-        int f = le3.f(getContext(), 29.0f);
+        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091a25);
+        int f = yc3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i3 = (int) (f * 1.5f);
         this.h = i3;
         this.g = i3;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091a72);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091a23);
         this.k = headerRefreshIndicator;
         headerRefreshIndicator.i();
     }
@@ -156,7 +156,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009f, viewGroup, false);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009b, viewGroup, false);
             this.i = inflate;
             return inflate;
         }
@@ -184,7 +184,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (z) {
                 this.j.setAlpha(0.0f);
                 if (TextUtils.isEmpty(str)) {
-                    this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01a7));
+                    this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01a8));
                 } else {
                     this.k.setText(str);
                 }
@@ -225,7 +225,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (view2 != null) {
                 return view2.getHeight();
             }
-            return le3.f(getContext(), 50.0f);
+            return yc3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }

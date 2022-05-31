@@ -122,7 +122,7 @@ public class ae {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m129a(String str) {
+    public void m128a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             synchronized (this.f41a) {
@@ -138,7 +138,7 @@ public class ae {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m130a(String str) {
+    public boolean m129a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {

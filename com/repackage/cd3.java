@@ -1,22 +1,12 @@
 package com.repackage;
 
-import android.content.BroadcastReceiver;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.graphics.Color;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.widget.SlideHelper;
-import com.baidu.searchbox.widget.SlideInterceptor;
-import com.baidu.searchbox.widget.SlidingPaneLayout;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,336 +14,169 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.rl2;
-import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class cd3 implements SlideInterceptor {
+public abstract class cd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    @SuppressLint({"StaticFieldLeak"})
+    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SlideHelper a;
-    public WeakReference<SwanAppActivity> b;
-    public j63 c;
-    public BroadcastReceiver d;
 
+    @TargetApi(11)
     /* loaded from: classes5.dex */
-    public class a extends BroadcastReceiver {
+    public static class a extends cd3 {
         public static /* synthetic */ Interceptable $ic;
+        public static ClipboardManager b;
+        public static ClipData c;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cd3 this$0;
 
-        public a(cd3 cd3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cd3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = cd3Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.intent.action.CLOSE_SYSTEM_DIALOGS".equals(intent.getAction())) {
-                String stringExtra = intent.getStringExtra("reason");
-                if (TextUtils.isEmpty(stringExtra)) {
-                    return;
-                }
-                if (("homekey".equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && this.this$0.a != null) {
-                    this.this$0.a.closePane();
-                    this.this$0.a.setCanSlide(false);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements SlidingPaneLayout.PanelSlideListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ cd3 b;
-
-        public b(cd3 cd3Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cd3Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cd3Var;
-            this.a = swanAppActivity;
-        }
-
-        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-        public void onPanelClosed(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-        public void onPanelOpened(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                this.a.onBackPressed(3);
-                this.b.h();
-                this.a.overridePendingTransition(0, 0);
-                ir2.e().g();
-            }
-        }
-
-        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-        public void onPanelSlide(View view2, float f) {
-            View maskView;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) || (maskView = this.b.a.getMaskView()) == null) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-475392542, "Lcom/repackage/cd3$a;")) == null) {
                 return;
             }
-            maskView.setAlpha(1.0f - f);
-            if (this.a.hasActivedFrame()) {
-                this.a.getFrame().t0();
-            }
-            if (f == 0.0f) {
-                maskView.setBackgroundColor(Color.parseColor("#40000000"));
-            }
-            if (f == 1.0f) {
-                maskView.setBackgroundColor(0);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755801089, "Lcom/repackage/cd3;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
                 $ic = interceptable;
             }
             if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755801089, "Lcom/repackage/cd3;");
-                return;
+                classClinitInterceptable.invokePostClinit(-475392542, "Lcom/repackage/cd3$a;");
             }
         }
-        e = eh1.a;
+
+        @SuppressLint({"ServiceCast"})
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            b = (ClipboardManager) cd3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.repackage.cd3
+        public CharSequence a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    c = b.getPrimaryClip();
+                } catch (Exception e) {
+                    if (rf1.a) {
+                        throw e;
+                    }
+                }
+                ClipData clipData = c;
+                return (clipData == null || clipData.getItemCount() <= 0) ? "" : c.getItemAt(0).getText();
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        @Override // com.repackage.cd3
+        public void c(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
+                c = newPlainText;
+                try {
+                    b.setPrimaryClip(newPlainText);
+                } catch (RuntimeException e) {
+                    if (rf1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
     }
 
-    public cd3(SwanAppActivity swanAppActivity) {
+    /* loaded from: classes5.dex */
+    public static class b extends cd3 {
+        public static /* synthetic */ Interceptable $ic;
+        public static android.text.ClipboardManager b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-475392511, "Lcom/repackage/cd3$b;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-475392511, "Lcom/repackage/cd3$b;");
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            b = (android.text.ClipboardManager) cd3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.repackage.cd3
+        public CharSequence a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b.getText() : (CharSequence) invokeV.objValue;
+        }
+
+        @Override // com.repackage.cd3
+        public void c(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+                b.setText(charSequence);
+            }
+        }
+    }
+
+    public cd3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {swanAppActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = new a(this);
-        this.b = new WeakReference<>(swanAppActivity);
-        this.a = new SlideHelper();
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SwanAppActivity swanAppActivity = this.b.get();
-            return (swanAppActivity == null || swanAppActivity.getResources().getConfiguration().orientation == 2 || Build.VERSION.SDK_INT == 26) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.closePane();
-        }
-    }
-
-    public void f() {
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (swanAppActivity = this.b.get()) == null || swanAppActivity.isDestroyed()) {
-            return;
-        }
-        this.a.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
-        this.a.attachActivity(swanAppActivity);
-        this.a.setEnableReleaseWhenNoTranslucent(false);
-        this.a.setFadeColor(0);
-        this.a.setSlideInterceptor(this);
-        this.a.setSlideListener(new b(this, swanAppActivity));
-        an1 g = g();
-        if (g != null) {
-            this.a.setRegionFactor(g.C());
-        }
-    }
-
-    public final an1 g() {
-        InterceptResult invokeV;
-        d02 swanAppFragmentManager;
-        a02 m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SwanAppActivity swanAppActivity = this.b.get();
-            if (swanAppActivity == null || (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) == null || (m = swanAppFragmentManager.m()) == null || !(m instanceof c02)) {
-                return null;
-            }
-            return ((c02) m).n3();
-        }
-        return (an1) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && bk2.M().a()) {
-            this.c.c(8);
-        }
-    }
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            SwanAppActivity swanAppActivity = this.b.get();
-            if (swanAppActivity != null && !swanAppActivity.isDestroyed() && swanAppActivity.hasActivedFrame()) {
-                c02 o = swanAppActivity.getSwanAppFragmentManager().o();
-                if (o != null) {
-                    j13 F1 = o.F1();
-                    if (F1 == null) {
-                        return true;
-                    }
-                    if (F1.l || F1.m) {
-                        u53 u53Var = ss2.g(true).get("scope_disable_swipe_back");
-                        if (u53Var == null || u53Var.d) {
-                            return false;
-                        }
-                        SlideHelper slideHelper = this.a;
-                        if (slideHelper != null) {
-                            slideHelper.setRegionFactor(0.1d);
-                        }
-                    }
-                    return true;
-                } else if (e) {
-                    Log.d("SwanActivitySlideHelper", "topFragment = null; return false");
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r3v3, types: [com.repackage.bn1] */
-    @Override // com.baidu.searchbox.widget.SlideInterceptor
-    public boolean isSlidable(MotionEvent motionEvent) {
+    public static cd3 b(Context context) {
         InterceptResult invokeL;
-        d02 swanAppFragmentManager;
-        an1 g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
-            SwanAppActivity swanAppActivity = this.b.get();
-            if (swanAppActivity == null || !swanAppActivity.hasActivedFrame() || (swanAppFragmentManager = swanAppActivity.getSwanAppFragmentManager()) == null || (g = g()) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            a = context.getApplicationContext();
+            if (ob3.c()) {
+                return new a();
             }
-            dn1 m = g.m();
-            return swanAppFragmentManager.k() <= 1 && g.isSlidable(motionEvent) && !(m != null && m.u() != 0 && m.u().canGoBack()) && i();
+            return new b();
         }
-        return invokeL.booleanValue;
+        return (cd3) invokeL.objValue;
     }
 
-    public void k() {
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (swanAppActivity = this.b.get()) == null) {
-            return;
-        }
-        j63 skinDecorator = swanAppActivity.getSkinDecorator();
-        this.c = skinDecorator;
-        if (skinDecorator == null) {
-            return;
-        }
-        if (ml2.c(false).booleanValue()) {
-            this.c.c(0);
-        }
-        f();
-    }
+    public abstract CharSequence a();
 
-    public void n() {
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (swanAppActivity = this.b.get()) == null) {
-            return;
-        }
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-        swanAppActivity.registerReceiver(this.d, intentFilter);
-    }
-
-    public void p() {
-        WeakReference<SwanAppActivity> weakReference;
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (weakReference = this.b) == null || (swanAppActivity = weakReference.get()) == null) {
-            return;
-        }
-        swanAppActivity.unregisterReceiver(this.d);
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.b.get() == null) {
-            return;
-        }
-        this.a.setCanSlide(c());
-    }
-
-    public void r() {
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (swanAppActivity = this.b.get()) == null) {
-            return;
-        }
-        rl2.a launchInfo = swanAppActivity.getLaunchInfo();
-        if ((launchInfo != null && "1230000000000000".equals(launchInfo.T())) || swanAppActivity.getFrameType() == 1) {
-            this.a.setCanSlide(false);
-        } else {
-            this.a.setCanSlide(c());
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && ml2.c(true).booleanValue()) {
-            this.c.c(0);
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.a.setCanSlide(z);
-        }
-    }
+    public abstract void c(CharSequence charSequence);
 }

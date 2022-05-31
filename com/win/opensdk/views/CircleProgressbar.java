@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ro9;
-import com.repackage.ws9;
-import com.repackage.yt9;
+import com.repackage.ll9;
+import com.repackage.qp9;
+import com.repackage.sq9;
 import com.win.opensdk.s2;
 /* loaded from: classes8.dex */
 public class CircleProgressbar extends TextView {
@@ -37,7 +37,7 @@ public class CircleProgressbar extends TextView {
     public s2 i;
     public long j;
     public final Rect k;
-    public yt9 l;
+    public sq9 l;
     public int m;
     public Runnable n;
 
@@ -113,7 +113,7 @@ public class CircleProgressbar extends TextView {
         this.j = 3000L;
         this.k = new Rect();
         this.m = 0;
-        this.n = new ws9(this);
+        this.n = new qp9(this);
         c(context, attributeSet);
     }
 
@@ -125,11 +125,11 @@ public class CircleProgressbar extends TextView {
         }
     }
 
-    public void b(int i, yt9 yt9Var) {
+    public void b(int i, sq9 sq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, yt9Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, sq9Var) == null) {
             this.m = i;
-            this.l = yt9Var;
+            this.l = sq9Var;
         }
     }
 
@@ -233,7 +233,7 @@ public class CircleProgressbar extends TextView {
             int i4 = i3 / 2;
             int i5 = (rect.top - i3) + i2 + i;
             Rect rect2 = this.k;
-            rectF.set(rect.left + i4, ro9.a(getContext(), 0.4f) + i5, rect2.right - i4, (((rect2.bottom + i3) - this.a) - this.e) - ro9.a(getContext(), 0.5f));
+            rectF.set(rect.left + i4, ll9.a(getContext(), 0.4f) + i5, rect2.right - i4, (((rect2.bottom + i3) - this.a) - this.e) - ll9.a(getContext(), 0.5f));
             canvas.drawArc(this.g, -90.0f, (this.h * (-360)) / 100, false, this.f);
         }
     }

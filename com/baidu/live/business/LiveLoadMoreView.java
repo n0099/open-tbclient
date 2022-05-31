@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ic0;
+import com.repackage.va0;
 /* loaded from: classes2.dex */
 public class LiveLoadMoreView extends LiveBaseItemView {
     public static /* synthetic */ Interceptable $ic;
@@ -76,37 +76,37 @@ public class LiveLoadMoreView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             boolean equals = "baidu".equals(LiveFeedPageSdk.f().e());
-            int i = R.layout.obfuscated_res_0x7f0d0504;
+            int i = R.layout.obfuscated_res_0x7f0d04fa;
             if (!equals) {
                 if ("haokan".equals(LiveFeedPageSdk.f().e())) {
-                    i = R.layout.obfuscated_res_0x7f0d0505;
+                    i = R.layout.obfuscated_res_0x7f0d04fb;
                 } else if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-                    i = R.layout.obfuscated_res_0x7f0d0506;
+                    i = R.layout.obfuscated_res_0x7f0d04fc;
                 } else if ("tieba".equals(LiveFeedPageSdk.f().e())) {
-                    i = R.layout.obfuscated_res_0x7f0d0507;
+                    i = R.layout.obfuscated_res_0x7f0d04fd;
                 }
             }
             LayoutInflater.from(getContext()).inflate(i, this);
-            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09130a);
+            LottieAnimationView lottieAnimationView = (LottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0912cc);
             this.d = lottieAnimationView;
             lottieAnimationView.loop(true);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09130b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0912cd);
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            String f = ic0.e().f(z);
+            String f = va0.e().f(z);
             if (TextUtils.isEmpty(f)) {
-                int g = ic0.e().g(z);
+                int g = va0.e().g(z);
                 if (g != 0) {
                     this.d.setAnimation(g);
                 }
             } else {
                 this.d.setAnimation(f);
             }
-            this.e.setTextColor(ic0.e().a(getContext(), z, "color_1F1F1F"));
+            this.e.setTextColor(va0.e().a(getContext(), z, "color_1F1F1F"));
         }
     }
 

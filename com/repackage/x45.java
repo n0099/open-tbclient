@@ -1,86 +1,40 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
+import android.app.Application;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.ContinuousAnimationView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class x45 extends r45 {
+public class x45 implements w45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContinuousAnimationView a;
-    public String[] b;
-    public TextView c;
-    public TextView d;
-    public ImageView e;
-    public int f;
-    public final int g;
-    public int h;
-    public Runnable i;
-    public boolean j;
-    public ValueAnimator.AnimatorUpdateListener k;
-    public final Animator.AnimatorListener l;
+    public b a;
+    public v45 b;
+    public Application c;
+    public String d;
+    public final c55 e;
+    public final d55 f;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x45 a;
-
-        public a(x45 x45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x45Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x45Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a.isViewAttached()) {
-                    TbadkCoreApplication.getInst().handler.removeCallbacks(this.a.i);
-                    return;
-                }
-                this.a.c.setText(this.a.b[this.a.l()]);
-                TbadkCoreApplication.getInst().handler.postDelayed(this.a.i, 200L);
-            }
-        }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements ValueAnimator.AnimatorUpdateListener {
+    public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x45 a;
+        public final /* synthetic */ x45 this$0;
 
         public b(x45 x45Var) {
             Interceptable interceptable = $ic;
@@ -97,338 +51,156 @@ public class x45 extends r45 {
                     return;
                 }
             }
-            this.a = x45Var;
+            this.this$0 = x45Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            t45 a;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                if (animatedFraction > 0.0f) {
-                    this.a.e.setVisibility(8);
-                }
-                if (this.a.j) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
+                return;
+            }
+            if (!y45.i()) {
+                String c = y45.c();
+                y45.m(c + " Process Not In WhiteList，No Receive");
+            } else if ("intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (a = this.this$0.e.a(intent)) != null) {
+                int myPid = Process.myPid();
+                int pid = a.getPid();
+                if (a == null || a.getType() != 1) {
+                    if (a.getType() == 2) {
+                        if (myPid != pid) {
+                            return;
+                        }
+                    } else if (a.getType() == 3 && !y45.l()) {
+                        return;
+                    }
+                } else if (myPid == pid) {
                     return;
                 }
-                this.a.a.setAlpha(Math.min(1.0f, (animatedFraction * 24.0f) / 6.0f));
+                if (this.this$0.b != null) {
+                    this.this$0.b.a(a);
+                }
             }
+        }
+
+        public /* synthetic */ b(x45 x45Var, a aVar) {
+            this(x45Var);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x45 a;
-
-        public c(x45 x45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x45Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x45Var;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                this.a.j = true;
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.j = false;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public x45(Context context) {
-        this(context, 0);
+    public x45(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {application};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = null;
+        this.e = new c55();
+        this.f = new d55();
+        this.c = application;
     }
 
-    @Override // com.repackage.r45
-    public void dettachView(View view2) {
+    private void registerReceiver() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            ContinuousAnimationView continuousAnimationView = this.a;
-            if (continuousAnimationView != null) {
-                continuousAnimationView.cancelAnimation();
+        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
+            try {
+                unregisterReceiver();
+                this.a = new b(this, null);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.setPriority(1000);
+                intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                this.c.registerReceiver(this.a, intentFilter);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            TbadkCoreApplication.getInst().handler.removeCallbacks(this.i);
-            super.dettachView(view2);
         }
     }
 
-    public void i() {
-        ContinuousAnimationView continuousAnimationView;
+    private void unregisterReceiver() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (continuousAnimationView = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            try {
+                if (this.a == null || this.c == null) {
+                    return;
+                }
+                this.c.unregisterReceiver(this.a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        ((RelativeLayout.LayoutParams) continuousAnimationView.getLayoutParams()).addRule(15, 0);
     }
 
-    public View j() {
+    @Override // com.repackage.w45
+    public void a(t45 t45Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, t45Var) == null) {
+            f(t45Var);
+        }
+    }
+
+    @Override // com.repackage.w45
+    public void b(v45 v45Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v45Var) == null) {
+            this.b = v45Var;
+        }
+    }
+
+    public final String e() {
         InterceptResult invokeV;
+        Application application;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.attachedView : (View) invokeV.objValue;
-    }
-
-    public TextView k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (TextView) invokeV.objValue;
-    }
-
-    public final int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = this.f + 1;
-            this.f = i;
-            if (i >= this.g) {
-                this.f = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.d == null && (application = this.c) != null) {
+                this.d = application.getPackageName();
             }
-            return this.f;
+            return this.d;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void m(int i) {
+    public final void f(t45 t45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1, i);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0108, 1, i);
-            SkinManager.setLottieAnimation(this.a, R.raw.lottie_full_screen_refresh);
-            if (isViewAttached()) {
-                t();
+        if (interceptable == null || interceptable.invokeL(1048579, this, t45Var) == null) {
+            if (t45Var != null) {
+                try {
+                    Intent intent = new Intent();
+                    intent.setPackage(e());
+                    intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
+                    this.f.a(intent, t45Var);
+                    this.c.sendBroadcast(intent);
+                    return;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
+                }
             }
-            TbadkCoreApplication.getInst().handler.removeCallbacks(this.i);
-            TbadkCoreApplication.getInst().handler.postDelayed(this.i, 200L);
-            this.h = i;
+            throw new NullPointerException("send multi-process message is null");
         }
     }
 
-    public void n() {
+    @Override // com.repackage.w45
+    public void startService() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            u();
-            TbadkCoreApplication.getInst().handler.removeCallbacks(this.i);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            registerReceiver();
         }
     }
 
-    public void o(int i) {
-        View view2;
+    public void stopService() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (view2 = this.attachedView) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            unregisterReceiver();
         }
-        view2.setBackgroundColor(i);
-    }
-
-    @SuppressLint({"ResourceAsColor"})
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.h == -1) {
-                this.h = TbadkCoreApplication.getInst().getSkinType();
-            }
-            if (isViewAttached()) {
-                SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1, this.h);
-                SkinManager.setViewTextColor(this.d, R.color.CAM_X0108, 1, this.h);
-                t();
-            }
-        }
-    }
-
-    @Override // com.repackage.r45
-    public void onViewAttached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.h == -1) {
-                this.h = TbadkCoreApplication.getInst().getSkinType();
-            }
-            SkinManager.setLottieAnimation(this.a, R.raw.lottie_full_screen_refresh);
-            t();
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1, this.h);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0108, 1, this.h);
-            this.c.setText(this.b[0]);
-            TbadkCoreApplication.getInst().handler.removeCallbacks(this.i);
-            TbadkCoreApplication.getInst().handler.postDelayed(this.i, 200L);
-            this.attachedView.setClickable(true);
-        }
-    }
-
-    @Override // com.repackage.r45
-    public void onViewDettached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            n();
-        }
-    }
-
-    public void p(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || this.a == null || (textView = this.d) == null) {
-            return;
-        }
-        if (textView.getVisibility() == 8) {
-            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.bottomMargin = i;
-                this.a.setLayoutParams(marginLayoutParams);
-                return;
-            }
-            return;
-        }
-        ViewGroup.LayoutParams layoutParams2 = this.d.getLayoutParams();
-        if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams2;
-            marginLayoutParams2.bottomMargin = i;
-            this.d.setLayoutParams(marginLayoutParams2);
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.d.setText(i);
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void s(int i) {
-        ContinuousAnimationView continuousAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (continuousAnimationView = this.a) == null) {
-            return;
-        }
-        ViewGroup.LayoutParams layoutParams = continuousAnimationView.getLayoutParams();
-        if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-            marginLayoutParams.topMargin = i;
-            this.a.setLayoutParams(marginLayoutParams);
-        }
-    }
-
-    public final void t() {
-        ContinuousAnimationView continuousAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (continuousAnimationView = this.a) == null) {
-            return;
-        }
-        continuousAnimationView.playAnimation();
-    }
-
-    public final void u() {
-        ContinuousAnimationView continuousAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (continuousAnimationView = this.a) == null) {
-            return;
-        }
-        continuousAnimationView.pauseAnimation();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x45(Context context, int i) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d051c, (ViewGroup) null));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f = 0;
-        this.h = -1;
-        this.i = new a(this);
-        this.k = new b(this);
-        this.l = new c(this);
-        ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f0906a6);
-        this.a = continuousAnimationView;
-        if (i > 0) {
-            ViewGroup.LayoutParams layoutParams = continuousAnimationView.getLayoutParams();
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                marginLayoutParams.topMargin = i;
-                this.a.setLayoutParams(marginLayoutParams);
-            }
-        }
-        SkinManager.setLottieAnimation(this.a, R.raw.lottie_full_screen_refresh);
-        this.a.setMinAndMaxProgress(0.0f, 1.0f);
-        this.a.setRepeatMode(1);
-        this.a.addAnimatorUpdateListener(this.k);
-        this.a.addAnimatorListener(this.l);
-        this.a.setSpeed(1.2f);
-        this.c = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09130f);
-        this.d = (TextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09131b);
-        ImageView imageView = (ImageView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091314);
-        this.e = imageView;
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f0807a4);
-        String[] stringArray = context.getResources().getStringArray(R.array.obfuscated_res_0x7f030011);
-        this.b = stringArray;
-        this.g = stringArray.length;
     }
 }

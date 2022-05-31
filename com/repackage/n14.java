@@ -1,132 +1,86 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class n14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JsFunction a;
+    public JsFunction b;
+    public JsFunction c;
 
-    public static void a(CallbackHandler callbackHandler, String str) {
+    public n14() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            u14 u14Var = new u14();
-            u14Var.a = str;
-            k14.c().a(new j14(50000, u14Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(CallbackHandler callbackHandler, String str) {
+    public static n14 d(or1 or1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            u14 u14Var = new u14();
-            u14Var.a = str;
-            k14.c().a(new j14(90000, u14Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, or1Var)) == null) {
+            if (or1Var == null) {
+                return null;
+            }
+            n14 n14Var = new n14();
+            JsFunction u = or1Var.u("onCheckForUpdate");
+            n14Var.a = u;
+            if (u != null) {
+                u.setReleaseMode(false);
+            }
+            JsFunction u2 = or1Var.u("onUpdateReady");
+            n14Var.b = u2;
+            if (u2 != null) {
+                u2.setReleaseMode(false);
+            }
+            JsFunction u3 = or1Var.u("onUpdateFailed");
+            n14Var.c = u3;
+            if (u3 != null) {
+                u3.setReleaseMode(false);
+            }
+            return n14Var;
         }
+        return (n14) invokeL.objValue;
     }
 
-    public static void c(String str, int i, String str2, boolean z) {
+    public void a(o14 o14Var) {
+        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            r14 r14Var = new r14();
-            r14Var.b = str;
-            r14Var.c = i;
-            r14Var.d = z ? 1 : 0;
-            r14Var.a = str2;
-            k14.c().a(new j14(100000, r14Var));
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, o14Var) == null) || (jsFunction = this.a) == null) {
+            return;
         }
+        jsFunction.call(o14Var);
     }
 
-    public static void d(String str) {
+    public void b() {
+        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            u14 u14Var = new u14();
-            u14Var.a = str;
-            k14.c().a(new j14(20000, u14Var));
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jsFunction = this.c) == null) {
+            return;
         }
+        jsFunction.call();
     }
 
-    public static void e(CallbackHandler callbackHandler, String str) {
+    public void c() {
+        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            u14 u14Var = new u14();
-            u14Var.a = str;
-            k14.c().a(new j14(60000, u14Var));
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (jsFunction = this.b) == null) {
+            return;
         }
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            u14 u14Var = new u14();
-            u14Var.a = str;
-            k14.c().a(new j14(10000, u14Var));
-        }
-    }
-
-    public static void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, callbackHandler, str) == null) && UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            u14 u14Var = new u14();
-            u14Var.a = str;
-            k14.c().a(new j14(40000, u14Var));
-        }
-    }
-
-    public static void h(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            r14 r14Var = new r14();
-            r14Var.b = str;
-            r14Var.c = i;
-            r14Var.d = z ? 1 : 0;
-            r14Var.a = str2;
-            k14.c().a(new j14(70000, r14Var));
-        }
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            s14 s14Var = new s14();
-            s14Var.b = str;
-            s14Var.a = str2;
-            k14.c().a(new j14(30000, s14Var));
-        }
-    }
-
-    public static void j(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
-            t14 t14Var = new t14();
-            t14Var.b = str;
-            t14Var.c = i;
-            t14Var.a = str2;
-            k14.c().a(new j14(80000, t14Var));
-        }
-    }
-
-    public static void k(String str, int i, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            r14 r14Var = new r14();
-            r14Var.b = str;
-            r14Var.c = i;
-            r14Var.d = z ? 1 : 0;
-            r14Var.a = str2;
-            k14.c().a(new j14(110000, r14Var));
-        }
-    }
-
-    public static void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            u14 u14Var = new u14();
-            u14Var.a = str;
-            k14.c().a(new j14(120000, u14Var));
-        }
+        jsFunction.call();
     }
 }

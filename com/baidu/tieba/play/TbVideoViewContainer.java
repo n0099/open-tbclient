@@ -8,19 +8,17 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.play.cyberPlayer.TbCyberVideoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.y68;
+import com.repackage.f48;
 /* loaded from: classes3.dex */
 public class TbVideoViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y68 a;
+    public f48 a;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -51,9 +49,9 @@ public class TbVideoViewContainer extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y68 y68Var = this.a;
-            if (y68Var != null) {
-                y68Var.j();
+            f48 f48Var = this.a;
+            if (f48Var != null) {
+                f48Var.j();
             }
             if (getParent() instanceof ViewGroup) {
                 ((ViewGroup) getParent()).removeView(this);
@@ -64,19 +62,15 @@ public class TbVideoViewContainer extends FrameLayout {
     public final void b(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            if (UbsABTestHelper.isVideoPlayerABTest()) {
-                this.a = new TbVideoView(context);
-            } else {
-                this.a = new TbCyberVideoView(context);
-            }
+            this.a = new TbVideoView(context);
             addView((View) this.a, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
-    public y68 getControl() {
+    public f48 getControl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (y68) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (f48) invokeV.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

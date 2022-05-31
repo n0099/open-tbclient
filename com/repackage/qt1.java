@@ -1,49 +1,50 @@
 package com.repackage;
 
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class qt1 extends kw1 {
+import org.json.JSONArray;
+/* loaded from: classes6.dex */
+public class qt1 extends ns1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
+    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qt1(String str) {
-        super("camera", "cameraId");
+    public qt1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        try {
-            a(new JSONObject(str));
-        } catch (JSONException e) {
-            ux1.d("Camera", "parsing CameraTakePhotoModel occurs exception", e);
-        }
+        this.a = -1;
     }
 
-    @Override // com.repackage.kw1, com.repackage.tq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.repackage.ns1
+    public void a(os1 os1Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            super.a(jSONObject);
-            this.j = jSONObject.optString("quality");
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, os1Var, canvas) == null) || (i = this.a) < 0) {
+            return;
         }
+        os1Var.c.setStrokeWidth(i);
+    }
+
+    @Override // com.repackage.ns1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+            return;
+        }
+        this.a = yc3.g((float) jSONArray.optDouble(0));
     }
 }

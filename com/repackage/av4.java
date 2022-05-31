@@ -1,140 +1,250 @@
 package com.repackage;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
+import android.media.AudioRecord;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
-import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes5.dex */
-public class av4 extends TBSpecificationButtonConfig {
-    public static /* synthetic */ Interceptable $ic;
+public class av4 implements dv4 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int l = 8000;
+    public static int m = 2;
+    public static int n = 2;
+    public static int o = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
+    public int a;
+    public boolean b;
+    public AudioRecord c;
+    public RandomAccessFile d;
+    public File e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public short j;
+    public short k;
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ av4 a;
+
+        public a(av4 av4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = av4Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.h();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755843342, "Lcom/repackage/av4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755843342, "Lcom/repackage/av4;");
+        }
+    }
 
     public av4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = true;
-        this.b = R.color.CAM_X0101;
-        this.d = R.color.CAM_X0302;
-        this.u = false;
-        this.n = this.o;
-        this.m = this.l;
+        this.a = 0;
+        this.b = false;
+        this.c = null;
+        this.e = null;
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    @Override // com.repackage.dv4
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) ? r(f) : (Drawable) invokeF.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    @Deprecated
-    public void i(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
-            u(i, iconType);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = false;
         }
     }
 
-    public void p(@ColorRes int i) {
+    @Override // com.repackage.dv4
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0904;
-            this.u = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.dv4
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? g(o, l, m, n, str) : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.dv4
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Thread thread = new Thread(new a(this));
+            thread.setPriority(10);
+            thread.setDaemon(true);
+            thread.start();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    public boolean g(int i, int i2, int i3, int i4, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str})) == null) {
+            this.a = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
+            this.g = i2;
+            this.h = i3;
+            this.i = i4;
+            AudioRecord audioRecord = this.c;
+            if (audioRecord != null) {
+                audioRecord.release();
+            }
+            this.c = new AudioRecord(i, this.g, this.h, this.i, this.a);
+            this.j = (short) (this.h == 12 ? 2 : 1);
+            this.k = (short) (this.i == 2 ? 16 : 8);
+            File file = new File(str);
+            this.e = file;
+            if (file.exists()) {
+                this.e.delete();
+            }
+            try {
+                this.e.createNewFile();
+                RandomAccessFile randomAccessFile = this.d;
+                if (randomAccessFile != null) {
+                    try {
+                        randomAccessFile.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return false;
+                    }
+                }
+                try {
+                    this.d = new RandomAccessFile(this.e, "rw");
+                    i();
+                    f(this.e.getParent());
+                    return true;
+                } catch (FileNotFoundException e2) {
+                    e2.printStackTrace();
+                    return false;
+                }
+            } catch (IOException unused) {
+                this.e = null;
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public final void h() {
+        AudioRecord audioRecord;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.c) == null || this.e == null) {
+            return;
+        }
+        try {
+            this.b = true;
+            int i = this.a;
+            byte[] bArr = new byte[i];
+            audioRecord.startRecording();
+            while (this.b) {
+                this.c.read(bArr, 0, i);
+                this.d.write(bArr);
+                this.f += i;
+            }
+            this.d.seek(4L);
+            this.d.writeInt(Integer.reverseBytes(this.f + 36));
+            this.d.seek(40L);
+            this.d.writeInt(Integer.reverseBytes(this.f));
+            this.d.close();
+            this.c.stop();
+            this.c.release();
+            this.b = false;
+        } catch (Throwable unused) {
+            if (this.e.exists()) {
+                this.e.delete();
             }
         }
     }
 
-    public void q(@ColorRes int i) {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = R.color.CAM_X0101;
-            this.d = i;
-            this.u = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            try {
+                this.d.setLength(0L);
+                this.d.writeBytes("RIFF");
+                this.d.writeInt(0);
+                this.d.writeBytes("WAVE");
+                this.d.writeBytes("fmt ");
+                this.d.writeInt(Integer.reverseBytes(16));
+                this.d.writeShort(Short.reverseBytes((short) 1));
+                this.d.writeShort(Short.reverseBytes(this.j));
+                this.d.writeInt(Integer.reverseBytes(this.g));
+                this.d.writeInt(Integer.reverseBytes(((this.g * this.j) * this.k) / 8));
+                this.d.writeShort(Short.reverseBytes((short) ((this.j * this.k) / 8)));
+                this.d.writeShort(Short.reverseBytes(this.k));
+                this.d.writeBytes("data");
+                this.d.writeInt(0);
+            } catch (IOException e) {
+                if (this.e.exists()) {
+                    this.e.delete();
+                }
+                e.printStackTrace();
             }
-        }
-    }
-
-    public final Drawable r(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            if (this.u) {
-                return s(f);
-            }
-            return t(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public final Drawable s(float f) {
-        InterceptResult invokeF;
-        GradientDrawable gradientDrawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            int color = SkinManager.getColor(this.r, this.d);
-            int[] iArr = {di8.c(color), color};
-            if (Build.VERSION.SDK_INT >= 16) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.s);
-                gradientDrawable.setColors(iArr);
-            } else {
-                gradientDrawable = new GradientDrawable(this.s, iArr);
-            }
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public final Drawable t(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void u(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
-            this.e[0] = i;
-            this.f = iconType;
         }
     }
 }

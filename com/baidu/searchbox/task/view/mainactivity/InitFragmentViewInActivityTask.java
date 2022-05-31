@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g55;
-import com.repackage.yf8;
+import com.repackage.b45;
+import com.repackage.zc8;
 /* loaded from: classes2.dex */
 public class InitFragmentViewInActivityTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -43,7 +43,7 @@ public class InitFragmentViewInActivityTask extends LaunchTask {
                 if (pageContext == null) {
                     return;
                 }
-                g55.e().a(1025, new yf8(mainActivity, pageContext));
+                b45.e().a(1025, new zc8(mainActivity, pageContext));
             } catch (Exception e) {
                 BdLog.e(e);
             }

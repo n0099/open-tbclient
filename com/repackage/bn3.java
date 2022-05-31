@@ -1,53 +1,67 @@
 package com.repackage;
 
-import android.database.Cursor;
-import android.database.MatrixCursor;
+import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.dn3;
+import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
-public class bn3 extends zm3 {
+public final class bn3 implements kn3, dn3.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
+    @SuppressLint({"StaticFieldLeak"})
+    public static bn3 k;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public ExecutorService b;
+    public final ConcurrentHashMap<String, Object> c;
+    public final List<DownloadInfo> d;
+    public final Context e;
+    public final ln3 f;
+    public final in3 g;
+    public final an3 h;
+    public ConcurrentHashMap<Uri, BroadcastReceiver> i;
+    public ConcurrentHashMap<Uri, Timer> j;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ bn3 this$0;
+        public final /* synthetic */ d val$listener;
+        public final /* synthetic */ String val$packageName;
+        public final /* synthetic */ Uri val$uri;
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public long c;
-
-        public b(String str, String str2, long j) {
+        public a(bn3 bn3Var, String str, d dVar, Uri uri) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, Long.valueOf(j)};
+                Object[] objArr = {bn3Var, str, dVar, uri};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,18 +71,108 @@ public class bn3 extends zm3 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = j;
+            this.this$0 = bn3Var;
+            this.val$packageName = str;
+            this.val$listener = dVar;
+            this.val$uri = uri;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            String dataString;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && (dataString = intent.getDataString()) != null && dataString.endsWith(this.val$packageName)) {
+                this.val$listener.a(Boolean.TRUE);
+                this.this$0.l(context, this.val$uri);
+            }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class c implements Comparator<b> {
+    public class b extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ Uri c;
+        public final /* synthetic */ bn3 d;
+
+        public b(bn3 bn3Var, d dVar, Context context, Uri uri) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bn3Var, dVar, context, uri};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = bn3Var;
+            this.a = dVar;
+            this.b = context;
+            this.c = uri;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a(Boolean.FALSE);
+                this.d.l(this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Timer a;
+        public final /* synthetic */ bn3 b;
+
+        public c(bn3 bn3Var, Timer timer) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bn3Var, timer};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = bn3Var;
+            this.a = timer;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (Map.Entry entry : this.b.i.entrySet()) {
+                    bn3 bn3Var = this.b;
+                    bn3Var.l(bn3Var.e, (Uri) entry.getKey());
+                }
+                this.a.cancel();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static abstract class d<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public c() {
+        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,106 +186,271 @@ public class bn3 extends zm3 {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(b bVar, b bVar2) {
-            InterceptResult invokeLL;
+        public void a(T t) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) ? Long.compare(bVar2.c, bVar.c) : invokeLL.intValue;
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
+            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755821270, "Lcom/repackage/bn3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755821270, "Lcom/repackage/bn3;");
-                return;
-            }
-        }
-        a = new String[]{"_id", "app_id", GameGuideConfigInfo.KEY_APP_KEY, "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "app_from", "visit_time"};
-    }
-
-    public bn3() {
+    public bn3(Context context, an3 an3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, an3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public final void a(MatrixCursor matrixCursor, int i, b bVar, PMSAppInfo pMSAppInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(1048576, this, matrixCursor, i, bVar, pMSAppInfo) == null) || matrixCursor == null || i < 0 || bVar == null || pMSAppInfo == null) {
-            return;
+        this.i = new ConcurrentHashMap<>();
+        this.j = new ConcurrentHashMap<>();
+        this.e = context;
+        if (an3Var == null) {
+            this.h = new an3();
+        } else {
+            this.h = an3Var;
         }
-        matrixCursor.newRow().add("_id", Integer.valueOf(i)).add("app_id", pMSAppInfo.appId).add(GameGuideConfigInfo.KEY_APP_KEY, pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("app_from", bVar.b).add("visit_time", Long.valueOf(bVar.c));
-    }
-
-    public final List<b> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Cursor n = SwanAppDbControl.f(AppRuntime.getAppContext()).n(null, null, null, null);
-            ArrayList arrayList = new ArrayList();
-            if (n != null && n.moveToFirst()) {
-                int columnIndex = n.getColumnIndex("app_id");
-                int columnIndex2 = n.getColumnIndex("app_from");
-                int columnIndex3 = n.getColumnIndex("visit_time");
-                do {
-                    arrayList.add(new b(n.getString(columnIndex), n.getString(columnIndex2), n.getLong(columnIndex3)));
-                } while (n.moveToNext());
-                xg4.d(n);
-                return arrayList;
-            }
-            xg4.d(n);
-            return arrayList;
+        if (this.h.a() == null) {
+            this.g = new fn3(context, this.h);
+        } else {
+            this.g = this.h.a();
         }
-        return (List) invokeV.objValue;
+        this.d = new ArrayList();
+        this.c = new ConcurrentHashMap<>();
+        this.g.b();
+        this.b = Executors.newFixedThreadPool(this.h.b());
+        this.f = new cn3(this.g);
     }
 
-    @Override // com.repackage.zm3
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
+    public static synchronized kn3 m(Context context, an3 an3Var) {
+        InterceptResult invokeLL;
+        bn3 bn3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
-            List<b> b2 = b();
-            if (b2.isEmpty()) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, an3Var)) == null) {
+            synchronized (bn3.class) {
+                if (k == null) {
+                    k = new bn3(context, an3Var);
+                }
+                bn3Var = k;
             }
-            HashMap<String, PMSAppInfo> a2 = dn3.a();
-            if (a2.isEmpty()) {
-                return null;
-            }
-            Collections.sort(b2, new c(null));
-            MatrixCursor matrixCursor = new MatrixCursor(a, b2.size());
-            int i = 0;
-            for (b bVar : b2) {
-                PMSAppInfo pMSAppInfo = a2.get(bVar.a);
-                if (pMSAppInfo != null) {
-                    a(matrixCursor, i, bVar, pMSAppInfo);
-                    i++;
+            return bn3Var;
+        }
+        return (kn3) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.kn3
+    public synchronized void a(DownloadInfo downloadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
+            synchronized (this) {
+                if (n()) {
+                    p(downloadInfo);
                 }
             }
-            return matrixCursor;
         }
-        return (Cursor) invokeLLLLL.objValue;
+    }
+
+    @Override // com.repackage.kn3
+    public synchronized void b(DownloadInfo downloadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
+            synchronized (this) {
+                if (downloadInfo == null) {
+                    return;
+                }
+                downloadInfo.setStatus(DownloadState.DELETED.value());
+                this.c.remove(downloadInfo.getId());
+                this.d.remove(downloadInfo);
+                this.g.delete(downloadInfo);
+                this.f.b(downloadInfo);
+                new File(downloadInfo.getPath()).delete();
+            }
+        }
+    }
+
+    @Override // com.repackage.kn3
+    public synchronized void c(DownloadInfo downloadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) {
+            synchronized (this) {
+                this.d.add(downloadInfo);
+                p(downloadInfo);
+            }
+        }
+    }
+
+    @Override // com.repackage.kn3
+    public synchronized void d(DownloadInfo downloadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) {
+            synchronized (this) {
+                if (n()) {
+                    o(downloadInfo);
+                }
+            }
+        }
+    }
+
+    @Override // com.repackage.kn3
+    public synchronized void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                k();
+                if (this.g != null) {
+                    this.g.close();
+                }
+                if (this.b != null) {
+                    this.b.shutdownNow();
+                    this.b = null;
+                }
+                k = null;
+            }
+        }
+    }
+
+    @Override // com.repackage.dn3.a
+    public synchronized void e(DownloadInfo downloadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
+            synchronized (this) {
+                yo3.c(downloadInfo.getPath(), false);
+                this.c.remove(downloadInfo.getId());
+                this.d.remove(downloadInfo);
+                q();
+            }
+        }
+    }
+
+    @Override // com.repackage.kn3
+    @AnyThread
+    public synchronized void f(@NonNull String str, @NonNull Uri uri, @NonNull d<Boolean> dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, uri, dVar) == null) {
+            synchronized (this) {
+                Context appContext = AppRuntime.getAppContext();
+                if (yo3.a(appContext, str)) {
+                    dVar.a(Boolean.TRUE);
+                }
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addDataScheme("package");
+                intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
+                a aVar = new a(this, str, dVar, uri);
+                appContext.registerReceiver(aVar, intentFilter);
+                Timer timer = new Timer();
+                timer.schedule(new b(this, dVar, appContext, uri), 60000L);
+                this.i.put(uri, aVar);
+                this.j.put(uri, timer);
+            }
+        }
+    }
+
+    @Override // com.repackage.kn3
+    public synchronized DownloadInfo g(String str) {
+        InterceptResult invokeL;
+        DownloadInfo downloadInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            synchronized (this) {
+                downloadInfo = null;
+                Iterator<DownloadInfo> it = this.d.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    DownloadInfo next = it.next();
+                    if (next.getId().equals(str)) {
+                        downloadInfo = next;
+                        break;
+                    }
+                }
+                if (downloadInfo == null) {
+                    downloadInfo = this.g.c(str);
+                }
+            }
+            return downloadInfo;
+        }
+        return (DownloadInfo) invokeL.objValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Timer timer = new Timer();
+            timer.schedule(new c(this, timer), 60000L);
+        }
+    }
+
+    public final void l(Context context, Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, context, uri) == null) {
+            BroadcastReceiver remove = this.i.remove(uri);
+            if (remove != null) {
+                context.unregisterReceiver(remove);
+            }
+            Timer remove2 = this.j.remove(uri);
+            if (remove2 != null) {
+                remove2.cancel();
+            }
+        }
+    }
+
+    public synchronized boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            synchronized (this) {
+                if (System.currentTimeMillis() - this.a > 500) {
+                    this.a = System.currentTimeMillis();
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void o(DownloadInfo downloadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, downloadInfo) == null) {
+            downloadInfo.setStatus(DownloadState.DOWNLOAD_PAUSED.value());
+            this.c.remove(downloadInfo.getId());
+            this.f.b(downloadInfo);
+            q();
+        }
+    }
+
+    public final void p(DownloadInfo downloadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, downloadInfo) == null) {
+            if (this.c.size() >= this.h.b()) {
+                downloadInfo.setStatus(DownloadState.WAIT.value());
+                this.f.b(downloadInfo);
+                return;
+            }
+            dn3 dn3Var = new dn3(this.b, this.f, downloadInfo, this);
+            this.c.put(downloadInfo.getId(), dn3Var);
+            downloadInfo.setStatus(DownloadState.PREPARE_DOWNLOAD.value());
+            this.f.b(downloadInfo);
+            dn3Var.c();
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            for (DownloadInfo downloadInfo : this.d) {
+                if (downloadInfo.getStatus() == DownloadState.WAIT.value()) {
+                    p(downloadInfo);
+                    return;
+                }
+            }
+        }
     }
 }

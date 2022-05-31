@@ -22,7 +22,7 @@ import com.facebook.drawee.interfaces.DraweeHierarchy;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import com.repackage.bk2;
+import com.repackage.oi2;
 import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
@@ -59,9 +59,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
                     return;
                 }
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090833);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090255);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090254);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090817);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090252);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090251);
         }
     }
 
@@ -123,7 +123,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            bk2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            oi2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -133,7 +133,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d3, viewGroup, false)) : (a) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) ? new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c6, viewGroup, false)) : (a) invokeLI.objValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

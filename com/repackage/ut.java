@@ -1,7 +1,7 @@
 package com.repackage;
 /* loaded from: classes7.dex */
-public interface ut {
-    void a();
+public interface ut extends vq {
+    vt d();
 
-    void b();
+    du f();
 }

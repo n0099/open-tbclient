@@ -1,38 +1,27 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class hm3 implements kk1 {
+public class hm3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile gm3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public hm3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.kk1
-    public boolean a() {
+    public static synchronized gm3 a() {
         InterceptResult invokeV;
+        gm3 gm3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (hm3.class) {
+                if (a == null) {
+                    a = new gm3();
+                }
+                gm3Var = a;
+            }
+            return gm3Var;
         }
-        return invokeV.booleanValue;
+        return (gm3) invokeV.objValue;
     }
 }

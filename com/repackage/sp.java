@@ -1,4 +1,4 @@
 package com.repackage;
 /* loaded from: classes7.dex */
-public interface sp {
+public interface sp extends zo {
 }

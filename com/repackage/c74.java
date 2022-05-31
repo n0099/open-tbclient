@@ -1,113 +1,103 @@
 package com.repackage;
 
-import android.util.SparseArray;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class c74 {
+public abstract class c74 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<a74> a;
+    public static volatile c74 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755844303, "Lcom/repackage/c74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755844303, "Lcom/repackage/c74;");
-                return;
+    public c74() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        SparseArray<a74> sparseArray = new SparseArray<>();
-        a = sparseArray;
-        sparseArray.put(5, new a74(5, R.string.obfuscated_res_0x7f0f00f4, R.drawable.obfuscated_res_0x7f0800f5, true));
-        a.put(35, new a74(35, R.string.obfuscated_res_0x7f0f00e7, R.drawable.obfuscated_res_0x7f0800d5, true));
-        a.put(39, new a74(39, R.string.obfuscated_res_0x7f0f00ee, R.drawable.obfuscated_res_0x7f0800f8, true));
-        a.put(4, new a74(4, R.string.obfuscated_res_0x7f0f00f5, R.drawable.obfuscated_res_0x7f0800fb, true));
-        a.put(37, new a74(37, R.string.obfuscated_res_0x7f0f00e9, R.drawable.obfuscated_res_0x7f0800d8, true));
-        a.put(38, new a74(38, R.string.obfuscated_res_0x7f0f00f2, R.drawable.obfuscated_res_0x7f0800d4, true));
-        a.put(42, new a74(42, R.string.obfuscated_res_0x7f0f00ea, R.drawable.obfuscated_res_0x7f0800f8, true));
-        a.put(49, new a74(49, R.string.obfuscated_res_0x7f0f1244, R.drawable.obfuscated_res_0x7f08113a, true));
-        a.put(50, new a74(50, R.string.obfuscated_res_0x7f0f12c8, R.drawable.obfuscated_res_0x7f081139, true));
-        a.put(43, new a74(43, R.string.obfuscated_res_0x7f0f00e8, R.drawable.obfuscated_res_0x7f0800d9, true));
-        a.put(9, new a74(9, R.string.obfuscated_res_0x7f0f00f3, R.drawable.obfuscated_res_0x7f0800e5, true));
-        a.put(46, new a74(46, R.string.obfuscated_res_0x7f0f00eb, R.drawable.obfuscated_res_0x7f0800ea, true));
-        a.put(47, new a74(47, R.string.obfuscated_res_0x7f0f00ec, R.drawable.obfuscated_res_0x7f0800ed, true));
     }
 
-    public static a74 a(int i) {
-        InterceptResult invokeI;
+    public static c74 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? a74.k(a.get(i)) : (a74) invokeI.objValue;
-    }
-
-    public static List<a74> b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i != 0) {
-                if (i != 12) {
-                    if (i != 13) {
-                        switch (i) {
-                            case 16:
-                                arrayList.add(a74.k(a.get(5)));
-                                break;
-                            case 17:
-                            case 18:
-                                arrayList.add(a74.k(a.get(38)));
-                                arrayList.add(a74.k(a.get(4)));
-                                arrayList.add(a74.k(a.get(39)));
-                                arrayList.add(a74.k(a.get(35)));
-                                arrayList.add(a74.k(a.get(5)));
-                                arrayList.add(a74.k(a.get(49)));
-                                break;
-                            case 19:
-                                arrayList.add(a74.l(a.get(38), false));
-                                arrayList.add(a74.l(a.get(4), false));
-                                arrayList.add(a74.k(a.get(39)));
-                                arrayList.add(a74.l(a.get(35), false));
-                                arrayList.add(a74.k(a.get(5)));
-                                arrayList.add(a74.l(a.get(49), false));
-                                break;
-                            case 20:
-                                arrayList.add(a74.k(a.get(38)));
-                                arrayList.add(a74.k(a.get(4)));
-                                arrayList.add(a74.k(a.get(39)));
-                                arrayList.add(a74.k(a.get(35)));
-                                arrayList.add(a74.k(a.get(5)));
-                                arrayList.add(a74.k(a.get(49)));
-                                break;
-                        }
-                    } else {
-                        arrayList.add(a74.k(a.get(43)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (c74.class) {
+                    if (a == null) {
+                        a = new d74();
                     }
                 }
-                arrayList.add(a74.k(a.get(38)));
-                arrayList.add(a74.k(a.get(4)));
-                arrayList.add(a74.k(a.get(39)));
-                arrayList.add(a74.k(a.get(35)));
-                arrayList.add(a74.k(a.get(5)));
-                arrayList.add(a74.k(a.get(49)));
-            } else {
-                arrayList.add(a74.k(a.get(38)));
-                arrayList.add(a74.k(a.get(5)));
-                arrayList.add(a74.k(a.get(4)));
-                arrayList.add(a74.k(a.get(35)));
-                arrayList.add(a74.k(a.get(42)));
             }
-            return arrayList;
+            return a;
         }
-        return (List) invokeI.objValue;
+        return (c74) invokeV.objValue;
     }
+
+    public abstract boolean a(e84 e84Var, PMSAppInfo pMSAppInfo);
+
+    public abstract boolean b(e84 e84Var, List<f84> list, c84 c84Var, a84 a84Var, PMSAppInfo pMSAppInfo);
+
+    public abstract void c(String str);
+
+    public abstract void d(String str, String str2);
+
+    public abstract <T extends d84> boolean e(Class<T> cls, String str);
+
+    public abstract boolean f(g84 g84Var);
+
+    public abstract boolean g(List<g84> list);
+
+    public abstract boolean h(String str);
+
+    @WorkerThread
+    public abstract int j(@NonNull String str);
+
+    @NonNull
+    @WorkerThread
+    public abstract List<f84> k(@NonNull String str, int i);
+
+    public abstract boolean l(PMSAppInfo pMSAppInfo);
+
+    public abstract <T extends d84> boolean m(T t);
+
+    public abstract boolean n(String str, String str2, String str3);
+
+    public abstract <T extends d84> T o(Class<T> cls, String str);
+
+    public abstract Map<String, e84> p();
+
+    public abstract g84 q(String str, long j, long j2);
+
+    public abstract List<g84> r(String str, String[] strArr);
+
+    public abstract List<g84> s(String str, long j, long j2);
+
+    @Nullable
+    public abstract h84 t(String str);
+
+    public abstract PMSAppInfo u(String str);
+
+    public abstract Map<String, PMSAppInfo> v();
+
+    public abstract List<g84> w(String str);
+
+    public abstract boolean x(g84 g84Var);
+
+    public abstract boolean y(PMSAppInfo pMSAppInfo);
+
+    public abstract boolean z(String str, int i);
 }

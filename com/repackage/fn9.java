@@ -1,15 +1,41 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-/* loaded from: classes6.dex */
-public interface fn9 {
-    void a(int i, String str, String str2);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
+/* loaded from: classes5.dex */
+public final class fn9 implements ThreadFactory {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicInteger a;
 
-    void a(String str);
+    public fn9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger(1);
+    }
 
-    void a(String str, Bitmap bitmap);
-
-    void a(String str, String str2, String str3, long j, String str4, String str5);
-
-    void b(String str);
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            return new Thread(runnable, "T#" + this.a.getAndIncrement());
+        }
+        return (Thread) invokeL.objValue;
+    }
 }

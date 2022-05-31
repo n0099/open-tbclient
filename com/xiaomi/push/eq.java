@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes8.dex */
@@ -46,7 +47,7 @@ public class eq {
                     sb.append(":");
                     sb.append(elementAt.second);
                     if (i < a.size() - 1) {
-                        sb.append(";");
+                        sb.append(ParamableElem.DIVIDE_PARAM);
                     }
                 }
                 a.clear();

@@ -14,25 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c47;
+import com.repackage.f27;
 /* loaded from: classes3.dex */
-public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<c47> {
+public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<f27> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<c47> {
+    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<f27> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MsgIceBreakViewHolder(View view2, c47 c47Var) {
-            super(view2, c47Var);
+        public MsgIceBreakViewHolder(View view2, f27 f27Var) {
+            super(view2, f27Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, c47Var};
+                Object[] objArr = {view2, f27Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,36 +69,36 @@ public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<c47> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.eo
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.wm
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         c0(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<c47> msgViewHolder) {
+    public View c0(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<f27> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
-            c47 c = msgViewHolder.c();
-            c.l(this.j);
-            c.m(chatMessage);
-            c.k(TbadkCoreApplication.getInst().getSkinType());
+            f27 c = msgViewHolder.c();
+            c.k(this.j);
+            c.l(chatMessage);
+            c.j(TbadkCoreApplication.getInst().getSkinType());
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: l0 */
-    public MsgCommonItemAdapter.MsgViewHolder<c47> M(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<f27> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            c47 c47Var = new c47(this.i);
-            return new MsgIceBreakViewHolder(c47Var.g(), c47Var);
+            f27 f27Var = new f27(this.i);
+            return new MsgIceBreakViewHolder(f27Var.e(), f27Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }

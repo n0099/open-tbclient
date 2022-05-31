@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.je3;
+import com.repackage.wc3;
 /* loaded from: classes2.dex */
 public class ExtensionCore extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
@@ -96,7 +96,7 @@ public class ExtensionCore extends SwanAppIPCData {
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? je3.e(this.extensionCorePath) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? wc3.e(this.extensionCorePath) : invokeV.booleanValue;
     }
 
     public String toString() {

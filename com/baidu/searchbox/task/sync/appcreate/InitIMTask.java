@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.j95;
-import com.repackage.u37;
+import com.repackage.d85;
+import com.repackage.x17;
 /* loaded from: classes2.dex */
 public class InitIMTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -32,8 +32,8 @@ public class InitIMTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            u37.a();
-            j95.b().p(System.currentTimeMillis() - currentTimeMillis);
+            x17.a();
+            d85.b().p(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 

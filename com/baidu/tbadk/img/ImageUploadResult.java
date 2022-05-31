@@ -1,5 +1,6 @@
 package com.baidu.tbadk.img;
 
+import androidx.annotation.Nullable;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,6 +30,8 @@ public class ImageUploadResult extends OrmObject implements Serializable {
     public String picId;
     public picInfo picInfo;
     public String resourceId;
+    @Nullable
+    public String sharpText;
 
     /* loaded from: classes3.dex */
     public static class PicDetailedInfo extends OrmObject implements Serializable {
@@ -209,6 +212,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
             }
             UploadedImageInfo uploadedImageInfo = new UploadedImageInfo();
             uploadedImageInfo.setPic_id(String.valueOf(this.picId));
+            uploadedImageInfo.setSharpText(this.sharpText);
             picInfo picinfo = this.picInfo;
             if (picinfo != null && (picDetailedInfo = picinfo.originPic) != null) {
                 uploadedImageInfo.setHeight(picDetailedInfo.height);
@@ -217,5 +221,12 @@ public class ImageUploadResult extends OrmObject implements Serializable {
             return uploadedImageInfo;
         }
         return (UploadedImageInfo) invokeV.objValue;
+    }
+
+    public void setSharpText(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.sharpText = str;
+        }
     }
 }

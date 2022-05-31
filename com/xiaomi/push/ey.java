@@ -100,11 +100,11 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eyVar)) == null) {
             if (ey.class.equals(eyVar.getClass())) {
-                int compareTo = Boolean.valueOf(m339a()).compareTo(Boolean.valueOf(eyVar.m339a()));
+                int compareTo = Boolean.valueOf(m338a()).compareTo(Boolean.valueOf(eyVar.m338a()));
                 if (compareTo != 0) {
                     return compareTo;
                 }
-                if (!m339a() || (a4 = ir.a(this.f337a, eyVar.f337a)) == 0) {
+                if (!m338a() || (a4 = ir.a(this.f337a, eyVar.f337a)) == 0) {
                     int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(eyVar.b()));
                     if (compareTo2 != 0) {
                         return compareTo2;
@@ -156,28 +156,28 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         if (interceptable != null && interceptable.invokeL(1048579, this, jbVar) != null) {
             return;
         }
-        jbVar.m563a();
+        jbVar.m562a();
         while (true) {
-            iy m559a = jbVar.m559a();
-            byte b2 = m559a.a;
+            iy m558a = jbVar.m558a();
+            byte b2 = m558a.a;
             if (b2 == 0) {
                 jbVar.f();
                 a();
                 return;
             }
-            short s = m559a.f791a;
+            short s = m558a.f791a;
             if (s == 1) {
                 if (b2 == 11) {
-                    this.f337a = jbVar.m564a();
+                    this.f337a = jbVar.m563a();
                     jbVar.g();
                 }
                 je.a(jbVar, b2);
                 jbVar.g();
             } else if (s != 2) {
                 if (s == 3 && b2 == 15) {
-                    iz m560a = jbVar.m560a();
-                    this.f338a = new ArrayList(m560a.f792a);
-                    for (int i = 0; i < m560a.f792a; i++) {
+                    iz m559a = jbVar.m559a();
+                    this.f338a = new ArrayList(m559a.f792a);
+                    for (int i = 0; i < m559a.f792a; i++) {
                         ex exVar = new ex();
                         exVar.a(jbVar);
                         this.f338a.add(exVar);
@@ -189,7 +189,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
                 jbVar.g();
             } else {
                 if (b2 == 11) {
-                    this.f339b = jbVar.m564a();
+                    this.f339b = jbVar.m563a();
                     jbVar.g();
                 }
                 je.a(jbVar, b2);
@@ -199,23 +199,23 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m339a() {
+    public boolean m338a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f337a != null : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m340a(ey eyVar) {
+    public boolean m339a(ey eyVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, eyVar)) == null) {
             if (eyVar == null) {
                 return false;
             }
-            boolean m339a = m339a();
-            boolean m339a2 = eyVar.m339a();
-            if ((m339a || m339a2) && !(m339a && m339a2 && this.f337a.equals(eyVar.f337a))) {
+            boolean m338a = m338a();
+            boolean m338a2 = eyVar.m338a();
+            if ((m338a || m338a2) && !(m338a && m338a2 && this.f337a.equals(eyVar.f337a))) {
                 return false;
             }
             boolean b2 = b();
@@ -259,7 +259,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
                 jbVar.b();
             }
             jbVar.c();
-            jbVar.m567a();
+            jbVar.m566a();
         }
     }
 
@@ -280,7 +280,7 @@ public class ey implements iq<ey, Object>, Serializable, Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
             if (obj != null && (obj instanceof ey)) {
-                return m340a((ey) obj);
+                return m339a((ey) obj);
             }
             return false;
         }

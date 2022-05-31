@@ -59,7 +59,7 @@ public class b {
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.a.a = a.AbstractBinderC0274a.a(iBinder);
+                this.a.a = a.AbstractBinderC0275a.a(iBinder);
                 synchronized (this.a.d) {
                     this.a.d.notify();
                 }
@@ -77,7 +77,7 @@ public class b {
 
     /* renamed from: com.heytap.openid.sdk.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0276b {
+    public static class C0277b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
         public transient /* synthetic */ FieldHolder $fh;

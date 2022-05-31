@@ -18,11 +18,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.ef;
-import com.repackage.eo;
 import com.repackage.ff;
+import com.repackage.wm;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public abstract class MsgCommonItemAdapter<T> extends eo<ChatMessage, MsgViewHolder<T>> {
+public abstract class MsgCommonItemAdapter<T> extends wm<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<MsglistActivity<?>> i;
@@ -120,7 +120,7 @@ public abstract class MsgCommonItemAdapter<T> extends eo<ChatMessage, MsgViewHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: c0 */
     public View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;

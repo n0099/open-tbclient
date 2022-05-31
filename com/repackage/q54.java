@@ -1,43 +1,55 @@
 package com.repackage;
 
-import android.animation.TypeEvaluator;
-import com.baidu.mapapi.model.LatLng;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.menu.viewpager.PointPageIndicator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class q54 implements TypeEvaluator<LatLng> {
+public class q54 extends PointPageIndicator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public q54() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q54(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.animation.TypeEvaluator
-    /* renamed from: a */
-    public LatLng evaluate(float f, LatLng latLng, LatLng latLng2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
+    public /* bridge */ /* synthetic */ PointPageIndicator d(Drawable drawable, Drawable drawable2) {
+        g(drawable, drawable2);
+        return this;
+    }
+
+    public q54 g(Drawable drawable, Drawable drawable2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), latLng, latLng2})) == null) {
-            double d = latLng.latitude;
-            double d2 = f;
-            double d3 = latLng.longitude;
-            return new LatLng(d + ((latLng2.latitude - d) * d2), d3 + (d2 * (latLng2.longitude - d3)));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, drawable2)) == null) {
+            this.a = drawable;
+            this.b = drawable2;
+            this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
+            return this;
         }
-        return (LatLng) invokeCommon.objValue;
+        return (q54) invokeLL.objValue;
     }
 }

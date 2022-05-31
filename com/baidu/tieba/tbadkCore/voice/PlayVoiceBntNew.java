@@ -32,10 +32,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.f9;
-import com.repackage.gs4;
+import com.repackage.ki;
 import com.repackage.li;
-import com.repackage.mi;
-import com.repackage.w55;
+import com.repackage.s45;
+import com.repackage.wq4;
 /* loaded from: classes4.dex */
 public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -126,7 +126,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
                 return;
             }
         }
-        l = ((mi.k(TbadkCoreApplication.getInst()) - (mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - (mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
+        l = ((li.k(TbadkCoreApplication.getInst()) - (li.f(TbadkCoreApplication.getInst(), R.dimen.tbds44) * 2)) - (li.f(TbadkCoreApplication.getInst(), R.dimen.tbds10) * 2)) / 3;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -213,7 +213,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            gs4 d = gs4.d(this.b);
+            wq4 d = wq4.d(this.b);
             d.n(R.string.J_X05);
             d.l(R.dimen.L_X03);
             d.k(R.color.CAM_X0302);
@@ -228,9 +228,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             return;
         }
         if (z) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08090b, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080912, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         } else {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08090c, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080913, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         }
     }
 
@@ -253,10 +253,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
                 }
                 d = i * 0.6d * 2.0d;
             }
-            if (d < mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds216)) {
-                d = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds216);
+            if (d < li.f(TbadkCoreApplication.getInst(), R.dimen.tbds216)) {
+                d = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds216);
             }
-            double f = (d - this.j) - mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds75);
+            double f = (d - this.j) - li.f(TbadkCoreApplication.getInst(), R.dimen.tbds75);
             if (f > 0.0d) {
                 return (int) f;
             }
@@ -333,14 +333,14 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
     public void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e0, (ViewGroup) this, true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09242e);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d5, (ViewGroup) this, true);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923d3);
             this.b = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918b6);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0918a8);
-            this.f = (AudioAnimationView) findViewById(R.id.obfuscated_res_0x7f0902cc);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091975);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09186b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09185d);
+            this.f = (AudioAnimationView) findViewById(R.id.obfuscated_res_0x7f0902c9);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091927);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
@@ -386,7 +386,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         } else {
             formatVoiceTime = VoiceManager.formatVoiceTime(this.a.duration);
         }
-        String charSequence2String = li.charSequence2String(this.d.getText(), null);
+        String charSequence2String = ki.charSequence2String(this.d.getText(), null);
         if (charSequence2String == null || !charSequence2String.equals(formatVoiceTime)) {
             this.d.setText(formatVoiceTime);
         }
@@ -405,9 +405,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (w55.b().d()) {
-                w55.b().n(false);
-                w55.b().l(false);
+            if (s45.b().d()) {
+                s45.b().n(false);
+                s45.b().l(false);
             }
             f(false);
             if (i == 1) {
@@ -473,7 +473,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048599, this, i, str) == null) {
-            mi.K(getContext(), str);
+            li.L(getContext(), str);
         }
     }
 
@@ -499,7 +499,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (!(interceptable == null || interceptable.invokeI(1048602, this, i) == null) || (textView = this.d) == null) {
             return;
         }
-        textView.setTextSize(0, mi.f(getContext(), i));
+        textView.setTextSize(0, li.f(getContext(), i));
     }
 
     @Override // android.view.View
@@ -554,7 +554,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             String formatVoiceTime = VoiceManager.formatVoiceTime(voiceModel.duration);
             int measureText = (int) this.d.getPaint().measureText(formatVoiceTime);
             this.h = measureText;
-            this.j = measureText + mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds58);
+            this.j = measureText + li.f(TbadkCoreApplication.getInst(), R.dimen.tbds58);
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.b.setPadding(getPaddingLeft(), getPaddingTop(), (int) this.j, getPaddingBottom());

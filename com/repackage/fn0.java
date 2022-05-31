@@ -1,16 +1,36 @@
 package com.repackage;
 
-import android.view.MotionEvent;
-import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
-/* loaded from: classes6.dex */
-public interface fn0 extends ji0 {
-    WebViewContainer b();
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+/* loaded from: classes5.dex */
+public abstract class fn0 implements pn0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void f(boolean z, boolean z2, boolean z3, int i);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Exception exc, int i);
 
-    boolean g();
+        void b(Headers headers, InputStream inputStream, int i) throws Exception;
 
-    void i(MotionEvent motionEvent);
+        void c(Headers headers, String str, int i) throws Exception;
+    }
 
-    void j(boolean z, boolean z2, boolean z3);
+    public fn0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

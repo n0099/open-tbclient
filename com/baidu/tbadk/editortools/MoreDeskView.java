@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d15;
-import com.repackage.e15;
-import com.repackage.kg;
-import com.repackage.w05;
+import com.repackage.a05;
+import com.repackage.jg;
+import com.repackage.sz4;
+import com.repackage.zz4;
 import java.util.LinkedList;
 /* loaded from: classes3.dex */
 public class MoreDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<d15> m;
+    public LinkedList<zz4> m;
     public SparseIntArray n;
     public CustomMessageListener o;
     public CustomMessageListener p;
@@ -131,7 +131,7 @@ public class MoreDeskView extends CommonTabHost {
         setToolId(2);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.j15
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.f05
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -139,27 +139,27 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.j15
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.f05
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setShowDelete(false);
-            e15 e15Var = new e15();
-            e15Var.E(this.m);
-            j(e15Var);
+            a05 a05Var = new a05();
+            a05Var.E(this.m);
+            j(a05Var);
             u();
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.x05
-    public void onAction(w05 w05Var) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.repackage.tz4
+    public void onAction(sz4 sz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, w05Var) == null) {
-            super.onAction(w05Var);
-            if (w05Var == null || w05Var.a != 2 || w05Var.b == 5) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sz4Var) == null) {
+            super.onAction(sz4Var);
+            if (sz4Var == null || sz4Var.a != 2 || sz4Var.b == 5) {
                 return;
             }
-            t(w05Var);
+            t(sz4Var);
             r();
         }
     }
@@ -185,7 +185,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    public void q(LinkedList<d15> linkedList) {
+    public void q(LinkedList<zz4> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
             this.m = linkedList;
@@ -200,9 +200,9 @@ public class MoreDeskView extends CommonTabHost {
                 i += this.n.valueAt(i2);
             }
             if (i > 0) {
-                g(new w05(2, 2, " "));
+                g(new sz4(2, 2, " "));
             } else {
-                g(new w05(2, 2, null));
+                g(new sz4(2, 2, null));
             }
         }
     }
@@ -220,23 +220,23 @@ public class MoreDeskView extends CommonTabHost {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void t(w05 w05Var) {
+    public final void t(sz4 sz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, w05Var) == null) {
-            Integer valueOf = Integer.valueOf(this.n.get(w05Var.b));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sz4Var) == null) {
+            Integer valueOf = Integer.valueOf(this.n.get(sz4Var.b));
             int intValue = valueOf != null ? valueOf.intValue() : 0;
-            Object obj = w05Var.c;
+            Object obj = sz4Var.c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
                     if (!TextUtils.isEmpty(str)) {
-                        intValue = TextUtils.isEmpty(str.trim()) ? 1 : kg.e(str, 1);
+                        intValue = TextUtils.isEmpty(str.trim()) ? 1 : jg.e(str, 1);
                     }
                 }
-                this.n.put(w05Var.b, intValue >= 0 ? intValue : 0);
+                this.n.put(sz4Var.b, intValue >= 0 ? intValue : 0);
             }
             intValue = 0;
-            this.n.put(w05Var.b, intValue >= 0 ? intValue : 0);
+            this.n.put(sz4Var.b, intValue >= 0 ? intValue : 0);
         }
     }
 
@@ -251,14 +251,14 @@ public class MoreDeskView extends CommonTabHost {
             }
             if (currentAccountObj.getIsSelectTail()) {
                 z = true;
-                g(new w05(2, 2, " "));
-                g(new w05(2, 16, " "));
+                g(new sz4(2, 2, " "));
+                g(new sz4(2, 16, " "));
             } else {
                 if (!StringUtils.isNull(defaultBubble)) {
-                    g(new w05(2, 12, " "));
-                    g(new w05(2, 2, " "));
+                    g(new sz4(2, 12, " "));
+                    g(new sz4(2, 2, " "));
                 } else {
-                    g(new w05(2, 2, null));
+                    g(new sz4(2, 2, null));
                 }
                 z = false;
             }

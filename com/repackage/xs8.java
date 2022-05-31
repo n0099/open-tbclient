@@ -1,36 +1,206 @@
 package com.repackage;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
-import android.media.MediaMetadataRetriever;
-import android.provider.MediaStore;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.minivideo.plugin.capture.bean.FaceItem;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.WorkPublishActivityConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.MediaScannerClient;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.effect.ImageOperation;
+import com.baidu.tieba.R;
+import com.baidu.tieba.core.edit.TbMediaTrackConfig;
+import com.baidu.tieba.video.EditVideoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.google.android.exoplayer2.util.MimeTypes;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.baidu.ugc.editvideo.data.VideoMuxerData;
+import com.baidu.ugc.editvideo.muxer.VideoMuxer;
+import com.baidu.ugc.editvideo.player.AudioPlayTrackData;
+import com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView;
+import com.baidu.ugc.editvideo.record.processor.adapter.MultiMediaDataSourceViewAdapter;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
+import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
+import com.baidu.ugc.utils.FileUtils;
+import com.google.gson.Gson;
+import com.repackage.f66;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public class xs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext<?> a;
+    public final String b;
+    public final d c;
+    public TbMultiMediaData d;
+    public w56 e;
+    public VlogEditManager f;
 
     /* loaded from: classes7.dex */
-    public static final class a implements Comparator<ws8> {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ VideoInfo b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
 
-        public a() {
+        public a(TbPageContext tbPageContext, VideoInfo videoInfo, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, videoInfo, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+            this.b = videoInfo;
+            this.c = str;
+            this.d = str2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                s39.c().k(null);
+                xs8.l(this.a, this.b, this.c, this.d);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements v56 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xs8 a;
+
+        public b(xs8 xs8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xs8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xs8Var;
+        }
+
+        @Override // com.repackage.v56
+        public void onCoverPathCallBack(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.c.h(str);
+                this.a.d.coverPath = str;
+                x25 x25Var = new x25();
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(str);
+                ImageOperation g = g35.g(li.k(this.a.a.getPageActivity()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2), li.f(this.a.a.getPageActivity(), R.dimen.tbds866));
+                imageFileInfo.clearPageActions();
+                imageFileInfo.addPageAction(g);
+                x25Var.d(imageFileInfo, null, false);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements t39 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xs8 a;
+
+        public c(xs8 xs8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xs8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xs8Var;
+        }
+
+        @Override // com.repackage.t39
+        public IMediaPlayer a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new xt8(this.a.a.getPageActivity()) : (IMediaPlayer) invokeV.objValue;
+        }
+
+        @Override // com.repackage.t39
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? uo8.c : (String) invokeV.objValue;
+        }
+
+        @Override // com.repackage.t39
+        public a59 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (a59) invokeV.objValue;
+        }
+
+        @Override // com.repackage.t39
+        public String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "tieba_unknown" : (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static abstract class d implements w39 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -44,277 +214,348 @@ public class xs8 {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ws8 ws8Var, ws8 ws8Var2) {
-            InterceptResult invokeLL;
+        @Override // com.repackage.w39
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, ws8Var, ws8Var2)) == null) {
-                int i = ws8Var.b() < ws8Var2.b() ? 1 : 0;
-                if (ws8Var.b() > ws8Var2.b()) {
-                    return -1;
-                }
-                return i;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
-            return invokeLL.intValue;
+        }
+
+        @Override // com.repackage.w39
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.w39
+        public final void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                g(str, this.a);
+            }
+        }
+
+        @Override // com.repackage.w39
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        public abstract void g(String str, String str2);
+
+        public void h(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                this.a = str;
+            }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00d3, code lost:
-        if (r2 != null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00d5, code lost:
-        r2.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ec, code lost:
-        if (r2 != null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ef, code lost:
-        r15.moveToNext();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00f6, code lost:
-        if (r8.d() == null) goto L47;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0100, code lost:
-        if (r8.a() == 0) goto L46;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x010a, code lost:
-        if (c(r8.c()) == false) goto L45;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0114, code lost:
-        if (r8.a() < 1000) goto L44;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0116, code lost:
-        r0 = r8.d();
-        r2 = r0.substring(r9, r0.lastIndexOf("/"));
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x012a, code lost:
-        if (r0.contains("/DCIM/") != false) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x012c, code lost:
-        if (r2 == null) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0132, code lost:
-        if (r2.equals("/sdcard") == false) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x013e, code lost:
-        if (new java.io.File(r0).exists() == false) goto L42;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0140, code lost:
-        r1.add(r8);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0143, code lost:
-        r5 = r21 + 1;
-        r7 = r17;
-        r9 = r18;
-        r8 = r22;
-        r6 = 0;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0173  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static List<ws8> a(Context context) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Cursor cursor2;
-        int i;
-        ContentResolver contentResolver;
-        String str;
-        int i2;
-        ws8 ws8Var;
-        Cursor cursor3;
-        ContentResolver contentResolver2;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            ArrayList arrayList = new ArrayList();
-            ContentResolver contentResolver3 = context.getContentResolver();
-            String str2 = "_id";
-            try {
-                Cursor query = contentResolver3.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, "title");
-                try {
-                    String[] strArr = {"video_id", "_data"};
-                    query.moveToFirst();
-                    int count = query.getCount();
-                    int i3 = 0;
-                    int i4 = 0;
-                    while (i4 < count) {
-                        ws8 ws8Var2 = new ws8();
-                        String string2 = query.getString(query.getColumnIndex(str2));
-                        ws8Var2.i(string2);
-                        String string3 = query.getString(query.getColumnIndex("_data"));
-                        if (string3 != null) {
-                            ws8Var2.j(string3.replace("/storage/emulated/0", "/sdcard"));
-                        }
-                        int i5 = count;
-                        ws8Var2.e(kg.e(query.getString(query.getColumnIndex("duration")), i3));
-                        ws8Var2.g(query.getString(query.getColumnIndex("mime_type")));
-                        ws8Var2.f(Long.parseLong(query.getString(query.getColumnIndex("date_modified"))));
-                        try {
-                            try {
-                                contentResolver2 = contentResolver3;
-                                i = i4;
-                                contentResolver = contentResolver3;
-                                str = str2;
-                                i2 = 0;
-                                ws8Var = ws8Var2;
-                            } catch (Exception e) {
-                                e = e;
-                                i = i4;
-                                contentResolver = contentResolver3;
-                                str = str2;
-                                i2 = 0;
-                                ws8Var = ws8Var2;
-                            }
-                            try {
-                                cursor3 = contentResolver2.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
-                                if (cursor3 != null) {
-                                    try {
-                                        try {
-                                            if (cursor3.moveToFirst() && (string = cursor3.getString(cursor3.getColumnIndex("_data"))) != null) {
-                                                ws8Var.h(string.replace("/storage/emulated/0", "/sdcard"));
-                                            }
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            cursor2 = cursor3;
-                                            if (cursor2 != null) {
-                                                cursor2.close();
-                                            }
-                                            throw th;
-                                        }
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        e.printStackTrace();
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                e = e3;
-                                cursor3 = null;
-                                e.printStackTrace();
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            cursor2 = null;
-                        }
-                    }
-                    if (query != null) {
-                        query.close();
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    cursor = query;
-                    try {
-                        e.printStackTrace();
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        return arrayList;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
-                    cursor = query;
-                    if (cursor != null) {
-                    }
-                    throw th;
-                }
-            } catch (Exception e5) {
-                e = e5;
-                cursor = null;
-            } catch (Throwable th5) {
-                th = th5;
-                cursor = null;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    public static ws8 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                ws8 ws8Var = new ws8();
-                ws8Var.j(str);
-                ws8Var.f(file.lastModified());
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                            if (extractMetadata != null) {
-                                ws8Var.e(Integer.parseInt(extractMetadata));
-                            }
-                            ws8Var.g(mediaMetadataRetriever.extractMetadata(12));
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
-                }
-                return ws8Var;
-            }
-            return null;
-        }
-        return (ws8) invokeL.objValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? MimeTypes.VIDEO_MP4.equals(str) || "video/ext-mp4".equals(str) : invokeL.booleanValue;
-    }
-
-    public static void d(String str, List<ws8> list, boolean z) {
-        File[] listFiles;
-        ws8 b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, str, list, z) == null) || list == null || StringUtils.isNull(str) || (listFiles = new File(str).listFiles()) == null || listFiles.length == 0) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755160908, "Lcom/repackage/xs8;")) == null) {
             return;
         }
-        for (File file : listFiles) {
-            if (file != null && !StringUtils.isNull(file.getPath())) {
-                String path = file.getPath();
-                if (file.isFile()) {
-                    if (path.contains("_tiebaconverting.mp4")) {
-                        if (file.exists()) {
-                            file.delete();
-                        }
-                    } else if (path.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) && DefaultHlsExtractorFactory.MP4_FILE_EXTENSION.equals(path.substring(path.lastIndexOf(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION))) && (b = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b.a() >= 1000 && c(b.c())) {
-                        list.add(b);
-                    }
-                } else if (file.isDirectory() && !path.contains("/.") && z) {
-                    d(path, list, z);
-                }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755160908, "Lcom/repackage/xs8;");
+        }
+    }
+
+    public xs8(@NonNull TbPageContext<?> tbPageContext, @NonNull String str, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str, dVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+        this.b = str;
+        this.c = dVar;
+        e();
+        f();
+    }
+
+    public static void l(@NonNull TbPageContext<?> tbPageContext, @NonNull VideoInfo videoInfo, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, tbPageContext, videoInfo, str, str2) == null) {
+            Intent intent = new Intent();
+            intent.putExtra("topic", str);
+            intent.putExtra("topicId", str2);
+            intent.putExtra("is_video_topic", "0");
+            intent.putExtra(WorkPublishActivityConfig.VIDEO_MIXING, false);
+            intent.putExtra(WorkPublishActivityConfig.NEED_PUBLISH_END_JUMP_HOME, true);
+            WorkPublishOpenHelper.Companion.e(intent, videoInfo, tbPageContext.getPageActivity(), true, false);
+        }
+    }
+
+    public static String m(TbPageContext<?> tbPageContext, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, tbPageContext, str)) == null) {
+            File file = new File(str);
+            File file2 = new File(uo8.g);
+            if (!file2.exists()) {
+                file2.mkdir();
+            }
+            String str2 = uo8.g + file.getName();
+            if (!str2.equals(file.getAbsolutePath())) {
+                FileHelper.copyFileByAbsolutelyPath(file.getAbsolutePath(), str2);
+            }
+            new MediaScannerClient(tbPageContext.getPageActivity()).saveVideo(str2);
+            try {
+                Intent intent = new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE");
+                intent.setData(UtilHelper.getUriFromFile(file, intent, tbPageContext.getPageActivity()));
+                tbPageContext.getPageActivity().sendBroadcast(intent);
+            } catch (Exception e) {
+                BdLog.d(e.getMessage());
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void n(@NonNull TbPageContext<?> tbPageContext, @NonNull String str, @NonNull String str2, String str3, String str4) {
+        VideoFileInfo c2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLLL(65544, null, tbPageContext, str, str2, str3, str4) == null) || (c2 = jo8.c(str)) == null) {
+            return;
+        }
+        VideoInfo videoInfo = new VideoInfo();
+        videoInfo.setVideoPath(str);
+        videoInfo.setVideoDuration((int) (c2.videoDuration / 1000.0f));
+        videoInfo.setVideoWidth(c2.videoWidth);
+        videoInfo.setVideoHeight(c2.videoHeight);
+        videoInfo.setVideoLength(new File(str).length());
+        videoInfo.setVideoSource(2);
+        videoInfo.setIsCompressedVideo(true);
+        videoInfo.setThumbPath(str2);
+        EditVideoData editVideoData = new EditVideoData();
+        if (StringUtils.isNull(videoInfo.getThumbPath())) {
+            editVideoData.coverPath = uo8.b;
+        } else {
+            editVideoData.coverPath = videoInfo.getThumbPath();
+        }
+        editVideoData.originPath = videoInfo.getVideoPath();
+        videoInfo.setEditVideoData(editVideoData);
+        videoInfo.setMultiMediaData(eu8.a(videoInfo));
+        mg.a().post(new a(tbPageContext, videoInfo, str3, str4));
+    }
+
+    public static VideoMuxer p(@NonNull TbPageContext<?> tbPageContext, @NonNull String str, @NonNull List<at8> list, @NonNull d dVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65545, null, tbPageContext, str, list, dVar)) == null) ? new xs8(tbPageContext, str, dVar).o(list) : (VideoMuxer) invokeLLLL.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            VideoFileInfo c2 = jo8.c(this.b);
+            if (c2 == null) {
+                this.a.getPageActivity().finish();
+                return;
+            }
+            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
+            this.d = tbMultiMediaData;
+            tbMultiMediaData.path = c2.videoPath;
+            tbMultiMediaData.coverPath = c2.thumbPath;
+            int i = c2.videoHeight;
+            tbMultiMediaData.height = i;
+            int i2 = c2.videoWidth;
+            tbMultiMediaData.width = i2;
+            tbMultiMediaData.type = 1;
+            tbMultiMediaData.start = 0L;
+            int i3 = c2.videoDuration;
+            tbMultiMediaData.end = i3;
+            tbMultiMediaData.originalDuration = i3;
+            tbMultiMediaData.scaleType = "center_inside";
+            tbMultiMediaData.videoInfoSource = 2;
+            tbMultiMediaData.coverSource = 1;
+            tbMultiMediaData.videoRatio = (i * 1.0f) / i2;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (!io8.a()) {
+                this.a.getPageActivity().finish();
+                return;
+            }
+            g();
+            MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = new MultiMediaDataSourceViewAdapter();
+            this.f = new VlogEditManager(multiMediaDataSourceViewAdapter);
+            GLMediaPreviewView gLMediaPreviewView = new GLMediaPreviewView(TbadkCoreApplication.getInst());
+            gLMediaPreviewView.setZOrderMediaOverlay(true);
+            gLMediaPreviewView.setMultiMediaDataSourceViewAdapter(multiMediaDataSourceViewAdapter, false);
+            gLMediaPreviewView.setCanMeasure(false);
+            gLMediaPreviewView.setVideoRatio(this.d.videoRatio);
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(this.d);
+            this.f.setMultiMediaData(arrayList);
+            this.f.setVideoRatio(this.d.videoRatio);
+            this.e = new w56(true);
+            h();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            s39.c().h(TbadkCoreApplication.getInst());
+            s39.c().j(FileHelper.getCacheDir());
+            s39.c().k(new c(this));
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f66.a aVar = new f66.a();
+            aVar.t(this.d.width);
+            aVar.o(this.d.height);
+            aVar.p(true);
+            aVar.r(this.d.videoRatio);
+            VlogEditManager vlogEditManager = this.f;
+            aVar.q(vlogEditManager == null ? null : vlogEditManager.getMultiMediaData(vlogEditManager.getCurrentIndex()));
+            aVar.s("manual");
+            f66 m = aVar.m();
+            this.e.e(new b(this));
+            this.e.d(false);
+            this.e.b(m, "default");
+        }
+    }
+
+    public final void i(String str, long j, long j2, double d2, double d3, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Double.valueOf(d2), Double.valueOf(d3), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            MultiMediaData multiMediaData = new MultiMediaData();
+            Bitmap image = FileHelper.getImage(str);
+            if (image != null) {
+                multiMediaData.path = str;
+                multiMediaData.width = i;
+                multiMediaData.height = i2;
+                multiMediaData.scaleType = "adaptive";
+                multiMediaData.type = 0;
+                multiMediaData.start = j;
+                multiMediaData.end = j2;
+                multiMediaData.x = ((int) d2) - (i >> 1);
+                multiMediaData.y = ((int) d3) - (i2 >> 1);
+                image.recycle();
+                this.f.seek(j);
+                this.f.addStickerData(multiMediaData, FaceItem.DIR_STICKER);
             }
         }
     }
 
-    public static void e(List<ws8> list) {
+    public final void j(at8 at8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
-            Collections.sort(list, new a());
+        if (interceptable == null || interceptable.invokeL(1048581, this, at8Var) == null) {
+            int i = at8Var.b;
+            if (i == 1) {
+                k(at8Var.a, at8Var.e, at8Var.f, at8Var.g, at8Var.h, at8Var.i, at8Var.j, at8Var.k);
+            } else if (i == 2) {
+                i(at8Var.a, at8Var.e, at8Var.f, at8Var.g, at8Var.h, at8Var.c, at8Var.d);
+            }
         }
+    }
+
+    public final void k(String str, long j, long j2, double d2, double d3, double d4, double d5, String str2) {
+        int e;
+        int height;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), str2}) == null) {
+            lo8.d().j((int) d5);
+            String videoTmpDir = FileHelper.getVideoTmpDir();
+            String str3 = System.currentTimeMillis() + ".jpg";
+            TextWordsEntity.TextStyleEntity textStyleEntity = new TextWordsEntity.TextStyleEntity();
+            textStyleEntity.mTextInfoList = new ArrayList();
+            textStyleEntity.mStrokeInfoList = new ArrayList();
+            TextWordsEntity.StyleTextInfoEntity styleTextInfoEntity = new TextWordsEntity.StyleTextInfoEntity();
+            if (!ef8.d(ef8.e(str2)) && str2 != null && str2.startsWith("#") && str2.length() >= 7) {
+                styleTextInfoEntity.mTextAlpha = String.format(Locale.CHINA, "%.1f", Double.valueOf(((e >>> 24) * 1.0d) / 255.0d));
+                styleTextInfoEntity.mTextColor = str2.substring(str2.length() - 6, str2.length());
+            } else {
+                styleTextInfoEntity.mTextAlpha = "0.0";
+                styleTextInfoEntity.mTextColor = "000000";
+            }
+            textStyleEntity.mTextInfoList.add(styleTextInfoEntity);
+            Bitmap h = lo8.d().h(TbadkCoreApplication.getInst(), str, textStyleEntity, null);
+            MultiMediaData multiMediaData = new MultiMediaData();
+            FileUtils.saveBitmap2PNG(videoTmpDir, str3, h, 100);
+            multiMediaData.path = videoTmpDir + File.separator + str3;
+            multiMediaData.width = h.getWidth();
+            multiMediaData.height = h.getHeight();
+            multiMediaData.scaleType = "adaptive";
+            multiMediaData.type = 0;
+            multiMediaData.start = j;
+            multiMediaData.end = j2;
+            if (d4 == 1.0d) {
+                multiMediaData.x = ((int) d2) - (multiMediaData.width >> 1);
+                multiMediaData.y = ((int) d3) - (height >> 1);
+            } else if (d4 == 2.0d) {
+                lo8.d().getClass();
+                multiMediaData.x = ((int) d2) - 20;
+                multiMediaData.y = ((int) d3) - (multiMediaData.height >> 1);
+            } else if (d4 == 3.0d) {
+                int i = ((int) d2) - multiMediaData.width;
+                lo8.d().getClass();
+                multiMediaData.x = i + 20;
+                multiMediaData.y = ((int) d3) - (multiMediaData.height >> 1);
+            } else {
+                multiMediaData.x = (int) d2;
+                multiMediaData.y = (int) d3;
+            }
+            h.recycle();
+            this.f.seek(j);
+            this.f.addStickerData(multiMediaData, FaceItem.DIR_STICKER);
+        }
+    }
+
+    public final VideoMuxer o(@NonNull List<at8> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
+            for (at8 at8Var : list) {
+                j(at8Var);
+            }
+            VideoMuxerData videoMuxerData = new VideoMuxerData();
+            videoMuxerData.setCompat(true);
+            videoMuxerData.setPhotoDataList(this.f.getInputMultiMediaData());
+            videoMuxerData.setStickerDataList(this.f.getStickerMultiMediaDataList(false));
+            videoMuxerData.setUserNewAudioMixture(true);
+            ArrayList arrayList = new ArrayList();
+            AudioPlayTrackData audioPlayTrackData = new AudioPlayTrackData();
+            audioPlayTrackData.mAudioPlayDataList = new ArrayList();
+            arrayList.add(audioPlayTrackData);
+            videoMuxerData.setAudioPlayTrackDataList(arrayList);
+            videoMuxerData.setPreviewWidth(this.f.getMultiMediaData(0).width);
+            videoMuxerData.setPreviewHeight(this.f.getMultiMediaData(0).height);
+            videoMuxerData.setOutWidth(this.f.getMultiMediaData(0).width);
+            videoMuxerData.setOutHeight(this.f.getMultiMediaData(0).height);
+            videoMuxerData.setOutBitRate(this.f.getMultiMediaData(0).width * this.f.getMultiMediaData(0).height * 6);
+            videoMuxerData.setComposeNecessary(true);
+            videoMuxerData.setCurrThemeEffect((MediaTrackConfig) new Gson().fromJson(this.f.exportConfigJson(MediaTrackConfig.AE_IMPORT_DRAFT), (Class<Object>) TbMediaTrackConfig.class));
+            VideoMuxer videoMuxer = new VideoMuxer();
+            videoMuxer.setListener(this.c);
+            videoMuxer.startMuxer(videoMuxerData);
+            return videoMuxer;
+        }
+        return (VideoMuxer) invokeL.objValue;
     }
 }

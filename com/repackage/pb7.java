@@ -1,50 +1,62 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.PbFullScreenEditorActivityConfig;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.PbEditorData;
-import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class pb7 extends b35 {
+public class pb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean J;
-    public String K;
-    public String L;
-    public String M;
-    public PermissionJudgePolicy N;
+    public b9 a;
+    public int b;
+    public int c;
+    public ListView d;
+    public String e;
+    public int f;
+    public Map<String, Integer> g;
+    public View h;
+    public boolean i;
+    public d48 j;
+    public m48 k;
+    public boolean l;
+    public z38 m;
+    public final CustomMessageListener n;
+    public jb7 o;
 
     /* loaded from: classes6.dex */
-    public class a implements x05 {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ pb7 a;
 
-        public a(pb7 pb7Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pb7 pb7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pb7Var};
+                Object[] objArr = {pb7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -53,193 +65,367 @@ public class pb7 extends b35 {
             this.a = pb7Var;
         }
 
-        @Override // com.repackage.x05
-        public void onAction(w05 w05Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, w05Var) == null) {
-                Object obj = w05Var.c;
-                if (obj instanceof mx4) {
-                    if (((mx4) obj).getType() == EmotionGroupType.BIG_EMOTION || ((mx4) w05Var.c).getType() == EmotionGroupType.USER_COLLECT) {
-                        if (this.a.N == null) {
-                            this.a.N = new PermissionJudgePolicy();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage)) {
+                this.a.s();
+                if (this.a.l && this.a.l) {
+                    pb7 pb7Var = this.a;
+                    pb7Var.k(pb7Var.k.a(), this.a.k.b(), this.a.k.d(), this.a.k.c());
+                }
+            }
+        }
+    }
+
+    public pb7(b9 b9Var, ListView listView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {b9Var, listView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 0;
+        this.c = 0;
+        this.e = null;
+        this.f = 0;
+        this.g = new HashMap();
+        this.i = false;
+        this.l = true;
+        this.m = new z38();
+        this.n = new a(this, 2000994);
+        this.o = new jb7(this);
+        this.a = b9Var;
+        this.b = li.i(b9Var.getPageActivity());
+        this.d = listView;
+        BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.k = new m48();
+        b9Var.registerListener(this.n);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            mg.a().removeCallbacks(this.m);
+            mg.a().removeCallbacks(this.o);
+            d();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (int i = 0; i < this.d.getChildCount(); i++) {
+                View childAt = this.d.getChildAt(i);
+                if (childAt.getTag() instanceof d48) {
+                    ((d48) childAt.getTag()).stopPlay();
+                }
+            }
+        }
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public int g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (this.g.containsKey(str)) {
+                return this.g.get(str).intValue();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public void h(View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null || i(view2) || !(view2.getTag() instanceof d48)) {
+            return;
+        }
+        d48 d48Var = (d48) view2.getTag();
+        if (!TextUtils.isEmpty(d48Var.getPlayUrl()) && d48Var.getCurrentPosition() > 0) {
+            q(d48Var.getPlayUrl(), d48Var.getCurrentPosition());
+        }
+        d48Var.stopPlay();
+    }
+
+    public boolean i(View view2) {
+        InterceptResult invokeL;
+        int measuredHeight;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+            if (view2 == null) {
+                return false;
+            }
+            int[] iArr = new int[2];
+            if (view2 == null) {
+                return false;
+            }
+            view2.getLocationOnScreen(iArr);
+            return view2 != null && (measuredHeight = iArr[1] + (view2.getMeasuredHeight() / 2)) > this.c && measuredHeight < this.b;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void j(int i, int i2, boolean z, int i3) {
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) {
+            this.k.e(i, i2, z);
+            ListView listView = this.d;
+            if (listView == null || listView.getChildCount() == 0) {
+                return;
+            }
+            ListView listView2 = this.d;
+            ListAdapter wrappedAdapter = listView2 instanceof BdListView ? ((BdListView) listView2).getWrappedAdapter() : listView2.getAdapter();
+            if (wrappedAdapter == null || wrappedAdapter.getCount() == 0) {
+                return;
+            }
+            d48 d48Var = this.j;
+            if (d48Var != null && !i(d48Var.getVideoContainer())) {
+                this.j.stopPlay();
+            }
+            int count = wrappedAdapter.getCount() + this.d.getHeaderViewsCount() + this.d.getFooterViewsCount();
+            int i4 = 0;
+            if (i == 0) {
+                z2 = true;
+            } else {
+                int i5 = count - 1;
+                z2 = false;
+            }
+            if (i == 0 || i2 == count - 1) {
+                z3 = false;
+                for (int i6 = 0; i6 < this.d.getChildCount(); i6++) {
+                    View childAt = this.d.getChildAt(z2 ? i6 : (this.d.getChildCount() - 1) - i6);
+                    if (childAt.getTag() instanceof d48) {
+                        d48 d48Var2 = (d48) childAt.getTag();
+                        if (!z3 && i(d48Var2.getVideoContainer())) {
+                            r(i3, childAt);
+                            z3 = true;
+                        } else {
+                            if (!TextUtils.isEmpty(d48Var2.getPlayUrl()) && d48Var2.getCurrentPosition() > 0) {
+                                q(d48Var2.getPlayUrl(), d48Var2.getCurrentPosition());
+                            }
+                            u(i3, childAt);
                         }
-                        this.a.N.clearRequestPermissionList();
-                        this.a.N.appendRequestPermission(this.a.n.getPageActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
-                        if (this.a.N.startRequestPermission(this.a.n.getPageActivity())) {
-                            return;
+                    }
+                }
+            } else {
+                z3 = false;
+            }
+            if (z3) {
+                return;
+            }
+            int i7 = -1;
+            int i8 = 0;
+            while (true) {
+                if (i8 >= this.d.getChildCount()) {
+                    break;
+                }
+                View childAt2 = this.d.getChildAt(i8);
+                if (childAt2.getTag() instanceof d48) {
+                    d48 d48Var3 = (d48) childAt2.getTag();
+                    if (d48Var3.isPlayStarted() && i(d48Var3.getVideoContainer())) {
+                        i7 = i8;
+                        break;
+                    }
+                }
+                i8++;
+            }
+            if (i7 >= 0) {
+                while (i4 < this.d.getChildCount()) {
+                    View childAt3 = this.d.getChildAt(i4);
+                    if (i4 == i7) {
+                        r(i3, childAt3);
+                    } else {
+                        if (childAt3.getTag() instanceof d48) {
+                            d48 d48Var4 = (d48) childAt3.getTag();
+                            if (!TextUtils.isEmpty(d48Var4.getPlayUrl()) && d48Var4.getCurrentPosition() > 0) {
+                                q(d48Var4.getPlayUrl(), d48Var4.getCurrentPosition());
+                            }
                         }
-                        this.a.h((mx4) w05Var.c);
-                        this.a.z(false, null);
+                        u(i3, childAt3);
+                    }
+                    i4++;
+                }
+                return;
+            }
+            boolean z4 = false;
+            while (i4 < this.d.getChildCount()) {
+                View childAt4 = this.d.getChildAt(z ? (this.d.getChildCount() - 1) - i4 : i4);
+                if (childAt4.getTag() instanceof d48) {
+                    d48 d48Var5 = (d48) childAt4.getTag();
+                    if (!z4 && i(d48Var5.getVideoContainer())) {
+                        r(i3, childAt4);
+                        z4 = true;
+                    } else {
+                        if (!TextUtils.isEmpty(d48Var5.getPlayUrl()) && d48Var5.getCurrentPosition() > 0) {
+                            q(d48Var5.getPlayUrl(), d48Var5.getCurrentPosition());
+                        }
+                        u(i3, childAt4);
+                    }
+                }
+                i4++;
+            }
+        }
+    }
+
+    public void k(int i, int i2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            mg.a().removeCallbacks(this.o);
+            this.o.a(i);
+            this.o.c(i2);
+            this.o.b(z);
+            this.o.d(z2);
+            this.k.f(z2);
+            mg.a().post(this.o);
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, str) == null) && this.g.containsKey(str)) {
+            this.g.put(str, 0);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.l) {
+            View view2 = this.h;
+            if (view2 != null && (view2.getTag() instanceof d48)) {
+                d48 d48Var = (d48) this.h.getTag();
+                if (this.i) {
+                    d48Var.startPlay();
+                }
+                if (this.h.getTag() instanceof c48) {
+                    ((c48) this.h.getTag()).c();
+                }
+            }
+            this.h = null;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void q(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048590, this, str, i) == null) {
+            if (this.g.containsKey(str)) {
+                if (this.g.get(str).intValue() == 0) {
+                    return;
+                }
+                this.g.put(str, Integer.valueOf(i));
+                return;
+            }
+            this.g.put(str, Integer.valueOf(i));
+        }
+    }
+
+    public final void r(int i, View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048591, this, i, view2) == null) || view2 == null) {
+            return;
+        }
+        this.h = view2;
+        if (i == 1 && (view2.getTag() instanceof d48)) {
+            d48 d48Var = (d48) view2.getTag();
+            if (!this.l || d48Var.isPlayStarted()) {
+                return;
+            }
+            d48Var.startPlay();
+        } else if (i == 2 && (view2.getTag() instanceof c48)) {
+            ((c48) view2.getTag()).a();
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            mg.a().removeCallbacks(this.m);
+            mg.a().removeCallbacks(this.o);
+            for (int i = 0; i < this.d.getChildCount(); i++) {
+                View childAt = this.d.getChildAt(i);
+                if (childAt.getTag() instanceof d48) {
+                    d48 d48Var = (d48) childAt.getTag();
+                    if (d48Var.isPlayStarted()) {
+                        d48Var.stopPlay();
+                        return;
                     }
                 }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pb7(EditorTools editorTools) {
-        super(editorTools);
+    public void t() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((EditorTools) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        editorTools.setActionListener(24, new a(this));
-    }
-
-    public WriteData A0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WriteData writeData = new WriteData();
-            if (this.k != null) {
-                if (this.z && !this.J) {
-                    writeData.setCanNoForum(true);
-                    writeData.setVForumId(this.k.getId());
-                    writeData.setVForumName(this.k.getName());
-                    writeData.setForumId("0");
-                    writeData.setForumName("");
-                } else {
-                    writeData.setCanNoForum(false);
-                    writeData.setVForumId("");
-                    writeData.setVForumName("");
-                    writeData.setForumId(this.k.getId());
-                    writeData.setForumName(this.k.getName());
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            for (int i = 0; i < this.d.getChildCount(); i++) {
+                View childAt = this.d.getChildAt(i);
+                if (childAt.getTag() instanceof d48) {
+                    d48 d48Var = (d48) childAt.getTag();
+                    if (d48Var.isPlayStarted()) {
+                        p(d48Var.getCurrentPosition());
+                        o(d48Var.getPlayUrl());
+                        this.h = childAt;
+                        this.i = d48Var.isPlaying();
+                        d48Var.stopPlay();
+                        return;
+                    }
                 }
             }
-            writeData.setThreadId(this.m);
-            if (!this.J) {
-                writeData.setType(1);
-            } else {
-                writeData.setType(2);
-                writeData.setFloor(this.K);
-                writeData.setFloorNum(0);
-                writeData.setReplyId(this.L);
-                writeData.setRepostId(this.K);
-            }
-            return writeData;
-        }
-        return (WriteData) invokeV.objValue;
-    }
-
-    @Override // com.repackage.b35
-    public void L(String str, WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, writeData) == null) {
-            if (this.h.b0() == null) {
-                this.h.setWriteData(A0());
-            }
-            if (this.h.b0() == null) {
-                return;
-            }
-            this.h.setSpanGroupManager(this.d);
-            this.h.b0().setIsBJHPost(this.v);
-            this.h.b0().setWriteImagesInfo(this.b);
-            boolean z = true;
-            this.h.i0(this.b.size() > 0);
-            WriteData b0 = this.h.b0();
-            LocationModel locationModel = this.g;
-            b0.setHasLocationData((locationModel == null || !locationModel.B()) ? false : false);
-            if (str == null) {
-                this.h.b0().setContent(this.c);
-            }
-            VoiceData.VoiceModel voiceModel = this.e;
-            if (voiceModel != null) {
-                if (voiceModel.getId() != null) {
-                    this.h.b0().setVoice(this.e.getId());
-                    this.h.b0().setVoiceDuringTime(this.e.duration);
-                } else {
-                    this.h.b0().setVoice(null);
-                    this.h.b0().setVoiceDuringTime(-1);
-                }
-            } else {
-                this.h.b0().setVoice(null);
-                this.h.b0().setVoiceDuringTime(-1);
-            }
-            if (!this.h.Y()) {
-                this.n.showToast(R.string.obfuscated_res_0x7f0f15b3);
-                return;
-            }
-            y25 y25Var = this.y;
-            if ((y25Var == null || !y25Var.a()) && !this.h.r0()) {
-            }
         }
     }
 
-    @Override // com.repackage.b35
-    public void U(String str) {
+    public final void u(int i, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            WriteData b0 = this.h.b0();
-            if (b0 == null) {
-                b0 = new WriteData(this.J ? 2 : 1);
-                b0.setThreadId(str);
-                b0.setWriteImagesInfo(this.b);
+        if (interceptable == null || interceptable.invokeIL(1048594, this, i, view2) == null) {
+            if (i == 1 && (view2.getTag() instanceof d48)) {
+                ((d48) view2.getTag()).stopPlay();
+            } else if (i == 2 && (view2.getTag() instanceof c48)) {
+                ((c48) view2.getTag()).d();
             }
-            if (!li.isEmpty(this.M)) {
-                b0.setFromForumId(this.M);
-            }
-            b0.setContent(this.c);
-            b0.setVoiceModel(this.e);
-            if (this.J) {
-                b0.setReplyId(this.L);
-                b0.setThreadId(this.K);
-                cj8.x(this.K, b0);
-                return;
-            }
-            cj8.w(str, b0);
-        }
-    }
-
-    @Override // com.repackage.b35
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (this.J) {
-                cj8.o(this.K, this);
-            } else {
-                cj8.n(str, this);
-            }
-        }
-    }
-
-    @Override // com.repackage.b35
-    public void z(boolean z, PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, postWriteCallBackData) == null) {
-            PbEditorData pbEditorData = new PbEditorData();
-            pbEditorData.setEditorType(this.J ? 1 : 0);
-            pbEditorData.setContent(this.c);
-            pbEditorData.setWriteImagesInfo(this.b);
-            pbEditorData.setVoiceModel(this.e);
-            PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
-            ForumData forumData = this.k;
-            if (forumData != null) {
-                threadData.setForumId(forumData.getId());
-                threadData.setForumName(this.k.getName());
-                threadData.setFirstDir(this.k.getFirst_class());
-                threadData.setSecondDir(this.k.getSecond_class());
-            }
-            threadData.setAuthorId(this.r);
-            threadData.setAuthorName(this.p);
-            threadData.setAuthorNameShow(this.q);
-            threadData.setPostId(this.K);
-            threadData.setThreadId(this.m);
-            threadData.isBJH = this.v;
-            pbEditorData.setThreadData(threadData);
-            pbEditorData.setDisableVoiceMessage(this.o);
-            pbEditorData.setOpenVoiceRecordButton(z);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbFullScreenEditorActivityConfig(this.n.getPageActivity(), 25035, pbEditorData, postWriteCallBackData)));
         }
     }
 }

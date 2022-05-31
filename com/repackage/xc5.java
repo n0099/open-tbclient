@@ -1,369 +1,108 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
+import android.media.AudioManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.service.AsyncService;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.EnterForePvThread;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.mutiprocess.event.AppBackgroundSwitchEvent;
+import com.baidu.tbadk.core.util.videoPreload.IVideoNeedPreload;
+import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.lang.ref.WeakReference;
 /* loaded from: classes7.dex */
 public class xc5 {
     public static /* synthetic */ Interceptable $ic;
-    public static xc5 i;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public int d;
-    public AtomicBoolean e;
-    public boolean f;
-    public Handler g;
-    public Runnable h;
 
-    /* loaded from: classes7.dex */
-    public class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xc5 a;
-
-        public a(xc5 xc5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xc5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xc5Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755176377, "Lcom/repackage/xc5;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755176377, "Lcom/repackage/xc5;");
+        }
+    }
 
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what != 5) {
+    public static boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i == 3 || i == 4) {
+                return ji.H();
+            }
+            if (i != 5) {
+                int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
+                if ((autoPlaySwitch == 3 || !ji.H()) && (autoPlaySwitch != 2 || !ji.x())) {
                     return false;
                 }
-                if (Boolean.TRUE.equals(message.obj)) {
-                    this.a.o();
-                    this.a.k();
-                    return false;
-                }
-                this.a.l();
+            } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !ji.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1)) {
                 return false;
             }
-            return invokeL.booleanValue;
+            return true;
         }
+        return invokeI.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xc5 a;
-
-        public b(xc5 xc5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xc5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = xc5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                xc5 xc5Var = this.a;
-                if (xc5Var.e == null) {
-                    xc5Var.e = new AtomicBoolean(false);
-                }
-                if (this.a.e.get()) {
-                    return;
-                }
-                this.a.e.set(true);
-                if (this.a.j(true)) {
-                    TbadkCoreApplication.getInst().fixOppoTimeout();
-                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.TRUE));
-                    e65.i(new AppBackgroundSwitchEvent(true));
-                    TiebaStaticHelper.setCurrentActivity(null);
-                    TiebaStatic.save();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(xc5 xc5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xc5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                yn4.c().b();
-            }
-        }
-    }
-
-    public xc5() {
+    public static boolean b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0;
-        this.e = null;
-        this.f = false;
-        this.g = new Handler(Looper.getMainLooper(), new a(this));
-        this.h = new b(this);
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) ? a(i) : invokeIL.booleanValue;
     }
 
-    public static xc5 g() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (i == null) {
-                synchronized (xc5.class) {
-                    if (i == null) {
-                        i = new xc5();
-                    }
-                }
-            }
-            return i;
-        }
-        return (xc5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.booleanValue;
     }
 
-    public void a() {
+    public static boolean d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d++;
-            n();
-            nb.b().a("CornerManager", new c(this));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? (context instanceof IVideoNeedPreload) && ((IVideoNeedPreload) context).videoNeedPreload() && UbsABTestHelper.isLiveAutoPlay() : invokeL.booleanValue;
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d--;
-            n();
-        }
-    }
-
-    public boolean d() {
+    public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (j(false)) {
-                if (this.f) {
-                    Intent intent = new Intent("com.tieba.baidu.notifyprocess");
-                    intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                    intent.putExtra("message", true);
-                    TbadkCoreApplication.getInst().sendBroadcast(intent);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? (ji.H() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 3) || (ji.x() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) : invokeV.booleanValue;
+    }
+
+    public static boolean f(WeakReference<Context> weakReference, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65542, null, weakReference, z)) == null) {
+            if (weakReference == null || weakReference.get() == null) {
+                return false;
+            }
+            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
+            if (z) {
+                if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
                     return false;
                 }
-                return true;
+            } else if (audioManager.abandonAudioFocus(null) != 1) {
+                return false;
             }
-            Intent intent2 = new Intent("com.tieba.baidu.notifyprocess");
-            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            intent2.putExtra("message", false);
-            TbadkCoreApplication.getInst().sendBroadcast(intent2);
-            return false;
+            return true;
         }
-        return invokeV.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public void e() {
+    public static void g(WeakReference<Context> weakReference) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = 0;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, weakReference) == null) || weakReference == null || weakReference.get() == null) {
+            return;
         }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AtomicBoolean atomicBoolean = this.e;
-            if (atomicBoolean == null) {
-                return true;
-            }
-            return atomicBoolean.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) ? TbadkCoreApplication.getInst().isMainProcess(z) : invokeZ.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            AsyncService.INSTANCE.sendRunnable(this.h);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            AsyncService.INSTANCE.removeRunnable(this.h);
-            if (this.e == null) {
-                this.e = new AtomicBoolean(true);
-            }
-            if (this.e.get()) {
-                this.e.set(false);
-                this.a++;
-                if (j(true)) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    long j = this.b;
-                    if ((currentTimeMillis - j > 3600000 || j == 0) && PermissionUtil.isAgreePrivacyPolicy()) {
-                        q();
-                    }
-                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.FALSE));
-                    e65.i(new AppBackgroundSwitchEvent(false));
-                }
-            }
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f = !z;
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (this.d < 0) {
-                this.d = 0;
-            }
-            if (j(true) && this.c == 0 && this.d > 0) {
-                this.c = System.nanoTime();
-            }
-            this.g.removeMessages(5);
-            if (this.d == 0) {
-                SpeedStats.getInstance().onAppBackground();
-                p();
-                return;
-            }
-            AtomicBoolean atomicBoolean = this.e;
-            if (atomicBoolean == null || atomicBoolean.get()) {
-                SpeedStats.getInstance().onAppForeground();
-                Handler handler = this.g;
-                handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.FALSE), 1000L);
-            }
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.d == 0 && this.c > 0) {
-            long nanoTime = ((System.nanoTime() - this.c) / 1000000) / 1000;
-            if (nanoTime >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
-                if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    new PvThread(TbConfig.ST_TYPE_USE, String.valueOf(nanoTime)).start();
-                }
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_USE, null, 1, "st_param", String.valueOf(nanoTime));
-            }
-            this.c = 0L;
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Handler handler = this.g;
-            handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.TRUE), 1000L);
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.b = System.currentTimeMillis();
-            new EnterForePvThread().start();
-        }
+        a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
     }
 }

@@ -99,9 +99,9 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                 return null;
             }
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03fb) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1359) + str;
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03fe) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f136b) + str;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03fb) + str;
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03fe) + str;
         }
         return (String) invokeL.objValue;
     }
@@ -112,7 +112,7 @@ public class SmallTailInfo extends OrmObject implements Serializable {
             try {
                 this.showColorId = Color.parseColor(getShowColorText(this.color));
             } catch (Exception unused) {
-                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1358)));
+                this.showColorId = Color.parseColor(getShowColorText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f136a)));
             }
         }
     }
@@ -131,13 +131,13 @@ public class SmallTailInfo extends OrmObject implements Serializable {
                     sb.append(str);
                 }
             } else if (i == 2 && !StringUtils.isNull(smallTailInfoContent.text)) {
-                String f = TbFaceManager.e().f(smallTailInfoContent.text);
-                if (!StringUtils.isNull(f)) {
-                    sb.append(EMOTION_PREFIX + f + EMOTION_SUFFIX);
+                String j = TbFaceManager.i().j(smallTailInfoContent.text);
+                if (!StringUtils.isNull(j)) {
+                    sb.append(EMOTION_PREFIX + j + EMOTION_SUFFIX);
                 }
             }
         }
-        this.tailSpannable = TbFaceManager.e().l(TbadkCoreApplication.getInst(), sb.toString(), null);
+        this.tailSpannable = TbFaceManager.i().t(TbadkCoreApplication.getInst(), sb.toString(), null);
     }
 
     public void updateShowInfo() {

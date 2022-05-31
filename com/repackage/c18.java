@@ -1,30 +1,27 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.R;
-import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class c18 extends dk5<e18, PersonInfoUserPicsHolder> {
+public class c18 extends wm<n28, CardViewHolder<p38>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener i;
-    public TbPageContext j;
+    public TbPageContext<?> i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c18(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public c18(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), n28.c, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -35,44 +32,34 @@ public class c18 extends dk5<e18, PersonInfoUserPicsHolder> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = tbPageContext;
-    }
-
-    @Override // com.repackage.eo
-    public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        a0(i, view2, viewGroup, (e18) obj, (PersonInfoUserPicsHolder) viewHolder);
-        return view2;
+        this.i = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: Z */
-    public PersonInfoUserPicsHolder M(ViewGroup viewGroup) {
+    public CardViewHolder<p38> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d06bb, viewGroup, false), this.j);
-            personInfoUserPicsHolder.e.d(this.i);
-            return personInfoUserPicsHolder;
-        }
-        return (PersonInfoUserPicsHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new p38(this.i)) : (CardViewHolder) invokeL.objValue;
     }
 
-    public View a0(int i, View view2, ViewGroup viewGroup, e18 e18Var, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, n28 n28Var, CardViewHolder<p38> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e18Var, personInfoUserPicsHolder})) == null) {
-            if (e18Var != null && personInfoUserPicsHolder != null) {
-                personInfoUserPicsHolder.d();
-                personInfoUserPicsHolder.c(e18Var);
-            }
-            return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n28Var, cardViewHolder})) == null) {
+            cardViewHolder.c().l(n28Var);
+            cardViewHolder.c().m(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }

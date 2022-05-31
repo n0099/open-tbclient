@@ -1,37 +1,46 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.ListAdapter;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ri7 extends qc1<ToastService> {
+public class ri7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdListView a;
 
-    public ri7() {
+    public ri7(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091ed6);
+        View view2 = new View(viewGroup.getContext());
+        view2.setLayoutParams(new AbsListView.LayoutParams(-1, (int) viewGroup.getContext().getResources().getDimension(R.dimen.obfuscated_res_0x7f070201)));
+        this.a.addHeaderView(view2);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.qc1
-    /* renamed from: a */
-    public ToastService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(li7 li7Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new si7() : (ToastService) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, li7Var) == null) {
+            this.a.setAdapter((ListAdapter) li7Var);
+        }
     }
 }

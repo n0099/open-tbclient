@@ -1,114 +1,66 @@
 package com.repackage;
 
-import android.os.Build;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.data.PersonPrivateData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class gm4 extends mt4 {
+public class gm4 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gm4(kt4 kt4Var) {
-        super(kt4Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kt4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((kt4) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755673245, "Lcom/repackage/gm4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755673245, "Lcom/repackage/gm4;");
                 return;
             }
         }
+        a = new HashMap<>();
     }
 
-    @nt4(isAsync = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        InterceptResult invokeV;
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            String str = Build.VERSION.RELEASE;
-            String str2 = Build.MODEL;
-            int k = mi.k(getContext());
-            int i = mi.i(getContext());
-            String str3 = String.valueOf(k) + "," + String.valueOf(i);
-            String versionName = TbadkCoreApplication.getInst().getVersionName();
-            try {
-                jSONObject.put("systemName", "android");
-                jSONObject.put("systemVersion", str);
-                jSONObject.put("model", str2);
-                jSONObject.put("cuid", cuid);
-                jSONObject.put("resolution", str3);
-                jSONObject.put("appVersion", versionName);
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            String str = TbadkCoreApplication.getCurrentAccount() + "@" + i;
+            if (a.containsKey(str)) {
+                return a.get(str).intValue();
             }
-            return jSONObject;
+            a.put(str, 1);
+            return 1;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    @nt4(isAsync = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        InterceptResult invokeV;
-        int i;
-        String str;
+    public static void b(PersonPrivateData personPrivateData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (ki.H()) {
-                i = 1;
-                str = "WIFI";
-            } else if (ki.t()) {
-                i = 3;
-                str = "2G";
-            } else if (ki.u()) {
-                i = 4;
-                str = "3G";
-            } else if (ki.v()) {
-                i = 5;
-                str = "4G";
-            } else {
-                i = 0;
-                str = "NotReachable";
-            }
-            try {
-                jSONObject.put("netStatus", i);
-                jSONObject.put("netDesc", str);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @nt4(isAsync = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, personPrivateData) == null) || personPrivateData == null) {
             return;
         }
-        BdToast.c(getContext(), jSONObject.optString("message")).q();
+        String str = TbadkCoreApplication.getCurrentAccount() + "@2";
+        int y = personPrivateData.y();
+        if (a.containsKey(str)) {
+            return;
+        }
+        a.put(str, Integer.valueOf(y));
     }
 
-    @Override // com.repackage.mt4
-    public String f() {
-        InterceptResult invokeV;
+    public static void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) {
+            a.put(TbadkCoreApplication.getCurrentAccount() + "@" + i, Integer.valueOf(i2));
+        }
     }
 }

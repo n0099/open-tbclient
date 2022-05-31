@@ -8,33 +8,21 @@ public class x67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public static long a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 1) {
-                if (i != 6) {
-                    if (i != 8) {
-                        if (i != 30) {
-                            switch (i) {
-                                case 10:
-                                    return 6;
-                                case 11:
-                                    return 7;
-                                case 12:
-                                    return 8;
-                                default:
-                                    return 1;
-                            }
-                        }
-                        return -9;
-                    }
-                    return 5;
-                }
-                return -1;
-            }
-            return -2;
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) ? j * 100 : invokeJ.longValue;
+    }
+
+    public static long b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) ? j + 1 : invokeJ.longValue;
+    }
+
+    public static long c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j / 100 : invokeJ.longValue;
     }
 }

@@ -149,15 +149,15 @@ public class a extends g implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (TextView) a(R.id.obfuscated_res_0x7f091170);
-        this.c = (ImageView) a(R.id.obfuscated_res_0x7f09106f);
-        this.g = (ImageView) a(R.id.obfuscated_res_0x7f091185);
+        this.b = (TextView) a(R.id.obfuscated_res_0x7f091132);
+        this.c = (ImageView) a(R.id.obfuscated_res_0x7f091031);
+        this.g = (ImageView) a(R.id.obfuscated_res_0x7f091147);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         if (view2 == this.c) {
-            com.kwad.sdk.core.download.a.a.a(new a.C0295a(view2.getContext()).a(this.d).a(this.f).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.a.7
+            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.d).a(this.f).a(2).a(new a.b() { // from class: com.kwad.sdk.reward.presenter.platdetail.kwai.a.7
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     a.this.t();

@@ -1,21 +1,42 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import com.baidu.payment.PaymentManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface d61<View> {
-    void a();
+public class d61 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View getRealView();
+    public static void a(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
+            if (bundle == null) {
+                PaymentManager.i(3, "闪付返回信息为空");
+                return;
+            }
+            String string = bundle.getString("statusCode");
+            try {
+                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
+            } catch (NumberFormatException e) {
+                PaymentManager.i(3, e.getMessage());
+            }
+        }
+    }
 
-    void setBtnIconNightModeEnable(boolean z);
+    public static void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
+            b61.a().g(bundle);
+        }
+    }
 
-    void setBtnPlaceholder(View view2);
-
-    void setData(@NonNull xn0 xn0Var);
-
-    void setEnhanceBtnListener(@NonNull b61 b61Var);
-
-    void setVisible(int i);
-
-    void update(int i);
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
+            b61.a().h("");
+        }
+    }
 }

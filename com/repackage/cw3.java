@@ -1,38 +1,15 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class cw3 implements k82 {
+public class cw3 implements tw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static String a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (TextUtils.isEmpty(a)) {
-                    a = uc3.b();
-                }
-                return a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
 
     public cw3() {
         Interceptable interceptable = $ic;
@@ -48,17 +25,28 @@ public class cw3 implements k82 {
         }
     }
 
-    @Override // com.repackage.k82
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.tw3
+    public byte[] a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.a() : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.k82
-    public c82 b(String str, z82 z82Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z82Var, v8ThreadDelegatePolicy)) == null) ? new dw3(str, z82Var, v8ThreadDelegatePolicy) : (c82) invokeLLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            if (str == null || bArr == null) {
+                return bArr;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != 76158) {
+                if (hashCode == 1952093519 && str.equals("BASE64")) {
+                    c = 1;
+                }
+            } else if (str.equals("MD5")) {
+                c = 0;
+            }
+            if (c != 0) {
+                return c != 1 ? bArr : Base64.encode(bArr, 2);
+            }
+            return mf4.d(bArr, false).getBytes();
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

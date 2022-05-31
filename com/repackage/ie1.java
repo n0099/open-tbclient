@@ -1,197 +1,421 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Future;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ie1<T> implements Runnable {
+public class ie1 {
     public static /* synthetic */ Interceptable $ic;
-    public static b b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Future<T> a;
 
     /* loaded from: classes6.dex */
-    public static class a<T> {
+    public static class a extends ne1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ie1 a;
-        public final T b;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ Context e;
 
-        public a(ie1 ie1Var, T t) {
+        public a(int i, int i2, String str, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ie1Var, t};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ie1Var;
-            this.b = t;
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+            this.e = context;
         }
-    }
 
-    /* loaded from: classes6.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
+        @Override // com.repackage.ne1
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                a aVar = (a) message.obj;
-                int i = message.what;
-                if (i == 1) {
-                    aVar.a.g(aVar.b);
-                } else if (i == 2) {
-                    aVar.a.f((Throwable) aVar.b);
-                } else if (i != 3) {
-                } else {
-                    aVar.a.e();
-                }
-            }
-        }
-    }
-
-    public ie1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static Handler d() {
-        InterceptResult invokeV;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (ie1.class) {
-                if (b == null) {
-                    b = new b(Looper.getMainLooper());
-                }
-                bVar = b;
-            }
-            return bVar;
-        }
-        return (Handler) invokeV.objValue;
-    }
-
-    public void a(boolean z) {
-        Future<T> future;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (future = this.a) == null) {
-            return;
-        }
-        future.cancel(z);
-        d().obtainMessage(3, new a(this, null)).sendToTarget();
-    }
-
-    public abstract T b();
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, INVOKE, CONST, CONSTRUCTOR, INVOKE, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public ie1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                System.currentTimeMillis();
-                d().obtainMessage(1, new a(this, b())).sendToTarget();
-            } finally {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    return this;
-                } finally {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", this.b);
+                    jSONObject.put("1", System.currentTimeMillis());
+                    jSONObject.put("2", this.c);
+                    jSONObject.put("3", this.d);
+                    jSONObject.put("4", "1");
+                    jSONArray.put(jSONObject);
+                    ge1.c(this.e).f(jSONArray.toString(), "1077112", 2);
+                } catch (Throwable th) {
+                    se1.d(th);
                 }
             }
-            return this;
-        }
-        return (ie1) invokeV.objValue;
-    }
-
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            a(false);
         }
     }
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+    /* loaded from: classes6.dex */
+    public static class b extends ne1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ Context g;
+
+        public b(int i, long j, int i2, int i3, String str, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), str, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.c = j;
+            this.d = i2;
+            this.e = i3;
+            this.f = str;
+            this.g = context;
+        }
+
+        @Override // com.repackage.ne1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = "";
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", this.b);
+                    jSONObject.put("1", "");
+                    jSONObject.put("2", Build.VERSION.SDK_INT);
+                    jSONObject.put("3", this.c);
+                    jSONObject.put("4", this.d);
+                    jSONObject.put("5", this.e);
+                    if (!TextUtils.isEmpty(this.f)) {
+                        str = this.f;
+                    }
+                    jSONObject.put("6", str);
+                    jSONArray.put(jSONObject);
+                    ge1.c(this.g).f(jSONArray.toString(), "1077128", 2);
+                } catch (Throwable th) {
+                    se1.d(th);
+                }
+            }
         }
     }
 
-    public void f(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
+    /* loaded from: classes6.dex */
+    public static class c extends ne1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ String f;
+
+        public c(int i, Context context, int i2, int i3, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), context, Integer.valueOf(i2), Integer.valueOf(i3), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.c = context;
+            this.d = i2;
+            this.e = i3;
+            this.f = str;
+        }
+
+        @Override // com.repackage.ne1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", this.b);
+                    jSONObject.put("3", System.currentTimeMillis());
+                    int Z = hd1.f(this.c).Z();
+                    if (Z != -1) {
+                        jSONObject.put("4", Z);
+                    }
+                    jSONObject.put("5", hd1.f(this.c).a0());
+                    jSONObject.put("7", this.d);
+                    if (this.e != -1) {
+                        jSONObject.put("8", this.e);
+                    }
+                    jSONObject.put("9", this.f);
+                    jSONObject.put("10", 1);
+                    jSONObject.put("11", pd1.q);
+                    jSONObject.put("12", "1");
+                    new ce1(this.c, null).h(jSONObject);
+                } catch (Throwable th) {
+                    se1.d(th);
+                }
+            }
         }
     }
 
-    public void g(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+    /* loaded from: classes6.dex */
+    public static class d extends ne1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ String f;
+
+        public d(int i, Context context, int i2, int i3, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), context, Integer.valueOf(i2), Integer.valueOf(i3), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.c = context;
+            this.d = i2;
+            this.e = i3;
+            this.f = str;
+        }
+
+        @Override // com.repackage.ne1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", this.b);
+                    jSONObject.put("3", System.currentTimeMillis());
+                    int d0 = hd1.f(this.c).d0();
+                    if (d0 != -1) {
+                        jSONObject.put("4", d0);
+                    }
+                    jSONObject.put("5", hd1.f(this.c).e0());
+                    jSONObject.put("7", this.d);
+                    if (this.e != -1) {
+                        jSONObject.put("8", this.e);
+                    }
+                    jSONObject.put("9", this.f);
+                    jSONObject.put("10", 1);
+                    jSONObject.put("11", pd1.r);
+                    jSONObject.put("12", "1");
+                    jSONArray.put(jSONObject);
+                    ge1.c(this.c).f(jSONArray.toString(), "1077122", 2);
+                } catch (Throwable th) {
+                    se1.d(th);
+                }
+            }
         }
     }
 
-    public void h(Future future) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, future) == null) {
-            this.a = future;
+    /* loaded from: classes6.dex */
+    public static class e extends ne1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ Context g;
+
+        public e(int i, int i2, String str, int i3, int i4, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+            this.e = i3;
+            this.f = i4;
+            this.g = context;
+        }
+
+        @Override // com.repackage.ne1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", System.currentTimeMillis());
+                    jSONObject.put("1", this.e);
+                    jSONObject.put("2", this.b);
+                    if (this.c != -1) {
+                        jSONObject.put("3", this.c);
+                    }
+                    if (!TextUtils.isEmpty(this.d)) {
+                        jSONObject.put("4", this.d);
+                    }
+                    jSONObject.put("5", 1);
+                    jSONObject.put("6", pd1.q);
+                    jSONObject.put("7", this.f);
+                    jSONObject.put("8", "1");
+                    jSONArray.put(jSONObject);
+                    ge1.c(this.g).f(jSONArray.toString(), "1077105", 2);
+                } catch (Throwable th) {
+                    se1.d(th);
+                }
+            }
         }
     }
 
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+    /* loaded from: classes6.dex */
+    public static class f extends ne1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ Context g;
+
+        public f(int i, int i2, String str, int i3, int i4, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+            this.e = i3;
+            this.f = i4;
+            this.g = context;
+        }
+
+        @Override // com.repackage.ne1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("0", System.currentTimeMillis());
+                    jSONObject.put("1", this.e);
+                    jSONObject.put("2", this.b);
+                    if (this.c != -1) {
+                        jSONObject.put("3", this.c);
+                    }
+                    if (!TextUtils.isEmpty(this.d)) {
+                        jSONObject.put("4", this.d);
+                    }
+                    jSONObject.put("5", 1);
+                    jSONObject.put("6", pd1.r);
+                    jSONObject.put("7", this.f);
+                    jSONObject.put("8", "1");
+                    jSONArray.put(jSONObject);
+                    ge1.c(this.g).f(jSONArray.toString(), "1077123", 2);
+                } catch (Throwable th) {
+                    se1.d(th);
+                }
+            }
         }
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static void a(Context context, int i, int i2, int i3, int i4, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c();
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+            pe1.c().b(new e(i3, i4, str, i, i2, context));
+        }
+    }
+
+    public static void b(Context context, int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            pe1.c().b(new c(i, context, i3, i2, str));
+        }
+    }
+
+    public static void c(Context context, int i, int i2, long j, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), str}) == null) {
+            pe1.c().b(new b(i, j, i3, i2, str, context));
+        }
+    }
+
+    public static void d(Context context, int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), str}) == null) {
+            pe1.c().b(new a(i, i2, str, context));
+        }
+    }
+
+    public static void e(Context context, int i, int i2, int i3, int i4, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+            pe1.c().b(new f(i3, i4, str, i, i2, context));
+        }
+    }
+
+    public static void f(Context context, int i, int i2, int i3, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
+            pe1.c().b(new d(i, context, i3, i2, str));
         }
     }
 }

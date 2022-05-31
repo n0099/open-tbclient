@@ -1,111 +1,91 @@
 package com.repackage;
 
-import android.app.PendingIntent;
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.ArCoreApk;
-import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import java.util.Date;
 /* loaded from: classes5.dex */
-public class cl9 implements ArCoreApk.a {
+public class cl9 {
     public static /* synthetic */ Interceptable $ic;
+    public static cl9 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ dl9 a;
 
-    public cl9(dl9 dl9Var) {
+    public cl9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dl9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = dl9Var;
     }
 
-    public static Uri b(String str) {
-        InterceptResult invokeL;
+    public static cl9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new Uri.Builder().scheme("content").authority("com.google.ar.core.services.arcorecontentprovider").path(str).build() : (Uri) invokeL.objValue;
-    }
-
-    public static ArCoreApk.Availability c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (d(context) != null) {
-                    return ArCoreApk.Availability.SUPPORTED_APK_TOO_OLD;
-                }
-                return ArCoreApk.Availability.SUPPORTED_INSTALLED;
-            } catch (UnavailableDeviceNotCompatibleException unused) {
-                return ArCoreApk.Availability.UNSUPPORTED_DEVICE_NOT_CAPABLE;
-            } catch (UnavailableUserDeclinedInstallationException | RuntimeException unused2) {
-                return ArCoreApk.Availability.UNKNOWN_ERROR;
-            }
-        }
-        return (ArCoreApk.Availability) invokeL.objValue;
-    }
-
-    public static PendingIntent d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                Bundle call = context.getContentResolver().call(b(""), "getSetupIntent", context.getPackageName(), (Bundle) null);
-                if (call == null) {
-                    return null;
-                }
-                PendingIntent pendingIntent = (PendingIntent) call.getParcelable("intent");
-                if (pendingIntent != null) {
-                    return pendingIntent;
-                }
-                String string = call.getString("exceptionType", "");
-                if (string.isEmpty()) {
-                    return null;
-                }
-                if (!string.equals(UnavailableDeviceNotCompatibleException.class.getName())) {
-                    if (!string.equals(UnavailableUserDeclinedInstallationException.class.getName())) {
-                        Class<? extends U> asSubclass = Class.forName(string).asSubclass(RuntimeException.class);
-                        String string2 = call.getString("exceptionText", null);
-                        if (string2 != null) {
-                            throw ((RuntimeException) asSubclass.getConstructor(String.class).newInstance(string2));
-                        }
-                        throw ((RuntimeException) asSubclass.getConstructor(new Class[0]).newInstance(new Object[0]));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (cl9.class) {
+                    if (a == null) {
+                        a = new cl9();
                     }
-                    throw new UnavailableUserDeclinedInstallationException();
                 }
-                throw new UnavailableDeviceNotCompatibleException();
-            } catch (ReflectiveOperationException | RuntimeException e) {
-                Log.i("ARCore-SetupContentResolver", "Post-install failed", e);
-                return null;
             }
+            return a;
         }
-        return (PendingIntent) invokeL.objValue;
+        return (cl9) invokeV.objValue;
     }
 
-    @Override // com.google.ar.core.ArCoreApk.a
-    public void a(ArCoreApk.Availability availability) {
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0064, code lost:
+        if (((r6 / 60) / 60) >= r10.a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L12;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, availability) == null) {
-            synchronized (this.a) {
-                dl9.c(this.a, availability);
-                dl9.f(this.a, false);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            if (context == null) {
+                throw new RuntimeException("Error:Context is not allowed to be null");
             }
+            context.getApplicationContext();
+            if (!TextUtils.isEmpty(str)) {
+                bn9.v(context, str);
+            }
+            in9.b(new zk9(this, context));
+            try {
+                in9.b(new an9(context));
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            no9 c = no9.c(context);
+            long B = bn9.B(c.a);
+            boolean z = true;
+            if (B > 0) {
+                try {
+                    long time = (new Date().getTime() - B) / 1000;
+                    if (time < 0) {
+                        c.f();
+                    }
+                    z = false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            if (z) {
+                c.b = System.currentTimeMillis();
+                in9.b(new ko9(c));
+            }
+            ll9.E(context);
+            mm9.a(context);
         }
     }
 }

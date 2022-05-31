@@ -21,11 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.rj0;
-import com.repackage.yj5;
+import com.repackage.ei0;
+import com.repackage.li;
+import com.repackage.si5;
 /* loaded from: classes3.dex */
-public class ApkDownloadBannerView extends LinearLayout implements yj5 {
+public class ApkDownloadBannerView extends LinearLayout implements si5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -101,7 +101,7 @@ public class ApkDownloadBannerView extends LinearLayout implements yj5 {
         }
     }
 
-    @Override // com.repackage.yj5
+    @Override // com.repackage.si5
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class ApkDownloadBannerView extends LinearLayout implements yj5 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.hk0
+    @Override // com.repackage.ui0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
@@ -121,16 +121,16 @@ public class ApkDownloadBannerView extends LinearLayout implements yj5 {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0066, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0062, (ViewGroup) this, true);
             setOrientation(1);
-            int d = mi.d(getContext(), 22.0f);
-            int d2 = mi.d(getContext(), 11.0f);
+            int d = li.d(getContext(), 22.0f);
+            int d2 = li.d(getContext(), 11.0f);
             setPadding(d, d2, d, d2);
-            this.b = (BannerDownloadProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f090274);
-            this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090276);
-            this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090279);
+            this.b = (BannerDownloadProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f090271);
+            this.c = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090273);
+            this.d = (BannerDownloadStateBar) this.a.findViewById(R.id.obfuscated_res_0x7f090274);
             this.b.setTextColor(Color.parseColor("#999999"));
-            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09082c);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090810);
             this.e = textView;
             textView.setVisibility(this.g ? 0 : 8);
         }
@@ -155,7 +155,7 @@ public class ApkDownloadBannerView extends LinearLayout implements yj5 {
         return invokeL.intValue;
     }
 
-    @Override // com.repackage.hk0
+    @Override // com.repackage.ui0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -188,11 +188,11 @@ public class ApkDownloadBannerView extends LinearLayout implements yj5 {
         }
     }
 
-    @Override // com.repackage.hk0
-    public void update(String str, @NonNull rj0 rj0Var) {
+    @Override // com.repackage.ui0
+    public void update(String str, @NonNull ei0 ei0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, rj0Var) == null) {
-            getActionBar().setState(d(rj0Var.c));
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, ei0Var) == null) {
+            getActionBar().setState(d(ei0Var.c));
         }
     }
 

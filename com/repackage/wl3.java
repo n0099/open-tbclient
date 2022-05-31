@@ -1,104 +1,42 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
-public interface wl3 {
+public class wl3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements wl3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final wl3 a;
-
-        public a(wl3 delegation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {delegation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+                StringBuilder sb = new StringBuilder();
+                for (byte b : digest) {
+                    int i = b & 255;
+                    if (i < 16) {
+                        sb.append(0);
+                    }
+                    sb.append(Integer.toHexString(i));
                 }
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
             }
-            Intrinsics.checkNotNullParameter(delegation, "delegation");
-            this.a = delegation;
         }
-
-        @Override // com.repackage.wl3
-        public String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.a(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.wl3
-        public String b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.b(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.wl3
-        public String c(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.c(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.wl3
-        public String d(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.d(context);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.repackage.wl3
-        public String getDeviceId(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                return this.a.getDeviceId(context);
-            }
-            return (String) invokeL.objValue;
-        }
+        return (String) invokeL.objValue;
     }
 
-    String a(Context context);
-
-    String b(Context context);
-
-    String c(Context context);
-
-    String d(Context context);
-
-    String getDeviceId(Context context);
+    @SuppressLint({"DefaultLocale"})
+    public static String b(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, str, j)) == null) ? a(String.format("%d%s%d", 1, str.toLowerCase(), Long.valueOf(j))) : (String) invokeLJ.objValue;
+    }
 }

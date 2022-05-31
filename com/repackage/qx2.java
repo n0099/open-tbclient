@@ -1,127 +1,45 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.os.Message;
-import android.os.RemoteException;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kx2;
-import java.util.ArrayDeque;
-import java.util.Deque;
-/* loaded from: classes7.dex */
-public class qx2 implements kx2.c {
+/* loaded from: classes6.dex */
+public class qx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Deque<Message> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755364826, "Lcom/repackage/qx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, viewGroup, i)) == null) {
+            if (context == null || viewGroup == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755364826, "Lcom/repackage/qx2;");
-                return;
-            }
+            FullScreenFloatView b = b(context, i);
+            viewGroup.addView(b);
+            return b;
         }
-        boolean z = eh1.a;
+        return (FullScreenFloatView) invokeLLI.objValue;
     }
 
-    public qx2() {
+    public static FullScreenFloatView b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (context == null) {
+                return null;
             }
-        }
-        this.a = new ArrayDeque();
-    }
-
-    @Override // com.repackage.kx2.c
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            px2 P = px2.P();
-            while (P.N() && !this.a.isEmpty()) {
-                Message peek = this.a.peek();
-                if (peek == null || e(peek)) {
-                    this.a.poll();
-                }
+            int i2 = R.layout.obfuscated_res_0x7f0d00a5;
+            if (i != 1 && i == 2) {
+                i2 = R.layout.obfuscated_res_0x7f0d00a6;
             }
+            return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
         }
-    }
-
-    @Override // com.repackage.kx2.c
-    public void b(@NonNull mx2 mx2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mx2Var) == null) {
-            Message h = mx2Var.h();
-            h.arg1 = SwanAppProcessInfo.current().index;
-            if (t03.J().D()) {
-                Object obj = h.obj;
-                if (obj instanceof Bundle) {
-                    Bundle bundle = (Bundle) obj;
-                    if (!bundle.containsKey("ai_apps_id")) {
-                        bundle.putString("ai_apps_id", t03.J().getAppId());
-                    }
-                }
-            }
-            if (e(h) || !mx2Var.n()) {
-                return;
-            }
-            this.a.offer(h);
-            px2.P().b0();
-        }
-    }
-
-    @Override // com.repackage.kx2.c
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.repackage.kx2.c
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public final boolean e(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, message)) == null) {
-            px2 P = px2.P();
-            if (message == null || !P.N()) {
-                return false;
-            }
-            try {
-                P.R().send(message);
-                return true;
-            } catch (RemoteException e) {
-                P.T();
-                ux1.l("SwanMsgSenderOfClient", " sendMsgToService msg = " + message.toString(), e);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
+        return (FullScreenFloatView) invokeLI.objValue;
     }
 }

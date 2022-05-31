@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ak4;
+import com.repackage.ni4;
 import com.squareup.wire.Wire;
 import tbclient.BackUser.BackUserResIdl;
 import tbclient.Error;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class BackUserHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ak4 mData;
+    public ni4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserHTTPResMsg() {
@@ -36,10 +36,10 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public ak4 getData() {
+    public ni4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (ak4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (ni4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
             setErrorString(backUserResIdl.error.usermsg);
         }
         if (backUserResIdl.data != null) {
-            ak4 ak4Var = new ak4();
-            this.mData = ak4Var;
-            ak4Var.a(backUserResIdl.data);
+            ni4 ni4Var = new ni4();
+            this.mData = ni4Var;
+            ni4Var.a(backUserResIdl.data);
         }
     }
 }

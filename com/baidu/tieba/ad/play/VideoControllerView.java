@@ -157,7 +157,7 @@ public class VideoControllerView extends RelativeLayout {
     public View k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0073, (ViewGroup) null) : (View) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d006f, (ViewGroup) null) : (View) invokeL.objValue;
     }
 
     public final void l(Context context) {
@@ -165,9 +165,9 @@ public class VideoControllerView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             View k = k(context);
             addView(k, -1, (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091faf);
-            this.d = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091fb0);
-            SeekBar seekBar = (SeekBar) k.findViewById(R.id.obfuscated_res_0x7f09175b);
+            this.c = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091f54);
+            this.d = (TextView) k.findViewById(R.id.obfuscated_res_0x7f091f55);
+            SeekBar seekBar = (SeekBar) k.findViewById(R.id.obfuscated_res_0x7f091710);
             this.g = seekBar;
             seekBar.setOnSeekBarChangeListener(this.k);
         }

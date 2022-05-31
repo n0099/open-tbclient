@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vw;
+import com.repackage.iv;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
@@ -114,7 +114,7 @@ public final class UBCRegisterTaskInfo extends UBCTaskStatusInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject json = super.toJson();
             json.put("type", this.type);
-            json.put("timestamp", vw.a.a());
+            json.put("timestamp", iv.a.a());
             return json;
         }
         return (JSONObject) invokeV.objValue;

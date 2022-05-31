@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m11;
+import com.repackage.zz0;
 /* loaded from: classes2.dex */
 public class NadRoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -249,8 +249,8 @@ public class NadRoundProgressBar extends View {
         this.b = obtainStyledAttributes.getColor(3, getResources().getColor(R.color.obfuscated_res_0x7f060838));
         this.c = obtainStyledAttributes.getColor(7, getResources().getColor(R.color.obfuscated_res_0x7f060839));
         this.d = obtainStyledAttributes.getColor(8, getResources().getColor(R.color.obfuscated_res_0x7f06083a));
-        this.e = obtainStyledAttributes.getDimension(9, m11.c.a(getContext(), 11.0f));
-        this.f = obtainStyledAttributes.getDimension(4, m11.c.a(getContext(), 8.0f));
+        this.e = obtainStyledAttributes.getDimension(9, zz0.c.a(getContext(), 11.0f));
+        this.f = obtainStyledAttributes.getDimension(4, zz0.c.a(getContext(), 8.0f));
         this.g = obtainStyledAttributes.getDimension(10, 5.0f);
         this.h = obtainStyledAttributes.getInteger(5, 100);
         this.j = obtainStyledAttributes.getBoolean(12, true);

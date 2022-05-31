@@ -1,138 +1,160 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z53;
-import org.json.JSONException;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.repackage.o84;
+import java.io.IOException;
+import okhttp3.Response;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ji3 extends r23 {
+public class ji3 extends m84<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final o84.a a;
 
-    /* loaded from: classes6.dex */
-    public class a implements nf3<x53<z53.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ ji3 d;
-
-        public a(ji3 ji3Var, Context context, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji3Var, context, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ji3Var;
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(x53<z53.e> x53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
-                this.d.k(x53Var, this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ji3(r13 r13Var) {
-        super(r13Var, "/swanAPI/getBDUSS");
+    public ji3(o84.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = aVar;
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.repackage.o84.a
+    public void a(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (u03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                return false;
-            } else if (!(context instanceof Activity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
-                return false;
-            } else {
-                u03Var.d0().g(context, "mapp_i_get_bduss", new a(this, context, callbackHandler, optString));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) && c()) {
+            this.a.a(str, str2, jSONObject);
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public final void k(x53<z53.e> x53Var, Context context, CallbackHandler callbackHandler, String str) {
-        JSONObject wrapCallbackParams;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: b */
+    public void onSuccess(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x53Var, context, callbackHandler, str) == null) {
-            if (!s53.h(x53Var)) {
-                s53.q(x53Var, callbackHandler, str);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
+            if (ci3.a) {
+                Log.d("BDTLS", "BdtlsPmsRequest onSuccess=" + str);
+            }
+            if (this.a == null) {
                 return;
             }
-            String i = ug3.i(context);
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("bduss", i);
-                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            } catch (JSONException e) {
-                if (r23.b) {
-                    e.printStackTrace();
+            ii3 l = ii3.l();
+            if (TextUtils.equals(str, "recovery")) {
+                if (l.m().b()) {
+                    l.m().a();
+                    l.d.i(true);
+                    wi3 wi3Var = l.d;
+                    if (wi3Var instanceof ui3) {
+                        ((ui3) wi3Var).j();
+                        return;
+                    }
+                    return;
                 }
-                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
+                this.a.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                return;
             }
-            callbackHandler.handleSchemeDispatchCallback(str, wrapCallbackParams.toString());
+            l.m().k();
+            wi3 wi3Var2 = l.d;
+            if (wi3Var2 instanceof ui3) {
+                ui3 ui3Var = (ui3) wi3Var2;
+                if (l.k()) {
+                    if (l.d.b == 1) {
+                        hi3.a(MimeTypes.BASE_TYPE_APPLICATION);
+                        this.a.b(str, i);
+                        ui3Var.h = 0;
+                        return;
+                    }
+                    int i2 = ui3Var.h;
+                    ui3Var.h = i2 + 1;
+                    if (i2 < 3) {
+                        ui3Var.j();
+                        return;
+                    }
+                    o84.a aVar = this.a;
+                    aVar.onFail(new IOException("request fail : " + str));
+                    ui3Var.h = 0;
+                    return;
+                }
+                this.a.b(str, i);
+                ui3Var.h = 0;
+            }
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: d */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, response, i, networkStatRecord)) == null) {
+            if (response == null || response.body() == null) {
+                return "";
+            }
+            ii3 l = ii3.l();
+            if (TextUtils.equals(response.headers().get("Bdtls"), "recovery")) {
+                l.m().s(0);
+                return "recovery";
+            }
+            if (l.k()) {
+                string = l.d.g(response.body().bytes());
+                if (ci3.a) {
+                    Log.d("BDTLS", "BdtlsPmsRequest parseResponse=" + string);
+                }
+            } else {
+                string = response.body().string();
+            }
+            a(String.valueOf(response.request().url()), string, networkStatRecord.toUBCJson());
+            return string;
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.repackage.o84.a
+    public void onFail(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
+            if (ci3.a) {
+                Log.d("BDTLS", "BdtlsPmsRequest onFail = " + exc.getMessage());
+            }
+            if (c()) {
+                this.a.onFail(exc);
+            }
+        }
+    }
+
+    @Override // com.repackage.o84.a
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && c()) {
+            this.a.onStart();
         }
     }
 }

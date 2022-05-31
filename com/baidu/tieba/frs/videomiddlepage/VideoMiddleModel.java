@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.oc5;
-import com.repackage.uf6;
-import com.repackage.ul4;
+import com.repackage.hk4;
+import com.repackage.ib5;
+import com.repackage.le6;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -88,10 +88,10 @@ public class VideoMiddleModel extends BdBaseModel {
                     this.mDataList = new ArrayList();
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        uf6 uf6Var = new uf6();
-                        uf6Var.g(jSONArray.optString(i2));
-                        if (uf6Var.n != null) {
-                            this.mDataList.add(uf6Var);
+                        le6 le6Var = new le6();
+                        le6Var.g(jSONArray.optString(i2));
+                        if (le6Var.n != null) {
+                            this.mDataList.add(le6Var);
                         }
                     }
                 }
@@ -144,7 +144,7 @@ public class VideoMiddleModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", this.e.mBaijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", this.e.mBaijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", oc5.a());
+            httpMessage.addParam("app_transmit_data", ib5.a());
             sendMessage(httpMessage);
             return true;
         }
@@ -156,13 +156,13 @@ public class VideoMiddleModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<ul4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<hk4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<ul4> it = videoRecordList.iterator();
+                        Iterator<hk4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            ul4 next = it.next();
+                            hk4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());

@@ -1,32 +1,28 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.StampShareDialogConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import androidx.core.app.NotificationCompat;
+import com.baidu.tbadk.core.data.AbstractData;
+import com.baidu.tbadk.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class bh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ch8 b;
+    public MetaData a;
+    public List<AbstractData> b;
 
-    public bh8(Context context, ch8 ch8Var) {
+    public bh8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, ch8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,40 +32,30 @@ public class bh8 {
                 return;
             }
         }
-        this.a = context;
-        this.b = ch8Var;
+        this.b = new ArrayList();
     }
 
-    public void a() {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ShareItem shareItem = new ShareItem();
-            Bundle e = shareItem.e();
-            if (e == null) {
-                e = new Bundle();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            try {
+                jSONObject.optString("id");
+                MetaData metaData = new MetaData();
+                this.a = metaData;
+                metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
+                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
+                this.b = new ArrayList();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        AbstractData abstractData = new AbstractData();
+                        abstractData.parserJson(optJSONArray.getJSONObject(i));
+                        this.b.add(abstractData);
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            e.putInt("obj_locate", 20);
-            shareItem.k(e);
-            shareItem.p0 = true;
-            shareItem.f0 = 1;
-            StampShareDialogConfig stampShareDialogConfig = new StampShareDialogConfig(this.a, shareItem, true, this.b);
-            stampShareDialogConfig.setIsCopyLink(false);
-            stampShareDialogConfig.setHideMode(stampShareDialogConfig.hideMode | 32);
-            this.b.e(b("https://tieba.baidu.com/mo/q/icon/home"));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, stampShareDialogConfig));
         }
-    }
-
-    public final Bitmap b(String str) {
-        InterceptResult invokeL;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
-                return null;
-            }
-            return (Bitmap) runTask.getData();
-        }
-        return (Bitmap) invokeL.objValue;
     }
 }

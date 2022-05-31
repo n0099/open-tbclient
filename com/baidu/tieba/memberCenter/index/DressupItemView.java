@@ -48,15 +48,15 @@ public class DressupItemView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03db, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d2, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090361);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091793);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09035d);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091748);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081221);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081221);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092282);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09227b);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081233);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081233);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092227);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092220);
         }
     }
 

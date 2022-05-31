@@ -1,21 +1,15 @@
 package com.repackage;
 
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import android.graphics.Bitmap;
 /* loaded from: classes7.dex */
 public interface zj9 {
-    void onAdClicked(Ssp.Pid pid);
+    void a(int i, String str, String str2);
 
-    void onAdClose(Ssp.Pid pid);
+    void a(String str);
 
-    void onAdLoad(Ssp.Pid pid);
+    void a(String str, Bitmap bitmap);
 
-    void onAdLoadError(Ssp.Pid pid, int i, String str);
+    void a(String str, String str2, String str3, long j, String str4, String str5);
 
-    void onAdLoaded(Ssp.Pid pid);
-
-    void onAdShow(Ssp.Pid pid);
-
-    void onAdShowError(Ssp.Pid pid, int i, String str);
-
-    void onRewardedVideo(Ssp.Pid pid);
+    void b(String str);
 }

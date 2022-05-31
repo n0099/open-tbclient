@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.mi;
-import com.repackage.oo5;
-import com.repackage.ro;
-import com.repackage.up5;
-import com.repackage.wo5;
+import com.repackage.hn5;
+import com.repackage.ji;
+import com.repackage.jn;
+import com.repackage.li;
+import com.repackage.no5;
+import com.repackage.pn5;
 import com.yy.hiidostatis.inner.FlushManager;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -36,7 +36,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public up5 f;
+    public no5 f;
     public long g;
     public int h;
     public b i;
@@ -75,36 +75,36 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
-                oo5 oo5Var = new oo5();
+                hn5 hn5Var = new hn5();
                 if (alaTabLiveResponsedMessage.getError() != 0 || !alaTabLiveResponsedMessage.isSuccess()) {
                     if (this.a.i != null) {
                         this.a.i.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
-                    oo5Var.a = false;
+                    hn5Var.a = false;
                     httpResponsedMessage.getError();
                     httpResponsedMessage.getErrorString();
                 } else {
-                    wo5 wo5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    pn5 pn5Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
-                        this.a.f.a(wo5Var);
+                        this.a.f.a(pn5Var);
                         AlaLiveTabRecomModel.E(this.a);
                     } else {
                         AlaLiveTabFragment.i++;
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
-                        this.a.f = new up5(alaTabLiveResponsedMessage);
+                        this.a.f = new no5(alaTabLiveResponsedMessage);
                     }
                     AlaLiveTabRecomModel alaLiveTabRecomModel = this.a;
                     alaLiveTabRecomModel.c = alaLiveTabRecomModel.f.h();
                     if (this.a.i != null) {
                         this.a.i.a(this.a.c, this.a.f.d());
                     }
-                    oo5Var.a = true;
+                    hn5Var.a = true;
                 }
-                oo5Var.b = this.a.d;
-                oo5Var.c = alaTabLiveResponsedMessage.superEntranceInfo;
-                this.a.I(oo5Var);
+                hn5Var.b = this.a.d;
+                hn5Var.c = alaTabLiveResponsedMessage.superEntranceInfo;
+                this.a.I(hn5Var);
                 this.a.d = false;
             }
         }
@@ -112,7 +112,7 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(boolean z, List<ro> list);
+        void a(boolean z, List<jn> list);
 
         void b(int i, String str, boolean z);
     }
@@ -145,10 +145,10 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
         return i;
     }
 
-    public final void I(oo5 oo5Var) {
+    public final void I(hn5 hn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, oo5Var) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE, oo5Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, hn5Var) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_LIVE_TAB_RESPONSE, hn5Var));
         }
     }
 
@@ -158,19 +158,19 @@ public class AlaLiveTabRecomModel extends BdBaseModel {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);
             httpMessage.addParam("tab_id", this.h);
             String str = "N";
-            if (ki.z()) {
-                if (ki.H()) {
+            if (ji.z()) {
+                if (ji.H()) {
                     str = "1_0";
-                } else if (ki.v()) {
+                } else if (ji.v()) {
                     str = "0_13";
-                } else if (ki.u()) {
+                } else if (ji.u()) {
                     str = "0_3";
-                } else if (ki.t()) {
+                } else if (ji.t()) {
                     str = "0_2";
                 }
             }
             httpMessage.addParam("network", str);
-            httpMessage.addParam("ua_str", mi.k(this.a.getPageActivity()) + "_" + mi.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
+            httpMessage.addParam("ua_str", li.k(this.a.getPageActivity()) + "_" + li.i(this.a.getPageActivity()) + "_android_" + TbConfig.getVersion());
             httpMessage.addParam("session_id", this.g);
             httpMessage.addParam("refresh_type", i2);
             httpMessage.addParam("big_refresh_count", i3);

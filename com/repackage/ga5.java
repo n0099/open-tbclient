@@ -1,45 +1,87 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.template.message.TemplateHttpResponseMessage;
+import com.baidu.tbadk.template.message.TemplateNetMessage;
+import com.baidu.tbadk.template.message.TemplateSocketResponsedMessage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import com.repackage.aa5;
+import com.repackage.z95;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ga5 {
+public class ga5<Q extends z95, P extends aa5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<eo> a;
-    public TbPageContext<?> b;
-    public xo c;
-    public va5 d;
-    public ra5 e;
-    public ka5 f;
-    public ma5 g;
-    public la5 h;
-    public na5 i;
-    public oa5 j;
-    public qa5 k;
-    public pa5 l;
-    public ta5 m;
-    public sa5 n;
-    public ua5 o;
-    public ia5 p;
-    public ha5 q;
+    public final List<y85> a;
+    public final b9<?> b;
+    public final ba5<Q, P> c;
+    public final Q d;
+    public final P e;
+    public final da5 f;
+    public BdUniqueId g;
+    public boolean h;
+    public wa i;
+    public TbHttpMessageTask j;
+    public SocketMessageTask k;
 
-    public ga5(TbPageContext tbPageContext, xo xoVar) {
+    /* loaded from: classes6.dex */
+    public class a extends wa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ga5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ga5 ga5Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ga5Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ga5Var;
+        }
+
+        @Override // com.repackage.wa
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                pa5.b("TemplateModel-->onMessage");
+                this.a.n(responsedMessage);
+            }
+        }
+    }
+
+    public ga5(b9<?> b9Var, ba5<Q, P> ba5Var, da5 da5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, xoVar};
+            Object[] objArr = {b9Var, ba5Var, da5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,180 +91,219 @@ public class ga5 {
                 return;
             }
         }
-        this.a = new LinkedList();
-        this.b = tbPageContext;
-        this.c = xoVar;
-        b();
+        this.a = new ArrayList();
+        this.h = false;
+        this.b = b9Var;
+        this.g = b9Var.getUniqueId();
+        this.c = ba5Var;
+        this.d = ba5Var.b();
+        this.e = this.c.d();
+        this.f = da5Var;
+        o(d(), h(), e());
+        q(h());
+        p(d(), h());
     }
 
-    public void a(List<eo> list) {
+    public void b(y85 y85Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, list) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, y85Var) == null) || y85Var == null || this.a.contains(y85Var)) {
             return;
         }
-        for (eo eoVar : list) {
-            if (!c(eoVar.getType())) {
-                this.a.add(eoVar);
-            }
-        }
-        this.c.a(this.a);
+        this.a.add(y85Var);
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            va5 va5Var = new va5(this.b);
-            this.d = va5Var;
-            va5Var.q0(this.c);
-            this.a.add(this.d);
-            ra5 ra5Var = new ra5(this.b);
-            this.e = ra5Var;
-            ra5Var.q0(this.c);
-            this.a.add(this.e);
-            ua5 ua5Var = new ua5(this.b);
-            this.o = ua5Var;
-            ua5Var.q0(this.c);
-            this.a.add(this.o);
-            ka5 ka5Var = new ka5(this.b);
-            this.f = ka5Var;
-            ka5Var.q0(this.c);
-            this.a.add(this.f);
-            ma5 ma5Var = new ma5(this.b);
-            this.g = ma5Var;
-            ma5Var.q0(this.c);
-            this.a.add(this.g);
-            la5 la5Var = new la5(this.b);
-            this.h = la5Var;
-            la5Var.q0(this.c);
-            this.a.add(this.h);
-            na5 na5Var = new na5(this.b);
-            this.i = na5Var;
-            na5Var.q0(this.c);
-            this.a.add(this.i);
-            oa5 oa5Var = new oa5(this.b);
-            this.j = oa5Var;
-            oa5Var.q0(this.c);
-            this.a.add(this.j);
-            qa5 qa5Var = new qa5(this.b);
-            this.k = qa5Var;
-            qa5Var.q0(this.c);
-            this.a.add(this.k);
-            pa5 pa5Var = new pa5(this.b);
-            this.l = pa5Var;
-            pa5Var.q0(this.c);
-            this.a.add(this.l);
-            ta5 ta5Var = new ta5(this.b);
-            this.m = ta5Var;
-            ta5Var.q0(this.c);
-            this.a.add(this.m);
-            sa5 sa5Var = new sa5(this.b);
-            this.n = sa5Var;
-            sa5Var.q0(this.c);
-            this.a.add(this.n);
-            ia5 ia5Var = new ia5(this.b);
-            this.p = ia5Var;
-            ia5Var.q0(this.c);
-            this.a.add(this.p);
-            ha5 ha5Var = new ha5(this.b, fy5.N0);
-            this.q = ha5Var;
-            this.a.add(ha5Var);
-            this.c.a(this.a);
-        }
-    }
-
-    public boolean c(BdUniqueId bdUniqueId) {
+    public final boolean c(ResponsedMessage<?> responsedMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId)) == null) {
-            if (bdUniqueId != null && !ListUtils.isEmpty(this.a)) {
-                for (eo eoVar : this.a) {
-                    if (eoVar != null && eoVar.getType() == bdUniqueId) {
-                        return true;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, responsedMessage)) == null) ? (responsedMessage == null || responsedMessage.getOrginalMessage() == null || responsedMessage.getOrginalMessage().getTag() != this.g) ? false : true : invokeL.booleanValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.e() : invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.c() : (String) invokeV.objValue;
+    }
+
+    public Q f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (Q) invokeV.objValue;
+    }
+
+    public P g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (P) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c.a() : invokeV.intValue;
+    }
+
+    public boolean i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            pa5.b(" ----requestMessage---- ");
+            if (this.h) {
+                return false;
+            }
+            this.h = true;
+            l(f(), true);
+            r();
+            return true;
+        }
+        return invokeZ.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            pa5.b(" ----loadMoreNetRequest---- ");
+            if (this.h) {
+                return false;
+            }
+            this.h = true;
+            l(f(), false);
+            r();
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.i);
+        }
+    }
+
+    public void l(Q q, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, q, z) == null) {
+            for (y85 y85Var : this.a) {
+                y85Var.b(q, z);
+            }
+        }
+    }
+
+    public void m(Q q, P p) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, q, p) == null) {
+            for (y85 y85Var : this.a) {
+                y85Var.a(q, p);
+            }
+        }
+    }
+
+    public final void n(ResponsedMessage<?> responsedMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, responsedMessage) == null) {
+            this.h = false;
+            if (c(responsedMessage) && responsedMessage != null && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof TemplateNetMessage)) {
+                int error = responsedMessage.getError();
+                String errorString = responsedMessage.getErrorString();
+                if (responsedMessage.getError() == 0 && !responsedMessage.hasError()) {
+                    if (responsedMessage instanceof TemplateSocketResponsedMessage) {
+                        TemplateSocketResponsedMessage templateSocketResponsedMessage = (TemplateSocketResponsedMessage) responsedMessage;
+                        m(f(), g());
+                        da5 da5Var = this.f;
+                        if (da5Var != null) {
+                            da5Var.onSuccess(templateSocketResponsedMessage.getIResp());
+                            return;
+                        }
+                        return;
+                    } else if (responsedMessage instanceof TemplateHttpResponseMessage) {
+                        TemplateHttpResponseMessage templateHttpResponseMessage = (TemplateHttpResponseMessage) responsedMessage;
+                        m(f(), g());
+                        da5 da5Var2 = this.f;
+                        if (da5Var2 != null) {
+                            da5Var2.onSuccess(templateHttpResponseMessage.getIResp());
+                            return;
+                        }
+                        return;
+                    } else {
+                        return;
                     }
                 }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void d() {
-        xo xoVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (xoVar = this.c) == null || xoVar.getListAdapter() == null) {
-            return;
-        }
-        this.c.getListAdapter().notifyDataSetChanged();
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            for (eo eoVar : this.a) {
-                if (eoVar instanceof ja5) {
-                    ((ja5) eoVar).Z(i);
+                if (TextUtils.isEmpty(errorString)) {
+                    errorString = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0482);
+                }
+                da5 da5Var3 = this.f;
+                if (da5Var3 != null) {
+                    da5Var3.onError(error, errorString);
                 }
             }
         }
     }
 
-    public void f(wa5 wa5Var) {
+    public final void o(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, wa5Var) == null) {
-            for (eo eoVar : this.a) {
-                if (eoVar instanceof ja5) {
-                    ((ja5) eoVar).n0(wa5Var);
-                }
+        if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, str) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(i, ig8.a(str, i2));
+            tbHttpMessageTask.setIsNeedLogin(true);
+            tbHttpMessageTask.setIsNeedTbs(true);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+            tbHttpMessageTask.setResponsedClass(TemplateHttpResponseMessage.class);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            this.j = tbHttpMessageTask;
+        }
+    }
+
+    public final void p(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
+            if (this.i == null) {
+                this.i = new a(this, i, i2);
             }
+            this.i.setTag(this.g);
+            this.i.getSocketMessageListener().isSelfListener();
+            this.i.getHttpMessageListener().isSelfListener();
+            MessageManager.getInstance().registerListener(this.i);
         }
     }
 
-    public void g(List<eo> list) {
+    public final void q(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.a.clear();
-        this.c.a(this.a);
-    }
-
-    public void h(List<ro> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.c.setData(list);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            SocketMessageTask socketMessageTask = new SocketMessageTask(i);
+            socketMessageTask.g(true);
+            socketMessageTask.h(false);
+            socketMessageTask.setNeedEncrypt(false);
+            socketMessageTask.setResponsedClass(TemplateSocketResponsedMessage.class);
+            MessageManager.getInstance().unRegisterTask(i);
+            MessageManager.getInstance().registerTask(socketMessageTask);
+            this.k = socketMessageTask;
         }
     }
 
-    public void i(vm4 vm4Var) {
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, vm4Var) == null) {
-            for (eo eoVar : this.a) {
-                if (eoVar instanceof ja5) {
-                    ((ja5) eoVar).o0(vm4Var);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            TemplateNetMessage templateNetMessage = new TemplateNetMessage(this.c, this.d, this.e);
+            templateNetMessage.setTag(this.g);
+            MessageManager.getInstance().sendMessage(templateNetMessage, this.k, this.j);
         }
     }
 
-    public void j(BdUniqueId bdUniqueId) {
+    public void s(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
-            for (eo eoVar : this.a) {
-                if (eoVar instanceof ja5) {
-                    ((ja5) eoVar).p0(bdUniqueId);
-                }
-            }
-        }
-    }
-
-    public void k(xo xoVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xoVar) == null) {
-            for (eo eoVar : this.a) {
-                if (eoVar instanceof ja5) {
-                    ((ja5) eoVar).q0(xoVar);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
+            this.g = bdUniqueId;
+            o(d(), h(), e());
+            q(h());
+            p(d(), h());
         }
     }
 }

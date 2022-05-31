@@ -1,94 +1,224 @@
 package com.repackage;
 
-import android.content.Context;
-import android.widget.FrameLayout;
+import android.os.Handler;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
-public interface al2 {
+public class al2 implements yk2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
+    public final boolean b;
+    public long c;
+    public volatile boolean d;
+    @NonNull
+    public final List<yk2> e;
+    public final Runnable f;
+    public final Runnable g;
 
     /* loaded from: classes5.dex */
-    public interface a {
-        void b(al2 al2Var);
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ al2 a;
+
+        public a(al2 al2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {al2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = al2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d();
+            }
+        }
     }
 
     /* loaded from: classes5.dex */
-    public interface b {
-        boolean f(al2 al2Var, int i, int i2);
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ al2 a;
+
+        public b(al2 al2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {al2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = al2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
+            }
+        }
     }
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void c(al2 al2Var);
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final al2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-525292405, "Lcom/repackage/al2$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-525292405, "Lcom/repackage/al2$c;");
+                    return;
+                }
+            }
+            a = new al2(null);
+        }
     }
 
-    /* loaded from: classes5.dex */
-    public interface d {
-        void e(al2 al2Var);
+    public /* synthetic */ al2(a aVar) {
+        this();
     }
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(al2 al2Var);
+    public static yk2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.a : (yk2) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public interface f {
-        void d(al2 al2Var);
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.c;
+            boolean z = this.b && !this.d && ProcessUtils.isSwanProcess() && yc3.C(true);
+            hw1.i("SwanBackStageManager", "performPause: shouldPerform=" + z + " for " + currentTimeMillis + "/" + this.a);
+            if (z) {
+                for (yk2 yk2Var : this.e) {
+                    hw1.i("SwanBackStageManager", "performPause for strategy=" + yk2Var);
+                    yk2Var.onPause();
+                }
+                this.d = true;
+            }
+        }
     }
 
-    void a(FrameLayout frameLayout);
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean z = this.b && this.d;
+            hw1.i("SwanBackStageManager", "performResume: shouldPerform=" + z);
+            for (yk2 yk2Var : this.e) {
+                hw1.i("SwanBackStageManager", "performResume for strategy=" + yk2Var);
+                yk2Var.onResume();
+            }
+            this.d = false;
+        }
+    }
 
-    void b();
+    @Override // com.repackage.yk2
+    @AnyThread
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            hw1.i("SwanBackStageManager", "onPause: enable=" + this.b + " delay=" + this.a);
+            if (this.b) {
+                this.c = System.currentTimeMillis();
+                Handler L = gz2.L();
+                L.removeCallbacks(this.f);
+                L.removeCallbacks(this.g);
+                L.postDelayed(this.f, this.a);
+            }
+        }
+    }
 
-    void c();
+    @Override // com.repackage.yk2
+    @AnyThread
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            hw1.i("SwanBackStageManager", "onResume: enable=" + this.b);
+            if (this.b) {
+                Handler L = gz2.L();
+                L.removeCallbacks(this.f);
+                L.removeCallbacks(this.g);
+                bd3.e0(this.g);
+            }
+        }
+    }
 
-    void d(boolean z);
-
-    al2 e(Context context, @NonNull op2 op2Var);
-
-    void f();
-
-    void g(a aVar);
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    void h(op2 op2Var, boolean z);
-
-    void i(String str);
-
-    boolean isEnd();
-
-    boolean isPlaying();
-
-    void j(e eVar);
-
-    void k(f fVar);
-
-    void l(boolean z, int i);
-
-    void m(d dVar);
-
-    void mute(boolean z);
-
-    void n(op2 op2Var);
-
-    void o(op2 op2Var);
-
-    boolean onBackPressed();
-
-    void p(b bVar);
-
-    void pause();
-
-    int q(String str);
-
-    void r(c cVar);
-
-    void resume();
-
-    void seekTo(int i);
-
-    void stop();
+    public al2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        long millis = TimeUnit.SECONDS.toMillis(fl2.b.a());
+        this.a = millis;
+        this.b = millis >= 0 && fl2.b.e();
+        this.c = 0L;
+        this.d = false;
+        this.f = new a(this);
+        this.g = new b(this);
+        this.e = new ArrayList();
+        if (fl2.b.e()) {
+            if (fl2.b.d()) {
+                this.e.add(new bl2());
+            }
+            if (fl2.b.b()) {
+                this.e.add(new cl2());
+            }
+            if (fl2.b.c()) {
+                this.e.add(new zk2());
+            }
+        }
+    }
 }

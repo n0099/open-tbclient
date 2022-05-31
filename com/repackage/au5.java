@@ -1,152 +1,134 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaPersonCenterRealAuthenConfig;
-import com.baidu.ala.data.AlaUserInfoData;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.adapter.AlaEnterEffectCategoryAdapter;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class au5 extends eo<qu5, CardViewHolder<lv5>> {
+public class au5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public uu5 j;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<wm> c;
+    public AlaEnterEffectAdapter d;
+    public AlaEnterEffectCategoryAdapter e;
+    public List<jn> f;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qu5 a;
-        public final /* synthetic */ au5 b;
-
-        public a(au5 au5Var, qu5 qu5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {au5Var, qu5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = au5Var;
-            this.a = qu5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.b0(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public au5(TbPageContext tbPageContext, uu5 uu5Var) {
-        super(tbPageContext.getPageActivity(), qu5.b);
+    public au5(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, uu5Var};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
-        this.j = uu5Var;
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    public final void a0(qu5 qu5Var, lv5 lv5Var) {
-        eu5 e;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, qu5Var, lv5Var) == null) || (e = qu5Var.e()) == null || e.b() == null) {
-            return;
-        }
-        lv5Var.x(0);
-        lv5Var.y(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023b));
-        int i = e.b().certify_status;
-        if (i == 0) {
-            lv5Var.v(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023f));
-            lv5Var.w(0);
-        } else if (1 == i) {
-            lv5Var.v(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023e));
-            lv5Var.w(4);
-        } else if (2 == i) {
-            lv5Var.v(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023c));
-            lv5Var.w(4);
-        } else if (3 == i) {
-            lv5Var.v(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f023d));
-            lv5Var.w(0);
-        }
-        lv5Var.m(this.i, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public final void b0(qu5 qu5Var) {
-        AlaUserInfoData b;
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, qu5Var) == null) || qu5Var == null || qu5Var.e() == null || qu5Var.e().b() == null || 1 == (i = (b = qu5Var.e().b()).certify_status) || 2 == i) {
-            return;
-        }
-        Context context = this.a;
-        String str = b.user_id;
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterRealAuthenConfig(context, str, b.certify_status + "")));
-        uu5 uu5Var = this.j;
-        if (uu5Var != null) {
-            uu5Var.a(1);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new ArrayList();
+            AlaEnterEffectAdapter alaEnterEffectAdapter = new AlaEnterEffectAdapter(this.a.getPageActivity());
+            this.d = alaEnterEffectAdapter;
+            this.c.add(alaEnterEffectAdapter);
+            AlaEnterEffectCategoryAdapter alaEnterEffectCategoryAdapter = new AlaEnterEffectCategoryAdapter(this.a.getPageActivity());
+            this.e = alaEnterEffectCategoryAdapter;
+            this.c.add(alaEnterEffectCategoryAdapter);
+            this.b.a(this.c);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: c0 */
-    public CardViewHolder<lv5> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new lv5(this.i)) : (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: d0 */
-    public View S(int i, View view2, ViewGroup viewGroup, qu5 qu5Var, CardViewHolder<lv5> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qu5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.c() == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            for (wm wmVar : this.c) {
+                wmVar.H();
             }
-            a0(qu5Var, cardViewHolder.c());
-            cardViewHolder.c().k().setOnClickListener(new a(this, qu5Var));
-            return cardViewHolder.c().k();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void c(List<jn> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.b.setData(list);
+        this.f = this.b.getData();
+    }
+
+    public void d(String str, int i) {
+        List<jn> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) || StringUtils.isNull(str) || (list = this.f) == null) {
+            return;
+        }
+        for (jn jnVar : list) {
+            if (jnVar instanceof AlaEnterEffectData) {
+                AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) jnVar;
+                if (alaEnterEffectData.type == 1 && str.equals(alaEnterEffectData.gift.giftId)) {
+                    alaEnterEffectData.downLoadStatus = i;
+                    b();
+                }
+            }
+        }
+    }
+
+    public void e(String str, boolean z) {
+        List<jn> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f) == null) {
+            return;
+        }
+        for (jn jnVar : list) {
+            if (jnVar instanceof AlaEnterEffectData) {
+                AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) jnVar;
+                if (str.equals(alaEnterEffectData.id)) {
+                    alaEnterEffectData.isOwn = z;
+                    b();
+                    return;
+                }
+            }
+        }
+    }
+
+    public void f(String str, boolean z) {
+        List<jn> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) || TextUtils.isEmpty(str) || (list = this.f) == null) {
+            return;
+        }
+        for (jn jnVar : list) {
+            if (jnVar instanceof AlaEnterEffectData) {
+                AlaEnterEffectData alaEnterEffectData = (AlaEnterEffectData) jnVar;
+                if (str.equals(alaEnterEffectData.id)) {
+                    alaEnterEffectData.use_status = z ? 1 : 0;
+                } else {
+                    alaEnterEffectData.use_status = 0;
+                }
+                b();
+            }
+        }
     }
 }

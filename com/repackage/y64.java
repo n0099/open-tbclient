@@ -1,7 +1,10 @@
 package com.repackage;
 
-import android.view.View;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import java.util.Set;
 /* loaded from: classes7.dex */
 public interface y64 {
-    boolean b(View view2, a74 a74Var);
+    @NonNull
+    Bundle m(@NonNull Bundle bundle, Set<String> set);
 }

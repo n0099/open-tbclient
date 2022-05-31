@@ -11,7 +11,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.BaiduLog;
@@ -389,7 +388,7 @@ public class PluginloaderHub {
                                     }
                                     return str5;
                                 }
-                                if (TextUtils.isEmpty(name) || !name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) || nextElement.isDirectory() || !z) {
+                                if (TextUtils.isEmpty(name) || !name.startsWith("lib/") || nextElement.isDirectory() || !z) {
                                     str4 = str5;
                                 } else {
                                     String[] split = name.split("/");
@@ -576,7 +575,7 @@ public class PluginloaderHub {
                         }
                         return "";
                     }
-                    if (name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && !nextEntry.isDirectory() && z) {
+                    if (name.startsWith("lib/") && !nextEntry.isDirectory() && z) {
                         String[] split = name.split("/");
                         if (split.length != 3) {
                             zipInputStream.closeEntry();
@@ -628,7 +627,7 @@ public class PluginloaderHub {
                                     ZipEntry nextEntry2 = zipInputStream.getNextEntry();
                                     if (nextEntry2 != null) {
                                         String name2 = nextEntry2.getName();
-                                        if (name2.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && name2.endsWith(".so") && !nextEntry2.isDirectory()) {
+                                        if (name2.startsWith("lib/") && name2.endsWith(".so") && !nextEntry2.isDirectory()) {
                                             Object[] split2 = name2.split("/");
                                             if (split2.length != 3) {
                                                 zipInputStream.closeEntry();

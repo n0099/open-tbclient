@@ -1,113 +1,86 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.R;
-import com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.DelReplyAtMsgResMsg;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yr4;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class ka7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wr4 a;
-    public yr4 b;
-    public List<ur4> c;
-    public ur4 d;
-    public ja7 e;
-    public c f;
-    public yr4.d g;
+    public final HashMap<String, oj4> a;
 
     /* loaded from: classes6.dex */
-    public class a implements yr4.c {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ka7 a;
+    }
 
-        public a(ka7 ka7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ka7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ka7 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-249010702, "Lcom/repackage/ka7$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-249010702, "Lcom/repackage/ka7$b;");
                     return;
                 }
             }
-            this.a = ka7Var;
-        }
-
-        @Override // com.repackage.yr4.c
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d();
-            }
+            a = new ka7(null);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements yr4.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ka7 a;
+    public /* synthetic */ ka7(a aVar) {
+        this();
+    }
 
-        public b(ka7 ka7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ka7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ka7Var;
-        }
+    public static ka7 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (ka7) invokeV.objValue;
+    }
 
-        @Override // com.repackage.yr4.d
-        public void onClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-                if (this.a.f != null) {
-                    this.a.f.a();
-                }
-                this.a.d();
-            }
+    public void b(oj4 oj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, oj4Var) == null) {
+            c(oj4Var.a(), oj4Var);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a();
+    public final void c(String str, oj4 oj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, oj4Var) == null) {
+            this.a.put(str, oj4Var);
+        }
     }
 
-    public ka7(b9 b9Var) {
+    public void d(String str, HashMap<String, String> hashMap, pj4 pj4Var) {
+        oj4 oj4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, hashMap, pj4Var) == null) || str == null || hashMap == null || hashMap.isEmpty() || pj4Var == null || (oj4Var = this.a.get(str)) == null) {
+            return;
+        }
+        oj4Var.b(hashMap, pj4Var);
+    }
+
+    public ka7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {b9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -117,82 +90,6 @@ public class ka7 {
                 return;
             }
         }
-        this.g = new b(this);
-        this.b = new yr4(b9Var.getPageActivity());
-        ur4 ur4Var = new ur4(b9Var.getString(R.string.obfuscated_res_0x7f0f049d), this.b);
-        this.d = ur4Var;
-        ur4Var.m(this.g);
-        ArrayList arrayList = new ArrayList();
-        this.c = arrayList;
-        arrayList.add(this.d);
-        this.b.m(new a(this));
-        this.b.j(this.c);
-        this.a = new wr4(b9Var, this.b);
-        e();
-        f();
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.e == null) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
-        httpMessage.addParam("type", this.e.a);
-        httpMessage.addParam("thread_id", this.e.b);
-        httpMessage.addParam("post_id", this.e.c);
-        httpMessage.addParam("ori_ugc_nid", this.e.d);
-        MessageManager.getInstance().sendMessage(httpMessage);
-    }
-
-    public void d() {
-        wr4 wr4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (wr4Var = this.a) != null && wr4Var.isShowing()) {
-            this.a.dismiss();
-        }
-    }
-
-    public void e() {
-        yr4 yr4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (yr4Var = this.b) == null) {
-            return;
-        }
-        yr4Var.i();
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG, TbConfig.SERVER_ADDRESS + TbConfig.URL_DELETE_REPLY_AT_MSG);
-            tbHttpMessageTask.setResponsedClass(DelReplyAtMsgResMsg.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void g(ja7 ja7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ja7Var) == null) {
-            this.e = ja7Var;
-        }
-    }
-
-    public void h(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f = cVar;
-        }
-    }
-
-    public void i() {
-        wr4 wr4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (wr4Var = this.a) == null) {
-            return;
-        }
-        wr4Var.show();
+        this.a = new HashMap<>();
     }
 }

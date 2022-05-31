@@ -29,6 +29,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public final class ShareCompat {
@@ -468,7 +469,7 @@ public final class ShareCompat {
                     } else if (charAt > '~' || charAt < ' ') {
                         sb.append("&#");
                         sb.append((int) charAt);
-                        sb.append(";");
+                        sb.append(ParamableElem.DIVIDE_PARAM);
                     } else if (charAt == ' ') {
                         while (true) {
                             int i3 = i + 1;

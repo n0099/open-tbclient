@@ -22,38 +22,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ao9;
-import com.repackage.br9;
-import com.repackage.cs9;
-import com.repackage.er9;
-import com.repackage.hq9;
-import com.repackage.mo9;
+import com.repackage.bn9;
+import com.repackage.gl9;
+import com.repackage.hk9;
+import com.repackage.il9;
+import com.repackage.kl9;
+import com.repackage.ll9;
 import com.repackage.nn9;
-import com.repackage.oo9;
-import com.repackage.qo9;
-import com.repackage.ro9;
-import com.repackage.tq9;
-import com.repackage.uo9;
+import com.repackage.ol9;
+import com.repackage.pk9;
+import com.repackage.pm9;
+import com.repackage.qk9;
+import com.repackage.rn9;
+import com.repackage.uk9;
 import com.repackage.vn9;
-import com.repackage.vp9;
-import com.repackage.wn9;
-import com.repackage.xq9;
+import com.repackage.wo9;
+import com.repackage.yn9;
 import com.win.opensdk.core.Info;
 import com.win.opensdk.views.CloseParentView;
 import org.json.JSONException;
-/* loaded from: classes8.dex */
-public class H5Activity extends Activity implements oo9 {
+/* loaded from: classes7.dex */
+public class H5Activity extends Activity implements il9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public ViewGroup b;
     public CloseParentView c;
-    public nn9 d;
+    public hk9 d;
     public Info e;
     public String f;
     public String g;
     public long h;
-    public cs9 i;
+    public wo9 i;
 
     public H5Activity() {
         Interceptable interceptable = $ic;
@@ -177,26 +177,26 @@ public class H5Activity extends Activity implements oo9 {
                 i4 = 2;
                 setRequestedOrientation(i4);
             }
-            WebView webView = ((er9) this.d).c;
+            WebView webView = ((yn9) this.d).c;
             webView.setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
             this.b.addView(webView, 0);
-            nn9 nn9Var = this.d;
-            if (nn9Var instanceof er9) {
-                ((er9) nn9Var).a(this.e.getLoad(), this.e);
+            hk9 hk9Var = this.d;
+            if (hk9Var instanceof yn9) {
+                ((yn9) hk9Var).a(this.e.getLoad(), this.e);
             }
-            ((er9) this.d).b = new wn9(this);
+            ((yn9) this.d).b = new qk9(this);
             this.c.setCollectVisible(false);
             this.c.setLocation(220);
             this.c.setCountDown(this.e.getCdt());
-            this.c.setOnCloseListener(new ao9(this));
-            tq9 a = xq9.a(this.a);
-            a.o(new br9(this.e));
+            this.c.setOnCloseListener(new uk9(this));
+            nn9 a = rn9.a(this.a);
+            a.o(new vn9(this.e));
             a.m();
-            qo9.c(this.e.getId() + this.f, "is_display", null);
+            kl9.c(this.e.getId() + this.f, "is_display", null);
             if (this.e != null) {
-                hq9.g(this.a, this.e.getId() + ":" + System.currentTimeMillis(), false);
+                bn9.g(this.a, this.e.getId() + ":" + System.currentTimeMillis(), false);
             }
-            ro9.n(this.e);
+            ll9.n(this.e);
         }
     }
 
@@ -214,26 +214,26 @@ public class H5Activity extends Activity implements oo9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d08c3);
+            setContentView(R.layout.obfuscated_res_0x7f0d08b6);
             this.a = getApplicationContext();
-            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0924b1);
-            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f0924a8);
+            this.b = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092457);
+            this.c = (CloseParentView) findViewById(R.id.obfuscated_res_0x7f09244e);
             this.h = 0L;
-            this.i = new cs9(this);
-            qo9.b("hcl", this);
-            qo9.b("onT", this);
-            qo9.b("onRewardedShowFail", this);
-            qo9.b("onPlayProgress", this);
-            qo9.b("onRewardedAdFinish", this);
-            qo9.b("onRewardedAdStart", this);
+            this.i = new wo9(this);
+            kl9.b("hcl", this);
+            kl9.b("onT", this);
+            kl9.b("onRewardedShowFail", this);
+            kl9.b("onPlayProgress", this);
+            kl9.b("onRewardedAdFinish", this);
+            kl9.b("onRewardedAdStart", this);
             boolean z = false;
             try {
                 Intent intent = getIntent();
                 String stringExtra = intent.getStringExtra("id");
                 this.f = intent.getStringExtra("pid");
                 String stringExtra2 = intent.getStringExtra("traceid");
-                this.e = mo9.a().b(vn9.c(stringExtra2, stringExtra, this.f));
-                nn9 a = vn9.b().a(vn9.c(stringExtra2, stringExtra, this.f));
+                this.e = gl9.a().b(pk9.c(stringExtra2, stringExtra, this.f));
+                hk9 a = pk9.b().a(pk9.c(stringExtra2, stringExtra, this.f));
                 this.d = a;
                 if (a != null) {
                     if (this.e != null) {
@@ -260,26 +260,26 @@ public class H5Activity extends Activity implements oo9 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            tq9 a = xq9.a(this.a);
-            a.b(new br9(this.e));
+            nn9 a = rn9.a(this.a);
+            a.b(new vn9(this.e));
             a.m();
-            nn9 nn9Var = this.d;
-            if (nn9Var != null) {
-                er9 er9Var = (er9) nn9Var;
-                WebView webView = er9Var.c;
+            hk9 hk9Var = this.d;
+            if (hk9Var != null) {
+                yn9 yn9Var = (yn9) hk9Var;
+                WebView webView = yn9Var.c;
                 if (webView != null) {
                     ViewGroup viewGroup = (ViewGroup) webView.getParent();
                     if (viewGroup != null) {
-                        viewGroup.removeView(er9Var.c);
+                        viewGroup.removeView(yn9Var.c);
                     }
-                    er9Var.c.removeAllViews();
-                    er9Var.c.stopLoading();
-                    er9Var.c.setWebChromeClient(null);
-                    er9Var.c.setWebViewClient(null);
-                    er9Var.c.destroy();
+                    yn9Var.c.removeAllViews();
+                    yn9Var.c.stopLoading();
+                    yn9Var.c.setWebChromeClient(null);
+                    yn9Var.c.setWebViewClient(null);
+                    yn9Var.c.destroy();
                 }
-                if (er9Var.b != null) {
-                    er9Var.b = null;
+                if (yn9Var.b != null) {
+                    yn9Var.b = null;
                 }
             }
             CloseParentView closeParentView = this.c;
@@ -327,67 +327,67 @@ public class H5Activity extends Activity implements oo9 {
         }
     }
 
-    @Override // com.repackage.oo9
+    @Override // com.repackage.il9
     public void a(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, obj) == null) {
             if (str.equals("hcl")) {
                 finish();
                 if (this.e != null) {
-                    qo9.c(this.e.getId() + this.f, "is_dismiss", null);
-                    qo9.a(this.e.getId() + this.f);
+                    kl9.c(this.e.getId() + this.f, "is_dismiss", null);
+                    kl9.a(this.e.getId() + this.f);
                 }
-                qo9.a("hcl");
-                qo9.a("onT");
-                qo9.a("onRewardedShowFail");
-                qo9.a("onPlayProgress");
-                qo9.a("onRewardedAdFinish");
-                qo9.a("onRewardedAdStart");
+                kl9.a("hcl");
+                kl9.a("onT");
+                kl9.a("onRewardedShowFail");
+                kl9.a("onPlayProgress");
+                kl9.a("onRewardedAdFinish");
+                kl9.a("onRewardedAdStart");
                 return;
             }
             try {
                 if (str.equals("onRewardedShowFail")) {
-                    tq9 a = xq9.a(this.a);
+                    nn9 a = rn9.a(this.a);
                     String str3 = (String) obj;
                     try {
-                        a.b = xq9.d("vvsf", new br9(this.e));
+                        a.b = rn9.d("vvsf", new vn9(this.e));
                         a.l("desc", str3);
                     } catch (JSONException unused) {
                     }
                     a.m();
-                    qo9.c(this.e.getId() + this.f, "VIDEO_SHOW_FAIL", (String) obj);
+                    kl9.c(this.e.getId() + this.f, "VIDEO_SHOW_FAIL", (String) obj);
                 } else if (str.equals("onRewardedAdFinish")) {
                     int intValue = ((Integer) obj).intValue();
                     if (intValue < 0 || intValue < this.e.getVvt() * 0.9d) {
-                        qo9.c(this.e.getId() + this.f, "VIDEO_USER_EARNED_REWARD", null);
+                        kl9.c(this.e.getId() + this.f, "VIDEO_USER_EARNED_REWARD", null);
                     } else {
-                        tq9 a2 = xq9.a(this.a);
-                        br9 br9Var = new br9(this.e);
+                        nn9 a2 = rn9.a(this.a);
+                        vn9 vn9Var = new vn9(this.e);
                         long vvamount = this.e.getVvamount();
                         try {
-                            a2.b = xq9.d("vvss", br9Var);
+                            a2.b = rn9.d("vvss", vn9Var);
                             a2.k("desc", vvamount);
                         } catch (JSONException unused2) {
                         }
                         a2.m();
-                        qo9.c(this.e.getId() + this.f, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.e.getVvamount()));
+                        kl9.c(this.e.getId() + this.f, "VIDEO_USER_EARNED_REWARD", Long.valueOf(this.e.getVvamount()));
                     }
                     Info info = this.e;
                     try {
-                        ro9.o(info, 401, "");
+                        ll9.o(info, 401, "");
                         if (info == null || TextUtils.isEmpty(info.getVv_finish_urls())) {
                             return;
                         }
-                        ro9.K(info.getVv_finish_urls());
+                        ll9.K(info.getVv_finish_urls());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 } else if (str.equals("onPlayProgress")) {
-                    tq9 a3 = xq9.a(this.a);
-                    br9 br9Var2 = new br9(this.e);
+                    nn9 a3 = rn9.a(this.a);
+                    vn9 vn9Var2 = new vn9(this.e);
                     int intValue2 = ((Integer) obj).intValue();
                     try {
-                        a3.b = xq9.d("vvst", br9Var2);
+                        a3.b = rn9.d("vvst", vn9Var2);
                         a3.k("desc", intValue2);
                     } catch (JSONException unused3) {
                     }
@@ -399,13 +399,13 @@ public class H5Activity extends Activity implements oo9 {
                             if (TextUtils.isEmpty(info2.getVv_start_urls())) {
                                 return;
                             }
-                            ro9.o(info2, 400, "");
-                            ro9.K(info2.getVv_start_urls());
+                            ll9.o(info2, 400, "");
+                            ll9.K(info2.getVv_start_urls());
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
                     }
-                } else if (str.equals("onT") && vp9.d(this.e, this.h)) {
+                } else if (str.equals("onT") && pm9.d(this.e, this.h)) {
                     this.h = System.currentTimeMillis();
                     if (TextUtils.isEmpty(this.g)) {
                         this.g = "";
@@ -427,15 +427,15 @@ public class H5Activity extends Activity implements oo9 {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || this.e == null) {
             return;
         }
-        qo9.c(this.e.getId() + this.f, "is_click", null);
-        if (uo9.d.c && this.e.getOpent() == 1) {
+        kl9.c(this.e.getId() + this.f, "is_click", null);
+        if (ol9.d.c && this.e.getOpent() == 1) {
             return;
         }
-        vp9.a(this.a, str, this.e, this.i, str2);
-        tq9 a = xq9.a(this.a);
-        a.h(new br9(this.e), str);
+        pm9.a(this.a, str, this.e, this.i, str2);
+        nn9 a = rn9.a(this.a);
+        a.h(new vn9(this.e), str);
         a.l("desc", str2);
         a.m();
-        ro9.p(this.e, str2);
+        ll9.p(this.e, str2);
     }
 }

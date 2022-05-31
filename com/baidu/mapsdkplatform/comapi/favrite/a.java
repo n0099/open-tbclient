@@ -39,12 +39,12 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0107a implements Comparator<String> {
+    public class C0106a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0107a(a aVar) {
+        public C0106a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -345,15 +345,16 @@ public class a {
                         JSONObject jSONObject3 = new JSONObject();
                         jSONObject3.put("Fav_Sync", jSONObject);
                         jSONObject3.put("Fav_Content", favSyncPoi.j);
-                        if (this.a.a(str2, jSONObject3.toString())) {
-                            j();
-                            return 1;
+                        if (!this.a.a(str2, jSONObject3.toString())) {
+                            g();
+                            return 0;
                         }
-                        return 0;
-                    } catch (JSONException unused) {
-                        return 0;
-                    } finally {
+                        j();
                         g();
+                        return 1;
+                    } catch (JSONException unused) {
+                        g();
+                        return 0;
                     }
                 }
                 return -1;
@@ -532,7 +533,7 @@ public class a {
                         }
                         if (this.f.size() > 0) {
                             try {
-                                Collections.sort(this.f, new C0107a(this));
+                                Collections.sort(this.f, new C0106a(this));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -580,7 +581,7 @@ public class a {
                         }
                         if (this.e.size() > 0) {
                             try {
-                                Collections.sort(this.e, new C0107a(this));
+                                Collections.sort(this.e, new C0106a(this));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

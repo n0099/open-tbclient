@@ -15,10 +15,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.de3;
-import com.repackage.lr3;
-import com.repackage.oe3;
-import com.repackage.ud3;
+import com.repackage.bd3;
+import com.repackage.hc3;
+import com.repackage.qc3;
+import com.repackage.yp3;
 import org.json.JSONObject;
 @SuppressLint({"BaseActivity"})
 /* loaded from: classes2.dex */
@@ -84,43 +84,43 @@ public class GameNowInstallAntiBlockingActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            int c0 = oe3.c0(this);
+            int c0 = bd3.c0(this);
             super.onCreate(bundle);
-            oe3.g(this, c0);
-            lr3.q();
-            setContentView(R.layout.obfuscated_res_0x7f0d00b3);
+            bd3.g(this, c0);
+            yp3.q();
+            setContentView(R.layout.obfuscated_res_0x7f0d00af);
             Intent intent = getIntent();
             if (intent != null) {
                 this.mType = intent.getStringExtra("type");
                 this.mPackageName = intent.getStringExtra("packageName");
-                this.mUbcParams = ud3.d(intent.getStringExtra("ubc_params"));
+                this.mUbcParams = hc3.d(intent.getStringExtra("ubc_params"));
             }
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f13);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090f15);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed8);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090eda);
             if (TextUtils.equals(this.mType, "authorize")) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014f));
                 layoutParams.gravity = 80;
                 imageView.setLayoutParams(layoutParams);
-                findViewById(R.id.obfuscated_res_0x7f090f14).setVisibility(0);
+                findViewById(R.id.obfuscated_res_0x7f090ed9).setVisibility(0);
                 imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017e);
-                findViewById(R.id.obfuscated_res_0x7f090f11).setBackgroundResource(R.color.obfuscated_res_0x7f0603b3);
-                lr3.n();
+                findViewById(R.id.obfuscated_res_0x7f090ed6).setBackgroundResource(R.color.obfuscated_res_0x7f0603b3);
+                yp3.n();
             } else {
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07014e));
                 layoutParams2.gravity = 80;
                 imageView.setLayoutParams(layoutParams2);
-                findViewById(R.id.obfuscated_res_0x7f090f14).setVisibility(8);
-                if (de3.m()) {
+                findViewById(R.id.obfuscated_res_0x7f090ed9).setVisibility(8);
+                if (qc3.m()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017c);
-                } else if (de3.n()) {
+                } else if (qc3.n()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017d);
-                } else if (de3.r()) {
+                } else if (qc3.r()) {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017f);
                 } else {
                     imageView.setImageResource(R.drawable.obfuscated_res_0x7f08017b);
                 }
-                findViewById(R.id.obfuscated_res_0x7f090f11).setBackgroundResource(R.color.obfuscated_res_0x7f060382);
-                lr3.o();
+                findViewById(R.id.obfuscated_res_0x7f090ed6).setBackgroundResource(R.color.obfuscated_res_0x7f060382);
+                yp3.o();
             }
             findViewById.setOnClickListener(new a(this));
             LogUtil.logActivity(this, "onCreate");

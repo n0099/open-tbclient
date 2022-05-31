@@ -1,26 +1,30 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.VideoDesc;
 /* loaded from: classes7.dex */
-public class xp4 extends ThreadData {
+public class xp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xp4() {
+    public static VideoDesc a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
+            VideoDesc.Builder builder = new VideoDesc.Builder();
+            if (jSONObject != null) {
+                builder.video_id = Integer.valueOf(jSONObject.optInt("video_id"));
+                builder.video_md5 = jSONObject.optString(VideoFinishResult.KEY_VIDEO_MD5);
+                builder.video_url = jSONObject.optString("video_url");
+                builder.video_width = jSONObject.optString("video_width");
+                builder.video_height = jSONObject.optString("video_height");
             }
+            return builder.build(true);
         }
+        return (VideoDesc) invokeL.objValue;
     }
 }

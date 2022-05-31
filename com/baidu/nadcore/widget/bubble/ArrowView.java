@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g41;
+import com.repackage.t21;
 /* loaded from: classes2.dex */
 public class ArrowView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -172,7 +172,7 @@ public class ArrowView extends View {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = g41.a().getResources().getColor(R.color.obfuscated_res_0x7f06031b);
+            this.d = t21.a().getResources().getColor(R.color.obfuscated_res_0x7f06031b);
             this.b = new Path();
             Paint paint = new Paint();
             this.a = paint;

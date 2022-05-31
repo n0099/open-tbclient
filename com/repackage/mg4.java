@@ -1,64 +1,31 @@
 package com.repackage;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.view.WindowManager;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.Constants;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import com.repackage.m43;
+import com.repackage.og4;
+import com.repackage.sh2;
 /* loaded from: classes6.dex */
-public class mg4 {
+public class mg4 extends lg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public b b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
+    public int A;
+    public og4 z;
 
     /* loaded from: classes6.dex */
-    public class a {
+    public class a implements og4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public int e;
-        public String f;
-        public String g;
-        public int h;
+        public final /* synthetic */ mg4 a;
 
         public a(mg4 mg4Var) {
             Interceptable interceptable = $ic;
@@ -75,23 +42,23 @@ public class mg4 {
                     return;
                 }
             }
-            this.a = "Android";
-            this.b = Build.VERSION.RELEASE;
-            this.c = Build.MANUFACTURER;
-            this.e = Build.VERSION.SDK_INT;
-            this.f = Build.MODEL;
-            Context appContext = AppRuntime.getAppContext();
-            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            this.g = windowManager.getDefaultDisplay().getWidth() + "_" + windowManager.getDefaultDisplay().getHeight();
-            this.h = appContext.getResources().getDisplayMetrics().densityDpi;
+            this.a = mg4Var;
+        }
+
+        @Override // com.repackage.og4.b
+        public void a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                this.a.z0();
+            }
         }
     }
 
     /* loaded from: classes6.dex */
-    public final class b {
+    public class b implements ae3<Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+        public final /* synthetic */ mg4 a;
 
         public b(mg4 mg4Var) {
             Interceptable interceptable = $ic;
@@ -108,185 +75,203 @@ public class mg4 {
                     return;
                 }
             }
-            this.a = zf4.g().v(AppRuntime.getAppContext());
+            this.a = mg4Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ae3
+        /* renamed from: a */
+        public void onCallback(Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
+                if (num.intValue() == 2) {
+                    if (lg4.x) {
+                        Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " authorize deny => onError 0");
+                    }
+                    sh2.a aVar = this.a.i;
+                    if (aVar != null) {
+                        aVar.onError(0);
+                        return;
+                    }
+                    return;
+                }
+                if (lg4.x) {
+                    Log.d("SwanInlineLiveWidget", this.a.f + "-" + hashCode() + " real do prepareAsync");
+                }
+                mg4.super.prepareAsync();
+            }
         }
     }
 
-    public mg4(String str) {
+    /* loaded from: classes6.dex */
+    public class c implements ae3<k43<m43.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ae3 a;
+        public final /* synthetic */ mg4 b;
+
+        public c(mg4 mg4Var, ae3 ae3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mg4Var, ae3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = mg4Var;
+            this.a = ae3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ae3
+        /* renamed from: a */
+        public void onCallback(k43<m43.e> k43Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, k43Var) == null) {
+                boolean h = f43.h(k43Var);
+                if (lg4.x) {
+                    Log.d("SwanInlineLiveWidget", this.b.f + "-" + hashCode() + " authorize: " + h);
+                }
+                this.b.A = h ? 1 : 2;
+                this.a.onCallback(Integer.valueOf(this.b.A));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mg4(ZeusPluginFactory.Invoker invoker, String str) {
+        super(invoker, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {invoker, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a(this);
-        this.b = new b(this);
-        this.i = qg4.c();
-        this.o = "";
-        Context appContext = AppRuntime.getAppContext();
-        try {
-            PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-            this.c = packageInfo.versionName;
-            this.e = packageInfo.packageName;
-        } catch (PackageManager.NameNotFoundException unused) {
-        }
-        TelephonyManager telephonyManager = (TelephonyManager) AppRuntime.getAppContext().getSystemService("phone");
-        if (telephonyManager != null && (Build.VERSION.SDK_INT < 23 || appContext.checkSelfPermission("android.permission.READ_PHONE_STATE") == 0)) {
-            this.j = telephonyManager.getSimOperator();
-        }
-        this.f = zf4.g().getDeviceId(appContext);
-        this.g = zf4.g().p(appContext);
-        this.h = zf4.g().a();
-        this.n = zf4.g().b();
-        this.q = zf4.g().t();
-        this.r = str;
+        this.A = 0;
+        og4 og4Var = new og4();
+        this.z = og4Var;
+        og4Var.e(this.c);
+        this.z.f(new a(this));
     }
 
-    public static void a(JSONObject jSONObject) {
+    @Override // com.repackage.lg4
+    public void C0(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) {
-            JSONObject e = new mg4(jSONObject.optString("bizId")).e();
-            Iterator<String> keys = e.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!jSONObject.has(next)) {
-                    try {
-                        jSONObject.putOpt(next, e.opt(next));
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, str) == null) {
         }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
+    @Override // com.repackage.lg4
+    public void D0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (zf4.g() == null) {
-                return str;
-            }
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    jSONObject = new JSONObject();
-                } else {
-                    jSONObject = new JSONObject(str);
-                }
-                return c(jSONObject);
-            } catch (JSONException unused) {
-                return str;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void M0(@NonNull Context context, @NonNull ae3<Integer> ae3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            gg4 g = zf4.g();
-            String str = "";
-            if (jSONObject == null || g == null) {
-                return "";
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, ae3Var) == null) {
+            if (lg4.x) {
+                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start authorize");
             }
-            try {
-                if (g.l() == 0) {
-                    str = "swan";
-                } else if (g.l() == 1) {
-                    str = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
+            hz2 a0 = hz2.a0();
+            if (a0 == null) {
+                if (!lg4.x) {
+                    ae3Var.onCallback(0);
+                    return;
                 }
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.putOpt("smartAppId", g.getAppId());
-                jSONObject2.putOpt("smartAppVersion", g.getAppVersion());
-                jSONObject2.putOpt("swanCoreVersion", g.n());
-                jSONObject2.putOpt("swanNativeVersion", g.b());
-                jSONObject2.putOpt("swanType", str);
-                jSONObject.putOpt(DI.APP_INFO_NAME, jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("source", g.k());
-                jSONObject.put("propagation", jSONObject3);
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return jSONObject.toString();
+                throw new RuntimeException("inline live authorize: swan app is null");
+            } else if (gv2.r()) {
+                this.A = 1;
+                if (lg4.x) {
+                    Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " authorize debug: true");
+                }
+                ae3Var.onCallback(Integer.valueOf(this.A));
+            } else {
+                a0.d0().g(context, "mapp_i_live_player", new c(this, ae3Var));
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void d(JSONArray jSONArray) {
+    @Override // com.repackage.sh2
+    public void N(ZeusPluginFactory.Invoker invoker) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) || jSONArray == null || jSONArray.length() < 1) {
-            return;
-        }
-        for (int i = 0; i < jSONArray.length(); i++) {
-            try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                JSONObject jSONObject2 = jSONObject.getJSONObject("content");
-                JSONObject jSONObject3 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
-                Iterator<String> keys = jSONObject3.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    jSONObject.putOpt(next, jSONObject3.optString(next));
-                }
-                jSONObject2.remove(DI.APP_INFO_NAME);
-            } catch (JSONException unused) {
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, invoker) == null) {
         }
     }
 
-    public JSONObject e() {
+    @Override // com.repackage.lg4, com.repackage.sh2
+    public void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.lg4, com.repackage.sh2
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.putOpt("os", this.a.a);
-                jSONObject2.putOpt("osversion", this.a.b);
-                jSONObject2.putOpt("model", this.a.f);
-                jSONObject2.putOpt("deviceType", this.a.d);
-                jSONObject2.putOpt("sdk", this.a.e + "");
-                jSONObject2.putOpt(Constants.PHONE_BRAND, this.a.c);
-                jSONObject2.putOpt("screen", this.a.g);
-                jSONObject2.putOpt("density", this.a.h + "");
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.putOpt("passId", this.b.a);
-                jSONObject.putOpt("userInfo", jSONObject3);
-                jSONObject.putOpt("system", jSONObject2);
-                jSONObject.putOpt("appVersion", this.c);
-                jSONObject.putOpt("appBranch", this.d);
-                jSONObject.putOpt("appPackageName", this.e);
-                jSONObject.putOpt("cuid", this.f);
-                jSONObject.putOpt("uuid", this.g);
-                jSONObject.putOpt("hostName", this.h);
-                jSONObject.putOpt("net", this.i);
-                jSONObject.putOpt("operator", this.j);
-                jSONObject.putOpt("smartAppId", this.k);
-                jSONObject.putOpt("smartAppVersion", this.l);
-                jSONObject.putOpt("swanCoreVersion", this.m);
-                jSONObject.putOpt("swanNativeVersion", this.n);
-                jSONObject.putOpt("swanType", this.o);
-                jSONObject.putOpt("swanId", this.p);
-                jSONObject.putOpt("bizId", this.r);
-                jSONObject.putOpt("eventType", this.s);
-                jSONObject.putOpt("eventName", this.t);
-                jSONObject.putOpt("content", this.u);
-                if (!TextUtils.isEmpty(this.q)) {
-                    jSONObject.putOpt("appClientId", this.q);
-                }
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.A : invokeV.intValue;
+    }
+
+    @Override // com.repackage.lg4, com.repackage.sh2
+    public void b0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.repackage.sh2
+    public ZeusPluginFactory.Invoker f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (ZeusPluginFactory.Invoker) invokeV.objValue;
+    }
+
+    @Override // com.repackage.lg4, com.repackage.sh2
+    public boolean prepareAsync() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (lg4.x) {
+                Log.d("SwanInlineLiveWidget", this.f + "-" + hashCode() + " start prepareAsync");
+            }
+            M0(this.c, new b(this));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.lg4, com.repackage.sh2
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.release();
+            og4 og4Var = this.z;
+            if (og4Var != null) {
+                og4Var.g();
+                this.z = null;
+            }
+        }
     }
 }

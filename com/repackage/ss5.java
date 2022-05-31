@@ -1,108 +1,84 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.R;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ss5 extends fo {
+public class ss5 extends wm<it5, CardViewHolder<gu5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context b;
-    public View c;
-    public ImageView d;
-    public TextView e;
-    public View f;
-    public View g;
-    public View.OnClickListener h;
+    public TbPageContext i;
 
-    public ss5(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ss5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), it5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
+        this.i = tbPageContext;
     }
 
-    @Override // com.repackage.fo
-    public View a() {
-        InterceptResult invokeV;
+    public final void Z(it5 it5Var, gu5 gu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d00f7, (ViewGroup) null);
-            this.c = inflate;
-            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901da);
-            this.d = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0901d9);
-            this.f = this.c.findViewById(R.id.obfuscated_res_0x7f0901db);
-            this.g = this.c.findViewById(R.id.obfuscated_res_0x7f0901d8);
-            d(TbadkCoreApplication.getInst().getSkinType());
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.repackage.fo
-    public void c() {
-        View.OnClickListener onClickListener;
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (onClickListener = this.h) == null || (view2 = this.c) == null) {
-            return;
-        }
-        onClickListener.onClick(view2);
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, it5Var, gu5Var) == null) {
+            xs5 e = it5Var.e();
+            if (e != null && e.a() != null && !TextUtils.isEmpty(e.a().a())) {
+                gu5Var.u(e.a().a());
+                gu5Var.m(this.i, TbadkCoreApplication.getInst().getSkinType());
+                H();
+                return;
             }
-            TextView textView = this.e;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0304);
-            }
-            ImageView imageView = this.d;
-            if (imageView != null) {
-                SkinManager.setImageResource(imageView, R.drawable.icon_inf_arrowblue_n);
-            }
-            View view3 = this.f;
-            if (view3 != null) {
-                SkinManager.setBackgroundResource(view3, R.color.CAM_X0204);
-            }
-            View view4 = this.g;
-            if (view4 != null) {
-                SkinManager.setBackgroundResource(view4, R.color.CAM_X0204);
-            }
+            gu5Var.q(8);
+            H();
         }
     }
 
-    public void e(View.OnClickListener onClickListener) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: a0 */
+    public CardViewHolder<gu5> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.h = onClickListener;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new CardViewHolder<>(new gu5(this.i)) : (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: b0 */
+    public View S(int i, View view2, ViewGroup viewGroup, it5 it5Var, CardViewHolder<gu5> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, it5Var, cardViewHolder})) == null) {
+            if (cardViewHolder.c() == null) {
+                return null;
+            }
+            Z(it5Var, cardViewHolder.c());
+            return cardViewHolder.c().k();
         }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -292,7 +293,7 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return Jni.en1(o + ";" + str);
+            return Jni.en1(o + ParamableElem.DIVIDE_PARAM + str);
         }
         return (String) invokeL.objValue;
     }

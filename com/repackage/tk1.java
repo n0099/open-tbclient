@@ -1,11 +1,11 @@
 package com.repackage;
-
-import android.content.Context;
 /* loaded from: classes7.dex */
 public interface tk1 {
-    boolean a(Context context, String str);
+    String a();
 
-    boolean b(Context context, String str);
+    String b();
 
-    boolean c(Context context, String str);
+    String getAppName();
+
+    String getSchemeHeader();
 }

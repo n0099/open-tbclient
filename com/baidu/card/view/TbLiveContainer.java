@@ -32,12 +32,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es4;
-import com.repackage.gs4;
-import com.repackage.mi;
-import com.repackage.w68;
+import com.repackage.d48;
+import com.repackage.li;
+import com.repackage.uq4;
+import com.repackage.wq4;
 /* loaded from: classes.dex */
-public class TbLiveContainer extends FrameLayout implements w68 {
+public class TbLiveContainer extends FrameLayout implements d48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbLiveCyberView a;
@@ -159,10 +159,10 @@ public class TbLiveContainer extends FrameLayout implements w68 {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) this.c.getLayoutParams();
             int i = 0;
             if (alaInfoData.isVertialLive()) {
-                layoutParams.height = (((mi.k(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2)) * 9) / 16) - (mi.f(getContext(), R.dimen.M_H_X003) * 2);
+                layoutParams.height = (((li.k(getContext()) - ((UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.M_W_X005)) * 2)) * 9) / 16) - (li.f(getContext(), R.dimen.M_H_X003) * 2);
                 layoutParams.width = (this.b.getLayoutParams().height * 9) / 16;
-                layoutParams2.rightMargin = mi.f(getContext(), R.dimen.M_W_X004);
-                i = mi.f(getContext(), R.dimen.L_X02);
+                layoutParams2.rightMargin = li.f(getContext(), R.dimen.M_W_X004);
+                i = li.f(getContext(), R.dimen.L_X02);
             } else {
                 layoutParams.height = -1;
                 layoutParams.width = -1;
@@ -192,12 +192,12 @@ public class TbLiveContainer extends FrameLayout implements w68 {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0886, (ViewGroup) null);
-            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091f41);
-            this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090aa0);
-            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091dfc);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0879, (ViewGroup) null);
+            this.a = (TbLiveCyberView) inflate.findViewById(R.id.obfuscated_res_0x7f091ee7);
+            this.b = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090a8e);
+            this.c = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091da7);
             addView(inflate, new ViewGroup.LayoutParams(-1, -1));
-            this.b.setRoundLayoutRadius(es4.y(R.string.J_X05));
+            this.b.setRoundLayoutRadius(uq4.y(R.string.J_X05));
             this.b.setVisibility(8);
             this.a.setOuterListener(new b(this));
         }
@@ -206,7 +206,7 @@ public class TbLiveContainer extends FrameLayout implements w68 {
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            gs4 d = gs4.d(this.c);
+            wq4 d = wq4.d(this.c);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0201);
         }
@@ -240,7 +240,7 @@ public class TbLiveContainer extends FrameLayout implements w68 {
         TiebaStatic.log(statisticItem);
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -261,21 +261,21 @@ public class TbLiveContainer extends FrameLayout implements w68 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getOriginUrl() : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -285,14 +285,14 @@ public class TbLiveContainer extends FrameLayout implements w68 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.isPlaying() : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -306,7 +306,7 @@ public class TbLiveContainer extends FrameLayout implements w68 {
         }
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -317,7 +317,7 @@ public class TbLiveContainer extends FrameLayout implements w68 {
         }
     }
 
-    @Override // com.repackage.w68
+    @Override // com.repackage.d48
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {

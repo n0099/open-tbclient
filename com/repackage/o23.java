@@ -1,7 +1,6 @@
 package com.repackage;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -13,20 +12,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class o23 extends r23 {
+public class o23 extends e13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o23(r13 r13Var) {
-        super(r13Var, "/swanAPI/preventPullDownRefresh");
+    public o23(e03 e03Var) {
+        super(e03Var, "/swanAPI/startPullDownRefresh");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
+            Object[] objArr = {e03Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,56 +38,52 @@ public class o23 extends r23 {
         }
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+    @Override // com.repackage.e13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (r23.b) {
-                Log.d("PreventPullDownRefresh", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
+            if (hz2Var != null) {
+                hz2Var.B().H(hz2Var.getAppId());
             }
-            JSONObject a = r23.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                ux1.c("preventPullDownRefresh", "none params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
+            if (hz2Var != null && hz2Var.m0()) {
+                if (e13.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
                 return false;
             }
-            String optString = a.optString("slaveId");
-            if (TextUtils.isEmpty(optString)) {
-                ux1.c("preventPullDownRefresh", "slaveId null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "slaveId null");
-                return false;
-            }
-            hm2 U = hm2.U();
-            cn1 A = U.A(optString);
-            if (!(A instanceof an1)) {
-                ux1.c("preventPullDownRefresh", "webViewManager not a SwanAppSlaveManager");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "webViewManager not a SwanAppSlaveManager");
-                return false;
-            }
-            d02 V = U.V();
+            qy1 V = uk2.U().V();
             if (V == null) {
-                ux1.c("PreventPullDownRefresh", "manager is null");
+                hw1.c("startPullDownRefresh", "manager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            }
-            c02 o = V.o();
-            if (o == null) {
-                ux1.c("PreventPullDownRefresh", "slave container is null");
+            } else if (!(V.m() instanceof py1)) {
+                hw1.c("startPullDownRefresh", "top fragment error");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (TextUtils.equals("7", o.M1().l())) {
-                ux1.c("PreventPullDownRefresh", "this page is from showModalPage api");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
                 return false;
             } else {
-                boolean optBoolean = a.optBoolean("prevent", false);
-                PullToRefreshBaseWebView k0 = ((an1) A).k0();
-                if (k0 != null) {
-                    k0.setIsPreventPullToRefresh(optBoolean);
+                py1 py1Var = (py1) V.m();
+                if (py1Var.k0() == null) {
+                    hw1.c("startPullDownRefresh", "view is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                PullToRefreshBaseWebView k0 = py1Var.k0();
+                if (k0 == null) {
+                    hw1.c("startPullDownRefresh", "view is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else if (k0.N()) {
+                    hw1.c("startPullDownRefresh", "prevent pull to refresh");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                } else {
+                    hw1.i("startPullDownRefresh", "start pull refresh");
+                    py1Var.k0().k(true, 100L);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                     return true;
                 }
-                return true;
             }
         }
         return invokeLLLL.booleanValue;

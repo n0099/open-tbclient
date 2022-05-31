@@ -183,7 +183,7 @@ public abstract class he<T> {
         this.e++;
         if (this.e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
             this.e = 0;
-            qg.a().b(new a(this));
+            pg.a().b(new a(this));
         }
     }
 

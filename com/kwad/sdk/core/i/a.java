@@ -10,15 +10,15 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class a {
-    public static Map<String, WeakReference<C0299a>> a = new ConcurrentHashMap();
+    public static Map<String, WeakReference<C0300a>> a = new ConcurrentHashMap();
 
     /* renamed from: com.kwad.sdk.core.i.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0299a {
+    public static class C0300a {
         public HandlerThread a;
         public Handler b;
 
-        public C0299a(String str) {
+        public C0300a(String str) {
             String str2;
             if (TextUtils.isEmpty(str)) {
                 str2 = "ksad-HandlerThread";
@@ -45,15 +45,15 @@ public class a {
     }
 
     @NonNull
-    public static C0299a a(String str) {
+    public static C0300a a(String str) {
         if (str == null) {
-            return new C0299a(null);
+            return new C0300a(null);
         }
-        WeakReference<C0299a> weakReference = a.get(str);
+        WeakReference<C0300a> weakReference = a.get(str);
         if (weakReference == null || weakReference.get() == null) {
-            C0299a c0299a = new C0299a(str);
-            a.put(str, new WeakReference<>(c0299a));
-            return c0299a;
+            C0300a c0300a = new C0300a(str);
+            a.put(str, new WeakReference<>(c0300a));
+            return c0300a;
         }
         return weakReference.get();
     }

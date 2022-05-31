@@ -5,11 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yc6 {
+public class yc6 extends uc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
+    public int e;
+    public String f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
     public yc6() {
         Interceptable interceptable = $ic;
@@ -21,7 +24,10 @@ public class yc6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.g = true;
+        this.i = true;
     }
 }

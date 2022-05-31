@@ -11,6 +11,7 @@ import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,9 +19,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.db;
-import com.repackage.hh;
-import com.repackage.mf;
-import com.repackage.pf;
+import com.repackage.gh;
+import com.repackage.lf;
+import com.repackage.of;
 import com.repackage.r9;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -73,8 +74,8 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
         public transient /* synthetic */ FieldHolder $fh;
         public HttpMessage a;
         public HttpMessageTask b;
-        public final pf c;
-        public volatile mf d;
+        public final of c;
+        public volatile lf d;
 
         public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
             Interceptable interceptable = $ic;
@@ -103,7 +104,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
             setKey(String.valueOf(httpMessageTask.getCmd()));
             this.a = httpMessage;
             this.b = httpMessageTask;
-            this.c = new pf();
+            this.c = new of();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -144,7 +145,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                 int a2 = this.b.getConnectTimeOut().a();
                 int retry = this.b.getRetry();
                 try {
-                    this.d = new mf(this.c);
+                    this.d = new lf(this.c);
                     if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
                         this.d.d(retry, a, a2);
                     } else if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
@@ -154,7 +155,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                     BdLog.detailException(e);
                 }
                 int cmd = this.b.getCmd();
-                String str = cmd == 1001703 ? "frs" : cmd == 1001801 ? "pb" : cmd == 1003070 ? "home_page" : cmd == 1003528 ? "enter_forum" : cmd == 1002700 ? "user_center" : cmd == 1001503 ? "person_center_post" : cmd == 1003446 ? "person_center_dynamic" : "other";
+                String str = cmd == 1001703 ? "frs" : cmd == 1001801 ? "pb" : cmd == 1003070 ? "home_page" : cmd == 1003528 ? "enter_forum" : cmd == 1002700 ? "user_center" : cmd == 1001503 ? "person_center_post" : cmd == 1003446 ? "person_center_dynamic" : ImageViewerConfig.FROM_OTHER;
                 long startTime = this.a.getStartTime();
                 long g = this.d.g();
                 long i = this.d.i();
@@ -191,7 +192,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                             String url = this.b.getUrl();
                             boolean isSuccess = newInstance.isSuccess();
                             db dbVar = newInstance.performanceData;
-                            hh.a(str, cmd, url, isSuccess, true, j2, j11, dbVar.g, j3, j4, dbVar.i);
+                            gh.a(str, cmd, url, isSuccess, true, j2, j11, dbVar.g, j3, j4, dbVar.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -202,7 +203,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                                 BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
                             }
                             ErrorHttpResponsedMessage errorHttpResponsedMessage = new ErrorHttpResponsedMessage(this.a.getCmd(), this.a);
-                            hh.a(str, cmd, this.b.getUrl(), false, true, j8, 0L, 0L, 0L, 0L, 0);
+                            gh.a(str, cmd, this.b.getUrl(), false, true, j8, 0L, 0L, 0L, 0L, 0);
                             return errorHttpResponsedMessage;
                         }
                     }
@@ -256,14 +257,14 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                             j2 = j8;
                             j4 = j;
                             newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a5));
+                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05ac));
                             BdLog.detailException(e);
                             if (this.a.getExtra() instanceof NetMessage) {
                             }
                             String url2 = this.b.getUrl();
                             boolean isSuccess2 = newInstance.isSuccess();
                             db dbVar2 = newInstance.performanceData;
-                            hh.a(str, cmd, url2, isSuccess2, true, j2, j11, dbVar2.g, j3, j4, dbVar2.i);
+                            gh.a(str, cmd, url2, isSuccess2, true, j2, j11, dbVar2.g, j3, j4, dbVar2.i);
                             newInstance.logStatInBackground(this.a.getCmd(), this.c);
                             newInstance.setStartTime(System.currentTimeMillis());
                             publishProgress(newInstance);
@@ -283,14 +284,14 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                     } catch (Exception e8) {
                         e = e8;
                         newInstance.setError(-1003);
-                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05a5));
+                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05ac));
                         BdLog.detailException(e);
                         if (this.a.getExtra() instanceof NetMessage) {
                         }
                         String url22 = this.b.getUrl();
                         boolean isSuccess22 = newInstance.isSuccess();
                         db dbVar22 = newInstance.performanceData;
-                        hh.a(str, cmd, url22, isSuccess22, true, j2, j11, dbVar22.g, j3, j4, dbVar22.i);
+                        gh.a(str, cmd, url22, isSuccess22, true, j2, j11, dbVar22.g, j3, j4, dbVar22.i);
                         newInstance.logStatInBackground(this.a.getCmd(), this.c);
                         newInstance.setStartTime(System.currentTimeMillis());
                         publishProgress(newInstance);
@@ -306,7 +307,7 @@ public class HttpClient extends r9<HttpMessage, HttpMessageTask> {
                 String url222 = this.b.getUrl();
                 boolean isSuccess222 = newInstance.isSuccess();
                 db dbVar222 = newInstance.performanceData;
-                hh.a(str, cmd, url222, isSuccess222, true, j2, j11, dbVar222.g, j3, j4, dbVar222.i);
+                gh.a(str, cmd, url222, isSuccess222, true, j2, j11, dbVar222.g, j3, j4, dbVar222.i);
                 newInstance.logStatInBackground(this.a.getCmd(), this.c);
                 newInstance.setStartTime(System.currentTimeMillis());
                 publishProgress(newInstance);

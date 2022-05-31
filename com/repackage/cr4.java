@@ -1,29 +1,22 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopCode;
 /* loaded from: classes5.dex */
-public class cr4 {
+public class cr4 implements ar4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public long f;
-    public String g;
-    public String h;
 
     public cr4() {
         Interceptable interceptable = $ic;
@@ -39,91 +32,57 @@ public class cr4 {
         }
     }
 
-    public String a() {
+    @Override // com.repackage.ar4
+    public dr4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.longValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public void i(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            dr4 dr4Var = new dr4();
+            dr4Var.c(R.drawable.obfuscated_res_0x7f080681);
+            dr4Var.g(R.drawable.obfuscated_res_0x7f080682);
+            dr4Var.h(R.dimen.obfuscated_res_0x7f07027c);
+            dr4Var.d(81);
+            dr4Var.e(R.dimen.obfuscated_res_0x7f07027c);
+            return dr4Var;
         }
-        try {
-            this.a = jSONObject.optString(BigdayActivityConfig.IMG_URL);
-            jSONObject.optString("game_link");
-            this.b = jSONObject.optString("summary");
-            this.c = jSONObject.optString("code_link");
-            this.d = jSONObject.optInt("get_type", 1);
-            this.e = jSONObject.optString("surplusgift");
-            this.f = jSONObject.optLong("giftworth", 0L);
-            this.g = jSONObject.optString("type_text");
-            this.h = jSONObject.optString(SubtitleLog.TAG);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        return (dr4) invokeV.objValue;
     }
 
-    public void j(TopCode topCode) {
+    @Override // com.repackage.ar4
+    public View b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, topCode) == null) || topCode == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        this.a = topCode.img_url;
-        String str = topCode.game_link;
-        this.b = topCode.summary;
-        this.c = topCode.code_link;
-        this.d = topCode.get_type.intValue();
-        this.e = topCode.surplusgift;
-        if (topCode.giftworth.longValue() < 0) {
-            this.f = 0L;
-        } else {
-            this.f = topCode.giftworth.longValue();
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ar4
+    public fr4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            fr4 fr4Var = new fr4();
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            if (resources != null) {
+                fr4Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a5));
+            }
+            return fr4Var;
         }
-        this.g = topCode.type_text;
-        this.h = topCode.subtitle;
+        return (fr4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.ar4
+    public TbImageView d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            TbImageView tbImageView = new TbImageView(context);
+            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            tbImageView.setGifIconSupport(false);
+            return tbImageView;
+        }
+        return (TbImageView) invokeL.objValue;
     }
 }

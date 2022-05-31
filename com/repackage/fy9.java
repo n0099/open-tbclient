@@ -1,6 +1,5 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,10 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fy9 {
+public abstract class fy9<E> extends cy9<E> {
     public static /* synthetic */ Interceptable $ic;
-    public static final fy9 a;
+    public static final long g;
     public transient /* synthetic */ FieldHolder $fh;
+    public long producerIndex;
 
     static {
         InterceptResult invokeClinit;
@@ -27,41 +27,26 @@ public class fy9 {
                 return;
             }
         }
-        a = new fy9();
+        g = ny9.a(fy9.class, "producerIndex");
     }
 
-    public fy9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fy9(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static fy9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (fy9) invokeV.objValue;
-    }
-
-    public zx9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (zx9) invokeV.objValue;
-    }
-
-    public jy9 c(jy9 jy9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jy9Var)) == null) ? jy9Var : (jy9) invokeL.objValue;
     }
 }

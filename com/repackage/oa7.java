@@ -1,94 +1,40 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
+import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.imMessageCenter.mention.MsgReminderHttpRespMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class oa7 {
+public class oa7 extends kj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static oa7 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HttpMessageListener a;
-    public long b;
-    public final Handler c;
 
     /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
+    public class a extends BdAsyncTask<Object, Integer, pj4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public volatile NetWork a;
+        public String b;
+        public String c;
+        public HashMap<String, String> d;
+        public a9 e;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(oa7 oa7Var, int i) {
-            super(i);
+        public a(oa7 oa7Var, String str, String str2, HashMap<String, String> hashMap, a9 a9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oa7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            na7 msgData;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage) && (msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData()) != null) {
-                if (msgData.b() >= 0) {
-                    ky4.h0().a0(msgData.b());
-                }
-                if (msgData.e() >= 0) {
-                    ky4.h0().f0(msgData.e());
-                }
-                if (msgData.d() >= 0) {
-                    ky4.h0().d0(msgData.d());
-                }
-                if (msgData.a() >= 0) {
-                    ky4.h0().Z(msgData.a());
-                }
-                if (msgData.c() >= 0) {
-                    ky4.h0().b0(msgData.c());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oa7 a;
-
-        public b(oa7 oa7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oa7Var};
+                Object[] objArr = {oa7Var, str, str2, hashMap, a9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -98,128 +44,123 @@ public class oa7 {
                     return;
                 }
             }
-            this.a = oa7Var;
+            this.a = null;
+            this.b = str;
+            this.c = str2;
+            this.d = hashMap;
+            this.e = a9Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public pj4 doInBackground(Object... objArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                int i = message.arg1;
-                this.a.b = System.currentTimeMillis();
-                boolean z = !MessageManager.getInstance().getSocketClient().u();
-                if (i == 2 || (z && ki.z())) {
-                    this.a.h();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                pj4 pj4Var = new pj4();
+                try {
+                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.c);
+                    Set<String> keySet = this.d.keySet();
+                    if (keySet.size() > 0) {
+                        for (String str : keySet) {
+                            if (!"url".equalsIgnoreCase(str)) {
+                                this.a.addPostData(str, this.d.get(str));
+                            }
+                        }
+                    }
+                    this.a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                    this.a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                    boolean z = true;
+                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                    String postNetData = this.a.postNetData();
+                    if (!this.a.getNetContext().getResponse().isNetSuccess()) {
+                        pj4Var.b = this.a.getNetErrorCode();
+                        pj4Var.c = this.a.getNetString();
+                    } else {
+                        pj4Var.b = this.a.getServerErrorCode();
+                        pj4Var.c = this.a.getErrorString();
+                    }
+                    if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        if (pj4Var.b != 0) {
+                            z = false;
+                        }
+                        pj4Var.a = z;
+                        return pj4Var;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
-                this.a.g(1, 600000L);
+                pj4Var.a = false;
+                return pj4Var;
             }
+            return (pj4) invokeL.objValue;
         }
-    }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755446356, "Lcom/repackage/oa7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755446356, "Lcom/repackage/oa7;");
-                return;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(pj4 pj4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pj4Var) == null) {
+                a9 a9Var = this.e;
+                if (a9Var != null) {
+                    a9Var.c(pj4Var);
+                }
+                ka7.a().d(this.c, this.d, pj4Var);
             }
         }
-        MessageManager messageManager = MessageManager.getInstance();
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
-        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
-        messageManager.registerTask(tbHttpMessageTask);
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a != null) {
+                    this.a.cancelNetConnect();
+                    this.a = null;
+                }
+                super.cancel(true);
+                a9 a9Var = this.e;
+                if (a9Var != null) {
+                    a9Var.c(null);
+                }
+            }
+        }
     }
 
     public oa7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
-        this.b = 0L;
-        this.c = new b(this);
-        MessageManager.getInstance().registerListener(this.a);
     }
 
-    public static synchronized oa7 e() {
+    @Override // com.repackage.kj4, com.repackage.nj4
+    public void a(Object obj, HashMap<String, String> hashMap, String str, a9 a9Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, a9Var) == null) || hashMap == null || hashMap.isEmpty() || !hashMap.containsKey("url")) {
+            return;
+        }
+        String str2 = hashMap.get("url");
+        if (TextUtils.isEmpty(str2)) {
+            return;
+        }
+        a aVar = new a(this, str, str2, hashMap, a9Var);
+        aVar.setPriority(2);
+        aVar.execute(new Object[0]);
+    }
+
+    @Override // com.repackage.kj4
+    public String c() {
         InterceptResult invokeV;
-        oa7 oa7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            synchronized (oa7.class) {
-                if (d == null) {
-                    d = new oa7();
-                }
-                oa7Var = d;
-            }
-            return oa7Var;
-        }
-        return (oa7) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.removeMessages(1);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = 0L;
-            d();
-            i();
-        }
-    }
-
-    public final void g(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            Message obtainMessage = this.c.obtainMessage(1);
-            obtainMessage.arg1 = i;
-            this.c.sendMessageDelayed(obtainMessage, j);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
-        }
-    }
-
-    public void i() {
-        long j;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.b;
-            if (currentTimeMillis <= 0) {
-                currentTimeMillis = 0;
-            }
-            if (currentTimeMillis >= 600000) {
-                i = 2;
-                j = 10000;
-            } else {
-                j = 600000 - currentTimeMillis;
-                i = 1;
-            }
-            g(i, j);
-            this.b = System.currentTimeMillis();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post" : (String) invokeV.objValue;
     }
 }

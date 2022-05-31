@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fc1;
-import com.repackage.u39;
+import com.repackage.sa1;
+import com.repackage.x09;
 /* loaded from: classes2.dex */
 public class InitUBCTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -35,8 +35,8 @@ public class InitUBCTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (fc1.g()) {
-                u39.a();
+            if (sa1.g()) {
+                x09.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }

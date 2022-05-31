@@ -1,174 +1,273 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.NetworkInterface;
-import java.util.Enumeration;
 /* loaded from: classes7.dex */
 public class rc5 {
     public static /* synthetic */ Interceptable $ic;
+    public static TextView a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static rc5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-46819185, "Lcom/repackage/rc5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-46819185, "Lcom/repackage/rc5$b;");
-                    return;
-                }
-            }
-            a = new rc5(null);
-        }
-    }
-
-    public /* synthetic */ rc5(a aVar) {
-        this();
-    }
-
-    public static rc5 d() {
-        InterceptResult invokeV;
+    public static int a(char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (rc5) invokeV.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Character.valueOf(c)})) == null) ? f(c) ? 1 : 2 : invokeCommon.intValue;
     }
 
-    public final String a(byte[] bArr) {
+    public static int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                i = f(str.charAt(i2)) ? i + 1 : i + 2;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int codePointCount = str.codePointCount(0, str.length());
+            int i = 0;
+            for (int i2 = 1; i2 <= codePointCount; i2++) {
+                str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2)).length();
+                i++;
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            int codePointCount = str.codePointCount(0, str.length());
+            int i = 0;
+            for (int i2 = 1; i2 <= codePointCount; i2++) {
+                String substring = str.substring(str.offsetByCodePoints(0, i2 - 1), str.offsetByCodePoints(0, i2));
+                i = substring.length() >= 2 ? i + 2 : i + b(substring);
+            }
+            return i;
+        }
+        return invokeL.intValue;
+    }
+
+    public static String e(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
+            if (StringUtils.isNull(str)) {
                 return "";
             }
-            StringBuffer stringBuffer = new StringBuffer();
-            int length = bArr.length;
-            for (int i = 0; i < length; i++) {
-                stringBuffer.append(String.format("%02X:", Byte.valueOf(bArr[i])));
+            if (b(str) > i) {
+                return k(str, 0, i - 2) + StringHelper.STRING_MORE;
             }
-            if (stringBuffer.length() > 0) {
-                stringBuffer.deleteCharAt(stringBuffer.length() - 1);
-            }
-            return stringBuffer.toString();
+            return str;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLI.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public static boolean f(char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.BRAND : (String) invokeV.objValue;
-    }
-
-    @RequiresApi(api = 17)
-    public final DisplayMetrics c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            if (context == null) {
-                return displayMetrics;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < 'a' || c > 'z') {
+                if (c < 'A' || c > 'Z') {
+                    return (c >= '0' && c <= '9') || c == ' ';
+                }
+                return true;
             }
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getRealMetrics(displayMetrics);
-            return displayMetrics;
+            return true;
         }
-        return (DisplayMetrics) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    @NonNull
-    public String e(Context context) {
-        InterceptResult invokeL;
-        byte[] hardwareAddress;
+    public static boolean g(char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            if (context == null) {
-                return "";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Character.valueOf(c)})) == null) {
+            if (c < 'a' || c > 'z') {
+                return (c >= '0' && c <= '9') || c == ' ';
             }
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static boolean h(char c) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Character.valueOf(c)})) == null) ? c >= 55296 && c <= 56319 : invokeCommon.booleanValue;
+    }
+
+    public static Pair<Integer, Integer> i(String str, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, str, i, i2)) == null) {
             try {
+                if (a == null) {
+                    a = new TextView(TbadkCoreApplication.getInst().getContext());
+                }
+                TextView textView = a;
+                if (textView.getLayoutParams() == null) {
+                    textView.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
+                }
+                textView.setText(str);
+                textView.setTextSize(0, i);
+                textView.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+                return new Pair<>(Integer.valueOf(textView.getMeasuredHeight()), Integer.valueOf(textView.getLineCount()));
             } catch (Exception e) {
                 e.printStackTrace();
+                return null;
             }
-            if (Build.VERSION.SDK_INT < 23) {
-                WifiInfo connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo();
-                return (connectionInfo == null || connectionInfo.getMacAddress() == null) ? "" : connectionInfo.getMacAddress();
+        }
+        return (Pair) invokeLII.objValue;
+    }
+
+    public static int j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (str == null || str.length() == 0) {
+                return 0;
             }
-            Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
-            while (networkInterfaces.hasMoreElements()) {
-                NetworkInterface nextElement = networkInterfaces.nextElement();
-                if ("wlan0".equalsIgnoreCase(nextElement.getName()) && (hardwareAddress = nextElement.getHardwareAddress()) != null && hardwareAddress.length != 0) {
-                    return a(hardwareAddress);
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                if (' ' == str.charAt(i2)) {
+                    i++;
                 }
             }
-            return "";
+            return i;
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    @RequiresApi(api = 17)
-    public String f(Context context) {
-        InterceptResult invokeL;
+    public static String k(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? String.valueOf(c(context).heightPixels) : (String) invokeL.objValue;
-    }
-
-    @RequiresApi(api = 17)
-    public String g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? String.valueOf(c(context).widthPixels) : (String) invokeL.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? Build.DEVICE : (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? Build.MODEL : (String) invokeV.objValue;
-    }
-
-    public rc5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, str, i, i2)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!TextUtils.isEmpty(str) && i <= i2) {
+                if (i >= 0 && i2 >= 0) {
+                    int i3 = 0;
+                    for (int i4 = 0; i4 < str.length(); i4++) {
+                        char charAt = str.charAt(i4);
+                        if (i3 >= i2) {
+                            if (i3 == i2) {
+                                if (h(sb.charAt(sb.length() - 1))) {
+                                    sb.append(charAt);
+                                    return sb.toString();
+                                }
+                                return sb.toString();
+                            } else if (sb.length() > 2 && h(sb.charAt(sb.length() - 2))) {
+                                return sb.toString();
+                            } else {
+                                return sb.deleteCharAt(sb.length() - 1).toString();
+                            }
+                        }
+                        if (i3 >= i) {
+                            sb.append(charAt);
+                        }
+                        i3 = f(charAt) ? i3 + 1 : i3 + 2;
+                    }
+                }
+                return sb.toString();
             }
+            return sb.toString();
         }
+        return (String) invokeLII.objValue;
+    }
+
+    public static String l(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (TextUtils.isEmpty(str)) {
+                return sb.toString();
+            }
+            if (i > 0) {
+                int i2 = 0;
+                for (int i3 = 0; i3 < str.length(); i3++) {
+                    char charAt = str.charAt(i3);
+                    if (i2 >= i) {
+                        if (i2 == i) {
+                            return sb.toString();
+                        }
+                        return sb.deleteCharAt(sb.length() - 1).toString();
+                    }
+                    if (i2 >= 0) {
+                        sb.append(charAt);
+                    }
+                    i2 = g(charAt) ? i2 + 1 : i2 + 2;
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static String m(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, str, i)) == null) {
+            int codePointCount = str.codePointCount(0, str.length());
+            int i2 = 1;
+            String str2 = str;
+            while (i2 <= codePointCount) {
+                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+                if (c(substring) > i) {
+                    break;
+                }
+                i2++;
+                str2 = substring;
+            }
+            return str2;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static String n(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, str, i)) == null) {
+            int codePointCount = str.codePointCount(0, str.length());
+            int i2 = 1;
+            String str2 = str;
+            while (i2 <= codePointCount) {
+                String substring = str.substring(0, str.offsetByCodePoints(0, i2));
+                if (d(substring) > i) {
+                    break;
+                }
+                i2++;
+                str2 = substring;
+            }
+            return str2;
+        }
+        return (String) invokeLI.objValue;
     }
 }

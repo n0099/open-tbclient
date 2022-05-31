@@ -32,9 +32,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
 import com.repackage.f9;
+import com.repackage.ki;
 import com.repackage.li;
-import com.repackage.mi;
-import com.repackage.w55;
+import com.repackage.s45;
 /* loaded from: classes4.dex */
 public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -144,7 +144,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 return -1;
             }
             int i = voiceModel.duration;
-            int k = mi.k(getContext());
+            int k = li.k(getContext());
             if (i > 10) {
                 if (i <= 30) {
                     float f = k;
@@ -217,8 +217,8 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 }
                 ImageView imageView = this.c;
                 if (imageView != null) {
-                    SkinManager.setImageResource(imageView, R.anim.obfuscated_res_0x7f01013b);
-                    this.c.setPadding(mi.d(getContext(), 12.0f), 0, 0, 0);
+                    SkinManager.setImageResource(imageView, R.anim.obfuscated_res_0x7f01013d);
+                    this.c.setPadding(li.d(getContext(), 12.0f), 0, 0, 0);
                 }
             } else {
                 int i2 = skinType != 1 ? -16777216 : -8682095;
@@ -230,8 +230,8 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 }
                 ImageView imageView2 = this.c;
                 if (imageView2 != null) {
-                    SkinManager.setImageResource(imageView2, R.anim.obfuscated_res_0x7f01013b);
-                    this.c.setPadding(mi.d(getContext(), 8.0f), 0, 0, 0);
+                    SkinManager.setImageResource(imageView2, R.anim.obfuscated_res_0x7f01013d);
+                    this.c.setPadding(li.d(getContext(), 8.0f), 0, 0, 0);
                 }
             }
             ImageView imageView3 = this.c;
@@ -253,17 +253,17 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
     public void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06df, (ViewGroup) this, true);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918b6);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0918a8);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091975);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d4, (ViewGroup) this, true);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09186b);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09185d);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091927);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
             }
             this.f = context;
             d();
-            setContentDescription(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af2));
+            setContentDescription(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af8));
         }
     }
 
@@ -364,7 +364,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
         } else {
             formatVoiceTime = VoiceManager.formatVoiceTime(this.b.duration);
         }
-        String charSequence2String = li.charSequence2String(this.d.getText(), null);
+        String charSequence2String = ki.charSequence2String(this.d.getText(), null);
         if (charSequence2String == null || !charSequence2String.equals(formatVoiceTime)) {
             this.d.setText(formatVoiceTime);
         }
@@ -383,9 +383,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 return;
             }
             o();
-            if (w55.b().d()) {
-                w55.b().n(false);
-                w55.b().l(false);
+            if (s45.b().d()) {
+                s45.b().n(false);
+                s45.b().l(false);
             }
             if (i != 1) {
                 if (i == 2) {
@@ -424,9 +424,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             int i = this.a;
-            int i2 = R.anim.obfuscated_res_0x7f01013b;
+            int i2 = R.anim.obfuscated_res_0x7f01013d;
             if (i != 0 ? skinType == 1 : skinType == 1) {
-                i2 = R.anim.obfuscated_res_0x7f01013c;
+                i2 = R.anim.obfuscated_res_0x7f01013e;
             }
             ImageView imageView = this.c;
             if (imageView != null) {
@@ -510,7 +510,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048597, this, i, str) == null) {
-            mi.K(getContext(), str);
+            li.L(getContext(), str);
         }
     }
 

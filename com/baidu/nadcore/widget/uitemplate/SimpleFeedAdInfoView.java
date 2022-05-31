@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lo0;
-import com.repackage.mo0;
+import com.repackage.ym0;
+import com.repackage.zm0;
 /* loaded from: classes2.dex */
 public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public static /* synthetic */ Interceptable $ic;
@@ -54,11 +54,11 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             super.a(attributeSet);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ee);
-            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0914ef);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0914f0);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0914ad);
+            this.j = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0914ae);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f0914af);
             c();
-            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080dc8);
+            setRatingBarViewLP(R.drawable.obfuscated_res_0x7f080dd9);
         }
     }
 
@@ -97,13 +97,13 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
-    public void setAdInfo(mo0 mo0Var) {
+    public void setAdInfo(zm0 zm0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mo0Var) == null) {
-            super.setAdInfo(mo0Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zm0Var) == null) {
+            super.setAdInfo(zm0Var);
             if (this.i != null) {
-                if (!TextUtils.isEmpty(mo0Var.c)) {
-                    this.i.setText(mo0Var.c);
+                if (!TextUtils.isEmpty(zm0Var.c)) {
+                    this.i.setText(zm0Var.c);
                     this.i.setVisibility(0);
                 } else {
                     this.i.setVisibility(8);
@@ -111,7 +111,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             TextView textView = this.k;
             if (textView != null) {
-                double d = mo0Var.e;
+                double d = zm0Var.e;
                 if (d != -1.0d) {
                     textView.setText(String.valueOf(d));
                     this.k.setVisibility(0);
@@ -121,7 +121,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
             }
             AppCompatRatingBar appCompatRatingBar = this.j;
             if (appCompatRatingBar != null) {
-                double d2 = mo0Var.e;
+                double d2 = zm0Var.e;
                 if (d2 != -1.0d) {
                     appCompatRatingBar.setRating((float) d2);
                     this.j.setVisibility(0);
@@ -146,17 +146,17 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     public void update(AdBaseModel adBaseModel) {
-        mo0 mo0Var;
-        lo0.a aVar;
+        zm0 zm0Var;
+        ym0.a aVar;
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) || adBaseModel == null || (mo0Var = adBaseModel.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) || adBaseModel == null || (zm0Var = adBaseModel.i) == null) {
             return;
         }
-        setAdInfo(mo0Var);
+        setAdInfo(zm0Var);
         c();
-        lo0 lo0Var = adBaseModel.p;
-        if (lo0Var == null || (aVar = lo0Var.j) == null || (i = aVar.h) == 0) {
+        ym0 ym0Var = adBaseModel.p;
+        if (ym0Var == null || (aVar = ym0Var.j) == null || (i = aVar.h) == 0) {
             return;
         }
         setRatingBarViewLP(i);

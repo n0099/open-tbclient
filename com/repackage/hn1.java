@@ -1,7 +1,10 @@
 package com.repackage;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface hn1 {
-    gn1 a();
+    @NonNull
+    in1 a();
 
-    fn1 b();
+    void d(String str, hr1 hr1Var);
 }

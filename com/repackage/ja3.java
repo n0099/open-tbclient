@@ -1,105 +1,94 @@
 package com.repackage;
 
-import android.content.Context;
-import android.media.AudioManager;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.net.wifi.WifiConfiguration;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ja3 extends r23 {
+public class ja3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ja3(r13 r13Var) {
-        super(r13Var, "/swanAPI/getMediaVolumeSync");
+    public static int a(WifiConfiguration wifiConfiguration) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
+            if (wifiConfiguration == null) {
+                return -1;
             }
+            if (wifiConfiguration.allowedKeyManagement.get(1)) {
+                return 2;
+            }
+            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
+                return 3;
+            }
+            if (wifiConfiguration.wepKeys[0] != null) {
+                return 1;
+            }
+            return wifiConfiguration.allowedKeyManagement.get(0) ? 0 : -1;
         }
+        return invokeL.intValue;
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLLL;
+    public static int b(fa3 fa3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (u03Var == null) {
-                ux1.c("getMediaVolumeSync", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (r23.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                ux1.c("getMediaVolumeSync", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (r23.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync --- illegal context");
-                }
-                return false;
-            } else {
-                AudioManager audioManager = (AudioManager) context.getSystemService("audio");
-                if (audioManager == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "get AudioManager error");
-                    if (r23.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- get AudioManager error");
-                    }
-                    return false;
-                }
-                int streamMaxVolume = audioManager.getStreamMaxVolume(3);
-                int streamVolume = audioManager.getStreamVolume(3);
-                if (streamMaxVolume <= 0) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "max volume get 0");
-                    if (r23.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- max volume get 0");
-                    }
-                    return false;
-                }
-                double d = streamVolume / streamMaxVolume;
-                if (d < 0.0d) {
-                    d = 0.0d;
-                } else if (d > 1.0d) {
-                    d = 1.0d;
-                }
-                if (r23.b) {
-                    Log.d("SwanAppAction", "getMediaVolumeSync: " + d);
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", d);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                    return true;
-                } catch (JSONException unused) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "json exception");
-                    if (r23.b) {
-                        Log.d("SwanAppAction", "getMediaVolumeSync --- json exception");
-                    }
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fa3Var)) == null) {
+            if (fa3Var == null) {
+                return -1;
             }
+            if (TextUtils.isEmpty(fa3Var.c) && TextUtils.isEmpty(fa3Var.d)) {
+                return 0;
+            }
+            if (TextUtils.isEmpty(fa3Var.c) || TextUtils.isEmpty(fa3Var.d)) {
+                return !TextUtils.isEmpty(fa3Var.d) ? 2 : -1;
+            }
+            return 3;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public static int c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            if (str.contains("WEP")) {
+                return 1;
+            }
+            if (str.contains("PSK")) {
+                return 2;
+            }
+            return str.contains("EAP") ? 3 : -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void d(WifiConfiguration wifiConfiguration, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, wifiConfiguration, i) == null) || wifiConfiguration == null) {
+            return;
+        }
+        wifiConfiguration.allowedKeyManagement.clear();
+        wifiConfiguration.allowedProtocols.clear();
+        wifiConfiguration.allowedAuthAlgorithms.clear();
+        wifiConfiguration.allowedPairwiseCiphers.clear();
+        wifiConfiguration.allowedGroupCiphers.clear();
+        if (i == 0) {
+            wifiConfiguration.allowedKeyManagement.set(0);
+        } else if (i == 1) {
+            wifiConfiguration.allowedKeyManagement.set(0);
+            wifiConfiguration.allowedAuthAlgorithms.set(0);
+            wifiConfiguration.allowedAuthAlgorithms.set(1);
+        } else if (i == 2) {
+            wifiConfiguration.allowedKeyManagement.set(1);
+        } else if (i != 3) {
+        } else {
+            wifiConfiguration.allowedKeyManagement.set(2);
+            wifiConfiguration.allowedKeyManagement.set(3);
+        }
     }
 }

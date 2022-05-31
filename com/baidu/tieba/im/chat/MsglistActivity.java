@@ -13,11 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ad5;
-import com.repackage.b47;
-import com.repackage.g47;
+import com.repackage.e27;
+import com.repackage.j27;
+import com.repackage.ub5;
 /* loaded from: classes3.dex */
-public abstract class MsglistActivity<T> extends TalkableActivity<T> implements b47 {
+public abstract class MsglistActivity<T> extends TalkableActivity<T> implements e27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,7 +35,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    public abstract boolean first(b47 b47Var);
+    public abstract boolean first(e27 e27Var);
 
     public abstract boolean initData(Bundle bundle);
 
@@ -91,7 +91,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
             if (first(this)) {
                 loadDraft();
                 regReceiver();
-                g47.a = ad5.b();
+                j27.a = ub5.b();
             }
         }
     }
@@ -105,7 +105,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
     }
 
-    @Override // com.repackage.b47
+    @Override // com.repackage.e27
     public void onFirstHistoryPageLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {

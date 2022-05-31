@@ -1,155 +1,396 @@
 package com.repackage;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class w79 implements d89 {
+public class w79 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, HashMap> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public j79 a;
-    public int b;
-    public int c;
-    public boolean d;
 
-    public w79() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a(String str);
+
+        void b();
+
+        void c(String str);
+
+        void d();
+
+        void e(boolean z);
+
+        void f(boolean z);
+
+        void g(int i);
+
+        void h();
+
+        void i();
+
+        void j(String str);
+
+        void k(int i);
+
+        void onRecordEnd();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755248328, "Lcom/repackage/w79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755248328, "Lcom/repackage/w79;");
                 return;
             }
         }
-        this.d = true;
+        a = new HashMap<>();
     }
 
-    @Override // com.repackage.d89
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            j79 j79Var = this.a;
-            if (j79Var == null || bArr == null) {
-                return 0;
-            }
-            this.b += bArr.length;
-            j79Var.putBytes(bArr, i);
-            return this.b;
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.repackage.d89
-    public boolean a() {
+    public static HashMap a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.d89
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (j79) lb9.a("com.baidu.ugc.audioedit.AudioChangeOperator");
-            }
-            j79 j79Var = this.a;
-            if (j79Var != null) {
-                j79Var.initVoiceChanger(i, i2, i3, i4);
-            }
-            return this.a != null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_clear");
+            return hashMap;
         }
-        return invokeIIII.booleanValue;
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.d89
-    public byte[] a(int i) {
+    public static HashMap b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "capture_timer_start");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static HashMap c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            j79 j79Var = this.a;
-            if (j79Var == null || j79Var.availableBytes() <= 0) {
-                return new byte[0];
-            }
-            byte[] bArr = new byte[4096];
-            int bytes = this.a.getBytes(bArr, 4096);
-            this.c += bytes;
-            if (bytes == 0) {
-                return null;
-            }
-            if (4096 == bytes) {
-                return bArr;
-            }
-            byte[] bArr2 = new byte[bytes];
-            System.arraycopy(bArr, 0, bArr2, 0, bytes);
-            return bArr2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            HashMap hashMap = new HashMap();
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("sex_type", Integer.valueOf(i));
+            hashMap.put("event_name", "sex_event");
+            hashMap.put("event_data", hashMap2);
+            return hashMap;
         }
-        return (byte[]) invokeI.objValue;
+        return (HashMap) invokeI.objValue;
     }
 
-    public void b(int[] iArr) {
-        j79 j79Var;
+    public static HashMap d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (j79Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (a.get(str) != null) {
+                return a.get(str);
+            }
+            HashMap hashMap = null;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -1909077165:
+                    if (str.equals("startRecord")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -1848594969:
+                    if (str.equals("pauseRecord")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -815530368:
+                    if (str.equals("resetRecord")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case -793791417:
+                    if (str.equals("startOverRecord")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 473974106:
+                    if (str.equals("capture_timer_clear")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 488985455:
+                    if (str.equals("capture_timer_start")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            if (c == 0) {
+                hashMap = h();
+            } else if (c == 1) {
+                hashMap = f();
+            } else if (c == 2) {
+                hashMap = g();
+            } else if (c == 3) {
+                hashMap = a();
+            } else if (c == 4) {
+                hashMap = b();
+            } else if (c == 5) {
+                hashMap = i();
+            }
+            if (hashMap != null) {
+                a.put(str, hashMap);
+            }
+            return hashMap;
         }
-        j79Var.setVoiceChangeType(iArr);
+        return (HashMap) invokeL.objValue;
     }
 
-    @Override // com.repackage.d89
-    public boolean b() {
+    public static HashMap e(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Double.valueOf(d)})) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("event_name", "audio_volume");
+            hashMap.put("event_data", String.valueOf(Math.ceil(d)));
+            return hashMap;
+        }
+        return (HashMap) invokeCommon.objValue;
+    }
+
+    public static HashMap f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_pause");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.d89
-    public void c() {
-        j79 j79Var;
+    public static HashMap g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (j79Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_reset");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
-        j79Var.flush();
+        return (HashMap) invokeV.objValue;
     }
 
-    public void c(int[] iArr, int[] iArr2, double[] dArr) {
-        j79 j79Var;
+    public static HashMap h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (j79Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
-        j79Var.setVoiceChangeType(iArr, iArr2, dArr);
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.d89
-    public void d() {
-        j79 j79Var;
+    public static HashMap i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (j79Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("msg", "game_start_over");
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("event_name", "recorder_video");
+            hashMap2.put("event_data", hashMap);
+            return hashMap2;
         }
-        j79Var.close();
-        this.a = null;
+        return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.d89
-    public void e() {
-        j79 j79Var;
+    public static void j(HashMap<String, Object> hashMap, a aVar) {
+        Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (j79Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65546, null, hashMap, aVar) == null) || u79.f(hashMap) || aVar == null || (obj = hashMap.get("event_name")) == null || !(obj instanceof String)) {
             return;
         }
-        j79Var.clearQueues();
+        String str = (String) obj;
+        char c = 65535;
+        int i = 0;
+        switch (str.hashCode()) {
+            case -1903331025:
+                if (str.equals("show_text")) {
+                    c = 0;
+                    break;
+                }
+                break;
+            case -1768834290:
+                if (str.equals("game_end")) {
+                    c = 4;
+                    break;
+                }
+                break;
+            case -1584838740:
+                if (str.equals("filter_adjust_enable")) {
+                    c = 11;
+                    break;
+                }
+                break;
+            case -1272940549:
+                if (str.equals("game_is_ready")) {
+                    c = '\n';
+                    break;
+                }
+                break;
+            case -708270859:
+                if (str.equals("phone_shake")) {
+                    c = 1;
+                    break;
+                }
+                break;
+            case -672934016:
+                if (str.equals("case_reset")) {
+                    c = 5;
+                    break;
+                }
+                break;
+            case -548493597:
+                if (str.equals("need_volume")) {
+                    c = '\t';
+                    break;
+                }
+                break;
+            case 902635637:
+                if (str.equals("child_status")) {
+                    c = '\b';
+                    break;
+                }
+                break;
+            case 967087977:
+                if (str.equals("game_pause")) {
+                    c = 2;
+                    break;
+                }
+                break;
+            case 969912325:
+                if (str.equals("game_score")) {
+                    c = 3;
+                    break;
+                }
+                break;
+            case 1000807605:
+                if (str.equals("game_http")) {
+                    c = '\f';
+                    break;
+                }
+                break;
+            case 1001154298:
+                if (str.equals("game_time")) {
+                    c = 7;
+                    break;
+                }
+                break;
+            case 1076032614:
+                if (str.equals("need_face")) {
+                    c = 6;
+                    break;
+                }
+                break;
+        }
+        switch (c) {
+            case 0:
+                if (hashMap.get("text_content") instanceof String) {
+                    aVar.c((String) hashMap.get("text_content"));
+                    return;
+                }
+                return;
+            case 1:
+                aVar.d();
+                return;
+            case 2:
+            case 3:
+                if (hashMap.get("game_score") != null) {
+                    aVar.a(hashMap.get("game_score").toString());
+                    return;
+                }
+                return;
+            case 4:
+                if (hashMap.get("game_score") != null) {
+                    aVar.a(hashMap.get("game_score").toString());
+                }
+                aVar.onRecordEnd();
+                return;
+            case 5:
+                aVar.h();
+                return;
+            case 6:
+                aVar.b();
+                return;
+            case 7:
+                if (hashMap.get("text_content") instanceof Float) {
+                    try {
+                        i = ((Float) hashMap.get("text_content")).intValue();
+                    } catch (Exception e) {
+                        p79.g(e);
+                    }
+                    aVar.g(i);
+                    return;
+                }
+                return;
+            case '\b':
+                if (hashMap.get("isDefaultChild") != null) {
+                    String obj2 = hashMap.get("isDefaultChild").toString();
+                    if (!TextUtils.equals(obj2, "1.0") && !TextUtils.equals(obj2, "1")) {
+                        r3 = false;
+                    }
+                    aVar.f(r3);
+                    return;
+                }
+                return;
+            case '\t':
+                if (hashMap.get("volume_ability") != null) {
+                    aVar.e(t79.a(hashMap.get("volume_ability").toString(), 0.0f) == 1.0f);
+                    return;
+                }
+                return;
+            case '\n':
+                aVar.i();
+                return;
+            case 11:
+                if (hashMap.get("globalBeautyMakeupFilter") == null || !(hashMap.get("globalBeautyMakeupFilter") instanceof Float)) {
+                    return;
+                }
+                aVar.k(((Float) hashMap.get("globalBeautyMakeupFilter")).intValue());
+                return;
+            case '\f':
+                if (hashMap.get("set_content") != null) {
+                    aVar.j(hashMap.get("set_content").toString());
+                    return;
+                }
+                return;
+            default:
+                return;
+        }
     }
 }

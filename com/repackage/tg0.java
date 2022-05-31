@@ -1,37 +1,43 @@
 package com.repackage;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.view.ViewGroup;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.business.inserting.NadImageInsertingView;
-import com.baidu.nadcore.business.inserting.NadInsertingBaseView;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class tg0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements NadRequester.b {
+    public static class a implements rg0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NadRequester.b a;
+        public final /* synthetic */ WeakReference a;
+        public final /* synthetic */ Intent b;
+        public final /* synthetic */ rg0 c;
 
-        public a(NadRequester.b bVar) {
+        public a(WeakReference weakReference, Intent intent, rg0 rg0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {weakReference, intent, rg0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,119 +47,136 @@ public class tg0 {
                     return;
                 }
             }
-            this.a = bVar;
+            this.a = weakReference;
+            this.b = intent;
+            this.c = rg0Var;
         }
 
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void a(@NonNull NadRequester.Error error) {
+        @Override // com.repackage.rg0
+        public void onResult(boolean z) {
+            Context context;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-                this.a.a(error);
-            }
-        }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void b(@NonNull List<AdBaseModel> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                if (list.size() > 0 && list.get(0) != null) {
-                    AdBaseModel adBaseModel = (AdBaseModel) ty0.d(list, 0);
-                    if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
-                        un0 un0Var = (un0) ty0.d(adBaseModel.f.k, 0);
-                        if (un0Var != null && !TextUtils.isEmpty(un0Var.a)) {
-                            f41.a().c(un0Var.a);
-                        } else {
-                            this.a.a(new NadRequester.Error("大图模版数据校验失败，未下发图片"));
-                            return;
-                        }
-                    }
-                    this.a.b(list);
-                    return;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z && (context = (Context) this.a.get()) != null) {
+                    tz0.c(context, this.b);
                 }
-                this.a.a(new NadRequester.Error("返回数据为空"));
+                rg0 rg0Var = this.c;
+                if (rg0Var != null) {
+                    rg0Var.onResult(z);
+                }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ NadInsertingBaseView b;
-
-        public b(d dVar, NadInsertingBaseView nadInsertingBaseView) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755291852, "Lcom/repackage/tg0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar, nadInsertingBaseView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = dVar;
-            this.b = nadInsertingBaseView;
-        }
-
-        @Override // com.repackage.tg0.c
-        public void onFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onFail();
-            }
-        }
-
-        @Override // com.repackage.tg0.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.a(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void onFail();
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void a(@NonNull NadInsertingBaseView nadInsertingBaseView);
-
-        void onFail();
-    }
-
-    public static void a(String str, NadRequester.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, bVar) == null) {
-            RequestParameters.b bVar2 = new RequestParameters.b();
-            bVar2.o(str);
-            bVar2.n(1);
-            NadRequester.a(bVar2.m(), new a(bVar));
-        }
-    }
-
-    public static void b(@NonNull Context context, @NonNull ViewGroup viewGroup, @NonNull List<AdBaseModel> list, @NonNull sg0 sg0Var, @NonNull d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, context, viewGroup, list, sg0Var, dVar) == null) {
-            if (ty0.k(list) < 1) {
-                dVar.onFail();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755291852, "Lcom/repackage/tg0;");
                 return;
             }
-            AdBaseModel adBaseModel = (AdBaseModel) ty0.d(list, 0);
-            if (TextUtils.equals(adBaseModel.f.a.value, AdBaseModel.STYLE.BIG_IMAGE.value)) {
-                NadImageInsertingView nadImageInsertingView = new NadImageInsertingView(context, viewGroup, sg0Var);
-                nadImageInsertingView.setData(adBaseModel, new b(dVar, nadImageInsertingView));
+        }
+        a = Boolean.FALSE;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0054  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x006c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(Context context, String str, String str2, rg0 rg0Var, boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, rg0Var, Boolean.valueOf(z)}) != null) {
+            return;
+        }
+        WeakReference weakReference = new WeakReference(context);
+        try {
+            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            if (z && !sg0.a(context, str)) {
+                z2 = false;
+                if (z2) {
+                    if (rg0Var != null) {
+                        rg0Var.onResult(false);
+                        return;
+                    }
+                    return;
+                } else if (z) {
+                    mg0.a().b(str, str2, new a(weakReference, intent, rg0Var));
+                    return;
+                } else {
+                    tz0.c(context, intent);
+                    if (rg0Var != null) {
+                        rg0Var.onResult(true);
+                        return;
+                    }
+                    return;
+                }
+            }
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            int i = 0;
+            z2 = false;
+            while (true) {
+                if (i >= queryIntentActivities.size()) {
+                    break;
+                }
+                ResolveInfo resolveInfo = (ResolveInfo) gx0.d(queryIntentActivities, i);
+                if (resolveInfo != null) {
+                    String str3 = resolveInfo.activityInfo.packageName;
+                    if (TextUtils.equals(str3, str2)) {
+                        intent.setPackage(str3);
+                        z2 = true;
+                        break;
+                    }
+                    z2 = true;
+                }
+                i++;
+            }
+            if (z2) {
+            }
+        } catch (Exception unused) {
+            if (rg0Var != null) {
+                rg0Var.onResult(false);
             }
         }
+    }
+
+    public static boolean b(@NonNull Context context, @NonNull String str) {
+        InterceptResult invokeLL;
+        ResolveInfo next;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities.size() > 0 && (next = queryIntentActivities.iterator().next()) != null) {
+                String str2 = next.activityInfo.name;
+                Intent intent2 = new Intent("android.intent.action.MAIN");
+                intent2.addCategory("android.intent.category.LAUNCHER");
+                intent2.setComponent(new ComponentName(str, str2));
+                intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                try {
+                    context.startActivity(intent2);
+                    z = true;
+                } catch (Exception unused) {
+                }
+            }
+            if (a.booleanValue() && !z) {
+                Log.e("OpenAppUtils", "openAppByPkgName: " + str + "  failed");
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
     }
 }

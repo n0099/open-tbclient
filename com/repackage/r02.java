@@ -1,300 +1,63 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.TreeMap;
-/* loaded from: classes7.dex */
-public class r02 {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class r02 extends i02<JSONObject, hr1> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
-
-        public a(String str, File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = file;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (r02.class) {
-                    xg4.S(this.a, this.b, true);
-                }
-                r02.c();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements Comparator<Long> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(Long l, Long l2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l, l2)) == null) ? l2.compareTo(l) : invokeLL.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755404227, "Lcom/repackage/r02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755404227, "Lcom/repackage/r02;");
-                return;
-            }
-        }
-        a = eh1.a;
-    }
 
     public r02() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static File b(long j) {
-        InterceptResult invokeJ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.m02
+    @NonNull
+    /* renamed from: c */
+    public hr1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
-            }
-            File file = new File(f + File.separator + j);
-            if (file.exists()) {
-                xg4.L(file);
-            }
-            xg4.h(file);
-            return file;
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public static void c() {
-        u03 a0;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || (a0 = u03.a0()) == null || TextUtils.isEmpty(a0.getAppId())) {
-            return;
-        }
-        File file = new File(qj2.g().getPath() + File.separator + "launch_tips");
-        if (file.exists() && file.isDirectory()) {
-            xg4.j(file);
-        }
-    }
-
-    public static File d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
-            File[] g = g();
-            if (g != null && g.length != 0) {
-                File file = null;
-                for (File file2 : g) {
-                    try {
-                        long parseLong = Long.parseLong(file2.getName());
-                        if (parseLong == j) {
-                            file = file2;
-                        } else if (j - parseLong >= 259200000) {
-                            xg4.j(file2);
-                        }
-                    } catch (NumberFormatException unused) {
-                        xg4.j(file2);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (b()) {
+                if (i02.a) {
+                    hw1.b("Api-HandleException", "has triggered fmp before remove skeleton");
                 }
-                return file == null ? b(j) : file;
-            }
-            return b(j);
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            File[] g = g();
-            if (g == null) {
-                return null;
-            }
-            TreeMap treeMap = new TreeMap(new b());
-            long i = i(System.currentTimeMillis());
-            for (File file : g) {
-                try {
-                    long parseLong = Long.parseLong(file.getName());
-                    if (i - parseLong >= 259200000) {
-                        xg4.j(file);
-                    } else {
-                        List<String> F = xg4.F(file);
-                        if (F != null && F.size() > 0) {
-                            treeMap.put(Long.valueOf(parseLong), F);
-                        }
-                    }
-                } catch (NumberFormatException unused) {
-                    xg4.j(file);
+                return new hr1(0);
+            } else if (jSONObject == null) {
+                return new hr1(202);
+            } else {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null) {
+                    return new hr1(202, "data is required");
                 }
-            }
-            if (treeMap.size() == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder("\n（二）历史日志");
-            for (Map.Entry entry : treeMap.entrySet()) {
-                sb.append("\n----------【");
-                sb.append(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(((Long) entry.getKey()).longValue())));
-                sb.append("】----------");
-                for (String str : (List) entry.getValue()) {
-                    if (!TextUtils.isEmpty(str)) {
-                        sb.append("\n");
-                        sb.append(str);
-                    }
+                String optString = optJSONObject.optString("path");
+                if (TextUtils.isEmpty(optString)) {
+                    return new hr1(202, "path is required");
                 }
-            }
-            sb.append("\n");
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            u03 a0 = u03.a0();
-            if (a0 == null) {
-                return null;
-            }
-            String appId = a0.getAppId();
-            if (TextUtils.isEmpty(appId)) {
-                return null;
-            }
-            return qj2.g().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String f = f();
-            if (f == null) {
-                return null;
-            }
-            File file = new File(f);
-            if (file.exists() && file.isDirectory()) {
-                return file.listFiles();
-            }
-            return null;
-        }
-        return (File[]) invokeV.objValue;
-    }
-
-    public static void h(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) {
-            long i = i(j);
-            if (i == -1) {
-                if (a) {
-                    Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
-                    return;
-                }
-                return;
-            }
-            File d = d(i);
-            if (d == null || !d.exists()) {
-                return;
-            }
-            od3.k(new a(str, d), "saveLaunchTipsLog");
-        }
-    }
-
-    public static long i(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
-            try {
-                Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));
-                if (parse == null) {
-                    return -1L;
-                }
-                return parse.getTime();
-            } catch (ParseException e) {
-                if (eh1.a) {
-                    e.printStackTrace();
-                }
-                return -1L;
+                g02 g02Var = new g02();
+                g02Var.g(optString);
+                g02Var.e();
+                return new hr1(0);
             }
         }
-        return invokeJ.longValue;
+        return (hr1) invokeL.objValue;
     }
 }

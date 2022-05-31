@@ -1,76 +1,24 @@
 package com.repackage;
 
-import android.os.Debug;
-import android.os.SystemClock;
-import android.util.Printer;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.activitys.H5Activity;
 /* loaded from: classes6.dex */
-public class qk9 implements Printer {
+public class qk9 implements lk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public b d;
-    public final boolean e;
+    public final /* synthetic */ H5Activity a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ qk9 e;
-
-        public a(qk9 qk9Var, long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qk9Var, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = qk9Var;
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = j4;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.d.a(this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(long j, long j2, long j3, long j4);
-    }
-
-    public qk9(b bVar, long j, boolean z) {
+    public qk9(H5Activity h5Activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
+            Object[] objArr = {h5Activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,74 +28,37 @@ public class qk9 implements Printer {
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = null;
-        if (bVar != null) {
-            this.d = bVar;
-            this.a = j;
-            this.e = z;
-            return;
+        this.a = h5Activity;
+    }
+
+    @Override // com.repackage.lk9
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            H5Activity h5Activity = this.a;
+            if (pm9.d(h5Activity.e, h5Activity.h)) {
+                this.a.h = System.currentTimeMillis();
+                H5Activity h5Activity2 = this.a;
+                pm9.a(h5Activity2.a, str, h5Activity2.e, h5Activity2.i, str2);
+                nn9 a = rn9.a(this.a.a);
+                a.h(new vn9(this.a.e), str);
+                a.l("desc", str2);
+                a.m();
+                kl9.c(this.a.e.getId() + this.a.f, "is_click", null);
+                ll9.p(this.a.e, str2);
+                return true;
+            }
+            return true;
         }
-        throw new IllegalArgumentException("blockListener should not be null.");
+        return invokeLL.booleanValue;
     }
 
-    public final boolean b(long j) {
-        InterceptResult invokeJ;
+    @Override // com.repackage.lk9
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? j - this.b > this.a : invokeJ.booleanValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            ok9.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (mk9.e().b != null) {
-                mk9.e().b.c();
-            }
-            if (mk9.e().c != null) {
-                mk9.e().c.c();
-            }
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (mk9.e().b != null) {
-                mk9.e().b.d();
-            }
-            if (mk9.e().c != null) {
-                mk9.e().c.d();
-            }
-        }
-    }
-
-    @Override // android.util.Printer
-    public void println(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.e && Debug.isDebuggerConnected()) {
-                return;
-            }
-            if (str.charAt(0) == '>') {
-                this.b = System.currentTimeMillis();
-                this.c = SystemClock.currentThreadTimeMillis();
-                d();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (b(currentTimeMillis)) {
-                c(currentTimeMillis);
-            }
-            e();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.g = str;
         }
     }
 }

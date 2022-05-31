@@ -1,4 +1,4 @@
 package com.baidu.lcp.sdk.connect;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public interface QuicEventCallbackListener {
 }

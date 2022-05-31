@@ -1,65 +1,38 @@
 package com.repackage;
 
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface qk1 {
-    boolean A();
 
-    boolean B();
+    /* loaded from: classes6.dex */
+    public static class a implements qk1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    boolean C();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    JSONObject D();
+        @Override // com.repackage.qk1
+        public void a(e03 e03Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, e03Var) == null) {
+            }
+        }
+    }
 
-    boolean E();
-
-    void F();
-
-    long G();
-
-    boolean H();
-
-    long I();
-
-    JSONObject getRawSwitch();
-
-    int getSwitch(String str, int i);
-
-    String getSwitch(String str, String str2);
-
-    boolean getSwitch(String str, boolean z);
-
-    boolean j();
-
-    String k();
-
-    boolean l();
-
-    boolean m();
-
-    long n();
-
-    boolean o();
-
-    String p();
-
-    boolean q();
-
-    int r();
-
-    boolean s();
-
-    boolean t();
-
-    boolean u();
-
-    int v();
-
-    boolean w();
-
-    boolean x();
-
-    boolean y();
-
-    int z();
+    void a(e03 e03Var);
 }

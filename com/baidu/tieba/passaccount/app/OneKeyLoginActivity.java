@@ -13,23 +13,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iq7;
-import com.repackage.jq7;
-import com.repackage.kq7;
-import com.repackage.lq7;
-import com.repackage.mq7;
-import com.repackage.nq7;
-import com.repackage.oq7;
+import com.repackage.rn7;
+import com.repackage.sn7;
+import com.repackage.tn7;
+import com.repackage.un7;
+import com.repackage.vn7;
+import com.repackage.wn7;
+import com.repackage.xn7;
 /* loaded from: classes3.dex */
 public class OneKeyLoginActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public iq7 controller;
-    public kq7 oneKeyLoginData;
+    public rn7 controller;
+    public tn7 oneKeyLoginData;
     public String shareModelJSONStr;
 
     /* renamed from: view  reason: collision with root package name */
-    public jq7 f1009view;
+    public sn7 f1009view;
 
     public OneKeyLoginActivity() {
         Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             this.shareModelJSONStr = getIntent().getStringExtra(LoginDialogActivityConfig.SHARE_MODEL_JSON_STRING);
-            kq7 kq7Var = new kq7();
-            this.oneKeyLoginData = kq7Var;
-            kq7Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
+            tn7 tn7Var = new tn7();
+            this.oneKeyLoginData = tn7Var;
+            tn7Var.a = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_ENCRYPT_PHONE_NUM);
             this.oneKeyLoginData.b = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_OPERATOR);
             this.oneKeyLoginData.c = getIntent().getStringExtra(LoginDialogActivityConfig.ONE_KEY_LOGIN_SIGN);
             this.oneKeyLoginData.d = this.shareModelJSONStr;
@@ -83,15 +83,15 @@ public class OneKeyLoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0048);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091b2c);
+            setContentView(R.layout.obfuscated_res_0x7f0d0045);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091adb);
             initData();
             if (TextUtils.isEmpty(this.shareModelJSONStr)) {
-                this.f1009view = new mq7(getPageContext(), findViewById);
-                this.controller = new lq7(getPageContext(), this.f1009view);
+                this.f1009view = new vn7(getPageContext(), findViewById);
+                this.controller = new un7(getPageContext(), this.f1009view);
             } else {
-                this.f1009view = new oq7(getPageContext(), findViewById);
-                this.controller = new nq7(getPageContext(), this.f1009view);
+                this.f1009view = new xn7(getPageContext(), findViewById);
+                this.controller = new wn7(getPageContext(), this.f1009view);
             }
             this.f1009view.c(this.oneKeyLoginData);
             this.controller.j(this.oneKeyLoginData);

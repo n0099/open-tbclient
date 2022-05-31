@@ -1,126 +1,243 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.s81;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class t81 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:? */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:8:0x0029 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r3v1 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v3 */
-    /* JADX WARN: Type inference failed for: r3v5, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.Closeable[]] */
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
-        ?? r3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Bitmap bitmap = null;
-            try {
-                r3 = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream(), 8192);
-                try {
-                    try {
-                        bitmap = BitmapFactory.decodeStream(r3);
-                        u91.a(new Closeable[]{r3});
-                    } catch (Exception e) {
-                        e = e;
-                        e.printStackTrace();
-                        u91.a(new Closeable[]{r3});
-                        return bitmap;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    bitmap = r3;
-                    u91.a(new Closeable[]{bitmap});
-                    throw th;
+    /* loaded from: classes7.dex */
+    public static class a extends r61<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s81 a;
+
+        public a(s81 s81Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } catch (Exception e2) {
-                e = e2;
-                r3 = 0;
-            } catch (Throwable th2) {
-                th = th2;
-                u91.a(new Closeable[]{bitmap});
-                throw th;
             }
-            return bitmap;
+            this.a = s81Var;
         }
-        return (Bitmap) invokeL.objValue;
+
+        @Override // com.repackage.r61
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                s81.a aVar = new s81.a();
+                aVar.a = 2;
+                aVar.b = n81.a().getResources().getString(R.string.obfuscated_res_0x7f0f0367);
+                this.a.a(aVar);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.r61
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                s81.a aVar = new s81.a();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optInt("errno") == 0) {
+                        aVar.a = 0;
+                        aVar.b = jSONObject.optString("msg");
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        aVar.c = optJSONObject.optLong("totalAmount");
+                        aVar.d = optJSONObject.optLong("userPayAmount");
+                        aVar.f = optJSONObject.optString("usedHostMarketingDetail");
+                        aVar.h = s81.a.C0515a.c(optJSONObject.optJSONArray("promotionStatus"));
+                    } else {
+                        aVar.a = jSONObject.optInt("errorLevel", 2);
+                        aVar.b = jSONObject.optString("msg");
+                    }
+                } catch (Exception unused) {
+                    aVar.a = 2;
+                    aVar.b = n81.a().getResources().getString(R.string.obfuscated_res_0x7f0f0367);
+                }
+                this.a.a(aVar);
+            }
+        }
     }
 
-    public static boolean b(String str, OutputStream outputStream) {
-        InterceptResult invokeLL;
-        Throwable th;
-        BufferedOutputStream bufferedOutputStream;
-        IOException e;
-        BufferedInputStream bufferedInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(65537, null, str, outputStream)) != null) {
-            return invokeLL.booleanValue;
-        }
-        BufferedInputStream bufferedInputStream2 = null;
-        try {
-            bufferedInputStream = new BufferedInputStream(((HttpURLConnection) new URL(str).openConnection()).getInputStream());
-            try {
-                bufferedOutputStream = new BufferedOutputStream(outputStream);
-            } catch (IOException e2) {
-                e = e2;
-                bufferedOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                bufferedOutputStream = null;
-            }
-        } catch (IOException e3) {
-            e = e3;
-            bufferedOutputStream = null;
-        } catch (Throwable th3) {
-            th = th3;
-            bufferedOutputStream = null;
-        }
-        try {
-            byte[] bArr = new byte[8192];
-            while (true) {
-                int read = bufferedInputStream.read(bArr);
-                if (read != -1) {
-                    bufferedOutputStream.write(bArr, 0, read);
-                } else {
-                    u91.a(bufferedInputStream, bufferedOutputStream);
-                    return true;
+    /* loaded from: classes7.dex */
+    public static class b extends r61<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s81 a;
+
+        public b(s81 s81Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        } catch (IOException e4) {
-            e = e4;
-            bufferedInputStream2 = bufferedInputStream;
-            try {
-                e.printStackTrace();
-                u91.a(bufferedInputStream2, bufferedOutputStream);
-                return false;
-            } catch (Throwable th4) {
-                th = th4;
-                u91.a(bufferedInputStream2, bufferedOutputStream);
-                throw th;
-            }
-        } catch (Throwable th5) {
-            th = th5;
-            bufferedInputStream2 = bufferedInputStream;
-            u91.a(bufferedInputStream2, bufferedOutputStream);
-            throw th;
+            this.a = s81Var;
         }
+
+        @Override // com.repackage.r61
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                s81.a aVar = new s81.a();
+                aVar.a = 2;
+                aVar.b = n81.a().getResources().getString(R.string.obfuscated_res_0x7f0f0367);
+                this.a.a(aVar);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.r61
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                s81.a aVar = new s81.a();
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optInt("errno") == 0) {
+                        aVar.a = 0;
+                        aVar.b = jSONObject.optString("msg");
+                        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                        aVar.c = optJSONObject.optLong("totalAmount");
+                        aVar.d = optJSONObject.optLong("userPayAmount");
+                        aVar.e = optJSONObject.optLong("reduceAmount");
+                        aVar.g = optJSONObject.optInt("overdueStatus");
+                        aVar.f = optJSONObject.optString("usedHostMarketingDetail");
+                        aVar.h = s81.a.C0515a.c(optJSONObject.optJSONArray("promotionStatus"));
+                    } else {
+                        aVar.a = jSONObject.optInt("errorLevel", 2);
+                        aVar.b = jSONObject.optString("msg");
+                    }
+                } catch (Exception unused) {
+                    aVar.a = 2;
+                    aVar.b = n81.a().getResources().getString(R.string.obfuscated_res_0x7f0f0367);
+                }
+                this.a.a(aVar);
+            }
+        }
+    }
+
+    public static void a(Bundle bundle, s81 s81Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, bundle, s81Var) == null) {
+            t61 t61Var = new t61();
+            a71.d(t61Var);
+            String string = bundle.getString("bduss");
+            bundle.remove("bduss");
+            c(string, t61Var);
+            String string2 = bundle.getString("openBduss");
+            bundle.remove("openBduss");
+            e(string2, t61Var);
+            String string3 = bundle.getString("clientId");
+            bundle.remove("clientId");
+            d(string3, t61Var);
+            s61 s61Var = new s61();
+            s61Var.d("appKey", bundle.get("appKey").toString());
+            s61Var.d("totalAmount", bundle.get("totalAmount").toString());
+            s61Var.d("hostMarketingDetail", bundle.get("hostMarketingDetail").toString());
+            new x61().a(b71.b(), t61Var, s61Var, new b(s81Var));
+        }
+    }
+
+    public static void b(String str, String str2, String str3, List<String> list, s81 s81Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, list, s81Var) == null) {
+            t61 t61Var = new t61();
+            a71.d(t61Var);
+            if (!TextUtils.isEmpty(str)) {
+                t61Var.d("Cookie", "BDUSS=" + str);
+            }
+            s61 s61Var = new s61();
+            s61Var.d("appKey", str2);
+            s61Var.d("totalAmount", str3);
+            if (list != null && list.size() > 0) {
+                JSONArray jSONArray = new JSONArray();
+                for (String str4 : list) {
+                    if (!TextUtils.isEmpty(str4)) {
+                        try {
+                            jSONArray.put(new JSONObject(str4));
+                        } catch (Exception unused) {
+                        }
+                    }
+                }
+                s61Var.d("hostMarketingDetail", jSONArray.toString());
+            }
+            new x61().a(b71.b(), t61Var, s61Var, new a(s81Var));
+        }
+    }
+
+    public static void c(String str, t61 t61Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, t61Var) == null) || str == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String a2 = t61Var.a("Cookie");
+        String str2 = "BDUSS=" + str;
+        if (a2 == null) {
+            t61Var.d("Cookie", str2);
+            return;
+        }
+        t61Var.d("Cookie", a2 + "; " + str2);
+    }
+
+    public static void d(String str, t61 t61Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, t61Var) == null) || str == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String a2 = t61Var.a("Cookie");
+        String str2 = "CLIENTID=" + str;
+        if (a2 == null) {
+            t61Var.d("Cookie", str2);
+            return;
+        }
+        t61Var.d("Cookie", a2 + "; " + str2);
+    }
+
+    public static void e(String str, t61 t61Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, t61Var) == null) || str == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        String a2 = t61Var.a("Cookie");
+        String str2 = "OPENBDUSS=" + str;
+        if (a2 == null) {
+            t61Var.d("Cookie", str2);
+            return;
+        }
+        t61Var.d("Cookie", a2 + "; " + str2);
     }
 }

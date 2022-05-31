@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.os8;
-import com.repackage.ps8;
+import com.repackage.qp8;
+import com.repackage.rp8;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.Map;
@@ -130,7 +130,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void g(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new os8(new ps8(getWidth(), getHeight()), new ps8(i, i2)).m(this.b)) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new qp8(new rp8(getWidth(), getHeight()), new rp8(i, i2)).m(this.b)) == null) {
             return;
         }
         setTransform(m);

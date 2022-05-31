@@ -423,11 +423,11 @@ public class BaiduMap {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0103  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x0108  */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x01a0  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x01b4  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x01f6  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0104  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x0109  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x01a1  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x01b5  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x01f7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

@@ -10,7 +10,7 @@ import com.fun.ad.sdk.internal.api.Module;
 import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.GlobalSetting;
-import com.repackage.og9;
+import com.repackage.id9;
 /* loaded from: classes4.dex */
 public class GdtModule implements Module {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public class GdtModule implements Module {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, funAdConfig, str)) == null) {
             GDTADManager.getInstance().initWith(funAdConfig.appContext, str);
             GlobalSetting.setChannel(3);
-            return new og9();
+            return new id9();
         }
         return (PidLoaderCreator) invokeLL.objValue;
     }

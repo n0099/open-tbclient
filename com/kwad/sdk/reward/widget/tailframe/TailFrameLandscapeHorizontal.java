@@ -53,7 +53,7 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements d {
         if (com.kwad.sdk.core.response.a.d.v(this.e)) {
             this.k.a(getContext(), i, 1);
         } else {
-            com.kwad.sdk.core.download.a.a.a(new a.C0295a(view2.getContext()).a(this.e).a(this.h).a(view2 == this.i).a(view2 == this.i ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.2
+            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.e).a(this.h).a(view2 == this.i).a(view2 == this.i ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.2
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     if (TailFrameLandscapeHorizontal.this.d != null) {
@@ -65,20 +65,20 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements d {
     }
 
     private void b() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0473, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118c);
-        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091189);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0469, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09114e);
+        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09114b);
     }
 
     private void c() {
         if (!com.kwad.sdk.core.response.a.a.B(this.f) && !com.kwad.sdk.core.response.a.d.v(this.e)) {
-            TailFrameBarH5Landscape tailFrameBarH5Landscape = (TailFrameBarH5Landscape) findViewById(R.id.obfuscated_res_0x7f091178);
+            TailFrameBarH5Landscape tailFrameBarH5Landscape = (TailFrameBarH5Landscape) findViewById(R.id.obfuscated_res_0x7f09113a);
             this.c = tailFrameBarH5Landscape;
             tailFrameBarH5Landscape.setModel(this.e);
             this.c.setVisibility(0);
             return;
         }
-        TailFrameBarAppLandscape tailFrameBarAppLandscape = (TailFrameBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f091162);
+        TailFrameBarAppLandscape tailFrameBarAppLandscape = (TailFrameBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f091124);
         this.b = tailFrameBarAppLandscape;
         tailFrameBarAppLandscape.setModel(this.e);
         this.b.setVisibility(0);

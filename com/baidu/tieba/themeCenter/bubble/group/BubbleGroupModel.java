@@ -19,18 +19,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.hj8;
-import com.repackage.jq8;
+import com.repackage.ig8;
+import com.repackage.ln8;
 import com.repackage.wa;
-import com.repackage.xp8;
+import com.repackage.zm8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public jq8 b;
-    public List<xp8> c;
+    public ln8 b;
+    public List<zm8> c;
     public c d;
     public boolean e;
     public wa f;
@@ -140,7 +140,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a(int i, String str, jq8 jq8Var, List<xp8> list);
+        void a(int i, String str, ln8 ln8Var, List<zm8> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -180,8 +180,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            hj8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            hj8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
+            ig8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            ig8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -203,14 +203,14 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     public final void J(int i) {
-        List<xp8> list;
+        List<zm8> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (list = this.c) == null || list.size() <= 0) {
             return;
         }
-        for (xp8 xp8Var : this.c) {
-            if (xp8Var != null && xp8Var.a() != null) {
-                for (DressItemData dressItemData : xp8Var.a()) {
+        for (zm8 zm8Var : this.c) {
+            if (zm8Var != null && zm8Var.a() != null) {
+                for (DressItemData dressItemData : zm8Var.a()) {
                     if (dressItemData != null) {
                         if (dressItemData.getPropsId() == i) {
                             dressItemData.setInUse(true);

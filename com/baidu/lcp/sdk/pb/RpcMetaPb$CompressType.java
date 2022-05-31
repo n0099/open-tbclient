@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.Internal;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public final class RpcMetaPb$CompressType implements Internal.EnumLite {
     public static final /* synthetic */ RpcMetaPb$CompressType[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;

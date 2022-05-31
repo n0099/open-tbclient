@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
-import com.repackage.va9;
+import com.repackage.p79;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -141,7 +141,7 @@ public class EglSurfaceBase {
                     createBitmap.compress(Bitmap.CompressFormat.PNG, 90, bufferedOutputStream2);
                     createBitmap.recycle();
                     bufferedOutputStream2.close();
-                    va9.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
+                    p79.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
                 } catch (Throwable th) {
                     th = th;
                     bufferedOutputStream = bufferedOutputStream2;
@@ -171,7 +171,7 @@ public class EglSurfaceBase {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             boolean swapBuffers = this.mEglCore.swapBuffers(this.mEGLSurface);
             if (!swapBuffers) {
-                va9.c("Grafika", "WARNING: swapBuffers() failed");
+                p79.c("Grafika", "WARNING: swapBuffers() failed");
             }
             return swapBuffers;
         }

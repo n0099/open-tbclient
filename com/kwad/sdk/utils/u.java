@@ -15,12 +15,12 @@ public class u {
     public static volatile boolean b = false;
 
     public static void a(Context context, String str) {
-        b(context, str, R.layout.obfuscated_res_0x7f0d0416);
+        b(context, str, R.layout.obfuscated_res_0x7f0d040c);
     }
 
     public static void a(Context context, String str, int i) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0415, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910c1)).setText(str);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d040b, (ViewGroup) null);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091083)).setText(str);
         Toast toast = new Toast(context);
         toast.setGravity(17, 0, 0);
         toast.setDuration(i);
@@ -34,7 +34,7 @@ public class u {
         }
         b = true;
         View inflate = LayoutInflater.from(context).inflate(i, (ViewGroup) null);
-        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910c1)).setText(str);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091083)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
         toast.setGravity(17, 0, 0);
         toast.setDuration(0);

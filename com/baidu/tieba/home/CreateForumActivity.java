@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ey4;
-import com.repackage.mi;
-import com.repackage.w95;
+import com.repackage.li;
+import com.repackage.q85;
+import com.repackage.ww4;
 /* loaded from: classes3.dex */
 public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -115,10 +115,10 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
                     if (this.a.mEditName.hasFocus()) {
-                        mi.w(this.a.getPageContext().getPageActivity(), this.a.mEditName);
+                        li.x(this.a.getPageContext().getPageActivity(), this.a.mEditName);
                     }
                     if (this.a.mEditVcode.hasFocus()) {
-                        mi.w(this.a.getPageContext().getPageActivity(), this.a.mEditVcode);
+                        li.x(this.a.getPageContext().getPageActivity(), this.a.mEditVcode);
                         return false;
                     }
                     return false;
@@ -270,14 +270,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        ey4 ey4Var = new ey4();
-                        ey4Var.e(postNetData);
-                        if (ey4Var.c() != null && ey4Var.c().length() > 0) {
-                            this.c.mVcode_md5 = ey4Var.b();
+                        ww4 ww4Var = new ww4();
+                        ww4Var.e(postNetData);
+                        if (ww4Var.c() != null && ww4Var.c().length() > 0) {
+                            this.c.mVcode_md5 = ww4Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(ey4Var.c());
+                            NetWork netWork2 = new NetWork(ww4Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -381,28 +381,28 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             this.mOnClickListener = new a(this);
-            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091b2c);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd);
+            this.mRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091adb);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f045f);
-            this.mNoNetView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923ff);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090852);
+            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0466);
+            this.mNoNetView = (NoNetworkView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923a4);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090836);
             this.mEditName = editText;
             editText.setText(this.mBarName);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090863);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090847);
             this.mEditVcode = editText2;
             editText2.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a73);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a24);
             this.mRefreshButton = textView;
             textView.setOnClickListener(this.mOnClickListener);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6f);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e34);
             this.mImage = imageView;
             imageView.setOnClickListener(this.mOnClickListener);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091f75);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091f1b);
             this.mCreate = textView2;
             textView2.setOnClickListener(this.mOnClickListener);
-            findViewById(R.id.obfuscated_res_0x7f090397).setOnTouchListener(new b(this));
+            findViewById(R.id.obfuscated_res_0x7f090392).setOnTouchListener(new b(this));
         }
     }
 
@@ -434,7 +434,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.changeSkinType(i);
             getLayoutMode().j(this.mRootView);
-            w95.a(getPageContext(), this.mRootView);
+            q85.a(getPageContext(), this.mRootView);
             NavigationBar navigationBar = this.mNavigationBar;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);
@@ -452,7 +452,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0206);
+            setContentView(R.layout.obfuscated_res_0x7f0d0200);
             initData();
             initUI();
             getImage();

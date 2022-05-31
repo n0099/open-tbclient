@@ -1,93 +1,218 @@
 package com.repackage;
 
+import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
+import com.baidu.minivideo.effect.core.Rotation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.Base64;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import com.kwad.yoga.YogaNodeJNIBase;
-import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
-import java.util.zip.GZIPOutputStream;
-import kotlin.jvm.internal.ByteCompanionObject;
-import org.apache.commons.codec.binary4util.BaseNCodec;
+import com.faceunity.gles.GeneratedTexture;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.FloatBuffer;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ce0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
+    public int[] b;
+    public final FloatBuffer c;
+    public final FloatBuffer d;
+    public final FloatBuffer e;
+    public int f;
+    public int g;
+    public int h;
+    public float[] i;
 
-    /* loaded from: classes5.dex */
-    public static class a extends GZIPOutputStream {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public ce0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.i = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
+        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(he0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.c = asFloatBuffer;
+        asFloatBuffer.put(he0.a).position(0);
+        FloatBuffer asFloatBuffer2 = ByteBuffer.allocateDirect(je0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.d = asFloatBuffer2;
+        asFloatBuffer2.put(je0.a).position(0);
+        float[] b = je0.b(Rotation.NORMAL, false, true);
+        FloatBuffer asFloatBuffer3 = ByteBuffer.allocateDirect(b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
+        this.e = asFloatBuffer3;
+        asFloatBuffer3.put(b).position(0);
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(OutputStream outputStream) {
-            super(outputStream);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {outputStream};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((OutputStream) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int[] iArr = this.a;
+            return iArr == null || this.h >= iArr.length;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int[] iArr = this.b;
+            if (iArr != null) {
+                GLES20.glDeleteTextures(iArr.length, iArr, 0);
+                this.b = null;
+            }
+            int[] iArr2 = this.a;
+            if (iArr2 != null) {
+                GLES20.glDeleteFramebuffers(iArr2.length, iArr2, 0);
+                this.a = null;
+            }
+        }
+    }
+
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || i == 0 || i2 == 0) {
+            return;
+        }
+        if (this.f == i && this.g == i2) {
+            return;
+        }
+        if (this.a != null) {
+            b();
+        }
+        this.f = i;
+        this.g = i2;
+        d(2);
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int[] iArr = this.a;
+            int length = iArr != null ? i + iArr.length : i;
+            int[] iArr2 = new int[length];
+            int[] iArr3 = new int[length];
+            for (int i2 = 0; i2 < length; i2++) {
+                int[] iArr4 = this.a;
+                if (iArr4 != null && iArr4.length > i2) {
+                    iArr2[i2] = iArr4[i2];
+                }
+                int[] iArr5 = this.b;
+                if (iArr5 != null && iArr5.length > i2) {
+                    iArr3[i2] = iArr5[i2];
+                }
+                if (iArr3[i2] == 0) {
+                    GLES20.glGenFramebuffers(1, iArr2, i2);
+                    GLES20.glGenTextures(1, iArr3, i2);
+                    GLES20.glBindTexture(3553, iArr3[i2]);
+                    GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.f, this.g, 0, GeneratedTexture.FORMAT, 5121, null);
+                    GLES20.glTexParameterf(3553, 10240, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10241, 9729.0f);
+                    GLES20.glTexParameterf(3553, 10242, 33071.0f);
+                    GLES20.glTexParameterf(3553, 10243, 33071.0f);
+                    GLES20.glBindFramebuffer(36160, iArr2[i2]);
+                    GLES20.glFramebufferTexture2D(36160, 36064, 3553, iArr3[i2], 0);
+                    GLES20.glBindTexture(3553, 0);
+                    GLES20.glBindFramebuffer(36160, 0);
                 }
             }
-        }
-
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                ((GZIPOutputStream) this).def.setLevel(i);
-            }
+            this.a = iArr2;
+            this.b = iArr3;
         }
     }
 
-    public static byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    public int e(int i, be0 be0Var) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] bArr2 = new byte[bArr.length];
-            byte[] bArr3 = {26, 31, -22, -104, 118, 81, -16, 6, 90, -75, Byte.MIN_VALUE, -40, 85, 92, 106, 114, -20, 34, 116, 13, -70, -77, 122, -71, -84, -25, -42, 99, 42, 100, 19, -37, -99, 32, -17, 70, -124, -24, -114, -120, 24, 73, -103, 3, -44, 1, 52, 91, 17, 40, -21, 66, -91, 21, YogaNodeJNIBase.HAS_NEW_LAYOUT, -59, 80, 49, 12, -123, ContentUtil.GZIP_HEAD_2, -92, 68, 102, Constants.SHORT_PING_CMD_TYPE, -6, -72, -89, -107, 10, 126, -102, -98, -52, -64, 120, -32, -55, -80, 98, 55, -85, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_END_OF_CAPTION, -101, 84, -90, 121, 125, -28, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, -63, 83, -113, BaseNCodec.PAD_DEFAULT, -67, -57, -15, 22, -19, 94, 28, -46, 97, 43, ByteCompanionObject.MAX_VALUE, -9, 20, 112, -54, Constants.GZIP_CAST_TYPE, -68, -2, -112, -79, -47, -13, 109, 27, -116, -96, -115, -18, -100, 5, Base64.INTERNAL_PADDING, 67, 48, 82, -23, 88, -66, -38, 50, 23, -4, -48, -58, -51, -29, -78, 115, -122, 69, -34, -86, 74, -50, -87, -1, -121, 124, 71, -126, 7, 62, 56, -94, 77, -110, -27, 30, -83, -62, 0, 18, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 104, 29, 78, 25, -41, 2, -65, -8, -3, 89, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -56, 58, -45, 79, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, 96, 72, -26, -14, -82, 15, 108, -30, -97, -108, -109, 54, -73, -11, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -61, -33, 59, -49, ContentUtil.GZIP_HEAD_1, -95, 9, 87, 110, -125, -105, 86, 45, 60, -81, -39, -43, -31, -53, 63, -88, 76, -10, 8, 53, 93, 75, -60, 111, 105, -127, 103, -111, -93, 95, 64, -69, -106, -7, 113, 4, -5, -74, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, -117, -12, -35, 51, 119, 65, 33, -36, 107, -119, 57, -118, -76, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS};
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < bArr.length; i3++) {
-                i = (i + 1) & 255;
-                i2 = (bArr3[i] + i2) & 255;
-                byte b = bArr3[i];
-                bArr3[i] = bArr3[i2];
-                bArr3[i2] = b;
-                bArr2[i3] = (byte) (bArr[i3] ^ bArr3[(bArr3[i] + bArr3[i2]) & 255]);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, be0Var)) == null) {
+            if (be0Var == null) {
+                return i;
             }
-            return bArr2;
+            try {
+                if (a()) {
+                    d(2);
+                }
+                be0Var.s();
+                GLES20.glBindFramebuffer(36160, this.a[this.h]);
+                GLES20.glViewport(0, 0, this.f, this.g);
+                GLES20.glClearColor(this.i[0], this.i[1], this.i[2], this.i[3]);
+                GLES20.glClear(16640);
+                be0Var.p(i, this.c, this.e);
+                GLES20.glBindFramebuffer(36160, 0);
+                i = this.b[this.h];
+                this.h++;
+                return i;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return i;
+            }
         }
-        return (byte[]) invokeL.objValue;
+        return invokeIL.intValue;
     }
 
-    public static byte[] b(byte[] bArr) {
-        InterceptResult invokeL;
+    public int f(int i, List<be0> list) {
+        InterceptResult invokeIL;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null || bArr.length == 0) {
-                return null;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, list)) == null) {
+            if (list != null) {
+                int size = list.size();
+                if (size == 0) {
+                    return i;
+                }
+                if (this.a.length - this.h <= size) {
+                    d(size);
+                }
+                int i3 = this.h;
+                while (true) {
+                    i2 = this.h;
+                    if (i3 >= i2 + size) {
+                        break;
+                    }
+                    be0 be0Var = list.get(i3 - i2);
+                    be0Var.s();
+                    GLES20.glBindFramebuffer(36160, this.a[i3]);
+                    GLES20.glViewport(0, 0, this.f, this.g);
+                    float[] fArr = this.i;
+                    GLES20.glClearColor(fArr[0], fArr[1], fArr[2], fArr[3]);
+                    GLES20.glClear(16640);
+                    be0Var.p(i, this.c, this.e);
+                    GLES20.glBindFramebuffer(36160, 0);
+                    i = this.b[i3];
+                    i3++;
+                }
+                this.h = i2 + size;
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            a aVar = new a(byteArrayOutputStream);
-            aVar.a(9);
-            aVar.write(bArr);
-            aVar.close();
-            return byteArrayOutputStream.toByteArray();
+            return i;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeIL.intValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = 0;
+        }
+    }
+
+    public void h(float f, float f2, float f3, float f4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+            float[] fArr = this.i;
+            fArr[0] = f;
+            fArr[1] = f2;
+            fArr[2] = f3;
+            fArr[3] = f4;
+        }
     }
 }

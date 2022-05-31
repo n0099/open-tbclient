@@ -171,7 +171,7 @@ public class GodHeadImageView extends FrameLayout {
                 SkinManager.setImageResource(this.b, R.drawable.pic_shen_avatar_square);
             } else {
                 this.a.setIsRound(true);
-                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f08032a);
+                SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080329);
             }
         }
     }

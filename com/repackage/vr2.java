@@ -1,89 +1,77 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class vr2 {
+public class vr2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final List<tr2> b;
+    public static volatile vr2 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public g61 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755221637, "Lcom/repackage/vr2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755221637, "Lcom/repackage/vr2;");
-                return;
-            }
-        }
-        a = u03.v;
-        b = Arrays.asList(new tr2());
-    }
-
-    public static JSONObject a() throws JSONException {
-        InterceptResult invokeV;
+    public vr2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            JSONObject jSONObject = new JSONObject("{\"pages\":{},\"window\":{\"navigationBarBackgroundColor\":{},\"navigationBarTextStyle\":{},\"navigationBarTitleText\":{},\"navigationStyle\":{},\"backgroundColor\":{},\"backgroundTextStyle\":{},\"enablePullDownRefresh\":{},\"onReachBottomDistance\":{}},\"networkTimeout\":{\"request\":{},\"connectSocket\":{},\"uploadFile\":{},\"downloadFile\":{}},\"tabBar\":{\"color\":{},\"backgroundColor\":{},\"borderStyle\":{},\"list\":{},\"selectedColor\":{}},\"swanCookie\":{}}");
-            if (a) {
-                ux1.i("SwanNaUseMapManager", ">>> before intercept: " + jSONObject);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            c(jSONObject);
-            if (a) {
-                ux1.i("SwanNaUseMapManager", ">>> after intercept: " + jSONObject);
-            }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
     }
 
-    @NonNull
-    public static JSONObject b() {
-        JSONObject jSONObject;
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != -2) {
+                return i != 0 ? 6 : 0;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static vr2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            try {
-                jSONObject = a();
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                    ux1.k("SwanNaUseMapManager", ">>> NAUseMapException: " + e.getMessage());
+            if (e == null) {
+                synchronized (vr2.class) {
+                    if (e == null) {
+                        e = new vr2();
+                    }
                 }
-                jSONObject = null;
             }
-            return jSONObject != null ? jSONObject : new JSONObject();
+            return e;
         }
-        return (JSONObject) invokeV.objValue;
+        return (vr2) invokeV.objValue;
     }
 
-    public static void c(JSONObject jSONObject) {
+    @NonNull
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) || jSONObject == null || jSONObject.length() == 0) {
-            return;
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            for (tr2 tr2Var : b) {
-                if (tr2Var.a(keys.next())) {
-                    keys.remove();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("finalUrl", str);
+            } catch (JSONException unused) {
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

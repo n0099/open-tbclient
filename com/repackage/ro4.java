@@ -1,20 +1,42 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.BookThread;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.PbPresent;
+import tbclient.PbPresentList;
 /* loaded from: classes7.dex */
 public class ro4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
+    public int a;
+    public ArrayList<a> b;
+
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 
     public ro4() {
         Interceptable interceptable = $ic;
@@ -30,27 +52,52 @@ public class ro4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public ArrayList<a> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public void c(PbPresent pbPresent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbPresent) == null) || pbPresent == null) {
             return;
         }
-        try {
-            this.a = jSONObject.optString("book_id", "0");
-            this.b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
-            jSONObject.optInt("book_type", 0);
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+        this.a = pbPresent.total.intValue();
+        List<PbPresentList> list = pbPresent.list;
+        if (list == null || list.size() <= 0) {
+            return;
+        }
+        this.b = new ArrayList<>();
+        for (PbPresentList pbPresentList : pbPresent.list) {
+            if (pbPresentList != null) {
+                a aVar = new a();
+                pbPresentList.gift_id.intValue();
+                String str = pbPresentList.gift_name;
+                aVar.a = pbPresentList.thumbnail_url;
+                pbPresentList.num.intValue();
+                this.b.add(aVar);
+            }
         }
     }
 
-    public void b(BookThread bookThread) {
+    public void d(ArrayList<a> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bookThread) == null) || bookThread == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b = arrayList;
         }
-        this.a = bookThread.book_id;
-        this.b = bookThread.chapter_id.longValue();
-        bookThread.book_type.intValue();
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = i;
+        }
     }
 }

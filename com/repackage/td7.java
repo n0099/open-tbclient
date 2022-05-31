@@ -1,47 +1,67 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.os.Build;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
+import tbclient.SugLiveInfo;
+import tbclient.SugRankingInfo;
 /* loaded from: classes7.dex */
 public class td7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static List<jn> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                return Integer.parseInt(Build.VERSION.SDK);
-            } catch (NumberFormatException unused) {
-                return 0;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a() >= 14 : invokeV.booleanValue;
-    }
-
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Resources resources;
-        int identifier;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (!b() || (identifier = (resources = activity.getResources()).getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android")) <= 0) {
-                return false;
+            ArrayList arrayList = new ArrayList();
+            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+            if (recommendForumInfo != null) {
+                pd7 pd7Var = new pd7();
+                pd7Var.j(recommendForumInfo);
+                arrayList.add(pd7Var);
             }
-            return resources.getBoolean(identifier);
+            Item item = dataRes.item_card;
+            if (item != null) {
+                qd7 qd7Var = new qd7();
+                qd7Var.j(item);
+                arrayList.add(qd7Var);
+            }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                rd7 rd7Var = new rd7();
+                rd7Var.p(str);
+                rd7Var.n(sugLiveInfo);
+                arrayList.add(rd7Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                sd7 sd7Var = new sd7();
+                sd7Var.i(str);
+                sd7Var.g(sugRankingInfo);
+                arrayList.add(sd7Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                od7 od7Var = new od7();
+                od7Var.e(str);
+                od7Var.f(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, od7Var);
+                } else {
+                    arrayList.add(od7Var);
+                }
+            }
+            return arrayList;
         }
-        return invokeL.booleanValue;
+        return (List) invokeLL.objValue;
     }
 }

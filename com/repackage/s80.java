@@ -1,36 +1,39 @@
 package com.repackage;
 
 import android.content.Context;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.u80;
+import java.text.DecimalFormat;
 /* loaded from: classes7.dex */
-public abstract class s80 implements u80.b, u80.d {
+public class s80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public s80() {
+    public static String a(Context context, int i) {
+        InterceptResult invokeLI;
+        String string;
+        Float valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
+            if (i < 0) {
+                return "";
             }
+            long j = i;
+            if (j < 10000) {
+                return i + context.getString(R.string.obfuscated_res_0x7f0f0a0e);
+            }
+            if (j < 100000000) {
+                string = context.getString(R.string.obfuscated_res_0x7f0f0a0c);
+                valueOf = Float.valueOf(i / 10000.0f);
+            } else {
+                string = context.getString(R.string.obfuscated_res_0x7f0f0a06);
+                valueOf = Float.valueOf(i / 1.0E8f);
+            }
+            DecimalFormat decimalFormat = new DecimalFormat("####.#");
+            return decimalFormat.format(valueOf) + string;
         }
-    }
-
-    @Override // com.repackage.u80.b
-    public String getMethod() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
+        return (String) invokeLI.objValue;
     }
 }

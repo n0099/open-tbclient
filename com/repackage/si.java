@@ -1,18 +1,32 @@
 package com.repackage;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.InputStream;
-import java.security.MessageDigest;
+import java.math.BigInteger;
+import java.nio.charset.Charset;
+import java.security.GeneralSecurityException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes7.dex */
 public class si {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
+    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,86 +42,82 @@ public class si {
                 return;
             }
         }
-        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        Charset.forName("UTF-8");
+        a = new byte[]{-92, Constants.GZIP_CAST_TYPE, -56, 52, -42, -107, -13, 19};
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) throws GeneralSecurityException {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(a[(bArr[i] & 240) >>> 4]);
-                sb.append(a[bArr[i] & 15]);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, secretKey, bArr, i, i2)) == null) {
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(2, secretKey);
+            return cipher.doFinal(bArr, i, i2);
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeLLII.objValue;
     }
 
-    public static String b(InputStream inputStream) {
-        InterceptResult invokeL;
+    public static byte[] b(Key key, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            String str = null;
-            if (inputStream == null) {
-                return null;
-            }
-            try {
-                try {
-                    byte[] bArr = new byte[1024];
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        messageDigest.update(bArr, 0, read);
-                    }
-                    str = a(messageDigest.digest());
-                } catch (Exception e) {
-                    BdLog.e(e.toString());
-                }
-                return str;
-            } finally {
-                ni.e(inputStream);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, key, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, key);
+            return cipher.doFinal(bArr);
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static byte[] c(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                return d(str.getBytes("UTF-8"));
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, secretKey, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
+            cipher.init(1, secretKey);
+            return cipher.doFinal(bArr);
         }
-        return (String) invokeL.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public static String d(byte[] bArr) {
+    public static byte[] d(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, publicKey, bArr)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(1, publicKey);
+            return cipher.doFinal(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static PublicKey e(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                return a(messageDigest.digest());
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr)) : (PublicKey) invokeL.objValue;
+    }
+
+    public static SecretKey f(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            int length = str.length();
+            char[] cArr = new char[length];
+            for (int i = 0; i < length; i++) {
+                cArr[i] = (char) (((byte) str.charAt(i)) & 255);
             }
+            return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, a, 5, 256));
         }
-        return (String) invokeL.objValue;
+        return (SecretKey) invokeL.objValue;
+    }
+
+    public static String g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
+            return bigInteger.length() > i ? bigInteger.substring(0, bigInteger.length()) : bigInteger;
+        }
+        return (String) invokeI.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.meizu.cloud.pushsdk.b.a;
 
-import com.repackage.tl9;
+import com.repackage.ni9;
 /* loaded from: classes5.dex */
 public class a {
     public static boolean a = false;
@@ -12,13 +12,13 @@ public class a {
 
     public static void a(String str) {
         if (a) {
-            tl9.a(b, str);
+            ni9.a(b, str);
         }
     }
 
     public static void b(String str) {
         if (a) {
-            tl9.d(b, str);
+            ni9.d(b, str);
         }
     }
 }

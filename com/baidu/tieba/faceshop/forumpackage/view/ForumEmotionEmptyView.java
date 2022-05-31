@@ -53,12 +53,12 @@ public class ForumEmotionEmptyView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02ac, this);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a2d);
-            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a2e);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a29);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a32);
-            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f093c), null, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02a8, this);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a17);
+            this.e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a18);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a13);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a1c);
+            NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0942), null, true);
             this.b = b;
             b.setVisibility(0);
         }

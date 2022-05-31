@@ -1,100 +1,139 @@
 package com.repackage;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.so.SoLoader;
+import com.baidu.swan.bdtls.BdtlsController;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class fi3 extends ProviderDelegation {
+/* loaded from: classes5.dex */
+public class fi3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile fi3 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public ci3 a;
 
-    /* loaded from: classes6.dex */
-    public class a implements of3<Bundle> {
+    /* loaded from: classes5.dex */
+    public static class a implements BdtlsController.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-        public final /* synthetic */ fi3 b;
 
-        public a(fi3 fi3Var, Bundle bundle) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fi3Var, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = fi3Var;
-            this.a = bundle;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.of3
-        /* renamed from: a */
-        public Bundle create() {
-            InterceptResult invokeV;
+        @Override // com.baidu.swan.bdtls.BdtlsController.a
+        public void loadLibrary(String str) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.b(this.a) : (Bundle) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                SoLoader.load(oi2.c(), str);
+            }
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755706911, "Lcom/repackage/fi3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755706911, "Lcom/repackage/fi3;");
+                return;
+            }
+        }
+        boolean z = ci3.a;
+        BdtlsController.a(new a());
     }
 
     public fi3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = new ci3();
+    }
+
+    public static fi3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (fi3.class) {
+                    if (b == null) {
+                        b = new fi3();
+                    }
+                }
+            }
+            return b;
+        }
+        return (fi3) invokeV.objValue;
+    }
+
+    public void a(String str, wi3 wi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, wi3Var) == null) {
+            ii3.l().p(str, wi3Var);
         }
     }
 
-    public Bundle b(@NonNull Bundle bundle) {
-        InterceptResult invokeL;
+    public void c(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("type");
-            ei3 ei3Var = new ei3();
-            String string = bundle.getString("param1");
-            Bundle bundle2 = new Bundle();
-            if (i == 1) {
-                bundle2.putBoolean("result", ei3Var.shouldAcceptCookie(string, bundle.getString("param2")));
-                return bundle2;
-            } else if (i == 2) {
-                bundle2.putBoolean("result", ei3Var.shouldSendCookie(string, bundle.getString("param2")));
-                return bundle2;
-            } else if (i == 3) {
-                ei3Var.storeCookie(string, bundle.getStringArrayList("param2"));
-                return bundle2;
-            } else if (i != 4) {
-                return bundle2;
-            } else {
-                bundle2.putString("result", ei3Var.getCookie(string));
-                return bundle2;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
+            BdtlsController.handleConfsk(bArr);
         }
-        return (Bundle) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(@NonNull Bundle bundle) {
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ci3 ci3Var = this.a;
+            if (ci3Var == null) {
+                return false;
+            }
+            return ci3Var.a();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) lf3.b(new a(this, bundle)) : (Bundle) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            ci3 ci3Var = this.a;
+            return ci3Var != null && ci3Var.b(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
     }
 }

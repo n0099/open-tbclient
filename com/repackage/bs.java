@@ -1,32 +1,26 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
-import kotlin.Pair;
-import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class bs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<zr> a;
-    public final Set<Pair<Class<? extends xr>, yr<? extends xr>>> b;
-    public TaskInfo c;
+    public final Class<? extends js<? extends is<?>>> a;
+    public final Class<? extends is<?>> b;
 
-    public bs(TaskInfo taskInfo) {
+    public bs(Class<? extends js<? extends is<?>>> cls, Class<? extends is<?>> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo};
+            Object[] objArr = {cls, cls2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,70 +30,56 @@ public final class bs {
                 return;
             }
         }
-        this.c = taskInfo;
-        this.a = new HashSet();
-        this.b = new HashSet();
+        this.a = cls;
+        this.b = cls2;
     }
 
-    public final Set<zr> a() {
+    public final Class<? extends js<? extends is<?>>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CollectionsKt___CollectionsKt.toSet(this.a) : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Class) invokeV.objValue;
     }
 
-    public final void b(yr<? extends xr> yrVar) {
+    public final Class<? extends is<?>> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yrVar) == null) || yrVar == null) {
-            return;
-        }
-        Iterator<Pair<Class<? extends xr>, yr<? extends xr>>> it = this.b.iterator();
-        while (it.hasNext()) {
-            if (Intrinsics.areEqual(it.next().getSecond(), yrVar)) {
-                it.remove();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (Class) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof bs) {
+                    bs bsVar = (bs) obj;
+                    return Intrinsics.areEqual(this.a, bsVar.a) && Intrinsics.areEqual(this.b, bsVar.b);
+                }
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void c(zr zrVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zrVar) == null) || zrVar == null) {
-            return;
-        }
-        this.a.add(zrVar);
-    }
-
-    public final void d(TaskInfo taskInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, taskInfo) == null) {
-            this.c = taskInfo;
-        }
-    }
-
-    public final <T extends xr> void e(Class<T> cls, yr<T> yrVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, cls, yrVar) == null) || yrVar == null) {
-            return;
-        }
-        this.b.add(new Pair<>(cls, yrVar));
-    }
-
-    public final Set<Pair<Class<? extends xr>, yr<? extends xr>>> f() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? CollectionsKt___CollectionsKt.toSet(this.b) : (Set) invokeV.objValue;
-    }
-
-    public final void g(zr zrVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, zrVar) == null) || zrVar == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Class<? extends js<? extends is<?>>> cls = this.a;
+            int hashCode = (cls != null ? cls.hashCode() : 0) * 31;
+            Class<? extends is<?>> cls2 = this.b;
+            return hashCode + (cls2 != null ? cls2.hashCode() : 0);
         }
-        this.a.remove(zrVar);
+        return invokeV.intValue;
     }
 
-    public final TaskInfo h() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (TaskInfo) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "DialogPlugin(viewClass=" + this.a + ", viewModelClass=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -41,7 +41,7 @@ public abstract class cv {
     public abstract String a(Context context, String str, List<bf> list);
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m277a(Context context, String str, List<bf> list) {
+    public boolean m276a(Context context, String str, List<bf> list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, list)) == null) {

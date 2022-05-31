@@ -1,183 +1,52 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.ecommerce.result.InvoiceBuildResult;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
+import com.tencent.open.SocialOperation;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mj3 extends ActivityDelegation {
+public class mj3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mj3 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public volatile boolean b;
 
     /* loaded from: classes6.dex */
-    public class a implements gh1 {
+    public static class a extends qf4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mj3 a;
 
-        public a(mj3 mj3Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_host_info_config_sp_name");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mj3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = mj3Var;
         }
-
-        @Override // com.repackage.gh1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    this.a.m();
-                    return;
-                }
-                this.a.mResult.putString("errorMsg", "login failed");
-                this.a.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mj3 a;
-
-        public b(mj3 mj3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mj3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mj3Var;
-        }
-
-        @Override // com.repackage.mj3.d
-        public void a(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    this.a.mResult.putString("errorMsg", "invoiceId == null or invoiceType == null");
-                    this.a.finish();
-                }
-                this.a.k(str, str2);
-            }
-        }
-
-        @Override // com.repackage.mj3.d
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mResult.putString("errorMsg", "choose invoiceId failed");
-                this.a.finish();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mj3 a;
-
-        public c(mj3 mj3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mj3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mj3Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.mResult.putString("errorMsg", exc.getMessage());
-                this.a.finish();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (jSONObject == null) {
-                    this.a.mResult.putString("errorMsg", "exchange plaintext from server, but no response");
-                    this.a.finish();
-                    return;
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                if (optJSONObject != null) {
-                    this.a.mResult.putString("invoiceInfo", optJSONObject.toString());
-                    this.a.finish();
-                    return;
-                }
-                this.a.mResult.putString("errorMsg", "exchange plaintext from server, but response exception");
-                this.a.finish();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response == null || response.body() == null) {
-                    return null;
-                }
-                return ud3.d(response.body().string());
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void a(String str, String str2);
-
-        void c();
     }
 
     public mj3() {
@@ -190,46 +59,189 @@ public class mj3 extends ActivityDelegation {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.a = new a();
     }
 
-    public static String l() {
+    public static mj3 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? String.format("%s/ma/invoice/detail", "https://mbd.baidu.com") : (String) invokeV.objValue;
-    }
-
-    public final void k(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            if (!SwanAppNetworkUtils.i(getAgent())) {
-                m03.f(getAgent(), R.string.obfuscated_res_0x7f0f095c);
-            } else {
-                w74.h(AppRuntime.getAppContext()).getRequest().url(qx1.v(l())).addUrlParam(InvoiceBuildResult.KEY_INVOICE_ID, str).addUrlParam("invoice_type", str2).cookieManager(bk2.q().a()).build().executeAsync(new c(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (mj3.class) {
+                    if (c == null) {
+                        c = new mj3();
+                    }
+                }
             }
+            return c;
         }
+        return (mj3) invokeV.objValue;
     }
 
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ug3.f(getAgent(), new b(this));
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    public Set<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!ug3.E(getAgent())) {
-                ug3.L(getAgent(), null, new a(this));
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Set<String> stringSet = this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            if (stringSet != null) {
+                return stringSet;
             }
-            m();
-            return false;
+            if (h()) {
+                return this.a.getStringSet(SocialOperation.GAME_SIGNATURE, null);
+            }
+            return null;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String c2 = c("appKey");
+            if (TextUtils.isEmpty(c2)) {
+                if (bj3.a) {
+                    throw new IllegalStateException("获取 host app key 失败");
+                }
+                return "";
+            }
+            return c2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String string = this.a.getString(str, "");
+            if (TextUtils.isEmpty(string)) {
+                if (h()) {
+                    String string2 = this.a.getString(str, "");
+                    if (!TextUtils.isEmpty(string2)) {
+                        return string2;
+                    }
+                }
+                return null;
+            }
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String c2 = c("hostName");
+            if (TextUtils.isEmpty(c2)) {
+                if (bj3.a) {
+                    throw new IllegalStateException("获取 HostName-宿主名称 失败");
+                }
+                return "";
+            }
+            return c2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String c2 = c("schemeHead");
+            if (TextUtils.isEmpty(c2)) {
+                if (bj3.a) {
+                    throw new IllegalStateException("获取 SchemeHead-协议头 失败");
+                }
+                return "";
+            }
+            return c2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g(String str, int i, String str2) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String c2 = c("shareCallBackUrl");
+            if (TextUtils.isEmpty(c2)) {
+                return "";
+            }
+            String a2 = pf4.a(pf4.a(c2, "type", String.valueOf(i)), "appKey", str);
+            return !TextUtils.isEmpty(str2) ? pf4.a(a2, "path", of4.b(str2)) : a2;
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    public final synchronized boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                if (this.b) {
+                    return true;
+                }
+                String D = kf4.D(AppRuntime.getAppContext(), "config/union-cfg.json");
+                HashSet hashSet = null;
+                if (TextUtils.isEmpty(D)) {
+                    File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_config/union-cfg.json");
+                    D = file.exists() ? kf4.E(file) : null;
+                }
+                if (TextUtils.isEmpty(D)) {
+                    return false;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(D);
+                    String optString = jSONObject.optString("hostName");
+                    String optString2 = jSONObject.optString("schemeHead");
+                    String optString3 = jSONObject.optString("appKey");
+                    String optString4 = jSONObject.optString("shareCallBackUrl");
+                    int optInt = jSONObject.optInt("version");
+                    JSONArray optJSONArray = jSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
+                    if (optJSONArray != null && optJSONArray.length() > 0) {
+                        hashSet = new HashSet();
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            hashSet.add(optJSONArray.optString(i));
+                        }
+                    }
+                    i(optString, optString2, optString3, optString4, optInt, hashSet);
+                    this.b = true;
+                    return true;
+                } catch (JSONException e) {
+                    if (bj3.a) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                }
+            }
         }
         return invokeV.booleanValue;
+    }
+
+    public final void i(String str, String str2, String str3, String str4, int i, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i), set}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i < 0) {
+            return;
+        }
+        SharedPreferences.Editor putInt = this.a.edit().putString("hostName", str).putString("schemeHead", str2).putString("appKey", str3).putString("shareCallBackUrl", str4).putInt("version", i);
+        if (set != null && !set.isEmpty()) {
+            putInt.putStringSet(SocialOperation.GAME_SIGNATURE, set);
+        }
+        putInt.apply();
     }
 }

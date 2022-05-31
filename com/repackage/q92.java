@@ -1,20 +1,18 @@
 package com.repackage;
 
-import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class q92 extends ProviderDelegation {
+public class q92 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,58 +30,109 @@ public class q92 extends ProviderDelegation {
                 return;
             }
         }
-        bk2.g0().getSwitch("swan_recovery_enable", true);
-        a = true;
+        a = rf1.a;
     }
 
-    public q92() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            f(0).f().c();
+            f(0).e().f();
+            if (f(1) != null) {
+                f(1).f().c();
+                f(1).e().f();
             }
         }
     }
 
-    public static void b(aa2 aa2Var) {
+    public static <T extends na2> Exception b(int i, T t) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, aa2Var) == null) && a && aa2Var != null) {
-            if (ProcessUtils.isMainProcess()) {
-                r92.a(aa2Var).b();
-                z92.b().a(aa2Var.a);
-                return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, t)) == null) {
+            t92 f = f(i);
+            if (f == null) {
+                return new Exception("SwanExtCore-Manager doRemoteUpdate: null extensionCoreManager");
             }
-            Bundle bundle = new Bundle();
-            bundle.putInt("recovery_level", aa2Var.a);
-            bundle.putStringArrayList("recovery_app_list", aa2Var.b);
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), q92.class, bundle);
+            return f.a(t);
         }
+        return (Exception) invokeIL.objValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public static ExtensionCore c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (a) {
-                int i = bundle.getInt("recovery_level", -1);
-                ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
-                aa2 aa2Var = new aa2();
-                aa2Var.a = i;
-                if (stringArrayList != null) {
-                    aa2Var.b = stringArrayList;
-                }
-                r92.a(aa2Var).b();
-                z92.b().a(aa2Var.a);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            t92 f = f(i);
+            if (f == null) {
                 return null;
             }
-            return null;
+            return f.c();
         }
-        return (Bundle) invokeL.objValue;
+        return (ExtensionCore) invokeI.objValue;
+    }
+
+    public static long d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ExtensionCore c = c(i);
+            if (c != null) {
+                return c.extensionCoreVersionCode;
+            }
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    public static String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            ExtensionCore c = c(i);
+            return (c == null || TextUtils.isEmpty(c.extensionCoreVersionName)) ? "0" : c.extensionCoreVersionName;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static t92 f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i == 1) {
+                t92 u = pi2.i().u();
+                if (u == null && rf1.a) {
+                    Log.e("SwanGameRuntime", "非手百环境依赖注入接口getSwanGameExtensionCoreManager未实现，直接返回");
+                }
+                return u;
+            }
+            return p92.k();
+        }
+        return (t92) invokeI.objValue;
+    }
+
+    public static void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
+            if (a) {
+                Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            }
+            if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {
+                a();
+                ya2.i(0, true);
+                ya2.i(1, true);
+            }
+        }
+    }
+
+    public static void h(int i, @Nullable ae3<Exception> ae3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, ae3Var) == null) {
+            t92 f = f(i);
+            if (f != null) {
+                f.g(ae3Var);
+            } else if (ae3Var != null) {
+                ae3Var.onCallback(null);
+            }
+        }
     }
 }

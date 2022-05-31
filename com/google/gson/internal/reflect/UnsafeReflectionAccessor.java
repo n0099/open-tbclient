@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.JsonIOException;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class UnsafeReflectionAccessor extends ReflectionAccessor {
     public static /* synthetic */ Interceptable $ic;
     public static Class unsafeClass;

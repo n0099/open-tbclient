@@ -1,7 +1,5 @@
 package com.repackage;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface em1 {
-    boolean a(String str, String str2, String str3);
-
-    void b();
+    void onScrollChanged(int i, int i2, int i3, int i4);
 }

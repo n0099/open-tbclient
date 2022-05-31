@@ -1,16 +1,19 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.base.api.CallBack;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public abstract class mf1<T> implements CallBack<T> {
+public class mf1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public Object a;
+    public Class<?> b;
+    public Method c;
 
     public mf1() {
         Interceptable interceptable = $ic;
@@ -22,15 +25,28 @@ public abstract class mf1<T> implements CallBack<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = System.currentTimeMillis();
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public final String a(Context context, Method method) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
+            Object obj = this.a;
+            if (obj == null || method == null) {
+                return null;
+            }
+            try {
+                Object invoke = method.invoke(obj, context);
+                if (invoke != null) {
+                    return (String) invoke;
+                }
+                return null;
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

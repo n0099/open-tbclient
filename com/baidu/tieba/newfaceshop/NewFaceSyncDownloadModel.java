@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co7;
+import com.repackage.ll7;
 /* loaded from: classes3.dex */
 public class NewFaceSyncDownloadModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -50,15 +50,17 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                co7 co7Var = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof co7)) {
-                    co7Var = (co7) extra;
+                ll7 ll7Var = null;
+                if (httpResponsedMessage.getOrginalMessage() != null) {
+                    Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
+                    if (extra instanceof ll7) {
+                        ll7Var = (ll7) extra;
+                    }
                 }
-                if (co7Var != null) {
-                    co7Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
+                if (ll7Var != null) {
+                    ll7Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
                 }
             }
         }
@@ -115,11 +117,11 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         }
     }
 
-    public void y(co7 co7Var) {
+    public void y(ll7 ll7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, co7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, ll7Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
-            httpMessage.setExtra(co7Var);
+            httpMessage.setExtra(ll7Var);
             sendMessage(httpMessage);
         }
     }

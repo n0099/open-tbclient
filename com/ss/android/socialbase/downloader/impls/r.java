@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r implements Handler.Callback, a.InterfaceC0597a {
+public class r implements Handler.Callback, a.InterfaceC0599a {
     public static volatile r a;
     public static b i;
     public final boolean e;
@@ -256,12 +256,12 @@ public class r implements Handler.Callback, a.InterfaceC0597a {
         return a;
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0597a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0599a
     public void c() {
         a(3, false);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0597a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0599a
     public void b() {
         a(4, false);
     }

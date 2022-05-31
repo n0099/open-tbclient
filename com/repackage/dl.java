@@ -1,19 +1,22 @@
 package com.repackage;
 
-import com.baidu.nps.interfa.IThreadManager;
+import android.app.Application;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.nps.interfa.IHostAppRuntime;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+@Singleton
 @Service
 /* loaded from: classes5.dex */
-public class dl implements IThreadManager {
+public class dl implements IHostAppRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Executor a;
 
     public dl() {
         Interceptable interceptable = $ic;
@@ -25,17 +28,18 @@ public class dl implements IThreadManager {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
     }
 
-    @Override // com.baidu.nps.interfa.IThreadManager
-    public void run(Runnable runnable) {
+    @Override // com.baidu.nps.interfa.IHostAppRuntime
+    public Application getApplication() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.a.execute(runnable);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Log.e("TAG", "" + BdBaseApplication.getInst());
+            return BdBaseApplication.getInst();
         }
+        return (Application) invokeV.objValue;
     }
 }

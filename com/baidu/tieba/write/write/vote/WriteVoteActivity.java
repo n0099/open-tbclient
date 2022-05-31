@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.l09;
-import com.repackage.y95;
+import com.repackage.nx8;
+import com.repackage.s85;
 /* loaded from: classes4.dex */
 public class WriteVoteActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
@@ -31,10 +31,10 @@ public class WriteVoteActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public y95 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public s85 getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new l09(getPageContext(), linearLayout, navigationBar) : (y95) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) ? new nx8(getPageContext(), linearLayout, navigationBar) : (s85) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity

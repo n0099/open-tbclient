@@ -6,6 +6,7 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.share.ShareCallPacking;
 import com.baidu.searchbox.account.contants.LoginConstants;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -111,7 +112,7 @@ public class Enums {
             QR = new LastLoginType("QR", 21, "qr", 20);
             HISTORY = new LastLoginType("HISTORY", 22, "history", 21);
             IQIYI = new LastLoginType("IQIYI", 23, "iqiyi", 22);
-            LastLoginType lastLoginType = new LastLoginType("OTHER", 24, "other", -1);
+            LastLoginType lastLoginType = new LastLoginType("OTHER", 24, ImageViewerConfig.FROM_OTHER, -1);
             OTHER = lastLoginType;
             $VALUES = new LastLoginType[]{NONE, PWD, SMS, FACE, TOUCHID, WECHAT, WEIBO, QQ, HUAWEI, GLORY, CFO, YY, XIAOMI, MEIZU, SLIENT_SHARE, CHOICE_SHARE, CHOICE_SHARE_V2, ONEKEYLOGIN_CM, ONEKEYLOGIN_CU, ONEKEYLOGIN_CT, SWITCH, QR, HISTORY, IQIYI, lastLoginType};
         }

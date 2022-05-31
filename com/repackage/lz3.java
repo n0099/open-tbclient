@@ -1,21 +1,18 @@
 package com.repackage;
 
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class lz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String data;
-    @V8JavascriptField
-    public Object header;
-    @V8JavascriptField
-    public int statusCode;
+    public String a;
+    public List<long[]> b;
+    public String c;
 
     public lz3() {
         Interceptable interceptable = $ic;
@@ -31,10 +28,12 @@ public class lz3 {
         }
     }
 
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "[ videoPath = " + this.a + "; clipPath = " + this.c + "; clipList = " + this.b + " ]";
         }
+        return (String) invokeV.objValue;
     }
 }

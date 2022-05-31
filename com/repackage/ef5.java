@@ -1,363 +1,108 @@
 package com.repackage;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapRegionDecoder;
-import android.graphics.Rect;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Typeface;
+import android.view.ViewGroup;
+import com.baidu.spswitch.utils.BDEmotionPanelManager;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ye5;
-import java.io.IOException;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.Calendar;
 /* loaded from: classes5.dex */
 public class ef5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ze5 a;
-    public final BitmapRegionDecoder b;
-    public ag<ye5.a, ye5> c;
-    public bg<ye5> d;
-    public final ThreadPoolExecutor e;
-    public BdAsyncTask<Void, Void, Void> f;
+    public Context A;
+    public String B;
+    public String C;
+    public String D;
+    public int E;
+    public int F;
+    public int G;
+    public int H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public float Q;
+    public boolean R;
+    public boolean S;
+    public boolean T;
+    public WheelView.DividerType U;
+    public kf5 a;
+    public jf5 b;
+    public ff5 c;
+    public boolean[] d;
+    public Calendar e;
+    public Calendar f;
+    public Calendar g;
+    public int h;
+    public int i;
+    public boolean j;
+    public boolean k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public int r;
+    public int s;
+    public int t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public ViewGroup y;
+    public int z;
 
-    /* loaded from: classes5.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ef5 a;
-
-        public a(ef5 ef5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ef5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void[] voidArr) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                try {
-                    this.a.e.shutdownNow();
-                    this.a.e.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (this.a.b != null) {
-                    this.a.b.recycle();
-                    return null;
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements RejectedExecutionHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(ef5 ef5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.RejectedExecutionHandler
-        public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends ag<ye5.a, ye5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ef5 h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ef5 ef5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ef5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ef5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ag
-        /* renamed from: o */
-        public void b(boolean z, ye5.a aVar, ye5 ye5Var, ye5 ye5Var2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), aVar, ye5Var, ye5Var2}) == null) || !z || this.h.d == null || ye5Var == null) {
-                return;
-            }
-            ye5Var.a();
-            this.h.d.e(ye5Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ag
-        /* renamed from: p */
-        public int m(ye5.a aVar, ye5 ye5Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, aVar, ye5Var)) == null) {
-                if (ye5Var == null) {
-                    return 0;
-                }
-                return BitmapHelper.getBitmapSize(ye5Var.b());
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public ze5 d;
-        public BitmapRegionDecoder e;
-        public ag<ye5.a, ye5> f;
-        public af5 g;
-        public ef5 h;
-
-        public d(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
-        }
-
-        public final void b(ef5 ef5Var, ze5 ze5Var, BitmapRegionDecoder bitmapRegionDecoder, ag<ye5.a, ye5> agVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, ef5Var, ze5Var, bitmapRegionDecoder, agVar) == null) {
-                this.d = ze5Var;
-                this.e = bitmapRegionDecoder;
-                this.f = agVar;
-                this.h = ef5Var;
-            }
-        }
-
-        public final boolean c(Rect rect) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) ? rect.right <= rect.left || rect.bottom <= rect.top : invokeL.booleanValue;
-        }
-
-        public void d(af5 af5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, af5Var) == null) {
-                this.g = af5Var;
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ye5 c;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f != null && this.d.b(this.a, this.b, this.c)) {
-                Rect j = this.d.j(this.a, this.b, this.c);
-                this.d.a(j);
-                if (c(j)) {
-                    return;
-                }
-                try {
-                    c = this.h.f().b();
-                    if (c != null) {
-                        if (!c.g(j)) {
-                            System.currentTimeMillis();
-                            c.a();
-                        }
-                    } else {
-                        c = this.d.c();
-                    }
-                } catch (Throwable unused) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    ag<ye5.a, ye5> agVar = this.f;
-                    agVar.k((int) (agVar.g() * 0.8d));
-                    System.gc();
-                    try {
-                        c = this.d.c();
-                    } catch (Throwable unused2) {
-                        return;
-                    }
-                }
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = this.c;
-                options.inBitmap = c.b();
-                options.inMutable = true;
-                System.currentTimeMillis();
-                Bitmap decodeRegion = this.e.decodeRegion(j, options);
-                if (decodeRegion == null) {
-                    options.inBitmap = null;
-                    decodeRegion = this.e.decodeRegion(j, options);
-                    if (decodeRegion == null) {
-                        return;
-                    }
-                }
-                decodeRegion.prepareToDraw();
-                c.h(decodeRegion);
-                c.j(this.a, this.b, this.c);
-                this.f.h(c.d(), c);
-                af5 af5Var = this.g;
-                if (af5Var != null) {
-                    af5Var.onLoadFinished();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755739523, "Lcom/repackage/ef5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755739523, "Lcom/repackage/ef5;");
-        }
-    }
-
-    public ef5(ze5 ze5Var, BitmapRegionDecoder bitmapRegionDecoder) {
+    public ef5(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ze5Var, bitmapRegionDecoder};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ze5Var;
-        this.b = bitmapRegionDecoder;
-        y35.k().u((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
-        this.e = new ThreadPoolExecutor(0, 10, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new b(this));
-        this.c = new c(this, (int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f));
-        bg<ye5> p = y35.k().p(this.a.e());
-        this.d = p;
-        p.f(6);
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.e.purge();
-            if (z && this.f == null) {
-                a aVar = new a(this);
-                this.f = aVar;
-                aVar.execute(new Void[0]);
-            }
-        }
-    }
-
-    public ag<ye5.a, ye5> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ag) invokeV.objValue;
-    }
-
-    public bg<ye5> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (bg) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d(true);
-            ag<ye5.a, ye5> agVar = this.c;
-            if (agVar != null) {
-                agVar.k(0);
-                this.c.a();
-                this.c = null;
-            }
-            this.d = null;
-        }
-    }
-
-    public void h(d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) && dVar != null && this.f == null) {
-            dVar.b(this, this.a, this.b, e());
-            this.e.submit(dVar);
+        this.d = new boolean[]{true, true, true, false, false, false};
+        this.j = false;
+        this.k = false;
+        this.z = 17;
+        this.E = -16417281;
+        this.F = -16417281;
+        this.G = -16777216;
+        this.H = -1;
+        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
+        this.J = 17;
+        this.K = 18;
+        this.L = 18;
+        this.M = -5723992;
+        this.N = -14013910;
+        this.O = -2763307;
+        this.P = -1;
+        this.Q = 1.6f;
+        this.S = true;
+        this.T = false;
+        Typeface typeface = Typeface.MONOSPACE;
+        this.U = WheelView.DividerType.FILL;
+        if (i == 1) {
+            this.x = R.layout.obfuscated_res_0x7f0d06d2;
+        } else {
+            this.x = R.layout.obfuscated_res_0x7f0d06d3;
         }
     }
 }

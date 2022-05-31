@@ -1,122 +1,125 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.io.InputStream;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class dp2 implements bp2 {
+public class dp2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755759797, "Lcom/repackage/dp2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755759797, "Lcom/repackage/dp2;");
-                return;
-            }
-        }
-        a = eh1.a;
-    }
-
-    public dp2() {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.bp2
-    @SuppressLint({"BDThrowableCheck"})
-    public Bitmap decode(Context context, Uri uri) throws Exception {
-        InterceptResult invokeLL;
-        Bitmap bitmap;
-        Resources resourcesForApplication;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
-            String uri2 = uri.toString();
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            if (uri2.startsWith("android.resource://")) {
-                String authority = uri.getAuthority();
-                if (context.getPackageName().equals(authority)) {
-                    resourcesForApplication = context.getResources();
-                } else {
-                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
-                }
-                List<String> pathSegments = uri.getPathSegments();
-                int size = pathSegments.size();
-                int i = 0;
-                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
-                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
-                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
-                    try {
-                        i = Integer.parseInt(pathSegments.get(0));
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return i != 3 ? 100 : 118;
                     }
+                    return 112;
                 }
-                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
+                return 100;
+            }
+            return 82;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Bundle b = uv2.b(ep2.class, null);
+            if (b == null) {
+                return 1;
+            }
+            return b.getInt("font_size_level", 1);
+        }
+        return invokeV.intValue;
+    }
+
+    public static NgWebView c(ny1 ny1Var) {
+        InterceptResult invokeL;
+        HashMap<String, pl1> V;
+        pl1 pl1Var;
+        ol1 u;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ny1Var)) == null) {
+            if (ny1Var instanceof py1) {
+                nl1 n3 = ((py1) ny1Var).n3();
+                if (n3 == null || n3.m() == null) {
+                    if (n3 != null) {
+                        return (NgWebView) n3.u();
+                    }
+                    return null;
+                }
+                return (NgWebView) n3.m().u();
+            } else if (!(ny1Var instanceof uy1) || (V = b62.U().V()) == null || V.size() <= 0 || (pl1Var = V.get(ze3.c().h())) == null || !(pl1Var instanceof SwanWebModeWidget) || (u = pl1Var.u()) == null || !(u instanceof NgWebView)) {
+                return null;
             } else {
-                InputStream inputStream = null;
-                if (uri2.startsWith("file:///android_asset/")) {
-                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
-                } else if (uri2.startsWith("file://")) {
-                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
-                } else {
-                    try {
-                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
-                        try {
-                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
-                            xg4.d(openInputStream);
-                            bitmap = decodeStream;
-                        } catch (Throwable th) {
-                            th = th;
-                            inputStream = openInputStream;
-                            xg4.d(inputStream);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                }
+                return (NgWebView) u;
             }
-            if (bitmap == null) {
-                if (!a) {
-                    ux1.k("SkiaImageDecoder", "bitmap is null");
-                } else {
-                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
-                }
-            }
-            return bitmap;
         }
-        return (Bitmap) invokeLL.objValue;
+        return (NgWebView) invokeL.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b() + 1 : invokeV.intValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? wc3.f("3.200.101") : invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            SwanAppConfigData s = uk2.U().s();
+            if (s == null) {
+                return false;
+            }
+            return TextUtils.equals("none", s.e.q);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void g(int i, int i2) {
+        SwanAppActivity x;
+        qy1 swanAppFragmentManager;
+        ny1 m;
+        NgWebView c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(65542, null, i, i2) == null) || (x = gz2.J().x()) == null || (swanAppFragmentManager = x.getSwanAppFragmentManager()) == null || (m = swanAppFragmentManager.m()) == null || (c = c(m)) == null) {
+            return;
+        }
+        if (!f()) {
+            c.getSettings().setTextZoom(a(i));
+            cp2.a(Integer.valueOf(i + 1), String.valueOf(i2));
+        }
+        h(i);
+    }
+
+    public static void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
+            xv2.e().h(new zv2(22, bundle));
+        }
     }
 }

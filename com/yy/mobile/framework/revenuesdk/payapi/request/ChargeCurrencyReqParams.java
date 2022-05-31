@@ -4,6 +4,7 @@ import android.app.Activity;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +42,7 @@ public final class ChargeCurrencyReqParams extends RequestParams {
     public double srcAmount;
     public int subscriptionType;
 
-    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0015\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payapi/request/ChargeCurrencyReqParams$Companion;", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/ChargeCurrencyReqParams;", "other", "clone", "(Lcom/yy/mobile/framework/revenuesdk/payapi/request/ChargeCurrencyReqParams;)Lcom/yy/mobile/framework/revenuesdk/payapi/request/ChargeCurrencyReqParams;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+    @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0005\u0010\u0006J\u0015\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0003\u0010\u0004¨\u0006\u0007"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payapi/request/ChargeCurrencyReqParams$Companion;", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/ChargeCurrencyReqParams;", ImageViewerConfig.FROM_OTHER, "clone", "(Lcom/yy/mobile/framework/revenuesdk/payapi/request/ChargeCurrencyReqParams;)Lcom/yy/mobile/framework/revenuesdk/payapi/request/ChargeCurrencyReqParams;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
     /* loaded from: classes8.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;

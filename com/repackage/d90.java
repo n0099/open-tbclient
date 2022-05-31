@@ -1,18 +1,15 @@
 package com.repackage;
 
-import android.app.Application;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 /* loaded from: classes5.dex */
-public class d90 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface d90 extends b90, e90 {
+    void a(String str);
 
-    public static void a(Application application, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, application, str, str2, str3) == null) {
-            Log.d("LeakCanary", "install: close");
-        }
-    }
+    void f();
+
+    View i(FragmentActivity fragmentActivity, Fragment fragment, String str, String str2, String str3, String str4, boolean z);
+
+    void onUserVisibleHint(boolean z);
 }

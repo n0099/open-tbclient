@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 /* loaded from: classes4.dex */
@@ -400,7 +401,7 @@ public class VideoCloudSetting {
             if (!TextUtils.isEmpty(videoCfgValue)) {
                 str = videoCfgValue;
             }
-            videoCloudSettingItem.parseSettingItem(str, "|", ";");
+            videoCloudSettingItem.parseSettingItem(str, "|", ParamableElem.DIVIDE_PARAM);
             String str2 = DEFAULT_ERROR_LOG_ENABLE_ALL;
             String videoCfgValue2 = getVideoCfgValue(PREF_KEY_ENABLE_HOST, DEFAULT_ERROR_LOG_ENABLE_ALL);
             VideoCloudSettingItem videoCloudSettingItem2 = new VideoCloudSettingItem();
@@ -408,7 +409,7 @@ public class VideoCloudSetting {
             if (!TextUtils.isEmpty(videoCfgValue2)) {
                 str2 = videoCfgValue2;
             }
-            videoCloudSettingItem2.parseSettingItem(str2, "|", ";");
+            videoCloudSettingItem2.parseSettingItem(str2, "|", ParamableElem.DIVIDE_PARAM);
             Log.d(TAG, "createVideoSetting videoEnableSdkVersion:" + str + " hostsStr:" + str2);
             VideoSettings videoSettings = new VideoSettings();
             videoSettings.getItems().put(0, videoCloudSettingItem);

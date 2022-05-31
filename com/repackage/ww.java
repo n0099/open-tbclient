@@ -1,159 +1,147 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.card.view.ForumEnterLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
-import kotlin.TypeCastException;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes7.dex */
-public final class ww {
+public class ww extends tw {
     public static /* synthetic */ Interceptable $ic;
-    public static final ww a;
     public transient /* synthetic */ FieldHolder $fh;
+    public om4 h;
+    public ForumEnterLayout i;
+    public final View.OnClickListener j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964023515, "Lcom/repackage/ww;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ww a;
+
+        public a(ww wwVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wwVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964023515, "Lcom/repackage/ww;");
+            this.a = wwVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.d() == null) {
                 return;
             }
+            this.a.d().a(view2, this.a.h);
         }
-        a = new ww();
     }
 
-    public ww() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ww(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @JvmStatic
-    public static final int a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str).toString(), new String[]{"."}, false, 0, 6, (Object) null);
-            List<String> split$default2 = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str2).toString(), new String[]{"."}, false, 0, 6, (Object) null);
-            LinkedList linkedList = new LinkedList();
-            LinkedList linkedList2 = new LinkedList();
-            for (String str3 : split$default) {
-                if (str3 != null) {
-                    String obj = StringsKt__StringsKt.trim((CharSequence) str3).toString();
-                    if (!Intrinsics.areEqual(obj, "")) {
-                        linkedList.add(obj);
-                    }
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
-                }
-            }
-            for (String str4 : split$default2) {
-                if (str4 != null) {
-                    String obj2 = StringsKt__StringsKt.trim((CharSequence) str4).toString();
-                    if (!Intrinsics.areEqual(obj2, "")) {
-                        linkedList2.add(obj2);
-                    }
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
-                }
-            }
-            while (!linkedList.isEmpty() && !linkedList2.isEmpty()) {
-                ww wwVar = a;
-                Object pollFirst = linkedList.pollFirst();
-                if (pollFirst == null) {
-                    Intrinsics.throwNpe();
-                }
-                int e = wwVar.e((String) pollFirst);
-                ww wwVar2 = a;
-                Object pollFirst2 = linkedList2.pollFirst();
-                if (pollFirst2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                int e2 = wwVar2.e((String) pollFirst2);
-                if (e > e2) {
-                    return 1;
-                }
-                if (e < e2) {
-                    return -1;
-                }
-            }
-            if (linkedList.isEmpty() && linkedList2.isEmpty()) {
-                return 0;
-            }
-            while (!linkedList.isEmpty()) {
-                if (!TextUtils.equals((CharSequence) linkedList.pollFirst(), "0")) {
-                    return 1;
-                }
-            }
-            while (!linkedList2.isEmpty()) {
-                if (!TextUtils.equals((CharSequence) linkedList2.pollFirst(), "0")) {
-                    return -1;
-                }
-            }
-            return 0;
+        this.j = new a(this);
+        int f = li.f(context, R.dimen.M_H_X003);
+        int f2 = li.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
+        r(f);
+        q(f2);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().d instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().d.getParent() == null) {
+            this.i = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().d;
+        } else {
+            this.i = new ForumEnterLayout(context);
         }
-        return invokeLL.intValue;
+        this.i.setOnAfterClickListener(this.j);
     }
 
-    public final String b() {
+    @Override // com.repackage.mw
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Intrinsics.areEqual(js.c.h().getAppVersion(), "")) {
-                String b = hu.b();
-                Intrinsics.checkExpressionValueIsNotNull(b, "AppUtils.getVersionName()");
-                return b;
-            }
-            return js.c.h().getAppVersion();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.cx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.n(tbPageContext, i);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final boolean c(long j) {
-        InterceptResult invokeJ;
+    public void t() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? vw.a.a() <= j : invokeJ.booleanValue;
-    }
-
-    public final boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? a(b(), str) >= 0 : invokeL.booleanValue;
-    }
-
-    public final int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return 0;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (UbsABTestHelper.showNewUI()) {
+                int f = li.f(this.b, R.dimen.M_H_X003);
+                int f2 = li.f(this.b, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
+                r(f);
+                q(f2);
+                return;
             }
+            int f3 = li.f(this.b, R.dimen.tbds10);
+            r(f3);
+            q(0);
+            v(this.i, f3, 0);
         }
-        return invokeL.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bx
+    /* renamed from: u */
+    public void a(om4 om4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, om4Var) == null) {
+            this.h = om4Var;
+            this.i.setSourceForPb(this.a.i());
+            this.i.setData(om4Var);
+        }
+    }
+
+    public void v(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) && view2 != null && (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            if (marginLayoutParams.topMargin == i && marginLayoutParams.bottomMargin == i2) {
+                return;
+            }
+            marginLayoutParams.topMargin = i;
+            marginLayoutParams.bottomMargin = i2;
+            view2.setLayoutParams(marginLayoutParams);
+        }
     }
 }

@@ -1,8 +1,9 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,21 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
-/* loaded from: classes6.dex */
-public class eo4 {
+/* loaded from: classes5.dex */
+public class eo4 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> i;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
+    public boolean a;
+    public String b;
+    public ICardInfo c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +33,7 @@ public class eo4 {
                 return;
             }
         }
-        i = new HashSet();
+        d = BdUniqueId.gen();
     }
 
     public eo4() {
@@ -47,99 +41,47 @@ public class eo4 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public ICardInfo e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? i.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ICardInfo) invokeV.objValue;
     }
 
-    public static void b(AdvertAppInfo advertAppInfo) {
-        eo4 eo4Var;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, advertAppInfo) == null) || advertAppInfo == null || (eo4Var = advertAppInfo.i) == null || eo4Var.h || a(eo4Var.g)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ICardInfo i = ra7.i(this.b);
+            this.c = i;
+            this.a = i != null;
         }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.SHOW).t(advertAppInfo.j).o(String.valueOf(advertAppInfo.position + 1)).p(eo4Var.d).q(eo4Var.e).r(eo4Var.c).u(String.valueOf(eo4Var.b)).n(advertAppInfo.g);
-        ez0.c(clogBuilder);
-        kd7.b(kd7.a(advertAppInfo));
-        eo4Var.h = true;
-        i.add(eo4Var.g);
     }
 
-    public static void c(eo4 eo4Var, int i2, boolean z) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.jn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{eo4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || eo4Var == null || eo4Var.h || a(eo4Var.g)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(z ? ClogBuilder.LogType.STOCK : ClogBuilder.LogType.SHOW).t(eo4Var.a).o(String.valueOf(i2 + 1)).p(eo4Var.d).q(eo4Var.e).r(eo4Var.c).u(String.valueOf(eo4Var.b)).n(eo4Var.g);
-        ez0.c(clogBuilder);
-        eo4Var.h = true;
-        i.add(eo4Var.g);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 
-    public static void d(ay5 ay5Var) {
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, ay5Var) == null) || ay5Var == null || ay5Var.e() == null || ay5Var.e().i == null || ay5Var.e().i.h || a(ay5Var.e().i.g)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
-        ay5Var.e().j = ay5Var.e().i.a;
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.SHOW).t(ay5Var.e().j).o(String.valueOf(ay5Var.e().position + 1)).u(String.valueOf(ay5Var.e().i.b)).n(ay5Var.e().i.g);
-        ez0.c(clogBuilder);
-        kd7.b(kd7.a(ay5Var.e()));
-        ay5Var.e().i.h = true;
-        i.add(ay5Var.e().i.g);
     }
 
-    public static void e(eo4 eo4Var, int i2, boolean z) {
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{eo4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || eo4Var == null || eo4Var.h || a(eo4Var.g)) {
-            return;
-        }
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(z ? ClogBuilder.LogType.STOCK : ClogBuilder.LogType.SHOW).t(eo4Var.a).o(String.valueOf(i2 + 1)).u(String.valueOf(eo4Var.b)).n(eo4Var.g);
-        ez0.c(clogBuilder);
-        eo4Var.h = true;
-        i.add(eo4Var.g);
-    }
-
-    public static void f(zj8 zj8Var) {
-        eo4 eo4Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, zj8Var) == null) || zj8Var == null || zj8Var.getAdvertAppInfo() == null || (eo4Var = zj8Var.getAdvertAppInfo().i) == null || eo4Var.h || a(eo4Var.g)) {
-            return;
-        }
-        zj8Var.I0 = eo4Var.d;
-        zj8Var.J0 = eo4Var.e;
-        zj8Var.H0 = eo4Var.c;
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(ClogBuilder.LogType.SHOW).o(String.valueOf(zj8Var.N0 + 1)).u(String.valueOf(zj8Var.L0)).t(eo4Var.a).p(eo4Var.d).q(eo4Var.e).r(eo4Var.c).n(eo4Var.g);
-        ez0.c(clogBuilder);
-        eo4Var.h = true;
-        i.add(eo4Var.g);
-    }
-
-    public static void g(eo4 eo4Var, int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{eo4Var, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || eo4Var == null || eo4Var.h || a(eo4Var.g)) {
-            return;
-        }
-        boolean equals = "PB_BANNER".equals(eo4Var.a);
-        ClogBuilder clogBuilder = new ClogBuilder();
-        clogBuilder.w(z ? ClogBuilder.LogType.STOCK : ClogBuilder.LogType.SHOW).o(String.valueOf(equals ? -1 : i2 + 1)).u(String.valueOf(equals ? -1 : eo4Var.b)).t(eo4Var.a).p(eo4Var.d).q(eo4Var.e).r(eo4Var.c).n(eo4Var.g);
-        ez0.c(clogBuilder);
-        eo4Var.h = true;
-        i.add(eo4Var.g);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

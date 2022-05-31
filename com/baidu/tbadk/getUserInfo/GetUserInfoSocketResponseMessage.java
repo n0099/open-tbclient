@@ -9,8 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.r35;
-import com.repackage.s35;
+import com.repackage.n25;
+import com.repackage.o25;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetUserInfo.GetUserInfoResIdl;
@@ -18,7 +18,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r35 mData;
+    public n25 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoSocketResponseMessage() {
@@ -38,10 +38,10 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         }
     }
 
-    public r35 getData() {
+    public n25 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData : (r35) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData : (n25) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -50,9 +50,9 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            r35 r35Var = this.mData;
-            if (r35Var != null && r35Var.a() != null) {
-                s35.d().i(this.mData.a());
+            n25 n25Var = this.mData;
+            if (n25Var != null && n25Var.a() != null) {
+                o25.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -73,8 +73,8 @@ public class GetUserInfoSocketResponseMessage extends TbSocketReponsedMessage {
         if (getError() != 0) {
             return;
         }
-        r35 r35Var = new r35();
-        this.mData = r35Var;
-        r35Var.b(getUserInfoResIdl.data);
+        n25 n25Var = new n25();
+        this.mData = n25Var;
+        n25Var.b(getUserInfoResIdl.data);
     }
 }

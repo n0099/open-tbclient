@@ -1,24 +1,42 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.TbConfig;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
-import com.baidu.tieba.barselect.model.CandidateSearchReqMsg;
-import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fw5 {
+public class fw5 extends nv5<ex5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public View i;
+    public HeadImageView j;
+    public TextView k;
+    public TextView l;
+    public TbImageView m;
+    public TextView n;
+    public View o;
+    public ex5 p;
+    public int q;
+    public String r;
+    public String s;
 
-    public fw5(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fw5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,28 +46,115 @@ public class fw5 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        ca5 ca5Var = new ca5(309641);
-        ca5Var.setResponsedClass(CandidateSearchSocketResMsg.class);
-        MessageManager.getInstance().registerTask(ca5Var);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, hj8.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
-        tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        this.q = tbPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070266);
+        s(k());
     }
 
-    public void a(int i, long j) {
+    @Override // com.repackage.nv5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
-            candidateSearchReqMsg.applyId = i;
-            candidateSearchReqMsg.fid = j;
-            candidateSearchReqMsg.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b1 : invokeV.intValue;
+    }
+
+    @Override // com.repackage.nv5
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(this.i, R.drawable.addresslist_item_bg);
+                SkinManager.setBackgroundResource(this.n, R.drawable.label_bg_gray);
+                SkinManager.setBackgroundResource(this.o, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.n, R.color.CAM_X0109, 1);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+                this.j.setPlaceHolder(1);
+                this.m.setPlaceHolder(2);
+            }
+            this.a = i;
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if ((view2 == this.j || view2 == this.k || view2 == this.n) && !StringUtils.isNull(this.p.d)) {
+                TiebaStatic.log(new StatisticItem(this.r).param("obj_id", String.valueOf(this.p.a)));
+                UrlManager.getInstance().dealOneLink(j(), new String[]{this.p.d});
+            } else if ((view2 == this.i || view2 == this.l || view2 == this.m) && !StringUtils.isNull(this.p.g)) {
+                TiebaStatic.log(new StatisticItem(this.s).param("obj_id", String.valueOf(this.p.a)));
+                UrlManager.getInstance().dealOneLink(j(), new String[]{this.p.g});
+            }
+        }
+    }
+
+    public final void s(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f091adb);
+            this.j = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09193a);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09193d);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091939);
+            this.m = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09193c);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09193b);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0920a7);
+            this.j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.n.setOnClickListener(this);
+            this.i.setOnClickListener(this);
+            this.j.setDefaultResource(17170445);
+            this.j.setPlaceHolder(1);
+            this.j.setRadius(this.q);
+            this.m.setDrawBorder(true);
+            this.m.setBorderWidth(1);
+            this.m.setPlaceHolder(2);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.nv5
+    /* renamed from: t */
+    public void l(ex5 ex5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ex5Var) == null) {
+            if (ex5Var == null) {
+                this.i.setVisibility(8);
+                return;
+            }
+            if (this.i.getVisibility() != 0) {
+                this.i.setVisibility(0);
+            }
+            this.p = ex5Var;
+            this.j.K(ex5Var.c, 10, false);
+            this.k.setText(UtilHelper.getFixedText(ex5Var.b, 7, true));
+            if (StringUtils.isNull(ex5Var.i)) {
+                this.n.setVisibility(8);
+            } else {
+                this.n.setVisibility(0);
+                this.n.setText(ex5Var.i);
+            }
+            this.l.setText(ex5Var.e);
+            if (am4.c().g()) {
+                this.m.setVisibility(0);
+                this.m.K(ex5Var.f, 10, false);
+                return;
+            }
+            this.m.setVisibility(8);
+        }
+    }
+
+    public void u(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
+            this.r = str2;
+            this.s = str3;
         }
     }
 }

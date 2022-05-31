@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.di8;
+import com.repackage.ef8;
 /* loaded from: classes3.dex */
 public class OvalActionButton extends ImageView {
     public static /* synthetic */ Interceptable $ic;
@@ -113,14 +113,14 @@ public class OvalActionButton extends ImageView {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             this.t = skinType;
             if (skinType == 0) {
-                this.l = di8.e("#00E1FF");
-                this.m = di8.e("#00A2FF");
+                this.l = ef8.e("#00E1FF");
+                this.m = ef8.e("#00A2FF");
             } else if (skinType == 1) {
-                this.l = di8.e("#00BBD4");
-                this.m = di8.e("#0086D4");
+                this.l = ef8.e("#00BBD4");
+                this.m = ef8.e("#0086D4");
             } else if (skinType == 4) {
-                this.l = di8.e("#2BE6FF");
-                this.m = di8.e("#2BB1FF");
+                this.l = ef8.e("#2BE6FF");
+                this.m = ef8.e("#2BB1FF");
             }
         }
     }
@@ -240,13 +240,13 @@ public class OvalActionButton extends ImageView {
             }
             if (this.c) {
                 if (this.b) {
-                    this.g.setShadowLayer(16.0f, 5.0f, 5.0f, di8.a(this.k == null ? this.n : this.m, 0.5f));
+                    this.g.setShadowLayer(16.0f, 5.0f, 5.0f, ef8.a(this.k == null ? this.n : this.m, 0.5f));
                 } else {
                     int i4 = this.d;
                     float f15 = i4 * 0.054f;
                     double radians = Math.toRadians(getRotation() - 45.0f);
                     double d = i4 * 0.0226f;
-                    this.g.setShadowLayer(f15, (float) (Math.cos(radians) * d), ((float) (d * Math.sin(radians))) * (-1.0f), di8.a(this.k == null ? this.n : this.m, 0.83f));
+                    this.g.setShadowLayer(f15, (float) (Math.cos(radians) * d), ((float) (d * Math.sin(radians))) * (-1.0f), ef8.a(this.k == null ? this.n : this.m, 0.83f));
                 }
             }
             LinearGradient linearGradient = this.k;
@@ -416,8 +416,8 @@ public class OvalActionButton extends ImageView {
     public void setStartAndEndColor(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) {
-            this.l = di8.e(str);
-            this.m = di8.e(str2);
+            this.l = ef8.e(str);
+            this.m = ef8.e(str2);
             this.a = true;
             invalidate();
         }

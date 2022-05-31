@@ -2,14 +2,27 @@ package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import kotlin.jvm.JvmField;
 /* loaded from: classes6.dex */
-public class jm0 implements ac1 {
+public final class jm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @JvmField
+    public String a;
+    @JvmField
+    public String b;
+    @JvmField
+    public String c;
+    @JvmField
+    public String d;
+    @JvmField
+    public String e;
+    @JvmField
+    public String f;
+    @JvmField
+    public String g;
 
     public jm0() {
         Interceptable interceptable = $ic;
@@ -25,10 +38,14 @@ public class jm0 implements ac1 {
         }
     }
 
-    @Override // com.repackage.ac1
-    public Object get() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList() : invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.c = null;
+            this.e = null;
+            this.f = null;
+            this.g = null;
+        }
     }
 }

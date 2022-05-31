@@ -38,7 +38,7 @@ public class PingReceiver extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             b.c(intent.getPackage() + " is the package name");
             if (!az.o.equals(intent.getAction())) {
-                b.m109a("cancel the old ping timer");
+                b.m108a("cancel the old ping timer");
                 er.a();
             } else if (TextUtils.equals(context.getPackageName(), intent.getPackage())) {
                 b.c("Ping XMChannelService on timer");

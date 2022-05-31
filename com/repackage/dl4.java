@@ -1,56 +1,97 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class dl4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 1;
-    public static int b = 2;
-    public static int c = 3;
-    public static int d = 1;
-    public static int e = 2;
-    public static int f = 3;
-    public static int g = 4;
-    public static int h = 5;
-    public static int i = 6;
-    public static int j = 7;
-    public static int k = 8;
-    public static int l = 9;
-    public static el4 m;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public final View b;
+    public final ThreadAchievementShareInfo.ParamBean c;
+    public TbImageView d;
+    public ImageView e;
+    public TextView f;
+    public TextView g;
+    public TextView h;
+    public TextView i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755763579, "Lcom/repackage/dl4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755763579, "Lcom/repackage/dl4;");
+    public dl4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, threadAchievementShareInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        m = new el4();
+        this.a = context;
+        this.b = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0861, (ViewGroup) null);
+        this.c = threadAchievementShareInfo.getParams();
+        c();
+        b();
     }
 
-    public static void a(@NonNull int i2, @NonNull int i3, String str, String str2, String str3, int i4) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Integer.valueOf(i4)}) == null) {
-            fl4 fl4Var = new fl4();
-            fl4Var.a = i2;
-            fl4Var.b = i3;
-            fl4Var.c = str;
-            fl4Var.d = str2;
-            fl4Var.e = str3;
-            fl4Var.f = i4;
-            m.a(fl4Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    public final void b() {
+        ThreadAchievementShareInfo.ParamBean paramBean;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (paramBean = this.c) == null || paramBean.getVideo_info() == null || TextUtils.isEmpty(this.c.getVideo_info().getThumbnail_url())) {
+            return;
+        }
+        this.d.K(this.c.getVideo_info().getThumbnail_url(), 10, false);
+        this.i.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
+        this.f.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090673);
+            this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090669);
+            this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918d0);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0918d1);
+            this.i = textView;
+            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
+            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092316);
+            this.d = tbImageView;
+            tbImageView.setDefaultBgResource(R.color.transparent);
+            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.d.setPlaceHolder(2);
+            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091865);
+            this.e = imageView;
+            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
         }
     }
 }

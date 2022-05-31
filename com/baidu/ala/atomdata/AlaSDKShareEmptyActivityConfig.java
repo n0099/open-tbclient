@@ -46,16 +46,16 @@ public class AlaSDKShareEmptyActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("title", shareItem.t);
-        getIntent().putExtra("content", shareItem.u);
-        getIntent().putExtra(SHARE_ALA_SDK_IMAGEURI_KEY, shareItem.y);
-        getIntent().putExtra(SHARE_ALA_SDK_LINKURL_KEY, shareItem.v);
+        getIntent().putExtra("title", shareItem.u);
+        getIntent().putExtra("content", shareItem.v);
+        getIntent().putExtra(SHARE_ALA_SDK_IMAGEURI_KEY, shareItem.z);
+        getIntent().putExtra(SHARE_ALA_SDK_LINKURL_KEY, shareItem.w);
         getIntent().putExtra("channel", i);
         getIntent().putExtra("action", i2);
-        getIntent().putExtra("liveid", shareItem.s);
-        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.v0);
-        getIntent().putExtra(SHARE_ALA_SDK_YY_ANCHOR_BDUID, shareItem.B);
-        getIntent().putExtra("room_id", shareItem.W);
-        getIntent().putExtra(SHARE_ALA_SDK_VOICE_ROOM_TYPE, shareItem.X);
+        getIntent().putExtra("liveid", shareItem.t);
+        getIntent().putExtra(SHARE_ALA_SDK_LIVE_EXT_INFO, shareItem.w0);
+        getIntent().putExtra(SHARE_ALA_SDK_YY_ANCHOR_BDUID, shareItem.C);
+        getIntent().putExtra("room_id", shareItem.X);
+        getIntent().putExtra(SHARE_ALA_SDK_VOICE_ROOM_TYPE, shareItem.Y);
     }
 }

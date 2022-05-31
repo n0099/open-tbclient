@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
-import com.repackage.as;
-import com.repackage.bs;
-import com.repackage.xr;
-import com.repackage.yr;
-import com.repackage.zr;
+import com.repackage.kq;
+import com.repackage.lq;
+import com.repackage.mq;
+import com.repackage.nq;
+import com.repackage.oq;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -33,7 +33,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class TaskBusinessEventManager {
     public static /* synthetic */ Interceptable $ic;
     public static final ReentrantLock a;
-    public static final ConcurrentHashMap<String, bs> b;
+    public static final ConcurrentHashMap<String, oq> b;
     public static final TaskBusinessEventManager c;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -69,24 +69,24 @@ public final class TaskBusinessEventManager {
         }
     }
 
-    public final <T extends xr> void a(TaskInfo taskInfo, Class<T> cls, yr<T> yrVar) {
+    public final <T extends kq> void a(TaskInfo taskInfo, Class<T> cls, lq<T> lqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, taskInfo, cls, yrVar) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, taskInfo, cls, lqVar) == null) {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
                 String singleKey = taskInfo.getSingleKey();
                 if (!b.containsKey(singleKey)) {
-                    b.put(singleKey, new bs(taskInfo.deepCopy()));
+                    b.put(singleKey, new oq(taskInfo.deepCopy()));
                 } else {
-                    bs bsVar = b.get(singleKey);
-                    if (bsVar != null) {
-                        bsVar.d(taskInfo.deepCopy());
+                    oq oqVar = b.get(singleKey);
+                    if (oqVar != null) {
+                        oqVar.d(taskInfo.deepCopy());
                     }
                 }
-                bs bsVar2 = b.get(singleKey);
-                if (bsVar2 != null) {
-                    bsVar2.e(cls, yrVar);
+                oq oqVar2 = b.get(singleKey);
+                if (oqVar2 != null) {
+                    oqVar2.e(cls, lqVar);
                     Unit unit = Unit.INSTANCE;
                 }
             } finally {
@@ -95,24 +95,24 @@ public final class TaskBusinessEventManager {
         }
     }
 
-    public final void b(TaskInfo taskInfo, zr zrVar) {
+    public final void b(TaskInfo taskInfo, mq mqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, zrVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, mqVar) == null) {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
                 String singleKey = taskInfo.getSingleKey();
                 if (!b.containsKey(singleKey)) {
-                    b.put(singleKey, new bs(taskInfo.deepCopy()));
+                    b.put(singleKey, new oq(taskInfo.deepCopy()));
                 } else {
-                    bs bsVar = b.get(singleKey);
-                    if (bsVar != null) {
-                        bsVar.d(taskInfo.deepCopy());
+                    oq oqVar = b.get(singleKey);
+                    if (oqVar != null) {
+                        oqVar.d(taskInfo.deepCopy());
                     }
                 }
-                bs bsVar2 = b.get(singleKey);
-                if (bsVar2 != null) {
-                    bsVar2.c(zrVar);
+                oq oqVar2 = b.get(singleKey);
+                if (oqVar2 != null) {
+                    oqVar2.c(mqVar);
                     Unit unit = Unit.INSTANCE;
                 }
             } finally {
@@ -127,15 +127,15 @@ public final class TaskBusinessEventManager {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                xr a2 = as.a.a(taskInfo, uniqueId);
+                kq a2 = nq.a.a(taskInfo, uniqueId);
                 if (a2 != null) {
                     DebugTrace.a.c(new TaskBusinessEventManager$dispatchBusinessEvent$1$1(a2));
-                    Set<Pair<Class<? extends xr>, yr<? extends xr>>> e = c.e(taskInfo.getSingleKey());
-                    Set<zr> f = c.f(taskInfo.getSingleKey());
+                    Set<Pair<Class<? extends kq>, lq<? extends kq>>> e = c.e(taskInfo.getSingleKey());
+                    Set<mq> f = c.f(taskInfo.getSingleKey());
                     if (f != null) {
-                        for (zr zrVar : f) {
-                            if (zrVar != null) {
-                                zrVar.onEvent(a2);
+                        for (mq mqVar : f) {
+                            if (mqVar != null) {
+                                mqVar.onEvent(a2);
                             }
                         }
                     }
@@ -145,12 +145,12 @@ public final class TaskBusinessEventManager {
                             Pair pair = (Pair) it.next();
                             if (a2.getClass().isAssignableFrom((Class) pair.getFirst())) {
                                 Object second = pair.getSecond();
-                                if (!(second instanceof yr)) {
+                                if (!(second instanceof lq)) {
                                     second = null;
                                 }
-                                yr yrVar = (yr) second;
-                                if (yrVar != null) {
-                                    yrVar.a(a2);
+                                lq lqVar = (lq) second;
+                                if (lqVar != null) {
+                                    lqVar.a(a2);
                                 }
                             }
                         }
@@ -164,51 +164,51 @@ public final class TaskBusinessEventManager {
     }
 
     public final void d(String str, UniqueId uniqueId) {
-        bs bsVar;
+        oq oqVar;
         TaskInfo h;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, uniqueId) == null) || (bsVar = b.get(str)) == null || (h = bsVar.h()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, uniqueId) == null) || (oqVar = b.get(str)) == null || (h = oqVar.h()) == null) {
             return;
         }
         c(h, uniqueId);
     }
 
-    public final Set<Pair<Class<? extends xr>, yr<? extends xr>>> e(String str) {
+    public final Set<Pair<Class<? extends kq>, lq<? extends kq>>> e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            bs bsVar = b.get(str);
-            if (bsVar == null || (!Intrinsics.areEqual(bsVar.h().getSingleKey(), str))) {
+            oq oqVar = b.get(str);
+            if (oqVar == null || (!Intrinsics.areEqual(oqVar.h().getSingleKey(), str))) {
                 return null;
             }
-            return bsVar.f();
+            return oqVar.f();
         }
         return (Set) invokeL.objValue;
     }
 
-    public final Set<zr> f(String str) {
+    public final Set<mq> f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            bs bsVar = b.get(str);
-            if (bsVar == null || (!Intrinsics.areEqual(bsVar.h().getSingleKey(), str))) {
+            oq oqVar = b.get(str);
+            if (oqVar == null || (!Intrinsics.areEqual(oqVar.h().getSingleKey(), str))) {
                 return null;
             }
-            return bsVar.a();
+            return oqVar.a();
         }
         return (Set) invokeL.objValue;
     }
 
-    public final void g(String str, yr<? extends xr> yrVar) {
+    public final void g(String str, lq<? extends kq> lqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, yrVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, lqVar) == null) {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                for (Map.Entry<String, bs> entry : b.entrySet()) {
-                    bs value = entry.getValue();
+                for (Map.Entry<String, oq> entry : b.entrySet()) {
+                    oq value = entry.getValue();
                     if (Intrinsics.areEqual(value.h().getActionId(), str)) {
-                        value.b(yrVar);
+                        value.b(lqVar);
                     }
                 }
                 Unit unit = Unit.INSTANCE;
@@ -218,16 +218,16 @@ public final class TaskBusinessEventManager {
         }
     }
 
-    public final void h(String str, zr zrVar) {
+    public final void h(String str, mq mqVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, zrVar) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, mqVar) == null) {
             ReentrantLock reentrantLock = a;
             reentrantLock.lock();
             try {
-                for (Map.Entry<String, bs> entry : b.entrySet()) {
-                    bs value = entry.getValue();
+                for (Map.Entry<String, oq> entry : b.entrySet()) {
+                    oq value = entry.getValue();
                     if (Intrinsics.areEqual(value.h().getActionId(), str)) {
-                        value.g(zrVar);
+                        value.g(mqVar);
                     }
                 }
                 Unit unit = Unit.INSTANCE;

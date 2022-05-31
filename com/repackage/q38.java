@@ -1,27 +1,31 @@
 package com.repackage;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class q38 extends eo<b58, CardViewHolder<e68>> {
+public class q38 extends nv5<o28> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> i;
+    public View i;
+    public w18 j;
+    public View k;
+    public TextView l;
+    public TextView m;
+    public ImageView n;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public q38(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), b58.g);
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,36 +35,87 @@ public class q38 extends eo<b58, CardViewHolder<e68>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = tbPageContext;
+        s(k());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: Z */
-    public CardViewHolder<e68> M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.repackage.nv5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new e68(this.i)) : (CardViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b0 : invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: a0 */
-    public View S(int i, View view2, ViewGroup viewGroup, b58 b58Var, CardViewHolder<e68> cardViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.repackage.nv5
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b58Var, cardViewHolder})) == null) {
-            cardViewHolder.c().m(this.i, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.c().l(b58Var);
-            return cardViewHolder.b();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+                SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
+                SkinManager.setViewTextColor(this.m, R.color.CAM_X0109, 1);
+                SkinManager.setImageResource(this.n, R.drawable.pic_pop_key);
+                SkinManager.setViewTextColor(this.l, R.color.CAM_X0304, 1);
+            }
+            this.a = i;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        w18 w18Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null || (w18Var = this.j) == null || view2 != this.l) {
+            return;
+        }
+        w18Var.a();
+    }
+
+    public final void s(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f09056d);
+            this.k = view2.findViewById(R.id.obfuscated_res_0x7f092099);
+            this.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0912fa);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0915c8);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09052c);
+            this.l.setOnClickListener(this);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.nv5
+    /* renamed from: t */
+    public void l(o28 o28Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, o28Var) == null) {
+            if (o28Var == null) {
+                this.i.setVisibility(8);
+                return;
+            }
+            if (this.i.getVisibility() != 0) {
+                this.i.setVisibility(0);
+            }
+            View view2 = this.k;
+            if (view2 != null) {
+                if (o28Var.a) {
+                    view2.setVisibility(8);
+                } else {
+                    view2.setVisibility(0);
+                }
+            }
+        }
+    }
+
+    public void u(w18 w18Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, w18Var) == null) {
+            this.j = w18Var;
+        }
     }
 }

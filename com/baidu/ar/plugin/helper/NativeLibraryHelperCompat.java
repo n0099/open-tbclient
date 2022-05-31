@@ -3,7 +3,6 @@ package com.baidu.ar.plugin.helper;
 import android.annotation.TargetApi;
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.ar.plugin.reflect.MethodUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -133,7 +132,7 @@ public class NativeLibraryHelperCompat {
                 while (entries.hasMoreElements()) {
                     ZipEntry nextElement = entries.nextElement();
                     String name = nextElement.getName();
-                    if (!name.contains("../") && name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && !nextElement.isDirectory() && name.endsWith(".so")) {
+                    if (!name.contains("../") && name.startsWith("lib/") && !nextElement.isDirectory() && name.endsWith(".so")) {
                         hashSet.add(name.substring(name.indexOf("/") + 1, name.lastIndexOf("/")));
                     }
                 }

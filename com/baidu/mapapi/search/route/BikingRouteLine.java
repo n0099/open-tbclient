@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes2.dex */
@@ -104,7 +105,7 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
                 if (str != null && str.length() != 0) {
                     ArrayList arrayList = new ArrayList();
-                    String[] split = str.split(";");
+                    String[] split = str.split(ParamableElem.DIVIDE_PARAM);
                     if (split != null && split.length != 0) {
                         for (String str2 : split) {
                             String[] split2 = str2.split(",");

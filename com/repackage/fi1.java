@@ -1,20 +1,32 @@
 package com.repackage;
 
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public interface fi1 {
-    JSONObject a();
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes5.dex */
+public class fi1 implements sk1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str);
+    public fi1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(CallbackHandler callbackHandler, String str);
-
-    void d(CallbackHandler callbackHandler, String str);
-
-    void e(String str);
-
-    void f(CallbackHandler callbackHandler, String str);
-
-    void g(CallbackHandler callbackHandler, String str);
+    @Override // com.repackage.sk1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 }

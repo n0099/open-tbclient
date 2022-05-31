@@ -1,18 +1,15 @@
 package com.repackage;
 
-import com.baidu.nadcore.max.event.NestedEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class on0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface on0 {
+    @Nullable
+    String a();
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_WEB.ordinal()] = 2;
-    }
+    @Nullable
+    String b();
+
+    long c();
+
+    boolean isSuccess();
 }

@@ -25,15 +25,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kg;
-import com.repackage.ok8;
-import com.repackage.p05;
+import com.repackage.jg;
+import com.repackage.lz4;
+import com.repackage.ph8;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class XiubaTbJsBridge implements ok8 {
+public class XiubaTbJsBridge implements ph8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -297,11 +297,11 @@ public class XiubaTbJsBridge implements ok8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, str)) == null) {
             if (!StringUtils.isNull(str) && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length != 0) {
-                int e = kg.e(split[0], 0);
+                int e = jg.e(split[0], 0);
                 if (e > 3) {
                     return true;
                 }
-                if (split.length >= 2 && e == 3 && kg.e(split[1], 0) >= 2) {
+                if (split.length >= 2 && e == 3 && jg.e(split[1], 0) >= 2) {
                     return true;
                 }
             }
@@ -341,7 +341,7 @@ public class XiubaTbJsBridge implements ok8 {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            p05.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15e0), -1, -1);
+            lz4.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f15f7), -1, -1);
         }
     }
 
@@ -370,7 +370,7 @@ public class XiubaTbJsBridge implements ok8 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.ok8
+    @Override // com.repackage.ph8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

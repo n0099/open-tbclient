@@ -53,8 +53,8 @@ public interface a extends IInterface {
 
     /* renamed from: com.ss.android.socialbase.downloader.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static abstract class AbstractBinderC0621a extends Binder implements a {
-        public AbstractBinderC0621a() {
+    public static abstract class AbstractBinderC0623a extends Binder implements a {
+        public AbstractBinderC0623a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.model.DownloadAidlTask");
         }
 
@@ -66,11 +66,11 @@ public interface a extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof a)) {
                 return (a) queryLocalInterface;
             }
-            return new C0622a(iBinder);
+            return new C0624a(iBinder);
         }
 
         public static a m() {
-            return C0622a.a;
+            return C0624a.a;
         }
 
         @Override // android.os.IInterface
@@ -193,11 +193,11 @@ public interface a extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.model.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0622a implements a {
+        public static class C0624a implements a {
             public static a a;
             public IBinder b;
 
-            public C0622a(IBinder iBinder) {
+            public C0624a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -207,8 +207,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(1, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().a();
+                    if (!this.b.transact(1, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().a();
                     }
                     obtain2.readException();
                     return obtain2.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(obtain2) : null;
@@ -229,8 +229,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(2, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().b();
+                    if (!this.b.transact(2, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().b();
                     }
                     obtain2.readException();
                     return e.a.a(obtain2.readStrongBinder());
@@ -246,8 +246,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(6, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().c();
+                    if (!this.b.transact(6, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().c();
                     }
                     obtain2.readException();
                     return y.a.a(obtain2.readStrongBinder());
@@ -263,8 +263,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(7, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().d();
+                    if (!this.b.transact(7, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().d();
                     }
                     obtain2.readException();
                     return ae.a.a(obtain2.readStrongBinder());
@@ -280,8 +280,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(8, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().e();
+                    if (!this.b.transact(8, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().e();
                     }
                     obtain2.readException();
                     return h.a.a(obtain2.readStrongBinder());
@@ -297,8 +297,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(9, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().f();
+                    if (!this.b.transact(9, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().f();
                     }
                     obtain2.readException();
                     return f.a.a(obtain2.readStrongBinder());
@@ -314,8 +314,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(10, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().g();
+                    if (!this.b.transact(10, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().g();
                     }
                     obtain2.readException();
                     return u.a.a(obtain2.readStrongBinder());
@@ -331,8 +331,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(11, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().h();
+                    if (!this.b.transact(11, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().h();
                     }
                     obtain2.readException();
                     return ah.a.a(obtain2.readStrongBinder());
@@ -348,8 +348,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(12, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().i();
+                    if (!this.b.transact(12, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().i();
                     }
                     obtain2.readException();
                     return p.a.a(obtain2.readStrongBinder());
@@ -365,8 +365,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(13, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().j();
+                    if (!this.b.transact(13, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().j();
                     }
                     obtain2.readException();
                     return j.a.a(obtain2.readStrongBinder());
@@ -382,8 +382,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(14, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().k();
+                    if (!this.b.transact(14, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().k();
                     }
                     obtain2.readException();
                     return g.a.a(obtain2.readStrongBinder());
@@ -399,8 +399,8 @@ public interface a extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
-                    if (!this.b.transact(15, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().l();
+                    if (!this.b.transact(15, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().l();
                     }
                     obtain2.readException();
                     return obtain2.readInt();
@@ -417,8 +417,8 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
                     obtain.writeInt(i);
-                    if (!this.b.transact(5, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().b(i);
+                    if (!this.b.transact(5, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().b(i);
                     }
                     obtain2.readException();
                     return i.a.a(obtain2.readStrongBinder());
@@ -435,8 +435,8 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
                     obtain.writeInt(i);
-                    if (!this.b.transact(16, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().c(i);
+                    if (!this.b.transact(16, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().c(i);
                     }
                     obtain2.readException();
                     return l.a.a(obtain2.readStrongBinder());
@@ -453,8 +453,8 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
                     obtain.writeInt(i);
-                    if (!this.b.transact(3, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().a(i);
+                    if (!this.b.transact(3, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().a(i);
                     }
                     obtain2.readException();
                     return obtain2.readInt();
@@ -472,8 +472,8 @@ public interface a extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.model.DownloadAidlTask");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    if (!this.b.transact(4, obtain, obtain2, 0) && AbstractBinderC0621a.m() != null) {
-                        return AbstractBinderC0621a.m().a(i, i2);
+                    if (!this.b.transact(4, obtain, obtain2, 0) && AbstractBinderC0623a.m() != null) {
+                        return AbstractBinderC0623a.m().a(i, i2);
                     }
                     obtain2.readException();
                     return i.a.a(obtain2.readStrongBinder());

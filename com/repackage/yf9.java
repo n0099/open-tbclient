@@ -1,35 +1,30 @@
 package com.repackage;
 
+import android.content.DialogInterface;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.repackage.xf9;
+import com.kwad.sdk.api.KsNativeAd;
 /* loaded from: classes7.dex */
-public class yf9 implements TTNativeExpressAd.ExpressAdInteractionListener {
+public class yf9 extends eg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
-    public final /* synthetic */ ExpressAdListenerWrapper c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ TTNativeExpressAd e;
-    public final /* synthetic */ xf9.b f;
-    public final /* synthetic */ xf9 g;
+    public final /* synthetic */ KsNativeAd c;
+    public final /* synthetic */ xf9 d;
 
-    public yf9(xf9 xf9Var, ExpressAdListenerWrapper expressAdListenerWrapper, String str, TTNativeExpressAd tTNativeExpressAd, xf9.b bVar) {
+    public yf9(xf9 xf9Var, KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xf9Var, expressAdListenerWrapper, str, tTNativeExpressAd, bVar};
+            Object[] objArr = {xf9Var, ksNativeAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,85 +34,37 @@ public class yf9 implements TTNativeExpressAd.ExpressAdInteractionListener {
                 return;
             }
         }
-        this.g = xf9Var;
-        this.c = expressAdListenerWrapper;
-        this.d = str;
-        this.e = tTNativeExpressAd;
-        this.f = bVar;
+        this.d = xf9Var;
+        this.c = ksNativeAd;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
             LogPrinter.d();
-            this.g.onAdClicked(this.b, new String[0]);
+            this.d.onAdClicked(this.b, new String[0]);
             this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.g.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.g.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdShow(KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
             LogPrinter.d();
-            this.g.onAdShow(this.e, this.a, new String[0]);
+            this.d.onAdShow(this.c, this.a, new String[0]);
             this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.c.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.d;
-                pid = this.g.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.g.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
-            LogPrinter.d();
-            xf9.b bVar = this.f;
-            if (bVar.c) {
-                return;
-            }
-            int i2 = bVar.a + 1;
-            bVar.a = i2;
-            if (i2 == bVar.b) {
-                bVar.d.onAdError(i, str);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            LogPrinter.d();
-            this.e.setCanInterruptVideoPlay(true);
-            this.g.j.put(this.e, this.c);
-            xf9.b bVar = this.f;
-            TTNativeExpressAd tTNativeExpressAd = this.e;
-            if (bVar.c) {
-                bVar.d.cacheOrDestroyAd(tTNativeExpressAd);
-                return;
-            }
-            bVar.d.onAdLoaded((xf9) tTNativeExpressAd);
-            bVar.c = true;
         }
     }
 }

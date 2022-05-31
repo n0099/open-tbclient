@@ -1,66 +1,132 @@
 package com.repackage;
 
-import android.content.Context;
-import android.util.Log;
-import android.webkit.WebResourceResponse;
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import androidx.webkit.WebViewAssetLoader;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
 /* loaded from: classes6.dex */
-public final class qi4 implements WebViewAssetLoader.PathHandler {
+public class qi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final File a;
+    public pi4 a;
+    public lq4 b;
 
-    public qi4(@NonNull Context context, @NonNull File file) {
+    public qi4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        try {
-            this.a = new File(pi4.a(file));
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
         }
     }
 
-    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-    @NonNull
-    @WorkerThread
-    public WebResourceResponse handle(@NonNull String str) {
-        InterceptResult invokeL;
-        File b;
+    public void a() {
+        lq4 lq4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                b = pi4.b(this.a, str);
-            } catch (IOException e) {
-                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
-            }
-            if (b != null) {
-                return new WebResourceResponse(pi4.c(str), null, pi4.e(b));
-            }
-            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
-            return new WebResourceResponse(null, null, null);
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (lq4Var = this.b) == null) {
+            return;
         }
-        return (WebResourceResponse) invokeL.objValue;
+        lq4Var.f();
+        this.b = null;
+    }
+
+    public final void b(String str) {
+        Activity currentActivity;
+        TbPageContext c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || ki.isEmpty(str) || (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) == null || (c = c(currentActivity)) == null || StringUtils.isNull(str)) {
+            return;
+        }
+        c.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", str, true)));
+    }
+
+    public final TbPageContext c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
+            if (activity instanceof BaseActivity) {
+                return ((BaseActivity) activity).getPageContext();
+            }
+            if (activity instanceof BaseFragmentActivity) {
+                return ((BaseFragmentActivity) activity).getPageContext();
+            }
+            return null;
+        }
+        return (TbPageContext) invokeL.objValue;
+    }
+
+    public void d(pi4 pi4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pi4Var) == null) {
+            this.a = pi4Var;
+        }
+    }
+
+    public void e() {
+        pi4 pi4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (pi4Var = this.a) == null) {
+            return;
+        }
+        int i = pi4Var.c;
+        if (i == pi4.y) {
+            lq4 h = lq4.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.a);
+            h.j();
+            this.b = h;
+        } else if (i == pi4.z) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            mm4 mm4Var = new mm4(currentActivity);
+            mm4Var.d(currentActivity, this.a);
+            mm4Var.i();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            lm4 b = lm4.b();
+            lm4 b2 = lm4.b();
+            b2.i("business_count_hint" + currentAccount + this.a.a, b.c("business_count_hint" + currentAccount + this.a.a) - 1);
+        } else if (i == pi4.A) {
+            int i2 = pi4Var.d;
+            if (i2 == pi4.D) {
+                if (UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.a.l) || ki.isEmpty(this.a.k)) {
+                    return;
+                }
+                b(this.a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+            } else if (i2 != pi4.E || ki.isEmpty(pi4Var.k)) {
+            } else {
+                b(this.a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
+            }
+        } else if (i != pi4.B || TextUtils.isEmpty(pi4Var.e)) {
+        } else {
+            CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
+            pi4 pi4Var2 = this.a;
+            completeTaskToastData.activityId = pi4Var2.a;
+            completeTaskToastData.missionId = pi4Var2.b;
+            completeTaskToastData.duration = pi4Var2.i;
+            completeTaskToastData.message = pi4Var2.e;
+            completeTaskToastData.url = pi4Var2.k;
+            completeTaskToastData.pageId = mh4.x().w();
+            CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
+            competeTaskEvent.taskToastData = completeTaskToastData;
+            a55.i(competeTaskEvent);
+            pi4 pi4Var3 = this.a;
+            ri4.c(pi4Var3.a, pi4Var3.b);
+        }
     }
 }

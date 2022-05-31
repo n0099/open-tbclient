@@ -6,6 +6,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,10 +19,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bo7;
-import com.repackage.jm4;
-import com.repackage.n86;
-import com.repackage.z35;
+import com.repackage.b76;
+import com.repackage.kl7;
+import com.repackage.v25;
+import com.repackage.xk4;
 import com.tencent.open.SocialConstants;
 import java.util.HashSet;
 import java.util.List;
@@ -61,17 +62,17 @@ public class UserCollectModel extends FaceBaseModel {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<CollectEmotionData> m = n86.k().m(TbadkCoreApplication.getCurrentAccountForEmotion());
+                List<CollectEmotionData> q = b76.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
                 HashSet hashSet = new HashSet();
-                if (m == null) {
+                if (q == null) {
                     return;
                 }
                 JSONArray jSONArray = new JSONArray();
                 try {
-                    for (CollectEmotionData collectEmotionData : m) {
-                        if (!z35.d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                    for (CollectEmotionData collectEmotionData : q) {
+                        if (!v25.f.equals(collectEmotionData.getSharpText()) && !hashSet.contains(collectEmotionData.getSharpText())) {
                             jSONArray.put(collectEmotionData.toJSON());
-                            hashSet.add(collectEmotionData.sharpText);
+                            hashSet.add(collectEmotionData.getSharpText());
                         }
                     }
                 } catch (Exception e) {
@@ -80,13 +81,12 @@ public class UserCollectModel extends FaceBaseModel {
                 long currentTimeMillis = System.currentTimeMillis();
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
                 if (jSONArray.length() > 0) {
-                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, jm4.q(jSONArray.toString()));
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, xk4.q(jSONArray.toString()));
                 } else {
-                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
+                    httpMessage.addParam(SocialConstants.PARAM_IMAGE, "all_delete");
                 }
                 httpMessage.addParam("pic_update_time", currentTimeMillis);
                 this.a.sendMessage(httpMessage);
-                bo7.s(currentTimeMillis);
             }
         }
     }
@@ -160,7 +160,11 @@ public class UserCollectModel extends FaceBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003339 && (httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-                JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
+                try {
+                    kl7.u(((Long) ((HttpMessage) ((JsonHttpResponsedMessage) httpResponsedMessage).getOrginalMessage()).getParams().get("pic_update_time")).longValue());
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
                 new Handler().postDelayed(new a(this), 2000L);
             }
         }

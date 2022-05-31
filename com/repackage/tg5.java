@@ -1,23 +1,9 @@
 package com.repackage;
-
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class tg5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface tg5 {
+    void dispatchInjectPluginMessage(rg5 rg5Var);
 
-    public static int a(int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (i != 80) {
-                return -1;
-            }
-            return z ? R.anim.obfuscated_res_0x7f0100c5 : R.anim.obfuscated_res_0x7f0100c6;
-        }
-        return invokeCommon.intValue;
-    }
+    sg5 getInjectPlugin(int i);
+
+    void setInjectPlugin(int i, sg5 sg5Var);
 }

@@ -19,7 +19,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
 import kotlin.text.Typography;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class JsonReader implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MIN_INCOMPLETE_INTEGER = -922337203685477580L;

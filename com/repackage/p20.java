@@ -1,90 +1,91 @@
 package com.repackage;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.DeviceUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class p20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
-    public p20() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        d();
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements Comparator<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public final String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
-            int displayHeight = DeviceUtil.ScreenInfo.getDisplayHeight(context);
-            int densityDpi = DeviceUtil.ScreenInfo.getDensityDpi(context);
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(displayWidth);
-            stringBuffer.append("_");
-            stringBuffer.append(displayHeight);
-            stringBuffer.append("_");
-            stringBuffer.append("android");
-            stringBuffer.append("_");
-            stringBuffer.append(this.a);
-            stringBuffer.append("_");
-            stringBuffer.append(densityDpi);
-            return stringBuffer.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            String appVersion = i20.c().getAppVersion();
-            if (TextUtils.isEmpty(appVersion)) {
-                try {
-                    return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "0.8";
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return appVersion;
+            this.a = str;
         }
-        return (String) invokeL.objValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(JSONObject jSONObject, JSONObject jSONObject2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, jSONObject2)) == null) ? jSONObject.optString(this.a, "").compareTo(jSONObject2.optString(this.a, "")) : invokeLL.intValue;
+        }
     }
 
-    public final void d() {
+    public static JSONArray a(JSONArray jSONArray, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            this.a = c(appContext);
-            this.b = b(appContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONArray, str)) == null) {
+            if (jSONArray == null || jSONArray.length() == 0) {
+                return jSONArray;
+            }
+            int length = jSONArray.length();
+            ArrayList arrayList = new ArrayList(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    arrayList.add(optJSONObject);
+                }
+            }
+            Collections.sort(arrayList, new a(str));
+            return new JSONArray((Collection) arrayList);
         }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public static boolean b(JSONObject jSONObject, JSONObject jSONObject2, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, jSONObject2, str)) == null) ? jSONObject.optLong(str, -1L) != jSONObject2.optLong(str, -1L) : invokeLLL.booleanValue;
+    }
+
+    public static boolean c(JSONObject jSONObject, JSONObject jSONObject2, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, jSONObject2, str)) == null) {
+            String optString = jSONObject.optString(str);
+            String optString2 = jSONObject2.optString(str);
+            return !(TextUtils.isEmpty(optString) ? TextUtils.isEmpty(optString2) : optString.equals(optString2));
+        }
+        return invokeLLL.booleanValue;
     }
 }

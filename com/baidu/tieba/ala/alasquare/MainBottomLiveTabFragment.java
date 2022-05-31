@@ -150,7 +150,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && this.a.isPrimary() && this.a.e.getCount() > 0) {
                 Fragment item = this.a.e.getItem(0);
                 if (item instanceof AlaLiveTabFragment) {
-                    ((AlaLiveTabFragment) item).N0();
+                    ((AlaLiveTabFragment) item).P0();
                 }
             }
         }
@@ -238,7 +238,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         this.h = new b(this, 2001384);
     }
 
-    public final void D0() {
+    public final void F0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (UtilHelper.canUseStyleImmersiveSticky()) {
@@ -251,7 +251,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
             this.d.setAdapter(fragmentAdapter);
             c cVar = new c(this);
             cVar.a = new AlaLiveTabFragment();
-            cVar.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021e);
+            cVar.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f021f);
             this.f.add(cVar);
             this.e.b(this.f);
         }
@@ -285,12 +285,12 @@ public class MainBottomLiveTabFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0522, (ViewGroup) null);
-            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e8b);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e95);
-            this.d = (CustomViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f092412);
-            this.c = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923ff);
-            D0();
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0518, (ViewGroup) null);
+            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091e31);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091e3b);
+            this.d = (CustomViewPager) inflate.findViewById(R.id.obfuscated_res_0x7f0923b7);
+            this.c = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0923a4);
+            F0();
             return inflate;
         }
         return (View) invokeLLL.objValue;
@@ -316,7 +316,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
             Fragment item = this.e.getItem(0);
             if (item instanceof AlaLiveTabFragment) {
                 AlaLiveTabFragment alaLiveTabFragment = (AlaLiveTabFragment) item;
-                if (alaLiveTabFragment.M0()) {
+                if (alaLiveTabFragment.O0()) {
                     alaLiveTabFragment.setUserVisibleHint(true);
                 }
             }

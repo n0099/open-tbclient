@@ -1,20 +1,20 @@
 package com.repackage;
 
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.InteractiveEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class wq0 extends ir0 {
+public class wq0 extends yq0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zq0 d;
-    public fr0 e;
-    public er0 f;
-    public ar0 g;
-    public yq0 h;
+    public final ArrayList<Integer> b;
 
     public wq0() {
         Interceptable interceptable = $ic;
@@ -26,87 +26,162 @@ public class wq0 extends ir0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new ArrayList<>(13);
+        e();
     }
 
-    public void B() {
-        er0 er0Var;
+    @Override // com.repackage.yq0
+    public void c(@NonNull er0 er0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (er0Var = this.f) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, er0Var) == null) {
+            super.c(er0Var);
         }
-        er0Var.b();
     }
 
-    public void C() {
-        er0 er0Var;
+    public final boolean d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (er0Var = this.f) == null) {
-            return;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b.contains(Integer.valueOf(i)) : invokeI.booleanValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.add(904);
+            this.b.add(701);
+            this.b.add(702);
+            this.b.add(11004);
+            this.b.add(11005);
+            this.b.add(946);
+            this.b.add(924);
+            this.b.add(5000);
+            this.b.add(937);
+            this.b.add(936);
+            this.b.add(955);
+            this.b.add(956);
+            this.b.add(910);
+            this.b.add(10103);
+            this.b.add(12005);
+            this.b.add(12006);
+            this.b.add(10009);
         }
-        er0Var.a();
     }
 
-    public void D(boolean z, boolean z2) {
-        yq0 yq0Var;
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (yq0Var = this.h) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            er0 w = vq0.w(PlayerEvent.ACTION_BUFFER_UPDATE);
+            w.n(2, Integer.valueOf(i));
+            w.r(1);
+            c(w);
         }
-        yq0Var.a(z, z2);
     }
 
-    public void E(boolean z) {
-        fr0 fr0Var;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (fr0Var = this.e) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(vq0.w(PlayerEvent.ACTION_ON_COMPLETE));
         }
-        fr0Var.a(z);
     }
 
-    public void F(int i, int i2) {
-        ar0 ar0Var;
+    public boolean h(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) || (ar0Var = this.g) == null) {
-            return;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, obj)) == null) {
+            er0 w = vq0.w(PlayerEvent.ACTION_ON_ERROR);
+            w.n(1, Integer.valueOf(i));
+            w.n(2, Integer.valueOf(i2));
+            w.n(3, obj);
+            c(w);
+            return true;
         }
-        ar0Var.a(i, i2);
+        return invokeIIL.booleanValue;
     }
 
-    public void G(int i) {
-        zq0 zq0Var;
+    public boolean i(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (zq0Var = this.d) == null) {
-            return;
-        }
-        zq0Var.a(i);
-    }
-
-    @Override // com.repackage.jr0
-    public void b(rs0 rs0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rs0Var) == null) {
-            super.b(rs0Var);
-            if (InteractiveEvent.ACTION_INTERACTIVE_START.equals(rs0Var.c())) {
-                B();
-            } else if (InteractiveEvent.ACTION_INTERACTIVE_FINISH.equals(rs0Var.c())) {
-                C();
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048582, this, i, i2, obj)) == null) {
+            nw0.h("player trigger on info what:" + i);
+            if (d(i)) {
+                er0 w = vq0.w(PlayerEvent.ACTION_ON_INFO);
+                if (i == 910) {
+                    w.r(1);
+                }
+                w.n(1, Integer.valueOf(i));
+                w.n(2, Integer.valueOf(i2));
+                w.n(3, obj);
+                c(w);
+                return false;
             }
+            return false;
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    public void j(int i, int i2, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, obj) == null) {
+            er0 w = vq0.w(PlayerEvent.ACTION_MEDIA_SOURCE_CHANGED);
+            w.n(7, Integer.valueOf(i));
+            w.n(8, Integer.valueOf(i2));
+            w.n(3, obj);
+            c(w);
         }
     }
 
-    @Override // com.repackage.ir0, com.repackage.jr0
-    public void r() {
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.r();
-            this.d = null;
-            this.e = null;
-            this.g = null;
-            this.f = null;
-            this.h = null;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            c(vq0.w(PlayerEvent.ACTION_PLAYER_ATTACH));
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            c(vq0.w(PlayerEvent.ACTION_PLAYER_DETACH));
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            c(vq0.w(PlayerEvent.ACTION_ON_PREPARED));
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            c(vq0.w(PlayerEvent.ACTION_SEEK_COMPLETE));
+        }
+    }
+
+    public void o(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
+            er0 w = vq0.w(PlayerEvent.ACTION_VIDEO_SIZE_CHANGED);
+            w.n(5, Integer.valueOf(i));
+            w.n(6, Integer.valueOf(i2));
+            c(w);
+        }
+    }
+
+    public void p(String str, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            er0 w = vq0.w(PlayerEvent.ACTION_SET_DATA_SOURCE);
+            zu0 zu0Var = new zu0();
+            zu0Var.a = str;
+            zu0Var.c = z;
+            zu0Var.d = i;
+            w.n(3, zu0Var);
+            w.s(1);
+            c(w);
         }
     }
 }

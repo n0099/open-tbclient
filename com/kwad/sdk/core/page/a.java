@@ -61,10 +61,10 @@ public class a extends com.kwad.sdk.h.b implements p.b {
     @Override // com.kwad.sdk.h.b, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d040b);
+        setContentView(R.layout.obfuscated_res_0x7f0d0401);
         a(getIntent());
-        this.a = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910cc);
-        e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910d0));
+        this.a = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09108e);
+        e eVar = new e((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09108f));
         this.b = eVar;
         eVar.a(this.c, this.a, this.d);
         this.b.a(this);

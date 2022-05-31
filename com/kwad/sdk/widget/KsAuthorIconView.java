@@ -98,15 +98,15 @@ public class KsAuthorIconView extends FrameLayout {
     }
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0414, this);
-        this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091049);
-        this.c = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091048);
-        this.b = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09104a);
-        this.d = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091044);
-        this.e = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091045);
-        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09108d);
-        this.g = findViewById(R.id.obfuscated_res_0x7f091047);
-        this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091046);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d040a, this);
+        this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09100b);
+        this.c = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09100a);
+        this.b = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f09100c);
+        this.d = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091006);
+        this.e = (KSCornerImageView) findViewById(R.id.obfuscated_res_0x7f091007);
+        this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09104f);
+        this.g = findViewById(R.id.obfuscated_res_0x7f091009);
+        this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f091008);
     }
 
     private void a(c cVar, Drawable drawable) {
@@ -172,10 +172,10 @@ public class KsAuthorIconView extends FrameLayout {
         w.a(cVar, this);
         if (z) {
             imageView = this.h;
-            i = R.drawable.obfuscated_res_0x7f080cb2;
+            i = R.drawable.obfuscated_res_0x7f080cc3;
         } else {
             imageView = this.h;
-            i = R.drawable.obfuscated_res_0x7f080cb3;
+            i = R.drawable.obfuscated_res_0x7f080cc4;
         }
         imageView.setImageResource(i);
         a(cVar, this.d.getBackground());

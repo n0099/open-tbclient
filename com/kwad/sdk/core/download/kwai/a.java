@@ -31,8 +31,8 @@ public class a extends KSFrameLayout {
     }
 
     private void a(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d041a, this);
-        this.b = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09113a);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0410, this);
+        this.b = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910fc);
     }
 
     private d d() {

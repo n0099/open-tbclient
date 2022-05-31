@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.er9;
-import com.repackage.ro9;
-/* loaded from: classes8.dex */
+import com.repackage.ll9;
+import com.repackage.yn9;
+/* loaded from: classes7.dex */
 public class PBMediaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public er9 a;
+    public yn9 a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PBMediaView(Context context) {
@@ -79,22 +79,22 @@ public class PBMediaView extends FrameLayout {
                 return;
             }
         }
-        this.a = new er9(context);
+        this.a = new yn9(context);
         addView(this.a.c, new FrameLayout.LayoutParams(-1, -1));
         try {
             ImageView imageView = new ImageView(context);
-            int b = ro9.b(context, 15);
+            int b = ll9.b(context, 15);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b, b);
             layoutParams.gravity = 3;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08127b);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f08128c);
             addView(imageView, layoutParams);
         } catch (Exception unused) {
         }
     }
 
-    public er9 getHtmlWebView() {
+    public yn9 getHtmlWebView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (er9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (yn9) invokeV.objValue;
     }
 }

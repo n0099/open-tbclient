@@ -1,50 +1,74 @@
 package com.repackage;
 
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import android.content.Context;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tbadk.editortools.emotiontool.EmotionNoLaunchView;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j05 {
+public class j05 extends e05 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int t;
+    public static final int u;
+    public static final int v;
     public transient /* synthetic */ FieldHolder $fh;
-    public TiePlusStat.StatType a;
-    public TiePlusStat.RichTextType b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
 
-    public j05(TiePlusStat.StatType statType, TiePlusStat.RichTextType richTextType, String str, String str2, String str3) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755642462, "Lcom/repackage/j05;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755642462, "Lcom/repackage/j05;");
+                return;
+            }
+        }
+        t = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        u = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
+        v = li.f(TbadkCoreApplication.getInst(), R.dimen.tbds68);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j05(Context context) {
+        super(context, (String) null, 37);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {statType, richTextType, str, str2, str3};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = statType;
-        this.b = richTextType;
-        this.c = str;
-        this.d = str2;
-        this.f = str3;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "TiePlusStaticData{statType=" + this.a + ", richTextType=" + this.b + ", tid='" + this.c + "', orderId='" + this.d + "', hasDownload=" + this.e + ", packageName='" + this.f + "'}";
-        }
-        return (String) invokeV.objValue;
+        this.o = true;
+        this.n = 8;
+        this.m = new EmotionNoLaunchView(context);
+        int i3 = v;
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(t + i3, i3 + (u * 2));
+        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
+        ((View) this.m).setLayoutParams(layoutParams);
+        int i4 = t;
+        int i5 = u;
+        ((View) this.m).setPadding(i4, i5, 0, i5);
+        this.p = new int[]{1, 5};
     }
 }

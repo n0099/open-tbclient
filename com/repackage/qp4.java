@@ -1,15 +1,17 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.HotTopicBussinessData;
+import android.app.Application;
+import androidx.lifecycle.Lifecycle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class qp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Application a;
+    public Lifecycle.Event b;
 
     public qp4() {
         Interceptable interceptable = $ic;
@@ -22,12 +24,6 @@ public class qp4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public void a(List<HotTopicBussinessData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
         }
     }
 }

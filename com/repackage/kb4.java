@@ -1,6 +1,6 @@
 package com.repackage;
 
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,78 +9,94 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kb4 extends y94<qb4> {
+public class kb4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile kb4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public n84 d;
-    @Nullable
-    public n84 e;
+    public final int a;
+    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kb4(n84 n84Var, yb4 yb4Var, @Nullable n84 n84Var2, @Nullable n84 n84Var3) {
-        super(n84Var, yb4Var);
+    public kb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {n84Var, yb4Var, n84Var2, n84Var3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((n84) objArr2[0], (yb4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = n84Var2;
-        this.e = n84Var3;
+        this.b = 0;
+        this.a = q64.b().i().getInt("max_emit_app_close_num", 1);
     }
 
-    @Override // com.repackage.y94
-    public String h() {
+    public static kb4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updatecore" : (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: v */
-    public boolean f(qb4 qb4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, qb4Var)) == null) ? qb4Var != null : invokeL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: w */
-    public m94 t(qb4 qb4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qb4Var)) == null) {
-            this.a.F();
-            td4.e(this.b.a(), qb4Var.a);
-            n84 n84Var = this.a;
-            if (n84Var == this.d || n84Var == this.e) {
-                n84Var = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (kb4.class) {
+                    if (c == null) {
+                        c = new kb4();
+                    }
+                }
             }
-            fc4.c(qb4Var.b, n84Var, this.d, this.e);
-            return null;
+            return c;
         }
-        return (m94) invokeL.objValue;
+        return (kb4) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.y94
-    /* renamed from: x */
-    public qb4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) ? zd4.q(jSONObject) : (qb4) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || c == null) {
+            return;
+        }
+        c = null;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? q64.b().i().getString("simple_control_item_version", "0") : (String) invokeV.objValue;
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b++;
+            }
+        }
+    }
+
+    public synchronized boolean d() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = this.b < this.a;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
+        q64.b().i().putString("simple_control_item_version", optString);
+        q64.b().i().putInt("max_emit_app_close_num", optInt);
     }
 }

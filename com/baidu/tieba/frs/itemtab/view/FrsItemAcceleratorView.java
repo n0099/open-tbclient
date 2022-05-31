@@ -21,10 +21,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.di8;
-import com.repackage.gs4;
-import com.repackage.ki;
-import com.repackage.mi;
+import com.repackage.ef8;
+import com.repackage.ji;
+import com.repackage.li;
+import com.repackage.wq4;
 /* loaded from: classes3.dex */
 public class FrsItemAcceleratorView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -69,7 +69,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && !ki.z()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && !ji.z()) {
                 this.a.b();
                 TbSingleton.getInstance().acceleratorItemId = -1L;
                 TbSingleton.getInstance().acceleratorData = null;
@@ -120,20 +120,20 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (StringUtils.isNull(this.g)) {
-                gs4 d = gs4.d(this.c);
+                wq4 d = wq4.d(this.c);
                 d.n(R.string.J_X07);
                 d.f(R.color.CAM_X0303);
             } else {
-                gs4 d2 = gs4.d(this.c);
+                wq4 d2 = wq4.d(this.c);
                 d2.n(R.string.J_X07);
-                d2.g(di8.e(this.g));
+                d2.g(ef8.e(this.g));
             }
-            gs4.d(this.d).x(R.color.CAM_X0101);
-            gs4.d(this.e).f(R.color.CAM_X0617);
-            gs4 d3 = gs4.d(this);
+            wq4.d(this.d).x(R.color.CAM_X0101);
+            wq4.d(this.e).f(R.color.CAM_X0617);
+            wq4 d3 = wq4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
-            gs4.d(this.b).v(R.color.CAM_X0105);
+            wq4.d(this.b).v(R.color.CAM_X0105);
         }
     }
 
@@ -153,9 +153,9 @@ public class FrsItemAcceleratorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b = new TextView(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(mi.f(getContext(), R.dimen.M_W_X004), 0, 0, 0);
+            layoutParams.setMargins(li.f(getContext(), R.dimen.M_W_X004), 0, 0, 0);
             this.b.setLayoutParams(layoutParams);
-            gs4.d(this.b).z(R.dimen.T_X07);
+            wq4.d(this.b).z(R.dimen.T_X07);
             this.b.setText(R.string.obfuscated_res_0x7f0f005d);
             addView(this.b);
         }
@@ -166,7 +166,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = new ImageView(getContext());
             this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f08084d, null);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080850, null);
             addView(this.a);
         }
     }
@@ -175,24 +175,24 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.c = new LinearLayout(getContext());
-            this.c.setLayoutParams(new LinearLayout.LayoutParams(-2, mi.f(getContext(), R.dimen.tbds75)));
+            this.c.setLayoutParams(new LinearLayout.LayoutParams(-2, li.f(getContext(), R.dimen.tbds75)));
             this.c.setOrientation(0);
             this.c.setGravity(16);
             addView(this.c);
             this.d = new TextView(getContext());
             this.d.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             this.d.setGravity(16);
-            this.d.setPadding(mi.f(getContext(), R.dimen.M_W_X006), 0, mi.f(getContext(), R.dimen.M_W_X005), 0);
-            gs4.d(this.d).z(R.dimen.T_X08);
+            this.d.setPadding(li.f(getContext(), R.dimen.M_W_X006), 0, li.f(getContext(), R.dimen.M_W_X005), 0);
+            wq4.d(this.d).z(R.dimen.T_X08);
             this.d.setText(R.string.obfuscated_res_0x7f0f0058);
             this.c.addView(this.d);
             this.e = new View(getContext());
-            this.e.setLayoutParams(new LinearLayout.LayoutParams(mi.f(getContext(), R.dimen.tbds3), mi.f(getContext(), R.dimen.tbds29)));
+            this.e.setLayoutParams(new LinearLayout.LayoutParams(li.f(getContext(), R.dimen.tbds3), li.f(getContext(), R.dimen.tbds29)));
             this.c.addView(this.e);
             this.f = new ImageView(getContext());
             this.f.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-            this.f.setPadding(mi.f(getContext(), R.dimen.M_W_X005), 0, mi.f(getContext(), R.dimen.M_W_X006), 0);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809ed, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            this.f.setPadding(li.f(getContext(), R.dimen.M_W_X005), 0, li.f(getContext(), R.dimen.M_W_X006), 0);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809f9, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.c.addView(this.f);
         }
     }
@@ -212,11 +212,11 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             setOrientation(0);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, mi.f(getContext(), R.dimen.tbds146));
-            layoutParams.setMargins(0, mi.f(getContext(), R.dimen.M_H_X003), 0, 0);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, li.f(getContext(), R.dimen.tbds146));
+            layoutParams.setMargins(0, li.f(getContext(), R.dimen.M_H_X003), 0, 0);
             setLayoutParams(layoutParams);
             setGravity(16);
-            setPadding(mi.f(getContext(), R.dimen.M_W_X005), 0, mi.f(getContext(), R.dimen.M_W_X005), 0);
+            setPadding(li.f(getContext(), R.dimen.M_W_X005), 0, li.f(getContext(), R.dimen.M_W_X005), 0);
         }
     }
 
@@ -226,7 +226,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onAttachedToWindow();
             MessageManager.getInstance().registerListener(this.h);
-            if (ki.z()) {
+            if (ji.z()) {
                 return;
             }
             b();

@@ -32,7 +32,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
     public ComplianceTextView g;
     public DownloadProgressView h;
     public com.kwad.sdk.reflux.b i;
-    public a.InterfaceC0322a j;
+    public a.InterfaceC0323a j;
 
     public a(@NonNull Context context) {
         super(context);
@@ -54,7 +54,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
             return;
         }
         final AdTemplate c = bVar.c();
-        com.kwad.sdk.core.download.a.a.a(new a.C0295a(bb.a(this)).a(c).a(this.i.n()).a(i).a(z).a(new a.b() { // from class: com.kwad.sdk.reflux.kwai.a.1
+        com.kwad.sdk.core.download.a.a.a(new a.C0296a(bb.a(this)).a(c).a(this.i.n()).a(i).a(z).a(new a.b() { // from class: com.kwad.sdk.reflux.kwai.a.1
             @Override // com.kwad.sdk.core.download.a.a.b
             public void a() {
                 a.this.a(c);
@@ -79,9 +79,9 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
             aVar.z = bVar.j();
         }
         com.kwad.sdk.core.report.a.a(adTemplate, aVar, (JSONObject) null);
-        a.InterfaceC0322a interfaceC0322a = this.j;
-        if (interfaceC0322a != null) {
-            interfaceC0322a.a();
+        a.InterfaceC0323a interfaceC0323a = this.j;
+        if (interfaceC0323a != null) {
+            interfaceC0323a.a();
         }
     }
 
@@ -128,14 +128,14 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
     }
 
     public void c() {
-        a.InterfaceC0322a interfaceC0322a;
+        a.InterfaceC0323a interfaceC0323a;
         com.kwad.sdk.reflux.b bVar = this.i;
         if (bVar == null) {
             return;
         }
         AdTemplate c = bVar.c();
-        if (!c.mPvReported && (interfaceC0322a = this.j) != null) {
-            interfaceC0322a.b();
+        if (!c.mPvReported && (interfaceC0323a = this.j) != null) {
+            interfaceC0323a.b();
         }
         p.a aVar = new p.a();
         com.kwad.sdk.reflux.b bVar2 = this.i;
@@ -154,7 +154,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         }
     }
 
-    public void setAdClickListener(a.InterfaceC0322a interfaceC0322a) {
-        this.j = interfaceC0322a;
+    public void setAdClickListener(a.InterfaceC0323a interfaceC0323a) {
+        this.j = interfaceC0323a;
     }
 }

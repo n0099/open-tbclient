@@ -1,6 +1,7 @@
 package com.ss.android.a;
 
 import android.support.v4.media.session.PlaybackStateCompat;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -145,7 +146,7 @@ public class c {
                 }
                 a2 = a(messageDigest.digest());
                 if (i2 == 1 || j2 != a3) {
-                    String str = a(i2, j2) + ";" + a2;
+                    String str = a(i2, j2) + ParamableElem.DIVIDE_PARAM + a2;
                     bVar.b();
                     return str;
                 }
@@ -163,7 +164,7 @@ public class c {
             a2 = a(messageDigest.digest());
             if (i2 == 1) {
             }
-            String str2 = a(i2, j2) + ";" + a2;
+            String str2 = a(i2, j2) + ParamableElem.DIVIDE_PARAM + a2;
             bVar.b();
             return str2;
         } finally {
@@ -213,7 +214,7 @@ public class c {
 
     public static a a(String str) throws Exception {
         if (str.startsWith("ttmd5:")) {
-            String[] split = str.split(";");
+            String[] split = str.split(ParamableElem.DIVIDE_PARAM);
             String[] split2 = split[0].split(":");
             a aVar = new a();
             aVar.a = Integer.parseInt(split2[1]);

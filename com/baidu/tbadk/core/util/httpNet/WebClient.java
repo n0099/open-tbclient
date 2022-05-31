@@ -4,7 +4,8 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.common.BasicNameValuePair;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.switchs.UseHttpAutoRetrySwitch;
@@ -16,18 +17,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
-import com.repackage.eg;
-import com.repackage.iu4;
-import com.repackage.mf;
+import com.repackage.dg;
+import com.repackage.lf;
+import com.repackage.nf;
 import com.repackage.of;
 import com.repackage.pf;
-import com.repackage.rf;
+import com.repackage.qf;
+import com.repackage.ys4;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @SuppressLint({"DefaultLocale"})
 /* loaded from: classes3.dex */
-public class WebClient implements eg.a {
+public class WebClient implements dg.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGEGIF = "image/gif";
     public static final String IMAGESECRET = "app:tiebaclient;type:0;";
@@ -45,12 +47,12 @@ public class WebClient implements eg.a {
     public boolean isCrackPic;
     public boolean isGif;
     public boolean isGzip;
-    public volatile mf mBdHttpManager2;
-    public pf mContext;
+    public volatile lf mBdHttpManager2;
+    public of mContext;
     public boolean mIsRequestSuccess;
     public HashMap<String, String> mPostList;
-    public rf mResponse;
-    public of mStat;
+    public qf mResponse;
+    public nf mStat;
     public boolean needCache;
     public int responseCode;
 
@@ -84,7 +86,7 @@ public class WebClient implements eg.a {
         }
         this.mBdHttpManager2 = null;
         this.mPostList = null;
-        this.mResponse = new rf();
+        this.mResponse = new qf();
         this.isGzip = false;
         this.isGif = false;
         this.exception = "";
@@ -107,27 +109,27 @@ public class WebClient implements eg.a {
                 stringBuffer.append("thread_id:");
                 stringBuffer.append(Thread.currentThread().getId());
                 for (int i = 0; i < this.mContext.d().size(); i++) {
-                    of ofVar = this.mContext.d().get(i);
+                    nf nfVar = this.mContext.d().get(i);
                     stringBuffer.append(" index: ");
                     stringBuffer.append(i);
                     stringBuffer.append("exception:");
-                    stringBuffer.append(ofVar.h);
+                    stringBuffer.append(nfVar.h);
                     stringBuffer.append("retry:");
-                    stringBuffer.append(ofVar.e);
+                    stringBuffer.append(nfVar.e);
                     stringBuffer.append("connectTime:");
-                    stringBuffer.append(ofVar.c);
+                    stringBuffer.append(nfVar.c);
                     stringBuffer.append("downloadSize:");
-                    stringBuffer.append(ofVar.b);
+                    stringBuffer.append(nfVar.b);
                     stringBuffer.append("rspTime:");
-                    stringBuffer.append(ofVar.d);
+                    stringBuffer.append(nfVar.d);
                     stringBuffer.append("dnsTime:");
-                    stringBuffer.append(ofVar.g);
+                    stringBuffer.append(nfVar.g);
                     stringBuffer.append("responsedCode:");
-                    stringBuffer.append(ofVar.i);
+                    stringBuffer.append(nfVar.i);
                     stringBuffer.append("allCostTime:");
-                    stringBuffer.append(ofVar.f);
+                    stringBuffer.append(nfVar.f);
                     stringBuffer.append("executeStatus:");
-                    stringBuffer.append(ofVar.j);
+                    stringBuffer.append(nfVar.j);
                 }
                 if (exc != null) {
                     stringBuffer.append("webclient exception");
@@ -177,18 +179,20 @@ public class WebClient implements eg.a {
                         cancel();
                         this.mBdHttpManager2 = null;
                     }
-                    pf pfVar = new pf();
-                    this.mContext = pfVar;
-                    pfVar.b().v(str);
+                    of ofVar = new of();
+                    this.mContext = ofVar;
+                    ofVar.b().v(str);
                     this.mContext.b().p(UseHttpAutoRetrySwitch.isOn());
+                    pf b = this.mContext.b();
+                    b.a("User-Agent", "tieba image flow version : " + TbConfig.getVersion() + " cuid : " + TbadkCoreApplication.getInst().getCuidGalaxy2());
                     if (this.mPostList != null) {
                         for (Map.Entry<String, String> entry : this.mPostList.entrySet()) {
                             this.mContext.b().b(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.mBdHttpManager2 = new mf(this.mContext);
+                    this.mBdHttpManager2 = new lf(this.mContext);
                     this.mBdHttpManager2.d(RETRYCOUNT, 0, 0);
-                    rf c = this.mContext.c();
+                    qf c = this.mContext.c();
                     this.mResponse = c;
                     if (c != null && c.h != null && (list = c.h.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
                         this.needCache = !"no-cache".equals(list.get(0));
@@ -208,57 +212,57 @@ public class WebClient implements eg.a {
                     if (!this.mIsRequestSuccess) {
                         buildException(str, null);
                     }
-                    of a = this.mContext.a();
+                    nf a = this.mContext.a();
                     this.mStat = a;
                     if (a != null) {
                         StringBuilder sb = new StringBuilder();
-                        of ofVar = this.mStat;
-                        sb.append(ofVar.h);
+                        nf nfVar = this.mStat;
+                        sb.append(nfVar.h);
                         sb.append(stringBuffer.toString());
-                        ofVar.h = sb.toString();
+                        nfVar.h = sb.toString();
                         StringBuilder sb2 = new StringBuilder();
-                        of ofVar2 = this.mStat;
-                        sb2.append(ofVar2.h);
+                        nf nfVar2 = this.mStat;
+                        sb2.append(nfVar2.h);
                         sb2.append("_responseCode:");
                         sb2.append(this.responseCode);
-                        ofVar2.h = sb2.toString();
+                        nfVar2.h = sb2.toString();
                     }
                     return bArr;
                 } catch (Exception e) {
                     stringBuffer.append("httpmanagererr_" + e.getClass() + "_" + e.getMessage());
-                    of a2 = this.mContext.a();
+                    nf a2 = this.mContext.a();
                     this.mStat = a2;
                     if (a2 != null) {
                         StringBuilder sb3 = new StringBuilder();
-                        of ofVar3 = this.mStat;
-                        sb3.append(ofVar3.h);
+                        nf nfVar3 = this.mStat;
+                        sb3.append(nfVar3.h);
                         sb3.append(stringBuffer.toString());
-                        ofVar3.h = sb3.toString();
+                        nfVar3.h = sb3.toString();
                         StringBuilder sb4 = new StringBuilder();
-                        of ofVar4 = this.mStat;
-                        sb4.append(ofVar4.h);
+                        nf nfVar4 = this.mStat;
+                        sb4.append(nfVar4.h);
                         sb4.append("_responseCode:");
                         sb4.append(this.responseCode);
-                        ofVar4.h = sb4.toString();
+                        nfVar4.h = sb4.toString();
                         return null;
                     }
                     return null;
                 }
             } catch (Throwable th) {
-                of a3 = this.mContext.a();
+                nf a3 = this.mContext.a();
                 this.mStat = a3;
                 if (a3 != null) {
                     StringBuilder sb5 = new StringBuilder();
-                    of ofVar5 = this.mStat;
-                    sb5.append(ofVar5.h);
+                    nf nfVar5 = this.mStat;
+                    sb5.append(nfVar5.h);
                     sb5.append(stringBuffer.toString());
-                    ofVar5.h = sb5.toString();
+                    nfVar5.h = sb5.toString();
                     StringBuilder sb6 = new StringBuilder();
-                    of ofVar6 = this.mStat;
-                    sb6.append(ofVar6.h);
+                    nf nfVar6 = this.mStat;
+                    sb6.append(nfVar6.h);
                     sb6.append("_responseCode:");
                     sb6.append(this.responseCode);
-                    ofVar6.h = sb6.toString();
+                    nfVar6.h = sb6.toString();
                 }
                 throw th;
             }
@@ -290,21 +294,10 @@ public class WebClient implements eg.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mIsRequestSuccess : invokeV.booleanValue;
     }
 
-    public void addPostParameter(BasicNameValuePair basicNameValuePair) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, basicNameValuePair) == null) || basicNameValuePair == null) {
-            return;
-        }
-        if (this.mPostList == null) {
-            this.mPostList = new HashMap<>();
-        }
-        this.mPostList.put(basicNameValuePair.getName(), basicNameValuePair.getValue());
-    }
-
-    @Override // com.repackage.eg.a
+    @Override // com.repackage.dg.a
     public void cancel() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.mBdHttpManager2 == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.mBdHttpManager2 == null) {
             return;
         }
         this.mBdHttpManager2.b();
@@ -313,39 +306,25 @@ public class WebClient implements eg.a {
     public byte[] downloadCommonBytes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? downloadBytesInternal(str) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? downloadBytesInternal(str) : (byte[]) invokeL.objValue;
     }
 
     public byte[] downloadImageBytes(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? downloadImageBytes(str, false) : (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? downloadImageBytes(str, false) : (byte[]) invokeL.objValue;
     }
 
-    public String downloadString(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            byte[] downloadBytesInternal = downloadBytesInternal(str);
-            try {
-                return new String(downloadBytesInternal, 0, downloadBytesInternal.length, this.mContext.c().d);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public rf getResponse() {
+    public qf getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mResponse : (rf) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mResponse : (qf) invokeV.objValue;
     }
 
     public boolean isMobileProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -354,8 +333,8 @@ public class WebClient implements eg.a {
     public boolean needCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (iu4.k().l("image_no_cache_switch", 0) == 1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (ys4.k().l("image_no_cache_switch", 0) == 1) {
                 return this.needCache;
             }
             return true;
@@ -365,7 +344,7 @@ public class WebClient implements eg.a {
 
     public void resetStatus() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.mStat = null;
             this.exception = "";
             this.mIsRequestSuccess = false;
@@ -381,7 +360,7 @@ public class WebClient implements eg.a {
         boolean z2;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
             this.needCache = true;
             try {
                 byte[] downloadBytesInternal = downloadBytesInternal(str);
@@ -433,15 +412,5 @@ public class WebClient implements eg.a {
             }
         }
         return (byte[]) invokeLZ.objValue;
-    }
-
-    public void addPostParameter(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            if (this.mPostList == null) {
-                this.mPostList = new HashMap<>();
-            }
-            this.mPostList.put(str, str2);
-        }
     }
 }

@@ -1,187 +1,96 @@
 package com.repackage;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kl2;
-import java.util.Map;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ll2 extends uw2 {
+public class ll2 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, nf3<Bundle>> h;
+    public static volatile ll2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
-    public String g;
-
-    /* loaded from: classes6.dex */
-    public class a implements nf3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ll2 b;
-
-        public a(ll2 ll2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ll2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ll2Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                this.b.g = bundle.getString("key_launch_app_id");
-                this.b.f = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, this.b.g)) {
-                    ll2 ll2Var = this.b;
-                    ll2Var.d.putInt("ok", ll2Var.f);
-                    this.b.c();
-                }
-                ll2.h.remove(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements nf3<Bundle> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ kl2.e b;
-
-        public b(String str, kl2.e eVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, eVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = eVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-                String string = bundle.getString("key_launch_app_id");
-                int i = bundle.getInt("key_launch_status");
-                if (TextUtils.equals(this.a, string)) {
-                    if (i == 0) {
-                        this.b.b();
-                    } else {
-                        this.b.a();
-                    }
-                }
-                ll2.h.remove(this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755525313, "Lcom/repackage/ll2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755525313, "Lcom/repackage/ll2;");
-                return;
-            }
-        }
-        boolean z = eh1.a;
-        h = new af4();
-    }
+    public final y73 a;
 
     public ll2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = -1;
-        this.g = "";
-    }
-
-    public static void j(String str, kl2.e eVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, eVar) == null) || TextUtils.isEmpty(str) || eVar == null) {
-            return;
+        this.a = new y73("swan_local_ab_data");
+        if (ProcessUtils.isMainProcess()) {
+            this.a.clear();
         }
-        h.put(str, new b(str, eVar));
+        c();
     }
 
-    public static void k(String str) {
-        nf3<Bundle> nf3Var;
+    public static ll2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65544, null, str) == null) || (nf3Var = h.get(str)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ll2.class) {
+                    if (b == null) {
+                        b = new ll2();
+                    }
+                }
+            }
+            return b;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("key_launch_app_id", str);
-        bundle.putInt("key_launch_status", 1);
-        nf3Var.onCallback(bundle);
+        return (ll2) invokeV.objValue;
     }
 
-    public static void l(String str) {
-        nf3<Bundle> nf3Var;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, str) == null) || (nf3Var = h.get(str)) == null) {
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putString("key_launch_app_id", str);
-        bundle.putInt("key_launch_status", 0);
-        nf3Var.onCallback(bundle);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("sids", "") : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.uw2
-    public void b(@NonNull Bundle bundle) {
+    public final void c() {
+        Object e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            String string = bundle.getString("desAppId");
-            h.put(string, new a(this, string));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
+            List<ml2> c = new kl2().c();
+            for (ml2 ml2Var : c) {
+                nl2 b2 = ml2Var.b();
+                ol2 c2 = ml2Var.c();
+                if (b2 == null) {
+                    e = c2.d();
+                } else {
+                    e = b2.e();
+                }
+                if (e instanceof Boolean) {
+                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
+                } else if (e instanceof Double) {
+                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
+                } else if (e instanceof Integer) {
+                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
+                } else if (e instanceof Long) {
+                    this.a.writeLong(c2.e(), ((Long) e).longValue());
+                } else if (e instanceof String) {
+                    this.a.writeString(c2.e(), (String) e);
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (ml2 ml2Var2 : c) {
+                nl2 b3 = ml2Var2.b();
+                if (b3 != null) {
+                    sb.append(b3.d());
+                    sb.append("-");
+                }
+            }
+            this.a.writeString("sids", sb.length() == 0 ? "" : sb.substring(0, sb.length() - 1));
         }
     }
 }

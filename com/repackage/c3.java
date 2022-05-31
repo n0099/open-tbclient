@@ -430,7 +430,7 @@ public class c3 extends x0 implements p2 {
     }
 
     @Override // com.repackage.p2
-    public void a0() {
+    public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             g();
@@ -582,10 +582,21 @@ public class c3 extends x0 implements p2 {
         }
     }
 
-    @Override // com.repackage.p2
-    public void h0() {
+    public final float[] i(float[] fArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fArr)) == null) {
+            float[] fArr2 = new float[fArr.length + 2];
+            System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
+            return fArr2;
+        }
+        return (float[]) invokeL.objValue;
+    }
+
+    @Override // com.repackage.p2
+    public void i0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             synchronized (this) {
                 if (this.F) {
                     this.F = false;
@@ -661,17 +672,6 @@ public class c3 extends x0 implements p2 {
                 this.j.clear();
             }
         }
-    }
-
-    public final float[] i(float[] fArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fArr)) == null) {
-            float[] fArr2 = new float[fArr.length + 2];
-            System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
-            return fArr2;
-        }
-        return (float[]) invokeL.objValue;
     }
 
     public final int[] j(int[] iArr) {

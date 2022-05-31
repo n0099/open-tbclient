@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.af7;
+import com.repackage.oc7;
 /* loaded from: classes3.dex */
 public class AlaShareInBarModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -71,7 +71,7 @@ public class AlaShareInBarModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(int i, String str, af7 af7Var);
+        void a(int i, String str, oc7 oc7Var);
     }
 
     public AlaShareInBarModel() {

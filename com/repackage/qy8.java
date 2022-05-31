@@ -1,7 +1,5 @@
 package com.repackage;
-
-import com.baidu.tbadk.album.MediaFileInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface qy8 {
-    void a(int i, MediaFileInfo mediaFileInfo);
+    void onMixStateChanged(int i);
 }

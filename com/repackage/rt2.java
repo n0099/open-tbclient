@@ -1,13 +1,14 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.AnyThread;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.pay.panel.PaymentPanelManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,178 +16,157 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class rt2 extends ft2 {
+public class rt2 implements lk2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755338879, "Lcom/repackage/rt2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755338879, "Lcom/repackage/rt2;");
-                return;
-            }
-        }
-        f = eh1.a;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rt2(@NonNull vo1 vo1Var) {
-        super(vo1Var);
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final rt2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-31208701, "Lcom/repackage/rt2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-31208701, "Lcom/repackage/rt2$b;");
+                    return;
+                }
+            }
+            a = new rt2(null);
+        }
+    }
+
+    public /* synthetic */ rt2(a aVar) {
+        this();
+    }
+
+    public static rt2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (rt2) invokeV.objValue;
+    }
+
+    @Nullable
+    @UiThread
+    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeCommon;
+        ViewGroup.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
+            View d = d(i);
+            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
+                if (layoutParams2 == null) {
+                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
+                } else {
+                    layoutParams2.width = layoutParams.width;
+                    layoutParams2.height = layoutParams.height;
+                }
+                d.setLayoutParams(layoutParams2);
+            }
+            if (d == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                View inflate = LayoutInflater.from(oi2.c()).inflate(i, viewGroup, z);
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (lk2.a) {
+                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                }
+                return inflate;
+            }
+            return d;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @AnyThread
+    public void c(@LayoutRes int... iArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) || iArr == null || iArr.length == 0) {
+            return;
+        }
+        try {
+            long currentTimeMillis = System.currentTimeMillis();
+            int length = iArr.length;
+            LayoutInflater from = LayoutInflater.from(oi2.c());
+            for (int i : iArr) {
+                View inflate = from.inflate(i, (ViewGroup) null);
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                if (copyOnWriteArrayList == null) {
+                    copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+                }
+                copyOnWriteArrayList.add(inflate);
+                this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
+            }
+            if (lk2.a) {
+                long currentTimeMillis2 = System.currentTimeMillis();
+                Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+            }
+        } catch (Exception e) {
+            if (lk2.a) {
+                Log.d("SwanPerformance", Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    @Nullable
+    @AnyThread
+    public View d(@LayoutRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            View view2 = null;
+            try {
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
+                    view2 = copyOnWriteArrayList.remove(0);
+                }
+            } catch (Exception e) {
+                if (lk2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
+                }
+            }
+            if (lk2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("tryObtainLayoutByResId resId = ");
+                sb.append(i);
+                sb.append(view2 == null ? " cache view is null" : " adopt cached view");
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return view2;
+        }
+        return (View) invokeI.objValue;
+    }
+
+    public rt2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vo1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vo1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.repackage.xo1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentPanelApi" : (String) invokeV.objValue;
-    }
-
-    public us1 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#chooseCoupon", false);
-            u03 a0 = u03.a0();
-            if (a0 == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new us1(1001, "swan app is null");
-            }
-            SwanAppActivity x = a0.x();
-            if (x == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan activity is null");
-                }
-                return new us1(1001, "swan activity is null");
-            }
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new us1(202, "cb is empty");
-                }
-                String optString2 = jSONObject.optString("componentId");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new us1(202, "empty componentId");
-                }
-                String optString3 = jSONObject.optString("appKey");
-                if (TextUtils.isEmpty(optString3)) {
-                    return new us1(202, "empty appKey");
-                }
-                String optString4 = jSONObject.optString("totalAmount");
-                if (TextUtils.isEmpty(optString4)) {
-                    return new us1(202, "empty totalAmount");
-                }
-                PaymentPanelManager.z().s(this, x, optString2, optString3, optString4, optString);
-                return us1.f();
-            }
-            return us1Var;
-        }
-        return (us1) invokeL.objValue;
-    }
-
-    public us1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#getPaymentInfo", false);
-            if (u03.a0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: null swan runtime");
-                }
-                return new us1(1001, "swan app is null");
-            }
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new us1(202, "cb is empty");
-                }
-                String optString2 = jSONObject.optString("componentId");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new us1(202, "empty componentId");
-                }
-                String optString3 = jSONObject.optString("dealId");
-                if (TextUtils.isEmpty(optString3)) {
-                    return new us1(202, "empty dealId");
-                }
-                String optString4 = jSONObject.optString("appKey");
-                if (TextUtils.isEmpty(optString4)) {
-                    return new us1(202, "empty appKey");
-                }
-                String optString5 = jSONObject.optString("totalAmount");
-                if (TextUtils.isEmpty(optString5)) {
-                    return new us1(202, "empty totalAmount");
-                }
-                PaymentPanelManager.z().C(this, optString2, optString3, optString4, optString5, optString);
-                return us1.f();
-            }
-            return us1Var;
-        }
-        return (us1) invokeL.objValue;
-    }
-
-    public us1 z(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#setPaymentInfo", false);
-            if (u03.a0() == null) {
-                if (f) {
-                    Log.e("PaymentPanelApi", "failed: swan app is null");
-                }
-                return new us1(1001, "swan app is null");
-            }
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new us1(202, "cb is empty");
-                }
-                String optString2 = jSONObject.optString("componentId");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new us1(202, "empty componentId");
-                }
-                String optString3 = jSONObject.optString(PolyActivity.CHOSEN_CHANNEL_KEY);
-                if (TextUtils.isEmpty(optString3)) {
-                    return new us1(202, "empty chosenChannel");
-                }
-                PaymentPanelManager.z().J(this, optString2, optString3, optString);
-                return us1.f();
-            }
-            return us1Var;
-        }
-        return (us1) invokeL.objValue;
+        this.c = new ConcurrentHashMap<>();
     }
 }

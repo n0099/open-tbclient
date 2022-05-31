@@ -205,7 +205,7 @@ public class LaunchTaskSchedule {
         }
         for (LaunchTask launchTask : taskList) {
             if ((launchTask.getProcess() & this.mProcessType) != 0) {
-                new Thread(launchTask).start();
+                AsyncTaskAssistant.executeOnThreadPool(launchTask, launchTask.getName());
             }
         }
     }

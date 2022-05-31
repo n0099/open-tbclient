@@ -1,41 +1,27 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zk5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yk5 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public zk5(JSONObject jSONObject) {
+    public static synchronized yk5 a() {
+        InterceptResult invokeV;
+        yk5 yk5Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (zk5.class) {
+                if (a == null) {
+                    a = new yk5();
+                }
+                yk5Var = a;
             }
+            return yk5Var;
         }
-        try {
-            if (jSONObject.has("code")) {
-                jSONObject.getInt("code");
-            }
-            if (jSONObject.has("msg")) {
-                jSONObject.getString("msg");
-            }
-        } catch (JSONException e) {
-            BdLog.e(e.getMessage());
-        }
+        return (yk5) invokeV.objValue;
     }
 }

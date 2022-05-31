@@ -1,20 +1,18 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.graphics.Point;
+import android.os.Build;
+import android.view.WindowManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import rx.internal.util.RxThreadFactory;
 /* loaded from: classes6.dex */
 public class h2a {
     public static /* synthetic */ Interceptable $ic;
-    public static final h2a a;
+    public static Point a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,114 +28,48 @@ public class h2a {
                 return;
             }
         }
-        a = new h2a();
+        a = new Point();
     }
 
-    public h2a() {
+    public static Point a(Context context, Point point) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, point)) == null) {
+            Point point2 = a;
+            if (point2 != null && point2.x > 0 && point2.y > 0) {
+                if (point == null) {
+                    point = new Point();
+                }
+                Point point3 = a;
+                point.x = point3.x;
+                point.y = point3.y;
+                return point;
             }
+            WindowManager windowManager = (WindowManager) context.getSystemService("window");
+            if (point == null) {
+                point = new Point();
+            }
+            if (Build.VERSION.SDK_INT >= 17) {
+                windowManager.getDefaultDisplay().getRealSize(point);
+            } else {
+                windowManager.getDefaultDisplay().getSize(point);
+            }
+            if (point.x > 0 && point.y > 0) {
+                if (a == null) {
+                    a = new Point();
+                }
+                Point point4 = a;
+                point4.x = point.x;
+                point4.y = point.y;
+            }
+            return point;
         }
+        return (Point) invokeLL.objValue;
     }
 
-    public static zx9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b(new RxThreadFactory("RxComputationScheduler-")) : (zx9) invokeV.objValue;
-    }
-
-    public static zx9 b(ThreadFactory threadFactory) {
+    public static int b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new rz9(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (zx9) invokeL.objValue;
-    }
-
-    public static zx9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d(new RxThreadFactory("RxIoScheduler-")) : (zx9) invokeV.objValue;
-    }
-
-    public static zx9 d(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new qz9(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (zx9) invokeL.objValue;
-    }
-
-    public static zx9 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f(new RxThreadFactory("RxNewThreadScheduler-")) : (zx9) invokeV.objValue;
-    }
-
-    public static zx9 f(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new vz9(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
-        }
-        return (zx9) invokeL.objValue;
-    }
-
-    public static h2a h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a : (h2a) invokeV.objValue;
-    }
-
-    public zx9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (zx9) invokeV.objValue;
-    }
-
-    public zx9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (zx9) invokeV.objValue;
-    }
-
-    public zx9 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (zx9) invokeV.objValue;
-    }
-
-    @Deprecated
-    public jy9 k(jy9 jy9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jy9Var)) == null) ? jy9Var : (jy9) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? a(context, null).x : invokeL.intValue;
     }
 }

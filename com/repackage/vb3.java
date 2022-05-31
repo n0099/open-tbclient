@@ -1,136 +1,163 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class vb3 {
+public final class vb3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static WifiConfiguration a(sb3 sb3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, sb3Var)) == null) {
-            int b = wb3.b(sb3Var);
-            if (f(sb3Var.a)) {
-                WifiConfiguration wifiConfiguration = new WifiConfiguration();
-                wifiConfiguration.SSID = "\"" + sb3Var.a + "\"";
-                if (!TextUtils.isEmpty(sb3Var.b)) {
-                    wifiConfiguration.BSSID = sb3Var.b;
-                }
-                if (b == 0) {
-                    wb3.d(wifiConfiguration, 0);
-                } else if (b == 1) {
-                    wb3.d(wifiConfiguration, 1);
-                    String[] strArr = wifiConfiguration.wepKeys;
-                    strArr[0] = "\"" + sb3Var.d + "\"";
-                } else if (b == 2) {
-                    wb3.d(wifiConfiguration, 2);
-                    wifiConfiguration.preSharedKey = "\"" + sb3Var.d + "\"";
-                } else if (b == 3) {
-                    wb3.d(wifiConfiguration, 3);
-                    WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
-                    wifiEnterpriseConfig.setEapMethod(0);
-                    wifiEnterpriseConfig.setIdentity(sb3Var.c);
-                    wifiEnterpriseConfig.setPassword(sb3Var.d);
-                    wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
-                }
-                return wifiConfiguration;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755236982, "Lcom/repackage/vb3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755236982, "Lcom/repackage/vb3;");
+                return;
+            }
         }
-        return (WifiConfiguration) invokeL.objValue;
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
     }
 
-    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
+    public static Date a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
-            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new Date() : (Date) invokeV.objValue;
     }
 
-    public static WifiConfiguration c(Context context, WifiManager wifiManager, sb3 sb3Var) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, sb3Var)) == null) {
-            if (sb3Var != null && f(sb3Var.a) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), sb3Var.a)) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeLLL.objValue;
-    }
-
-    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
+    public static String b(Date date, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
-            if (wifiManager == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
+            if (date == null) {
+                return "";
+            }
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Date c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (str == null) {
                 return null;
             }
             try {
-                if (ContextCompat.checkSelfPermission(context, "android.permission.ACCESS_FINE_LOCATION") != 0) {
+                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
                     return null;
                 }
-                return wifiManager.getConfiguredNetworks();
-            } catch (Exception e) {
-                ux1.b("SwanWifiUtils", Log.getStackTraceString(e));
-                return null;
             }
         }
-        return (List) invokeLL.objValue;
+        return (Date) invokeLL.objValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        int length;
+    public static Date d(String str, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (length = str.length()) <= 1 || str.charAt(0) != '\"') {
-                return str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
+            Date date = null;
+            if (!TextUtils.isEmpty(str) && strArr != null) {
+                for (String str2 : strArr) {
+                    try {
+                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (date != null) {
+                        break;
+                    }
+                }
             }
-            int i = length - 1;
-            return str.charAt(i) == '\"' ? str.substring(1, i) : str;
+            return date;
         }
-        return (String) invokeL.objValue;
+        return (Date) invokeLL.objValue;
     }
 
-    public static boolean f(String str) {
-        InterceptResult invokeL;
+    public static String e(Date date, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.equals("<unknown ssid>")) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
+            if (date == null) {
+                return "";
             }
-            return StandardCharsets.UTF_8.newEncoder().canEncode(str);
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
+            }
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean f(Long l, Long l2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) ? l.longValue() / 86400000 == l2.longValue() / 86400000 : invokeLL.booleanValue;
+    }
+
+    public static String g(long j, String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
+            try {
+                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
+            } catch (NumberFormatException e) {
+                if (rf1.a) {
+                    e.printStackTrace();
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeJL.objValue;
     }
 }

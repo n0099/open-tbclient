@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class FrsHeaderBannerView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -76,20 +76,20 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0318, (ViewGroup) this, true);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090b28);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b1d);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b27);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b29);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090b33);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0311, (ViewGroup) this, true);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090b11);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090b06);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b10);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b12);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090b1c);
             this.a.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
             this.a.setDefaultResource(0);
-            this.a.setRadius(mi.f(getContext(), R.dimen.tbds20));
+            this.a.setRadius(li.f(getContext(), R.dimen.tbds20));
             this.a.setConrers(15);
             this.a.setPlaceHolder(2);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f06fc));
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0703));
             this.g = getTbPageContext();
         }
     }

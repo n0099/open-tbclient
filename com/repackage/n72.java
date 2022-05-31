@@ -1,126 +1,42 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class n72 {
+public class n72 implements x62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static LruCache<String, Object> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final n72 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-202060086, "Lcom/repackage/n72$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-202060086, "Lcom/repackage/n72$b;");
-                    return;
-                }
-            }
-            a = new n72(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755516664, "Lcom/repackage/n72;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755516664, "Lcom/repackage/n72;");
-                return;
-            }
-        }
-        a = eh1.a;
-    }
-
-    public /* synthetic */ n72(a aVar) {
-        this();
-    }
-
-    public static n72 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (n72) invokeV.objValue;
-    }
-
-    public synchronized <CONFIG> CONFIG a(String str, CONFIG config) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, config)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    return config;
-                }
-                CONFIG config2 = (CONFIG) b.get(str);
-                if (config2 == null) {
-                    return config;
-                }
-                if (a) {
-                    Log.d("SwanAppConfigCache", "getConfig hit key: " + str);
-                }
-                return config2;
-            }
-        }
-        return (CONFIG) invokeLL.objValue;
-    }
-
-    public synchronized <CONFIG> void c(String str, CONFIG config) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, config) == null) {
-            synchronized (this) {
-                if (!TextUtils.isEmpty(str) && config != null) {
-                    if (a) {
-                        Log.d("SwanAppConfigCache", "putConfig key: " + str);
-                    }
-                    b.put(str, config);
-                }
-            }
-        }
-    }
 
     public n72() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b = new LruCache<>(10);
+    }
+
+    @Override // com.repackage.x62
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? gb3.a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.x62
+    public p62 b(String str, m72 m72Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, m72Var, v8ThreadDelegatePolicy)) == null) ? new t62(str, m72Var, v8ThreadDelegatePolicy) : (p62) invokeLLL.objValue;
     }
 }

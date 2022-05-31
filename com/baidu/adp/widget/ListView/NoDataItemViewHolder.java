@@ -34,7 +34,7 @@ public class NoDataItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09159e);
-        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09159c);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09155e);
+        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09155c);
     }
 }

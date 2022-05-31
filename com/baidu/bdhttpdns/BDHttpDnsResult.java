@@ -169,28 +169,6 @@ public class BDHttpDnsResult {
         this.b = resolveStatus;
     }
 
-    public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {resolveType, resolveStatus, arrayList, arrayList2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = ResolveType.RESOLVE_NONE;
-        this.a = resolveType;
-        this.b = resolveStatus;
-        this.c = arrayList;
-        this.d = arrayList2;
-    }
-
     public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -213,5 +191,27 @@ public class BDHttpDnsResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (ResolveType) invokeV.objValue;
+    }
+
+    public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {resolveType, resolveStatus, arrayList, arrayList2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = ResolveType.RESOLVE_NONE;
+        this.a = resolveType;
+        this.b = resolveStatus;
+        this.c = arrayList;
+        this.d = arrayList2;
     }
 }

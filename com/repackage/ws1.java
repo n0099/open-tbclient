@@ -1,89 +1,158 @@
 package com.repackage;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Base64;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ws1 {
+public class ws1 extends ns1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap a;
+    public String b;
+    public Matrix c;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755190916, "Lcom/repackage/ws1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int indexOf = str.indexOf("_dev");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755190916, "Lcom/repackage/ws1;");
+                return;
             }
-            int indexOf2 = str.indexOf("_trial");
-            return indexOf2 > 0 ? str.substring(0, indexOf2) : str;
         }
-        return (String) invokeL.objValue;
+        d = rf1.a;
     }
 
-    public static int b(String str) {
-        InterceptResult invokeL;
+    public ws1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (str.contains("_dev")) {
-                return 1;
-            }
-            if (str.endsWith("_trial")) {
-                return 3;
-            }
-            return str.contains("_trial") ? 2 : 0;
         }
-        return invokeL.intValue;
+        this.b = str;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ns1
+    public void a(os1 os1Var, Canvas canvas) {
+        Bitmap bitmap;
+        Matrix matrix;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            int lastIndexOf = str.lastIndexOf("_dev");
-            if (lastIndexOf >= 0 && lastIndexOf < str.length()) {
-                return str.substring(lastIndexOf);
-            }
-            int lastIndexOf2 = str.lastIndexOf("_trial");
-            return (lastIndexOf2 < 0 || lastIndexOf2 >= str.length()) ? "" : str.substring(lastIndexOf2);
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, os1Var, canvas) == null) || (bitmap = this.a) == null || (matrix = this.c) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        canvas.drawBitmap(bitmap, matrix, os1Var.d);
     }
 
-    public static boolean d(rl2 rl2Var) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ns1
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, rl2Var)) == null) ? rl2Var != null && rl2Var.getType() == 1 : invokeL.booleanValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
     }
 
-    public static boolean e(rl2 rl2Var) {
-        InterceptResult invokeL;
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, rl2Var)) == null) ? rl2Var != null && rl2Var.getType() == 0 : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(this.b);
+                int g = yc3.g((float) jSONObject.optDouble("x"));
+                int g2 = yc3.g((float) jSONObject.optDouble("y"));
+                int optInt = jSONObject.optInt("width");
+                int optInt2 = jSONObject.optInt("height");
+                if (optInt <= 0 || optInt2 <= 0) {
+                    return 2002;
+                }
+                float g3 = yc3.g(optInt);
+                float g4 = yc3.g(optInt2);
+                String optString = jSONObject.optString("data");
+                if (TextUtils.isEmpty(optString)) {
+                    return 2001;
+                }
+                try {
+                    byte[] decode = Base64.decode(optString, 2);
+                    int i = optInt * optInt2 * 4;
+                    if (decode != null && decode.length == i) {
+                        this.a = e(d(decode, optInt, optInt2), g3, g4);
+                        Matrix matrix = new Matrix();
+                        this.c = matrix;
+                        matrix.postTranslate(g, g2);
+                        return 0;
+                    }
+                    return 2001;
+                } catch (Exception e) {
+                    if (d) {
+                        e.printStackTrace();
+                    }
+                    hw1.c("canvasPutImageData", "canvasGetImageData meets exception in decoding bitmap");
+                    return 1001;
+                }
+            } catch (JSONException e2) {
+                if (d) {
+                    e2.printStackTrace();
+                }
+                return 1001;
+            }
+        }
+        return invokeV.intValue;
     }
 
-    @Deprecated
-    public static boolean f(String str) {
-        InterceptResult invokeL;
+    @NonNull
+    public final Bitmap d(@NonNull byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? (TextUtils.isEmpty(str) || str.contains("_")) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            int i3 = i * i2;
+            int[] iArr = new int[i3];
+            for (int i4 = 0; i4 < i3; i4++) {
+                int i5 = i4 * 4;
+                iArr[i4] = Color.argb(bArr[i5 + 3] & 255, bArr[i5] & 255, bArr[i5 + 1] & 255, bArr[i5 + 2] & 255);
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_4444);
+            createBitmap.setPixels(iArr, 0, i, 0, 0, i, i2);
+            return createBitmap;
+        }
+        return (Bitmap) invokeLII.objValue;
     }
 
-    public static boolean g(rl2 rl2Var) {
-        InterceptResult invokeL;
+    @NonNull
+    public final Bitmap e(@NonNull Bitmap bitmap, float f, float f2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, rl2Var)) == null) ? rl2Var != null && rl2Var.getType() == 2 : invokeL.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bitmap, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.postScale(f / bitmap.getWidth(), f2 / bitmap.getHeight());
+            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

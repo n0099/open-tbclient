@@ -129,7 +129,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         T createView = createView(context);
         this.mTargetView = createView;
         if (createView != null) {
-            createView.setTag(R.id.obfuscated_res_0x7f0920c0, this);
+            createView.setTag(R.id.obfuscated_res_0x7f092066, this);
         }
         this.mNode = TKDomNode.nodeForView(this, list);
         this.viewBackgroundManager = new ViewBackgroundManager(getView());
@@ -144,7 +144,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         ViewParent parent = view2.getParent();
         if (parent instanceof View) {
             View view3 = (View) parent;
-            Object tag = view3.getTag(R.id.obfuscated_res_0x7f0920c0);
+            Object tag = view3.getTag(R.id.obfuscated_res_0x7f092066);
             if (tag instanceof TKBase) {
                 this.rootTkBase = (TKBase) tag;
             }
@@ -227,7 +227,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
     public static <T extends View> TKBase<T> getTKBaseFromView(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) ? (TKBase) view2.getTag(R.id.obfuscated_res_0x7f0920c0) : (TKBase) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) ? (TKBase) view2.getTag(R.id.obfuscated_res_0x7f092066) : (TKBase) invokeL.objValue;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
@@ -607,7 +607,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     iBaseEvent.configWithData(new HashMap<String, Object>(this) { // from class: com.tachikoma.core.component.TKBase.2.2.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C06302 this$2;
+                                        public final /* synthetic */ C06322 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;
@@ -981,7 +981,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                         tKTapEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.TKBase.1.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ C06271 this$2;
+                                            public final /* synthetic */ C06291 this$2;
 
                                             {
                                                 Interceptable interceptable4 = $ic;

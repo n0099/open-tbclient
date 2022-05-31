@@ -1,182 +1,145 @@
 package com.repackage;
 
-import androidx.annotation.FloatRange;
-import androidx.annotation.RestrictTo;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pv5;
 /* loaded from: classes7.dex */
-public final class sv5 {
+public class sv5 extends nv5<e16> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public double b;
-    public boolean c;
-    public double d;
-    public double e;
-    public double f;
-    public double g;
-    public double h;
-    public double i;
-    public final pv5.i j;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public View n;
+    public View o;
+    public String p;
 
-    public sv5(float f) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sv5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f)};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = Math.sqrt(1500.0d);
-        this.b = 0.5d;
-        this.c = false;
-        this.i = Double.MAX_VALUE;
-        this.j = new pv5.i();
-        this.i = f;
+        s(k());
     }
 
-    public float a() {
+    @Override // com.repackage.nv5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (float) this.i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0189 : invokeV.intValue;
     }
 
-    public final void b() {
+    @Override // com.repackage.nv5
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(k(), R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
+            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
+                UrlManager.getInstance().dealOneLink((TbPageContext) f9.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
+            }
+        }
+    }
+
+    public final void s(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904fe);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ff);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090500);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090501);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090502);
+            this.j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.l.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0907d9);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0907da);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.nv5
+    /* renamed from: t */
+    public void l(e16 e16Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, e16Var) == null) || e16Var == null || e16Var.e() == null) {
             return;
         }
-        if (this.i != Double.MAX_VALUE) {
-            double d = this.b;
-            if (d > 1.0d) {
-                double d2 = this.a;
-                this.f = ((-d) * d2) + (d2 * Math.sqrt((d * d) - 1.0d));
-                double d3 = this.b;
-                double d4 = this.a;
-                this.g = ((-d3) * d4) - (d4 * Math.sqrt((d3 * d3) - 1.0d));
-            } else if (d >= 0.0d && d < 1.0d) {
-                this.h = this.a * Math.sqrt(1.0d - (d * d));
-            }
-            this.c = true;
-            return;
+        if (!TextUtils.isEmpty(e16Var.e().title)) {
+            this.i.setText(e16Var.e().title);
         }
-        throw new IllegalStateException("Error: Final position of the spring must be set before the animation starts");
-    }
-
-    @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean c(float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) ? ((double) Math.abs(f2)) < this.e && ((double) Math.abs(f - a())) < this.d : invokeCommon.booleanValue;
-    }
-
-    public sv5 d(@FloatRange(from = 0.0d) float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f)) == null) {
-            if (f >= 0.0f) {
-                this.b = f;
-                this.c = false;
-                return this;
-            }
-            throw new IllegalArgumentException("Damping ratio must be non-negative");
+        this.j.setVisibility(8);
+        this.k.setVisibility(8);
+        this.l.setVisibility(8);
+        this.m.setVisibility(8);
+        if (e16Var.e().sub_nodes.size() >= 1) {
+            this.j.setVisibility(0);
+            this.j.setTag(e16Var.e().sub_nodes.get(0).url);
+            this.j.setText(e16Var.e().sub_nodes.get(0).title);
         }
-        return (sv5) invokeF.objValue;
-    }
-
-    public sv5 e(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            this.i = f;
-            return this;
+        if (e16Var.e().sub_nodes.size() >= 2) {
+            this.k.setVisibility(0);
+            this.k.setTag(e16Var.e().sub_nodes.get(1).url);
+            this.k.setText(e16Var.e().sub_nodes.get(1).title);
         }
-        return (sv5) invokeF.objValue;
-    }
-
-    public sv5 f(@FloatRange(from = 0.0d, fromInclusive = false) float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f > 0.0f) {
-                this.a = Math.sqrt(f);
-                this.c = false;
-                return this;
-            }
-            throw new IllegalArgumentException("Spring stiffness constant must be positive.");
+        if (e16Var.e().sub_nodes.size() >= 3) {
+            this.l.setVisibility(0);
+            this.l.setTag(e16Var.e().sub_nodes.get(2).url);
+            this.l.setText(e16Var.e().sub_nodes.get(2).title);
         }
-        return (sv5) invokeF.objValue;
-    }
-
-    public void g(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Double.valueOf(d)}) == null) {
-            double abs = Math.abs(d);
-            this.d = abs;
-            this.e = abs * 62.5d;
+        if (e16Var.e().sub_nodes.size() >= 4) {
+            this.m.setVisibility(0);
+            this.m.setTag(e16Var.e().sub_nodes.get(3).url);
+            this.m.setText(e16Var.e().sub_nodes.get(3).title);
         }
     }
 
-    public pv5.i h(double d, double d2, long j) {
-        InterceptResult invokeCommon;
-        double cos;
-        double d3;
+    public void u(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Long.valueOf(j)})) == null) {
-            b();
-            double d4 = j / 1000.0d;
-            double d5 = d - this.i;
-            double d6 = this.b;
-            if (d6 > 1.0d) {
-                double d7 = this.g;
-                double d8 = this.f;
-                double d9 = d5 - (((d7 * d5) - d2) / (d7 - d8));
-                double d10 = ((d5 * d7) - d2) / (d7 - d8);
-                d3 = (Math.pow(2.718281828459045d, d7 * d4) * d9) + (Math.pow(2.718281828459045d, this.f * d4) * d10);
-                double d11 = this.g;
-                double pow = d9 * d11 * Math.pow(2.718281828459045d, d11 * d4);
-                double d12 = this.f;
-                cos = pow + (d10 * d12 * Math.pow(2.718281828459045d, d12 * d4));
-            } else if (d6 == 1.0d) {
-                double d13 = this.a;
-                double d14 = d2 + (d13 * d5);
-                double d15 = d5 + (d14 * d4);
-                d3 = Math.pow(2.718281828459045d, (-d13) * d4) * d15;
-                double pow2 = d15 * Math.pow(2.718281828459045d, (-this.a) * d4);
-                double d16 = this.a;
-                cos = (d14 * Math.pow(2.718281828459045d, (-d16) * d4)) + (pow2 * (-d16));
-            } else {
-                double d17 = 1.0d / this.h;
-                double d18 = this.a;
-                double d19 = d17 * ((d6 * d18 * d5) + d2);
-                double pow3 = Math.pow(2.718281828459045d, (-d6) * d18 * d4) * ((Math.cos(this.h * d4) * d5) + (Math.sin(this.h * d4) * d19));
-                double d20 = this.a;
-                double d21 = this.b;
-                double d22 = (-d20) * pow3 * d21;
-                double pow4 = Math.pow(2.718281828459045d, (-d21) * d20 * d4);
-                double d23 = this.h;
-                double sin = (-d23) * d5 * Math.sin(d23 * d4);
-                double d24 = this.h;
-                cos = d22 + (pow4 * (sin + (d19 * d24 * Math.cos(d24 * d4))));
-                d3 = pow3;
-            }
-            pv5.i iVar = this.j;
-            iVar.a = (float) (d3 + this.i);
-            iVar.b = (float) cos;
-            return iVar;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.p = str;
         }
-        return (pv5.i) invokeCommon.objValue;
     }
 }

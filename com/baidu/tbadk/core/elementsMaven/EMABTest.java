@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.es4;
-import com.repackage.y36;
+import com.repackage.j26;
+import com.repackage.uq4;
 /* loaded from: classes3.dex */
 public class EMABTest {
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,15 +35,15 @@ public class EMABTest {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            String o = es4.o(i);
+            String o = uq4.o(i);
             if (TextUtils.isEmpty(o)) {
                 return 0;
             }
-            String a = y36.a(o);
+            String a = j26.a(o);
             if (TextUtils.isEmpty(a)) {
                 return 0;
             }
-            return es4.s(a, str);
+            return uq4.s(a, str);
         }
         return invokeIL.intValue;
     }

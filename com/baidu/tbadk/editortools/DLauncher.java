@@ -19,12 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d15;
-import com.repackage.gs4;
-import com.repackage.i15;
-import com.repackage.w05;
+import com.repackage.e05;
+import com.repackage.sz4;
+import com.repackage.wq4;
+import com.repackage.zz4;
 /* loaded from: classes3.dex */
-public class DLauncher extends RelativeLayout implements d15 {
+public class DLauncher extends RelativeLayout implements zz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -32,16 +32,16 @@ public class DLauncher extends RelativeLayout implements d15 {
     public TextView c;
     public int d;
     public String e;
-    public i15 f;
+    public e05 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DLauncher(Context context, i15 i15Var) {
+    public DLauncher(Context context, e05 e05Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, i15Var};
+            Object[] objArr = {context, e05Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,21 +53,21 @@ public class DLauncher extends RelativeLayout implements d15 {
             }
         }
         this.d = 0;
-        if (i15Var == null) {
+        if (e05Var == null) {
             return;
         }
-        this.f = i15Var;
+        this.f = e05Var;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
         layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         this.b = new EMTextView(context);
-        setName(i15Var.b);
+        setName(e05Var.b);
         setIcon();
-        setToolId(i15Var.c);
+        setToolId(e05Var.c);
         this.b.setGravity(17);
-        gs4 d = gs4.d(this.b);
+        wq4 d = wq4.d(this.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0106);
         context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023e);
@@ -118,7 +118,7 @@ public class DLauncher extends RelativeLayout implements d15 {
         }
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -132,14 +132,14 @@ public class DLauncher extends RelativeLayout implements d15 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -147,18 +147,18 @@ public class DLauncher extends RelativeLayout implements d15 {
         }
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
         }
     }
 
-    @Override // com.repackage.x05
-    public void onAction(w05 w05Var) {
+    @Override // com.repackage.tz4
+    public void onAction(sz4 sz4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, w05Var) == null) && w05Var != null && w05Var.a == 2) {
-            Object obj = w05Var.c;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sz4Var) == null) && sz4Var != null && sz4Var.a == 2) {
+            Object obj = sz4Var.c;
             if (obj == null) {
                 c();
             } else if (obj instanceof String) {
@@ -167,7 +167,7 @@ public class DLauncher extends RelativeLayout implements d15 {
         }
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -175,7 +175,7 @@ public class DLauncher extends RelativeLayout implements d15 {
             if (isEnabled()) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
             }
-            gs4.d(this.b).v(R.color.CAM_X0106);
+            wq4.d(this.b).v(R.color.CAM_X0106);
             if (this.f == null) {
                 return;
             }
@@ -234,11 +234,11 @@ public class DLauncher extends RelativeLayout implements d15 {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            i15 i15Var = this.f;
-            int i = i15Var.h;
-            int i2 = i15Var.r;
+            e05 e05Var = this.f;
+            int i = e05Var.h;
+            int i2 = e05Var.r;
             if (i <= 0) {
-                i = i15Var.d;
+                i = e05Var.d;
             }
             if (this.f.i) {
                 drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i, this.f.e, this.d);
@@ -265,7 +265,7 @@ public class DLauncher extends RelativeLayout implements d15 {
         }
     }
 
-    @Override // com.repackage.d15
+    @Override // com.repackage.zz4
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {

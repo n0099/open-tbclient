@@ -55,7 +55,7 @@ public class TailFrameLandscapeVertical extends LinearLayout implements d {
         if (com.kwad.sdk.core.response.a.d.v(this.g)) {
             this.m.a(getContext(), z ? 1 : 153, 1);
         } else {
-            com.kwad.sdk.core.download.a.a.a(new a.C0295a(view2.getContext()).a(this.g).a(this.j).a(view2 == this.k).a(view2 == this.k ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeVertical.2
+            com.kwad.sdk.core.download.a.a.a(new a.C0296a(view2.getContext()).a(this.g).a(this.j).a(view2 == this.k).a(view2 == this.k ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeVertical.2
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
                     if (TailFrameLandscapeVertical.this.f != null) {
@@ -67,12 +67,12 @@ public class TailFrameLandscapeVertical extends LinearLayout implements d {
     }
 
     private void b() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0474, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118d);
-        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118e);
-        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f09118f);
-        this.l = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091189);
-        this.n = findViewById(R.id.obfuscated_res_0x7f09118a);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d046a, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09114f);
+        this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091150);
+        this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091151);
+        this.l = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09114b);
+        this.n = findViewById(R.id.obfuscated_res_0x7f09114c);
     }
 
     private void c() {
@@ -83,13 +83,13 @@ public class TailFrameLandscapeVertical extends LinearLayout implements d {
 
     private void d() {
         if (!com.kwad.sdk.core.response.a.a.B(this.h) && !com.kwad.sdk.core.response.a.d.v(this.g)) {
-            TailFrameBarH5Landscape tailFrameBarH5Landscape = (TailFrameBarH5Landscape) findViewById(R.id.obfuscated_res_0x7f091178);
+            TailFrameBarH5Landscape tailFrameBarH5Landscape = (TailFrameBarH5Landscape) findViewById(R.id.obfuscated_res_0x7f09113a);
             this.e = tailFrameBarH5Landscape;
             tailFrameBarH5Landscape.setModel(this.g);
             this.e.setVisibility(0);
             return;
         }
-        TailFrameBarAppLandscape tailFrameBarAppLandscape = (TailFrameBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f091162);
+        TailFrameBarAppLandscape tailFrameBarAppLandscape = (TailFrameBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f091124);
         this.d = tailFrameBarAppLandscape;
         tailFrameBarAppLandscape.setModel(this.g);
         this.d.setVisibility(0);

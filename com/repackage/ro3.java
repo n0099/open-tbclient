@@ -1,236 +1,166 @@
 package com.repackage;
 
-import android.os.Process;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import com.baidu.swan.game.ad.downloader.exception.DownloadPauseException;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.RandomAccessFile;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
+import com.qq.e.comm.constants.Constants;
 import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ro3 implements Runnable {
+public class ro3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yo3 a;
-    public final DownloadInfo b;
-    public final a c;
-    public long d;
 
     /* loaded from: classes7.dex */
-    public interface a {
-        void a();
+    public static class a extends ResponseCallback<ym3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ un3 a;
 
-        void b();
-    }
+        public a(un3 un3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {un3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = un3Var;
+        }
 
-    public ro3(yo3 yo3Var, DownloadInfo downloadInfo, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yo3Var, downloadInfo, aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(ym3 ym3Var, int i) {
+            un3 un3Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, ym3Var, i) == null) || ym3Var == null || (un3Var = this.a) == null) {
                 return;
             }
+            un3Var.d(ym3Var.a, ym3Var.b);
         }
-        this.a = yo3Var;
-        this.b = downloadInfo;
-        this.d = downloadInfo.getProgress();
-        this.c = aVar;
-    }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.isPause()) {
-            throw new DownloadPauseException(7);
-        }
-    }
-
-    public final void b() {
-        InputStream inputStream;
-        RandomAccessFile randomAccessFile;
-        Exception e;
-        IOException e2;
-        ProtocolException e3;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-            return;
-        }
-        RandomAccessFile randomAccessFile2 = null;
-        try {
-            try {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public ym3 parseResponse(Response response, int i) {
+            InterceptResult invokeLI;
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                if (response == null || response.body() == null || !response.isSuccessful()) {
+                    return null;
+                }
                 try {
-                    URL url = new URL(this.b.getUri());
-                    long j = this.d;
-                    Response execute = new OkHttpClient().newCall(new Request.Builder().addHeader("RANGE", "bytes=" + j + "-").url(url).build()).execute();
-                    if (execute == null || execute.body() == null) {
-                        inputStream = null;
-                    } else {
-                        inputStream = execute.body().byteStream();
+                    String string = response.body().string();
+                    if (!TextUtils.isEmpty(string)) {
                         try {
-                            RandomAccessFile randomAccessFile3 = new RandomAccessFile(this.b.getPath(), "rw");
-                            try {
-                                randomAccessFile3.seek(j);
-                                byte[] bArr = new byte[1024];
-                                int i = 0;
-                                while (true) {
-                                    int read = inputStream.read(bArr);
-                                    if (read == -1) {
-                                        break;
-                                    }
-                                    a();
-                                    i += read;
-                                    randomAccessFile3.write(bArr, 0, read);
-                                    this.b.setProgress(this.d + i);
-                                    this.c.b();
-                                }
-                                execute.body().close();
-                                this.c.a();
-                                randomAccessFile2 = randomAccessFile3;
-                            } catch (DownloadPauseException unused) {
-                                randomAccessFile2 = randomAccessFile3;
-                                if (randomAccessFile2 != null) {
-                                    randomAccessFile2.close();
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                    return;
-                                }
-                                return;
-                            } catch (ProtocolException e4) {
-                                e3 = e4;
-                                throw new DownloadException(4, "Protocol error", e3);
-                            } catch (IOException e5) {
-                                e2 = e5;
-                                throw new DownloadException(5, "IO error", e2);
-                            } catch (Exception e6) {
-                                e = e6;
-                                throw new DownloadException(9, "other error", e);
+                            JSONObject jSONObject = new JSONObject(string);
+                            if (TextUtils.equals(jSONObject.optString(Constants.KEYS.RET, ""), "0") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                                ym3 ym3Var = new ym3();
+                                ym3Var.a = optJSONObject.optString("clickid");
+                                ym3Var.b = optJSONObject.optString("dstlink");
+                                return ym3Var;
                             }
-                        } catch (DownloadPauseException unused2) {
-                        } catch (ProtocolException e7) {
-                            e = e7;
-                            e3 = e;
-                            throw new DownloadException(4, "Protocol error", e3);
-                        } catch (IOException e8) {
-                            e = e8;
-                            e2 = e;
-                            throw new DownloadException(5, "IO error", e2);
-                        } catch (Exception e9) {
-                            e = e9;
-                            e = e;
-                            throw new DownloadException(9, "other error", e);
-                        } catch (Throwable th) {
-                            th = th;
-                            randomAccessFile = null;
-                            th = th;
-                            if (randomAccessFile != null) {
-                                try {
-                                    randomAccessFile.close();
-                                } catch (Exception e10) {
-                                    e10.printStackTrace();
-                                    throw th;
-                                }
-                            }
-                            if (inputStream != null) {
-                                inputStream.close();
-                            }
-                            throw th;
+                            return null;
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
-                    if (randomAccessFile2 != null) {
-                        randomAccessFile2.close();
-                    }
-                    if (inputStream != null) {
-                        inputStream.close();
-                    }
-                } catch (Exception e11) {
-                    e11.printStackTrace();
+                } catch (Exception | OutOfMemoryError unused) {
                 }
-            } catch (DownloadPauseException unused3) {
-                inputStream = null;
-            } catch (ProtocolException e12) {
-                e = e12;
-            } catch (IOException e13) {
-                e = e13;
-            } catch (Exception e14) {
-                e = e14;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream = null;
-                randomAccessFile = null;
+                return null;
             }
-        } catch (Throwable th3) {
-            th = th3;
+            return (ym3) invokeLI.objValue;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+            }
         }
     }
 
-    public final long c(String str) {
-        InterceptResult invokeL;
+    public static void a(oo3 oo3Var, AdElementInfo adElementInfo, xn3 xn3Var, un3 un3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                Response execute = new OkHttpClient().newCall(new Request.Builder().url(str).build()).execute();
-                if (execute == null || !execute.isSuccessful() || execute.body() == null) {
-                    return 0L;
-                }
-                long contentLength = execute.body().contentLength();
-                execute.body().close();
-                return contentLength;
-            } catch (MalformedURLException e) {
-                throw new DownloadException(2, "Bad url.", e);
-            } catch (ProtocolException e2) {
-                throw new DownloadException(4, "Protocol error", e2);
-            } catch (IOException e3) {
-                throw new DownloadException(5, "IO error", e3);
-            } catch (Exception e4) {
-                throw new DownloadException(9, "Unknown error", e4);
-            }
+        if (!(interceptable == null || interceptable.invokeLLLL(65536, null, oo3Var, adElementInfo, xn3Var, un3Var) == null) || adElementInfo == null || TextUtils.isEmpty(adElementInfo.getClickUrl())) {
+            return;
         }
-        return invokeL.longValue;
+        String c = c(adElementInfo.getClickUrl(), oo3Var);
+        a aVar = new a(un3Var);
+        if (!NetworkUtils.f(AppRuntime.getAppContext()) || xn3Var == null) {
+            return;
+        }
+        xn3Var.c(c, aVar);
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static void b(String str, xn3 xn3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Process.setThreadPriority(10);
-            try {
-                if (this.b.getSize() <= 0) {
-                    long c = c(this.b.getUri());
-                    if (c > 0) {
-                        this.b.setSize(c);
-                    } else {
-                        throw new DownloadException(6, "length <= 0");
-                    }
-                }
-                this.b.setStatus(DownloadState.DOWNLOADING.value());
-                this.a.b(this.b);
-                b();
-            } catch (DownloadException e) {
-                this.b.setStatus(DownloadState.DOWNLOAD_FAILED.value());
-                this.b.setException(e);
-                this.a.b(this.b);
-                this.a.a(e);
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, xn3Var) == null) {
+            xn3Var.e(str);
+        }
+    }
+
+    public static String c(String str, oo3 oo3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, oo3Var)) == null) ? oo3Var == null ? str : str.replaceAll("\\{REQ_WIDTH\\}", oo3Var.a).replaceAll("\\{REQ_HEIGHT\\}", oo3Var.b).replaceAll("\\{WIDTH\\}", oo3Var.c).replaceAll("\\{HEIGHT\\}", oo3Var.d).replaceAll("\\{DOWN_X\\}", oo3Var.e).replaceAll("\\{DOWN_Y\\}", oo3Var.f).replaceAll("\\{UP_X\\}", oo3Var.g).replaceAll("\\{UP_Y\\}", oo3Var.h).replaceAll("\\{VIDEO_TIME\\}", oo3Var.i).replaceAll("\\{BEGIN_TIME\\}", oo3Var.j).replaceAll("\\{END_TIME\\}", oo3Var.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", oo3Var.l).replaceAll("\\{PLAY_LAST_FRAME\\}", oo3Var.m).replaceAll("\\{SCENE\\}", oo3Var.n).replaceAll("\\{TYPE\\}", oo3Var.o).replaceAll("\\{BEHAVIOR\\}", oo3Var.p).replaceAll("\\{STATUS\\}", oo3Var.q).replaceAll("\\{CONVERSION_ACTION\\}", oo3Var.r).replaceAll("\\{CLICK_ID\\}", oo3Var.s) : (String) invokeLL.objValue;
+    }
+
+    public static void d(AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            b(c(str, null), xn3Var);
+        }
+    }
+
+    public static void e(oo3 oo3Var, AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, oo3Var, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getConversionUrls()) {
+            b(c(str, oo3Var), xn3Var);
+        }
+    }
+
+    public static void f(AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getImpressionUrls()) {
+            b(c(str, null), xn3Var);
+        }
+    }
+
+    public static void g(oo3 oo3Var, AdElementInfo adElementInfo, xn3 xn3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, oo3Var, adElementInfo, xn3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getCloseTrackers()) {
+            b(c(str, oo3Var), xn3Var);
         }
     }
 }

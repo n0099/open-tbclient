@@ -3,21 +3,20 @@ package com.repackage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.webrtc.CalledByNative;
-import org.webrtc.VideoDecoder;
-/* compiled from: VideoDecoder.java */
-/* loaded from: classes7.dex */
-public final /* synthetic */ class qx9 {
+/* loaded from: classes6.dex */
+public final class qx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @CalledByNative
-    public static long $default$createNativeVideoDecoder(VideoDecoder videoDecoder) {
-        InterceptResult invokeL;
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoDecoder)) == null) {
-            return 0L;
-        }
-        return invokeL.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (i & (i + (-1))) == 0 : invokeI.booleanValue;
+    }
+
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? 1 << (32 - Integer.numberOfLeadingZeros(i - 1)) : invokeI.intValue;
     }
 }

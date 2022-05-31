@@ -1,31 +1,22 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class k70 {
+public class k70 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile k70 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public String b;
-    public boolean c;
-    public JSONObject d;
+    public boolean a;
 
-    public k70(boolean z, JSONArray jSONArray) {
+    public k70() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,46 +26,37 @@ public final class k70 {
                 return;
             }
         }
-        this.c = z;
-        this.a = jSONArray;
-        this.b = String.valueOf(System.currentTimeMillis());
+        this.a = true;
     }
 
-    public final JSONObject a() {
+    public static synchronized k70 a() {
         InterceptResult invokeV;
+        k70 k70Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = this.a;
-            if (jSONArray == null || jSONArray.length() < 0) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (k70.class) {
+                if (b == null) {
+                    synchronized (k70.class) {
+                        b = new k70();
+                    }
+                }
+                k70Var = b;
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(TtmlNode.TAG_METADATA, b());
-                jSONObject.put(Constant.IS_REAL, this.c ? "1" : "0");
-                jSONObject.put("data", this.a);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            n70.a("UploadData", "uploadJson:" + jSONObject.toString());
-            return jSONObject;
+            return k70Var;
         }
-        return (JSONObject) invokeV.objValue;
+        return (k70) invokeV.objValue;
     }
 
-    public final JSONObject b() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("uploadtime", this.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            this.d = jSONObject;
-            return jSONObject;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.a = z;
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

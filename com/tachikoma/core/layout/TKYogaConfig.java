@@ -39,7 +39,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKYogaConfig {
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> NON_DP_CONVERT_KEYS;
@@ -56,7 +56,7 @@ public class TKYogaConfig {
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap yogaConfig;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TKYogaConfigHolder {
         public static /* synthetic */ Interceptable $ic;
         public static TKYogaConfig instance;

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.ng;
+import com.repackage.mg;
+import com.repackage.wq4;
 /* loaded from: classes4.dex */
 public class TitleTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -125,20 +125,20 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setVisibility(8);
-            ng.a().removeCallbacks(this.h);
+            mg.a().removeCallbacks(this.h);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0832, this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092055);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ec0);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb1);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092258);
-            this.f = findViewById(R.id.obfuscated_res_0x7f092207);
-            this.e.setText(R.string.obfuscated_res_0x7f0f00d2);
+            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0825, this);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ffb);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e85);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e76);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0921fd);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0921ac);
+            this.e.setText(R.string.obfuscated_res_0x7f0f00d3);
             this.d.setOnClickListener(this.g);
             c(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -148,16 +148,16 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.a != i) {
-                gs4 d = gs4.d(this.b);
+                wq4 d = wq4.d(this.b);
                 d.n(R.string.J_X05);
                 d.l(R.dimen.L_X01);
                 d.k(R.color.CAM_X0602);
                 d.f(R.color.CAM_X0206);
-                gs4.d(this.f).f(R.color.CAM_X0203);
-                gs4.d(this.e).v(R.color.CAM_X0107);
-                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080927, SkinManager.getColor(R.color.CAM_X0107), null));
+                wq4.d(this.f).f(R.color.CAM_X0203);
+                wq4.d(this.e).v(R.color.CAM_X0107);
+                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080932, SkinManager.getColor(R.color.CAM_X0107), null));
                 if (this.c != null) {
-                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f6a, SkinManager.getColor(R.color.CAM_X0302), null));
+                    this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f7c, SkinManager.getColor(R.color.CAM_X0302), null));
                 }
             }
             this.a = i;

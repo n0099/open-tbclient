@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.oz5;
+import com.repackage.ki;
+import com.repackage.zx5;
 /* loaded from: classes3.dex */
 public class WriteTipBubbleController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public oz5 b;
+    public zx5 b;
     public b c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -150,23 +150,23 @@ public class WriteTipBubbleController {
     }
 
     public void c() {
-        oz5 oz5Var;
+        zx5 zx5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (oz5Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (zx5Var = this.b) == null) {
             return;
         }
-        oz5Var.I();
+        zx5Var.I();
     }
 
     public void d(@NonNull View view2, @NonNull String str, @NonNull String str2, @NonNull ANCHOR_VIEW_FROM anchor_view_from) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) || this.a == null || view2 == null || li.isEmpty(str) || li.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str, str2, anchor_view_from) == null) || this.a == null || view2 == null || ki.isEmpty(str) || ki.isEmpty(str2)) {
             return;
         }
         if (this.b == null) {
-            oz5 oz5Var = new oz5(this.a, view2);
-            this.b = oz5Var;
-            oz5Var.g0(R.drawable.pic_post_findlink);
+            zx5 zx5Var = new zx5(this.a, view2);
+            this.b = zx5Var;
+            zx5Var.g0(R.drawable.pic_post_findlink);
             this.b.S(2);
             this.b.Q(true);
             this.b.f0(19);
@@ -197,7 +197,7 @@ public class WriteTipBubbleController {
             int dimensionPixelSize5 = this.a.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
             int dimensionPixelSize6 = this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X004);
             int dimensionPixelSize7 = this.a.getResources().getDimensionPixelSize(R.dimen.M_H_X006);
-            this.b.g0(R.drawable.obfuscated_res_0x7f0802e9);
+            this.b.g0(R.drawable.obfuscated_res_0x7f0802e8);
             this.b.S(1);
             this.b.O(16);
             this.b.L(2);

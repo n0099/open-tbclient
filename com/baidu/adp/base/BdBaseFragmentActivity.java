@@ -27,10 +27,10 @@ import com.repackage.b9;
 import com.repackage.c9;
 import com.repackage.d9;
 import com.repackage.e9;
-import com.repackage.gg;
-import com.repackage.mi;
-import com.repackage.tk;
-import com.repackage.vo;
+import com.repackage.fg;
+import com.repackage.li;
+import com.repackage.nn;
+import com.repackage.rk;
 import com.repackage.w8;
 import com.repackage.wa;
 import com.repackage.x8;
@@ -102,8 +102,8 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         if (!(interceptable == null || interceptable.invokeL(65537, this, view2) == null) || view2 == null) {
             return;
         }
-        if (view2 instanceof tk) {
-            ((tk) view2).refresh();
+        if (view2 instanceof rk) {
+            ((rk) view2).refresh();
         }
         if (view2 instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view2;
@@ -190,19 +190,19 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.mId);
             MessageManager.getInstance().removeMessage(this.mId);
-            gg.h().b(this.mId);
+            fg.h().b(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
             x8.g().m(getPageContext().getPageActivity());
         }
     }
 
-    public vo onGetPreLoadListView() {
+    public nn onGetPreLoadListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return null;
         }
-        return (vo) invokeV.objValue;
+        return (nn) invokeV.objValue;
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
@@ -237,15 +237,15 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onPause();
-            gg.h().e(this.mId);
+            fg.h().e(this.mId);
             this.mHandler.removeCallbacks(this.preLoadRunnable);
         }
     }
 
     @Override // com.repackage.e9
-    public void onPreLoad(vo voVar) {
+    public void onPreLoad(nn nnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, voVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, nnVar) == null) {
         }
     }
 
@@ -276,7 +276,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            vo onGetPreLoadListView = onGetPreLoadListView();
+            nn onGetPreLoadListView = onGetPreLoadListView();
             if (onGetPreLoadListView != null) {
                 onGetPreLoadListView.cancelRefresh();
             }
@@ -364,7 +364,7 @@ public abstract class BdBaseFragmentActivity<T> extends FragmentActivity impleme
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            mi.N(getApplicationContext(), str);
+            li.O(getApplicationContext(), str);
         }
     }
 

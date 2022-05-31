@@ -17,7 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Anti;
 import tbclient.BlockPopInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class AntiData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2355009973517935888L;

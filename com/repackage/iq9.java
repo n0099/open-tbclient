@@ -1,26 +1,27 @@
 package com.repackage;
 
 import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class iq9 implements View.OnTouchListener {
+public class iq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ pq9 a;
+    public Context a;
+    public String b;
+    public String c;
+    public fm9 d;
 
-    public iq9(pq9 pq9Var) {
+    public iq9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pq9Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,59 +31,64 @@ public class iq9 implements View.OnTouchListener {
                 return;
             }
         }
-        this.a = pq9Var;
+        this.a = context;
     }
 
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Info info;
+    public iq9 a(fm9 fm9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-            int action = motionEvent.getAction();
-            if (action == 0) {
-                this.a.j = true;
-                this.a.k = System.currentTimeMillis();
-                this.a.l = motionEvent.getX();
-                this.a.m = motionEvent.getY();
-                this.a.n = (int) motionEvent.getRawX();
-                this.a.o = (int) motionEvent.getRawY();
-                this.a.v = System.currentTimeMillis();
-                this.a.p = (int) motionEvent.getX();
-                this.a.q = (int) motionEvent.getY();
-                pq9.c(this.a, view2);
-            } else if (action == 1) {
-                this.a.w = (int) motionEvent.getRawX();
-                this.a.x = (int) motionEvent.getRawY();
-                this.a.r = (int) motionEvent.getX();
-                this.a.s = (int) motionEvent.getY();
-                this.a.y = System.currentTimeMillis();
-                Math.abs(motionEvent.getX() - this.a.l);
-                Math.abs(motionEvent.getY() - this.a.m);
-                if (System.currentTimeMillis() - this.a.k < 2000) {
-                    pq9 pq9Var = this.a;
-                    if (pq9Var.j && (info = pq9Var.c) != null && vp9.d(info, pq9Var.h)) {
-                        this.a.h = System.currentTimeMillis();
-                        pq9 pq9Var2 = this.a;
-                        Context context = pq9Var2.a;
-                        String open = pq9Var2.c.getOpen();
-                        pq9 pq9Var3 = this.a;
-                        vp9.a(context, open, pq9Var3.c, pq9Var3.g, pq9Var3.g().toString());
-                        tq9 a = xq9.a(this.a.a);
-                        a.h(new br9(this.a.c), null);
-                        a.l("desc", this.a.g().toString());
-                        a.m();
-                        pq9 pq9Var4 = this.a;
-                        ro9.p(pq9Var4.c, pq9Var4.g().toString());
-                        dr9 dr9Var = this.a.f;
-                        if (dr9Var != null) {
-                            dr9Var.onClicked();
-                        }
-                    }
-                }
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fm9Var)) == null) {
+            this.d = fm9Var;
+            return this;
         }
-        return invokeLL.booleanValue;
+        return (iq9) invokeL.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = mq9.d + mq9.f;
+            mq9.b(this);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = mq9.d + mq9.j;
+            mq9.b(this);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = mq9.d + mq9.g;
+            mq9.b(this);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c = mq9.d + mq9.e;
+            mq9.b(this);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = mq9.d + mq9.i;
+            mq9.b(this);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c = mq9.d + mq9.h;
+            mq9.b(this);
+        }
     }
 }

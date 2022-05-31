@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.player.helper.NetUtils;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +66,7 @@ public class BDVideoPlayerUbcHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             String networkClass = NetUtils.getNetworkClass();
-            return (networkClass.equals("no") || networkClass.equals("unknown")) ? "other" : networkClass;
+            return (networkClass.equals("no") || networkClass.equals("unknown")) ? ImageViewerConfig.FROM_OTHER : networkClass;
         }
         return (String) invokeV.objValue;
     }

@@ -1,30 +1,22 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class w71 implements y71 {
+public final class w71 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static long a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,124 +32,127 @@ public class w71 implements y71 {
                 return;
             }
         }
-        a = SchemeConfig.getSchemeHead() + "://swan/";
+        b = new JSONObject();
     }
 
-    public w71() {
+    public static final void a(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLJ(65537, null, str, j) == null) {
+            try {
+                if (b == null) {
+                    b = new JSONObject();
+                }
+                JSONObject jSONObject = b;
+                if (jSONObject != null) {
+                    jSONObject.put(str, j);
+                }
+            } catch (Exception unused) {
+                j81.g("add panelShow json error");
             }
         }
     }
 
-    @Override // com.repackage.y71
-    public void a(Activity activity, String str, String str2) {
+    public static final void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            bk2.S().a(activity, str, str2);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("exceptionCode", 3);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("errno", str2);
+                }
+                if (!TextUtils.isEmpty(str3)) {
+                    jSONObject.put("errmsg", str3);
+                }
+            } catch (Exception unused) {
+            }
+            x71 x71Var = new x71(str);
+            x71Var.c(jSONObject);
+            a81.e(x71Var);
         }
     }
 
-    @Override // com.repackage.y71
-    public void aLiAuth(Activity activity, String str, e81<JSONObject> e81Var) {
+    public static final void c(String str, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, e81Var) == null) {
-            bk2.S().f(activity, str, e81Var);
-        }
-    }
-
-    @Override // com.repackage.y71
-    public boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? bk2.S().b(context) : invokeL.booleanValue;
-    }
-
-    @Override // com.repackage.y71
-    public void c(Activity activity, String str, t71 t71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, t71Var) == null) {
-            bk2.S().c(activity, str, t71Var);
-        }
-    }
-
-    @Override // com.repackage.y71
-    public void d(Context context, JSONObject jSONObject, t71 t71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, t71Var) == null) {
-            bk2.S().d(context, jSONObject, t71Var);
-        }
-    }
-
-    @Override // com.repackage.y71
-    public void e(Activity activity, String str, t71 t71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, t71Var) == null) {
-            bk2.S().e(activity, str, t71Var);
-        }
-    }
-
-    @Override // com.repackage.y71
-    public void f(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
-            if (jSONObject == null) {
-                PaymentManager.i(3, "支付信息不能为空");
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, hashMap) == null) {
+            if (hashMap != null) {
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
+                }
+                x71 x71Var = new x71(str);
+                x71Var.c(jSONObject);
+                a81.e(x71Var);
                 return;
             }
-            String optString = jSONObject.optString("appKey");
-            String optString2 = jSONObject.optString("redirectUrl");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                SchemeRouter.invoke(context, a + optString + optString2);
-                return;
+            a81.e(new x71(str));
+        }
+    }
+
+    public static final void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || a <= 0) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("3", a);
+            jSONObject.put("4", System.currentTimeMillis());
+        } catch (Exception unused) {
+        }
+        x71 x71Var = new x71(Constants.DEFAULT_UIN);
+        x71Var.c(jSONObject);
+        a81.e(x71Var);
+        a = 0L;
+    }
+
+    public static final void e() {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65541, null) == null) || (jSONObject = b) == null) {
+            return;
+        }
+        if ((jSONObject != null ? jSONObject.length() : 0) > 0) {
+            a("2", System.currentTimeMillis());
+            x71 x71Var = new x71(Constants.DEFAULT_UIN);
+            x71Var.c(b);
+            a81.e(x71Var);
+            b = null;
+        }
+    }
+
+    public static final void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            a = j;
+        }
+    }
+
+    public static final void g(int i, String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("exceptionType", i);
+            jSONObject.put("payChannel", str2);
+            jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str3);
+            jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str4);
+            x71 x71Var = new x71(str);
+            x71Var.c(jSONObject);
+            a81.e(x71Var);
+        }
+    }
+
+    public static final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("exceptionCode", 0);
+            } catch (Exception unused) {
             }
-            PaymentManager.i(3, "支付信息不能为空");
+            x71 x71Var = new x71(str);
+            x71Var.c(jSONObject);
+            a81.e(x71Var);
         }
-    }
-
-    @Override // com.repackage.y71
-    public void g(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            String str = it2.b().a;
-            if (TextUtils.isEmpty(str)) {
-                q71.a(bundle);
-                return;
-            }
-            kx2 e = kx2.e();
-            mx2 mx2Var = new mx2(119, bundle);
-            mx2Var.c(str);
-            mx2Var.p(true);
-            e.h(mx2Var);
-        }
-    }
-
-    @Override // com.repackage.y71
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            it2.b().a = str;
-        }
-    }
-
-    @Override // com.repackage.y71
-    public void i(Activity activity, JSONObject jSONObject, t71 t71Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048585, this, activity, jSONObject, t71Var) == null) {
-        }
-    }
-
-    @Override // com.repackage.y71
-    public String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? bk2.G0().a(context) : (String) invokeL.objValue;
     }
 }

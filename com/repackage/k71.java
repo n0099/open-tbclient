@@ -1,147 +1,105 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.AccessibleObject;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.m71;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 /* loaded from: classes6.dex */
 public class k71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public m71 a;
 
-    public static Field a(Class<?> cls, String str) {
-        InterceptResult invokeLL;
+    public k71(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, cls, str)) == null) {
-            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
-                try {
-                    Field declaredField = cls2.getDeclaredField(str);
-                    h(declaredField, true);
-                    return declaredField;
-                } catch (NoSuchFieldException unused) {
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            Field field = null;
-            for (Class<?> cls3 : cls.getInterfaces()) {
-                try {
-                    Field field2 = cls3.getField(str);
-                    n71.a(field == null, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
-                    field = field2;
-                } catch (NoSuchFieldException unused2) {
-                }
-            }
-            return field;
         }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, str, clsArr)) == null) {
-            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
-                try {
-                    Method declaredMethod = cls2.getDeclaredMethod(str, clsArr);
-                    h(declaredMethod, true);
-                    return declaredMethod;
-                } catch (NoSuchMethodException unused) {
-                }
-            }
-            Method method = null;
-            for (Class<?> cls3 : cls.getInterfaces()) {
-                try {
-                    Method method2 = cls3.getMethod(str, clsArr);
-                    n71.a(method == null, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
-                    method = method2;
-                } catch (NoSuchMethodException unused2) {
-                }
-            }
-            return method;
+        File b = b(context, "bitmap");
+        if (!b.exists()) {
+            b.mkdirs();
         }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public static Object c(Object obj, String str, Class<?>[] clsArr, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, obj, str, clsArr, objArr)) == null) {
-            Method b = b(obj.getClass(), str, clsArr);
-            b.setAccessible(true);
-            return b.invoke(obj, objArr);
-        }
-        return invokeLLLL.objValue;
-    }
-
-    public static Object d(Class<?> cls, Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, cls, obj, str)) == null) ? f(a(cls, str), obj) : invokeLLL.objValue;
-    }
-
-    public static Object e(Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str)) == null) ? d(obj.getClass(), obj, str) : invokeLL.objValue;
-    }
-
-    public static Object f(Field field, Object obj) throws IllegalAccessException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, field, obj)) == null) ? field.get(obj) : invokeLL.objValue;
-    }
-
-    public static void g(Field field) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, field) == null) {
-            n71.a(field != null, "The field must not be null", new Object[0]);
-            try {
-                if (Modifier.isFinal(field.getModifiers())) {
-                    Field declaredField = Field.class.getDeclaredField("modifiers");
-                    boolean z = !declaredField.isAccessible();
-                    if (z) {
-                        declaredField.setAccessible(true);
-                    }
-                    declaredField.setInt(field, field.getModifiers() & (-17));
-                    if (z) {
-                        declaredField.setAccessible(false);
-                    }
-                }
-            } catch (IllegalAccessException | NoSuchFieldException unused) {
-            }
+        try {
+            this.a = m71.t(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void h(AccessibleObject accessibleObject, boolean z) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(65543, null, accessibleObject, z) == null) || accessibleObject.isAccessible() == z) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a == null) {
             return;
         }
-        accessibleObject.setAccessible(z);
-    }
-
-    public static void i(Class<?> cls, Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65544, null, cls, obj, str, obj2) == null) {
-            k(a(cls, str), obj, obj2);
+        try {
+            m71.c p = this.a.p(q71.b(str));
+            if (p == null) {
+                return;
+            }
+            if (g71.b(str, p.f(0))) {
+                p.e();
+            } else {
+                p.a();
+            }
+            this.a.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void j(Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
+        String path;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, obj, str, obj2) == null) {
-            i(obj.getClass(), obj, str, obj2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
+                path = context.getExternalCacheDir().getPath();
+            } else {
+                path = context.getCacheDir().getPath();
+            }
+            return new File(path + File.separator + str);
         }
+        return (File) invokeLL.objValue;
     }
 
-    public static void k(Field field, Object obj, Object obj2) throws IllegalAccessException {
+    public Bitmap c(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, field, obj, obj2) == null) {
-            field.set(obj, obj2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
+            if (this.a == null) {
+                return null;
+            }
+            m71.e r = this.a.r(q71.b(str));
+            if (r != null) {
+                FileInputStream fileInputStream = (FileInputStream) r.a(0);
+                if (i > 0 && i2 > 0) {
+                    return p71.b(fileInputStream.getFD(), i, i2);
+                }
+                return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
+            }
+            return null;
         }
+        return (Bitmap) invokeLII.objValue;
     }
 }

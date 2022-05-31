@@ -1,15 +1,20 @@
 package com.repackage;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mb4;
-/* loaded from: classes6.dex */
-public abstract class f84<T> extends g84<T> {
+/* loaded from: classes5.dex */
+public class f84 extends d84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String o;
+    public String p;
+    public int q;
+    public boolean r;
+    public String s;
 
     public f84() {
         Interceptable interceptable = $ic;
@@ -25,9 +30,10 @@ public abstract class f84<T> extends g84<T> {
         }
     }
 
-    public abstract void l(PMSAppInfo pMSAppInfo);
-
-    public abstract void o(mb4.a aVar, PMSAppInfo pMSAppInfo, m94 m94Var);
-
-    public abstract void p(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2);
+    @Override // com.repackage.d84
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.a() && !TextUtils.isEmpty(this.p) : invokeV.booleanValue;
+    }
 }

@@ -1,202 +1,96 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.R;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.nr4;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zy4 {
+public class zy4 implements jn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
+    public List<yy4> h;
+    public String i;
+    public boolean j;
+    public int k;
 
-    /* loaded from: classes7.dex */
-    public static class a implements nr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ DialogInterface.OnCancelListener c;
-
-        public a(int i, Context context, DialogInterface.OnCancelListener onCancelListener) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755095684, "Lcom/repackage/zy4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), context, onCancelListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = i;
-            this.b = context;
-            this.c = onCancelListener;
-        }
-
-        @Override // com.repackage.nr4.e
-        public void onClick(nr4 nr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
-                zy4.d(this.a, this.b);
-                nr4Var.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.c;
-                if (onCancelListener != null) {
-                    onCancelListener.onCancel(nr4Var.getDialog());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b implements nr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DialogInterface.OnCancelListener a;
-
-        public b(DialogInterface.OnCancelListener onCancelListener) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {onCancelListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = onCancelListener;
-        }
-
-        @Override // com.repackage.nr4.e
-        public void onClick(nr4 nr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
-                nr4Var.dismiss();
-                DialogInterface.OnCancelListener onCancelListener = this.a;
-                if (onCancelListener != null) {
-                    onCancelListener.onCancel(nr4Var.getDialog());
-                }
-            }
-        }
-    }
-
-    public static boolean b(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (i == 3 || i == 2) {
-                return dj8.b(context, "com.tencent.mm");
-            }
-            if (i == 8 || i == 4) {
-                return dj8.b(context, "com.tencent.mobileqq");
-            }
-            if (i == 6) {
-                return dj8.b(context, "com.sina.weibo");
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static String c(int i, Context context) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, context)) == null) {
-            if (i == 3 || i == 2) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0401), context.getString(R.string.obfuscated_res_0x7f0f1580));
-            }
-            if (i == 8 || i == 4) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0401), context.getString(R.string.obfuscated_res_0x7f0f0f31));
-            }
-            if (i == 6) {
-                return String.format(context.getString(R.string.obfuscated_res_0x7f0f0401), context.getString(R.string.obfuscated_res_0x7f0f119c));
-            }
-            return null;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static void d(int i, Context context) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65539, null, i, context) == null) {
-            if (i == 3 || i == 2) {
-                if (!b(context, i)) {
-                    BdToast.c(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f1168)).q();
-                    return;
-                }
-                intent = new Intent("android.intent.action.MAIN");
-                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
-                intent.addCategory("android.intent.category.LAUNCHER");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                intent.setComponent(componentName);
-                context.startActivity(intent);
-            } else if (i == 8 || i == 4) {
-                if (!b(context, i)) {
-                    BdToast.c(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f114b)).q();
-                    return;
-                }
-                intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                context.startActivity(intent);
-            } else if (i != 6) {
-                intent = null;
-            } else if (!b(context, i)) {
-                BdToast.c(context.getApplicationContext(), context.getText(R.string.obfuscated_res_0x7f0f115a)).q();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755095684, "Lcom/repackage/zy4;");
                 return;
-            } else {
-                intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                intent.addCategory("android.intent.category.DEFAULT");
-                intent.setData(Uri.parse("sinaweibo://splash"));
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
-            if (intent != null) {
-                context.startActivity(intent);
+        }
+        l = BdUniqueId.gen();
+    }
+
+    public zy4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void e(ShareItem shareItem, Context context, int i, DialogInterface.OnCancelListener onCancelListener) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, shareItem, context, i, onCancelListener) == null) || shareItem == null || TextUtils.isEmpty(shareItem.u) || TextUtils.isEmpty(shareItem.t) || !(context instanceof Activity)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        bi.a(shareItem.y0);
-        Activity activity = (Activity) context;
-        nr4 nr4Var = new nr4(activity);
-        nr4Var.setTitle(context.getString(R.string.obfuscated_res_0x7f0f0402));
-        nr4Var.setMessage(shareItem.y0);
-        nr4Var.setAutoNight(false);
-        nr4Var.setCancelable(true);
-        nr4Var.setTitleShowCenter(true);
-        nr4Var.setPositiveButton(c(i, context), new a(i, context, onCancelListener));
-        nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new b(onCancelListener)).create(f9.a(activity));
-        if (onCancelListener != null) {
-            nr4Var.setOnCalcelListener(onCancelListener);
+        this.a = jSONObject.optString("user_id");
+        this.b = jSONObject.optString("name_show");
+        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.d = jSONObject.optInt("user_gender");
+        this.e = jSONObject.optInt("user_age", 0);
+        this.f = jSONObject.optString("user_constellation");
+        this.g = jSONObject.optString("distance");
+        JSONArray optJSONArray = jSONObject.optJSONArray("favorite_forum_list");
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            this.h = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                yy4 yy4Var = new yy4();
+                yy4Var.a(optJSONArray.optJSONObject(i));
+                this.h.add(yy4Var);
+            }
         }
-        nr4Var.show();
+        this.i = jSONObject.optString("user_slogan");
+        this.j = jSONObject.optInt("is_friend", 0) == 1;
+        this.k = jSONObject.optInt("active_status", 0);
+    }
+
+    @Override // com.repackage.jn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
     }
 }

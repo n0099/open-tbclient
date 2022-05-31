@@ -1,206 +1,205 @@
 package com.repackage;
 
-import android.media.MediaCodec;
-import android.media.MediaCodecInfo;
-import android.media.MediaCodecList;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
 import android.text.TextUtils;
-import android.view.Surface;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.util.Base64;
+import androidx.annotation.VisibleForTesting;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sina.weibo.sdk.utils.FileUtils;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import com.repackage.ib9;
+import com.repackage.kb9;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes6.dex */
-public class fb9 {
+import java.io.ObjectOutputStream;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public final class fb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public int b;
+    public int c;
+    public final Set<Ssp> d;
+    public final Set<kb9> e;
+    public final Set<ib9> f;
 
-    public static MediaCodec a(MediaFormat mediaFormat) throws IOException {
-        InterceptResult invokeL;
+    public fb9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, mediaFormat)) == null) {
-            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(i(mediaFormat));
-            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
-            createDecoderByType.start();
-            return createDecoderByType;
-        }
-        return (MediaCodec) invokeL.objValue;
-    }
-
-    public static MediaExtractor b(String str) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            mediaExtractor.setDataSource(str);
-            return mediaExtractor;
-        }
-        return (MediaExtractor) invokeL.objValue;
-    }
-
-    public static MediaCodec c(MediaFormat mediaFormat, Surface surface) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, mediaFormat, surface)) == null) {
-            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(i(mediaFormat));
-            createDecoderByType.configure(mediaFormat, surface, (MediaCrypto) null, 0);
-            createDecoderByType.start();
-            return createDecoderByType;
-        }
-        return (MediaCodec) invokeLL.objValue;
-    }
-
-    public static MediaCodec d(MediaCodecInfo mediaCodecInfo, MediaFormat mediaFormat, AtomicReference<Surface> atomicReference) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, mediaCodecInfo, mediaFormat, atomicReference)) == null) {
-            MediaCodec createByCodecName = MediaCodec.createByCodecName(mediaCodecInfo.getName());
-            createByCodecName.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-            atomicReference.set(createByCodecName.createInputSurface());
-            createByCodecName.start();
-            return createByCodecName;
-        }
-        return (MediaCodec) invokeLLL.objValue;
-    }
-
-    public static int e(MediaExtractor mediaExtractor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaExtractor)) == null) {
-            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
-                if (j(mediaExtractor.getTrackFormat(i))) {
-                    mediaExtractor.selectTrack(i);
-                    return i;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return -1;
         }
-        return invokeL.intValue;
+        this.d = new HashSet();
+        this.e = new HashSet();
+        this.f = new HashSet();
     }
 
-    public static int f(MediaExtractor mediaExtractor) {
+    public final void a() {
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.a;
+            int i = this.b;
+            int i2 = this.c;
+            za9 za9Var = new za9(this.d, this.e, this.f);
+            Object obj = lb9.a;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                za9Var.srzable(objectOutputStream);
+                objectOutputStream.flush();
+                bArr = byteArrayOutputStream.toByteArray();
+            } catch (IOException unused) {
+                bArr = null;
+            }
+            String encodeToString = bArr != null ? Base64.encodeToString(bArr, 0) : null;
+            Object[] objArr = new Object[1];
+            objArr[0] = Integer.valueOf(encodeToString == null ? -1 : encodeToString.length());
+            LogPrinter.v("sspsUTF len:%d", objArr);
+            lb9.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", encodeToString).apply();
+        }
+    }
+
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaExtractor)) == null) {
-            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
-                if (k(mediaExtractor.getTrackFormat(i))) {
-                    mediaExtractor.selectTrack(i);
-                    return i;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return -1;
+            try {
+                c(str);
+                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
+                if (d()) {
+                    a();
+                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
+                    return true;
+                }
+            } catch (JSONException e) {
+                LogPrinter.e(e);
+            }
+            this.d.clear();
+            this.e.clear();
+            this.f.clear();
+            return false;
         }
-        return invokeL.intValue;
+        return invokeL.booleanValue;
     }
 
-    public static String g(Throwable th) {
-        InterceptResult invokeL;
+    @VisibleForTesting
+    public void c(String str) {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) ? h(th, 5) : (String) invokeL.objValue;
-    }
-
-    public static String h(Throwable th, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, th, i)) == null) {
-            if (th == null) {
-                return "no exception";
-            }
-            StackTraceElement[] stackTrace = th.getStackTrace();
-            if (stackTrace != null && stackTrace.length > 0) {
-                if (i > stackTrace.length) {
-                    i = stackTrace.length;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject jSONObject2 = jSONObject.getJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
+            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
+            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
+            this.c = NumberUtils.adjustInt(jSONObject2.optInt("V", 1), 1);
+            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
+            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
+                for (Ssp.Pid pid : ssp.pids) {
+                    hashMap.put(Long.valueOf(pid.id), pid);
                 }
-                StringBuilder sb = new StringBuilder();
-                for (int i2 = 0; i2 < i; i2++) {
-                    StackTraceElement stackTraceElement = stackTrace[i2];
-                    if (i2 == 0) {
-                        sb.append("->");
-                        sb.append(th.toString());
+                this.d.add(ssp);
+            }
+            JSONArray jSONArray2 = jSONObject3.getJSONArray("sids");
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                this.e.add(new kb9(jSONArray2.getJSONObject(i2), hashMap));
+            }
+            if (this.c < 2 || (optJSONArray = jSONObject3.optJSONArray("serialSids")) == null) {
+                return;
+            }
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                this.f.add(new ib9(optJSONArray.getJSONObject(i3), hashMap));
+            }
+        }
+    }
+
+    @VisibleForTesting
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashSet hashSet = new HashSet();
+            HashSet hashSet2 = new HashSet();
+            for (Ssp ssp : this.d) {
+                if (hashSet.contains(ssp.type)) {
+                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
+                    return false;
+                }
+                hashSet.add(ssp.type);
+                for (Ssp.Pid pid : ssp.pids) {
+                    if (hashSet2.contains(Long.valueOf(pid.id))) {
+                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
+                        return false;
                     }
-                    sb.append("->");
-                    sb.append("at ");
-                    sb.append(stackTraceElement.getClassName());
-                    sb.append(".");
-                    sb.append(stackTraceElement.getMethodName());
-                    sb.append("(");
-                    sb.append(stackTraceElement.getFileName());
-                    sb.append(":");
-                    sb.append(stackTraceElement.getLineNumber());
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
+                    hashSet2.add(Long.valueOf(pid.id));
                 }
-                return sb.toString();
             }
-            return th.toString();
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    @RequiresApi(api = 16)
-    public static String i(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, mediaFormat)) == null) ? mediaFormat.getString("mime") : (String) invokeL.objValue;
-    }
-
-    @RequiresApi(api = 16)
-    public static boolean j(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, mediaFormat)) == null) ? i(mediaFormat).startsWith("audio/") : invokeL.booleanValue;
-    }
-
-    public static boolean k(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, mediaFormat)) == null) ? i(mediaFormat).startsWith(FileUtils.VIDEO_FILE_START) : invokeL.booleanValue;
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        va9.j(str, str2);
-    }
-
-    public static MediaCodecInfo m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            int codecCount = MediaCodecList.getCodecCount();
-            for (int i = 0; i < codecCount; i++) {
-                MediaCodecInfo codecInfoAt = MediaCodecList.getCodecInfoAt(i);
-                if (codecInfoAt.isEncoder()) {
-                    for (String str2 : codecInfoAt.getSupportedTypes()) {
-                        if (str2.equalsIgnoreCase(str)) {
-                            return codecInfoAt;
+            HashSet hashSet3 = new HashSet();
+            for (kb9 kb9Var : this.e) {
+                if (hashSet3.contains(kb9Var.a)) {
+                    LogPrinter.e("Duplicate sid(%s) found in SlotId", kb9Var.a);
+                    return false;
+                }
+                hashSet3.add(kb9Var.a);
+                for (kb9.c cVar : kb9Var.e) {
+                    HashSet hashSet4 = new HashSet();
+                    for (kb9.b bVar : cVar.b) {
+                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
+                            return false;
+                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), kb9Var.a);
+                            return false;
+                        } else {
+                            hashSet4.add(Long.valueOf(bVar.a));
                         }
                     }
-                    continue;
                 }
             }
-            return null;
-        }
-        return (MediaCodecInfo) invokeL.objValue;
-    }
-
-    public static void n(MediaFormat mediaFormat, MediaFormat mediaFormat2, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65549, null, mediaFormat, mediaFormat2, str, i) == null) {
-            if (mediaFormat != null && mediaFormat.containsKey(str) && mediaFormat.getInteger(str) > 0) {
-                i = mediaFormat.getInteger(str);
+            if (this.c == 2) {
+                for (ib9 ib9Var : this.f) {
+                    if (hashSet3.contains(ib9Var.a)) {
+                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", ib9Var.a);
+                        return false;
+                    }
+                    hashSet3.add(ib9Var.a);
+                    for (ib9.b bVar2 : ib9Var.b) {
+                        for (ib9.a aVar : bVar2.b) {
+                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
+                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
+                                return false;
+                            }
+                        }
+                    }
+                }
             }
-            if (mediaFormat2 != null) {
-                mediaFormat2.setInteger(str, i);
-            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 }

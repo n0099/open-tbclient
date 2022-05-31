@@ -1,42 +1,67 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import java.util.List;
-import java.util.Map;
+import com.baidu.nadcore.utils.LruCache;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface sf0 {
-    long a();
+public class sf0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final LruCache<String, String> a;
 
-    void b(int i, int i2);
+    /* loaded from: classes7.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sf0 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    int c(int i, int i2, Map<String, float[]> map);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-15568457, "Lcom/repackage/sf0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-15568457, "Lcom/repackage/sf0$a;");
+                    return;
+                }
+            }
+            a = new sf0();
+        }
+    }
 
-    int d(MediaTrack mediaTrack, int i, Map<String, float[]> map);
+    public sf0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new LruCache<>(8);
+    }
 
-    void e(List<MediaTrack> list, Map<String, ShaderConfig> map);
+    public static sf0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (sf0) invokeV.objValue;
+    }
 
-    int f(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map);
-
-    void g(int i, long j);
-
-    int h(MediaSegment mediaSegment, int i, Map<String, float[]> map);
-
-    int i(MediaTrack mediaTrack, int i, Map<String, float[]> map);
-
-    void j(Context context);
-
-    int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f);
-
-    List<MediaTrack> l();
-
-    @Deprecated
-    int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map);
-
-    void n(List<MediaTrack> list);
-
-    void release();
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (String) invokeL.objValue;
+    }
 }

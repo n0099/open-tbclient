@@ -1,39 +1,87 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.tabfeed.view.HotTopicRankLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.App;
 /* loaded from: classes6.dex */
-public class ky6 extends ay5 {
+public class ky6 extends wm<vy6, AdapterViewHolder<HotTopicRankLayout>> implements wx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
+    public String j;
 
-    public ky6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ky6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), bu6.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.i = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: Z */
+    public AdapterViewHolder<HotTopicRankLayout> M(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new AdapterViewHolder<>(new HotTopicRankLayout(viewGroup.getContext())) : (AdapterViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.wm
+    /* renamed from: a0 */
+    public View S(int i, View view2, ViewGroup viewGroup, vy6 vy6Var, AdapterViewHolder<HotTopicRankLayout> adapterViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vy6Var, adapterViewHolder})) == null) {
+            if (vy6Var == null || adapterViewHolder == null) {
+                return null;
+            }
+            HotTopicRankLayout c = adapterViewHolder.c();
+            c.setTabCode(this.j);
+            c.a(vy6Var);
+            c.onChangeSkinType(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return adapterViewHolder.b();
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void b0(pn pnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, pnVar) == null) {
         }
     }
 
-    public void g(App app) {
+    @Override // com.repackage.wx6
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, app) == null) || app == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.j = str;
         }
-        if (this.a == null) {
-            this.a = new AdvertAppInfo();
-        }
-        this.a.s(app);
-        this.position = this.a.position;
     }
 }

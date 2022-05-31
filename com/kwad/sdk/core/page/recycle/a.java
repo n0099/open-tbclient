@@ -43,7 +43,7 @@ public abstract class a extends com.kwad.sdk.h.d {
     }
 
     public int f() {
-        return R.id.obfuscated_res_0x7f0910d6;
+        return R.id.obfuscated_res_0x7f091095;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

@@ -1,19 +1,23 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class bz0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bz0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, yy0> a;
+    @NonNull
+    public BaseExecutorCell a;
+    @NonNull
+    public BaseExecutorCell b;
+    @NonNull
+    public BaseExecutorCell c;
 
     public bz0() {
         Interceptable interceptable = $ic;
@@ -28,49 +32,32 @@ public class bz0 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.a = BaseExecutorCell.b(oy0.d, BaseExecutorCell.ExecutorType.ARTERY);
+        this.b = BaseExecutorCell.b(oy0.e, BaseExecutorCell.ExecutorType.ARTERY);
+        this.c = BaseExecutorCell.b(oy0.f, BaseExecutorCell.ExecutorType.ARTERY);
     }
 
-    public static bz0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (bz0.class) {
-                    if (b == null) {
-                        b = new bz0();
-                    }
-                }
-            }
-            return b;
-        }
-        return (bz0) invokeV.objValue;
-    }
-
-    @NonNull
-    public yy0 b(String str) {
+    public boolean a(ElasticTask elasticTask) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            yy0 yy0Var = (yy0) vy0.b(this.a, str);
-            if (yy0Var == null) {
-                synchronized (bz0.class) {
-                    yy0Var = (yy0) vy0.b(this.a, str);
-                    if (yy0Var == null) {
-                        if (TextUtils.isEmpty(str)) {
-                            yy0Var = az0.a().a();
-                        } else {
-                            yy0Var = az0.a().b(str);
-                        }
-                        vy0.e(this.a, str, yy0Var);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
+            int b = elasticTask.b();
+            if (b == 0 || b == 1) {
+                if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
+                    return true;
                 }
+                return this.c.c(elasticTask);
+            } else if (b == 2) {
+                if (this.b.c(elasticTask)) {
+                    return true;
+                }
+                return this.c.c(elasticTask);
+            } else if (b == 3) {
+                return this.c.c(elasticTask);
+            } else {
+                return false;
             }
-            return yy0Var;
         }
-        return (yy0) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

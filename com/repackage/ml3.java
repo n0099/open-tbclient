@@ -1,243 +1,70 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.net.Uri;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class ml3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public Method b;
-    public Method c;
-    public Method d;
-    public Method e;
-    public Method f;
-    public Method g;
-    public Method h;
-    public boolean i;
 
-    public ml3(Object obj) {
+    public ml3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = obj;
-    }
-
-    @SuppressLint({"WrongConstant"})
-    public static ml3 a(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Object obj = null;
-            try {
-                obj = context.getSystemService("mtk-perfservice");
-                if (obj != null) {
-                    v44.c(obj.getClass());
-                }
-            } catch (Throwable unused) {
-            }
-            return new ml3(obj);
-        }
-        return (ml3) invokeL.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c()) {
-                if (this.i) {
-                    return this.b != null;
-                }
-                try {
-                    this.i = true;
-                    if (this.b == null) {
-                        Method i = x44.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                        this.b = i;
-                        if (i != null) {
-                            i.setAccessible(true);
-                        }
-                    }
-                } catch (Throwable unused) {
-                }
-                return this.b != null;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && c()) {
-            try {
-                if (this.f == null) {
-                    Method i2 = x44.i(this.a.getClass(), "userDisable", Integer.TYPE);
-                    this.f = i2;
-                    if (i2 != null) {
-                        i2.setAccessible(true);
-                    }
-                }
-                if (this.f != null) {
-                    this.f.invoke(this.a, Integer.valueOf(i));
-                }
-            } catch (Throwable unused) {
             }
         }
     }
 
-    public void e(int i, int i2) {
+    public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) && c()) {
-            try {
-                if (this.e == null) {
-                    Method i3 = x44.i(this.a.getClass(), "userEnableTimeoutMs", Integer.TYPE, Integer.TYPE);
-                    this.e = i3;
-                    if (i3 != null) {
-                        i3.setAccessible(true);
-                    }
-                }
-                if (this.e != null) {
-                    this.e.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2));
-                }
-            } catch (Throwable unused) {
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
+            return 0;
         }
+        return invokeLLL.intValue;
     }
 
-    public int f(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Object invoke;
+    @Nullable
+    public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048580, this, i, i2, i3, i4)) == null) {
-            if (c()) {
-                try {
-                    if (this.b == null) {
-                        Method i5 = x44.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                        this.b = i5;
-                        if (i5 != null) {
-                            i5.setAccessible(true);
-                        }
-                    }
-                    if (this.b == null || (invoke = this.b.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))) == null) {
-                        return -1;
-                    }
-                    return ((Integer) invoke).intValue();
-                } catch (Throwable unused) {
-                    return -1;
-                }
-            }
-            return -1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, contentValues)) == null) {
+            return null;
         }
-        return invokeIIII.intValue;
+        return (Uri) invokeLL.objValue;
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    @Nullable
+    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (c()) {
-                try {
-                    if (this.c == null) {
-                        Method i = x44.i(this.a.getClass(), "userRegScn", new Class[0]);
-                        this.c = i;
-                        if (i != null) {
-                            i.setAccessible(true);
-                        }
-                    }
-                    Object invoke = this.c != null ? this.c.invoke(this.a, new Object[0]) : null;
-                    if (invoke != null) {
-                        return ((Integer) invoke).intValue();
-                    }
-                } catch (Throwable unused) {
-                }
-                return -1;
-            }
-            return -1;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
+            return null;
         }
-        return invokeV.intValue;
+        return (Cursor) invokeLLLLL.objValue;
     }
 
-    public void h(int i, int i2, int i3, int i4, int i5, int i6) {
+    public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) && c()) {
-            try {
-                if (this.d == null) {
-                    Method i7 = x44.i(this.a.getClass(), "userRegScnConfig", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
-                    this.d = i7;
-                    if (i7 != null) {
-                        i7.setAccessible(true);
-                    }
-                }
-                if (this.d != null) {
-                    this.d.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6));
-                }
-            } catch (Throwable unused) {
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, uri, contentValues, str, strArr)) == null) {
+            return 0;
         }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && c()) {
-            try {
-                if (this.g == null) {
-                    Method i2 = x44.i(this.a.getClass(), "userUnreg", Integer.TYPE);
-                    this.g = i2;
-                    if (i2 != null) {
-                        i2.setAccessible(true);
-                    }
-                }
-                if (this.g != null) {
-                    this.g.invoke(this.a, Integer.valueOf(i));
-                }
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && c()) {
-            try {
-                if (this.h == null) {
-                    Method i2 = x44.i(this.a.getClass(), "userUnregScn", Integer.TYPE);
-                    this.h = i2;
-                    if (i2 != null) {
-                        i2.setAccessible(true);
-                    }
-                }
-                if (this.h != null) {
-                    this.h.invoke(this.a, Integer.valueOf(i));
-                }
-            } catch (Throwable unused) {
-            }
-        }
+        return invokeLLLL.intValue;
     }
 }

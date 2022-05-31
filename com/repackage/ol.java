@@ -2,19 +2,24 @@ package com.repackage;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.pms.IPmsContext;
+import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.searchbox.pms.statistic.StatisticCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Collections;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public abstract class ol {
+public class ol implements IPmsContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
     public ol() {
         Interceptable interceptable = $ic;
@@ -26,81 +31,59 @@ public abstract class ol {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-    }
-
-    public abstract String a();
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a) {
-            return;
-        }
-        this.a = true;
-        if (TextUtils.isEmpty(a())) {
-            return;
-        }
-        try {
-            new JSONObject().put("version", i);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void c(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(j)));
-            String str = a + "_download";
-            if (i == 0) {
-                nl.c(str, arrayList);
-            } else {
-                nl.b(str, arrayList);
             }
         }
     }
 
-    public void d(int i, int i2) {
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public boolean checkChannelAllow(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
-            String str = a + "_install";
-            if (i == 13) {
-                nl.c(str, arrayList);
-            } else {
-                nl.b(str, arrayList);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void e(int i, int i2) {
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public List<RequestParams.Channel> getLongConnectParams() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            String a = a();
-            if (TextUtils.isEmpty(a)) {
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Collections.emptyList() : (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? getRegisterParams(str, "aps") : (RequestParams) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public StatisticCallback getStatisticCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? new ql() : (StatisticCallback) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.pms.IPmsContext
+    public RequestParams getRegisterParams(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            RequestParams requestParams = new RequestParams();
+            requestParams.setRunType(str);
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "aps";
             }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AbstractMap.SimpleEntry("version", String.valueOf(i2)));
-            String str = a + "_launch";
-            if (i == 14) {
-                nl.c(str, arrayList);
-            } else {
-                nl.b(str, arrayList);
+            requestParams.setRunNode(str2);
+            if ("0".equals(str)) {
+                requestParams.addChannel(zk.e().d());
+                requestParams.addChannel(new lm());
+                requestParams.addChannel(new vl());
             }
+            return requestParams;
         }
+        return (RequestParams) invokeLL.objValue;
     }
 }

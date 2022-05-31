@@ -1,58 +1,295 @@
 package com.repackage;
 
+import android.content.Context;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class nr2 extends lr2 {
+public class nr2 implements te4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final dn1 f;
+    public Context a;
+    public Boolean b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nr2(dn1 dn1Var, boolean z) {
-        super(6);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dn1Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755459965, "Lcom/repackage/nr2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755459965, "Lcom/repackage/nr2;");
                 return;
             }
         }
-        this.e = z;
-        this.f = dn1Var;
+        c = rf1.a;
     }
 
-    @Override // com.repackage.lr2
-    public String d() {
-        InterceptResult invokeV;
-        s43 params;
+    public nr2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            dn1 dn1Var = this.f;
-            if (dn1Var == null || (params = dn1Var.getParams()) == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return params.c;
+        }
+        this.b = null;
+        this.a = AppRuntime.getAppContext();
+    }
+
+    @Override // com.repackage.te4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? oi2.n().a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? sf1.a() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            dj1 g0 = oi2.g0();
+            if (g0 != null) {
+                g0.getSwitch("ANDROID_UBC_SAMPLE_" + str, "");
+            }
+            if (TextUtils.isEmpty("")) {
+                return false;
+            }
+            try {
+                i = new JSONObject("").getInt("probability");
+            } catch (JSONException e) {
+                e.printStackTrace();
+                i = 0;
+            }
+            return new Random().nextInt(100) < i;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.te4
+    public ExecutorService d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? oi2.z0().d() : (ExecutorService) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public void e(String str, int i, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, jSONArray) == null) {
+            oi2.z0().e(str, i, jSONArray);
+        }
+    }
+
+    @Override // com.repackage.te4
+    public void f(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            oi2.z0().f(str, i);
+        }
+    }
+
+    @Override // com.repackage.te4
+    public void g(String str, String str2, int i, String str3, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
+            oi2.z0().g(str, str2, i, str3, i2);
+        }
+    }
+
+    @Override // com.repackage.te4
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            hz2 D = uk2.U().D();
+            return D != null ? D.b : "";
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean e() {
+    @Override // com.repackage.te4
+    public String getAppVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            hz2 D = uk2.U().D();
+            return D != null ? D.X().v1() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public String getDeviceId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? oi2.h0().i(oi2.c()) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            dj1 g0 = oi2.g0();
+            return g0 != null ? g0.p() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public void i(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048587, this, str, i, str2) == null) {
+            oi2.z0().i(str, i, str2);
+        }
+    }
+
+    @Override // com.repackage.te4
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? oi2.g0().j() : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.te4
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            hz2 D = uk2.U().D();
+            return D != null ? D.V().T() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? gz2.J().l() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.te4
+    public ue4 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? oi2.O().m() : (ue4) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? m83.h(l()) : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public void o(String str, String str2, int i, String str3, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            oi2.z0().o(str, str2, i, str3, j, i2);
+        }
+    }
+
+    @Override // com.repackage.te4
+    public String p(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? sf4.b(context).a() : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.b == null) {
+                oi2.g0().getSwitch("swan_ceres_add_counter", false);
+                this.b = false;
+            }
+            return this.b.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.te4
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? gv2.X() && (s() || rf1.b) : invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.te4
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return c && PreferenceManager.getDefaultSharedPreferences(oi2.c()).getBoolean("KEY_UBC_DEBUG", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.repackage.te4
+    public String t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            String b = oi2.n().b();
+            if (bd3.G() || TextUtils.isEmpty(b)) {
+                return null;
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public String u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? bw1.b() : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.te4
+    public String v(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, context)) == null) ? oi2.h0().h(oi2.c()) : (String) invokeL.objValue;
     }
 }

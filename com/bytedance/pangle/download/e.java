@@ -284,9 +284,9 @@ public class e {
     }
 
     public static /* synthetic */ int a(String str) {
-        Plugin plugin2 = Zeus.getPlugin(str);
-        if (plugin2 != null) {
-            return plugin2.getVersion();
+        Plugin plugin = Zeus.getPlugin(str);
+        if (plugin != null) {
+            return plugin.getVersion();
         }
         return 0;
     }

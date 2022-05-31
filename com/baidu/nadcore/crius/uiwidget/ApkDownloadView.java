@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.aj0;
+import com.repackage.nh0;
 /* loaded from: classes2.dex */
 public class ApkDownloadView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public aj0 b;
+    public nh0 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ApkDownloadView(@NonNull Context context) {
@@ -41,10 +41,10 @@ public class ApkDownloadView extends FrameLayout {
         this.a = 0;
     }
 
-    public aj0 getRealDownloadView() {
+    public nh0 getRealDownloadView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (aj0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (nh0) invokeV.objValue;
     }
 
     @Override // android.view.View

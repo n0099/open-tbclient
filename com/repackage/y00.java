@@ -1,11 +1,21 @@
 package com.repackage;
-
-import javax.crypto.ShortBufferException;
 /* loaded from: classes7.dex */
 public interface y00 {
-    int a(int i);
+    String a(String str, boolean z);
 
-    int a(byte[] bArr, int i, int i2);
+    String getBDVCInfo();
 
-    void b(byte[] bArr, int i, int i2) throws ShortBufferException;
+    String getC3Aid();
+
+    String getCfrom();
+
+    String getDeviceId();
+
+    String getFrom();
+
+    String getSchemeHeader();
+
+    String getSid();
+
+    String getZid();
 }

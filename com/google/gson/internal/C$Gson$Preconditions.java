@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* renamed from: com.google.gson.internal.$Gson$Preconditions  reason: invalid class name */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class C$Gson$Preconditions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

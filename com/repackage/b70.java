@@ -1,19 +1,19 @@
 package com.repackage;
 
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.Response;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.n60;
-import java.io.IOException;
-import java.net.URISyntaxException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class b70 implements n60 {
+public class b70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c70 a;
+    public d70 b;
 
     public b70() {
         Interceptable interceptable = $ic;
@@ -25,28 +25,32 @@ public class b70 implements n60 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new c70();
+        this.b = new d70();
     }
 
-    @Override // com.repackage.n60
-    public Response a(n60.a aVar) throws IOException {
+    public u60 a(u60 u60Var, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, u60Var, z)) == null) {
+            this.a.b(u60Var, z);
+            return u60Var;
+        }
+        return (u60) invokeLZ.objValue;
+    }
+
+    public u60 b(Context context, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) ? this.a.c(context, j) : (u60) invokeLJ.objValue;
+    }
+
+    public u60 c(InputStream inputStream) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            Request request = aVar.request();
-            try {
-                return aVar.a(request);
-            } catch (RuntimeException e) {
-                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
-                    throw new IOException(e);
-                }
-                if ((e instanceof IllegalStateException) && e.getMessage().contains("Unexpected readData call. Buffer is null")) {
-                    throw new IOException(e);
-                }
-                throw new RuntimeException(e.getMessage() + " request url == " + request.url(), e);
-            }
-        }
-        return (Response) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) ? this.b.b(inputStream) : (u60) invokeL.objValue;
     }
 }

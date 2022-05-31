@@ -1,149 +1,100 @@
 package com.repackage;
 
-import android.graphics.drawable.BitmapDrawable;
-import android.text.TextUtils;
-import android.util.Pair;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.adp.BdUniqueId;
+import android.text.Selection;
+import android.text.SpanWatcher;
+import android.text.Spannable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.CustomViewPager;
-import com.baidu.tieba.R;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ju4 {
+public class ju4 implements SpanWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public FragmentTabHost b;
-    public final fg<co> c;
+    public SpanGroupManager a;
+    public int b;
+    public int c;
 
-    /* loaded from: classes6.dex */
-    public class a extends fg<co> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ju4 a;
-
-        public a(ju4 ju4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ju4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ju4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        public void onLoaded(co coVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, coVar, str, i) == null) {
-                super.onLoaded((a) coVar, str, i);
-                if (this.a.b == null || coVar == null || !coVar.w()) {
-                    this.a.f();
-                    return;
-                }
-                FragmentTabWidget fragmentTabWidget = this.a.b.getFragmentTabWidget();
-                CustomViewPager fragmentViewPager = this.a.b.getFragmentViewPager();
-                ViewGroup tabWrapper = this.a.b.getTabWrapper();
-                if (fragmentTabWidget == null || fragmentViewPager == null) {
-                    return;
-                }
-                this.a.b.setNeedShowThemeStyle(false);
-                fragmentTabWidget.setBackGroundDrawableResId(R.color.black_alpha0);
-                SkinManager.setBackgroundColor(tabWrapper, R.color.black_alpha0);
-                SkinManager.setBackgroundColor(fragmentTabWidget, R.color.black_alpha0);
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) fragmentViewPager.getLayoutParams();
-                layoutParams.bottomMargin = mi.f(this.a.b.getContext(), R.dimen.tbds100);
-                fragmentViewPager.setLayoutParams(layoutParams);
-                fragmentTabWidget.setBackgroundDrawable(new BitmapDrawable(coVar.p()));
-            }
-        }
-    }
-
-    public ju4(FragmentTabHost fragmentTabHost, int i) {
+    public ju4(@NonNull SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentTabHost, Integer.valueOf(i)};
+            Object[] objArr = {spanGroupManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.c = new a(this);
-        this.b = fragmentTabHost;
-        this.a = i;
+        this.a = spanGroupManager;
     }
 
-    public final BdUniqueId c() {
-        InterceptResult invokeV;
-        b9<?> a2;
+    @Override // android.text.SpanWatcher
+    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            FragmentTabHost fragmentTabHost = this.b;
-            if (fragmentTabHost == null || fragmentTabHost.getContext() == null || (a2 = f9.a(this.b.getContext())) == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
+        }
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
+        SpanGroupManager spanGroupManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (spanGroupManager = this.a) == null) {
+            return;
+        }
+        if (obj == Selection.SELECTION_END && this.c != i3) {
+            this.c = i3;
+            hu4 B = spanGroupManager.B(i3);
+            if (B != null) {
+                int f = B.f();
+                int c = B.c();
+                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
+                    f = c;
+                }
+                int selectionStart = Selection.getSelectionStart(spannable);
+                if (selectionStart > spannable.length()) {
+                    selectionStart = spannable.length();
+                }
+                if (f > spannable.length()) {
+                    f = spannable.length();
+                }
+                Selection.setSelection(spannable, selectionStart, f);
             }
-            return a2.getUniqueId();
         }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            gg.h().m(str, 10, this.c, c());
-        }
-    }
-
-    public void e(Pair<String, String> pair) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair) == null) || pair == null) {
+        if (obj != Selection.SELECTION_START || this.b == i3) {
             return;
         }
-        String str = (String) pair.first;
-        String str2 = (String) pair.second;
-        if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-            d(str2);
-        } else if (!TextUtils.isEmpty(str)) {
-            d(str);
-        } else {
-            f();
+        this.b = i3;
+        hu4 B2 = this.a.B(i3);
+        if (B2 != null) {
+            int f2 = B2.f();
+            int c2 = B2.c();
+            if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
+                f2 = c2;
+            }
+            int selectionEnd = Selection.getSelectionEnd(spannable);
+            if (selectionEnd > spannable.length()) {
+                selectionEnd = spannable.length();
+            }
+            if (f2 > spannable.length()) {
+                f2 = spannable.length();
+            }
+            Selection.setSelection(spannable, f2, selectionEnd);
         }
     }
 
-    public final void f() {
-        FragmentTabHost fragmentTabHost;
+    @Override // android.text.SpanWatcher
+    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (fragmentTabHost = this.b) == null || fragmentTabHost.getFragmentTabWidget() == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) {
         }
-        this.b.getFragmentTabWidget().setBackGroundDrawableResId(this.a);
-        SkinManager.setBackgroundColor(this.b.getFragmentTabWidget(), this.a);
-        SkinManager.setBackgroundColor(this.b.getTabWrapper(), this.a);
     }
 }

@@ -1,24 +1,92 @@
 package com.repackage;
 
+import android.content.Context;
+import android.graphics.Rect;
 import android.view.View;
-import com.baidu.tieba.videoplay.verticalviewpager.fragment.VideoLoadingFragment;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class hv8 implements View.OnLongClickListener {
+public abstract class hv8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ hv8 a = new hv8();
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public View b;
+    public View c;
+    public a d;
+    public int e;
+    public Rect f;
+    public Rect g;
 
-    private /* synthetic */ hv8() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(int i);
     }
 
-    @Override // android.view.View.OnLongClickListener
-    public final boolean onLongClick(View view2) {
-        InterceptResult invokeL;
+    public hv8(Context context, bv8 bv8Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? VideoLoadingFragment.H0(view2) : invokeL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bv8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = 4;
+        this.f = new Rect();
+        this.g = new Rect();
+        this.a = context;
     }
+
+    public void a(View view2, View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, view3) == null) {
+            this.b = view2;
+            this.c = view3;
+            if (view3 != null) {
+                view3.getGlobalVisibleRect(this.f);
+            }
+        }
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                h();
+            } else {
+                c();
+            }
+        }
+    }
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.d = aVar;
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            g();
+        }
+    }
+
+    public abstract void g();
+
+    public abstract void h();
 }

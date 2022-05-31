@@ -150,13 +150,13 @@ public class b {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     super.handleMessage(message);
                     Object obj = message.obj;
-                    a.C0049a c0049a = obj instanceof a.C0049a ? (a.C0049a) obj : null;
+                    a.C0048a c0048a = obj instanceof a.C0048a ? (a.C0048a) obj : null;
                     switch (message.what) {
                         case 103:
-                            this.gq.a(c0049a);
+                            this.gq.a(c0048a);
                             return;
                         case 104:
-                            if (c0049a == null || (n = this.gq.n(c0049a.dM)) == null || (str = c0049a.ge) == null) {
+                            if (c0048a == null || (n = this.gq.n(c0048a.dM)) == null || (str = c0048a.ge) == null) {
                                 return;
                             }
                             n.evaluateJavascript(str, new ValueCallback<String>(this, n) { // from class: com.baidu.ar.arplay.d.b.1.1
@@ -206,7 +206,7 @@ public class b {
                             }
                             return;
                         case 106:
-                            this.gq.b(c0049a);
+                            this.gq.b(c0048a);
                             return;
                         default:
                             return;
@@ -348,28 +348,28 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C0049a c0049a) {
+    public void a(a.C0048a c0048a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, this, c0049a) == null) && c0049a != null && isValid()) {
-            com.baidu.ar.arplay.d.a e = e(c0049a.width, c0049a.height);
-            e.setWebViewData(c0049a);
-            d.bp().b(c0049a.dM, c0049a.width, c0049a.height);
-            e.setTag(Integer.valueOf(c0049a.dM));
-            String str = c0049a.url;
-            if (!c0049a.gd) {
+        if ((interceptable == null || interceptable.invokeL(65542, this, c0048a) == null) && c0048a != null && isValid()) {
+            com.baidu.ar.arplay.d.a e = e(c0048a.width, c0048a.height);
+            e.setWebViewData(c0048a);
+            d.bp().b(c0048a.dM, c0048a.width, c0048a.height);
+            e.setTag(Integer.valueOf(c0048a.dM));
+            String str = c0048a.url;
+            if (!c0048a.gd) {
                 str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
             }
             e.loadUrl(str);
             e.invalidate();
             e.setIsNeedRender(true);
-            e(c0049a);
+            e(c0048a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(a.C0049a c0049a) {
+    public void b(a.C0048a c0048a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, this, c0049a) == null) && c0049a != null && bn()) {
+        if ((interceptable == null || interceptable.invokeL(65546, this, c0048a) == null) && c0048a != null && bn()) {
             if (this.gm == null) {
                 WebView webView = new WebView(this.mContext);
                 this.gm = webView;
@@ -418,8 +418,8 @@ public class b {
                 });
                 this.gl.addView(this.gm, layoutParams);
             }
-            String str = c0049a.url;
-            if (!c0049a.gd) {
+            String str = c0048a.url;
+            if (!c0048a.gd) {
                 str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
             }
             this.gm.loadUrl(str);
@@ -677,35 +677,35 @@ public class b {
         }
     }
 
-    public void c(a.C0049a c0049a) {
+    public void c(a.C0048a c0048a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c0049a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, c0048a) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 103;
-            obtainMessage.obj = c0049a;
+            obtainMessage.obj = c0048a;
             this.gn.sendMessage(obtainMessage);
         }
     }
 
-    public void d(a.C0049a c0049a) {
+    public void d(a.C0048a c0048a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c0049a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, c0048a) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 106;
-            obtainMessage.obj = c0049a;
+            obtainMessage.obj = c0048a;
             this.gn.sendMessage(obtainMessage);
         }
     }
 
-    public void e(a.C0049a c0049a) {
+    public void e(a.C0048a c0048a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c0049a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, c0048a) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 104;
-            obtainMessage.obj = c0049a;
-            com.baidu.ar.arplay.d.a n = n(c0049a.dM);
+            obtainMessage.obj = c0048a;
+            com.baidu.ar.arplay.d.a n = n(c0048a.dM);
             if (n != null) {
-                n.setWebViewData(c0049a);
+                n.setWebViewData(c0048a);
                 this.gn.sendMessage(obtainMessage);
             }
         }

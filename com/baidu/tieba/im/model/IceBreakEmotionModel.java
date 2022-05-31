@@ -18,8 +18,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.j57;
-import com.repackage.k57;
+import com.repackage.l37;
+import com.repackage.m37;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
@@ -29,7 +29,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
 
     /* loaded from: classes3.dex */
     public interface IceBreakRequestCallback {
-        void onSuccess(List<k57> list);
+        void onSuccess(List<m37> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,10 +86,10 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    j57 j57Var;
+                    l37 l37Var;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof IceBreakHttpResponsedMessage) && httpResponsedMessage.getError() == 0 && (j57Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) != null) {
-                        List<k57> a = j57Var.a();
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof IceBreakHttpResponsedMessage) && httpResponsedMessage.getError() == 0 && (l37Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) != null) {
+                        List<m37> a = l37Var.a();
                         if (ListUtils.isEmpty(a) || this.this$0.mCallback == null) {
                             return;
                         }

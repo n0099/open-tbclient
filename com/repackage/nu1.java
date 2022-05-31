@@ -1,73 +1,213 @@
 package com.repackage;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextPaint;
+import android.content.Context;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import com.repackage.ou1;
+import com.tachikoma.core.component.input.ReturnKeyType;
 /* loaded from: classes6.dex */
-public class nu1 extends au1 {
+public abstract class nu1<V extends SwanEditText, M extends ou1> extends su1<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
 
-    public nu1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nu1(@Nullable Context context, @NonNull M m) {
+        super(context, m);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, m};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (tu1) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.repackage.au1
-    public void a(bu1 bu1Var, Canvas canvas) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.su1, com.repackage.uu1, com.repackage.wu1
+    @NonNull
+    /* renamed from: Z */
+    public zv1 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m, m2)) == null) {
+            zv1 k = super.k(m, m2);
+            if (q() != 0 && !TextUtils.equals(((SwanEditText) q()).getText().toString(), m2.t)) {
+                k.b(6);
+            }
+            if (m.D != m2.D) {
+                k.b(10);
+            }
+            if (m.F != m2.F) {
+                k.b(11);
+            }
+            if (m.G != m2.G || m.H != m2.H) {
+                k.b(12);
+            }
+            if (!TextUtils.equals(m.I, m2.I)) {
+                k.b(13);
+            }
+            return k;
         }
-        TextPaint textPaint = bu1Var.e;
-        int i = bu1Var.k;
-        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-        float f = fontMetrics.top;
-        int i2 = this.c;
-        float f2 = i2 + f;
-        float f3 = fontMetrics.ascent + i2;
-        float f4 = fontMetrics.bottom;
-        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
-        int alpha = textPaint.getAlpha();
-        bu1Var.c(textPaint);
-        canvas.drawText(this.a, this.b, f5, textPaint);
-        textPaint.setAlpha(alpha);
+        return (zv1) invokeLL.objValue;
     }
 
-    @Override // com.repackage.au1
-    public void b(JSONArray jSONArray) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.su1
+    /* renamed from: a0 */
+    public void T(@NonNull V v, @NonNull M m, @NonNull zv1 zv1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 2) {
-                    this.a = jSONArray.optString(0);
-                    this.b = le3.g((float) jSONArray.optDouble(1));
-                    this.c = le3.g((float) jSONArray.optDouble(2));
-                }
-            } catch (Exception e) {
-                if (eh1.a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, v, m, zv1Var) == null) {
+            super.O(v, m, zv1Var);
+            if (zv1Var.a(11)) {
+                d0(v, m);
             }
+            if (zv1Var.a(12)) {
+                f0(v, m);
+            }
+            if (zv1Var.a(10)) {
+                e0(v, m);
+            }
+            if (zv1Var.a(13)) {
+                c0(v, m);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.uu1
+    /* renamed from: b0 */
+    public void Q(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
+            if (wu1.h) {
+                Log.d("Component-EditText", "renderBackground");
+            }
+            v.setBackgroundColor(0);
+        }
+    }
+
+    public boolean c0(@NonNull V v, @NonNull M m) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, v, m)) == null) {
+            if (wu1.h) {
+                Log.d("Component-EditText", "renderConfirmType:" + m.I);
+            }
+            String str = m.I;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -906336856:
+                    if (str.equals("search")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                    if (str.equals(ReturnKeyType.GO)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3089282:
+                    if (str.equals("done")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3377907:
+                    if (str.equals("next")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3526536:
+                    if (str.equals(ReturnKeyType.SEND)) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+            }
+            if (c == 0) {
+                v.setImeOptions(4);
+            } else if (c == 1) {
+                v.setImeOptions(3);
+            } else if (c == 2) {
+                v.setImeOptions(5);
+            } else if (c == 3) {
+                v.setImeOptions(2);
+            } else if (c != 4) {
+                return false;
+            } else {
+                v.setImeOptions(6);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void d0(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, v, m) == null) {
+            if (wu1.h) {
+                Log.d("Component-EditText", "renderCursor");
+            }
+            Editable text = v.getText();
+            int length = text != null ? text.length() : 0;
+            int i = m.F;
+            if (i > length || i < 0) {
+                return;
+            }
+            v.setSelection(i);
+        }
+    }
+
+    public final void e0(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, v, m) == null) {
+            if (wu1.h) {
+                Log.d("Component-EditText", "renderMaxLength");
+            }
+            if (m.D >= 0) {
+                v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.D)});
+            }
+        }
+    }
+
+    public void f0(@NonNull V v, @NonNull M m) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) {
+            if (wu1.h) {
+                Log.d("Component-EditText", "renderSelection");
+            }
+            Editable text = v.getText();
+            int length = text != null ? text.length() : 0;
+            int i2 = m.H;
+            if (i2 > length || (i = m.G) < 0 || i > i2) {
+                return;
+            }
+            v.setSelection(i, i2);
         }
     }
 }

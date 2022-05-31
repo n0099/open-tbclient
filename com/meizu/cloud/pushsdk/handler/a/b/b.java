@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import com.repackage.tl9;
+import com.repackage.ni9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -53,7 +53,7 @@ public class b implements Parcelable {
         } catch (JSONException e) {
             this.b = new a();
             this.c = new f();
-            tl9.b("ControlMessage", "parse control message error " + e.getMessage());
+            ni9.b("ControlMessage", "parse control message error " + e.getMessage());
         }
     }
 
@@ -64,7 +64,7 @@ public class b implements Parcelable {
             bVar.a(a.a(jSONObject.getJSONObject("ctl")));
             bVar.a(f.a(jSONObject.getJSONObject("statics")));
         } catch (Exception e) {
-            tl9.b("ControlMessage", "parse control message error " + e.getMessage());
+            ni9.b("ControlMessage", "parse control message error " + e.getMessage());
             bVar.a(new f());
             bVar.a(new a());
         }

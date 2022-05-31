@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ie5;
+import com.repackage.cd5;
 /* loaded from: classes3.dex */
 public class TiebaPrepareImageService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
@@ -127,7 +127,7 @@ public class TiebaPrepareImageService extends BdBaseService {
                 TiebaPrepareImageService.IS_DECODING = true;
                 boolean z2 = false;
                 try {
-                    c = ie5.c(this.a, this.e, this.b, this.c, this.e.mMaxSize);
+                    c = cd5.c(this.a, this.e, this.b, this.c, this.e.mMaxSize);
                 } catch (Exception unused) {
                     TiebaPrepareImageService.IS_DECODING = false;
                 } catch (Throwable th) {
@@ -138,17 +138,17 @@ public class TiebaPrepareImageService extends BdBaseService {
                     if (FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE, c, 85) != null) {
                         Bitmap resizeBitmap = BitmapHelper.resizeBitmap(c, this.e.mDisplaySize > 0 ? this.e.mDisplaySize : 100);
                         if (resizeBitmap == null || FileHelper.saveBitmapByRelativelyPath(null, TbConfig.IMAGE_RESIZED_FILE_DISPLAY, resizeBitmap, 85) == null) {
-                            this.d = this.e.getString(R.string.obfuscated_res_0x7f0f059f);
+                            this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05a6);
                         } else {
                             TiebaPrepareImageService.IS_DECODING = false;
                             z2 = z;
                             return Boolean.valueOf(z2);
                         }
                     } else {
-                        this.d = this.e.getString(R.string.obfuscated_res_0x7f0f059f);
+                        this.d = this.e.getString(R.string.obfuscated_res_0x7f0f05a6);
                     }
                 } else {
-                    this.d = this.e.getString(R.string.obfuscated_res_0x7f0f0e5d);
+                    this.d = this.e.getString(R.string.obfuscated_res_0x7f0f0e61);
                 }
                 z = false;
                 TiebaPrepareImageService.IS_DECODING = false;

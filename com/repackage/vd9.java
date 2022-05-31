@@ -1,36 +1,42 @@
 package com.repackage;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.repackage.ud9;
 /* loaded from: classes7.dex */
-public class vd9 extends qc1<nd9> {
+public class vd9 implements ud9.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ com.fun.module.gdt.w a;
+    public final /* synthetic */ NativeUnifiedADData b;
 
-    public vd9() {
+    public vd9(ud9 ud9Var, com.fun.module.gdt.w wVar, NativeUnifiedADData nativeUnifiedADData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ud9Var, wVar, nativeUnifiedADData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = wVar;
+        this.b = nativeUnifiedADData;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.qc1
-    /* renamed from: a */
-    public nd9 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.repackage.ud9.e
+    public void onADStatusChanged() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new od9() : (nd9) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.b(this.b);
+        }
     }
 }

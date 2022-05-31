@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.mi;
+import com.repackage.li;
+import com.repackage.wq4;
 /* loaded from: classes3.dex */
 public class TextLineView extends TextView {
     public static /* synthetic */ Interceptable $ic;
@@ -56,12 +56,12 @@ public class TextLineView extends TextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65538, this, z) == null) {
             if (z) {
-                gs4 d = gs4.d(this);
+                wq4 d = wq4.d(this);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 return;
             }
-            gs4 d2 = gs4.d(this);
+            wq4 d2 = wq4.d(this);
             d2.v(R.color.CAM_X0108);
             d2.A(R.string.F_X01);
         }
@@ -160,9 +160,9 @@ public class TextLineView extends TextView {
         obtainStyledAttributes.getColor(5, SkinManager.getColor(R.color.CAM_X0108));
         setPadding(getPaddingLeft(), getPaddingTop(), getPaddingRight(), getPaddingBottom() + this.c + this.b + this.d);
         setTextColor(this.e);
-        this.f = mi.f(context, R.dimen.obfuscated_res_0x7f0702e0);
+        this.f = li.f(context, R.dimen.obfuscated_res_0x7f0702e0);
         this.g = new RectF();
-        this.k = mi.f(getContext(), R.dimen.obfuscated_res_0x7f070224);
+        this.k = li.f(getContext(), R.dimen.obfuscated_res_0x7f070224);
         obtainStyledAttributes.recycle();
     }
 }

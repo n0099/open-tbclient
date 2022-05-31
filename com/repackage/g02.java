@@ -1,158 +1,208 @@
 package com.repackage;
 
-import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
+import com.baidu.swan.apps.core.launchtips.scene.SceneType;
 import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d02;
+import com.repackage.pz1;
 /* loaded from: classes6.dex */
-public class g02 extends a02 implements View.OnClickListener {
+public class g02 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout F0;
-    public RelativeLayout G0;
+    public final pz1 a;
+    public final yz1 b;
+    public final mz1 c;
+    public String d;
+
+    /* loaded from: classes6.dex */
+    public class a implements pz1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SceneType a;
+        public final /* synthetic */ a02 b;
+        public final /* synthetic */ oz1 c;
+        public final /* synthetic */ g02 d;
+
+        public a(g02 g02Var, SceneType sceneType, a02 a02Var, oz1 oz1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g02Var, sceneType, a02Var, oz1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = g02Var;
+            this.a = sceneType;
+            this.b = a02Var;
+            this.c = oz1Var;
+        }
+
+        @Override // com.repackage.pz1.b
+        public void a(NetworkStatus networkStatus) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                gz1.b(this.d.d);
+                jz1.i(1);
+                iz1.e(this.a.getType(), networkStatus.getStatus(), this.b.e().getStatus(), this.b.g(), this.b.b(), this.b.f(), this.b.a());
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.a.getScene());
+                sb.append(this.c.a());
+                sb.append(this.b.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.b.c());
+                jz1.g(sb.toString());
+                if (g02.e) {
+                    Log.d("SceneSkeletonTips", ">> " + sb.toString());
+                }
+                this.d.h(networkStatus, this.c, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements pz1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(g02 g02Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g02Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.repackage.pz1.b
+        public void a(NetworkStatus networkStatus) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
+                yz1.d().j();
+                mz1.d().j();
+                gz1.c();
+                jz1.i(0);
+                iz1.c("exit_skeleton", networkStatus.getStatus());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755731928, "Lcom/repackage/g02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755731928, "Lcom/repackage/g02;");
+                return;
+            }
+        }
+        e = rf1.a;
+    }
 
     public g02() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static g02 U2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new g02() : (g02) invokeV.objValue;
-    }
-
-    @Override // com.repackage.a02
-    public boolean L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.a02
-    public void T1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            U1(view2);
-            s2(-1);
-            B2(-16777216);
-            u2(H(R.string.obfuscated_res_0x7f0f1244));
-            w2(true);
-            I2(false);
-        }
-    }
-
-    public final void T2(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091414);
-            this.F0 = relativeLayout;
-            relativeLayout.setOnClickListener(this);
-            if (bk2.y0().d() || !oe3.G()) {
-                this.F0.setVisibility(8);
-            }
-            RelativeLayout relativeLayout2 = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902dd);
-            this.G0 = relativeLayout2;
-            relativeLayout2.setOnClickListener(this);
-        }
-    }
-
-    public final void V2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (a02.E0) {
-                Log.d("SwanAppBaseFragment", "startSettingFragment");
-            }
-            d02 L1 = L1();
-            if (L1 == null) {
-                m03.f(getContext(), R.string.obfuscated_res_0x7f0f019e).G();
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            d02.b i = L1.i("navigateTo");
-            i.n(d02.g, d02.i);
-            i.k("authority", null).a();
-            kq2.o(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
+        }
+        this.c = mz1.d();
+        this.a = new pz1();
+        this.b = yz1.d();
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (e) {
+                Log.d("SceneSkeletonTips", ">> trigger skeleton error event.");
+            }
+            this.a.a(new b(this));
         }
     }
 
-    @Override // com.repackage.a02
-    public boolean b2() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.a02
-    public boolean d2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.repackage.a02
-    public void i2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f(SceneType.SCENE_SKELETON_TIMEOUT);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void f(SceneType sceneType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091414) {
-                bk2.t0().a();
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f0902dd) {
-                V2();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sceneType) == null) {
+            if (bd3.I(this.d) && bd3.H()) {
+                if (e) {
+                    Log.d("SceneSkeletonTips", ">> trigger skeleton remove event.");
+                }
+                yz1.d().j();
+                mz1.d().j();
+                oz1 f = this.c.f();
+                this.a.a(new a(this, sceneType, this.b.f(), f));
+            } else if (e) {
+                Log.d("SceneSkeletonTips", "path is not first page: " + this.d);
             }
         }
     }
 
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    @Nullable
-    public View y0(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        InterceptResult invokeLLL;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d07bc, viewGroup, false);
-            T1(inflate);
-            T2(inflate);
-            if (S1()) {
-                inflate = V1(inflate);
-            }
-            return C1(inflate, this);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.d = str;
         }
-        return (View) invokeLLL.objValue;
+    }
+
+    public final void h(@NonNull NetworkStatus networkStatus, @NonNull oz1 oz1Var, @NonNull a02 a02Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, networkStatus, oz1Var, a02Var) == null) {
+            boolean b2 = oz1Var.b();
+            int i = R.string.obfuscated_res_0x7f0f1319;
+            if (b2) {
+                i = R.string.obfuscated_res_0x7f0f131e;
+            } else if (a02Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
+                i = R.string.obfuscated_res_0x7f0f131c;
+            } else if (a02Var.e() != RequestStatus.STATUS_FAILED) {
+                if (a02Var.e() == RequestStatus.STATUS_SLOW) {
+                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f131d : R.string.obfuscated_res_0x7f0f131a;
+                } else if (a02Var.e() != RequestStatus.STATUS_CORE_FAILED) {
+                    i = R.string.obfuscated_res_0x7f0f131b;
+                }
+            }
+            hz1.f(i);
+        }
     }
 }

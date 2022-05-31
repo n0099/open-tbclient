@@ -1,113 +1,100 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import android.content.Context;
+import android.graphics.Color;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ua0 {
+public class ua0 extends ra0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public HashMap<Integer, String> c;
-    public HashMap<String, Object> d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    @JvmOverloads
-    public ua0() {
-        this(null, 0, null, null, 15, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], ((Integer) objArr[1]).intValue(), (HashMap) objArr[2], (HashMap) objArr[3], ((Integer) objArr[4]).intValue(), (DefaultConstructorMarker) objArr[5]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755267827, "Lcom/repackage/ua0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755267827, "Lcom/repackage/ua0;");
                 return;
             }
         }
+        b = new HashMap<>();
     }
 
-    @JvmOverloads
-    public ua0(String str, int i, HashMap<Integer, String> hashMap, HashMap<String, Object> hashMap2) {
+    public ua0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), hashMap, hashMap2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = i;
-        this.c = hashMap;
-        this.d = hashMap2;
+        b.put("color_1F1F1F", new String[]{"#141414", "#BFFFFFFF", "#E6FFFFFF", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "#141414", "#000000", ""});
+        b.put("color_white2", new String[]{"#F5F5F5", "#272729", "#141414", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "#D9FFFFFF", "#FFFFFF", ""});
+        b.put("color_F5F5F51", new String[]{"#F2F2F5", "#141414", "#000000", ""});
+        b.put("color_F5F5F52", new String[]{"#F7F7FA", "#1E1D1F", "#1AFFFFFF", ""});
+        b.put("color_F5F5F53", new String[]{"#0D000000", "#0DFFFFFF", "#1AFFFFFF", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "#D42A46", "#FF3355", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "#1AD42A46", "#1AFF3355", ""});
+        b.put("color_858585", new String[]{"#858585", "#59FFFFFF", "#80FFFFFF", ""});
+        b.put("color_525252", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "#FF3333", "#FF3333", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "#768CAE", "#768CAE", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "#4E6EF2", "#4E6EF2", ""});
+        b.put("color_8585852", new String[]{"#858585", "#444444", "#80FFFFFF", ""});
+        b.put("color_5252522", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
+        b.put("color_btn_stroke", new String[]{"#00000000", "#00000000", "#00000000", ""});
+        b.put("color_btn_fill", new String[]{"#F7F7FA", "#1E1D1F", "#000000", ""});
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ra0
+    public int a(Context context, boolean z, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof ua0) {
-                    ua0 ua0Var = (ua0) obj;
-                    return Intrinsics.areEqual(this.a, ua0Var.a) && this.b == ua0Var.b && Intrinsics.areEqual(this.c, ua0Var.c) && Intrinsics.areEqual(this.d, ua0Var.d);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Boolean.valueOf(z), str})) == null) {
+            if (b.containsKey(str)) {
+                String str2 = b.get(str)[0];
+                if (z) {
+                    str2 = b.get(str)[3];
+                } else {
+                    String str3 = this.a;
+                    if (SkinManager.SKIN_TYPE_STR_NIGHT == str3) {
+                        str2 = b.get(str)[1];
+                    } else if ("dark" == str3) {
+                        str2 = b.get(str)[2];
+                    }
                 }
-                return false;
+                if (ka0.a(str2)) {
+                    return -16777216;
+                }
+                try {
+                    return Color.parseColor(str2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return -16777216;
+                }
             }
-            return true;
+            return -16777216;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.a;
-            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
-            HashMap<Integer, String> hashMap = this.c;
-            int hashCode2 = (hashCode + (hashMap != null ? hashMap.hashCode() : 0)) * 31;
-            HashMap<String, Object> hashMap2 = this.d;
-            return hashCode2 + (hashMap2 != null ? hashMap2.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "MediaSource(roomId=" + this.a + ", mediaSourceType=" + this.b + ", videoInfo=" + this.c + ", launchInfo=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ ua0(String str, int i, HashMap hashMap, HashMap hashMap2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? null : str, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? null : hashMap, (i2 & 8) != 0 ? null : hashMap2);
+        return invokeCommon.intValue;
     }
 }

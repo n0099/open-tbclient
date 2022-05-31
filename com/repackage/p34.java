@@ -1,142 +1,259 @@
 package com.repackage;
 
-import android.graphics.Color;
+import android.content.Context;
 import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.tachikoma.core.component.TKBase;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class p34 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static final String c;
+    public static volatile p34 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public String backgroundColor;
-    @V8JavascriptField
-    public String borderColor;
-    @V8JavascriptField
-    public double borderRadius;
-    @V8JavascriptField
-    public int borderWidth;
-    @V8JavascriptField
-    public String color;
-    @V8JavascriptField
-    public double fontSize;
-    @V8JavascriptField
-    public String fontWeight;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public boolean hidden;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int lineHeight;
-    @V8JavascriptField
-    public double opacity;
-    @V8JavascriptField
-    public String textAlign;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
+    public Map<nl1, o34> a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void s();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755460864, "Lcom/repackage/p34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755460864, "Lcom/repackage/p34;");
+                return;
+            }
+        }
+        b = rf1.a;
+        c = p34.class.getSimpleName();
     }
 
-    public p34(@NonNull bt1 bt1Var) {
+    public p34() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bt1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.fontSize = 16.0d;
-        this.opacity = 1.0d;
-        a(bt1Var);
+        n34.a();
+        this.a = new HashMap();
     }
 
-    public static int c(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            float f = (((-16777216) & i) >>> 24) / 255.0f;
-            return f > 0.0f ? Color.argb(255, (int) ((((16711680 & i) >> 16) * f) + 0.5d), (int) ((((65280 & i) >> 8) * f) + 0.5d), (int) (((i & 255) * f) + 0.5d)) : i;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void a(@NonNull bt1 bt1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bt1Var) == null) {
-            this.left = bt1Var.r("left", this.left);
-            this.top = bt1Var.r("top", this.top);
-            this.width = bt1Var.r("width", this.width);
-            this.height = bt1Var.r("height", this.height);
-            this.backgroundColor = bt1Var.C("backgroundColor", this.backgroundColor);
-            this.borderColor = bt1Var.C("borderColor", this.borderColor);
-            this.borderRadius = bt1Var.n("borderRadius", this.borderRadius);
-            this.borderWidth = bt1Var.r("borderWidth", this.borderWidth);
-            this.fontSize = bt1Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
-            this.lineHeight = bt1Var.r("lineHeight", this.lineHeight);
-            this.textAlign = bt1Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
-            this.fontWeight = bt1Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
-            this.hidden = bt1Var.m(TKBase.VISIBILITY_HIDDEN, this.hidden);
-            this.opacity = bt1Var.n(NativeConstants.OPACITY, this.opacity);
-            this.color = bt1Var.C("color", this.color);
-            if (eh1.a) {
-                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
-            }
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (eh1.a) {
-                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
-            }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.s();
-            }
-        }
-    }
-
-    public String toString() {
+    public static p34 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (p34.class) {
+                    if (d == null) {
+                        d = new p34();
+                    }
+                }
+            }
+            return d;
         }
-        return (String) invokeV.objValue;
+        return (p34) invokeV.objValue;
+    }
+
+    public static void d(nl1 nl1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, nl1Var) == null) {
+            synchronized (p34.class) {
+                if (d != null) {
+                    d.c(nl1Var).h();
+                }
+            }
+        }
+    }
+
+    public static void e(nl1 nl1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, nl1Var) == null) {
+            synchronized (p34.class) {
+                if (d != null) {
+                    d.f(nl1Var);
+                } else if (b) {
+                    Log.v(c, "未初始化，无需执行release");
+                }
+            }
+        }
+    }
+
+    public static void h(nl1 nl1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, nl1Var) == null) {
+            synchronized (p34.class) {
+                if (d != null) {
+                    d.c(nl1Var).k();
+                }
+            }
+        }
+    }
+
+    public boolean a(Context context, tl2 tl2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, tl2Var)) == null) {
+            hw1.i("map", "map create start");
+            if (bd3.m(tl2Var.c) != null && tl2Var.isValid()) {
+                pl1 A = uk2.U().A(tl2Var.c);
+                if (!(A instanceof nl1)) {
+                    hw1.c("map", "WebViewManager is null");
+                    return false;
+                }
+                o34 c2 = c((nl1) A);
+                if (c2.d(tl2Var.b) != null) {
+                    hw1.c("map", "map with id " + tl2Var.b + " exist");
+                    return false;
+                }
+                q44 K = q44.K(context, tl2Var);
+                if (K == null) {
+                    hw1.c("map", "map with id " + tl2Var.b + " model is invalid");
+                    return false;
+                }
+                yu1 insert = K.insert();
+                if (!insert.a()) {
+                    hw1.c("map", "map with id " + tl2Var.b + " create fail: " + insert.b);
+                    return false;
+                } else if (c2.insert(K)) {
+                    hw1.i("map", "map with id " + tl2Var.b + " init start");
+                    j44.a(context, K, tl2Var, c2);
+                    hw1.i("map", "map with id " + tl2Var.b + " init end");
+                    hw1.i("map", "map create end");
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            hw1.c("map", "model data is invalid");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public synchronized o34 c(nl1 nl1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nl1Var)) == null) {
+            synchronized (this) {
+                if (nl1Var == null) {
+                    return null;
+                }
+                o34 o34Var = this.a.get(nl1Var);
+                if (o34Var == null) {
+                    o34Var = new o34();
+                    this.a.put(nl1Var, o34Var);
+                }
+                return o34Var;
+            }
+        }
+        return (o34) invokeL.objValue;
+    }
+
+    public final synchronized void f(nl1 nl1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nl1Var) == null) {
+            synchronized (this) {
+                if (nl1Var == null) {
+                    return;
+                }
+                o34 remove = this.a.remove(nl1Var);
+                if (remove != null) {
+                    remove.i();
+                }
+            }
+        }
+    }
+
+    public boolean g(tl2 tl2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tl2Var)) == null) {
+            hw1.i("map", "map remove start");
+            if (bd3.m(tl2Var.c) == null) {
+                hw1.c("map", "webView is null or mapModel is null");
+                return false;
+            }
+            pl1 A = uk2.U().A(tl2Var.c);
+            if (!(A instanceof nl1)) {
+                hw1.c("map", "WebViewManager is null");
+                return false;
+            }
+            o34 c2 = c((nl1) A);
+            q44 d2 = c2.d(tl2Var.b);
+            if (d2 == null) {
+                hw1.c("map", "remove map with id " + tl2Var.b + " not exist");
+                return false;
+            } else if (c2.j(tl2Var.b)) {
+                hw1.i("map", "map remove end");
+                if (uv1.a(tl2Var) == null) {
+                    aw1.a("map", "remove with a null map component");
+                }
+                yu1 B = d2.B();
+                boolean a = B.a();
+                if (!a) {
+                    String str = c;
+                    hw1.c(str, "map remove fail: " + B.b);
+                }
+                return a;
+            } else {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean update(Context context, tl2 tl2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, tl2Var)) == null) {
+            hw1.i("map", "map update start");
+            if (bd3.m(tl2Var.c) == null) {
+                hw1.c("map", "webView is null or mapModel is null");
+                return false;
+            }
+            pl1 A = uk2.U().A(tl2Var.c);
+            if (A != null && (A instanceof nl1)) {
+                o34 c2 = c((nl1) A);
+                q44 d2 = c2.d(tl2Var.b);
+                if (d2 == null) {
+                    hw1.c("map", "remove map with id " + tl2Var.b + " not exist");
+                    return false;
+                }
+                d2.F();
+                j44.b(context, d2, tl2Var, c2, true);
+                hw1.i("map", "map update end");
+                if (uv1.a(tl2Var) == null) {
+                    aw1.a("map", "update with a null map component");
+                }
+                yu1 update = d2.update((q44) tl2Var);
+                boolean a = update.a();
+                if (!a) {
+                    String str = c;
+                    hw1.c(str, "map update fail: " + update.b);
+                }
+                return a;
+            }
+            hw1.c("map", "WebViewManager is null");
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

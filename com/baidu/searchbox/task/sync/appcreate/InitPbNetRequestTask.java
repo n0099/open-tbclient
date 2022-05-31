@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.lt7;
-import com.repackage.mt7;
-import com.repackage.nt7;
-import com.repackage.xs4;
+import com.repackage.nr4;
+import com.repackage.uq7;
+import com.repackage.vq7;
+import com.repackage.wq7;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
 public class InitPbNetRequestTask extends LaunchTask {
@@ -36,13 +36,13 @@ public class InitPbNetRequestTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (lt7.a().c() && xs4.a().c == 1) {
-                new nt7().i(xs4.a().d);
+            if (uq7.a().c() && nr4.a().c == 1) {
+                new wq7().i(nr4.a().d);
             }
-            if (lt7.a().c() && xs4.a().c == 2) {
+            if (uq7.a().c() && nr4.a().c == 2) {
                 try {
-                    String str = xs4.a().d;
-                    mt7.l(new String[]{new JSONObject(str.substring(str.indexOf(YunPushProxyActivity.PUSH_BODY) + 20)).getString(YunPushProxyActivity.JUME_SCHEME)});
+                    String str = nr4.a().d;
+                    vq7.l(new String[]{new JSONObject(str.substring(str.indexOf(YunPushProxyActivity.PUSH_BODY) + 20)).getString(YunPushProxyActivity.JUME_SCHEME)});
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

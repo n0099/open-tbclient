@@ -1,30 +1,59 @@
 package com.repackage;
 
+import android.location.Location;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.vx5;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class ay5 extends BaseCardInfo implements my5, np4 {
+public class ay5 implements vx5.a {
     public static /* synthetic */ Interceptable $ic;
+    public static ay5 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdvertAppInfo a;
-    public String b;
-    public int c;
-    public boolean d;
+    public vx5 a;
+    public vx5 b;
+    public ArrayList<TransmitForumData> c;
+    public ArrayList<TransmitForumData> d;
+    public boolean e;
+    public ArrayList<TransmitForumData> f;
+    public boolean g;
+    public int h;
+    public boolean i;
 
-    public ay5(AdvertAppInfo advertAppInfo) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755840428, "Lcom/repackage/ay5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755840428, "Lcom/repackage/ay5;");
+        }
+    }
+
+    public ay5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {advertAppInfo};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,136 +63,192 @@ public class ay5 extends BaseCardInfo implements my5, np4 {
                 return;
             }
         }
-        this.b = "";
-        this.c = 0;
-        this.d = false;
-        this.a = advertAppInfo;
-        this.position = advertAppInfo.position;
+        this.c = new ArrayList<>();
+        this.e = false;
+        this.g = false;
+        this.i = false;
+        e();
     }
 
-    @Override // com.repackage.my5
-    public void c(boolean z) {
+    public static Location b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return null;
         }
+        return (Location) invokeV.objValue;
     }
 
-    @Override // com.repackage.np4
-    public boolean d() {
+    public static ay5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public AdvertAppInfo e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (AdvertAppInfo) invokeV.objValue;
-    }
-
-    @Override // com.repackage.my5
-    public int getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a;
-            return kg.e(advertAppInfo != null ? advertAppInfo.f : "-1", -1);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.ro
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a;
-            if (advertAppInfo != null && advertAppInfo.getType() == AdvertAppInfo.t) {
-                return AdvertAppInfo.v;
-            }
-            AdvertAppInfo advertAppInfo2 = this.a;
-            if (advertAppInfo2 == null || (iLegoAdvert = advertAppInfo2.h) == null) {
-                return null;
-            }
-            BdUniqueId bdUniqueId = AdvertAppInfo.w;
-            int goodsStyle = iLegoAdvert.getGoodsStyle();
-            if (goodsStyle != 2) {
-                if (goodsStyle != 14) {
-                    if (goodsStyle == 6) {
-                        return AdvertAppInfo.y;
-                    }
-                    if (goodsStyle != 7) {
-                        if (goodsStyle != 8) {
-                            return bdUniqueId;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (j == null) {
+                synchronized (ay5.class) {
+                    if (j == null) {
+                        j = new ay5();
                     }
                 }
-                return AdvertAppInfo.z;
             }
-            return AdvertAppInfo.x;
+            return j;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (ay5) invokeV.objValue;
     }
 
-    @Override // com.repackage.np4
-    public int h() {
-        InterceptResult invokeV;
+    @Override // com.repackage.vx5.a
+    public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.position : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (i == 1) {
+                if (z) {
+                    this.f = arrayList;
+                }
+                this.g = true;
+            } else if (i == 2) {
+                if (z) {
+                    this.d = arrayList;
+                    this.h = i2;
+                }
+                this.e = true;
+            }
+            j();
+        }
     }
 
-    @Override // com.repackage.my5
-    public boolean l() {
+    public final Location d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() : (Location) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g();
+            f();
+            this.i = false;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), vx5.class);
+            if (runTask != null) {
+                this.b = (vx5) runTask.getData();
+            }
+            vx5 vx5Var = this.b;
+            if (vx5Var != null) {
+                vx5Var.a(this);
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), vx5.class);
+            if (runTask != null) {
+                this.a = (vx5) runTask.getData();
+            }
+            vx5 vx5Var = this.a;
+            if (vx5Var != null) {
+                vx5Var.a(this);
+            }
+        }
+    }
+
+    public final boolean h(long j2) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            ArrayList<TransmitForumData> arrayList = this.c;
+            if (arrayList == null) {
+                return false;
+            }
+            Iterator<TransmitForumData> it = arrayList.iterator();
+            while (it.hasNext()) {
+                TransmitForumData next = it.next();
+                if (next != null && next.forumId == j2) {
+                    return true;
+                }
+            }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeJ.booleanValue;
     }
 
-    @Override // com.repackage.np4
-    public AdvertAppInfo o() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (AdvertAppInfo) invokeV.objValue;
-    }
-
-    @Override // com.repackage.np4
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.position = i;
-            this.a.position = i;
-            this.d = true;
-        }
-    }
-
-    @Override // com.repackage.my5
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-        }
-    }
-
-    public ay5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.i = true;
+            vx5 vx5Var = this.a;
+            if (vx5Var != null) {
+                vx5Var.b();
+            }
+            vx5 vx5Var2 = this.b;
+            if (vx5Var2 != null) {
+                vx5Var2.b();
             }
         }
-        this.b = "";
-        this.c = 0;
-        this.d = false;
-        this.a = null;
-        this.position = -1;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.a == null || this.e) {
+                if (this.b == null || this.g) {
+                    this.e = false;
+                    this.g = false;
+                    this.i = false;
+                    this.c.clear();
+                    if (!ListUtils.isEmpty(this.d)) {
+                        Iterator<TransmitForumData> it = this.d.iterator();
+                        while (it.hasNext()) {
+                            TransmitForumData next = it.next();
+                            if (!h(next.forumId)) {
+                                this.c.add(next);
+                            }
+                        }
+                    }
+                    if (!ListUtils.isEmpty(this.f)) {
+                        Iterator<TransmitForumData> it2 = this.f.iterator();
+                        while (it2.hasNext()) {
+                            TransmitForumData next2 = it2.next();
+                            if (!h(next2.forumId)) {
+                                this.c.add(next2);
+                            }
+                        }
+                    }
+                    this.d = null;
+                    this.f = null;
+                    k();
+                }
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.c));
+        }
+    }
+
+    public void l(ShareDialogConfig shareDialogConfig) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, shareDialogConfig) == null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || qb5.a()) {
+            return;
+        }
+        if (shareDialogConfig.showLocation) {
+            shareDialogConfig.shareItem.E = d();
+        }
+        if (li.D() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.i && !shareDialogConfig.shareItem.f()) {
+            i();
+        }
+        shareDialogConfig.setIsShowTransmitShare(true);
+        shareDialogConfig.setTransmitForumList(this.c);
+        shareDialogConfig.setPrivateThread(this.h);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

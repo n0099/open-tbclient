@@ -1,23 +1,20 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
-import com.baidu.searchbox.process.ipc.agent.activity.PluginDelegateActivity;
-import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.tieba.R;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,389 +22,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bi3;
-import com.repackage.fh3;
-import com.repackage.mj3;
-import com.repackage.xh3;
-import com.repackage.yz2;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ug3 {
+public class ug3 extends jq2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements DelegateListener {
+    public class a implements ae3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gh1 a;
-
-        public a(gh1 gh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gh1Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) || this.a == null) {
-                return;
-            }
-            if (!delegateResult.isOk()) {
-                this.a.onResult(-1);
-                return;
-            }
-            this.a.onResult(delegateResult.mResult.getInt("result_code", -1));
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends ax2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bi3.c c;
-
-        public b(bi3.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = cVar;
-        }
-
-        @Override // com.repackage.ax2, com.repackage.zw2
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 30000L;
-            }
-            return invokeV.longValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ax2, com.repackage.bx2, com.repackage.zw2
-        public void onEvent(@NonNull xw2 xw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xw2Var) == null) {
-                if (ug3.a) {
-                    Log.d("AccountUtils", "get openBduss messenger delegate observer receive event");
-                }
-                String str = null;
-                if (xw2Var.a() == null) {
-                    if (ug3.a) {
-                        Log.d("AccountUtils", "get openBduss : result null");
-                    }
-                } else {
-                    str = xw2Var.a().getString("result");
-                }
-                this.c.a(str);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c extends ax2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf3 c;
-
-        public c(nf3 nf3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = nf3Var;
-        }
-
-        @Override // com.repackage.ax2, com.repackage.zw2
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 30000L;
-            }
-            return invokeV.longValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.ax2, com.repackage.bx2, com.repackage.zw2
-        public void onEvent(@NonNull xw2 xw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xw2Var) == null) {
-                if (ug3.a) {
-                    Log.d("AccountUtils", "get stoken messenger delegate observer receive event");
-                }
-                Bundle bundle = null;
-                if (xw2Var.a() != null) {
-                    if (ug3.a) {
-                        Log.d("AccountUtils", "get stoken : result " + xw2Var.a());
-                    }
-                    bundle = xw2Var.a().getBundle("key_result_stokent");
-                } else if (ug3.a) {
-                    Log.d("AccountUtils", "get stoken : result null");
-                }
-                this.c.onCallback(bundle);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d implements fh3.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf3 a;
-
-        public d(nf3 nf3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nf3Var;
-        }
-
-        @Override // com.repackage.fh3.a
-        public void a(fh3 fh3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, fh3Var) == null) {
-                this.a.onCallback(null);
-            }
-        }
-
-        @Override // com.repackage.fh3.a
-        public void b(fh3 fh3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fh3Var) == null) {
-                if (fh3Var.a != 0 || fh3Var.b == null) {
-                    this.a.onCallback(null);
-                }
-                Bundle bundle = new Bundle();
-                for (Map.Entry<String, String> entry : fh3Var.b.entrySet()) {
-                    String key = entry.getKey();
-                    if (!TextUtils.isEmpty(key)) {
-                        bundle.putString(key, entry.getValue());
-                    }
-                }
-                this.a.onCallback(bundle);
-            }
-        }
-
-        @Override // com.repackage.fh3.a
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.repackage.fh3.a
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kh1 a;
-
-        public e(kh1 kh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kh1Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                String string = delegateResult.mResult.getString("address_info");
-                if (TextUtils.isEmpty(string)) {
-                    if (eh1.a) {
-                        Log.e("AccountUtils", delegateResult.mResult.getString("errorMsg"));
-                    }
-                    this.a.a(0);
-                    return;
-                }
-                if (eh1.a) {
-                    Log.i("AccountUtils", string);
-                }
-                this.a.b(ud3.d(string));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class f implements vh3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bundle a;
-        public final /* synthetic */ nf3 b;
-
-        public f(Bundle bundle, nf3 nf3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bundle, nf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bundle;
-            this.b = nf3Var;
-        }
-
-        @Override // com.repackage.vh3
-        public void a(th3 th3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th3Var) == null) {
-                if (ug3.a) {
-                    Log.d("AccountUtils", "callbackkey=" + th3Var.a);
-                }
-                this.a.putString("callbackKey", th3Var.a);
-                nf3 nf3Var = this.b;
-                if (nf3Var != null) {
-                    nf3Var.onCallback(this.a);
-                }
-            }
-        }
-
-        @Override // com.repackage.vh3
-        public void onFailure(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (ug3.a) {
-                    Log.d("AccountUtils", "onFailure=" + str);
-                }
-                this.a.putString("failMsg", str);
-                nf3 nf3Var = this.b;
-                if (nf3Var != null) {
-                    nf3Var.onCallback(this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class g implements DelegateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nf3 a;
-
-        public g(nf3 nf3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nf3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nf3Var;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
-        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
-                Bundle bundle = delegateResult.mResult;
-                nf3 nf3Var = this.a;
-                if (nf3Var != null) {
-                    nf3Var.onCallback(td3.d(bundle, "result"));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class h implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
+        public final /* synthetic */ String a;
         public final /* synthetic */ String b;
         public final /* synthetic */ String c;
+        public final /* synthetic */ CallbackHandler d;
+        public final /* synthetic */ hz2 e;
+        public final /* synthetic */ ug3 f;
 
-        public h(Activity activity, String str, String str2) {
+        public a(ug3 ug3Var, String str, String str2, String str3, CallbackHandler callbackHandler, hz2 hz2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {activity, str, str2};
+                Object[] objArr = {ug3Var, str, str2, str3, callbackHandler, hz2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -417,32 +63,48 @@ public final class ug3 {
                     return;
                 }
             }
-            this.a = activity;
-            this.b = str;
-            this.c = str2;
+            this.f = ug3Var;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = callbackHandler;
+            this.e = hz2Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ae3
+        /* renamed from: a */
+        public void onCallback(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ug3.O(this.a, this.b, this.c);
+            if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+                if (bundle != null && !TextUtils.isEmpty(bundle.getString(BdZeusUtil.URL_KEY_MACHINE))) {
+                    String string = bundle.getString(BdZeusUtil.URL_KEY_MACHINE);
+                    if (ug3.e) {
+                        Log.d("FaceResultVerifyAction", "stoken=" + string);
+                    }
+                    this.f.z(this.a, string, this.b, this.c, this.d, this.e);
+                    return;
+                }
+                this.d.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, "stoken is null").toString());
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class i implements DialogInterface.OnClickListener {
+    public class b extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ Request c;
+        public final /* synthetic */ ug3 d;
 
-        public i(Activity activity) {
+        public b(ug3 ug3Var, String str, CallbackHandler callbackHandler, Request request) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {activity};
+                Object[] objArr = {ug3Var, str, callbackHandler, request};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -452,15 +114,37 @@ public final class ug3 {
                     return;
                 }
             }
-            this.a = activity;
+            this.d = ug3Var;
+            this.a = str;
+            this.b = callbackHandler;
+            this.c = request;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                ug3.M(this.a, true, null, null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.d.A(exc == null ? "" : exc.getMessage(), this.a, this.b);
+                m63.b(SwanInterfaceType.FACE_CHECK, 2101, this.c.url().toString(), null, exc != null ? exc.getMessage() : "");
             }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.d.D(response, this.a, this.b);
+                return response;
+            }
+            return invokeLI.objValue;
         }
     }
 
@@ -477,439 +161,197 @@ public final class ug3 {
                 return;
             }
         }
-        a = eh1.a;
+        e = rf1.a;
     }
 
-    public static uh3 A(Context context) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ug3(e03 e03Var) {
+        super(e03Var, "/swanAPI/faceResultVerify");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return ph3.a().d(context);
-            }
-            return null;
-        }
-        return (uh3) invokeL.objValue;
-    }
-
-    public static uh3 B(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, ch3.class, null);
-            if (callOnMainWithContentProvider.isOk()) {
-                uh3 uh3Var = new uh3();
-                uh3Var.a = callOnMainWithContentProvider.mResult.getString("NICK_NAME", "");
-                uh3Var.b = callOnMainWithContentProvider.mResult.getString("AVATAR_URL", "");
-                return uh3Var;
-            }
-            return null;
-        }
-        return (uh3) invokeL.objValue;
-    }
-
-    public static vh3 C(nf3<Bundle> nf3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, nf3Var)) == null) ? new f(new Bundle(), nf3Var) : (vh3) invokeL.objValue;
-    }
-
-    public static void D(Activity activity, JSONObject jSONObject) {
-        JSONObject c2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, jSONObject) == null) || (c2 = s53.c(jSONObject)) == null || activity == null) {
-            return;
-        }
-        int optInt = c2.optInt("errno", 10001);
-        String optString = c2.optString("tipmsg");
-        if (optInt == 401 || optInt == 400701) {
-            JSONObject optJSONObject = c2.optJSONObject("tipoption");
-            String optString2 = optJSONObject != null ? optJSONObject.optString("title") : null;
-            if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(optString)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e03Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((e03) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            oe3.e0(new h(activity, optString2, optString));
         }
     }
 
-    public static boolean E(Context context) {
-        InterceptResult invokeL;
+    public final void A(String str, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return ph3.a().g(context);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean F(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return E(context);
-            }
-            return G(context);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean G(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, dh3.class, null);
-            return callOnMainWithContentProvider.isOk() && callOnMainWithContentProvider.mResult.getBoolean("result", false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void H(Activity activity, String str, nf3<Bundle> nf3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, activity, str, nf3Var) == null) {
-            ph3.a().l(activity, "baidu_mini_programs_" + str, i(activity), C(nf3Var));
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, callbackHandler) == null) {
+            hw1.i("FaceResultVerifyAction", str);
+            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
         }
     }
 
-    public static void I(Activity activity, boolean z, String str, nf3<Bundle> nf3Var) {
+    public final void B(String str, String str2, CallbackHandler callbackHandler, int i, String str3, Response response) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{activity, Boolean.valueOf(z), str, nf3Var}) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putBoolean("isRealName", z);
-            bundle.putString("swanAppId", str);
-            DelegateUtils.callOnMainWithActivity(activity, PluginDelegateActivity.class, vg3.class, bundle, new g(nf3Var));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, callbackHandler, Integer.valueOf(i), str3, response}) == null) {
+            A(str, str2, callbackHandler);
+            m63.c(SwanInterfaceType.FACE_CHECK, i, str3, response);
         }
     }
 
-    public static void J(Activity activity, String str, String str2, nf3<Bundle> nf3Var) {
+    public final void C(@NonNull Request request, String str, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65546, null, activity, str, str2, nf3Var) == null) {
-            boolean equals = TextUtils.equals(str, "1");
-            if (!ProcessUtils.isMainProcess()) {
-                I(activity, equals, str2, nf3Var);
-            } else if (equals) {
-                H(activity, str2, nf3Var);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, request, str, callbackHandler) == null) {
+            i64 i64Var = new i64(request.url().toString(), request.body(), new b(this, str, callbackHandler, request));
+            i64Var.i = request.tag();
+            i64Var.f = true;
+            i64Var.g = true;
+            i64Var.h = true;
+            j64.g().e(i64Var);
+            m63.a(SwanInterfaceType.FACE_CHECK);
+        }
+    }
+
+    public final void D(Response response, String str, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, response, str, callbackHandler) == null) {
+            if (response == null) {
+                B(ADConfigError.REASON_NULL_RESPONSE, str, callbackHandler, 2103, null, null);
+            } else if (!response.isSuccessful()) {
+                B("response code is error", str, callbackHandler, 2104, null, response);
             } else {
-                K(activity, str2, nf3Var);
-            }
-        }
-    }
-
-    public static void K(Activity activity, String str, nf3<Bundle> nf3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, activity, str, nf3Var) == null) {
-            ph3.a().e(activity, "baidu_mini_programs_" + str, i(activity), C(nf3Var));
-        }
-    }
-
-    public static void L(Context context, Bundle bundle, gh1 gh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, bundle, gh1Var) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                gh1Var.onResult(-1);
-            } else {
-                ph3.a().c(context, bundle, gh1Var);
-            }
-        }
-    }
-
-    public static void M(Activity activity, boolean z, Bundle bundle, gh1 gh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{activity, Boolean.valueOf(z), bundle, gh1Var}) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                L(activity, bundle, gh1Var);
-            } else {
-                N(activity, z, bundle, gh1Var);
-            }
-        }
-    }
-
-    public static void N(Activity activity, boolean z, Bundle bundle, gh1 gh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{activity, Boolean.valueOf(z), bundle, gh1Var}) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putBoolean("key_login_force", z);
-            bundle2.putBundle("key_login_params", bundle);
-            DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, eh3.class, bundle2, new a(gh1Var));
-        }
-    }
-
-    public static void O(Activity activity, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65551, null, activity, str, str2) == null) {
-            yz2.a aVar = new yz2.a(activity);
-            aVar.V(str);
-            aVar.x(str2);
-            aVar.n(new cg3());
-            aVar.m(true);
-            aVar.P(activity.getString(R.string.obfuscated_res_0x7f0f1241), new i(activity));
-            aVar.C(activity.getString(R.string.obfuscated_res_0x7f0f1242), null);
-            aVar.X();
-        }
-    }
-
-    public static void P(Context context, SwanAppPhoneLoginDialog.g gVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, context, gVar, str) == null) {
-            ph3.a().j(context, gVar, str);
-        }
-    }
-
-    public static void c(ih1 ih1Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65555, null, ih1Var) == null) || ih1Var == null) {
-            return;
-        }
-        ph3.a().h(ih1Var);
-    }
-
-    public static void d(Context context, xh3.d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65556, null, context, dVar) == null) && ProcessUtils.isMainProcess()) {
-            ph3.a().i(context, dVar);
-        }
-    }
-
-    public static void e(Activity activity, kh1 kh1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65557, null, activity, kh1Var) == null) {
-            DelegateUtils.callOnMainWithActivity(activity, MainProcessDelegateActivity.class, xh3.class, new e(kh1Var));
-        }
-    }
-
-    public static void f(Context context, mj3.d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65558, null, context, dVar) == null) && ProcessUtils.isMainProcess()) {
-            ph3.a().f(context, dVar);
-        }
-    }
-
-    public static uh3 g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65559, null, context)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return A(context);
-            }
-            return B(context);
-        }
-        return (uh3) invokeL.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65560, null, context)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                String bduss = ph3.a().getBduss(context);
-                return TextUtils.isEmpty(bduss) ? "" : bduss;
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return h(context);
-            }
-            return j(context);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, wg3.class, null);
-            return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) ? !ProcessUtils.isMainProcess() ? "" : ph3.a().k(context) : (String) invokeL.objValue;
-    }
-
-    public static String l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, context)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return k(context);
-            }
-            return m(context);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, xg3.class, null);
-            return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void n(String str, ArrayList<String> arrayList, bi3.c cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65566, null, str, arrayList, cVar) == null) && ProcessUtils.isMainProcess()) {
-            ph3.a().n(str, arrayList, cVar);
-        }
-    }
-
-    public static void o(Context context, String str, ArrayList<String> arrayList, bi3.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65567, null, context, str, arrayList, cVar) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                n(str, arrayList, cVar);
-            } else {
-                p(context, str, arrayList, cVar);
-            }
-        }
-    }
-
-    public static void p(Context context, String str, ArrayList<String> arrayList, bi3.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65568, null, context, str, arrayList, cVar) == null) {
-            u03 L = u03.L();
-            if (L == null) {
-                cVar.a(null);
-                return;
-            }
-            px2 z = L.z();
-            if (z == null) {
-                cVar.a(null);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("key_result_client_id", str);
-            bundle.putStringArrayList("key_param_tpl_list", arrayList);
-            z.W(bundle, yg3.class, new b(cVar));
-        }
-    }
-
-    public static String q(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) ? !ProcessUtils.isMainProcess() ? "" : ph3.a().a(context) : (String) invokeL.objValue;
-    }
-
-    public static String r(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return q(context);
-            }
-            return s(context);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String s(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, zg3.class, null);
-            return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void t(Context context, nf3<Bundle> nf3Var, @Nullable String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65572, null, context, nf3Var, strArr) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                u(context, nf3Var, strArr);
-            } else {
-                w(nf3Var, strArr);
-            }
-        }
-    }
-
-    public static void u(Context context, nf3<Bundle> nf3Var, @Nullable String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65573, null, context, nf3Var, strArr) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                String h2 = h(context);
-                if (TextUtils.isEmpty(h2)) {
-                    nf3Var.onCallback(null);
-                    return;
-                } else {
-                    v(new d(nf3Var), h2, strArr == null ? Collections.emptyList() : Arrays.asList(strArr));
+                ResponseBody body = response.body();
+                if (body == null) {
+                    B("body is null", str, callbackHandler, 2103, null, response);
                     return;
                 }
-            }
-            throw new IllegalStateException("must call in MainProcess");
-        }
-    }
-
-    public static void v(fh3.a aVar, String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65574, null, aVar, str, list) == null) {
-            ph3.a().o(aVar, str, list);
-        }
-    }
-
-    public static void w(nf3<Bundle> nf3Var, String... strArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65575, null, nf3Var, strArr) == null) {
-            if (strArr != null && strArr.length >= 1) {
-                u03 L = u03.L();
-                if (L == null) {
-                    nf3Var.onCallback(null);
+                String str2 = null;
+                try {
+                    str2 = body.string();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                String str3 = str2;
+                if (e) {
+                    Log.d("FaceResultVerifyAction", "response body : " + str3);
+                }
+                if (TextUtils.isEmpty(str3)) {
+                    B("body is null", str, callbackHandler, 2103, str3, response);
                     return;
                 }
-                px2 z = L.z();
-                if (z == null) {
-                    nf3Var.onCallback(null);
-                    return;
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    int optInt = jSONObject.optInt("errno");
+                    if (optInt != 0) {
+                        B(jSONObject.optString("errmsg"), str, callbackHandler, optInt, str3, response);
+                        return;
+                    }
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optJSONObject == null) {
+                        A("server data is null", str, callbackHandler);
+                    } else {
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(optJSONObject, 0).toString());
+                    }
+                } catch (JSONException e3) {
+                    if (e) {
+                        e3.printStackTrace();
+                    }
+                    B("body format error", str, callbackHandler, 2103, str3, response);
                 }
-                Bundle bundle = new Bundle();
-                bundle.putStringArray("key_param_tpl_list", strArr);
-                z.W(bundle, ah3.class, new c(nf3Var));
-                return;
             }
-            nf3Var.onCallback(null);
         }
     }
 
-    public static String x(Context context) {
-        InterceptResult invokeL;
+    @Override // com.repackage.e13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65576, null, context)) == null) ? !ProcessUtils.isMainProcess() ? "" : ph3.a().b(context) : (String) invokeL.objValue;
-    }
-
-    public static String y(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, context)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return x(context);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
+            if (hz2Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
+                return false;
             }
-            return z(context);
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is empty");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callback is empty");
+                return false;
+            }
+            String optString2 = optParamsAsJo.optString("callbackKey");
+            if (TextUtils.isEmpty(optString2)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "callbackKey is empty");
+                return false;
+            } else if (!hz2Var.M().e(context)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in");
+                return false;
+            } else {
+                String a2 = wo1.a(hz2Var.b);
+                JSONObject n = n(a2);
+                hf3.t(hz2Var.x(), new a(this, optString2, a2, optString, callbackHandler, hz2Var), BdZeusUtil.URL_KEY_MACHINE);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n, 0));
+                return true;
+            }
         }
-        return (String) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public static String z(Context context) {
-        InterceptResult invokeL;
+    @Nullable
+    public final Request y(@Nullable String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65578, null, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, bh3.class, null);
-            return callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getString("result", "") : "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, map)) == null) {
+            HttpUrl parse = HttpUrl.parse(dw1.a);
+            if (parse == null) {
+                return null;
+            }
+            HttpUrl.Builder addPathSegments = parse.newBuilder().addPathSegments("ma/authentication/facecheck");
+            for (Map.Entry<String, String> entry : cw1.b().d.entrySet()) {
+                addPathSegments.addQueryParameter(entry.getKey(), entry.getValue());
+            }
+            HttpUrl build = addPathSegments.build();
+            Request.Builder builder = new Request.Builder();
+            builder.tag(str);
+            if (map != null) {
+                builder.post(f43.b(map));
+            }
+            builder.url(dw1.v(build.toString()));
+            return builder.build();
         }
-        return (String) invokeL.objValue;
+        return (Request) invokeLL.objValue;
+    }
+
+    public final void z(String str, String str2, String str3, String str4, CallbackHandler callbackHandler, hz2 hz2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, str4, callbackHandler, hz2Var}) == null) {
+            HashMap hashMap = new HashMap();
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.put("callbackkey", str);
+                jSONObject.put("client_id", hz2Var.b);
+                jSONObject2.put("stoken", str2);
+                jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, hz2Var.N());
+                jSONObject2.put("host_pkgname", f43.e().getPackageName());
+                jSONObject2.put("host_key_hash", f43.g());
+                jSONObject.put("open", jSONObject2);
+            } catch (JSONException e2) {
+                if (e) {
+                    e2.printStackTrace();
+                }
+            }
+            hashMap.put("data", jSONObject.toString());
+            Request y = y(str3, hashMap);
+            if (y == null) {
+                callbackHandler.handleSchemeDispatchCallback(str4, UnitedSchemeUtility.wrapCallbackParams(1001, "illegal request").toString());
+            } else {
+                C(y, str4, callbackHandler);
+            }
+        }
     }
 }

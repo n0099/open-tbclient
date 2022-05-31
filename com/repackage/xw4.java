@@ -1,169 +1,118 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd7;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xw4 implements jd7 {
+public class xw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final xw4 d;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public int n;
-    public String o;
-    public jd7.a p;
-    public int q;
-    public String r;
+    public final boolean c;
 
-    public xw4() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755157188, "Lcom/repackage/xw4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755157188, "Lcom/repackage/xw4;");
+                return;
+            }
+        }
+        d = new xw4(false);
+    }
+
+    public xw4(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = z;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNull(this.a) && StringUtils.isNull(this.j) && StringUtils.isNull(this.l)) {
-                return true;
-            }
-            if (c()) {
-                return StringUtils.isNull(this.c) || StringUtils.isNull(this.d);
-            }
-            return StringUtils.isNull(this.b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !"0".equals(this.r) : invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "dynamic".equals(this.e) : invokeV.booleanValue;
-    }
-
-    public final JSONArray d(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
-            try {
-                return jSONObject.optJSONArray(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
-        }
-        return (JSONArray) invokeLL.objValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("url");
-        this.b = jSONObject.optString("icon_url");
-        this.c = jSONObject.optString("fold_lottie");
-        this.d = jSONObject.optString("unfold_lottie");
-        this.e = jSONObject.optString("float_type");
-        jSONObject.optString("fold_name");
-        jSONObject.optString("unfold_name");
-        this.h = jSONObject.optString("view_statistics_url");
-        this.i = jSONObject.optString("click_statistics_url");
-        this.j = jSONObject.optString("scheme");
-        this.k = jSONObject.optString("package_name");
-        this.l = jSONObject.optString("deeplink");
-        this.n = jSONObject.optInt("source", 1);
-        this.m = jSONObject.optString("ext_info");
-        this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
-        this.r = jSONObject.optString("display_ad_icon");
-        jd7.a aVar = new jd7.a();
-        this.p = aVar;
-        aVar.a = jSONObject.optString("parallel_charge_url");
-        this.p.c = f(d(jSONObject, "show_urls"));
-        this.p.d = f(d(jSONObject, "click_urls"));
-        String c = si.c(TbadkApplication.getInst().getAndroidId());
-        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-        StringBuilder sb = new StringBuilder();
-        sb.append("&ANDROIDID=");
-        sb.append(c == null ? "" : c.toLowerCase());
-        sb.append("&OAID=");
-        sb.append(lastCachedOid != null ? lastCachedOid.toUpperCase() : "");
-        String sb2 = sb.toString();
-        if (!StringUtils.isNull(this.h)) {
-            this.h += sb2;
-        }
-        if (StringUtils.isNull(this.i)) {
-            return;
-        }
-        this.i += sb2;
-    }
-
-    public final ArrayList<String> f(JSONArray jSONArray) {
+    public static xw4 e(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
-            if (jSONArray != null && jSONArray.length() != 0) {
-                int length = jSONArray.length();
-                ArrayList<String> arrayList = new ArrayList<>(length);
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("url");
-                        if (!StringUtils.isNull(optString)) {
-                            arrayList.add(optString);
-                        }
-                    }
-                }
-                return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d;
             }
-            return new ArrayList<>();
+            JSONObject optJSONObject = jSONObject.optJSONObject("video_activity");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("image_url");
+                String optString2 = optJSONObject.optString("url");
+                if (!StringUtils.isNull(optString) && !StringUtils.isNull(optString2)) {
+                    xw4 xw4Var = new xw4(true);
+                    xw4Var.g(optString);
+                    xw4Var.f(optString2);
+                    return xw4Var;
+                }
+            }
+            return d;
         }
-        return (ArrayList) invokeL.objValue;
+        return (xw4) invokeL.objValue;
     }
 
-    @Override // com.repackage.jd7
-    public jd7.a getParallelCharge() {
+    public boolean a(xw4 xw4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xw4Var)) == null) ? this.b.equals(xw4Var.b()) && this.a.equals(xw4Var.c()) : invokeL.booleanValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.p : (jd7.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a = str;
+        }
     }
 }

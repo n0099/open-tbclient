@@ -12,7 +12,7 @@ import com.tencent.connect.common.BaseApi;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.f;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UserInfo extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GRAPH_OPEN_ID = "oauth2.0/m_me";

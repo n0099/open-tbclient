@@ -101,7 +101,7 @@ public class MediaTransition implements Parcelable, Cloneable {
                 if (this.tParams != null) {
                     ArrayList arrayList = new ArrayList();
                     for (ShaderParams shaderParams : this.tParams) {
-                        arrayList.add(shaderParams.m37clone());
+                        arrayList.add(shaderParams.m35clone());
                     }
                     mediaTransition.tParams = arrayList;
                 }

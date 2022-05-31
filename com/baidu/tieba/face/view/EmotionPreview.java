@@ -14,10 +14,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.co;
+import com.repackage.eg;
 import com.repackage.fg;
-import com.repackage.gg;
-import com.repackage.mi;
+import com.repackage.li;
+import com.repackage.um;
 /* loaded from: classes3.dex */
 public class EmotionPreview extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +26,7 @@ public class EmotionPreview extends LinearLayout {
     public int b;
 
     /* loaded from: classes3.dex */
-    public class a extends fg<co> {
+    public class a extends eg<um> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -54,13 +54,13 @@ public class EmotionPreview extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.fg
-        public void onLoaded(co coVar, String str, int i) {
+        @Override // com.repackage.eg
+        public void onLoaded(um umVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, coVar, str, i) == null) || coVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, umVar, str, i) == null) || umVar == null) {
                 return;
             }
-            if (coVar.t()) {
+            if (umVar.t()) {
                 this.c.a = new GifView(this.c.getContext());
                 ((GifView) this.c.a).setSupportNoImage(false);
                 GifInfo gifInfo = new GifInfo();
@@ -73,7 +73,7 @@ public class EmotionPreview extends LinearLayout {
             } else {
                 this.c.a = new TbImageView(this.c.getContext());
                 ((TbImageView) this.c.a).setGifIconSupport(false);
-                coVar.h(this.c.a);
+                umVar.h(this.c.a);
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.c.b, this.c.b);
             layoutParams.gravity = 17;
@@ -107,9 +107,9 @@ public class EmotionPreview extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setBackgroundResource(R.drawable.bg_expression_bubble);
-            int f = mi.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
-            setPadding(f, f, f, mi.f(getContext(), R.dimen.obfuscated_res_0x7f070225));
-            this.b = mi.f(getContext(), R.dimen.obfuscated_res_0x7f070270);
+            int f = li.f(getContext(), R.dimen.obfuscated_res_0x7f0701d5);
+            setPadding(f, f, f, li.f(getContext(), R.dimen.obfuscated_res_0x7f070225));
+            this.b = li.f(getContext(), R.dimen.obfuscated_res_0x7f070270);
         }
     }
 
@@ -120,7 +120,7 @@ public class EmotionPreview extends LinearLayout {
         }
         removeAllViews();
         if (!z && i != 20) {
-            gg.h().m(str, 10, new a(this, str, str2), null);
+            fg.h().m(str, 10, new a(this, str, str2), null);
             return;
         }
         GifView gifView = new GifView(getContext());

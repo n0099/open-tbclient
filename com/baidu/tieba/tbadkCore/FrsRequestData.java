@@ -10,20 +10,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b75;
-import com.repackage.e75;
-import com.repackage.jd5;
-import com.repackage.kr6;
-import com.repackage.lc5;
-import com.repackage.oc5;
-import com.repackage.rb8;
-import com.repackage.ub8;
+import com.repackage.b98;
+import com.repackage.c65;
+import com.repackage.dc5;
+import com.repackage.fb5;
+import com.repackage.ib5;
+import com.repackage.qp6;
+import com.repackage.y88;
+import com.repackage.z55;
 import java.util.HashMap;
 import tbclient.FrsPage.AdParam;
 import tbclient.FrsPage.DataReq;
 import tbclient.FrsPage.FrsPageReqIdl;
 /* loaded from: classes4.dex */
-public class FrsRequestData extends OrmObject implements e75, b75 {
+public class FrsRequestData extends OrmObject implements c65, z55 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CATEGORY_ID_KEY = "categoryid";
     public static final int FRS_SMARTLOAD_TYPE_BY_REFRESH = 1;
@@ -316,7 +316,7 @@ public class FrsRequestData extends OrmObject implements e75, b75 {
         }
     }
 
-    @Override // com.repackage.g75
+    @Override // com.repackage.e65
     public Object f(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -343,32 +343,32 @@ public class FrsRequestData extends OrmObject implements e75, b75 {
             builder.yuelaou_locate = this.q;
             builder.sort_type = Integer.valueOf(this.w);
             builder.last_click_tid = Long.valueOf(this.v);
-            builder.app_pos = rb8.e().a();
+            builder.app_pos = y88.e().a();
             builder.load_type = Integer.valueOf(this.x);
             builder.obj_locate = this.A;
             builder.obj_source = this.B;
             builder.is_selection = Integer.valueOf(this.C);
             builder.call_from = Integer.valueOf(this.D);
             builder.hot_thread_id = Long.valueOf(this.F);
-            String d = kr6.e().d("frs_feed");
+            String d = qp6.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = lc5.g(d, lc5.f());
-            builder.ad_bear_sid_price = Double.valueOf(lc5.i());
-            builder.has_ad_bear = Integer.valueOf(lc5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = fb5.g(d, fb5.f());
+            builder.ad_bear_sid_price = Double.valueOf(fb5.i());
+            builder.has_ad_bear = Integer.valueOf(fb5.n(builder.ad_bear_sid) ? 1 : 0);
             AdParam.Builder builder2 = new AdParam.Builder();
             builder2.refresh_count = Integer.valueOf(this.z);
             builder2.load_count = Integer.valueOf(this.y);
             builder2.yoga_lib_version = "";
             builder.ad_param = builder2.build(false);
             builder.is_default_navtab = Integer.valueOf(this.G);
-            builder.ad_context_list = this.x != 1 ? ub8.f().d("FRS") : "";
+            builder.ad_context_list = this.x != 1 ? b98.f().d("FRS") : "";
             builder.up_schema = this.H;
             builder.default_sort_type = Integer.valueOf(this.I);
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.J);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = oc5.b();
-            jd5.c(builder, true, false, true);
+            builder.app_transmit_data = ib5.b();
+            dc5.c(builder, true, false, true);
             FrsPageReqIdl.Builder builder3 = new FrsPageReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);
@@ -376,7 +376,7 @@ public class FrsRequestData extends OrmObject implements e75, b75 {
         return invokeZ.objValue;
     }
 
-    @Override // com.repackage.a75
+    @Override // com.repackage.y55
     public String getCacheKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -404,7 +404,7 @@ public class FrsRequestData extends OrmObject implements e75, b75 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.b75
+    @Override // com.repackage.z55
     public boolean isNeedUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -414,7 +414,7 @@ public class FrsRequestData extends OrmObject implements e75, b75 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.b75
+    @Override // com.repackage.z55
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -466,7 +466,7 @@ public class FrsRequestData extends OrmObject implements e75, b75 {
         }
     }
 
-    @Override // com.repackage.d75
+    @Override // com.repackage.b65
     public HashMap<String, Object> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -476,14 +476,14 @@ public class FrsRequestData extends OrmObject implements e75, b75 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.d75
+    @Override // com.repackage.b65
     public HashMap<String, String> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.E : (HashMap) invokeV.objValue;
     }
 
-    @Override // com.repackage.b75
+    @Override // com.repackage.z55
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

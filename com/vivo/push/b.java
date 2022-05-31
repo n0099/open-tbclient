@@ -24,7 +24,7 @@ import com.vivo.vms.IPCInvoke;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;

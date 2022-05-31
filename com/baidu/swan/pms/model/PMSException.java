@@ -5,21 +5,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m94;
+import com.repackage.z74;
 /* loaded from: classes2.dex */
 public class PMSException extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final m94 mPmsError;
+    public final z74 mPmsError;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PMSException(String str, m94 m94Var) {
+    public PMSException(String str, z74 z74Var) {
         super(str, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, m94Var};
+            Object[] objArr = {str, z74Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,12 +31,12 @@ public class PMSException extends Exception {
                 return;
             }
         }
-        this.mPmsError = m94Var;
+        this.mPmsError = z74Var;
     }
 
-    public m94 getPmsError() {
+    public z74 getPmsError() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPmsError : (m94) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPmsError : (z74) invokeV.objValue;
     }
 }

@@ -45,10 +45,10 @@ public abstract class PluginIntentService extends IntentService implements a {
     }
 
     @Override // com.bytedance.pangle.service.a
-    public void attach(Plugin plugin2) {
+    public void attach(Plugin plugin) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, plugin2) == null) {
-            attachBaseContext(ZeusTransformUtils.wrapperContext2Application(Zeus.getAppApplication(), plugin2.mPkgName));
+        if (interceptable == null || interceptable.invokeL(1048576, this, plugin) == null) {
+            attachBaseContext(ZeusTransformUtils.wrapperContext2Application(Zeus.getAppApplication(), plugin.mPkgName));
             try {
                 FieldUtils.writeField(this, "mActivityManager", createActivityManagerProxy());
                 FieldUtils.writeField(this, "mClassName", getClass().getName());

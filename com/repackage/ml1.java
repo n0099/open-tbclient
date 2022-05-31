@@ -1,14 +1,19 @@
 package com.repackage;
 
-import com.baidu.swan.apps.SwanAppActivity;
-import org.json.JSONObject;
+import android.view.View;
+import android.view.ViewGroup;
+import com.repackage.ol1;
 /* loaded from: classes6.dex */
-public interface ml1 {
-    void a();
+public interface ml1<T extends ol1> extends pl1<T> {
+    void G();
 
-    void b(String str, kp1 kp1Var);
+    void H(ViewGroup viewGroup);
 
-    void c(SwanAppActivity swanAppActivity, String str, kp1 kp1Var);
+    void I(View view2);
 
-    void d(String str, String str2, JSONObject jSONObject, kp1 kp1Var);
+    void S(boolean z);
+
+    void Y();
+
+    void i0(String str, String str2);
 }

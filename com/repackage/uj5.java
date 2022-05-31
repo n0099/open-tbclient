@@ -1,114 +1,137 @@
 package com.repackage;
 
-import android.os.Build;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.share.QzonePublish;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class uj5 extends mt4 {
+public class uj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public long j;
+    public long k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uj5(kt4 kt4Var) {
-        super(kt4Var);
+    public uj5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kt4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((kt4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = "";
+        this.c = "";
+        this.e = "";
+        this.f = "";
+        this.b = "";
+        this.a = "";
     }
 
-    @nt4(isAsync = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        InterceptResult invokeV;
+    public static uj5 a(AdInfo adInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            String str = Build.VERSION.RELEASE;
-            String str2 = Build.MODEL;
-            int k = mi.k(getContext());
-            int i = mi.i(getContext());
-            String str3 = String.valueOf(k) + "," + String.valueOf(i);
-            String versionName = TbadkCoreApplication.getInst().getVersionName();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
+            uj5 uj5Var = new uj5();
+            if (adInfo == null) {
+                return uj5Var;
+            }
+            uj5Var.a = adInfo.adImgUrl;
+            uj5Var.b = adInfo.redirectUrl;
+            uj5Var.j = adInfo.startShowTime;
+            uj5Var.k = adInfo.endShowTime;
+            uj5Var.d = adInfo.videoLocalPath;
+            uj5Var.e = adInfo.videoJumpUrl;
+            uj5Var.f = adInfo.videoMd5;
+            uj5Var.g = adInfo.videoDuration;
+            uj5Var.h = adInfo.videoWidth;
+            uj5Var.i = adInfo.videoHight;
+            uj5Var.c = adInfo.adVideoUrl;
+            return uj5Var;
+        }
+        return (uj5) invokeL.objValue;
+    }
+
+    public static uj5 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            uj5 uj5Var = new uj5();
             try {
-                jSONObject.put("systemName", "android");
-                jSONObject.put("systemVersion", str);
-                jSONObject.put("model", str2);
-                jSONObject.put("cuid", cuid);
-                jSONObject.put("resolution", str3);
-                jSONObject.put("appVersion", versionName);
-            } catch (JSONException unused) {
+                JSONObject jSONObject = new JSONObject(str);
+                uj5Var.a = jSONObject.optString("adImgUrl");
+                uj5Var.b = jSONObject.optString("redirectUrl");
+                uj5Var.d = jSONObject.optString("videoLocalPath");
+                uj5Var.j = jSONObject.optLong("startShowTime");
+                uj5Var.k = jSONObject.optLong("endShowTime");
+                uj5Var.e = jSONObject.optString("videoJumpUrl");
+                uj5Var.f = jSONObject.optString("videoMd5");
+                uj5Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
+                uj5Var.h = jSONObject.optInt("videoWidth");
+                uj5Var.i = jSONObject.optInt("videoHeight");
+                uj5Var.c = jSONObject.optString("adVideoUrl");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return jSONObject;
+            return uj5Var;
         }
-        return (JSONObject) invokeV.objValue;
+        return (uj5) invokeL.objValue;
     }
 
-    @nt4(isAsync = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
+    public boolean c() {
         InterceptResult invokeV;
-        int i;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0) : invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.d) : invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            if (ki.H()) {
-                i = 1;
-                str = "WIFI";
-            } else if (ki.t()) {
-                i = 3;
-                str = "2G";
-            } else if (ki.u()) {
-                i = 4;
-                str = "3G";
-            } else if (ki.v()) {
-                i = 5;
-                str = "4G";
-            } else {
-                i = 0;
-                str = "NotReachable";
-            }
             try {
-                jSONObject.put("netStatus", i);
-                jSONObject.put("netDesc", str);
-            } catch (JSONException unused) {
+                jSONObject.put("adImgUrl", this.a);
+                jSONObject.put("redirectUrl", this.b);
+                jSONObject.put("videoLocalPath", this.d);
+                jSONObject.put("startShowTime", this.j);
+                jSONObject.put("endShowTime", this.k);
+                jSONObject.put("videoMd5", this.f);
+                jSONObject.put("videoJumpUrl", this.e);
+                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
+                jSONObject.put("videoWidth", this.h);
+                jSONObject.put("videoHeight", this.i);
+                jSONObject.put("adVideoUrl", this.c);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return jSONObject;
+            return jSONObject.toString();
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @nt4(isAsync = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        BdToast.c(getContext(), jSONObject.optString("message")).q();
-    }
-
-    @Override // com.repackage.mt4
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

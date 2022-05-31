@@ -27,7 +27,7 @@ import com.kwad.sdk.widget.KSFrameLayout;
 import com.kwad.sdk.widget.k;
 /* loaded from: classes5.dex */
 public class b extends KSFrameLayout {
-    public a.InterfaceC0320a a;
+    public a.InterfaceC0321a a;
     public KsNativeAd.VideoPlayListener b;
     public AdBasePvFrameLayout c;
     public DetailVideoView d;
@@ -53,10 +53,10 @@ public class b extends KSFrameLayout {
     }
 
     private void c() {
-        FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0442, this);
-        AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f09113a);
+        FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0438, this);
+        AdBasePvFrameLayout adBasePvFrameLayout = (AdBasePvFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910fc);
         this.c = adBasePvFrameLayout;
-        DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f091180);
+        DetailVideoView detailVideoView = (DetailVideoView) adBasePvFrameLayout.findViewById(R.id.obfuscated_res_0x7f091142);
         this.d = detailVideoView;
         detailVideoView.setAd(true);
     }
@@ -135,8 +135,8 @@ public class b extends KSFrameLayout {
         }
     }
 
-    public void setInnerAdInteractionListener(a.InterfaceC0320a interfaceC0320a) {
-        this.a = interfaceC0320a;
+    public void setInnerAdInteractionListener(a.InterfaceC0321a interfaceC0321a) {
+        this.a = interfaceC0321a;
     }
 
     public void setVideoPlayListener(KsNativeAd.VideoPlayListener videoPlayListener) {

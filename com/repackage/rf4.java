@@ -1,22 +1,19 @@
 package com.repackage;
 
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.MethodInfo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class rf4 implements Comparable<rf4> {
+public class rf4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public String d;
-    public long e;
-    public MethodInfo f;
+    public List<uf4<T>> a;
 
     public rf4() {
         Interceptable interceptable = $ic;
@@ -28,53 +25,81 @@ public class rf4 implements Comparable<rf4> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList(6);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(rf4 rf4Var) {
-        InterceptResult invokeL;
+    public void a(uf4<T> uf4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rf4Var)) == null) ? (int) (this.e - rf4Var.e()) : invokeL.intValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, uf4Var) == null) || uf4Var == null || this.a.contains(uf4Var)) {
+            return;
+        }
+        this.a.add(uf4Var);
     }
 
-    public long b() {
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = this.c - this.b;
-            if (j < 0) {
-                return 0L;
+            ArrayList<uf4> arrayList = new ArrayList();
+            Iterator<uf4<T>> it = this.a.iterator();
+            T t = null;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                uf4<T> next = it.next();
+                T t2 = next.get();
+                if (c(t2)) {
+                    t = t2;
+                    break;
+                }
+                arrayList.add(next);
+                t = t2;
             }
-            return j;
+            if (arrayList.size() > 0) {
+                for (uf4 uf4Var : arrayList) {
+                    uf4Var.put(t);
+                }
+            }
+            return t;
         }
-        return invokeV.longValue;
+        return (T) invokeV.objValue;
     }
 
-    public MethodInfo c() {
-        InterceptResult invokeV;
+    public final boolean c(T t) {
+        InterceptResult invokeL;
+        char[] charArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (MethodInfo) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t != null && (t instanceof String)) {
+                String str = (String) t;
+                if (str.length() != 32) {
+                    return false;
+                }
+                for (char c : str.toCharArray()) {
+                    if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public void d(T t) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.longValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || c(t)) {
+            return;
+        }
+        for (uf4<T> uf4Var : this.a) {
+            if (uf4Var.a()) {
+                uf4Var.put(t);
+            }
+        }
     }
 }

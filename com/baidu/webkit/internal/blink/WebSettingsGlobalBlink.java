@@ -33,6 +33,7 @@ import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.abtest.ABTestSDK;
 import com.heytap.mcssdk.mode.CommandMessage;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -3985,7 +3986,7 @@ public class WebSettingsGlobalBlink implements INoProGuard {
             try {
                 String host = new URL(str).getHost();
                 if (GetCloudSettingsValue("smart_detector_white_hosts") != null) {
-                    String[] split = GetCloudSettingsValue("smart_detector_white_hosts").split(";");
+                    String[] split = GetCloudSettingsValue("smart_detector_white_hosts").split(ParamableElem.DIVIDE_PARAM);
                     for (int i = 0; i < split.length; i++) {
                         if (!"".equals(split[i]) && host.indexOf(split[i]) >= 0) {
                             Log.d(LOGTAG, "url : " + str + " match white host: " + split[i]);

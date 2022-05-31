@@ -1,4 +1,7 @@
 package com.repackage;
 /* loaded from: classes6.dex */
-public interface hs<T> {
+public interface hs {
+    void a();
+
+    void b();
 }

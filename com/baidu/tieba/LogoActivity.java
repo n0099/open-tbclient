@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ji5;
-import com.repackage.us4;
+import com.repackage.dh5;
+import com.repackage.kr4;
 @SuppressLint({"HandlerLeak"})
 /* loaded from: classes3.dex */
 public class LogoActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ji5 mLogoActivityDelegate;
+    public dh5 mLogoActivityDelegate;
 
     public LogoActivity() {
         Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class LogoActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.m85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,11 +86,11 @@ public class LogoActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             setUseStyleImmersiveSticky(false);
             super.onCreate(bundle);
-            ji5 ji5Var = new ji5(this);
-            this.mLogoActivityDelegate = ji5Var;
-            ji5Var.e(bundle);
+            dh5 dh5Var = new dh5(this);
+            this.mLogoActivityDelegate = dh5Var;
+            dh5Var.e(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(3001);
-            us4.m();
+            kr4.m();
         }
     }
 
@@ -102,7 +102,7 @@ public class LogoActivity extends BaseFragmentActivity {
             super.onDestroy();
             this.mLogoActivityDelegate.f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(3005);
-            us4.n();
+            kr4.n();
         }
     }
 
@@ -124,7 +124,7 @@ public class LogoActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent) == null) {
             super.onNewIntent(intent);
-            us4.m();
+            kr4.m();
         }
     }
 

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g55;
+import com.repackage.b45;
 /* loaded from: classes2.dex */
 public class InitBearAdViewTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -37,7 +37,7 @@ public class InitBearAdViewTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                g55.e().a(1007, (ViewGroup) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0785, (ViewGroup) null, false));
+                b45.e().a(1007, (ViewGroup) LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0778, (ViewGroup) null, false));
             } catch (Exception e) {
                 BdLog.e(e);
             }

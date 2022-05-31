@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fr4;
-import com.repackage.l05;
-import com.repackage.ro;
+import com.repackage.hz4;
+import com.repackage.jn;
+import com.repackage.vp4;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,13 +78,13 @@ public class UserData extends MetaData {
     public String lng;
     public long loginTime;
     public ActivitySponsorData mActivitySponsorData;
-    public fr4 mBirthdayInfo;
+    public vp4 mBirthdayInfo;
     public List<MyGift> mGift;
     public int mGiftNum;
     public List<MyGroup> mGroup;
     public boolean mIsSelectTail;
     public List<MyLikeForum> mLikeForum;
-    public List<ro> mPhotoAlbum;
+    public List<jn> mPhotoAlbum;
     public long mTDouNum;
     public String mTiebaUid;
     public int managerLevel;
@@ -232,10 +232,10 @@ public class UserData extends MetaData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bimg_url : (String) invokeV.objValue;
     }
 
-    public fr4 getBirthdayInfo() {
+    public vp4 getBirthdayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBirthdayInfo : (fr4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBirthdayInfo : (vp4) invokeV.objValue;
     }
 
     public CloseAdData getCloseAdData() {
@@ -420,7 +420,7 @@ public class UserData extends MetaData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.personPrivate : (PersonPrivateData) invokeV.objValue;
     }
 
-    public List<ro> getPhotoAlbum() {
+    public List<jn> getPhotoAlbum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.mPhotoAlbum : (List) invokeV.objValue;
@@ -563,20 +563,20 @@ public class UserData extends MetaData {
             this.mPhotoAlbum = new ArrayList();
         }
         this.mPhotoAlbum.clear();
-        l05 l05Var = new l05();
-        l05Var.f(getPortraitH());
-        l05Var.i(getPortrait());
-        l05Var.g(true);
-        this.mPhotoAlbum.add(l05Var);
+        hz4 hz4Var = new hz4();
+        hz4Var.f(getPortraitH());
+        hz4Var.i(getPortrait());
+        hz4Var.g(true);
+        this.mPhotoAlbum.add(hz4Var);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
-                    l05 l05Var2 = new l05();
-                    l05Var2.f(userPics.big);
-                    l05Var2.i(userPics.small);
-                    l05Var2.g(false);
-                    this.mPhotoAlbum.add(l05Var2);
+                    hz4 hz4Var2 = new hz4();
+                    hz4Var2.f(userPics.big);
+                    hz4Var2.i(userPics.small);
+                    hz4Var2.g(false);
+                    this.mPhotoAlbum.add(hz4Var2);
                 }
             }
         }
@@ -697,9 +697,9 @@ public class UserData extends MetaData {
         this.isShowRedPacket = user.is_show_redpacket.intValue() == 1;
         BirthdayInfo birthdayInfo = user.birthday_info;
         if (birthdayInfo != null) {
-            fr4 fr4Var = new fr4();
-            this.mBirthdayInfo = fr4Var;
-            fr4Var.b(birthdayInfo);
+            vp4 vp4Var = new vp4();
+            this.mBirthdayInfo = vp4Var;
+            vp4Var.b(birthdayInfo);
         }
         this.bawuThrones = user.bawu_thrones;
         this.showPbPrivateFlag = user.show_pb_private_flag.intValue();
@@ -844,7 +844,7 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, com.repackage.yv4
+    @Override // com.baidu.tbadk.data.MetaData, com.repackage.ou4
     public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048650, this, i) == null) {
@@ -1031,22 +1031,22 @@ public class UserData extends MetaData {
                     this.mPhotoAlbum = new ArrayList();
                 }
                 this.mPhotoAlbum.clear();
-                l05 l05Var = new l05();
-                l05Var.f(getPortraitH());
-                l05Var.i(getPortrait());
-                l05Var.g(true);
-                this.mPhotoAlbum.add(l05Var);
+                hz4 hz4Var = new hz4();
+                hz4Var.f(getPortraitH());
+                hz4Var.i(getPortrait());
+                hz4Var.g(true);
+                this.mPhotoAlbum.add(hz4Var);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
                     for (int i = 0; i < length; i++) {
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
-                            l05 l05Var2 = new l05();
-                            l05Var2.f(jSONObject2.optString("big"));
-                            l05Var2.i(jSONObject2.optString("small"));
-                            l05Var2.g(false);
-                            this.mPhotoAlbum.add(l05Var2);
+                            hz4 hz4Var2 = new hz4();
+                            hz4Var2.f(jSONObject2.optString("big"));
+                            hz4Var2.i(jSONObject2.optString("small"));
+                            hz4Var2.g(false);
+                            this.mPhotoAlbum.add(hz4Var2);
                         }
                     }
                 }
@@ -1101,9 +1101,9 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("birthday_info");
                 if (optJSONObject10 != null) {
-                    fr4 fr4Var = new fr4();
-                    this.mBirthdayInfo = fr4Var;
-                    fr4Var.a(optJSONObject10);
+                    vp4 vp4Var = new vp4();
+                    this.mBirthdayInfo = vp4Var;
+                    vp4Var.a(optJSONObject10);
                 }
                 this.mTiebaUid = jSONObject.optString("tieba_uid");
             } catch (Exception e) {

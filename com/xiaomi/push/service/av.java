@@ -61,7 +61,7 @@ public class av {
         public XMPushService f888a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final C0658b f889a;
+        public final C0660b f889a;
 
         /* renamed from: a  reason: collision with other field name */
         public c f890a;
@@ -99,7 +99,7 @@ public class av {
 
         /* renamed from: com.xiaomi.push.service.av$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0658b extends XMPushService.i {
+        public class C0660b extends XMPushService.i {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -113,7 +113,7 @@ public class av {
             public int c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0658b(b bVar) {
+            public C0660b(b bVar) {
                 super(0);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -229,7 +229,7 @@ public class av {
             this.f896b = false;
             this.f887a = new XMPushService.b(this);
             this.f885a = null;
-            this.f889a = new C0658b(this);
+            this.f889a = new C0660b(this);
         }
 
         public b(XMPushService xMPushService) {
@@ -254,7 +254,7 @@ public class av {
             this.f896b = false;
             this.f887a = new XMPushService.b(this);
             this.f885a = null;
-            this.f889a = new C0658b(this);
+            this.f889a = new C0660b(this);
             this.f888a = xMPushService;
             a(new aw(this));
         }
@@ -329,14 +329,14 @@ public class av {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65545, this, i, i2, str)) == null) {
                 if (i == 1) {
-                    return (this.f890a == c.c || !this.f888a.m606c() || i2 == 21 || (i2 == 7 && "wait".equals(str))) ? false : true;
+                    return (this.f890a == c.c || !this.f888a.m605c() || i2 == 21 || (i2 == 7 && "wait".equals(str))) ? false : true;
                 } else if (i != 2) {
                     if (i != 3) {
                         return false;
                     }
                     return !"wait".equals(str);
                 } else {
-                    return this.f888a.m606c();
+                    return this.f888a.m605c();
                 }
             }
             return invokeIIL.booleanValue;
@@ -355,7 +355,7 @@ public class av {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public void m646a() {
+        public void m645a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 try {
@@ -372,7 +372,7 @@ public class av {
         public void a(Messenger messenger) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, messenger) == null) {
-                m646a();
+                m645a();
                 try {
                     if (messenger != null) {
                         this.f886a = messenger;
@@ -411,7 +411,7 @@ public class av {
                 c cVar2 = this.f890a;
                 int i3 = 0;
                 if (cVar2 != cVar) {
-                    com.xiaomi.channel.commonutils.logger.b.m109a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i), az.a(i2), str, str2, this.g));
+                    com.xiaomi.channel.commonutils.logger.b.m108a(String.format("update the client %7$s status. %1$s->%2$s %3$s %4$s %5$s %6$s", cVar2, cVar, a(i), az.a(i2), str, str2, this.g));
                     this.f890a = cVar;
                 }
                 if (this.f891a == null) {
@@ -551,7 +551,7 @@ public class av {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m638a() {
+    public synchronized int m637a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
@@ -580,7 +580,7 @@ public class av {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<b> m639a() {
+    public synchronized ArrayList<b> m638a() {
         InterceptResult invokeV;
         ArrayList<b> arrayList;
         Interceptable interceptable = $ic;
@@ -597,7 +597,7 @@ public class av {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<b> m640a(String str) {
+    public synchronized Collection<b> m639a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
@@ -609,7 +609,7 @@ public class av {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<String> m641a(String str) {
+    public synchronized List<String> m640a(String str) {
         InterceptResult invokeL;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
@@ -630,13 +630,13 @@ public class av {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m642a() {
+    public synchronized void m641a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             synchronized (this) {
-                Iterator<b> it = m639a().iterator();
+                Iterator<b> it = m638a().iterator();
                 while (it.hasNext()) {
-                    it.next().m646a();
+                    it.next().m645a();
                 }
                 this.f883a.clear();
             }
@@ -696,14 +696,14 @@ public class av {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m643a(String str) {
+    public synchronized void m642a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             synchronized (this) {
                 HashMap<String, b> hashMap = this.f883a.get(str);
                 if (hashMap != null) {
                     for (b bVar : hashMap.values()) {
-                        bVar.m646a();
+                        bVar.m645a();
                     }
                     hashMap.clear();
                     this.f883a.remove(str);
@@ -716,7 +716,7 @@ public class av {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m644a(String str, String str2) {
+    public synchronized void m643a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
             synchronized (this) {
@@ -724,7 +724,7 @@ public class av {
                 if (hashMap != null) {
                     b bVar = hashMap.get(a(str2));
                     if (bVar != null) {
-                        bVar.m646a();
+                        bVar.m645a();
                     }
                     hashMap.remove(a(str2));
                     if (hashMap.isEmpty()) {

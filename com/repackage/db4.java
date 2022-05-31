@@ -1,61 +1,133 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
-import okhttp3.MediaType;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class db4 extends v94 {
+public class db4 {
     public static /* synthetic */ Interceptable $ic;
+    public static db4 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
+    public String b;
+    public String c;
 
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, z94<String> z94Var) {
+    /* loaded from: classes5.dex */
+    public static class a extends qf4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_tipmsgs");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public db4() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65536, null, str, map, map2, z94Var) == null) || d(str, z94Var)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new a();
+        this.b = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f127a);
+        this.c = AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f127b);
+    }
+
+    public static db4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (db4.class) {
+                    if (d == null) {
+                        d = new db4();
+                    }
+                }
+            }
+            return d;
+        }
+        return (db4) invokeV.objValue;
+    }
+
+    public String a(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j)), this.b) : (String) invokeJ.objValue;
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.a.getString(String.format("%04d", Long.valueOf(j)), this.c) : (String) invokeJ.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getString("tips_config_version", "0") : (String) invokeV.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        c(w74.g().getRequest(), str, map, map2, z94Var);
-    }
-
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, z94<String> z94Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, z94Var) == null) || d(str, z94Var)) {
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
             return;
         }
-        s74 postStringRequest = w74.g().postStringRequest();
-        e84.a(postStringRequest, map);
-        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
-        c(postStringRequest, str, map, map2, z94Var);
+        HashMap<String, String> hashMap = new HashMap<>(optJSONArray.length());
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            hashMap.put(optJSONObject.optString("tipno"), optJSONObject.optString("tipmsg"));
+        }
+        f(hashMap, optString);
     }
 
-    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
-    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, z94<String> z94Var) {
+    public void f(HashMap<String, String> hashMap, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, z94Var) == null) {
-            httpRequestBuilder.url(aa4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(v94.b).cookieManager(v94.a).enableStat(true).build().executeStat(z94Var);
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, hashMap, str) == null) || hashMap == null || hashMap.isEmpty() || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean d(String str, z94<String> z94Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, z94Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            if (z94Var != null) {
-                z94Var.onStart();
-                return false;
-            }
-            return false;
+        SharedPreferences.Editor edit = this.a.edit();
+        edit.clear();
+        edit.putString("tips_config_version", str);
+        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+            edit.putString(entry.getKey(), entry.getValue());
         }
-        return invokeLL.booleanValue;
+        edit.apply();
     }
 }

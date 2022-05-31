@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.mi;
+import com.repackage.li;
+import com.repackage.wq4;
 /* loaded from: classes3.dex */
 public class PersonCreatorCenterDataView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -84,18 +84,18 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06b0, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06a5, (ViewGroup) this, true);
             inflate.setOnClickListener(this);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917ec);
-            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917ee);
-            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0917f4);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917a1);
+            this.h = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917a3);
+            RoundLinearLayout roundLinearLayout = (RoundLinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0917a9);
             this.d = roundLinearLayout;
-            roundLinearLayout.setRadius(mi.f(getContext(), R.dimen.obfuscated_res_0x7f07028a));
+            roundLinearLayout.setRadius(li.f(getContext(), R.dimen.obfuscated_res_0x7f07028a));
             this.d.setRoundCount(8);
-            gs4.d(this.d).n(R.string.J_X03);
-            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0917f5);
-            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0917f6);
-            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0917ef);
+            wq4.d(this.d).n(R.string.J_X03);
+            this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0917aa);
+            this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0917ab);
+            this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0917a4);
         }
     }
 

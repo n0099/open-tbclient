@@ -1,9 +1,7 @@
 package com.repackage;
 /* loaded from: classes5.dex */
-public interface a65 {
-    void a(x55 x55Var);
+public interface a65 extends y55 {
+    String j();
 
-    void b(z55 z55Var);
-
-    void startService();
+    boolean p(String str);
 }

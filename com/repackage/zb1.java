@@ -1,200 +1,487 @@
 package com.repackage;
 
-import android.net.Uri;
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sdk.container.filedownloader.MaterialLoader;
+import com.baidu.sdk.container.player.AdVideoView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.regex.Pattern;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lc1;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class zb1 {
+public class zb1 extends wb1 {
     public static /* synthetic */ Interceptable $ic;
+    public static AtomicBoolean j0;
+    public static boolean k0;
     public transient /* synthetic */ FieldHolder $fh;
+    public AdVideoView X;
+    public AtomicInteger Y;
+    public volatile boolean Z;
+    public lc1 g0;
+    public lc1.a h0;
+    public lc1.b i0;
 
-    public static String a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 101) {
-                    if (i != 201) {
-                        if (i != 202) {
-                            if (i != 301) {
-                                if (i != 302) {
-                                    switch (i) {
-                                        case 401:
-                                            return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f04);
-                                        case 402:
-                                            return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f01);
-                                        case 403:
-                                            return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f02);
-                                        default:
-                                            return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f09);
-                                    }
-                                }
-                                return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f03);
-                            }
-                            return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f05);
-                        }
-                        return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f08);
-                    }
-                    return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f09);
-                }
-                return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f06);
-            }
-            return sb1.a().getString(R.string.obfuscated_res_0x7f0f0f07);
-        }
-        return (String) invokeI.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a implements lc1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zb1 a;
 
-    public static HashMap<String, String> b(String str) {
-        InterceptResult invokeL;
-        String substring;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            if (TextUtils.isEmpty(str)) {
-                return hashMap;
-            }
-            int indexOf = str.indexOf("?");
-            int indexOf2 = str.indexOf("#");
-            if (indexOf < 0) {
-                return hashMap;
-            }
-            if (indexOf2 < 0) {
-                substring = str.substring(indexOf + 1);
-            } else {
-                substring = str.substring(indexOf + 1, indexOf2);
-            }
-            String[] split = substring.split("&");
-            if (split == null) {
-                return hashMap;
-            }
-            for (String str2 : split) {
-                int indexOf3 = str2.indexOf("=");
-                if (indexOf3 > 0) {
-                    try {
-                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
-                    } catch (IllegalArgumentException unused) {
-                    }
+        public a(zb1 zb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return hashMap;
+            this.a = zb1Var;
         }
-        return (HashMap) invokeL.objValue;
-    }
 
-    public static String[] c(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
-            if (uri == null) {
-                return null;
+        @Override // com.repackage.lc1
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a0("video_onError");
             }
-            ArrayList arrayList = new ArrayList(uri.getPathSegments());
-            if (!d(uri)) {
-                arrayList.add(0, uri.getHost());
-            }
-            if (arrayList.size() <= 0) {
-                return null;
-            }
-            return (String[]) arrayList.toArray(new String[0]);
         }
-        return (String[]) invokeL.objValue;
-    }
 
-    public static boolean d(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
-            if (uri == null) {
-                return false;
+        @Override // com.repackage.lc1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.c0();
             }
-            String host = uri.getHost();
-            return !TextUtils.isEmpty(host) && host.startsWith("v") && e(host);
         }
-        return invokeL.booleanValue;
-    }
 
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? Pattern.compile("[0-9]").matcher(str).find() : invokeL.booleanValue;
-    }
-
-    public static boolean f(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
-            if (uri == null) {
-                return false;
+        @Override // com.repackage.lc1
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.d0();
             }
-            return TextUtils.equals(vb1.a, uri.getScheme()) && !TextUtils.isEmpty(uri.getHost());
         }
-        return invokeL.booleanValue;
-    }
 
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        @Override // com.repackage.lc1
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.a.a0("time_end");
             }
-            return f(Uri.parse(str));
         }
-        return invokeL.booleanValue;
-    }
 
-    public static JSONObject h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? j(null, i) : (JSONObject) invokeI.objValue;
-    }
-
-    public static JSONObject i(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("status", String.valueOf(i));
-                jSONObject.put("message", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeIL.objValue;
-    }
-
-    public static JSONObject j(JSONObject jSONObject, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) ? k(jSONObject, i, a(i)) : (JSONObject) invokeLI.objValue;
-    }
-
-    public static JSONObject k(JSONObject jSONObject, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
-            JSONObject i2 = i(i, str);
-            if (jSONObject != null) {
+        @Override // com.repackage.lc1
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 try {
-                    i2.put("data", jSONObject);
-                } catch (JSONException e) {
+                    AdVideoView adVideoView = this.a.X;
+                    adVideoView.getLayoutParams().width = -1;
+                    adVideoView.getLayoutParams().height = -1;
+                    zb1.super.B();
+                    this.a.J();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
-            return i2;
         }
-        return (JSONObject) invokeLIL.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements lc1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zb1 a;
+
+        public b(zb1 zb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zb1Var;
+        }
+
+        @Override // com.repackage.lc1.a
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.X != null) {
+                        AdVideoView adVideoView = this.a.X;
+                        adVideoView.getLayoutParams().width = 1;
+                        adVideoView.getLayoutParams().height = 1;
+                    }
+                    if (this.a.m != null) {
+                        this.a.m.setVisibility(8);
+                    }
+                    if (this.a.c != null) {
+                        this.a.c.setVisibility(8);
+                    }
+                    if (this.a.d != null) {
+                        this.a.d.setVisibility(8);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements lc1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zb1 a;
+
+        public c(zb1 zb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zb1Var;
+        }
+
+        @Override // com.repackage.lc1.b
+        public void onPrepared() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.Z();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zb1 a;
+
+        public d(zb1 zb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zb1Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.F();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zb1 a;
+
+        public e(zb1 zb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zb1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.H();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755117880, "Lcom/repackage/zb1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755117880, "Lcom/repackage/zb1;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zb1(Context context, JSONObject jSONObject) {
+        super(context, jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.Y = new AtomicInteger(0);
+        this.Z = false;
+        this.g0 = new a(this);
+        this.h0 = new b(this);
+        this.i0 = new c(this);
+        this.r = "video";
+        try {
+            AdVideoView adVideoView = new AdVideoView(this.a);
+            this.X = adVideoView;
+            if (this.F == 17) {
+                adVideoView.setDisplayMode(7);
+            } else {
+                adVideoView.setDisplayMode(2);
+            }
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(1, 1);
+            layoutParams.addRule(13);
+            j(this.X, layoutParams);
+            this.X.setAdVideoViewListener(this.g0);
+            this.X.setDestroyedListener(this.h0);
+            this.X.setPreparedListener(this.i0);
+            this.X.B();
+            this.X.n();
+            this.X.setVideoMute(true);
+            this.X.setVideoUrl(b0());
+        } catch (Exception e2) {
+            a0("video_container_excepiton_constructor_" + e2.toString());
+        }
+    }
+
+    @Override // com.repackage.wb1
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                this.X.A(b0());
+                Z();
+            } catch (Exception e2) {
+                a0("video_container_excepiton_doStartOnUIThread_" + e2.toString());
+            }
+        }
+    }
+
+    @Override // com.repackage.wb1
+    public void P() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.X == null) {
+            return;
+        }
+        k0 = true;
+    }
+
+    @Override // com.repackage.wb1
+    public void Q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.Q();
+        }
+    }
+
+    public final void Z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                if (this.Y.incrementAndGet() == 2) {
+                    ih0.b(new e(this));
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public final void a0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            k0 = false;
+            super.x(str);
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+        }
+    }
+
+    public final String b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String b2 = this.h.b(this.t, MaterialLoader.MaterialCacheType.VIDEO);
+            return TextUtils.isEmpty(b2) ? this.t : b2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void c0() {
+        AtomicBoolean atomicBoolean;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (atomicBoolean = j0) == null) {
+            return;
+        }
+        atomicBoolean.compareAndSet(true, false);
+    }
+
+    public final void d0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (j0 == null) {
+                j0 = new AtomicBoolean(true);
+            }
+            j0.compareAndSet(false, true);
+        }
+    }
+
+    @Override // com.repackage.wb1, com.repackage.hc1
+    public View getAdView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? super.getAdView() : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.wb1, com.repackage.hc1
+    public void load() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            super.load();
+            this.X.setOnClickListener(new d(this));
+            Q();
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, keyEvent)) == null) {
+            return false;
+        }
+        return invokeIL.booleanValue;
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onWindowFocusChanged(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            String str = wb1.W;
+            Log.d(str, "onWindowFocusChanged: " + z);
+            AdVideoView adVideoView = this.X;
+            if (adVideoView == null) {
+                return;
+            }
+            if (!z) {
+                adVideoView.r();
+            } else {
+                adVideoView.s();
+            }
+            if (this.X != null && this.Z && z && !k0) {
+                a0("onWindowFocusChanged");
+            }
+            this.Z = !z;
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AdView.a
+    public void onWindowVisibilityChanged(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        }
+    }
+
+    @Override // com.repackage.wb1
+    public void y() {
+        AdVideoView adVideoView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (adVideoView = this.X) == null) {
+            return;
+        }
+        adVideoView.setOnClickListener(null);
     }
 }

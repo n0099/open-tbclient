@@ -1,30 +1,23 @@
 package com.repackage;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.open.deviceidentifiertest.VirtualDevice;
+import org.webrtc.CalledByNative;
+import org.webrtc.VideoDecoder;
+/* compiled from: VideoDecoder.java */
 /* loaded from: classes6.dex */
-public final class ku9 {
+public final /* synthetic */ class ku9 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
+    @CalledByNative
+    public static long $default$createNativeVideoDecoder(VideoDecoder videoDecoder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (a == null) {
-                    a = new VirtualDevice().getDeviceID(context);
-                }
-                return a;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, videoDecoder)) == null) {
+            return 0L;
         }
-        return (String) invokeL.objValue;
+        return invokeL.longValue;
     }
 }

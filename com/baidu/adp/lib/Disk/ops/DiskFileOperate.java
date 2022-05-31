@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jg;
+import com.repackage.ig;
 import com.repackage.rb;
 import com.repackage.sb;
 import java.io.File;
@@ -425,7 +425,7 @@ public class DiskFileOperate {
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             synchronized (this) {
                 if (this.mOutputStream != null) {
-                    jg.d(this.mOutputStream);
+                    ig.d(this.mOutputStream);
                     this.mOutputStream = null;
                 }
             }

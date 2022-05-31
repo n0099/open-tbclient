@@ -25,7 +25,7 @@ public class e {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object a;
     public static String b = "PushTrackDatabase";
-    public static C0018e c;
+    public static C0017e c;
     @SuppressLint({"StaticFieldLeak"})
     public static e d;
     public transient /* synthetic */ FieldHolder $fh;
@@ -267,7 +267,7 @@ public class e {
 
     /* renamed from: com.baidu.android.pushservice.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0018e extends SQLiteOpenHelper {
+    public static class C0017e extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public static final String a;
         public static final String b;
@@ -330,7 +330,7 @@ public class e {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0018e(Context context, String str, int i) {
+        public C0017e(Context context, String str, int i) {
             super(context, str, (SQLiteDatabase.CursorFactory) null, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -482,7 +482,7 @@ public class e {
             }
         }
         this.e = context;
-        c = new C0018e(context, "push_track.db", 1);
+        c = new C0017e(context, "push_track.db", 1);
     }
 
     public static e a(Context context) {
@@ -506,7 +506,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (c == null) {
-                c = new C0018e(context, "push_track.db", 1);
+                c = new C0017e(context, "push_track.db", 1);
             }
             try {
                 return c.getWritableDatabase();

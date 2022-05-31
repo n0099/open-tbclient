@@ -34,17 +34,17 @@ public final class c {
             }
             Intent intent = bVar.getIntent();
             String pluginPkgName = bVar.getPluginPkgName();
-            Plugin plugin2 = bVar.getPlugin();
-            intent.setExtrasClassLoader(plugin2.mClassLoader);
+            Plugin plugin = bVar.getPlugin();
+            intent.setExtrasClassLoader(plugin.mClassLoader);
             String stringExtra = intent.getStringExtra("targetPlugin");
-            if (plugin2.isLoaded() && !TextUtils.isEmpty(stringExtra)) {
-                ActivityInfo activityInfo = plugin2.pluginActivities.get(stringExtra);
+            if (plugin.isLoaded() && !TextUtils.isEmpty(stringExtra)) {
+                ActivityInfo activityInfo = plugin.pluginActivities.get(stringExtra);
                 if (activityInfo != null) {
                     try {
-                        IPluginActivity iPluginActivity = (IPluginActivity) plugin2.mClassLoader.loadClass(stringExtra).newInstance();
+                        IPluginActivity iPluginActivity = (IPluginActivity) plugin.mClassLoader.loadClass(stringExtra).newInstance();
                         FieldUtils.writeField(iPluginActivity, "mApplication", bVar.getApplication());
                         bVar.setTargetActivity(iPluginActivity);
-                        iPluginActivity.setPluginProxyActivity(bVar, plugin2);
+                        iPluginActivity.setPluginProxyActivity(bVar, plugin);
                         bVar.zeusSuperSetTheme(activityInfo.theme);
                         iPluginActivity.attachBaseContext(bVar.getBaseContext());
                         iPluginActivity.onCreate(bundle);

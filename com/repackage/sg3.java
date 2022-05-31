@@ -1,21 +1,54 @@
 package com.repackage;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
 /* loaded from: classes7.dex */
-public class sg3 implements km3 {
+public class sg3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public class a implements be3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Bundle a;
+        public final /* synthetic */ sg3 b;
+
+        public a(sg3 sg3Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sg3Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sg3Var;
+            this.a = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.be3
+        /* renamed from: a */
+        public Bundle create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.b(this.a) : (Bundle) invokeV.objValue;
+        }
+    }
 
     public sg3() {
         Interceptable interceptable = $ic;
@@ -31,39 +64,37 @@ public class sg3 implements km3 {
         }
     }
 
-    @Override // com.repackage.lm3
-    public void a(r13 r13Var) {
+    public Bundle b(@NonNull Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, r13Var) == null) {
-            r13Var.b(new ji3(r13Var));
-            r13Var.b(new ni3(r13Var));
-            r13Var.b(new hj3(r13Var));
-            r13Var.b(new gj3(r13Var));
-            r13Var.b(new wi3(r13Var));
-            r13Var.b(new oi3(r13Var));
-            r13Var.b(new li3(r13Var));
-            r13Var.b(new ui3(r13Var));
-            r13Var.b(new ki3(r13Var));
-            r13Var.b(new ii3(r13Var));
-            r13Var.b(new hi3(r13Var));
-            r13Var.b(new mi3(r13Var));
-            r13Var.b(new lj3(r13Var));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            int i = bundle.getInt("type");
+            rg3 rg3Var = new rg3();
+            String string = bundle.getString("param1");
+            Bundle bundle2 = new Bundle();
+            if (i == 1) {
+                bundle2.putBoolean("result", rg3Var.shouldAcceptCookie(string, bundle.getString("param2")));
+                return bundle2;
+            } else if (i == 2) {
+                bundle2.putBoolean("result", rg3Var.shouldSendCookie(string, bundle.getString("param2")));
+                return bundle2;
+            } else if (i == 3) {
+                rg3Var.storeCookie(string, bundle.getStringArrayList("param2"));
+                return bundle2;
+            } else if (i != 4) {
+                return bundle2;
+            } else {
+                bundle2.putString("result", rg3Var.getCookie(string));
+                return bundle2;
+            }
         }
+        return (Bundle) invokeL.objValue;
     }
 
-    @Override // com.repackage.lm3
-    @Nullable
-    public Map<String, Object> b(@NonNull vo1 vo1Var) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(@NonNull Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vo1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(vo1Var) : (Map) invokeL.objValue;
-    }
-
-    @Override // com.repackage.lm3
-    @Nullable
-    public Map<String, Object> c(@NonNull vo1 vo1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vo1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(vo1Var) : (Map) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) ? (Bundle) yd3.b(new a(this, bundle)) : (Bundle) invokeL.objValue;
     }
 }

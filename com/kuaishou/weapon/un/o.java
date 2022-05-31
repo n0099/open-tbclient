@@ -8,7 +8,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -267,7 +266,7 @@ public class o {
                         break;
                     }
                     String name = nextEntry.getName();
-                    if (name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && !nextEntry.isDirectory()) {
+                    if (name.startsWith("lib/") && !nextEntry.isDirectory()) {
                         String str3 = Build.CPU_ABI;
                         String str4 = Build.VERSION.SDK_INT >= 8 ? Build.CPU_ABI2 : null;
                         if (name.contains(str3) || ((!TextUtils.isEmpty(str4) && name.contains(str4)) || (name.contains("armeabi") && (PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equalsIgnoreCase(str3) || (!TextUtils.isEmpty(str4) && PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equalsIgnoreCase(str4)))))) {
@@ -695,7 +694,7 @@ public class o {
                                     try {
                                         try {
                                             String name = nextElement.getName();
-                                            if (!name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) || nextElement.isDirectory()) {
+                                            if (!name.startsWith("lib/") || nextElement.isDirectory()) {
                                                 str9 = str13;
                                                 str10 = str14;
                                                 sb6 = sb;

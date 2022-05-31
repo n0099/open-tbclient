@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cw6;
-import com.repackage.lv6;
-import com.repackage.ro;
+import com.repackage.gu6;
+import com.repackage.jn;
+import com.repackage.pt6;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes3.dex */
-public class HotTopicTabSocketResponse extends SocketResponsedMessage implements cw6 {
+public class HotTopicTabSocketResponse extends SocketResponsedMessage implements gu6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
-    public List<ro> mHotTopicDataList;
+    public List<jn> mHotTopicDataList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicTabSocketResponse() {
@@ -38,14 +38,14 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         }
     }
 
-    @Override // com.repackage.cw6
-    public List<ro> getDataList() {
+    @Override // com.repackage.gu6
+    public List<jn> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.cw6
+    @Override // com.repackage.gu6
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
             if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = lv6.c(hotThreadListResIdl);
+                this.mHotTopicDataList = pt6.c(hotThreadListResIdl);
             }
         }
     }

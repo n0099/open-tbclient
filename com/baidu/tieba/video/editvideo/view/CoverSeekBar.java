@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 import java.io.IOException;
 /* loaded from: classes4.dex */
 public class CoverSeekBar extends FrameLayout {
@@ -253,11 +253,11 @@ public class CoverSeekBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.i = ViewConfiguration.get(getContext()).getScaledTouchSlop();
-            this.d = mi.k(getContext()) / 10;
-            this.e = mi.f(getContext(), R.dimen.obfuscated_res_0x7f07023a);
+            this.d = li.k(getContext()) / 10;
+            this.e = li.f(getContext(), R.dimen.obfuscated_res_0x7f07023a);
             this.g = new LinearLayout.LayoutParams(this.d, this.e);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e8e);
-            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f090717);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090e53);
+            this.c = (ScalableVideoView) findViewById(R.id.obfuscated_res_0x7f0906fa);
             this.c.setLayoutParams(new FrameLayout.LayoutParams(this.d, this.e));
         }
     }
@@ -480,7 +480,7 @@ public class CoverSeekBar extends FrameLayout {
         }
         this.a = 10;
         this.l = new b(this);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0484, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d047a, this);
         g();
     }
 }

@@ -1,34 +1,34 @@
 package com.repackage;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
-public class bw7 {
+public class bw7 implements aw7, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public boolean b;
-    public fq4 c;
+    public String a;
+    public int b;
+    public int c;
+    public ArrayList<PreLoadImageInfo> d;
+    public String e;
 
-    public bw7(TbPageContext tbPageContext) {
-        Uri uri;
+    public bw7(ExcContent excContent) {
+        Long l;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,36 +38,73 @@ public class bw7 {
                 return;
             }
         }
-        this.b = false;
-        this.a = tbPageContext;
-        if (tbPageContext.getPageActivity() == null || this.a.getPageActivity().getIntent() == null || (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
+        if (excContent == null || (l = excContent.type) == null || !l.equals(3L)) {
             return;
         }
-        String queryParameter = uri.getQueryParameter("tid");
-        uri.getQueryParameter(TiebaStatic.Params.EQID);
-        fq4 fq4Var = new fq4();
-        this.c = fq4Var;
-        fq4Var.a = uri.getQueryParameter("tid");
-        this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
-        if (TextUtils.isEmpty(queryParameter) || x8.g().h() > 3) {
-            return;
+        this.d = new ArrayList<>(1);
+        this.a = excContent.src;
+        String str = excContent.bsize;
+        this.e = str;
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                this.b = jg.e(split[0], 0);
+                this.c = jg.e(split[1], 0);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        this.b = true;
+        if (this.b <= 0) {
+            this.b = 1;
+        }
+        if (this.c <= 0) {
+            this.c = 1;
+        }
+        String str2 = excContent.cdn_src;
+        PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+        preLoadImageInfo.procType = 17;
+        preLoadImageInfo.height = this.c;
+        preLoadImageInfo.width = this.b;
+        if (StringUtils.isNull(str2)) {
+            preLoadImageInfo.imgUrl = this.a;
+        } else {
+            preLoadImageInfo.imgUrl = str2;
+        }
+        this.d.add(preLoadImageInfo);
     }
 
-    public void a(PbModel pbModel) {
+    public int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) || !this.b || this.c == null || pbModel == null || pbModel.P1() == null || pbModel.P1().l() == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i <= 0) {
+                return 0;
+            }
+            return (i * this.c) / this.b;
         }
-        ForumData l = pbModel.P1().l();
-        this.c.c = l.getFirst_class();
-        this.c.d = l.getSecond_class();
-        TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
-        if (x8.g().i("MainTabActivity")) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
-        } else {
-            TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
+        return invokeI.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.repackage.aw7
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 3;
         }
+        return invokeV.intValue;
     }
 }

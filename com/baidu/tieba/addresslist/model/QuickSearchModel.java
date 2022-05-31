@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.hk5;
-import com.repackage.wy4;
+import com.repackage.bj5;
+import com.repackage.px4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hk5 a;
+    public bj5 a;
     public byte[] b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,7 +41,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
             }
         }
         this.b = new byte[0];
-        this.a = hk5.d();
+        this.a = bj5.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -65,7 +65,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<wy4> y(String str) {
+    public List<px4> y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -74,27 +74,27 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<wy4> c = this.a.c();
+                List<px4> c = this.a.c();
                 if (c == null) {
                     return arrayList;
                 }
-                for (wy4 wy4Var : c) {
-                    String f = wy4Var.f();
-                    String d = wy4Var.d();
-                    if (!TextUtils.isEmpty(f) && f.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(wy4Var);
-                    } else if (!TextUtils.isEmpty(d) && d.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(wy4Var);
+                for (px4 px4Var : c) {
+                    String e = px4Var.e();
+                    String c2 = px4Var.c();
+                    if (!TextUtils.isEmpty(e) && e.toLowerCase().startsWith(str.toLowerCase())) {
+                        arrayList.add(px4Var);
+                    } else if (!TextUtils.isEmpty(c2) && c2.toLowerCase().startsWith(str.toLowerCase())) {
+                        arrayList.add(px4Var);
                     }
                 }
-                for (wy4 wy4Var2 : c) {
-                    String f2 = wy4Var2.f();
-                    String d2 = wy4Var2.d();
-                    if (!arrayList.contains(wy4Var2)) {
-                        if (!TextUtils.isEmpty(f2) && f2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(wy4Var2);
-                        } else if (!TextUtils.isEmpty(d2) && d2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(wy4Var2);
+                for (px4 px4Var2 : c) {
+                    String e2 = px4Var2.e();
+                    String c3 = px4Var2.c();
+                    if (!arrayList.contains(px4Var2)) {
+                        if (!TextUtils.isEmpty(e2) && e2.toLowerCase().contains(str.toLowerCase())) {
+                            arrayList.add(px4Var2);
+                        } else if (!TextUtils.isEmpty(c3) && c3.toLowerCase().contains(str.toLowerCase())) {
+                            arrayList.add(px4Var2);
                         }
                     }
                 }

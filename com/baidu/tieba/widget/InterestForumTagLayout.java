@@ -26,12 +26,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gs4;
-import com.repackage.mi;
-import com.repackage.py;
+import com.repackage.cx;
+import com.repackage.li;
+import com.repackage.wq4;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class InterestForumTagLayout extends LinearLayout implements py {
+public class InterestForumTagLayout extends LinearLayout implements cx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
@@ -121,7 +121,7 @@ public class InterestForumTagLayout extends LinearLayout implements py {
             return;
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-        layoutParams.setMargins(0, 0, mi.f(getContext(), R.dimen.M_W_X004), 0);
+        layoutParams.setMargins(0, 0, li.f(getContext(), R.dimen.M_W_X004), 0);
         int size = this.h.size();
         if (size > 2) {
             size = 2;
@@ -138,9 +138,9 @@ public class InterestForumTagLayout extends LinearLayout implements py {
             return;
         }
         if (this.g) {
-            string = this.b.getString(R.string.obfuscated_res_0x7f0f08f4);
+            string = this.b.getString(R.string.obfuscated_res_0x7f0f08fa);
         } else {
-            string = this.b.getString(R.string.obfuscated_res_0x7f0f08f2);
+            string = this.b.getString(R.string.obfuscated_res_0x7f0f08f8);
         }
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         EMTextView eMTextView = new EMTextView(getContext());
@@ -197,7 +197,7 @@ public class InterestForumTagLayout extends LinearLayout implements py {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eMTextView = this.e) == null) {
             return;
         }
-        gs4 d = gs4.d(eMTextView);
+        wq4 d = wq4.d(eMTextView);
         d.v(R.color.CAM_X0110);
         d.z(R.dimen.T_X06);
     }
@@ -205,20 +205,20 @@ public class InterestForumTagLayout extends LinearLayout implements py {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            setPadding(mi.f(getContext(), R.dimen.obfuscated_res_0x7f070225), mi.f(getContext(), R.dimen.tbds36), mi.f(getContext(), R.dimen.obfuscated_res_0x7f070225), mi.f(getContext(), R.dimen.tbds36));
+            setPadding(li.f(getContext(), R.dimen.obfuscated_res_0x7f070225), li.f(getContext(), R.dimen.tbds36), li.f(getContext(), R.dimen.obfuscated_res_0x7f070225), li.f(getContext(), R.dimen.tbds36));
             setOrientation(1);
             TextView textView = new TextView(getContext());
             this.c = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08f8));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f08fe));
             addView(this.c, new LinearLayout.LayoutParams(-2, -2));
             RelativeLayout relativeLayout = new RelativeLayout(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.setMargins(0, mi.f(getContext(), R.dimen.tbds18), 0, 0);
+            layoutParams.setMargins(0, li.f(getContext(), R.dimen.tbds18), 0, 0);
             addView(relativeLayout, layoutParams);
             ImageView imageView = new ImageView(getContext());
             this.f = imageView;
-            imageView.setId(R.id.obfuscated_res_0x7f090f1f);
-            int f = mi.f(getContext(), R.dimen.tbds42);
+            imageView.setId(R.id.obfuscated_res_0x7f090ee4);
+            int f = li.f(getContext(), R.dimen.tbds42);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(f, f);
             layoutParams2.addRule(11, -1);
             layoutParams2.addRule(15, -1);
@@ -226,22 +226,22 @@ public class InterestForumTagLayout extends LinearLayout implements py {
             LinearLayout linearLayout = new LinearLayout(getContext());
             this.d = linearLayout;
             linearLayout.setGravity(16);
-            this.d.setMinimumHeight(mi.f(getContext(), R.dimen.tbds68));
+            this.d.setMinimumHeight(li.f(getContext(), R.dimen.tbds68));
             RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams3.addRule(15, -1);
-            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f090f1f);
+            layoutParams3.addRule(0, R.id.obfuscated_res_0x7f090ee4);
             relativeLayout.addView(this.d, layoutParams3);
             onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                gs4 d = gs4.d(textView);
+                wq4 d = wq4.d(textView);
                 d.v(R.color.CAM_X0109);
                 d.z(R.dimen.T_X06);
             }
@@ -250,8 +250,8 @@ public class InterestForumTagLayout extends LinearLayout implements py {
                 int childCount = linearLayout.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
                     View childAt = this.d.getChildAt(i2);
-                    if (childAt instanceof py) {
-                        ((py) childAt).onChangeSkinType(tbPageContext, i);
+                    if (childAt instanceof cx) {
+                        ((cx) childAt).onChangeSkinType(tbPageContext, i);
                     }
                 }
             }
@@ -277,9 +277,9 @@ public class InterestForumTagLayout extends LinearLayout implements py {
             return;
         }
         if (z) {
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093c, SkinManager.getColor(R.color.CAM_X0301), null);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080948, SkinManager.getColor(R.color.CAM_X0301), null);
             if (pureDrawable != null) {
-                this.c.setCompoundDrawablePadding(mi.f(getContext(), R.dimen.M_W_X002));
+                this.c.setCompoundDrawablePadding(li.f(getContext(), R.dimen.M_W_X002));
                 this.c.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, pureDrawable, (Drawable) null);
                 return;
             }
@@ -350,7 +350,7 @@ public class InterestForumTagLayout extends LinearLayout implements py {
                 return;
             }
         }
-        this.a = ((((((mi.k(getContext()) - mi.f(getContext(), R.dimen.obfuscated_res_0x7f070225)) - mi.f(getContext(), R.dimen.obfuscated_res_0x7f070225)) - mi.f(getContext(), R.dimen.tbds42)) - mi.f(getContext(), R.dimen.M_W_X008)) - (mi.f(getContext(), R.dimen.M_W_X004) * 2)) * 1.0f) / 2.0f;
+        this.a = ((((((li.k(getContext()) - li.f(getContext(), R.dimen.obfuscated_res_0x7f070225)) - li.f(getContext(), R.dimen.obfuscated_res_0x7f070225)) - li.f(getContext(), R.dimen.tbds42)) - li.f(getContext(), R.dimen.M_W_X008)) - (li.f(getContext(), R.dimen.M_W_X004) * 2)) * 1.0f) / 2.0f;
         k();
     }
 }

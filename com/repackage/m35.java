@@ -1,42 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m35 implements o35 {
+public class m35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public ImageView b;
-    public ImageView c;
-    public TextView d;
-    public LinearLayout e;
+    public View attachedView;
+    public boolean isAttached;
+    public boolean isWrapStyle;
 
-    public m35(Context context) {
+    public m35(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,44 +31,70 @@ public class m35 implements o35 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0294, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0909da);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909dc);
-        this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909d8);
-        this.e = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f0909db);
-        this.d.setText(R.string.obfuscated_res_0x7f0f06cf);
-        b();
+        this.isWrapStyle = false;
+        this.attachedView = view2;
     }
 
-    @Override // com.repackage.o35
-    public void b() {
+    public void attachView(View view2, boolean z) {
+        View view3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() != null) {
             return;
         }
-        SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-        SkinManager.setImageResource(this.b, R.drawable.obfuscated_res_0x7f080f21);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805e7, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        TBSelector.makeDrawableSelector().defaultColor(R.color.CAM_X0305).setShape(0).setAlpha(com.kuaishou.weapon.un.w0.A).tlRadius(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).blRadius(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds52)).into(this.e);
+        this.isAttached = true;
+        q35.b(view2, this.isWrapStyle).a(view2, this.attachedView, z);
+        onViewAttached();
     }
 
-    @Override // com.repackage.o35
+    public void dettachView(View view2) {
+        View view3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() == null || !(view2 instanceof ViewGroup)) {
+            return;
+        }
+        try {
+            onViewDettached();
+            ((ViewGroup) view2).removeView(this.attachedView);
+            this.isAttached = false;
+        } catch (Exception unused) {
+        }
+    }
+
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            return view2 != null ? view2 : LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0294, (ViewGroup) null);
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.attachedView : (View) invokeV.objValue;
     }
 
-    @Override // com.repackage.o35
-    public void onClick() {
+    public boolean isViewAttached() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FRS_FORUM_FLOAT_CLICK).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isAttached : invokeV.booleanValue;
+    }
+
+    public void onViewAttached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void onViewDettached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public void setWrapStyle(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.isWrapStyle = z;
+        }
+    }
+
+    public void attachView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            attachView(view2, false);
         }
     }
 }

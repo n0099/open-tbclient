@@ -1,47 +1,47 @@
 package com.repackage;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.View;
+import android.view.Window;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.coupon.CouponListView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
+import com.repackage.c91;
+import com.repackage.s81;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class a91 implements Closeable {
+public class a91 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final InputStream a;
-    public final Charset b;
-    public byte[] c;
-    public int d;
-    public int e;
+    public CouponListView a;
+    public ImageView b;
+    public FrameLayout c;
+    public d d;
 
     /* loaded from: classes5.dex */
-    public class a extends ByteArrayOutputStream {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a91 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(a91 a91Var, int i) {
-            super(i);
+        public a(a91 a91Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a91Var, Integer.valueOf(i)};
+                Object[] objArr = {a91Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -50,49 +50,133 @@ public class a91 implements Closeable {
             this.a = a91Var;
         }
 
-        /* JADX WARN: Code restructure failed: missing block: B:7:0x0010, code lost:
-            if (((java.io.ByteArrayOutputStream) r5).buf[r0] == 13) goto L7;
-         */
-        @Override // java.io.ByteArrayOutputStream
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public String toString() {
-            InterceptResult invokeV;
-            int i;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = ((ByteArrayOutputStream) this).count;
-                if (i2 > 0) {
-                    i = i2 - 1;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.a != null && this.a.d != null) {
+                    this.a.d.a(false, this.a.a.getSelectedItem());
                 }
-                i = ((ByteArrayOutputStream) this).count;
-                try {
-                    return new String(((ByteArrayOutputStream) this).buf, 0, i, this.a.b.name());
-                } catch (UnsupportedEncodingException e) {
-                    throw new AssertionError(e);
-                }
+                this.a.dismiss();
             }
-            return (String) invokeV.objValue;
         }
     }
 
+    /* loaded from: classes5.dex */
+    public class b implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a91 a;
+
+        public b(a91 a91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a91Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || this.a.a == null || this.a.d == null) {
+                return;
+            }
+            this.a.d.a(false, this.a.a.getSelectedItem());
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements CouponListView.h {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a91 a;
+
+        public c(a91 a91Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a91Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a91Var;
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void b(c91.a aVar, s81 s81Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, s81Var) == null) {
+                s81.a aVar2 = new s81.a();
+                aVar2.a = 0;
+                s81Var.a(aVar2);
+            }
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void c(boolean z, c91.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, aVar) == null) {
+                this.a.dismiss();
+                if (this.a.d != null) {
+                    this.a.d.a(z, aVar);
+                }
+            }
+        }
+
+        @Override // com.baidu.poly.widget.coupon.CouponListView.h
+        public void onDetach() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void a(boolean z, c91.a aVar);
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a91(InputStream inputStream, Charset charset) {
-        this(inputStream, 8192, charset);
+    public a91(Context context) {
+        this(context, R.style.obfuscated_res_0x7f1000fe);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, charset};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (Charset) objArr2[2]);
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -101,116 +185,60 @@ public class a91 implements Closeable {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            InputStream inputStream = this.a;
-            byte[] bArr = this.c;
-            int read = inputStream.read(bArr, 0, bArr.length);
-            if (read != -1) {
-                this.d = 0;
-                this.e = read;
-                return;
+            setContentView(R.layout.obfuscated_res_0x7f0d0227);
+            Window window = getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
+                window.setLayout(-1, -2);
             }
-            throw new EOFException();
+            this.a = (CouponListView) findViewById(R.id.obfuscated_res_0x7f090596);
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090597);
+            this.c = frameLayout;
+            frameLayout.setVisibility(8);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f8f);
+            this.b = imageView;
+            imageView.setOnClickListener(new a(this));
+            setOnCancelListener(new b(this));
         }
     }
 
-    @Override // java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
+    public void d(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                if (this.c != null) {
-                    this.c = null;
-                    this.a.close();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            this.d = dVar;
         }
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public void update(List<c91.a> list) {
+        CouponListView couponListView;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e == -1 : invokeV.booleanValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                if (this.c != null) {
-                    if (this.d >= this.e) {
-                        c();
-                    }
-                    for (int i3 = this.d; i3 != this.e; i3++) {
-                        if (this.c[i3] == 10) {
-                            if (i3 != this.d) {
-                                i2 = i3 - 1;
-                                if (this.c[i2] == 13) {
-                                    String str = new String(this.c, this.d, i2 - this.d, this.b.name());
-                                    this.d = i3 + 1;
-                                    return str;
-                                }
-                            }
-                            i2 = i3;
-                            String str2 = new String(this.c, this.d, i2 - this.d, this.b.name());
-                            this.d = i3 + 1;
-                            return str2;
-                        }
-                    }
-                    a aVar = new a(this, (this.e - this.d) + 80);
-                    loop1: while (true) {
-                        aVar.write(this.c, this.d, this.e - this.d);
-                        this.e = -1;
-                        c();
-                        i = this.d;
-                        while (i != this.e) {
-                            if (this.c[i] == 10) {
-                                break loop1;
-                            }
-                            i++;
-                        }
-                    }
-                    if (i != this.d) {
-                        aVar.write(this.c, this.d, i - this.d);
-                    }
-                    this.d = i + 1;
-                    return aVar.toString();
-                }
-                throw new IOException("LineReader is closed");
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || (couponListView = this.a) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        couponListView.update(list);
+        this.a.setListener(new c(this));
     }
 
-    public a91(InputStream inputStream, int i, Charset charset) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a91(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i), charset};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (inputStream == null || charset == null) {
-            throw null;
-        }
-        if (i >= 0) {
-            if (charset.equals(b91.a)) {
-                this.a = inputStream;
-                this.b = charset;
-                this.c = new byte[i];
-                return;
-            }
-            throw new IllegalArgumentException("Unsupported encoding");
-        }
-        throw new IllegalArgumentException("capacity <= 0");
+        c();
     }
 }

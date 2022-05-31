@@ -52,17 +52,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.cx;
 import com.repackage.f9;
-import com.repackage.fm4;
-import com.repackage.gs4;
-import com.repackage.kg;
-import com.repackage.mi;
-import com.repackage.py;
-import com.repackage.rb8;
+import com.repackage.jg;
+import com.repackage.li;
+import com.repackage.sk4;
+import com.repackage.wq4;
+import com.repackage.y88;
 import java.util.ArrayList;
 import tbclient.AppPosInfo;
 /* loaded from: classes.dex */
-public class CardUserInfoLayout extends LinearLayout implements py {
+public class CardUserInfoLayout extends LinearLayout implements cx {
     public static /* synthetic */ Interceptable $ic;
     public static final int F;
     public transient /* synthetic */ FieldHolder $fh;
@@ -196,8 +196,8 @@ public class CardUserInfoLayout extends LinearLayout implements py {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.y == null || this.a.y.getAuthor() == null || StringUtils.isNull(this.a.y.getAuthor().getName_show()) || StringUtils.isNull(this.a.y.getAuthor().getUserId()) || this.a.y.getForum_name() == null) {
                 return;
             }
-            if (view2.getTag(R.id.obfuscated_res_0x7f091ed5) != null && (view2.getTag(R.id.obfuscated_res_0x7f091ed5) instanceof String)) {
-                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f091ed5);
+            if (view2.getTag(R.id.obfuscated_res_0x7f091e7b) != null && (view2.getTag(R.id.obfuscated_res_0x7f091e7b) instanceof String)) {
+                String str = (String) view2.getTag(R.id.obfuscated_res_0x7f091e7b);
                 if (!TextUtils.isEmpty(str) && ViewHelper.checkUpIsLogin(this.a.getContext())) {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(view2.getContext(), null, str, true)));
                     return;
@@ -254,7 +254,7 @@ public class CardUserInfoLayout extends LinearLayout implements py {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.y == null || this.a.y.getAuthor() == null) {
                 return;
             }
-            fm4.q(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14d7), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.y.getAuthor().getUserId() + "&opacity=0", true, true, true);
+            sk4.s(this.a.a.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14eb), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + this.a.y.getAuthor().getUserId() + "&opacity=0", true, true, true);
             if (this.a.v != null) {
                 this.a.u.onClick(view2);
             }
@@ -374,7 +374,7 @@ public class CardUserInfoLayout extends LinearLayout implements py {
                 return;
             }
         }
-        F = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        F = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -405,14 +405,14 @@ public class CardUserInfoLayout extends LinearLayout implements py {
         }
         if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            marginLayoutParams.bottomMargin = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
+            marginLayoutParams.bottomMargin = li.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
             setLayoutParams(marginLayoutParams);
         }
         if (threadData.getVoiceRoomData().status.intValue() == 1) {
             this.c.setIsclearmode(true);
             if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().isOfficial()) {
                 this.z.setVisibility(0);
-                SkinManager.setImageResource(this.z, R.drawable.obfuscated_res_0x7f0805dc);
+                SkinManager.setImageResource(this.z, R.drawable.obfuscated_res_0x7f0805da);
             }
             this.A &= -257;
             x(threadData);
@@ -436,14 +436,14 @@ public class CardUserInfoLayout extends LinearLayout implements py {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (k(512)) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, this.e.getMeasuredHeight());
-                layoutParams.setMargins(mi.f(this.a, R.dimen.tbds10), mi.f(this.a, R.dimen.tbds_5), 0, 0);
+                layoutParams.setMargins(li.f(this.a, R.dimen.tbds10), li.f(this.a, R.dimen.tbds_5), 0, 0);
                 this.m.setLayoutParams(layoutParams);
             }
             TextPaint paint = this.e.getPaint();
-            int i3 = mi.p(this.a)[0];
-            if (i3 > 0 && (width = (getWidth() - ((i3 * 31) / 108)) - mi.f(this.a, R.dimen.tbds107)) > 0) {
-                int t = mi.t(paint, l(this.y.getAuthor().getName_show(), 12)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
-                int t2 = mi.t(paint, l(this.y.getAuthor().getName_show(), 10)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
+            int i3 = li.q(this.a)[0];
+            if (i3 > 0 && (width = (getWidth() - ((i3 * 31) / 108)) - li.f(this.a, R.dimen.tbds107)) > 0) {
+                int u = li.u(paint, l(this.y.getAuthor().getName_show(), 12)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
+                int u2 = li.u(paint, l(this.y.getAuthor().getName_show(), 10)) + this.e.getPaddingLeft() + this.e.getPaddingRight();
                 int measuredWidth = this.h.getMeasuredWidth();
                 int measuredWidth2 = this.e.getMeasuredWidth();
                 int measuredWidth3 = this.m.getMeasuredWidth();
@@ -454,22 +454,22 @@ public class CardUserInfoLayout extends LinearLayout implements py {
                     int i4 = measuredWidth + measuredWidth3;
                     int i5 = measuredWidth4 + i4;
                     int i6 = measuredWidth5 + i5;
-                    int i7 = t + i6;
+                    int i7 = u + i6;
                     if (width > i7) {
                         this.e.setText(l(charSequence, 12));
                     } else if (width < i7) {
                         this.e.setText(l(charSequence, 10));
                     }
-                    if (width < i6 + t2) {
+                    if (width < i6 + u2) {
                         this.g.setVisibility(8);
                     }
-                    if (width < i5 + t2) {
+                    if (width < i5 + u2) {
                         this.f.setVisibility(8);
                     }
-                    if (width > i4 + t2) {
+                    if (width > i4 + u2) {
                         this.h.setVisibility(8);
                     }
-                    if (width > measuredWidth3 + t2) {
+                    if (width > measuredWidth3 + u2) {
                         this.m.setVisibility(8);
                     }
                 }
@@ -534,7 +534,7 @@ public class CardUserInfoLayout extends LinearLayout implements py {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f0922d3);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) findViewById(R.id.obfuscated_res_0x7f092278);
             this.c = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
             this.c.getHeadView().setIsRound(true);
@@ -542,31 +542,31 @@ public class CardUserInfoLayout extends LinearLayout implements py {
             this.c.getHeadView().setDefaultResource(17170445);
             this.c.getHeadView().setPlaceHolder(1);
             this.c.setAfterClickListener(new e(this));
-            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0922f1);
-            this.z = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ed1);
-            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f092314);
+            this.d = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f092296);
+            this.z = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e96);
+            UserIconBox userIconBox = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f0922b9);
             this.h = userIconBox;
             userIconBox.setOnClickListener(this.C);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0922f3);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092298);
             this.e = textView;
             textView.setOnClickListener(this.D);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e43);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f09200e);
-            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f092018);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e08);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091fb4);
+            UserIconBox userIconBox2 = (UserIconBox) findViewById(R.id.obfuscated_res_0x7f091fbe);
             this.g = userIconBox2;
             userIconBox2.setOnClickListener(this.E);
             this.g.setAutoChangedStyle(false);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091fed);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091f92);
             if (DeviceInfoUtil.isMi5X()) {
                 this.i.setPadding(0, -F, 0, 0);
             }
-            this.j = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f0905ef);
-            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901f9);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0901f8);
-            this.w = findViewById(R.id.obfuscated_res_0x7f0922f5);
-            this.x = findViewById(R.id.obfuscated_res_0x7f090546);
-            this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e24);
-            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b1f);
+            this.j = (LocationExtendLayout) findViewById(R.id.obfuscated_res_0x7f0905e7);
+            this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901f6);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f0901f5);
+            this.w = findViewById(R.id.obfuscated_res_0x7f09229a);
+            this.x = findViewById(R.id.obfuscated_res_0x7f090540);
+            this.n = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091dca);
+            this.o = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b08);
         }
     }
 
@@ -579,14 +579,14 @@ public class CardUserInfoLayout extends LinearLayout implements py {
             setOrientation(0);
             setGravity(16);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0852, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0845, (ViewGroup) this, true);
             h();
-            mi.f(this.a, R.dimen.tbds40);
-            this.p = mi.f(this.a, R.dimen.tbds164);
-            this.q = mi.f(this.a, R.dimen.tbds156);
-            this.r = mi.f(this.a, R.dimen.tbds148);
-            this.s = mi.f(this.a, R.dimen.tbds118);
-            this.t = mi.f(this.a, R.dimen.tbds580);
+            li.f(this.a, R.dimen.tbds40);
+            this.p = li.f(this.a, R.dimen.tbds164);
+            this.q = li.f(this.a, R.dimen.tbds156);
+            this.r = li.f(this.a, R.dimen.tbds148);
+            this.s = li.f(this.a, R.dimen.tbds118);
+            this.t = li.f(this.a, R.dimen.tbds580);
         }
     }
 
@@ -650,7 +650,7 @@ public class CardUserInfoLayout extends LinearLayout implements py {
             this.c.setIsclearmode(true);
             if (threadData != null && threadData.getAuthor() != null && threadData.getAuthor().isOfficial()) {
                 this.z.setVisibility(0);
-                SkinManager.setImageResource(this.z, R.drawable.obfuscated_res_0x7f0805dc);
+                SkinManager.setImageResource(this.z, R.drawable.obfuscated_res_0x7f0805da);
             }
             this.A &= -257;
             x(threadData);
@@ -669,13 +669,13 @@ public class CardUserInfoLayout extends LinearLayout implements py {
             this.l.setVisibility(z ? 0 : 8);
             if (z) {
                 this.l.setText(str);
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f080982, R.color.CAM_X0109, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f08098e, R.color.CAM_X0109, null);
                 SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
             }
         }
     }
 
-    @Override // com.repackage.py
+    @Override // com.repackage.cx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048590, this, tbPageContext, i) == null) || i == this.b) {
@@ -688,7 +688,7 @@ public class CardUserInfoLayout extends LinearLayout implements py {
             SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
         }
         if (this.z.getVisibility() == 0) {
-            WebPManager.setMaskDrawable(this.z, R.drawable.obfuscated_res_0x7f0805dc, null);
+            WebPManager.setMaskDrawable(this.z, R.drawable.obfuscated_res_0x7f0805da, null);
         }
         LocationExtendLayout locationExtendLayout = this.j;
         if (locationExtendLayout != null) {
@@ -713,11 +713,11 @@ public class CardUserInfoLayout extends LinearLayout implements py {
             boolean z2 = UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude);
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z2 && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = rb8.e().c();
+                AppPosInfo c2 = y88.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
-                    double g2 = mi.g(kg.c(str2, 0.0d), kg.c(str3, 0.0d), kg.c(latitude, 0.0d), kg.c(longtitude, 0.0d));
+                    double g2 = li.g(jg.c(str2, 0.0d), jg.c(str3, 0.0d), jg.c(latitude, 0.0d), jg.c(longtitude, 0.0d));
                     if (g2 <= 50.0d) {
                         str = StringHelper.formatDistanceNum(g2);
                     } else {
@@ -886,29 +886,29 @@ public class CardUserInfoLayout extends LinearLayout implements py {
         }
         this.f.setOnClickListener(null);
         if (author.getIs_bawu() == 1) {
-            gs4 d2 = gs4.d(this.f);
+            wq4 d2 = wq4.d(this.f);
             d2.v(R.color.CAM_X0101);
             d2.e(R.string.A_X04);
             d2.n(R.string.J_X04);
             d2.f(R.color.CAM_X0302);
             if (threadData.isFromBrandForum) {
                 this.f.setVisibility(0);
-                this.f.setText(R.string.obfuscated_res_0x7f0f0337);
+                this.f.setText(R.string.obfuscated_res_0x7f0f0339);
                 return;
             } else if ("manager".equals(author.getBawu_type())) {
                 this.f.setVisibility(0);
-                this.f.setText(R.string.obfuscated_res_0x7f0f02f0);
+                this.f.setText(R.string.obfuscated_res_0x7f0f02f2);
                 return;
             } else if (PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_ASSIST.equals(author.getBawu_type())) {
-                this.f.setText(R.string.obfuscated_res_0x7f0f02f1);
+                this.f.setText(R.string.obfuscated_res_0x7f0f02f3);
                 this.f.setVisibility(0);
                 return;
             } else if ("pri_content_assist".equals(author.getBawu_type())) {
-                this.f.setText(R.string.obfuscated_res_0x7f0f02ed);
+                this.f.setText(R.string.obfuscated_res_0x7f0f02ef);
                 this.f.setVisibility(0);
                 return;
             } else if ("pri_manage_assist".equals(author.getBawu_type())) {
-                this.f.setText(R.string.obfuscated_res_0x7f0f02ee);
+                this.f.setText(R.string.obfuscated_res_0x7f0f02f0);
                 this.f.setVisibility(0);
                 return;
             } else {
@@ -1019,7 +1019,7 @@ public class CardUserInfoLayout extends LinearLayout implements py {
                 }
                 this.e.setText(cutChineseAndEnglishWithEmoji);
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f14df);
+                this.e.setText(R.string.obfuscated_res_0x7f0f14f3);
             }
         } else {
             ViewGroup.LayoutParams layoutParams = this.w.getLayoutParams();
@@ -1035,7 +1035,7 @@ public class CardUserInfoLayout extends LinearLayout implements py {
             if (threadData.getAuthor() != null && !StringUtils.isNull(threadData.getAuthor().getName_show())) {
                 this.e.setText(threadData.getAuthor().getName_show());
             } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f14df);
+                this.e.setText(R.string.obfuscated_res_0x7f0f14f3);
             }
         }
         HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.e);

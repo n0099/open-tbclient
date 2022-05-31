@@ -70,7 +70,7 @@ public class g {
                 }
                 return false;
             } catch (PackageManager.NameNotFoundException e) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("checkService " + e);
+                com.xiaomi.channel.commonutils.logger.b.m108a("checkService " + e);
                 return false;
             }
         }
@@ -91,7 +91,7 @@ public class g {
                 }
                 return false;
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("checkService action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+                com.xiaomi.channel.commonutils.logger.b.m108a("checkService action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
                 return false;
             }
         }
@@ -107,7 +107,7 @@ public class g {
             try {
                 packageManager = context.getPackageManager();
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("checkProvider " + e);
+                com.xiaomi.channel.commonutils.logger.b.m108a("checkProvider " + e);
             }
             if (Build.VERSION.SDK_INT >= 19) {
                 List<ProviderInfo> queryContentProviders = packageManager.queryContentProviders(null, 0, 8);
@@ -135,7 +135,7 @@ public class g {
                 intent.setPackage(str);
                 return packageManager.resolveActivity(intent, 65536) != null;
             } catch (Exception e) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("checkActivity action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
+                com.xiaomi.channel.commonutils.logger.b.m108a("checkActivity action: " + str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + e);
                 return false;
             }
         }

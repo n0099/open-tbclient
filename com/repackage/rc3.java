@@ -1,238 +1,150 @@
 package com.repackage;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
+import android.provider.Settings;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.Display;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.internal.Sets;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public final class rc3 implements oc3, qc3 {
+public class rc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<pc3<?>, Set<b>> l;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Set a;
-        public final /* synthetic */ Set b;
-
-        public a(rc3 rc3Var, Set set, Set set2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755355185, "Lcom/repackage/rc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rc3Var, set, set2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = set;
-            this.b = set2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (b bVar : this.a) {
-                    bVar.onCallback(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface b extends nf3<Set<pc3<?>>> {
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rc3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-46878736, "Lcom/repackage/rc3$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-46878736, "Lcom/repackage/rc3$c;");
-                    return;
-                }
-            }
-            a = new rc3();
-        }
-    }
-
-    public rc3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755355185, "Lcom/repackage/rc3;");
                 return;
             }
         }
-        this.l = new HashMap();
+        a = pd3.b;
     }
 
-    public static rc3 a() {
+    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
+    public static boolean a(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Resources resources = context.getResources();
+            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
+            boolean z = false;
+            boolean z2 = identifier > 0 ? resources.getBoolean(identifier) : false;
+            try {
+                if (Build.VERSION.SDK_INT < 21) {
+                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                } else {
+                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
+                }
+                if (i != 0) {
+                    return false;
+                }
+                Class<?> cls = Class.forName("android.os.SystemProperties");
+                String str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, "qemu.hw.mainkeys");
+                if (!"1".equals(str)) {
+                    z = "0".equals(str) ? true : z2;
+                }
+                return z;
+            } catch (Exception unused) {
+                return z2;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static Pair<Integer, Integer> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.a : (rc3) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Pair<Integer, Integer> d = d();
+            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
+        }
+        return (Pair) invokeV.objValue;
     }
 
-    public final <T> boolean b(T... tArr) {
-        InterceptResult invokeL;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tArr)) == null) ? tArr == null || tArr.length < 1 : invokeL.booleanValue;
-    }
-
-    public rc3 c(Set<pc3<?>> set) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set)) == null) {
-            if (set.isEmpty()) {
-                return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e()) {
+                return yc3.r(AppRuntime.getAppContext().getResources(), yc3.L() ? SapiSystemBarTintManager.SystemBarConfig.h : SapiSystemBarTintManager.SystemBarConfig.i);
             }
-            HashSet hashSet = new HashSet();
-            synchronized (this.l) {
-                for (pc3<?> pc3Var : set) {
-                    hashSet.addAll(i(pc3Var));
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static Pair<Integer, Integer> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
+            if (windowManager == null) {
+                return new Pair<>(Integer.valueOf(yc3.o(appContext)), Integer.valueOf(yc3.n(appContext)));
+            }
+            Display defaultDisplay = windowManager.getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            defaultDisplay.getRealMetrics(displayMetrics);
+            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
+        }
+        return (Pair) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (f(appContext)) {
+                return false;
+            }
+            return a(appContext);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            String str = Build.BRAND;
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
                 }
-            }
-            d(hashSet, set);
-            return this;
-        }
-        return (rc3) invokeL.objValue;
-    }
-
-    public final rc3 d(Set<b> set, Set<pc3<?>> set2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, set, set2)) == null) {
-            mu2.j().i(new a(this, set, set2));
-            return this;
-        }
-        return (rc3) invokeLL.objValue;
-    }
-
-    public rc3 e(pc3<?>... pc3VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pc3VarArr)) == null) {
-            c(Sets.newHashSet(pc3VarArr));
-            return this;
-        }
-        return (rc3) invokeL.objValue;
-    }
-
-    public rc3 f(nc3 nc3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, nc3Var)) == null) {
-            String nc3Var2 = nc3Var == null ? "" : nc3Var.toString();
-            if (oc3.a) {
-                Log.i("Tracer-ErrCode", nc3Var2);
-            }
-            ux1.c("Tracer-ErrCode", nc3Var2);
-            return this;
-        }
-        return (rc3) invokeL.objValue;
-    }
-
-    public rc3 g(b bVar, pc3<?>... pc3VarArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, bVar, pc3VarArr)) == null) {
-            if (bVar != null) {
-                synchronized (this.l) {
-                    Set<pc3<?>> keySet = b(pc3VarArr) ? this.l.keySet() : Sets.newHashSet(pc3VarArr);
-                    for (pc3<?> pc3Var : keySet) {
-                        if (pc3Var != null) {
-                            i(pc3Var).add(bVar);
-                        }
-                    }
-                    d(Sets.newHashSet(bVar), keySet);
+                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
+                    return str.equalsIgnoreCase("XIAOMI") ? Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) != 0 : str.equalsIgnoreCase("VIVO") ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(a) ? Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0 : str.equalsIgnoreCase(com.kuaishou.weapon.un.g.j) ? Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) != 0 : Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) != 0;
                 }
-            }
-            return this;
-        }
-        return (rc3) invokeLL.objValue;
-    }
-
-    public rc3 h(pc3<?>... pc3VarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pc3VarArr)) == null) {
-            synchronized (this.l) {
-                for (pc3<?> pc3Var : pc3VarArr) {
-                    if (!this.l.containsKey(pc3Var)) {
-                        this.l.put(pc3Var, new HashSet());
-                    }
+                return Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) != 0;
+            } catch (Exception e) {
+                if (rf1.a) {
+                    e.printStackTrace();
                 }
+                return false;
             }
-            return this;
         }
-        return (rc3) invokeL.objValue;
-    }
-
-    public final Set<b> i(@NonNull pc3<?> pc3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pc3Var)) == null) {
-            Set<b> set = this.l.get(pc3Var);
-            if (set == null) {
-                HashSet hashSet = new HashSet();
-                this.l.put(pc3Var, hashSet);
-                return hashSet;
-            }
-            return set;
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public rc3 j(b bVar, pc3<?>... pc3VarArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar, pc3VarArr)) == null) {
-            if (bVar != null) {
-                synchronized (this.l) {
-                    for (pc3<?> pc3Var : b(pc3VarArr) ? this.l.keySet() : Sets.newHashSet(pc3VarArr)) {
-                        if (pc3Var != null) {
-                            i(pc3Var).remove(bVar);
-                        }
-                    }
-                }
-            }
-            return this;
-        }
-        return (rc3) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 }

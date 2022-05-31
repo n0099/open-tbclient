@@ -1,182 +1,130 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.NinePatch;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
+import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 /* loaded from: classes5.dex */
 public class c31 {
     public static /* synthetic */ Interceptable $ic;
-    public static f31 a;
-    public static j31 b;
-    public static r21 c;
-    public static l31 d;
-    public static k31 e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755848240, "Lcom/repackage/c31;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755848240, "Lcom/repackage/c31;");
-        }
-    }
-
-    public c31() {
+    @SuppressLint({"DiscouragedPrivateApi"})
+    public static void a(Activity activity, b31 b31Var) {
+        Class<?>[] declaredClasses;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static f31 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (c31.class) {
-                    if (a == null) {
-                        a = (f31) ServiceManager.getService(f31.a);
-                    }
-                    if (a == null) {
-                        a = f31.b;
+        if (interceptable == null || interceptable.invokeLL(65536, null, activity, b31Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(activity, new Object[0]);
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
                     }
                 }
-            }
-            return a;
-        }
-        return (f31) invokeV.objValue;
-    }
-
-    public static r21 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (c31.class) {
-                    if (c == null) {
-                        c = (r21) ServiceManager.getService(r21.a);
-                    }
-                    if (c == null) {
-                        c = r21.b;
-                    }
+                Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new d31(b31Var));
+                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
+                declaredMethod2.setAccessible(true);
+                declaredMethod2.invoke(activity, newProxyInstance, invoke);
+            } catch (Throwable unused) {
+                if (b31Var != null) {
+                    b31Var.onTranslucent(false);
                 }
             }
-            return c;
         }
-        return (r21) invokeV.objValue;
     }
 
-    public static Context c() {
-        InterceptResult invokeV;
+    public static void b(Activity activity, b31 b31Var) {
+        Class<?>[] declaredClasses;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ki0.b() : (Context) invokeV.objValue;
-    }
-
-    public static g31 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? g31.a : (g31) invokeV.objValue;
-    }
-
-    public static d31 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? d31.a : (d31) invokeV.objValue;
-    }
-
-    public static e31 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? e31.a : (e31) invokeV.objValue;
-    }
-
-    public static k31 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (e == null) {
-                synchronized (c31.class) {
-                    if (e == null) {
-                        e = (k31) ServiceManager.getService(k31.a);
-                    }
-                    if (e == null) {
-                        e = k31.b;
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, b31Var) == null) {
+            try {
+                Class<?> cls = null;
+                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
+                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
+                        cls = cls2;
                     }
                 }
-            }
-            return e;
-        }
-        return (k31) invokeV.objValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? pl0.b().a().a("nad_web_view_forbid_kb_opt_switch", 0) == 1 : invokeV.booleanValue;
-    }
-
-    public static j31 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (b == null) {
-                synchronized (c31.class) {
-                    if (b == null) {
-                        b = (j31) ServiceManager.getService(j31.a);
-                    }
-                    if (b == null) {
-                        b = j31.b;
-                    }
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, null);
+                if (b31Var != null) {
+                    b31Var.onTranslucent(true);
+                }
+            } catch (Throwable unused) {
+                if (b31Var != null) {
+                    b31Var.onTranslucent(false);
                 }
             }
-            return b;
         }
-        return (j31) invokeV.objValue;
     }
 
-    public static boolean j() {
-        InterceptResult invokeV;
+    public static void c(Activity activity, b31 b31Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? pl0.b().a().a("nad_web_view_type_switch", 0) == 1 : invokeV.booleanValue;
-    }
-
-    public static l31 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (d == null) {
-                synchronized (c31.class) {
-                    if (d == null) {
-                        d = (l31) ServiceManager.getService(l31.a);
-                    }
-                    if (d == null) {
-                        d = l31.b;
-                    }
+        if (interceptable == null || interceptable.invokeLL(65538, null, activity, b31Var) == null) {
+            try {
+                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(activity, new Object[0]);
+                if (b31Var != null) {
+                    b31Var.onTranslucent(false);
+                }
+            } catch (Throwable unused) {
+                if (b31Var != null) {
+                    b31Var.onTranslucent(true);
                 }
             }
-            return d;
         }
-        return (l31) invokeV.objValue;
+    }
+
+    public static void d(Activity activity, b31 b31Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, b31Var) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    a(activity, b31Var);
+                } else {
+                    b(activity, b31Var);
+                }
+            } catch (Throwable unused) {
+                if (b31Var != null) {
+                    b31Var.onTranslucent(false);
+                }
+            }
+        }
+    }
+
+    public static Drawable e(Context context, String str) {
+        InterceptResult invokeLL;
+        Bitmap decodeFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
+                return null;
+            }
+            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
+            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
+                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
+            }
+            return new BitmapDrawable(context.getResources(), decodeFile);
+        }
+        return (Drawable) invokeLL.objValue;
     }
 }

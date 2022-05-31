@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bg;
+import com.repackage.ag;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class CardFrsGameCompetitionLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bg<CardFrsGameCompetitionItemView> a;
+    public ag<CardFrsGameCompetitionItemView> a;
     public int b;
     public int c;
     public int d;
@@ -204,10 +204,10 @@ public class CardFrsGameCompetitionLayout extends LinearLayout {
         }
     }
 
-    public void setViewPool(bg<CardFrsGameCompetitionItemView> bgVar) {
+    public void setViewPool(ag<CardFrsGameCompetitionItemView> agVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bgVar) == null) {
-            this.a = bgVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, agVar) == null) {
+            this.a = agVar;
         }
     }
 

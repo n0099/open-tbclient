@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes5.dex */
 public class a extends View implements bc.a {
-    public InterfaceC0304a a;
+    public InterfaceC0305a a;
     public View b;
     public boolean c;
     public boolean d;
@@ -21,7 +21,7 @@ public class a extends View implements bc.a {
 
     /* renamed from: com.kwad.sdk.core.page.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0304a {
+    public interface InterfaceC0305a {
         void a();
 
         void a(View view2);
@@ -40,19 +40,19 @@ public class a extends View implements bc.a {
     }
 
     private void a() {
-        InterfaceC0304a interfaceC0304a;
-        if (!this.g.getAndSet(false) || (interfaceC0304a = this.a) == null) {
+        InterfaceC0305a interfaceC0305a;
+        if (!this.g.getAndSet(false) || (interfaceC0305a = this.a) == null) {
             return;
         }
-        interfaceC0304a.a();
+        interfaceC0305a.a();
     }
 
     private void b() {
-        InterfaceC0304a interfaceC0304a;
-        if (this.g.getAndSet(true) || (interfaceC0304a = this.a) == null) {
+        InterfaceC0305a interfaceC0305a;
+        if (this.g.getAndSet(true) || (interfaceC0305a = this.a) == null) {
             return;
         }
-        interfaceC0304a.b();
+        interfaceC0305a.b();
     }
 
     private void c() {
@@ -72,7 +72,7 @@ public class a extends View implements bc.a {
 
     @Override // com.kwad.sdk.utils.bc.a
     public void a(Message message) {
-        InterfaceC0304a interfaceC0304a;
+        InterfaceC0305a interfaceC0305a;
         int i = message.what;
         if (i != 1) {
             if (i != 2) {
@@ -85,8 +85,8 @@ public class a extends View implements bc.a {
                 setNeedCheckingShow(true);
                 return;
             }
-            if (message.arg1 == 1000 && (interfaceC0304a = this.a) != null) {
-                interfaceC0304a.a(this.b);
+            if (message.arg1 == 1000 && (interfaceC0305a = this.a) != null) {
+                interfaceC0305a.a(this.b);
             }
             this.f.sendEmptyMessageDelayed(2, 500L);
             return;
@@ -141,9 +141,9 @@ public class a extends View implements bc.a {
     public void onWindowFocusChanged(boolean z) {
         super.onWindowFocusChanged(z);
         com.kwad.sdk.core.d.a.a("EmptyView", "onWindowFocusChanged hasWindowFocus:" + z);
-        InterfaceC0304a interfaceC0304a = this.a;
-        if (interfaceC0304a != null) {
-            interfaceC0304a.a(z);
+        InterfaceC0305a interfaceC0305a = this.a;
+        if (interfaceC0305a != null) {
+            interfaceC0305a.a(z);
         }
     }
 
@@ -163,7 +163,7 @@ public class a extends View implements bc.a {
         }
     }
 
-    public void setViewCallback(InterfaceC0304a interfaceC0304a) {
-        this.a = interfaceC0304a;
+    public void setViewCallback(InterfaceC0305a interfaceC0305a) {
+        this.a = interfaceC0305a;
     }
 }

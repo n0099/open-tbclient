@@ -40,7 +40,7 @@ public final class gv {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
-            m400a(exc);
+            m399a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -72,7 +72,7 @@ public final class gv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m400a(Exception exc) {
+    public static void m399a(Exception exc) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, exc) == null) && exc == null) {
             throw null;
@@ -86,7 +86,7 @@ public final class gv {
         Throwable cause;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) {
-            m400a(exc);
+            m399a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -132,7 +132,7 @@ public final class gv {
         ew ewVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) {
-            m400a(exc);
+            m399a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -182,7 +182,7 @@ public final class gv {
         ew ewVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc)) == null) {
-            m400a(exc);
+            m399a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {

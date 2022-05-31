@@ -1,24 +1,39 @@
 package com.repackage;
 
-import com.baidu.nadcore.max.event.NestedEvent;
-import com.baidu.nadcore.max.event.WebEventTypeEnum;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class tm0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
+public class tm0 extends AdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        int[] iArr = new int[NestedEvent.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[NestedEvent.UP_SHOW_WEB.ordinal()] = 1;
-        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 2;
-        int[] iArr2 = new int[WebEventTypeEnum.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[WebEventTypeEnum.WEB_INIT_SUCCESS.ordinal()] = 1;
-        $EnumSwitchMapping$1[WebEventTypeEnum.WEB_DESTROY.ordinal()] = 2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tm0(@NonNull om0 om0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        super(om0Var, jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {om0Var, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((om0) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (om0Var.k.size() < 3) {
+            throw ParseError.contentError(3, om0Var.a.value);
+        }
     }
 }

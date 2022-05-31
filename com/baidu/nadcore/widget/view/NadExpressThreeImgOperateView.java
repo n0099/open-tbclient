@@ -14,11 +14,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.go0;
-import com.repackage.lo0;
-import com.repackage.m11;
-import com.repackage.ty0;
-import com.repackage.un0;
+import com.repackage.gx0;
+import com.repackage.hm0;
+import com.repackage.tm0;
+import com.repackage.ym0;
+import com.repackage.zz0;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
@@ -59,15 +59,15 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadExpressNaBaseView
-    public void j(LayoutInflater layoutInflater, lo0 lo0Var) {
+    public void j(LayoutInflater layoutInflater, ym0 ym0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, lo0Var) == null) {
-            int i = R.layout.obfuscated_res_0x7f0d05c6;
-            if (lo0Var != null) {
-                if (lo0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
-                    i = lo0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, ym0Var) == null) {
+            int i = R.layout.obfuscated_res_0x7f0d05bc;
+            if (ym0Var != null) {
+                if (ym0Var.a(AdBaseModel.STYLE.THREE_IMAGE) != 0) {
+                    i = ym0Var.a(AdBaseModel.STYLE.THREE_IMAGE);
                 }
-                lo0.a aVar = lo0Var.j;
+                ym0.a aVar = ym0Var.j;
                 if (aVar != null) {
                     this.m = aVar.a;
                     this.n = aVar.b;
@@ -83,11 +83,11 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     public void k(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914de);
-            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914e0);
-            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f0914df);
+            this.q = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09149d);
+            this.r = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09149f);
+            this.s = (AdImageView) findViewById(R.id.obfuscated_res_0x7f09149e);
             Resources resources = context.getResources();
-            this.t = (((((m11.c.e(context) - m11.c.a(getContext(), this.m)) - m11.c.a(getContext(), this.n)) - m11.c.a(getContext(), this.o)) - m11.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070051) * 2)) / 3;
+            this.t = (((((zz0.c.e(context) - zz0.c.a(getContext(), this.m)) - zz0.c.a(getContext(), this.n)) - zz0.c.a(getContext(), this.o)) - zz0.c.a(getContext(), this.p)) - (resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070051) * 2)) / 3;
             this.u = Math.round((this.t / ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f07052f))) * ((int) resources.getDimension(R.dimen.obfuscated_res_0x7f07052e)));
             AdImageView adImageView = this.q;
             if (adImageView != null) {
@@ -126,24 +126,24 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
         AdImageView adImageView2;
         AdImageView adImageView3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof go0)) {
-            List<un0> list = ((go0) adBaseModel).f.k;
-            if (ty0.g(list) || ty0.k(list) < 3) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, adBaseModel) == null) && (adBaseModel instanceof tm0)) {
+            List<hm0> list = ((tm0) adBaseModel).f.k;
+            if (gx0.g(list) || gx0.k(list) < 3) {
                 return;
             }
-            un0 un0Var = (un0) ty0.d(list, 0);
-            un0 un0Var2 = (un0) ty0.d(list, 1);
-            un0 un0Var3 = (un0) ty0.d(list, 2);
-            if (un0Var != null && (adImageView3 = this.q) != null) {
-                adImageView3.n(un0Var.a);
+            hm0 hm0Var = (hm0) gx0.d(list, 0);
+            hm0 hm0Var2 = (hm0) gx0.d(list, 1);
+            hm0 hm0Var3 = (hm0) gx0.d(list, 2);
+            if (hm0Var != null && (adImageView3 = this.q) != null) {
+                adImageView3.n(hm0Var.a);
             }
-            if (un0Var2 != null && (adImageView2 = this.r) != null) {
-                adImageView2.n(un0Var2.a);
+            if (hm0Var2 != null && (adImageView2 = this.r) != null) {
+                adImageView2.n(hm0Var2.a);
             }
-            if (un0Var3 == null || (adImageView = this.s) == null) {
+            if (hm0Var3 == null || (adImageView = this.s) == null) {
                 return;
             }
-            adImageView.n(un0Var3.a);
+            adImageView.n(hm0Var3.a);
         }
     }
 
@@ -181,7 +181,7 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (lo0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (ym0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -190,19 +190,19 @@ public class NadExpressThreeImgOperateView extends NadExpressNaBaseView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, lo0 lo0Var) {
-        super(context, attributeSet, i, lo0Var);
+    public NadExpressThreeImgOperateView(Context context, AttributeSet attributeSet, int i, ym0 ym0Var) {
+        super(context, attributeSet, i, ym0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), lo0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), ym0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (lo0) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (ym0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

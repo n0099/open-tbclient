@@ -1,77 +1,61 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fb5;
-import com.repackage.gb5;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.AppTransmitData;
 /* loaded from: classes6.dex */
-public class ib5<Q extends fb5, P extends gb5> implements hb5<Q, P> {
+public class ib5 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public Q d;
-    public P e;
 
-    public ib5(int i, int i2, String str, Q q, P p) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, q, p};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
+                jSONObject.put(DI.YY.YY_HDID, TbadkCoreApplication.getInst().getHdid());
+                jSONObject.put("yy_version", "");
+            } catch (JSONException e) {
+                BdLog.e(e);
             }
+            return jSONObject.toString();
         }
-        this.a = i;
-        this.b = i2;
-        this.c = str;
-        this.d = q;
-        this.e = p;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.hb5
-    public int a() {
+    public static AppTransmitData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            AppTransmitData.Builder builder = new AppTransmitData.Builder();
+            builder.wise_sample_id = c();
+            builder.yy_hdid = TbadkCoreApplication.getInst().getHdid();
+            builder.yy_version = "";
+            return builder.build(false);
+        }
+        return (AppTransmitData) invokeV.objValue;
     }
 
-    @Override // com.repackage.hb5
-    public Q b() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (Q) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.hb5
-    public String c() {
-        InterceptResult invokeV;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.hb5
-    public P d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (P) invokeV.objValue;
-    }
-
-    @Override // com.repackage.hb5
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a = str;
+        }
     }
 }

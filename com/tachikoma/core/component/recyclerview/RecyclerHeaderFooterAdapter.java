@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.listview.TKRecyclerAdapter;
 import com.tachikoma.core.yoga.layout.YogaLayout;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RecyclerHeaderFooterAdapter extends RecyclerView.Adapter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BASE_FOOTER_VIEW_TYPE = -2048;

@@ -1,34 +1,55 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class ip9 {
+public class ip9 implements tk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ mp9 a;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public ip9(mp9 mp9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            String D = hq9.D(context);
-            if (TextUtils.isEmpty(D)) {
-                try {
-                    wo9 a = zo9.a(context);
-                    String str = a == null ? null : a.a;
-                    if (TextUtils.isEmpty(str)) {
-                        hq9.x(context, str);
-                    }
-                    return str;
-                } catch (Exception unused) {
-                    return null;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mp9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return D;
         }
-        return (String) invokeL.objValue;
+        this.a = mp9Var;
+    }
+
+    @Override // com.repackage.tk9
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.repackage.tk9
+    public void onLoaded() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.k.removeMessages(11);
+            this.a.c = true;
+            nn9 a = rn9.a(this.a.b);
+            a.e(new vn9(this.a.f), 200, System.currentTimeMillis() - this.a.j);
+            a.m();
+            mp9 mp9Var = this.a;
+            if (mp9Var.e) {
+                return;
+            }
+            mp9Var.h.onLoaded();
+        }
     }
 }

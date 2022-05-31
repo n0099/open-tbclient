@@ -96,9 +96,9 @@ public class eo extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            if (m334b() && bitmap != null) {
+            if (m333b() && bitmap != null) {
                 if (bitmap.getWidth() != 984 || bitmap.getHeight() < 177 || bitmap.getHeight() > 207) {
-                    com.xiaomi.channel.commonutils.logger.b.m109a("colorful notification bg image resolution error, must [984*177, 984*207]");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("colorful notification bg image resolution error, must [984*177, 984*207]");
                 } else {
                     this.f304b = bitmap;
                 }
@@ -112,7 +112,7 @@ public class eo extends ep {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, pendingIntent)) == null) {
-            if (m334b()) {
+            if (m333b()) {
                 this.f305c = charSequence;
                 this.f303a = pendingIntent;
             }
@@ -125,11 +125,11 @@ public class eo extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (m334b() && !TextUtils.isEmpty(str)) {
+            if (m333b() && !TextUtils.isEmpty(str)) {
                 try {
                     this.b = Color.parseColor(str);
                 } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m109a("parse colorful notification button bg color error");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("parse colorful notification button bg color error");
                 }
             }
             return this;
@@ -154,8 +154,8 @@ public class eo extends ep {
         Drawable a4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!m334b()) {
-                m333b();
+            if (!m333b()) {
+                m332b();
                 return;
             }
             super.a();
@@ -182,7 +182,7 @@ public class eo extends ep {
                     int a11 = a(70.0f);
                     int a12 = a(29.0f);
                     a().setImageViewBitmap(a10, com.xiaomi.push.service.ac.a(a(this.b, a11, a12, a12 / 2.0f)));
-                    a().setTextColor(a9, m332a(this.b) ? -1 : -16777216);
+                    a().setTextColor(a9, m331a(this.b) ? -1 : -16777216);
                 }
             }
             int a13 = a(resources, "bg", "id", packageName);
@@ -197,7 +197,7 @@ public class eo extends ep {
                 }
                 a3.setImageViewBitmap(a13, com.xiaomi.push.service.ac.a(a4));
                 a2 = a();
-                z = m332a(this.a);
+                z = m331a(this.a);
             } else if (this.f304b == null) {
                 if (Build.VERSION.SDK_INT >= 24) {
                     a().setViewVisibility(a5, 8);
@@ -205,7 +205,7 @@ public class eo extends ep {
                     try {
                         bh.a((Object) this, "setStyle", t.a(a(), "android.app.Notification$DecoratedCustomViewStyle").getConstructor(new Class[0]).newInstance(new Object[0]));
                     } catch (Exception unused) {
-                        com.xiaomi.channel.commonutils.logger.b.m109a("load class DecoratedCustomViewStyle failed");
+                        com.xiaomi.channel.commonutils.logger.b.m108a("load class DecoratedCustomViewStyle failed");
                     }
                 }
                 Bundle bundle = new Bundle();
@@ -226,7 +226,7 @@ public class eo extends ep {
                     c(map.get("notification_image_text_color"));
                 }
                 int i = this.c;
-                z = i == 16777216 || !m332a(i);
+                z = i == 16777216 || !m331a(i);
                 a2 = a();
             }
             a(a2, a14, a6, a7, z);
@@ -242,7 +242,7 @@ public class eo extends ep {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (l.m575a(a())) {
+            if (l.m574a(a())) {
                 Resources resources = a().getResources();
                 String packageName = a().getPackageName();
                 return (a(resources, "icon", "id", packageName) == 0 || a(resources, "title", "id", packageName) == 0 || a(resources, "content", "id", packageName) == 0) ? false : true;
@@ -256,11 +256,11 @@ public class eo extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (m334b() && !TextUtils.isEmpty(str)) {
+            if (m333b() && !TextUtils.isEmpty(str)) {
                 try {
                     this.a = Color.parseColor(str);
                 } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m109a("parse colorful notification bg color error");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("parse colorful notification bg color error");
                 }
             }
             return this;
@@ -279,11 +279,11 @@ public class eo extends ep {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (m334b() && !TextUtils.isEmpty(str)) {
+            if (m333b() && !TextUtils.isEmpty(str)) {
                 try {
                     this.c = Color.parseColor(str);
                 } catch (Exception unused) {
-                    com.xiaomi.channel.commonutils.logger.b.m109a("parse colorful notification image text color error");
+                    com.xiaomi.channel.commonutils.logger.b.m108a("parse colorful notification image text color error");
                 }
             }
             return this;

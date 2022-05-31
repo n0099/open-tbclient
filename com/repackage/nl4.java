@@ -1,554 +1,151 @@
 package com.repackage;
 
-import android.content.ContentUris;
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import android.provider.MediaStore;
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class nl4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public a b;
-    public c c;
-    public final Context d;
 
     /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Object, Integer, List<ml4>> {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ol4 a;
-        public final /* synthetic */ nl4 b;
 
-        public a(nl4 nl4Var, ol4 ol4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl4Var, ol4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nl4Var;
-            this.a = ol4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public List<ml4> doInBackground(Object... objArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) ? this.b.f() : (List) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(List<ml4> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                super.onPostExecute(list);
-                ol4 ol4Var = this.a;
-                if (ol4Var != null) {
-                    ol4Var.a(list);
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreExecute() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onPreExecute();
-                ol4 ol4Var = this.a;
-                if (ol4Var != null) {
-                    ol4Var.onPreLoad();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(List<ImageFileInfo> list);
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends BdAsyncTask<Void, List<ImageFileInfo>, List<ImageFileInfo>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final pl4 a;
-        public final String b;
-        public String c;
-        public List<ml4> d;
-        public int e;
-        public b f;
-        public final /* synthetic */ nl4 g;
-
+        /* renamed from: com.repackage.nl4$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class a implements b {
+        public class C0483a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
 
-            public a(c cVar) {
+            public C0483a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
+                    Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
                         int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
-                        return;
                     }
                 }
-                this.a = cVar;
             }
 
-            @Override // com.repackage.nl4.b
-            public void a(List<ImageFileInfo> list) {
+            @Override // java.lang.Thread, java.lang.Runnable
+            public void run() {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                    this.a.publishProgress(list);
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    super.run();
+                    try {
+                        ChunkUploadDatabaseService.delOverdueChunkUploadData();
+                        nl4.c(TbadkCoreApplication.getInst().getCacheDir());
+                    } catch (Exception unused) {
+                    }
                 }
             }
         }
 
-        public c(nl4 nl4Var, String str, pl4 pl4Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nl4Var, str, pl4Var};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.g = nl4Var;
-            this.e = 1;
-            this.f = new a(this);
-            this.a = pl4Var;
-            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public List<ImageFileInfo> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                if (TextUtils.isEmpty(this.b)) {
-                    return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                long m = ys4.k().m("key_clear_resource", 0L);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (m == 0) {
+                    ys4.k().x("key_clear_resource", currentTimeMillis);
+                    m = currentTimeMillis;
                 }
-                ArrayList arrayList = new ArrayList();
-                if (this.b.equals(ml4.f)) {
-                    List<ml4> f = this.g.f();
-                    this.d = f;
-                    if (f != null) {
-                        for (ml4 ml4Var : f) {
-                            String b = ml4Var.b();
-                            if (!TextUtils.isEmpty(b)) {
-                                e(arrayList, this.f, b);
-                            }
+                if (currentTimeMillis - m > nl4.a) {
+                    new C0483a(this).start();
+                    ys4.k().x("key_clear_resource", currentTimeMillis);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755465669, "Lcom/repackage/nl4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755465669, "Lcom/repackage/nl4;");
+        }
+    }
+
+    public static void c(File file) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, file) == null) || file == null) {
+            return;
+        }
+        try {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (int i = 0; i < listFiles.length; i++) {
+                        if (listFiles[i].isDirectory()) {
+                            c(listFiles[i]);
+                        } else {
+                            listFiles[i].delete();
                         }
                     }
-                    return arrayList;
-                }
-                e(arrayList, this.f, this.b);
-                return arrayList;
-            }
-            return (List) invokeL.objValue;
-        }
-
-        public final void d(List<ImageFileInfo> list, b bVar, String str, Context context, Uri uri) {
-            boolean z;
-            boolean z2;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, bVar, str, context, uri) == null) || list == null) {
-                return;
-            }
-            Cursor cursor = null;
-            cursor = null;
-            try {
-                Cursor query = context.getContentResolver().query(uri, new String[]{"_id", "bucket_id", "_data", "bucket_display_name"}, "bucket_id=?", new String[]{str}, "datetaken DESC");
-                try {
-                    if (query.moveToFirst()) {
-                        int columnIndex = query.getColumnIndex("_data");
-                        int columnIndex2 = query.getColumnIndex("bucket_display_name");
-                        Uri withAppendedId = ContentUris.withAppendedId(uri, query.getLong(query.getColumnIndex("_id")));
-                        String uri2 = withAppendedId != null ? withAppendedId.toString() : null;
-                        do {
-                            String string = query.getString(columnIndex);
-                            try {
-                                this.c = query.getString(columnIndex2);
-                                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                imageFileInfo.setAlbumnId(str);
-                                imageFileInfo.setContentUriStr(uri2);
-                                imageFileInfo.setFilePath(string);
-                                File file = new File(string);
-                                if (file.exists() && file.isFile() && file.length() > 0) {
-                                    if (string.toLowerCase().endsWith(".gif") && FileHelper.isGifImage(string)) {
-                                        if (gi.v(file) <= 3145728) {
-                                            z = true;
-                                        }
-                                    } else if (FileHelper.checkIsLongImage(string)) {
-                                        z = false;
-                                        z2 = true;
-                                        imageFileInfo.setIsGif(z);
-                                        imageFileInfo.setIsLong(z2);
-                                        imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(file.lastModified()));
-                                        list.add(imageFileInfo);
-                                        f(list, bVar);
-                                    } else {
-                                        z = false;
-                                    }
-                                    z2 = false;
-                                    imageFileInfo.setIsGif(z);
-                                    imageFileInfo.setIsLong(z2);
-                                    imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(file.lastModified()));
-                                    list.add(imageFileInfo);
-                                    f(list, bVar);
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                cursor = query;
-                                try {
-                                    BdLog.detailException(e);
-                                    jg.a(cursor);
-                                    return;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    jg.a(cursor);
-                                    throw th;
-                                }
-                            } catch (Throwable th2) {
-                                th = th2;
-                                cursor = query;
-                                jg.a(cursor);
-                                throw th;
-                            }
-                        } while (query.moveToNext());
-                    }
-                    jg.a(query);
-                } catch (Exception e2) {
-                    e = e2;
-                } catch (Throwable th3) {
-                    th = th3;
-                }
-            } catch (Exception e3) {
-                e = e3;
-            } catch (Throwable th4) {
-                th = th4;
-            }
-        }
-
-        public final void e(List<ImageFileInfo> list, b bVar, String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(1048579, this, list, bVar, str) == null) || list == null) {
-                return;
-            }
-            d(list, bVar, str, this.g.d, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            if (list == null || list.size() <= 0) {
-                d(list, bVar, str, this.g.d, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-            }
-        }
-
-        public final void f(List<ImageFileInfo> list, b bVar) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, bVar) == null) || list == null || bVar == null) {
-                return;
-            }
-            int i = this.e;
-            if (i != 1 && i != 2) {
-                if (list.size() / this.e > 500) {
-                    if (bVar != null) {
-                        bVar.a(list);
-                    }
-                    this.e++;
-                }
-            } else if (list.size() / this.e > 50) {
-                if (bVar != null) {
-                    bVar.a(list);
-                }
-                this.e++;
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: g */
-        public void onPostExecute(List<ImageFileInfo> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-                super.onPostExecute(list);
-                pl4 pl4Var = this.a;
-                if (pl4Var != null) {
-                    pl4Var.a(this.d, list, this.c);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: h */
-        public void onProgressUpdate(List<ImageFileInfo>... listArr) {
-            pl4 pl4Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, listArr) == null) {
-                super.onProgressUpdate(listArr);
-                if (listArr.length <= 0 || (pl4Var = this.a) == null) {
                     return;
                 }
-                pl4Var.a(this.d, listArr[0], this.c);
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                super.onPreCancel();
-                pl4 pl4Var = this.a;
-                if (pl4Var != null) {
-                    pl4Var.onPreLoad();
-                }
-            }
-        }
-    }
-
-    public nl4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+            file.delete();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        this.a = TbConfig.getTempDirName();
-        this.d = context;
     }
 
-    public void c() {
-        a aVar;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2005016));
         }
-        aVar.cancel();
-        this.b = null;
-    }
-
-    public void d() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (cVar = this.c) == null) {
-            return;
-        }
-        cVar.cancel();
-        this.c = null;
-    }
-
-    public final List<ml4> e(Context context, List<ml4> list, Uri uri, HashSet<String> hashSet) {
-        InterceptResult invokeLLLL;
-        int i;
-        File[] listFiles;
-        Matcher matcher;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, list, uri, hashSet)) == null) {
-            Cursor cursor = null;
-            if (context == null) {
-                return null;
-            }
-            Pattern compile = Pattern.compile("image\\/\\w+", 2);
-            List<ml4> arrayList = list == null ? new ArrayList<>() : list;
-            try {
-                try {
-                    cursor = context.getContentResolver().query(uri, new String[]{"bucket_id", "bucket_display_name", "_data", "count(*)"}, "mime_type like 'image/%') GROUP BY 1,(2", null, "date_added DESC");
-                    if (cursor.moveToFirst()) {
-                        int columnIndex = cursor.getColumnIndex("bucket_id");
-                        int columnIndex2 = cursor.getColumnIndex("bucket_display_name");
-                        int columnIndex3 = cursor.getColumnIndex("_data");
-                        int columnIndex4 = cursor.getColumnIndex("count(*)");
-                        do {
-                            String string = cursor.getString(columnIndex);
-                            String string2 = cursor.getString(columnIndex2);
-                            String string3 = cursor.getString(columnIndex3);
-                            cursor.getString(columnIndex4);
-                            String substring = string3.substring(0, string3.lastIndexOf("/"));
-                            if (hashSet != null) {
-                                if (!hashSet.contains(substring)) {
-                                    hashSet.add(substring);
-                                }
-                            }
-                            File file = new File(substring);
-                            if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
-                                i = 0;
-                                for (File file2 : listFiles) {
-                                    String j = j(file2.getAbsolutePath());
-                                    if (j != null && (matcher = compile.matcher(j)) != null && matcher.matches()) {
-                                        i++;
-                                    }
-                                }
-                            } else {
-                                i = 0;
-                            }
-                            if (i != 0) {
-                                ml4 ml4Var = new ml4();
-                                ml4Var.h(string);
-                                ml4Var.i(i + "");
-                                ImageFileInfo imageFileInfo = new ImageFileInfo();
-                                File file3 = new File(string3);
-                                if (file3.exists() && file3.isFile()) {
-                                    imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(file3.lastModified()));
-                                }
-                                imageFileInfo.setFilePath(string3);
-                                ml4Var.k(imageFileInfo);
-                                ml4Var.l(string2);
-                                if (string2 != null && string2.equals(this.a)) {
-                                    arrayList.add(0, ml4Var);
-                                } else {
-                                    arrayList.add(ml4Var);
-                                }
-                            }
-                        } while (cursor.moveToNext());
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-                return arrayList;
-            } finally {
-                jg.a(cursor);
-            }
-        }
-        return (List) invokeLLLL.objValue;
-    }
-
-    public final List<ml4> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashSet<String> hashSet = new HashSet<>();
-            return e(this.d, e(this.d, null, MediaStore.Images.Media.EXTERNAL_CONTENT_URI, hashSet), MediaStore.Images.Media.INTERNAL_CONTENT_URI, hashSet);
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean g(ol4 ol4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ol4Var)) == null) {
-            if (ol4Var == null) {
-                return false;
-            }
-            c();
-            a aVar = new a(this, ol4Var);
-            this.b = aVar;
-            aVar.setPriority(3);
-            this.b.execute(new Object[0]);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final String h(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            int lastIndexOf2 = str.lastIndexOf(35);
-            if (lastIndexOf2 > 0) {
-                str = str.substring(0, lastIndexOf2);
-            }
-            int lastIndexOf3 = str.lastIndexOf(63);
-            if (lastIndexOf3 > 0) {
-                str = str.substring(0, lastIndexOf3);
-            }
-            int lastIndexOf4 = str.lastIndexOf(47);
-            if (lastIndexOf4 >= 0) {
-                str = str.substring(lastIndexOf4 + 1);
-            }
-            return (TextUtils.isEmpty(str) || (lastIndexOf = str.lastIndexOf(46)) < 0 || lastIndexOf >= str.length() + (-1)) ? "" : str.substring(lastIndexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean i(String str, pl4 pl4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, pl4Var)) == null) {
-            if (pl4Var == null) {
-                return false;
-            }
-            d();
-            c cVar = new c(this, str, pl4Var);
-            this.c = cVar;
-            cVar.setPriority(3);
-            this.c.execute(new Void[0]);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            String h = h(str);
-            if (h != null) {
-                return MimeTypeMap.getSingleton().getMimeTypeFromExtension(h.toLowerCase(Locale.getDefault()));
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
     }
 }

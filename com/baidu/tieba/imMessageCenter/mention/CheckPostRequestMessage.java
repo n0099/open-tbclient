@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.CheckPost.CheckPostReqIdl;
 import tbclient.CheckPost.ReqData;
 /* loaded from: classes3.dex */
@@ -61,7 +61,7 @@ public class CheckPostRequestMessage extends NetMessage {
             builder.ori_ugc_nid = this.ori_ugc_nid;
             builder.ori_ugc_vid = this.ori_ugc_vid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             CheckPostReqIdl.Builder builder2 = new CheckPostReqIdl.Builder();
             builder2.data = builder.build(false);

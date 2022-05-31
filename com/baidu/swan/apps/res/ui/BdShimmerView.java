@@ -12,18 +12,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.bk2;
-import com.repackage.d03;
-import com.repackage.i63;
+import com.repackage.oi2;
+import com.repackage.qy2;
+import com.repackage.v43;
 /* loaded from: classes2.dex */
-public class BdShimmerView extends ShimmerFrameLayout implements d03<BdShimmerView> {
+public class BdShimmerView extends ShimmerFrameLayout implements qy2<BdShimmerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView s;
     public int t;
 
     /* loaded from: classes2.dex */
-    public class a implements i63 {
+    public class a implements v43 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BdShimmerView a;
@@ -69,7 +69,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements d03<BdShimmerVi
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.d03
+    @Override // com.repackage.qy2
     public BdShimmerView getLoadingView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements d03<BdShimmerVi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
-            bk2.M().f(this, new a(this));
+            oi2.M().f(this, new a(this));
         }
     }
 
@@ -90,7 +90,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements d03<BdShimmerVi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            bk2.M().g(this);
+            oi2.M().g(this);
         }
     }
 
@@ -132,7 +132,7 @@ public class BdShimmerView extends ShimmerFrameLayout implements d03<BdShimmerVi
             }
             this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08012f));
             ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-            if (bk2.M().a()) {
+            if (oi2.M().a()) {
                 maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
             }
             setMaskShape(maskShape);

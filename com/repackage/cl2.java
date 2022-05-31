@@ -1,11 +1,6 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,17 +8,72 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class cl2 {
+public class cl2 implements yk2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean DEBUG;
+    public static final ae3<fy1> a;
+    public static final ae3<fy1> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> mActivityRef;
-    public CallbackHandler mCallbackHandler;
-    public Context mContext;
-    public sz1 mJsContainer;
-    public UnitedSchemeMainDispatcher mMainDispatcher;
+
+    /* loaded from: classes5.dex */
+    public static class a implements ae3<fy1> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ae3
+        /* renamed from: a */
+        public void onCallback(fy1 fy1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, fy1Var) == null) {
+                fy1Var.suspendTimer();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements ae3<fy1> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ae3
+        /* renamed from: a */
+        public void onCallback(fy1 fy1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, fy1Var) == null) {
+                fy1Var.continueTimer();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,59 +88,47 @@ public class cl2 {
                 return;
             }
         }
-        DEBUG = eh1.a;
+        a = new a();
+        b = new b();
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public cl2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, sz1 sz1Var) {
+    public cl2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, sz1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mContext = context;
-        this.mMainDispatcher = unitedSchemeMainDispatcher;
-        this.mCallbackHandler = callbackHandler;
-        this.mJsContainer = sz1Var;
-        if (DEBUG) {
-            if (context == null || unitedSchemeMainDispatcher == null) {
-                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
             }
         }
     }
 
-    public Context getDispatchContext() {
-        InterceptResult invokeV;
+    public void a(ae3<fy1> ae3Var) {
+        d12 W;
+        fy1 h;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Activity> weakReference = this.mActivityRef;
-            Activity activity = weakReference != null ? weakReference.get() : null;
-            return activity == null ? this.mContext : activity;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public void setActivityRef(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || activity == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ae3Var) == null) || (W = b62.U().W()) == null || (h = W.h()) == null || !h.isWebView()) {
             return;
         }
-        this.mActivityRef = new WeakReference<>(activity);
+        ae3Var.onCallback(h);
     }
 
-    public void setCallbackHandler(CallbackHandler callbackHandler) {
+    @Override // com.repackage.yk2
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
-            this.mCallbackHandler = callbackHandler;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a(a);
+        }
+    }
+
+    @Override // com.repackage.yk2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a(b);
         }
     }
 }

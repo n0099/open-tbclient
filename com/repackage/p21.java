@@ -1,43 +1,33 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import androidx.core.view.InputDeviceCompat;
+import android.content.DialogInterface;
+import android.net.Uri;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m11;
+import com.repackage.v31;
 /* loaded from: classes6.dex */
-public class p21 extends o21 {
+public class p21 {
     public static /* synthetic */ Interceptable $ic;
-    public static final n21 u;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Paint h;
-    public final RectF i;
-    public int j;
-    public float k;
-    public float l;
-    public float m;
-    public float n;
-    public float o;
-    public float p;
-    public float q;
-    public float r;
-    public float s;
-    public float t;
+    public CheckBox a;
+    public TextView b;
+    public String c;
+    public Context d;
+    public v31 e;
+    public k21 f;
 
     /* loaded from: classes6.dex */
-    public class a extends AnimatorListenerAdapter {
+    public class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ p21 a;
@@ -60,173 +50,120 @@ public class p21 extends o21 {
             this.a = p21Var;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationRepeat(animator);
-                this.a.y();
-                p21 p21Var = this.a;
-                p21Var.o = p21Var.n;
-                p21 p21Var2 = this.a;
-                p21Var2.l = (p21Var2.l + 1.0f) % 5.0f;
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.a.l = 0.0f;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                dialogInterface.dismiss();
+                this.a.d(true);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755461918, "Lcom/repackage/p21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p21 a;
+
+        public b(p21 p21Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p21Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755461918, "Lcom/repackage/p21;");
-                return;
+            this.a = p21Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                dialogInterface.dismiss();
+                this.a.d(false);
             }
         }
-        u = new n21();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p21(Context context) {
-        super(context);
+    public p21(Context context, String str, @NonNull k21 k21Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, str, k21Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new Paint();
-        this.i = new RectF();
-        u(context);
-        x();
-        b(new a(this));
+        this.d = context;
+        this.f = k21Var;
+        this.c = str;
+        b();
     }
 
-    @Override // com.repackage.o21
-    public void c(float f) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            if (f <= 0.5f) {
-                this.o = this.r + (u.a(f / 0.5f) * 288.0f);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = View.inflate(this.d, R.layout.obfuscated_res_0x7f0d05a0, null);
+            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091a2d);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913db);
+            this.b = textView;
+            textView.setTextColor(this.d.getResources().getColor(R.color.obfuscated_res_0x7f060801));
+            this.b.setText(c());
+            v31.a aVar = new v31.a(this.d);
+            aVar.q(R.string.obfuscated_res_0x7f0f0ba6);
+            aVar.s(inflate);
+            aVar.l(R.string.obfuscated_res_0x7f0f0ba2, new b(this));
+            aVar.o(R.string.obfuscated_res_0x7f0f0ba5, new a(this));
+            this.e = aVar.a();
+        }
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Uri parse = Uri.parse(this.c);
+            String str = this.c;
+            if ("http".equals(parse.getScheme())) {
+                str = this.c.substring(7);
             }
-            if (f > 0.5f) {
-                this.n = this.q + (u.a((f - 0.5f) / 0.5f) * 288.0f);
+            return String.format(this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0ba3), str);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            boolean isChecked = this.a.isChecked();
+            if (isChecked) {
+                hz0.a().b(this.d.getApplicationContext(), z ? R.string.obfuscated_res_0x7f0f0ba7 : R.string.obfuscated_res_0x7f0f0ba8);
             }
-            if (Math.abs(this.n - this.o) > 0.0f) {
-                this.p = this.n - this.o;
-            }
-            this.m = (f * 216.0f) + ((this.l / 5.0f) * 1080.0f);
+            this.f.a(this.c, z, isChecked);
         }
     }
 
-    @Override // com.repackage.o21
-    public void d(Canvas canvas) {
+    public void e() {
+        v31 v31Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            int save = canvas.save();
-            this.i.set(this.b);
-            RectF rectF = this.i;
-            float f = this.k;
-            rectF.inset(f, f);
-            canvas.rotate(this.m, this.i.centerX(), this.i.centerY());
-            if (this.p != 0.0f) {
-                this.h.setColor(this.j);
-                canvas.drawArc(this.i, this.o, this.p, false, this.h);
-            }
-            canvas.restoreToCount(save);
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (v31Var = this.e) == null) {
+            return;
         }
-    }
-
-    @Override // com.repackage.o21
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w();
-        }
-    }
-
-    @Override // com.repackage.o21
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.h.setAlpha(i);
-        }
-    }
-
-    @Override // com.repackage.o21
-    public void l(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, colorFilter) == null) {
-            this.h.setColorFilter(colorFilter);
-        }
-    }
-
-    public final void u(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            this.s = m11.c.a(context, 2.0f);
-            this.t = m11.c.a(context, 11.5f);
-            this.j = -1;
-            v(this.f, this.g);
-        }
-    }
-
-    public final void v(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.k = Math.max((Math.min(f, f2) / 2.0f) - this.t, (float) Math.ceil(this.s / 2.0f));
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.q = 0.0f;
-            this.r = 0.0f;
-            this.n = 0.0f;
-            this.o = 0.0f;
-            this.p = 0.0f;
-        }
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.h.setAntiAlias(true);
-            this.h.setStrokeWidth(this.s);
-            this.h.setStyle(Paint.Style.STROKE);
-            this.h.setStrokeCap(Paint.Cap.SQUARE);
-        }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            float f = this.n;
-            this.q = f;
-            this.r = f;
-        }
+        tz0.b(v31Var);
     }
 }

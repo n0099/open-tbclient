@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -257,7 +258,7 @@ public class ZeusLogger {
                     d.a(com.bytedance.pangle.b.b.i, jSONObject, null, jSONObject2);
                 }
             }
-            jSONObject.putOpt("log_tag", "other");
+            jSONObject.putOpt("log_tag", ImageViewerConfig.FROM_OTHER);
             if (!TextUtils.isEmpty(str3)) {
             }
             jSONObject2.putOpt("message", d.a(prefixTraceInfo));

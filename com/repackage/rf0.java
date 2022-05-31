@@ -1,262 +1,62 @@
 package com.repackage;
 
-import android.opengl.GLES20;
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.Rotation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-import java.util.List;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.HashMap;
+import java.util.Map;
+@Service
 /* loaded from: classes7.dex */
-public class rf0 extends of0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String G = "attribute vec4 position;\nattribute vec4 inputTextureCoordinate;\nvarying vec2 textureCoordinate;\n";
-    public static int[] H;
-    public static int I;
+public class rf0 extends hg0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] A;
-    public int[] B;
-    public int[] C;
-    public FloatBuffer D;
-    public List<Integer> E;
-    public int F;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ rf0 b;
-
-        public a(rf0 rf0Var, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rf0Var, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rf0Var;
-            this.a = list;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.E = this.a;
-                for (int i = 0; i < this.a.size(); i++) {
-                    this.b.C[i] = ((Integer) this.a.get(i)).intValue();
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755352395, "Lcom/repackage/rf0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755352395, "Lcom/repackage/rf0;");
-                return;
-            }
-        }
-        H = new int[]{33987, 33988, 33989, 33990, 33991, 33992, 33993, 33994, 33995, 33996};
-        I = 1;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rf0(String str, String str2) {
-        super(str, str2);
+    public rf0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.F = 3553;
-        if (!TextUtils.isEmpty(str2) && str2.contains("samplerExternalOES")) {
-            this.F = 36197;
-        }
-        int i3 = I;
-        this.A = new int[i3];
-        this.B = new int[i3];
-        this.C = new int[i3];
-        for (int i4 = 0; i4 < I; i4++) {
-            this.C[i4] = -1;
-        }
-        this.D = ByteBuffer.allocateDirect(wf0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        X(Rotation.NORMAL, false, false);
     }
 
-    public static String W(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.hg0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            if (I <= H.length) {
-                I = i;
-                StringBuilder sb = new StringBuilder(G);
-                for (int i2 = 0; i2 < i; i2++) {
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("attribute vec4 inputTextureCoordinate");
-                    int i3 = i2 + 2;
-                    sb2.append(i3);
-                    sb.append(sb2.toString());
-                    sb.append(";\n");
-                    sb.append("varying vec2 textureCoordinate" + i3);
-                    sb.append(";\n");
-                }
-                sb.append("\nvoid main()\n{\n    gl_Position = position;\n    textureCoordinate = inputTextureCoordinate.xy;\n");
-                for (int i4 = 0; i4 < i; i4++) {
-                    sb.append("    ");
-                    StringBuilder sb3 = new StringBuilder();
-                    sb3.append("textureCoordinate");
-                    int i5 = i4 + 2;
-                    sb3.append(i5);
-                    sb.append(sb3.toString());
-                    sb.append(" = ");
-                    sb.append("inputTextureCoordinate" + i5);
-                    sb.append(".xy");
-                    sb.append(";\n");
-                }
-                sb.append("}");
-                return sb.toString();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "loadCache" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hg0
+    public boolean b(@NonNull Context context, @NonNull lg0 lg0Var, @Nullable Map<String, Object> map, @Nullable pg0 pg0Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, lg0Var, map, pg0Var)) == null) {
+            super.b(context, lg0Var, map, pg0Var);
+            HashMap<String, String> d = lg0Var.d();
+            String str = d.get("key");
+            String str2 = d.get(WebChromeClient.KEY_ARG_CALLBACK);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                d(pg0Var, lg0Var, sf0.a().b(str), 0, true);
+                return true;
             }
-            throw new RuntimeException("too many textures !!!");
+            c(pg0Var, lg0Var, 202, false);
+            return true;
         }
-        return (String) invokeI.objValue;
-    }
-
-    public void X(Rotation rotation, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{rotation, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.D.clear();
-            this.D.put(wf0.b(rotation, z, z2)).position(0);
-        }
-    }
-
-    public void Y(List<Integer> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        B(new a(this, list));
-    }
-
-    @Override // com.repackage.of0
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            int[] iArr = this.A;
-            if (i >= iArr.length) {
-                return;
-            }
-            GLES20.glDisableVertexAttribArray(iArr[i]);
-            i++;
-        }
-    }
-
-    @Override // com.repackage.of0
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        int i = 0;
-        while (true) {
-            int[] iArr = this.A;
-            if (i >= iArr.length) {
-                return;
-            }
-            if (this.C[i] != -1) {
-                GLES20.glEnableVertexAttribArray(iArr[i]);
-                GLES20.glActiveTexture(H[i]);
-                GLES20.glBindTexture(this.F, this.C[i]);
-                GLES20.glUniform1i(this.B[i], i + 3);
-                this.D.position(0);
-                GLES20.glVertexAttribPointer(this.A[i], 2, 5126, false, 0, (Buffer) this.D);
-            }
-            i++;
-        }
-    }
-
-    @Override // com.repackage.of0
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    @Override // com.repackage.of0
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048581, this) != null) {
-            return;
-        }
-        super.t();
-        int i = 0;
-        while (true) {
-            int[] iArr = this.A;
-            if (i >= iArr.length) {
-                return;
-            }
-            int j = j();
-            StringBuilder sb = new StringBuilder();
-            sb.append("inputTextureCoordinate");
-            int i2 = i + 2;
-            sb.append(i2);
-            iArr[i] = GLES20.glGetAttribLocation(j, sb.toString());
-            int[] iArr2 = this.B;
-            int j2 = j();
-            iArr2[i] = GLES20.glGetUniformLocation(j2, "inputImageTexture" + i2);
-            i++;
-        }
-    }
-
-    @Override // com.repackage.of0
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.u();
-            List<Integer> list = this.E;
-            if (list != null) {
-                Y(list);
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

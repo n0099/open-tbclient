@@ -106,7 +106,7 @@ public class fc {
                 }
                 return this.f348a;
             }
-            com.xiaomi.channel.commonutils.logger.b.m109a("CRC = " + ((int) this.f349a.getValue()) + " and " + i);
+            com.xiaomi.channel.commonutils.logger.b.m108a("CRC = " + ((int) this.f349a.getValue()) + " and " + i);
             throw new IOException("Corrupted Blob bad CRC");
         }
         allocate = ByteBuffer.allocate(i2 + 2048);
@@ -146,9 +146,9 @@ public class fc {
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             boolean z = false;
             this.f350a = false;
-            fa m349a = m349a();
-            if ("CONN".equals(m349a.m341a())) {
-                du.f a = du.f.a(m349a.m345a());
+            fa m348a = m348a();
+            if ("CONN".equals(m348a.m340a())) {
+                du.f a = du.f.a(m348a.m344a());
                 if (a.a()) {
                     this.f346a.a(a.a());
                     z = true;
@@ -157,65 +157,65 @@ public class fc {
                     du.b a2 = a.a();
                     fa faVar = new fa();
                     faVar.a("SYNC", "CONF");
-                    faVar.a(a2.m320a(), (String) null);
+                    faVar.a(a2.m319a(), (String) null);
                     this.f346a.a(faVar);
                 }
-                com.xiaomi.channel.commonutils.logger.b.m109a("[Slim] CONN: host = " + a.b());
+                com.xiaomi.channel.commonutils.logger.b.m108a("[Slim] CONN: host = " + a.b());
             }
             if (!z) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("[Slim] Invalid CONN");
+                com.xiaomi.channel.commonutils.logger.b.m108a("[Slim] Invalid CONN");
                 throw new IOException("Invalid Connection");
             }
             this.f351a = this.f346a.a();
             while (!this.f350a) {
-                fa m349a2 = m349a();
+                fa m348a2 = m348a();
                 this.f346a.c();
-                short m343a = m349a2.m343a();
-                if (m343a != 1) {
-                    if (m343a != 2) {
-                        if (m343a != 3) {
-                            str = "[Slim] unknow blob type " + ((int) m349a2.m343a());
-                            com.xiaomi.channel.commonutils.logger.b.m109a(str);
+                short m342a = m348a2.m342a();
+                if (m342a != 1) {
+                    if (m342a != 2) {
+                        if (m342a != 3) {
+                            str = "[Slim] unknow blob type " + ((int) m348a2.m342a());
+                            com.xiaomi.channel.commonutils.logger.b.m108a(str);
                         } else {
                             try {
-                                this.f346a.b(this.a.a(m349a2.m345a(), this.f346a));
+                                this.f346a.b(this.a.a(m348a2.m344a(), this.f346a));
                             } catch (Exception e) {
                                 e = e;
                                 sb = new StringBuilder();
                                 sb.append("[Slim] Parse packet from Blob chid=");
-                                sb.append(m349a2.a());
+                                sb.append(m348a2.a());
                                 sb.append("; Id=");
-                                sb.append(m349a2.e());
+                                sb.append(m348a2.e());
                                 sb.append(" failure:");
                                 sb.append(e.getMessage());
                                 str = sb.toString();
-                                com.xiaomi.channel.commonutils.logger.b.m109a(str);
+                                com.xiaomi.channel.commonutils.logger.b.m108a(str);
                             }
                         }
-                    } else if ("SECMSG".equals(m349a2.m341a()) && ((m349a2.a() == 2 || m349a2.a() == 3) && TextUtils.isEmpty(m349a2.m347b()))) {
+                    } else if ("SECMSG".equals(m348a2.m340a()) && ((m348a2.a() == 2 || m348a2.a() == 3) && TextUtils.isEmpty(m348a2.m346b()))) {
                         try {
-                            this.f346a.b(this.a.a(m349a2.m346a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m349a2.a()).toString(), m349a2.g()).h), this.f346a));
+                            this.f346a.b(this.a.a(m348a2.m345a(com.xiaomi.push.service.av.a().a(Integer.valueOf(m348a2.a()).toString(), m348a2.g()).h), this.f346a));
                         } catch (Exception e2) {
                             e = e2;
                             sb = new StringBuilder();
                             sb.append("[Slim] Parse packet from Blob chid=");
-                            sb.append(m349a2.a());
+                            sb.append(m348a2.a());
                             sb.append("; Id=");
-                            sb.append(m349a2.e());
+                            sb.append(m348a2.e());
                             sb.append(" failure:");
                             sb.append(e.getMessage());
                             str = sb.toString();
-                            com.xiaomi.channel.commonutils.logger.b.m109a(str);
+                            com.xiaomi.channel.commonutils.logger.b.m108a(str);
                         }
                     }
                 }
-                this.f346a.a(m349a2);
+                this.f346a.a(m348a2);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public fa m349a() {
+    public fa m348a() {
         InterceptResult invokeV;
         int i;
         ByteBuffer a;
@@ -232,7 +232,7 @@ public class fc {
                 a.flip();
                 a.position(8);
                 fa fgVar = i == 8 ? new fg() : fa.a(a.slice());
-                com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + fgVar.m341a() + ";chid=" + fgVar.a() + ";len=" + i + "}");
+                com.xiaomi.channel.commonutils.logger.b.c("[Slim] Read {cmd=" + fgVar.m340a() + ";chid=" + fgVar.a() + ";len=" + i + "}");
                 return fgVar;
             } catch (IOException e2) {
                 e = e2;
@@ -248,7 +248,7 @@ public class fc {
                 sb.append(af.a(array, 0, i));
                 sb.append("] Err:");
                 sb.append(e.getMessage());
-                com.xiaomi.channel.commonutils.logger.b.m109a(sb.toString());
+                com.xiaomi.channel.commonutils.logger.b.m108a(sb.toString());
                 throw e;
             }
         }
@@ -256,7 +256,7 @@ public class fc {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m350a() {
+    public void m349a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {

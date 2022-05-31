@@ -1,30 +1,19 @@
 package com.repackage;
-
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public interface mt0 {
+    void onBufferingUpdate(int i);
 
-    @Autowired
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    void onCompletion();
 
-        @NonNull
-        @Inject(force = false)
-        public static mt0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? eu0.a() : (mt0) invokeV.objValue;
-        }
-    }
+    boolean onError(int i, int i2, Object obj);
 
-    void a(fw0 fw0Var);
+    boolean onInfo(int i, int i2, Object obj);
 
-    void b(fw0 fw0Var);
+    boolean onMediaSourceChanged(int i, int i2, Object obj);
+
+    void onPrepared();
+
+    void onSeekComplete();
+
+    void onVideoSizeChanged(int i, int i2, int i3, int i4);
 }

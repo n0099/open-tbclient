@@ -20,9 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xe5;
+import com.repackage.rd5;
 /* loaded from: classes3.dex */
-public class RefreshView extends FrameLayout implements xe5 {
+public class RefreshView extends FrameLayout implements rd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -51,7 +51,7 @@ public class RefreshView extends FrameLayout implements xe5 {
         }
     }
 
-    @Override // com.repackage.xe5
+    @Override // com.repackage.rd5
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.d == 2) {
@@ -59,10 +59,10 @@ public class RefreshView extends FrameLayout implements xe5 {
         }
         this.d = 2;
         this.b.setText("释放跳转");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805f6, R.color.CAM_X0109, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805f4, R.color.CAM_X0109, null);
     }
 
-    @Override // com.repackage.xe5
+    @Override // com.repackage.rd5
     public void b(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.d == 1) {
@@ -70,15 +70,15 @@ public class RefreshView extends FrameLayout implements xe5 {
         }
         this.d = 1;
         this.b.setText("查看更多");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805f7, R.color.CAM_X0109, null);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805f5, R.color.CAM_X0109, null);
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06fe, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a5);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f60);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06f3, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902a2);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091f06);
         }
     }
 
@@ -93,7 +93,7 @@ public class RefreshView extends FrameLayout implements xe5 {
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
     }
 
-    @Override // com.repackage.xe5
+    @Override // com.repackage.rd5
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

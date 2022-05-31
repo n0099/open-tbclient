@@ -11,7 +11,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ub0;
+import com.repackage.ha0;
 /* loaded from: classes2.dex */
 public class SmartBubbleAnimatedView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -235,7 +234,7 @@ public class SmartBubbleAnimatedView extends View {
                 return;
             }
         }
-        this.b = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+        this.b = 4000L;
         this.c = 0.0f;
         this.f = new Paint();
         this.g = new Paint();
@@ -289,7 +288,7 @@ public class SmartBubbleAnimatedView extends View {
             this.d.addUpdateListener(new a(this));
             this.d.setDuration(400L);
             this.d.start();
-            ub0.a().postDelayed(new b(this), this.b);
+            ha0.a().postDelayed(new b(this), this.b);
         }
     }
 
@@ -352,7 +351,7 @@ public class SmartBubbleAnimatedView extends View {
                 return;
             }
         }
-        this.b = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+        this.b = 4000L;
         this.c = 0.0f;
         this.f = new Paint();
         this.g = new Paint();
@@ -381,7 +380,7 @@ public class SmartBubbleAnimatedView extends View {
                 return;
             }
         }
-        this.b = PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+        this.b = 4000L;
         this.c = 0.0f;
         this.f = new Paint();
         this.g = new Paint();

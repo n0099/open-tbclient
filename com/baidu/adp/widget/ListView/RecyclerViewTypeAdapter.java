@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eo;
-import com.repackage.ro;
-import com.repackage.wo;
+import com.repackage.jn;
+import com.repackage.on;
+import com.repackage.wm;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
-public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> implements wo<ro> {
+public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> implements on<jn> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<eo<ro, TypeAdapter.ViewHolder>> a;
+    public SparseArray<wm<jn, TypeAdapter.ViewHolder>> a;
     @SuppressLint({"UseSparseArrays"})
     public SparseArray<Integer> b;
-    public List<ro> c;
+    public List<jn> c;
     public RecyclerView d;
     public int e;
 
@@ -50,12 +50,12 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         this.e = -1;
     }
 
-    @Override // com.repackage.wo
+    @Override // com.repackage.on
     public int b(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            List<ro> list = this.c;
+            List<jn> list = this.c;
             if (list != null && list.size() != 0) {
                 int size = this.c.size();
                 int i3 = -1;
@@ -75,19 +75,19 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         return invokeII.intValue;
     }
 
-    @Override // com.repackage.wo
-    public eo<ro, TypeAdapter.ViewHolder> c(ro roVar) {
+    @Override // com.repackage.on
+    public wm<jn, TypeAdapter.ViewHolder> c(jn jnVar) {
         InterceptResult invokeL;
         BdUniqueId type;
         Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, roVar)) == null) {
-            if (roVar == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jnVar)) == null) {
+            if (jnVar == null) {
                 return null;
             }
             int i = -1;
-            SparseArray<eo<ro, TypeAdapter.ViewHolder>> sparseArray = this.a;
-            if (sparseArray != null && sparseArray.size() != 0 && (type = roVar.getType()) != null && (num = this.b.get(type.getId())) != null) {
+            SparseArray<wm<jn, TypeAdapter.ViewHolder>> sparseArray = this.a;
+            if (sparseArray != null && sparseArray.size() != 0 && (type = jnVar.getType()) != null && (num = this.b.get(type.getId())) != null) {
                 i = num.intValue();
             }
             if (i < 0 || i >= this.a.size()) {
@@ -95,40 +95,40 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
             }
             return this.a.get(i);
         }
-        return (eo) invokeL.objValue;
+        return (wm) invokeL.objValue;
     }
 
-    public void d(eo<ro, TypeAdapter.ViewHolder> eoVar) {
+    public void d(wm<jn, TypeAdapter.ViewHolder> wmVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eoVar) == null) || eoVar == null || eoVar.getType() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wmVar) == null) || wmVar == null || wmVar.getType() == null) {
             return;
         }
         if (this.a == null) {
             this.a = new SparseArray<>();
         }
-        if (eoVar.getType() != null) {
-            eoVar.U(this);
-            int id = eoVar.getType().getId();
+        if (wmVar.getType() != null) {
+            wmVar.U(this);
+            int id = wmVar.getType().getId();
             int size = this.a.size();
-            this.a.put(size, eoVar);
+            this.a.put(size, wmVar);
             this.b.put(id, Integer.valueOf(size));
         }
     }
 
-    public List<ro> e() {
+    public List<jn> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (List) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.so
+    @Override // com.repackage.kn
     /* renamed from: f */
-    public ro getItem(int i) {
+    public jn getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            List<ro> list = this.c;
+            List<jn> list = this.c;
             if (list != null) {
                 int size = list.size();
                 if (i < 0 || i >= size) {
@@ -138,31 +138,31 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
             }
             return null;
         }
-        return (ro) invokeI.objValue;
+        return (jn) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: g */
     public void onBindViewHolder(TypeAdapter.ViewHolder viewHolder, int i) {
-        eo<ro, TypeAdapter.ViewHolder> eoVar;
-        ro item;
+        wm<jn, TypeAdapter.ViewHolder> wmVar;
+        jn item;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048581, this, viewHolder, i) == null) || viewHolder == null || this.a == null || this.c == null) {
             return;
         }
         int itemCount = getItemCount();
-        if (i < 0 || i >= itemCount || (eoVar = this.a.get(getItemViewType(i))) == null || (item = getItem(i)) == null || !(item instanceof ro)) {
+        if (i < 0 || i >= itemCount || (wmVar = this.a.get(getItemViewType(i))) == null || (item = getItem(i)) == null || !(item instanceof jn)) {
             return;
         }
         try {
-            eoVar.T(i, this.d, viewHolder, item);
+            wmVar.T(i, this.d, viewHolder, item);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    @Override // com.repackage.so
+    @Override // com.repackage.kn
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            List<ro> list = this.c;
+            List<jn> list = this.c;
             if (list != null) {
                 return list.size();
             }
@@ -193,13 +193,13 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemViewType(int i) {
         InterceptResult invokeI;
-        ro item;
+        jn item;
         BdUniqueId type;
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             this.e = i;
-            SparseArray<eo<ro, TypeAdapter.ViewHolder>> sparseArray = this.a;
+            SparseArray<wm<jn, TypeAdapter.ViewHolder>> sparseArray = this.a;
             if (sparseArray == null || sparseArray.size() == 0 || (item = getItem(i)) == null || (type = item.getType()) == null || (num = this.b.get(type.getId())) == null) {
                 return -1;
             }
@@ -213,23 +213,23 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
     /* renamed from: h */
     public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
-        eo<ro, TypeAdapter.ViewHolder> eoVar;
+        wm<jn, TypeAdapter.ViewHolder> wmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, viewGroup, i)) == null) {
             if (this.d == null) {
                 this.d = (RecyclerView) viewGroup;
             }
-            ro item = getItem(this.e);
-            SparseArray<eo<ro, TypeAdapter.ViewHolder>> sparseArray = this.a;
+            jn item = getItem(this.e);
+            SparseArray<wm<jn, TypeAdapter.ViewHolder>> sparseArray = this.a;
             TypeAdapter.ViewHolder viewHolder = null;
-            if (sparseArray != null && (eoVar = sparseArray.get(i)) != null) {
+            if (sparseArray != null && (wmVar = sparseArray.get(i)) != null) {
                 try {
-                    viewHolder = eoVar.N(viewGroup, item);
+                    viewHolder = wmVar.N(viewGroup, item);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 if (viewHolder == null) {
-                    Log.e("RecyclerViewTypeAdapter", eoVar.getClass().getName());
+                    Log.e("RecyclerViewTypeAdapter", wmVar.getClass().getName());
                 }
             }
             return viewHolder;
@@ -242,9 +242,9 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || this.a == null) {
             return;
         }
-        ro item = getItem(i);
+        jn item = getItem(i);
         int itemViewType = getItemViewType(i);
-        eo<ro, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.a.valueAt(itemViewType) : null;
+        wm<jn, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.a.valueAt(itemViewType) : null;
         if (valueAt == null || valueAt.A() == null) {
             return;
         }
@@ -258,9 +258,9 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
             if (this.a == null) {
                 return false;
             }
-            ro item = getItem(i);
+            jn item = getItem(i);
             int itemViewType = getItemViewType(i);
-            eo<ro, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.a.valueAt(itemViewType) : null;
+            wm<jn, TypeAdapter.ViewHolder> valueAt = itemViewType >= 0 ? this.a.valueAt(itemViewType) : null;
             if (valueAt == null || valueAt.B() == null) {
                 return false;
             }
@@ -287,10 +287,10 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         notifyItemRangeRemoved(i3 + i, (i2 - i) + 1);
     }
 
-    public void m(List<? extends ro> list, int i, int i2) {
+    public void m(List<? extends jn> list, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLII(1048592, this, list, i, i2) == null) {
-            List<ro> list2 = this.c;
+            List<jn> list2 = this.c;
             if (list2 == null) {
                 this.c = new ArrayList();
             } else {
@@ -301,10 +301,10 @@ public class RecyclerViewTypeAdapter extends RecyclerView.Adapter<TypeAdapter.Vi
         }
     }
 
-    public void setData(List<? extends ro> list) {
+    public void setData(List<? extends jn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            List<ro> list2 = this.c;
+            List<jn> list2 = this.c;
             if (list2 == null) {
                 this.c = new ArrayList();
             } else {

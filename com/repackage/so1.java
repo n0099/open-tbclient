@@ -1,200 +1,97 @@
 package com.repackage;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
-import com.baidu.swan.apps.api.module.network.SwanApiNetworkV8Module;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.net.NetInfo;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
 /* loaded from: classes7.dex */
-public class so1 implements vo1 {
+public class so1 implements Observer {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Context a;
-    @NonNull
-    public CallbackHandler b;
-    public WeakReference<Activity> c;
-    public sz1 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755313924, "Lcom/repackage/so1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755313924, "Lcom/repackage/so1;");
-                return;
-            }
-        }
-        e = eh1.a;
-    }
-
-    public so1(@NonNull Context context, @NonNull CallbackHandler callbackHandler, @NonNull sz1 sz1Var) {
+    public so1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, callbackHandler, sz1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        this.b = callbackHandler;
-        this.d = sz1Var;
-    }
-
-    public void a(@NonNull sz1 sz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sz1Var) == null) {
-            sz1Var.addJavascriptInterface(new SwanApiNetworkV8Module(this), SwanApiNetworkV8Module.MODULE_NAME);
-        }
-    }
-
-    public final void b(@NonNull sz1 sz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sz1Var) == null) {
-            if (sz1Var instanceof e82) {
-                c((e82) sz1Var);
-            } else {
-                d(sz1Var);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void c(@NonNull e82 e82Var) {
+    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e82Var) == null) {
-            e(e82Var, SwanApi$$ModulesProvider.getV8ApiModules(this), bk2.s().b(this));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
+            if (i == 200) {
+                return "";
+            }
+            String statusMsg = netRequestResult.getStatusMsg();
+            NetInfo.Response response = netInfo.getResponse();
+            NetInfo.Base base = netInfo.getBase();
+            StringBuilder sb = new StringBuilder();
+            sb.append(statusMsg);
+            sb.append("; code=");
+            sb.append(response != null ? Integer.valueOf(response.mCode) : "");
+            String sb2 = sb.toString();
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append(sb2);
+            sb3.append("; status=");
+            sb3.append(base != null ? Integer.valueOf(base.mStatus) : "");
+            return sb3.toString();
         }
+        return (String) invokeLLI.objValue;
     }
 
-    public final void d(@NonNull sz1 sz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sz1Var) == null) {
-            e(sz1Var, SwanApi$$ModulesProvider.getWebviewApiModules(this), bk2.s().c(this));
-        }
-    }
-
+    @Override // java.util.Observer
     @SuppressLint({"BDThrowableCheck"})
-    public final void e(@NonNull sz1 sz1Var, Map<String, Object> map, Map<String, Object> map2) {
+    public void update(Observable observable, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, sz1Var, map, map2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (map2 != null) {
-                if (map == null) {
-                    map = map2;
-                } else {
-                    try {
-                        map.putAll(map2);
-                    } catch (Exception e2) {
-                        if (e) {
-                            e2.printStackTrace();
-                            throw new RuntimeException("doBindSwanApis fail: " + e2.getMessage());
-                        }
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) == null) && (obj instanceof NetRequestResult)) {
+            NetRequestResult netRequestResult = (NetRequestResult) obj;
+            String url = netRequestResult.getUrl();
+            String valueOf = String.valueOf(netRequestResult.getId());
+            int statusCode = netRequestResult.getStatusCode();
+            if (statusCode == 3) {
+                r42.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
+            } else if (statusCode != 4) {
+                if (statusCode == 5) {
+                    r42.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
+                } else if (statusCode == 6) {
+                    r42.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
+                }
+            } else if (url != null) {
+                r42.k().q(valueOf, url);
+            }
+            NetInfo netInfo = netRequestResult.getNetInfo();
+            int statusCode2 = netRequestResult.getStatusCode();
+            if (netRequestResult.getFromType() != 1 || url == null || netInfo == null) {
+                if (netInfo != null) {
+                    if (statusCode2 < 0 || statusCode2 >= 400) {
+                        a63.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
                         return;
                     }
-                }
-            }
-            if (map == null) {
-                if (e) {
-                    throw new RuntimeException("doBindSwanApis fail: api modules cannot be null");
+                    return;
                 }
                 return;
             }
-            for (Map.Entry<String, Object> entry : map.entrySet()) {
-                String key = entry.getKey();
-                Object value = entry.getValue();
-                if (TextUtils.isEmpty(key)) {
-                    if (e) {
-                        throw new RuntimeException("doBindSwanApis fail: moduleName cannot be empty");
-                    }
-                } else if (value == null) {
-                    if (e) {
-                        throw new RuntimeException("doBindSwanApis fail: module obj cannot be null");
-                    }
-                } else {
-                    sz1Var.addJavascriptInterface(value, key);
-                    if (e) {
-                        String str = sz1Var instanceof e82 ? "V8" : "Webview";
-                        Log.d("Api-Binder", "doBindSwanApis(" + str + "): bound " + key);
-                    }
-                }
-            }
-            if (e) {
-                long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                if (currentTimeMillis2 > 5) {
-                    Log.w("Api-Binder", "doBindSwanApis: 耗时 " + currentTimeMillis2 + "ms");
-                }
-            }
+            r42.k().B(valueOf, url, netInfo);
+            long l = r42.k().l(valueOf);
+            long currentTimeMillis = System.currentTimeMillis();
+            String e = bd3.n().e();
+            a63.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), a63.l(), e, l, currentTimeMillis, valueOf);
         }
-    }
-
-    @NonNull
-    public final Context f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            WeakReference<Activity> weakReference = this.c;
-            Activity activity = weakReference != null ? weakReference.get() : null;
-            return activity == null ? this.a : activity;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public void g(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, activity) == null) || activity == null) {
-            return;
-        }
-        this.c = new WeakReference<>(activity);
-    }
-
-    @Override // com.repackage.vo1
-    @NonNull
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? f() : (Context) invokeV.objValue;
-    }
-
-    @Override // com.repackage.vo1
-    @NonNull
-    public sz1 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (sz1) invokeV.objValue;
-    }
-
-    @Override // com.repackage.vo1
-    @NonNull
-    public CallbackHandler i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (CallbackHandler) invokeV.objValue;
     }
 }

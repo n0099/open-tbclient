@@ -1,17 +1,13 @@
 package com.repackage;
 
-import android.app.Application;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yl0;
-@Service
 /* loaded from: classes6.dex */
-public class it0 implements cm0 {
+public class it0 implements lt0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,22 +25,30 @@ public class it0 implements cm0 {
         }
     }
 
-    @Override // com.repackage.cm0
-    public void a(@NonNull Application application) {
+    @Override // com.repackage.lt0
+    @NonNull
+    public et0 create(@NonNull String str) {
+        InterceptResult invokeL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            yl0.a.a().a(application);
-            wp0.g(application);
-            wp0.e(false);
-            wp0.i("CyberSysPlayer");
-            wp0.j(new cv0());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            int hashCode = str.hashCode();
+            if (hashCode != -812096555) {
+                if (hashCode == 26276517 && str.equals("CyberNetPlayer")) {
+                    c = 0;
+                }
+                c = 65535;
+            } else {
+                if (str.equals("CyberSysPlayer")) {
+                    c = 1;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                return new ot0();
+            }
+            return new gt0();
         }
-    }
-
-    @Override // com.repackage.cm0
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+        return (et0) invokeL.objValue;
     }
 }

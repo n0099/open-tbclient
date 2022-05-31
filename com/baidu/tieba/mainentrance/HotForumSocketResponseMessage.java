@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mf7;
-import com.repackage.nf7;
+import com.repackage.ad7;
+import com.repackage.bd7;
 import com.squareup.wire.Wire;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,9 +21,9 @@ import tbclient.HotForum.HotTopicList;
 public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<mf7> forumInfoList;
+    public List<ad7> forumInfoList;
     public HotSearchInfoData mSearchInfo;
-    public List<nf7> mTopicInfoList;
+    public List<bd7> mTopicInfoList;
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,7 +44,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<mf7> getForumInfoList() {
+    public List<ad7> getForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.forumInfoList : (List) invokeV.objValue;
@@ -56,7 +56,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mSearchInfo : (HotSearchInfoData) invokeV.objValue;
     }
 
-    public List<nf7> getTopicInfoList() {
+    public List<bd7> getTopicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTopicInfoList : (List) invokeV.objValue;
@@ -89,9 +89,9 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         if (list != null) {
             for (ForumInfo forumInfo : list) {
                 if (forumInfo != null) {
-                    mf7 mf7Var = new mf7();
-                    mf7Var.a(forumInfo);
-                    this.forumInfoList.add(mf7Var);
+                    ad7 ad7Var = new ad7();
+                    ad7Var.a(forumInfo);
+                    this.forumInfoList.add(ad7Var);
                 }
             }
         }
@@ -106,9 +106,9 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
             if (list2 != null) {
                 for (HotTopicList hotTopicList : list2) {
                     if (hotTopicList != null) {
-                        nf7 nf7Var = new nf7();
-                        nf7Var.d(hotTopicList);
-                        this.mTopicInfoList.add(nf7Var);
+                        bd7 bd7Var = new bd7();
+                        bd7Var.d(hotTopicList);
+                        this.mTopicInfoList.add(bd7Var);
                     }
                 }
             }

@@ -5,38 +5,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class or9 implements Runnable {
+public final class or9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ vr9 a;
+    public int a;
+    public int[] b;
+    public int[] c;
 
-    public or9(vr9 vr9Var) {
+    public or9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vr9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = vr9Var;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public static void a(or9 or9Var, ir9 ir9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tq9 a = xq9.a(this.a.a.c.a);
-            a.e(new br9(this.a.a.c.b.b()), 200, System.currentTimeMillis() - this.a.a.a);
-            a.m();
-            this.a.a.c.c.onLoaded();
-            this.a.a.c.d = true;
+        if (interceptable == null || interceptable.invokeLL(65537, null, or9Var, ir9Var) == null) {
+            int length = or9Var.c.length;
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2++) {
+                or9Var.c[i2] = i;
+                lr9.n(or9Var.a, or9Var.b, i, ir9Var);
+                i += 1080;
+            }
+        }
+    }
+
+    public static void b(or9 or9Var, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65538, null, or9Var, i, i2) == null) {
+            or9Var.a = i;
+            or9Var.b = new int[i2 * 1080];
+            or9Var.c = new int[i2];
         }
     }
 }

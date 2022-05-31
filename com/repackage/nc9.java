@@ -1,154 +1,49 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.animation.Animator;
+import android.app.Activity;
+import android.util.DisplayMetrics;
+import android.util.Pair;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.connect.NetWorkUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zc9;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONObject;
+import com.bytedance.sdk.openadsdk.ISplashClickEyeListener;
+import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.PxUtils;
+import com.fun.ad.sdk.internal.api.utils.ViewUtils;
 /* loaded from: classes6.dex */
-public class nc9 {
+public class nc9 implements FunSplashAd {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static volatile nc9 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ScheduledExecutorService a;
-    public ExecutorService b;
-    public ad9 c;
-    public Context d;
-    public wc9 e;
+    public final TTSplashAd a;
+    public final View b;
+    public final Pair<Integer, Integer> c;
+    public final int d;
+    public final int e;
+    public boolean f;
+    public int g;
+    public int h;
+    public FrameLayout i;
+    public FunSplashAdInteractionListener j;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ed9 a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ JSONObject d;
-        public final /* synthetic */ nc9 e;
-
-        public a(nc9 nc9Var, ed9 ed9Var, boolean z, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var, ed9Var, Boolean.valueOf(z), str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = nc9Var;
-            this.a = ed9Var;
-            this.b = z;
-            this.c = str;
-            this.d = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ed9 ed9Var;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ed9Var = this.a) == null) {
-                return;
-            }
-            if (this.b) {
-                ed9Var.onSuccess(this.c, this.d);
-                this.e.o(false);
-                return;
-            }
-            String str = this.c;
-            if (TextUtils.isEmpty(str)) {
-                str = IActiveUploadListener.UPLOAD_ERR_MSG;
-            }
-            this.a.onFailure(str, this.d);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ zc9 c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ JSONObject f;
-        public final /* synthetic */ nc9 g;
-
-        public b(nc9 nc9Var, boolean z, boolean z2, zc9 zc9Var, long j, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var, Boolean.valueOf(z), Boolean.valueOf(z2), zc9Var, Long.valueOf(j), str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = nc9Var;
-            this.a = z;
-            this.b = z2;
-            this.c = zc9Var;
-            this.d = j;
-            this.e = str;
-            this.f = jSONObject;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a) {
-                    this.g.c.t(this.b, this.c, this.d, this.e);
-                    this.g.o(!this.b);
-                } else {
-                    this.g.c.s(this.b, this.c, this.d);
-                }
-                this.g.l(this.a, this.c.a(), this.e, this.f, this.c.b());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
+    public class a implements ISplashClickEyeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nc9 a;
 
-        public c(nc9 nc9Var) {
+        public a(nc9 nc9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -166,599 +61,218 @@ public class nc9 {
             this.a = nc9Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public boolean isSupportSplashClickEye(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && fc1.g()) {
-                this.a.e = new wc9();
-                if (pc9.f().p()) {
-                    this.a.c = new ad9(this.a.d, qc9.c);
-                    this.a.n();
-                } else if (pc9.f().o()) {
-                    this.a.c = new ad9(this.a.d, qc9.d);
-                } else {
-                    this.a.c = new ad9(this.a.d, qc9.c);
-                }
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                this.a.f = z;
+                LogPrinter.d("isSupportSplashClickEye:" + z, new Object[0]);
+                return false;
             }
+            return invokeZ.booleanValue;
         }
 
-        public /* synthetic */ c(nc9 nc9Var, a aVar) {
-            this(nc9Var);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-        public String c;
-        public JSONObject d;
-        public JSONObject e;
-        public final /* synthetic */ nc9 f;
-
-        public e(nc9 nc9Var, boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var, Boolean.valueOf(z), str, str2, jSONObject, jSONObject2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = nc9Var;
-            this.a = z;
-            this.b = str;
-            this.c = str2;
-            this.d = jSONObject;
-            this.e = jSONObject2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            List<cd9> list;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f.e == null || TextUtils.isEmpty(this.b) || (list = this.f.e.a.getList()) == null || list.size() <= 0) {
-                return;
-            }
-            for (cd9 cd9Var : list) {
-                if (TextUtils.equals(this.b, cd9Var.getBizType())) {
-                    cd9Var.onReceiveResult(this.a, this.b, this.c, this.d, this.e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public long b;
-        public final /* synthetic */ nc9 c;
-
-        /* loaded from: classes6.dex */
-        public class a implements uc9 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ zc9 a;
-            public final /* synthetic */ f b;
-
-            public a(f fVar, zc9 zc9Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {fVar, zc9Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = fVar;
-                this.a = zc9Var;
-            }
-
-            @Override // com.repackage.uc9
-            public void a(String str, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-                    this.b.c.c.m(true, this.a);
-                    this.b.c.l(false, this.a.a(), "dir not found", jSONObject, this.a.b());
-                }
-            }
-
-            @Override // com.repackage.uc9
-            public void b(String str, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-                    this.b.c.c.u(true, this.a);
-                    this.b.c.l(false, this.a.a(), "zip failed", jSONObject, this.a.b());
-                }
-            }
-
-            @Override // com.repackage.uc9
-            public void c(String str, int i, String str2, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2, jSONObject) == null) {
-                    f fVar = this.b;
-                    fVar.c.k(false, true, this.a, fVar.b, str2, jSONObject);
-                }
-            }
-
-            @Override // com.repackage.uc9
-            public void d(String str, String str2, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, jSONObject) == null) {
-                    f fVar = this.b;
-                    fVar.c.k(true, true, this.a, fVar.b, str2, jSONObject);
-                }
-            }
-        }
-
-        public f(nc9 nc9Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = nc9Var;
-            this.a = z;
-        }
-
-        public final boolean a(zc9 zc9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zc9Var)) == null) {
-                if (!pc9.f().p()) {
-                    if (nc9.f) {
-                        Log.d("VoyagerFileProcessor", "Voyager component disable.");
-                    }
-                    return false;
-                } else if (pc9.f().a(zc9Var.a())) {
-                    return true;
-                } else {
-                    if (nc9.f) {
-                        Log.d("VoyagerFileProcessor", "Voyager bizType " + zc9Var.a() + " disable.");
-                    }
-                    return false;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public void onSplashClickEyeAnimationFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.c.c == null) {
-                    if (nc9.f) {
-                        Log.d("VoyagerFileProcessor", "TaskModel not init");
-                    }
-                } else if (!NetWorkUtils.isConnected(this.c.d)) {
-                    if (nc9.f) {
-                        Log.d("VoyagerFileProcessor", "network error, won't retry ");
-                    }
-                } else {
-                    zc9 i = this.c.c.i();
-                    if (i == null) {
-                        if (nc9.f) {
-                            Log.d("VoyagerFileProcessor", "don't have retry task ");
-                            return;
-                        }
-                        return;
-                    }
-                    if (!a(i)) {
-                        this.c.l(false, i.a(), "component disabled", i.b(), null);
-                    }
-                    if (this.a || this.c.c.b()) {
-                        this.c.c.p();
-                        this.c.c.r();
-                        rc9.g().c(i, new a(this, i));
-                        return;
-                    }
-                    this.c.a.schedule(this, pc9.f().l(), TimeUnit.MILLISECONDS);
-                    if (nc9.f) {
-                        Log.d("VoyagerFileProcessor", "time error, won't retry ");
-                    }
+                LogPrinter.d();
+                ViewUtils.removeFromParent(this.a.i);
+                this.a.i = null;
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.ISplashClickEyeListener
+        public void onSplashClickEyeAnimationStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ float b;
+        public final /* synthetic */ float c;
+        public final /* synthetic */ int[] d;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ nc9 g;
+
+        public b(nc9 nc9Var, ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nc9Var, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.g = nc9Var;
+            this.a = viewGroup;
+            this.b = f;
+            this.c = f2;
+            this.d = iArr;
+            this.e = i;
+            this.f = i2;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.g.a(this.a, this.b, this.c, this.d, this.e, this.f);
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755474163, "Lcom/repackage/nc9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755474163, "Lcom/repackage/nc9;");
-                return;
-            }
-        }
-        f = AppConfig.isDebug();
-    }
-
-    public nc9() {
+    public nc9(TTSplashAd tTSplashAd) {
+        Integer valueOf;
+        int round;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTSplashAd};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = AppRuntime.getAppContext();
-        ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-        this.a = newSingleThreadScheduledExecutor;
-        newSingleThreadScheduledExecutor.execute(new c(this, null));
-        this.b = new ThreadPoolExecutor(1, 1, 600000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        this.d = PxUtils.dp2px(16.0f);
+        this.e = PxUtils.dp2px(100.0f);
+        this.i = new FrameLayout(FunAdSdk.getAppContext());
+        tTSplashAd.setSplashClickEyeListener(new a(this));
+        this.a = tTSplashAd;
+        this.b = tTSplashAd.getSplashView();
+        int[] splashClickEyeSizeToDp = tTSplashAd.getSplashClickEyeSizeToDp();
+        if (splashClickEyeSizeToDp == null || splashClickEyeSizeToDp.length != 2) {
+            DisplayMetrics displayMetrics = FunAdSdk.getAppContext().getResources().getDisplayMetrics();
+            int round2 = Math.round(Math.min(displayMetrics.heightPixels, displayMetrics.widthPixels) * 0.3f);
+            valueOf = Integer.valueOf(round2);
+            round = Math.round((round2 * 16) / 9.0f);
+        } else {
+            valueOf = Integer.valueOf(PxUtils.dp2px(splashClickEyeSizeToDp[0]));
+            round = PxUtils.dp2px(splashClickEyeSizeToDp[1]);
+        }
+        this.c = Pair.create(valueOf, Integer.valueOf(round));
     }
 
-    public static nc9 m() {
-        InterceptResult invokeV;
+    public final void a(ViewGroup viewGroup, float f, float f2, int[] iArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (g == null) {
-                synchronized (nc9.class) {
-                    if (g == null) {
-                        g = new nc9();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            ViewUtils.removeFromParent(this.b);
+            this.b.setScaleX(1.0f);
+            this.b.setScaleY(1.0f);
+            this.b.setX(0.0f);
+            this.b.setY(0.0f);
+            int[] iArr2 = new int[2];
+            viewGroup.getLocationOnScreen(iArr2);
+            float f3 = (f2 - iArr2[1]) + iArr[1];
+            this.i.addView(this.b, -1, -1);
+            viewGroup.addView(this.i, new FrameLayout.LayoutParams(i, i2));
+            this.i.setTranslationX((f - iArr2[0]) + iArr[0]);
+            this.i.setTranslationY(f3);
+            this.a.splashClickEyeAnimationFinish();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public void removeMiniWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LogPrinter.d();
+            FrameLayout frameLayout = this.i;
+            if (frameLayout != null) {
+                ViewUtils.removeFromParent(frameLayout);
+                this.i = null;
             }
-            return g;
+            this.j = null;
         }
-        return (nc9) invokeV.objValue;
     }
 
-    public void j(boolean z, String str, JSONObject jSONObject, ed9 ed9Var) {
+    @Override // com.fun.ad.sdk.FunSplashAd
+    public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, jSONObject, ed9Var}) == null) {
-            this.b.execute(new a(this, ed9Var, z, str, jSONObject));
-        }
-    }
-
-    public final void k(boolean z, boolean z2, zc9 zc9Var, long j, String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), zc9Var, Long.valueOf(j), str, jSONObject}) == null) {
-            this.a.execute(new b(this, z, z2, zc9Var, j, str, jSONObject));
-        }
-    }
-
-    public final void l(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, str2, jSONObject, jSONObject2}) == null) {
-            this.b.execute(new e(this, z, str, str2, jSONObject, jSONObject2));
-        }
-    }
-
-    public void n() {
-        tc9 tc9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tc9Var = (tc9) ServiceManager.getService(tc9.a)) == null) {
-            return;
-        }
-        if (f) {
-            Log.e("VoyagerFileProcessor", "register retry listener");
-        }
-        tc9Var.b();
-        tc9Var.a();
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a.execute(new f(this, z));
-        }
-    }
-
-    public void p(List<String> list, String str, long j, int i, int i2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
-            this.a.execute(new d(this, new ArrayList(list), str, j, i, i2, jSONObject));
-        }
-    }
-
-    public void q(List<String> list, String str, long j, int i, ed9 ed9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{list, str, Long.valueOf(j), Integer.valueOf(i), ed9Var}) == null) {
-            this.a.execute(new d(this, new ArrayList(list), str, j, i, ed9Var));
-        }
-    }
-
-    public void r(String str, String str2, int i, int i2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), jSONObject}) == null) {
-            this.a.execute(new d(this, str, str2, i, i2, jSONObject));
-        }
-    }
-
-    public void s(String str, String str2, ed9 ed9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, ed9Var) == null) {
-            this.a.execute(new d(this, str, str2, ed9Var));
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public zc9 a;
-        public long b;
-        public boolean c;
-        public ed9 d;
-        public final /* synthetic */ nc9 e;
-
-        /* loaded from: classes6.dex */
-        public class a implements uc9 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // com.repackage.uc9
-            public void a(String str, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-                    if (this.a.c) {
-                        this.a.e.c.m(false, this.a.a);
-                        d dVar = this.a;
-                        dVar.e.l(false, dVar.a.a(), "dir not found", this.a.a.b(), null);
-                    } else if (this.a.d != null) {
-                        d dVar2 = this.a;
-                        dVar2.e.j(false, "dir not found", dVar2.a.c(), this.a.d);
-                    }
-                }
-            }
-
-            @Override // com.repackage.uc9
-            public void b(String str, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-                    this.a.a.n(jSONObject);
-                    if (this.a.c) {
-                        this.a.e.c.u(false, this.a.a);
-                        d dVar = this.a;
-                        dVar.e.l(false, dVar.a.a(), "zip failed", this.a.a.b(), null);
-                    } else if (this.a.d != null) {
-                        d dVar2 = this.a;
-                        dVar2.e.j(false, "zip failed", dVar2.a.c(), this.a.d);
-                    }
-                }
-            }
-
-            @Override // com.repackage.uc9
-            public void c(String str, int i, String str2, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2, jSONObject) == null) {
-                    if (!this.a.c) {
-                        if (this.a.d != null) {
-                            d dVar = this.a;
-                            dVar.e.j(false, str2, jSONObject, dVar.d);
-                            return;
-                        }
-                        return;
-                    }
-                    d dVar2 = this.a;
-                    dVar2.e.k(false, false, dVar2.a, this.a.b, str2, jSONObject);
-                }
-            }
-
-            @Override // com.repackage.uc9
-            public void d(String str, String str2, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, jSONObject) == null) {
-                    if (!this.a.c) {
-                        if (this.a.d != null) {
-                            d dVar = this.a;
-                            dVar.e.j(true, str2, jSONObject, dVar.d);
-                            return;
-                        }
-                        return;
-                    }
-                    d dVar2 = this.a;
-                    dVar2.e.k(true, false, dVar2.a, this.a.b, str2, jSONObject);
-                }
-            }
-        }
-
-        public d(nc9 nc9Var, ArrayList<String> arrayList, String str, long j, int i, int i2, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var, arrayList, str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), jSONObject};
-                interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65538, newInitContext);
-                    return;
-                }
-            }
-            this.e = nc9Var;
-            zc9.b bVar = new zc9.b(str, arrayList);
-            bVar.o(i);
-            bVar.l(jSONObject);
-            bVar.m(j);
-            bVar.p(true);
-            bVar.n(i2);
-            this.a = bVar.k();
-            this.c = true;
-        }
-
-        public final boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!pc9.f().p()) {
-                    if (nc9.f) {
-                        Log.d("VoyagerFileProcessor", "Voyager component disable.");
-                    }
-                    if (pc9.f().o()) {
-                        this.e.c.c();
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
+            if (activity != null) {
+                if (!this.f) {
+                    LogPrinter.d("showMiniWindow failed without support", new Object[0]);
                     return false;
-                } else if (pc9.f().a(this.a.a())) {
-                    return true;
+                } else if (this.i == null) {
+                    LogPrinter.d("showMiniWindow failed:Can't showMiniWindow again", new Object[0]);
+                    return false;
                 } else {
-                    if (nc9.f) {
-                        Log.d("VoyagerFileProcessor", "Voyager bizType " + this.a.a() + " disable.");
+                    this.j = funSplashAdInteractionListener;
+                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                    ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(16908290);
+                    int[] iArr = new int[2];
+                    this.b.getLocationOnScreen(iArr);
+                    int width = this.b.getWidth();
+                    int height = this.b.getHeight();
+                    int i = this.g;
+                    int i2 = this.h;
+                    if (i == 0 || i2 == 0) {
+                        LogPrinter.d("showMiniWindow failed without invalid origin view width and height", new Object[0]);
+                        return false;
                     }
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                rc9.g().d(this.a, new a(this));
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (!e()) {
-                    if (this.c) {
-                        this.e.l(false, this.a.a(), "component disabled", this.a.b(), null);
-                        return;
-                    } else if (this.d != null) {
-                        this.e.j(false, "component disabled", this.a.c(), this.d);
-                        return;
-                    } else {
-                        return;
+                    int intValue = ((Integer) this.c.first).intValue();
+                    int intValue2 = ((Integer) this.c.second).intValue();
+                    float f = intValue / width;
+                    float f2 = intValue2 / height;
+                    float f3 = (i - this.d) - intValue;
+                    float f4 = (i2 - this.e) - intValue2;
+                    ViewUtils.removeFromParent(this.b);
+                    viewGroup.addView(this.b, new FrameLayout.LayoutParams(width, height));
+                    this.b.setPivotX(0.0f);
+                    this.b.setPivotY(0.0f);
+                    if (z) {
+                        this.b.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(300L).setListener(new b(this, viewGroup2, f3, f4, iArr, intValue, intValue2));
+                        return true;
                     }
-                }
-                if (this.c) {
-                    this.e.c.k(this.a);
-                }
-                f();
-            }
-        }
-
-        public d(nc9 nc9Var, ArrayList<String> arrayList, String str, long j, int i, ed9 ed9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var, arrayList, str, Long.valueOf(j), Integer.valueOf(i), ed9Var};
-                interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65539, newInitContext);
-                    return;
+                    a(viewGroup2, f3, f4, iArr, intValue, intValue2);
+                    return true;
                 }
             }
-            this.e = nc9Var;
-            zc9.b bVar = new zc9.b(str, arrayList);
-            bVar.m(j);
-            bVar.n(i);
-            bVar.p(true);
-            this.a = bVar.k();
-            this.d = ed9Var;
+            throw new IllegalArgumentException();
         }
-
-        public d(nc9 nc9Var, String str, String str2, ed9 ed9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var, str, str2, ed9Var};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.e = nc9Var;
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(str);
-            zc9.b bVar = new zc9.b(str2, arrayList);
-            bVar.p(false);
-            this.a = bVar.k();
-            this.d = ed9Var;
-        }
-
-        public d(nc9 nc9Var, String str, String str2, int i, int i2, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nc9Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2), jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = nc9Var;
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(str);
-            zc9.b bVar = new zc9.b(str2, arrayList);
-            bVar.p(false);
-            bVar.o(i);
-            bVar.n(i2);
-            bVar.l(jSONObject);
-            this.a = bVar.k();
-            this.c = true;
-        }
+        return invokeCommon.booleanValue;
     }
 }

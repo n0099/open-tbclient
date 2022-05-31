@@ -1,15 +1,8 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.browser.sailor.platform.BdSailorPlatform;
+import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,349 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hw;
-import com.repackage.iw;
+import com.baidu.webkit.sdk.LoadErrorCode;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
 /* loaded from: classes6.dex */
-public class lw extends iw {
-    public static /* synthetic */ Interceptable $ic;
-    public static View a;
-    public static Runnable b;
-    public static View c;
-    public static boolean d;
+public class lw implements WebKitFactory.WebkitInstallListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String c = "lw";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ View c;
-        public final /* synthetic */ FrameLayout.LayoutParams d;
-        public final /* synthetic */ Animation e;
-
-        public a(View view2, Context context, View view3, FrameLayout.LayoutParams layoutParams, Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, context, view3, layoutParams, animation};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = context;
-            this.c = view3;
-            this.d = layoutParams;
-            this.e = animation;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (lw.d && this.a != null) {
-                    if (lw.c != null && (lw.c.getParent() instanceof ViewGroup)) {
-                        ((ViewGroup) lw.c.getParent()).removeView(lw.c);
-                    }
-                    Context context = this.b;
-                    if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-                        return;
-                    }
-                    FrameLayout frameLayout = new FrameLayout(this.b);
-                    frameLayout.setClickable(true);
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                    layoutParams.topMargin = hw.m(this.b);
-                    View view2 = this.a;
-                    if (view2 instanceof ViewGroup) {
-                        ((ViewGroup) view2).addView(frameLayout, layoutParams);
-                        View unused = lw.c = frameLayout;
-                    }
-                }
-                if (lw.a != null && (lw.a.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) lw.a.getParent()).removeView(lw.a);
-                }
-                Context context2 = this.b;
-                if ((context2 instanceof Activity) && ((Activity) context2).isFinishing()) {
-                    return;
-                }
-                ((ViewGroup) this.a).addView(this.c, this.d);
-                this.c.startAnimation(this.e);
-                View unused2 = lw.a = this.c;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                lw.f();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements iw.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ View b;
-        public final /* synthetic */ int c;
-
-        public c(int i, View view2, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), view2, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = view2;
-            this.c = i2;
-        }
-
-        @Override // com.repackage.iw.e
-        public void a(ViewGroup viewGroup) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) {
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                layoutParams.gravity = 81;
-                layoutParams.bottomMargin = this.a;
-                lw.k(this.b, viewGroup, this.c, layoutParams, R.anim.obfuscated_res_0x7f010119);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d implements hw.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hw.a a;
-
-        public d(hw.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = aVar;
-        }
-
-        @Override // com.repackage.hw.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hw.a aVar = this.a;
-                if (aVar != null) {
-                    aVar.a();
-                }
-                lw.f();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ View b;
-
-        /* loaded from: classes6.dex */
-        public class a implements Animation.AnimationListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            /* renamed from: com.repackage.lw$e$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class RunnableC0461a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                public RunnableC0461a(a aVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = aVar;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.a.a.getParent() == null) {
-                        return;
-                    }
-                    ((ViewGroup) this.a.a.a.getParent()).removeView(this.a.a.a);
-                }
-            }
-
-            /* loaded from: classes6.dex */
-            public class b implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ a a;
-
-                public b(a aVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.a = aVar;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    View view2;
-                    Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (view2 = this.a.a.b) == null || view2.getParent() == null || !(this.a.a.b.getParent() instanceof ViewGroup)) {
-                        return;
-                    }
-                    ((ViewGroup) this.a.a.b.getParent()).removeView(this.a.a.b);
-                }
-            }
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationEnd(Animation animation) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                    if (this.a.a.getParent() instanceof ViewGroup) {
-                        this.a.a.post(new RunnableC0461a(this));
-                    }
-                    View view2 = this.a.b;
-                    if (view2 != null) {
-                        view2.post(new b(this));
-                    }
-                }
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationRepeat(Animation animation) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-                }
-            }
-
-            @Override // android.view.animation.Animation.AnimationListener
-            public void onAnimationStart(Animation animation) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                }
-            }
-        }
-
-        public e(View view2, View view3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-            this.b = view3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.a.getContext(), R.anim.obfuscated_res_0x7f01011a);
-                loadAnimation.setAnimationListener(new a(this));
-                this.a.startAnimation(loadAnimation);
-            }
-        }
-    }
+    public byte a;
+    public long b;
 
     static {
         InterceptResult invokeClinit;
@@ -376,72 +36,75 @@ public class lw extends iw {
         }
     }
 
-    public static View d(Activity activity) {
-        InterceptResult invokeL;
+    public lw() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            if (activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
-                return null;
-            }
-            return activity.getWindow().getDecorView().findViewById(16908290);
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public static synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (lw.class) {
-                if (a != null) {
-                    a.post(new e(a, c));
-                    a.removeCallbacks(b);
-                    a = null;
-                    b = null;
-                    c = null;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void g(Activity activity, CharSequence charSequence, int i, CharSequence charSequence2, int i2, int i3, String str, String str2, String str3, String str4, String str5, String str6, hw.a aVar, fu fuVar) {
-        View d2;
+    public static void c(LoadErrorCode loadErrorCode) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{activity, charSequence, Integer.valueOf(i), charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, str4, str5, str6, aVar, fuVar}) == null) || (d2 = d(activity)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65538, null, loadErrorCode) == null) {
+            BdSailorPlatform.getStatic().b("init-webkit", "Err = " + loadErrorCode.getInt() + loadErrorCode.getString());
         }
-        activity.getResources();
-        Context context = d2.getContext();
-        int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705f3);
-        if (fuVar != null) {
-            dimension = fuVar.a();
-        }
-        iw.b(context, charSequence, i, charSequence2, i2, str, str2, str3, str4, str5, str6, new c(dimension, d2, i3), new d(aVar));
     }
 
-    public static void i(View view2, View view3, int i, FrameLayout.LayoutParams layoutParams, Animation animation) {
+    public final void a(LoadErrorCode loadErrorCode) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{view2, view3, Integer.valueOf(i), layoutParams, animation}) == null) || view2 == null || view3 == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, loadErrorCode) == null) {
+            WebKitFactory.setEngine(0);
+            BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, loadErrorCode);
+        }
+    }
+
+    public final void b(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || str == null) {
             return;
         }
-        Context context = view2.getContext();
-        if (view3.getParent() instanceof ViewGroup) {
-            ((ViewGroup) view3.getParent()).removeView(view3);
+        this.a = (byte) 0;
+        if (!str.startsWith("file://")) {
+            str = "file://".concat(String.valueOf(str));
         }
-        view3.setClickable(true);
-        if (view2 instanceof ViewGroup) {
-            view2.post(new a(view2, context, view3, layoutParams, animation));
-            if (b == null) {
-                b = new b();
+        BdZeusUtil.printKernellog("install plugin from download");
+        WebKitFactory.installAsync(str, this);
+        this.b = System.currentTimeMillis();
+        Log.i(c, "full update started!");
+    }
+
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallFinish(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            System.currentTimeMillis();
+            Log.i("soar", "the return value of installing kernal is: ".concat(String.valueOf(i)));
+            BdZeusUtil.printKernellog("oninstalled: " + i + " targetpath: " + str);
+            if (i == 0) {
+                Log.d(c, "install success!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginSuccess(BdSailorPlatform.getInstance().getAppContext(), str, this.a);
+            } else {
+                Log.d(c, "install failed!");
+                BdSailorPlatform.getWebkitManager().onInstallZeusPluginFailed(this.a, WebKitFactory.getLoadErrorCode());
             }
-            view2.postDelayed(b, i * 1000);
+            BdSailorPlatform.getWebkitManager().enableBdWebkit();
+            long currentTimeMillis = System.currentTimeMillis() - this.b;
+            String str2 = c;
+            Log.i(str2, "total timecost: " + String.valueOf(currentTimeMillis));
         }
     }
 
-    public static void k(View view2, View view3, int i, FrameLayout.LayoutParams layoutParams, int i2) {
+    @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
+    public void onInstallStart() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{view2, view3, Integer.valueOf(i), layoutParams, Integer.valueOf(i2)}) == null) || view2 == null || view3 == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-        i(view2, view3, i, layoutParams, AnimationUtils.loadAnimation(view2.getContext(), i2));
     }
 }

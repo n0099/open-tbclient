@@ -1,39 +1,27 @@
 package com.repackage;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
 /* loaded from: classes6.dex */
 public class ok3 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static volatile nk3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755436870, "Lcom/repackage/ok3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755436870, "Lcom/repackage/ok3;");
-                return;
-            }
-        }
-        a = getContext().isDebug();
-    }
-
-    @Inject
-    public static mk3 getContext() {
+    public static synchronized nk3 a() {
         InterceptResult invokeV;
+        nk3 nk3Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? nk2.a() : (mk3) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ok3.class) {
+                if (a == null) {
+                    a = new nk3();
+                }
+                nk3Var = a;
+            }
+            return nk3Var;
+        }
+        return (nk3) invokeV.objValue;
     }
 }

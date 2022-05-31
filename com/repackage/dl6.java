@@ -1,117 +1,167 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dl6 extends eo<ml6, a> {
+public class dl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext<?> a;
+    public final String b;
+    public LikeModel c;
+    public gl6 d;
 
     /* loaded from: classes5.dex */
-    public class a extends TypeAdapter.ViewHolder {
+    public class a extends a9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
+        public final /* synthetic */ dl6 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(dl6 dl6Var, View view2) {
-            super(view2);
+        public a(dl6 dl6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dl6Var, view2};
+                Object[] objArr = {dl6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            if (view2 instanceof TextView) {
-                this.a = (TextView) view2;
-                ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-                marginLayoutParams.topMargin = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-                this.a.setLayoutParams(marginLayoutParams);
-                this.a.setText(R.string.obfuscated_res_0x7f0f0702);
-                this.a.setPadding(mi.f(dl6Var.a, R.dimen.M_W_X005), mi.f(dl6Var.a, R.dimen.M_H_X005), 0, 0);
-                gs4 d = gs4.d(this.a);
-                d.z(R.dimen.T_X07);
-                d.A(R.string.F_X02);
-            }
+            this.a = dl6Var;
         }
 
-        public void c() {
-            TextView textView;
+        @Override // com.repackage.a9
+        public void c(Object obj) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.a) == null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                if (!(obj instanceof ag8) || this.a.c.getErrorCode() != 0) {
+                    if (AntiHelper.m(this.a.c.getErrorCode(), this.a.c.getErrorString())) {
+                        AntiHelper.u(this.a.a.getPageActivity(), this.a.c.getErrorString());
+                    } else {
+                        this.a.a.showToast(this.a.c.getErrorString());
+                    }
+                } else if (this.a.d != null) {
+                    this.a.d.a();
+                }
             }
-            gs4 d = gs4.d(textView);
-            d.v(R.color.CAM_X0105);
-            d.m(1);
-            d.n(R.string.J_X06);
-            d.f(R.color.CAM_X0205);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dl6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public dl6(TbPageContext<?> tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = bdUniqueId2;
+        this.a = tbPageContext;
+        this.b = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: b0 */
-    public a M(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void d() {
+        LikeModel likeModel;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(this, new TextView(this.a)) : (a) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
-    /* renamed from: c0 */
-    public View S(int i, View view2, ViewGroup viewGroup, ml6 ml6Var, a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ml6Var, aVar})) == null) {
-            aVar.c();
-            return aVar.b();
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (likeModel = this.c) == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        likeModel.L();
+    }
+
+    public final void e(of8 of8Var, int i, gl6 gl6Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, of8Var, i, gl6Var) == null) || this.a == null || of8Var == null) {
+            return;
+        }
+        this.d = gl6Var;
+        if (this.c == null) {
+            f();
+        }
+        if (this.c.N()) {
+            TbPageContext<?> tbPageContext = this.a;
+            tbPageContext.showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0037));
+            return;
+        }
+        this.c.P(of8Var.c, of8Var.a);
+        k(i + 1);
+    }
+
+    public final void f() {
+        TbPageContext<?> tbPageContext;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tbPageContext = this.a) == null) {
+            return;
+        }
+        LikeModel likeModel = new LikeModel(tbPageContext);
+        this.c = likeModel;
+        likeModel.setLoadDataCallBack(new a(this));
+    }
+
+    public void g(of8 of8Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, of8Var) == null) || this.a == null || of8Var == null) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.getPageActivity()).createNormalCfg(of8Var.c, null)));
+        j();
+    }
+
+    public void h(of8 of8Var, int i, gl6 gl6Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(1048580, this, of8Var, i, gl6Var) == null) || of8Var == null || of8Var.e) {
+            return;
+        }
+        e(of8Var, i, gl6Var);
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            el6.a(3, -1);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            el6.a(2, -1);
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            el6.a(1, i);
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            el6.b(this.b, i);
+        }
     }
 }

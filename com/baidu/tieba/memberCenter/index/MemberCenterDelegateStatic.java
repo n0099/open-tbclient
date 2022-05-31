@@ -21,13 +21,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d55;
-import com.repackage.e55;
-import com.repackage.f55;
-import com.repackage.iu4;
-import com.repackage.mi;
+import com.repackage.a45;
+import com.repackage.li;
+import com.repackage.y35;
+import com.repackage.ys4;
+import com.repackage.z35;
 /* loaded from: classes3.dex */
-public class MemberCenterDelegateStatic extends d55 {
+public class MemberCenterDelegateStatic extends y35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView c;
@@ -61,14 +61,14 @@ public class MemberCenterDelegateStatic extends d55 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            e55 b;
+            z35 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             MemberCenterDelegateStatic memberCenterDelegateStatic = new MemberCenterDelegateStatic();
-            ((f55) customResponsedMessage.getData()).a(memberCenterDelegateStatic);
-            if (((f55) customResponsedMessage.getData()).getContext() == null || (b = memberCenterDelegateStatic.b()) == null) {
+            ((a45) customResponsedMessage.getData()).a(memberCenterDelegateStatic);
+            if (((a45) customResponsedMessage.getData()).getContext() == null || (b = memberCenterDelegateStatic.b()) == null) {
                 return;
             }
             b.a.setArguments(new Bundle());
@@ -113,7 +113,7 @@ public class MemberCenterDelegateStatic extends d55 {
                     this.a.c.setVisibility(8);
                 } else {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    iu4 k = iu4.k();
+                    ys4 k = ys4.k();
                     if (TbadkCoreApplication.getInst().getLastUpdateMemberCenterTime() > k.m("maintab_member_center_red_tip_" + currentAccount, 0L)) {
                         this.a.c.setVisibility(0);
                     } else {
@@ -154,30 +154,30 @@ public class MemberCenterDelegateStatic extends d55 {
         }
     }
 
-    @Override // com.repackage.d55
-    public e55 a() {
+    @Override // com.repackage.y35
+    public z35 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            e55 e55Var = new e55();
-            e55Var.a = new MemberCenterFragment();
-            e55Var.e = 14;
-            e55Var.b = R.string.obfuscated_res_0x7f0f0aa3;
-            return e55Var;
+            z35 z35Var = new z35();
+            z35Var.a = new MemberCenterFragment();
+            z35Var.e = 14;
+            z35Var.b = R.string.obfuscated_res_0x7f0f0aaa;
+            return z35Var;
         }
-        return (e55) invokeV.objValue;
+        return (z35) invokeV.objValue;
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.y35
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ef, (ViewGroup) null);
+            this.b = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ea, (ViewGroup) null);
             this.c = new ImageView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f = this.b;
-            aVar.c = mi.d(context, 3.0f);
+            aVar.c = li.d(context, 3.0f);
             ImageView imageView = this.c;
             aVar.a = imageView;
             aVar.d = R.drawable.icon_news_down_bar_one;
@@ -188,14 +188,14 @@ public class MemberCenterDelegateStatic extends d55 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.y35
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.MEMBER_CENTER_TAB_AVAILABLE : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.y35
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -204,7 +204,7 @@ public class MemberCenterDelegateStatic extends d55 {
         }
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.y35
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

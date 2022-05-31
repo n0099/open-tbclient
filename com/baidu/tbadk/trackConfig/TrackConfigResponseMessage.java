@@ -12,7 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iu4;
+import com.repackage.ys4;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,7 +56,7 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
                         z = false;
                     }
                     this.isOpenTrack = z;
-                    iu4.k().u("key_is_open_track", this.isOpenTrack);
+                    ys4.k().u("key_is_open_track", this.isOpenTrack);
                     TbSingleton.getInstance().setIsOpenTrack(this.isOpenTrack);
                 } catch (JSONException e) {
                     BdLog.e("open track parese exception " + e.toString());
@@ -68,7 +69,7 @@ public class TrackConfigResponseMessage extends JsonHttpResponsedMessage {
                 }
                 for (String str : header) {
                     if (!StringUtils.isNull(str) && str.contains("BAIDUID=")) {
-                        for (String str2 : str.split(";")) {
+                        for (String str2 : str.split(ParamableElem.DIVIDE_PARAM)) {
                             if (!StringUtils.isNull(str2) && str2.contains("BAIDUID=")) {
                                 TbSingleton.getInstance().setBaiduIdForAnti(str2.trim().substring(8));
                                 return;

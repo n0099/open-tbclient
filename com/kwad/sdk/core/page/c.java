@@ -76,17 +76,17 @@ public class c implements p.b {
         public final String c;
         public final String d;
 
-        public b(C0303c c0303c) {
-            this.a = c0303c.a;
-            this.b = c0303c.b;
-            this.c = c0303c.d;
-            this.d = c0303c.c;
+        public b(C0304c c0304c) {
+            this.a = c0304c.a;
+            this.b = c0304c.b;
+            this.c = c0304c.d;
+            this.d = c0304c.c;
         }
     }
 
     /* renamed from: com.kwad.sdk.core.page.c$c  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0303c {
+    public static class C0304c {
         public boolean a = true;
         public boolean b = true;
         public String c;
@@ -96,22 +96,22 @@ public class c implements p.b {
             return new b(this);
         }
 
-        public C0303c a(String str) {
+        public C0304c a(String str) {
             this.c = str;
             return this;
         }
 
-        public C0303c a(boolean z) {
+        public C0304c a(boolean z) {
             this.a = z;
             return this;
         }
 
-        public C0303c b(String str) {
+        public C0304c b(String str) {
             this.d = str;
             return this;
         }
 
-        public C0303c b(boolean z) {
+        public C0304c b(boolean z) {
             this.b = z;
             return this;
         }
@@ -123,7 +123,7 @@ public class c implements p.b {
         this.b = adTemplate;
         this.c = i;
         this.z = z;
-        this.d = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0406, (ViewGroup) null);
+        this.d = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03fc, (ViewGroup) null);
     }
 
     private <T extends View> T a(int i) {
@@ -246,14 +246,14 @@ public class c implements p.b {
     }
 
     private void k() {
-        LinearLayout linearLayout = (LinearLayout) a(R.id.obfuscated_res_0x7f09119a);
+        LinearLayout linearLayout = (LinearLayout) a(R.id.obfuscated_res_0x7f09115c);
         this.o = linearLayout;
         if (this.B) {
             linearLayout.setVisibility(8);
             return;
         }
-        this.p = (TextView) a(R.id.obfuscated_res_0x7f09119b);
-        ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f09119c);
+        this.p = (TextView) a(R.id.obfuscated_res_0x7f09115d);
+        ImageView imageView = (ImageView) a(R.id.obfuscated_res_0x7f09115e);
         this.q = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.c.6
             @Override // android.view.View.OnClickListener
@@ -328,9 +328,9 @@ public class c implements p.b {
         AdInfo.AdBaseInfo adBaseInfo;
         String str;
         this.B = (TextUtils.isEmpty(bVar.d) || TextUtils.isEmpty(bVar.c)) ? false : true;
-        this.e = (KsAdWebView) a(R.id.obfuscated_res_0x7f091191);
-        TextView textView = (TextView) a(R.id.obfuscated_res_0x7f0910b5);
-        this.f = (ImageView) a(R.id.obfuscated_res_0x7f0910b6);
+        this.e = (KsAdWebView) a(R.id.obfuscated_res_0x7f091153);
+        TextView textView = (TextView) a(R.id.obfuscated_res_0x7f091077);
+        this.f = (ImageView) a(R.id.obfuscated_res_0x7f091078);
         a((WebView) this.e);
         c(this.e);
         this.e.setTemplateData(this.b);
@@ -362,8 +362,8 @@ public class c implements p.b {
                 }
             }
         });
-        this.g = (ImageView) a(R.id.obfuscated_res_0x7f0910b7);
-        this.r = (ViewGroup) a(R.id.obfuscated_res_0x7f0910bc);
+        this.g = (ImageView) a(R.id.obfuscated_res_0x7f091079);
+        this.r = (ViewGroup) a(R.id.obfuscated_res_0x7f09107e);
         if (this.B) {
             str = bVar.d;
         } else {
@@ -405,11 +405,11 @@ public class c implements p.b {
                     b(this.e);
                 }
                 b(bVar);
-                this.h = (LinearLayout) a(R.id.obfuscated_res_0x7f091115);
-                this.i = (TextView) a(R.id.obfuscated_res_0x7f091112);
-                this.j = (TextView) a(R.id.obfuscated_res_0x7f091113);
-                this.k = (TextView) a(R.id.obfuscated_res_0x7f091111);
-                this.l = (TextView) a(R.id.obfuscated_res_0x7f091114);
+                this.h = (LinearLayout) a(R.id.obfuscated_res_0x7f0910d7);
+                this.i = (TextView) a(R.id.obfuscated_res_0x7f0910d4);
+                this.j = (TextView) a(R.id.obfuscated_res_0x7f0910d5);
+                this.k = (TextView) a(R.id.obfuscated_res_0x7f0910d3);
+                this.l = (TextView) a(R.id.obfuscated_res_0x7f0910d6);
                 if (com.kwad.sdk.core.response.a.d.v(this.b)) {
                     this.h.setVisibility(0);
                     if (!this.b.mRewardVerifyCalled) {

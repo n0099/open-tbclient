@@ -1,222 +1,130 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public class uy0 {
+public class uy0 extends BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uy0(int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? TextUtils.isEmpty(str) ? str : j(str).replaceAll("\"\\{", "\\{").replaceAll("\\}\"", "\\}") : (String) invokeL.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (i != 1) {
+            String d = d();
+            Log.w(d, "You are creating a SerialExecutorCell with maxThreadNum " + i + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.");
+            this.b = 1;
+        }
+        this.c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
     }
 
-    public static Map<String, String> b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
-                    hashMap.put(next, optString);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e() < 1 : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SerialElasticExecutorCell" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public synchronized void f(ElasticTask elasticTask) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, elasticTask) == null) {
+            synchronized (this) {
+                super.f(elasticTask);
+                if (oy0.b) {
+                    dz0.f().n(oy0.c + 10);
                 }
             }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
-            }
-            try {
-                return new JSONObject(str);
-            } catch (Exception e) {
-                h(e.getMessage());
-                return new JSONObject();
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static void d(JSONObject jSONObject, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, jSONObject, str, i) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                try {
-                    jSONObject.put(str, i);
-                    return;
-                } catch (Exception e) {
-                    i(e);
-                    return;
-                }
-            }
-            h("json或key值不合法！");
         }
     }
 
-    public static void e(JSONObject jSONObject, String str, long j) {
+    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
+    public synchronized void g(ElasticTask elasticTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONObject, str, Long.valueOf(j)}) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                try {
-                    jSONObject.put(str, j);
-                    return;
-                } catch (Exception e) {
-                    i(e);
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeL(1048579, this, elasticTask) == null) {
+            synchronized (this) {
+                super.g(elasticTask);
+                dz0.f().o();
             }
-            h("json或key值不合法！");
         }
     }
 
-    public static <T> void f(JSONObject jSONObject, String str, T t) {
+    public final void i(ElasticTask elasticTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, jSONObject, str, t) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                try {
-                    jSONObject.put(str, t);
-                    return;
-                } catch (Exception e) {
-                    i(e);
-                    return;
-                }
-            }
-            h("json或key值不合法！");
+        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
+            elasticTask.h(null);
+            this.c.shutdown();
+            this.a.clear();
+            this.c = new ThreadPoolExecutor(1, 1, 1000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+            dz0.f().o();
         }
     }
 
-    public static void g(JSONObject jSONObject, String str, boolean z) {
+    public synchronized boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65542, null, jSONObject, str, z) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                try {
-                    jSONObject.put(str, z);
-                    return;
-                } catch (Exception e) {
-                    i(e);
-                    return;
-                }
-            }
-            h("json或key值不合法！");
-        }
-    }
-
-    public static void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-        }
-    }
-
-    public static void i(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
-        }
-    }
-
-    public static String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                StringWriter stringWriter = new StringWriter(str.length());
-                k(stringWriter, str);
-                return stringWriter.toString();
-            } catch (IOException e) {
-                h(e.getMessage());
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void k(Writer writer, String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, writer, str) == null) {
-            if (writer == null) {
-                throw new IllegalArgumentException("The Writer must not be null");
-            }
-            if (str != null) {
-                int length = str.length();
-                StringBuilder sb = new StringBuilder(4);
-                boolean z = false;
-                boolean z2 = false;
-                for (int i = 0; i < length; i++) {
-                    char charAt = str.charAt(i);
-                    if (z2) {
-                        sb.append(charAt);
-                        if (sb.length() == 4) {
-                            try {
-                                writer.write((char) Integer.parseInt(sb.toString(), 16));
-                                sb.setLength(0);
-                                z = false;
-                                z2 = false;
-                            } catch (NumberFormatException e) {
-                                h(e.getMessage());
-                            }
-                        }
-                    } else if (z) {
-                        if (charAt == '\"') {
-                            writer.write(34);
-                        } else if (charAt == '\'') {
-                            writer.write(39);
-                        } else if (charAt == '\\') {
-                            writer.write(92);
-                        } else if (charAt == 'b') {
-                            writer.write(8);
-                        } else if (charAt == 'f') {
-                            writer.write(12);
-                        } else if (charAt == 'n') {
-                            writer.write(10);
-                        } else if (charAt == 'r') {
-                            writer.write(13);
-                        } else if (charAt == 't') {
-                            writer.write(9);
-                        } else if (charAt != 'u') {
-                            writer.write(charAt);
-                        } else {
-                            z = false;
-                            z2 = true;
-                        }
-                        z = false;
-                    } else if (charAt == '\\') {
-                        z = true;
-                    } else {
-                        writer.write(charAt);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                if (oy0.b) {
+                    ElasticTask k = k();
+                    if (k == null) {
+                        return false;
                     }
+                    if (k.c() >= oy0.c) {
+                        i(k);
+                        return true;
+                    }
+                    return false;
                 }
-                if (z) {
-                    writer.write(92);
-                }
+                return false;
             }
         }
+        return invokeV.booleanValue;
+    }
+
+    public final synchronized ElasticTask k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                if (this.a.isEmpty()) {
+                    return null;
+                }
+                return this.a.get(0);
+            }
+        }
+        return (ElasticTask) invokeV.objValue;
     }
 }

@@ -5,13 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class mc5 {
+public abstract class mc5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
 
     public mc5() {
         Interceptable interceptable = $ic;
@@ -26,4 +22,6 @@ public class mc5 {
             }
         }
     }
+
+    public abstract T doInBackground();
 }

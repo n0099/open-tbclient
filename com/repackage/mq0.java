@@ -1,147 +1,268 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.video.videoplayer.widget.PlayDrawable;
+import com.baidu.searchbox.player.event.ControlEvent;
+import com.baidu.searchbox.player.event.LayerEvent;
+import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.lq0;
-import java.util.List;
-import kotlin.Pair;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-@JvmName(name = "CloudClarityConfig")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class mq0 {
+public class mq0 extends fq0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView b;
+    public PlayDrawable c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755490779, "Lcom/repackage/mq0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ mq0 b;
+
+        public a(mq0 mq0Var, boolean z) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755490779, "Lcom/repackage/mq0;");
-                return;
-            }
-        }
-        a = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"sd", "hd", Config.STAT_SDK_CHANNEL, "1080p"});
-    }
-
-    public static final Pair<Integer, Integer> a(ClarityUrlList list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            Intrinsics.checkNotNullParameter(list, "list");
-            String b = b(true);
-            int i = 0;
-            String b2 = b(false);
-            int size = list.size() - 1;
-            int i2 = 0;
-            for (ClarityUrlList.c entity : list) {
-                Intrinsics.checkNotNullExpressionValue(entity, "entity");
-                if (TextUtils.equals(entity.c(), b)) {
-                    i = i2;
-                } else if (TextUtils.equals(entity.c(), b2)) {
-                    size = i2;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mq0Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                i2++;
             }
-            return new Pair<>(Integer.valueOf(size), Integer.valueOf(i));
+            this.b = mq0Var;
+            this.a = z;
         }
-        return (Pair) invokeL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a) {
+                    this.b.b.setVisibility(0);
+                } else {
+                    this.b.b.setVisibility(8);
+                }
+            }
+        }
     }
 
-    public static final String b(boolean z) {
-        InterceptResult invokeZ;
+    public mq0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return f();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return e();
         }
-        return (String) invokeZ.objValue;
     }
 
-    public static final lq0 c() {
+    @Override // com.repackage.gq0
+    @NonNull
+    public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String a2 = iy0.a();
-            if (a2 != null) {
-                int hashCode = a2.hashCode();
-                if (hashCode != 49) {
-                    if (hashCode == 50 && a2.equals("2")) {
-                        return lq0.a.a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+    }
+
+    @Override // com.repackage.zp0
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = new ImageView(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(y01.b(42.0f), y01.b(42.0f));
+            layoutParams.gravity = 17;
+            this.c = new PlayDrawable();
+            this.b.setLayoutParams(layoutParams);
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e3b));
+            this.b.setImageDrawable(this.c);
+            this.b.setOnClickListener(this);
+            this.b.setVisibility(8);
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @Override // com.repackage.zp0
+    public void k(@NonNull er0 er0Var) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, er0Var) == null) {
+            String c2 = er0Var.c();
+            switch (c2.hashCode()) {
+                case -150836531:
+                    if (c2.equals(LayerEvent.ACTION_DOUBLE_CLICK)) {
+                        c = 1;
+                        break;
                     }
-                } else if (a2.equals("1")) {
-                    return lq0.b.a;
-                }
+                    c = 65535;
+                    break;
+                case 14382657:
+                    if (c2.equals(ControlEvent.ACTION_STATUS_SYNC)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 154871702:
+                    if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 720027695:
+                    if (c2.equals(ControlEvent.ACTION_PAUSE)) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 723345051:
+                    if (c2.equals(ControlEvent.ACTION_START)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 906917140:
+                    if (c2.equals(ControlEvent.ACTION_RESUME)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1370689931:
+                    if (c2.equals(PlayerEvent.ACTION_ON_INFO)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1610373035:
+                    if (c2.equals(LayerEvent.ACTION_WAKE_UP_END)) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
             }
-            return lq0.a.a;
+            switch (c) {
+                case 0:
+                    int g = er0Var.g(1);
+                    if (g != 904 && g != 956) {
+                        if (702 == g && r().Y()) {
+                            this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+                            return;
+                        }
+                        return;
+                    }
+                    this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+                    this.b.setImageDrawable(this.c);
+                    return;
+                case 1:
+                    this.c.q(er0Var.d(6) ? PlayDrawable.IconState.PAUSE_STATE : PlayDrawable.IconState.PLAY_STATE);
+                    return;
+                case 2:
+                    this.c.q(PlayDrawable.IconState.PLAY_STATE);
+                    return;
+                case 3:
+                    this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+                    return;
+                case 4:
+                    if (this.b.getVisibility() == 0) {
+                        this.b.setVisibility(4);
+                        return;
+                    }
+                    return;
+                case 5:
+                    this.c.q(this.a.v().W() ? PlayDrawable.IconState.PLAY_STATE : PlayDrawable.IconState.PAUSE_STATE);
+                    return;
+                case 6:
+                    this.b.setVisibility(4);
+                    return;
+                case 7:
+                    this.b.setVisibility(0);
+                    return;
+                default:
+                    return;
+            }
         }
-        return (lq0) invokeV.objValue;
     }
 
-    public static final String d() {
-        InterceptResult invokeV;
+    @Override // com.repackage.zp0
+    public void n(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String condition = iy0.b();
-            for (String str : a) {
-                Intrinsics.checkNotNullExpressionValue(condition, "condition");
-                if (StringsKt__StringsKt.contains$default((CharSequence) condition, (CharSequence) str, false, 2, (Object) null)) {
-                    return condition;
-                }
+        if (interceptable == null || interceptable.invokeLL(1048579, this, playerStatus, playerStatus2) == null) {
+            if (playerStatus != PlayerStatus.PLAYING && playerStatus != PlayerStatus.PREPARED && playerStatus != PlayerStatus.PREPARING) {
+                this.c.q(PlayDrawable.IconState.PLAY_STATE);
+            } else {
+                this.c.q(PlayDrawable.IconState.PAUSE_STATE);
             }
-            return "1080p";
         }
-        return (String) invokeV.objValue;
     }
 
-    public static final String e() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String mobileNetClarity = iy0.c();
-            if (a.contains(mobileNetClarity)) {
-                Intrinsics.checkNotNullExpressionValue(mobileNetClarity, "mobileNetClarity");
-                return mobileNetClarity;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (r().Y()) {
+                r().f0(1);
+                w();
+            } else if (r().W()) {
+                r().l0();
+                x();
+            } else {
+                r().K0();
             }
-            return "sd";
+            this.c.r(true);
         }
-        return (String) invokeV.objValue;
     }
 
-    public static final String f() {
-        InterceptResult invokeV;
+    @Override // com.repackage.fq0
+    public void t(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String wifiClarity = iy0.e();
-            if (a.contains(wifiClarity)) {
-                Intrinsics.checkNotNullExpressionValue(wifiClarity, "wifiClarity");
-                return wifiClarity;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (r().V0() && r().f1() == 0) {
+                this.b.postDelayed(new a(this, z), 200L);
+            } else if (z && !z2) {
+                this.b.setVisibility(0);
+            } else {
+                this.b.setVisibility(8);
             }
-            return Config.STAT_SDK_CHANNEL;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static final boolean g() {
-        InterceptResult invokeV;
+    public void w() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? TextUtils.equals("1", iy0.d()) : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
     }
 }

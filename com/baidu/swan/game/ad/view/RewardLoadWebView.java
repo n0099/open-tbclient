@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pp3;
+import com.repackage.co3;
 /* loaded from: classes2.dex */
 public class RewardLoadWebView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public RewardWebView b;
-    public pp3 c;
+    public co3 c;
 
     /* loaded from: classes2.dex */
     public class a extends WebViewClient {
@@ -111,9 +111,9 @@ public class RewardLoadWebView extends RelativeLayout {
         this.a = "";
     }
 
-    public void b(String str, AdElementInfo adElementInfo, pp3 pp3Var) {
+    public void b(String str, AdElementInfo adElementInfo, co3 co3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, adElementInfo, pp3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, adElementInfo, co3Var) == null) {
             if (TextUtils.equals("reward_banner_html", str)) {
                 this.a = adElementInfo.getBannerHtml();
             } else if (TextUtils.equals("reward_end_frame_html", str)) {
@@ -121,7 +121,7 @@ public class RewardLoadWebView extends RelativeLayout {
             } else if (TextUtils.equals("reward_banner_land_html", str)) {
                 this.a = adElementInfo.getLandBannerHtml();
             }
-            this.c = pp3Var;
+            this.c = co3Var;
             RewardWebView rewardWebView = new RewardWebView(getContext());
             this.b = rewardWebView;
             rewardWebView.setWebViewClient(new a(this));

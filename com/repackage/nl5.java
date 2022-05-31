@@ -1,28 +1,27 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface nl5 {
-    public static final boolean a;
+public class nl5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile ml5 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        a = TbadkCoreApplication.getInst().isDebugMode() || fn4.h();
+    public static synchronized ml5 a() {
+        InterceptResult invokeV;
+        ml5 ml5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (nl5.class) {
+                if (a == null) {
+                    a = new ml5();
+                }
+                ml5Var = a;
+            }
+            return ml5Var;
+        }
+        return (ml5) invokeV.objValue;
     }
-
-    void a();
-
-    boolean b();
-
-    String c();
-
-    AdLoadState d();
-
-    void destroy();
-
-    void e(em4 em4Var);
-
-    String f();
-
-    void show();
 }

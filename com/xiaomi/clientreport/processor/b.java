@@ -85,7 +85,7 @@ public class b implements IPerfProcessor {
             }
             for (int i = 0; i < 20; i++) {
                 String str = b + i;
-                if (bq.m225a(this.a, str)) {
+                if (bq.m224a(this.a, str)) {
                     return str;
                 }
             }
@@ -99,11 +99,11 @@ public class b implements IPerfProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             bq.a(this.a, PerformerBox.TYPE, "perfUploading");
-            File[] m226a = bq.m226a(this.a, "perfUploading");
-            if (m226a == null || m226a.length <= 0) {
+            File[] m225a = bq.m225a(this.a, "perfUploading");
+            if (m225a == null || m225a.length <= 0) {
                 return;
             }
-            for (File file : m226a) {
+            for (File file : m225a) {
                 if (file != null) {
                     List<String> a = e.a(this.a, file.getAbsolutePath());
                     file.delete();
@@ -115,7 +115,7 @@ public class b implements IPerfProcessor {
 
     @Override // com.xiaomi.clientreport.processor.d
     /* renamed from: a */
-    public void mo117a(com.xiaomi.clientreport.data.a aVar) {
+    public void mo116a(com.xiaomi.clientreport.data.a aVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (aVar instanceof PerfClientReport) && this.f24a != null) {
             PerfClientReport perfClientReport = (PerfClientReport) aVar;

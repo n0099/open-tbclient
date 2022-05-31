@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.log.d;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SLog implements TraceLevel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "openSDK_LOG";

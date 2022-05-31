@@ -1,56 +1,71 @@
 package com.repackage;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wn8 extends CustomMessageListener {
+public class wn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final tm8 b;
-    public final gn8 c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
-        super(2921491);
+    public static byte[] a(List<String> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, tm8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                sb.append(list.get(i));
+                sb.append("\n");
+            }
+            return sb.toString().getBytes();
         }
-        this.a = mainTabActivity;
-        this.b = tm8Var;
-        this.c = mainTabActivity.mLogicController;
+        return (byte[]) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        tm8 tm8Var;
+    public static byte[] b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof String) || (tm8Var = this.b) == null || tm8Var.z() == null || this.b.z().getCurrentTabType() == 21) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            return jSONObject.toString().getBytes();
         }
-        String str = (String) customResponsedMessage.getData();
-        gn8 gn8Var = this.c;
-        if (gn8Var == null || gn8Var.a() == null) {
-            return;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean c(byte[] bArr, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
+            if (bArr == null) {
+                return false;
+            }
+            of ofVar = new of();
+            ofVar.b().v(str);
+            ofVar.b().t(HttpMessageTask.HTTP_METHOD.POST);
+            ofVar.b().c("", bArr);
+            new lf(ofVar).m(3, -1, -1);
+            int i = ofVar.c().b;
+            byte[] bArr2 = ofVar.c().i;
+            if (bArr2 == null || i != 200) {
+                return false;
+            }
+            try {
+                return new JSONObject(new String(bArr2, IMAudioTransRequest.CHARSET)).optJSONObject("error").optInt("errno") == 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-        this.c.a().e(str);
+        return invokeLL.booleanValue;
     }
 }

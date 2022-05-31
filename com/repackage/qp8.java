@@ -1,52 +1,197 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
+import android.graphics.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.R;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.video.editvideo.scale.PivotPoint;
+import com.baidu.tieba.video.editvideo.scale.ScalableType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.pu4;
-import java.util.ArrayList;
-import java.util.List;
-@SuppressLint({"ResourceAsColor"})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class qp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BackgroundListActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public MemberRecommendView e;
-    public BdListView f;
-    public qu4 g;
-    public TextView h;
-    public pp8 i;
-    public int j;
+    public rp8 a;
+    public rp8 b;
 
-    public qp8(BackgroundListActivity backgroundListActivity, op8 op8Var) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public static final /* synthetic */ int[] b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-63353221, "Lcom/repackage/qp8$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-63353221, "Lcom/repackage/qp8$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[PivotPoint.values().length];
+            b = iArr;
+            try {
+                iArr[PivotPoint.LEFT_TOP.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                b[PivotPoint.LEFT_CENTER.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                b[PivotPoint.LEFT_BOTTOM.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                b[PivotPoint.CENTER_TOP.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                b[PivotPoint.CENTER.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                b[PivotPoint.CENTER_BOTTOM.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                b[PivotPoint.RIGHT_TOP.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                b[PivotPoint.RIGHT_CENTER.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
+            }
+            try {
+                b[PivotPoint.RIGHT_BOTTOM.ordinal()] = 9;
+            } catch (NoSuchFieldError unused9) {
+            }
+            int[] iArr2 = new int[ScalableType.values().length];
+            a = iArr2;
+            try {
+                iArr2[ScalableType.NONE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[ScalableType.FIT_XY.ordinal()] = 2;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[ScalableType.FIT_CENTER.ordinal()] = 3;
+            } catch (NoSuchFieldError unused12) {
+            }
+            try {
+                a[ScalableType.FIT_START.ordinal()] = 4;
+            } catch (NoSuchFieldError unused13) {
+            }
+            try {
+                a[ScalableType.FIT_END.ordinal()] = 5;
+            } catch (NoSuchFieldError unused14) {
+            }
+            try {
+                a[ScalableType.LEFT_TOP.ordinal()] = 6;
+            } catch (NoSuchFieldError unused15) {
+            }
+            try {
+                a[ScalableType.LEFT_CENTER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused16) {
+            }
+            try {
+                a[ScalableType.LEFT_BOTTOM.ordinal()] = 8;
+            } catch (NoSuchFieldError unused17) {
+            }
+            try {
+                a[ScalableType.CENTER_TOP.ordinal()] = 9;
+            } catch (NoSuchFieldError unused18) {
+            }
+            try {
+                a[ScalableType.CENTER.ordinal()] = 10;
+            } catch (NoSuchFieldError unused19) {
+            }
+            try {
+                a[ScalableType.CENTER_BOTTOM.ordinal()] = 11;
+            } catch (NoSuchFieldError unused20) {
+            }
+            try {
+                a[ScalableType.RIGHT_TOP.ordinal()] = 12;
+            } catch (NoSuchFieldError unused21) {
+            }
+            try {
+                a[ScalableType.RIGHT_CENTER.ordinal()] = 13;
+            } catch (NoSuchFieldError unused22) {
+            }
+            try {
+                a[ScalableType.RIGHT_BOTTOM.ordinal()] = 14;
+            } catch (NoSuchFieldError unused23) {
+            }
+            try {
+                a[ScalableType.LEFT_TOP_CROP.ordinal()] = 15;
+            } catch (NoSuchFieldError unused24) {
+            }
+            try {
+                a[ScalableType.LEFT_CENTER_CROP.ordinal()] = 16;
+            } catch (NoSuchFieldError unused25) {
+            }
+            try {
+                a[ScalableType.LEFT_BOTTOM_CROP.ordinal()] = 17;
+            } catch (NoSuchFieldError unused26) {
+            }
+            try {
+                a[ScalableType.CENTER_TOP_CROP.ordinal()] = 18;
+            } catch (NoSuchFieldError unused27) {
+            }
+            try {
+                a[ScalableType.CENTER_CROP.ordinal()] = 19;
+            } catch (NoSuchFieldError unused28) {
+            }
+            try {
+                a[ScalableType.CENTER_BOTTOM_CROP.ordinal()] = 20;
+            } catch (NoSuchFieldError unused29) {
+            }
+            try {
+                a[ScalableType.RIGHT_TOP_CROP.ordinal()] = 21;
+            } catch (NoSuchFieldError unused30) {
+            }
+            try {
+                a[ScalableType.RIGHT_CENTER_CROP.ordinal()] = 22;
+            } catch (NoSuchFieldError unused31) {
+            }
+            try {
+                a[ScalableType.RIGHT_BOTTOM_CROP.ordinal()] = 23;
+            } catch (NoSuchFieldError unused32) {
+            }
+            try {
+                a[ScalableType.START_INSIDE.ordinal()] = 24;
+            } catch (NoSuchFieldError unused33) {
+            }
+            try {
+                a[ScalableType.CENTER_INSIDE.ordinal()] = 25;
+            } catch (NoSuchFieldError unused34) {
+            }
+            try {
+                a[ScalableType.END_INSIDE.ordinal()] = 26;
+            } catch (NoSuchFieldError unused35) {
+            }
+        }
+    }
+
+    public qp8(rp8 rp8Var, rp8 rp8Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundListActivity, op8Var};
+            Object[] objArr = {rp8Var, rp8Var2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,160 +201,208 @@ public class qp8 {
                 return;
             }
         }
-        this.g = null;
-        this.j = 0;
-        this.a = backgroundListActivity;
-        this.j = mi.f(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023f);
-        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012e, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f090397);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.obfuscated_res_0x7f0923fd);
-        this.d = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e55);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0923fc);
-        this.e = memberRecommendView;
-        memberRecommendView.setFromType(5);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f091288);
-        qu4 qu4Var = new qu4(this.a.getPageContext());
-        this.g = qu4Var;
-        this.f.setPullRefresh(qu4Var);
-        TextView textView = new TextView(this.a.getActivity());
-        this.h = textView;
-        textView.setHeight(mi.f(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        pp8 pp8Var = new pp8(this.a.getPageContext(), op8Var);
-        this.i = pp8Var;
-        this.f.setAdapter((ListAdapter) pp8Var);
+        this.a = rp8Var;
+        this.b = rp8Var2;
     }
 
-    public final List<List<DressItemData>> a(List<DressItemData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            for (int i = 0; i < size; i = i + 2 + 1) {
-                ArrayList arrayList2 = new ArrayList();
-                for (int i2 = 0; i2 < 3; i2++) {
-                    int i3 = i + i2;
-                    if (i3 < size) {
-                        arrayList2.add(list.get(i3));
-                    }
-                }
-                arrayList.add(arrayList2);
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-            this.a.hideNetRefreshView(this.b);
-            this.c.setVisibility(0);
-        }
-    }
-
-    public View c() {
+    public final Matrix a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public void d() {
-        pp8 pp8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            w95.a(this.a.getPageContext(), this.b);
-            NavigationBar navigationBar = this.d;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.CENTER);
             }
-            BdListView bdListView = this.f;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (pp8Var = this.i) != null) {
-                pp8Var.notifyDataSetChanged();
-            }
-            qu4 qu4Var = this.g;
-            if (qu4Var != null) {
-                qu4Var.H(TbadkApplication.getInst().getSkinType());
-            }
-            this.e.d();
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+            return c();
         }
+        return (Matrix) invokeV.objValue;
     }
 
-    public final void e(List<List<DressItemData>> list) {
+    public final Matrix b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.f.setVisibility(0);
-                this.i.b(list);
-                this.i.notifyDataSetChanged();
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.RIGHT_BOTTOM);
             }
-            this.f.setVisibility(8);
+            return d();
         }
+        return (Matrix) invokeV.objValue;
     }
 
-    public final boolean f(jq8 jq8Var) {
+    public final Matrix c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h(PivotPoint.CENTER) : (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? h(PivotPoint.RIGHT_BOTTOM) : (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? h(PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? j(1.0f, 1.0f, PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
+    }
+
+    public final Matrix g(PivotPoint pivotPoint) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jq8Var)) == null) {
-            if (jq8Var != null && !StringUtils.isNull(jq8Var.c())) {
-                this.e.setVisibility(0);
-                this.e.e(jq8Var);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, pivotPoint)) == null) {
+            float b = this.a.b() / this.b.b();
+            float a2 = this.a.a() / this.b.a();
+            float max = Math.max(b, a2);
+            return j(max / b, max / a2, pivotPoint);
+        }
+        return (Matrix) invokeL.objValue;
+    }
+
+    public final Matrix h(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, pivotPoint)) == null) {
+            float b = this.a.b() / this.b.b();
+            float a2 = this.a.a() / this.b.a();
+            float min = Math.min(b, a2);
+            return j(min / b, min / a2, pivotPoint);
+        }
+        return (Matrix) invokeL.objValue;
+    }
+
+    public final Matrix i(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            Matrix matrix = new Matrix();
+            matrix.setScale(f, f2, f3, f4);
+            return matrix;
+        }
+        return (Matrix) invokeCommon.objValue;
+    }
+
+    public final Matrix j(float f, float f2, PivotPoint pivotPoint) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), pivotPoint})) == null) {
+            switch (a.b[pivotPoint.ordinal()]) {
+                case 1:
+                    return i(f, f2, 0.0f, 0.0f);
+                case 2:
+                    return i(f, f2, 0.0f, this.a.a() / 2.0f);
+                case 3:
+                    return i(f, f2, 0.0f, this.a.a());
+                case 4:
+                    return i(f, f2, this.a.b() / 2.0f, 0.0f);
+                case 5:
+                    return i(f, f2, this.a.b() / 2.0f, this.a.a() / 2.0f);
+                case 6:
+                    return i(f, f2, this.a.b() / 2.0f, this.a.a());
+                case 7:
+                    return i(f, f2, this.a.b(), 0.0f);
+                case 8:
+                    return i(f, f2, this.a.b(), this.a.a() / 2.0f);
+                case 9:
+                    return i(f, f2, this.a.b(), this.a.a());
+                default:
+                    return null;
             }
-            this.e.setVisibility(8);
-            return false;
         }
-        return invokeL.booleanValue;
+        return (Matrix) invokeCommon.objValue;
     }
 
-    public void g(BdListView.p pVar, pu4.g gVar) {
+    public final Matrix k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
-            this.f.setOnSrollToBottomListener(pVar);
-            this.g.e(gVar);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), PivotPoint.LEFT_TOP) : (Matrix) invokeV.objValue;
     }
 
-    public void h() {
+    public final Matrix l(PivotPoint pivotPoint) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setVisibility(8);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c45);
-            this.a.setNetRefreshViewTopMargin(this.j);
-            this.a.showNetRefreshView(this.b, string, false);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, pivotPoint)) == null) ? j(this.b.b() / this.a.b(), this.b.a() / this.a.a(), pivotPoint) : (Matrix) invokeL.objValue;
     }
 
-    public void i(jq8 jq8Var, List<DressItemData> list, boolean z) {
+    public Matrix m(ScalableType scalableType) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, jq8Var, list, z) == null) {
-            if (list != null && list.size() > 0) {
-                b();
-                if (f(jq8Var)) {
-                    this.f.removeHeaderView(this.h);
-                    this.f.addHeaderView(this.h);
-                } else {
-                    this.f.removeHeaderView(this.h);
-                }
-                e(a(list));
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, scalableType)) == null) {
+            switch (a.a[scalableType.ordinal()]) {
+                case 1:
+                    return k();
+                case 2:
+                    return f();
+                case 3:
+                    return c();
+                case 4:
+                    return e();
+                case 5:
+                    return d();
+                case 6:
+                    return l(PivotPoint.LEFT_TOP);
+                case 7:
+                    return l(PivotPoint.LEFT_CENTER);
+                case 8:
+                    return l(PivotPoint.LEFT_BOTTOM);
+                case 9:
+                    return l(PivotPoint.CENTER_TOP);
+                case 10:
+                    return l(PivotPoint.CENTER);
+                case 11:
+                    return l(PivotPoint.CENTER_BOTTOM);
+                case 12:
+                    return l(PivotPoint.RIGHT_TOP);
+                case 13:
+                    return l(PivotPoint.RIGHT_CENTER);
+                case 14:
+                    return l(PivotPoint.RIGHT_BOTTOM);
+                case 15:
+                    return g(PivotPoint.LEFT_TOP);
+                case 16:
+                    return g(PivotPoint.LEFT_CENTER);
+                case 17:
+                    return g(PivotPoint.LEFT_BOTTOM);
+                case 18:
+                    return g(PivotPoint.CENTER_TOP);
+                case 19:
+                    return g(PivotPoint.CENTER);
+                case 20:
+                    return g(PivotPoint.CENTER_BOTTOM);
+                case 21:
+                    return g(PivotPoint.RIGHT_TOP);
+                case 22:
+                    return g(PivotPoint.RIGHT_CENTER);
+                case 23:
+                    return g(PivotPoint.RIGHT_BOTTOM);
+                case 24:
+                    return n();
+                case 25:
+                    return a();
+                case 26:
+                    return b();
+                default:
+                    return null;
             }
-            h();
         }
+        return (Matrix) invokeL.objValue;
     }
 
-    public void j() {
+    public final Matrix n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f.A(0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.b.a() <= this.a.b() && this.b.a() <= this.a.a()) {
+                return l(PivotPoint.LEFT_TOP);
+            }
+            return e();
         }
+        return (Matrix) invokeV.objValue;
     }
 }

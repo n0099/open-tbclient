@@ -1,13 +1,18 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class ns0 extends rs0 {
+public class ns0 implements yr0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,22 +30,11 @@ public class ns0 extends rs0 {
         }
     }
 
-    public static rs0 w(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.yr0
+    @NonNull
+    public as0 a(Map<String, String> map, Object obj) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            rs0 m = rs0.m(str, 6);
-            m.u(1);
-            m.s(1);
-            return m;
-        }
-        return (rs0) invokeL.objValue;
-    }
-
-    @Override // com.repackage.rs0
-    public boolean b(@NonNull st0 st0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, st0Var)) == null) ? 1 != st0Var.getType() : invokeL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) ? new us0(map, obj) : (as0) invokeLL.objValue;
     }
 }

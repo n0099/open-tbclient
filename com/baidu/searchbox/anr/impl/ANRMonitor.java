@@ -25,9 +25,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
-import com.repackage.b81;
-import com.repackage.ik9;
-import com.repackage.z71;
+import com.repackage.ch9;
+import com.repackage.m61;
+import com.repackage.o61;
 import java.io.File;
 @Singleton
 @Service
@@ -46,14 +46,14 @@ public class ANRMonitor implements IANRMonitor {
     public static String sANRTimeStamp;
     public static long sLastTimes;
     public transient /* synthetic */ FieldHolder $fh;
-    public ik9 mANRWatchDog;
+    public ch9 mANRWatchDog;
     public int mAnrWatchTimeOut;
     public FileObserver mFileObserver;
     public boolean mMonitorStarted;
-    public z71 nativeANRListener;
+    public m61 nativeANRListener;
 
     /* loaded from: classes2.dex */
-    public static class ANRListenerImpl implements ik9.f {
+    public static class ANRListenerImpl implements ch9.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -71,7 +71,7 @@ public class ANRMonitor implements IANRMonitor {
             }
         }
 
-        @Override // com.repackage.ik9.f
+        @Override // com.repackage.ch9.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
@@ -168,7 +168,7 @@ public class ANRMonitor implements IANRMonitor {
                 Log.w(TAG, "start ANR Signal Monitor");
             }
             if (this.nativeANRListener == null) {
-                z71 z71Var = new z71(this) { // from class: com.baidu.searchbox.anr.impl.ANRMonitor.3
+                m61 m61Var = new m61(this) { // from class: com.baidu.searchbox.anr.impl.ANRMonitor.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ANRMonitor this$0;
@@ -191,7 +191,7 @@ public class ANRMonitor implements IANRMonitor {
                         this.this$0 = this;
                     }
 
-                    @Override // com.repackage.z71
+                    @Override // com.repackage.m61
                     public void onNativeANR(int i) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
@@ -203,10 +203,10 @@ public class ANRMonitor implements IANRMonitor {
                         }
                     }
                 };
-                this.nativeANRListener = z71Var;
-                b81.a(z71Var);
+                this.nativeANRListener = m61Var;
+                o61.a(m61Var);
             }
-            b81.b(Build.VERSION.SDK_INT);
+            o61.b(Build.VERSION.SDK_INT);
         }
     }
 
@@ -360,9 +360,9 @@ public class ANRMonitor implements IANRMonitor {
             } else {
                 this.mAnrWatchTimeOut = i;
             }
-            ik9 ik9Var = new ik9(this.mAnrWatchTimeOut);
-            this.mANRWatchDog = ik9Var;
-            ik9Var.e();
+            ch9 ch9Var = new ch9(this.mAnrWatchTimeOut);
+            this.mANRWatchDog = ch9Var;
+            ch9Var.e();
             this.mANRWatchDog.c(new ANRListenerImpl());
             if (AppConfig.isDebug()) {
                 String str = TAG;
@@ -376,9 +376,9 @@ public class ANRMonitor implements IANRMonitor {
     public void stopANRMonitor() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mMonitorStarted) {
-            ik9 ik9Var = this.mANRWatchDog;
-            if (ik9Var != null) {
-                ik9Var.interrupt();
+            ch9 ch9Var = this.mANRWatchDog;
+            if (ch9Var != null) {
+                ch9Var.interrupt();
                 this.mMonitorStarted = false;
             }
             FileObserver fileObserver = this.mFileObserver;
@@ -387,7 +387,7 @@ public class ANRMonitor implements IANRMonitor {
                 this.mMonitorStarted = false;
             }
             if (this.nativeANRListener != null) {
-                b81.c();
+                o61.c();
             }
         }
     }

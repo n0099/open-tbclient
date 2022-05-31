@@ -1324,11 +1324,11 @@ public abstract class GeneratePluginActivity extends Activity implements IPlugin
     }
 
     @Override // com.bytedance.pangle.activity.IPluginActivity
-    public void setPluginProxyActivity(b bVar, Plugin plugin2) {
+    public void setPluginProxyActivity(b bVar, Plugin plugin) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048754, this, bVar, plugin2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048754, this, bVar, plugin) == null) {
             this.mProxyActivity = (GenerateProxyActivity) bVar;
-            this.mPlugin = plugin2;
+            this.mPlugin = plugin;
         }
     }
 

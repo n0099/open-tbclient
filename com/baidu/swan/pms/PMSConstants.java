@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b84;
+import com.repackage.o64;
 /* loaded from: classes2.dex */
 public class PMSConstants {
     public static /* synthetic */ Interceptable $ic;
@@ -217,9 +217,9 @@ public class PMSConstants {
         }
     }
 
-    public static boolean a(b84 b84Var) {
+    public static boolean a(o64 o64Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, b84Var)) == null) ? b84Var != null && b84Var.x() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, o64Var)) == null) ? o64Var != null && o64Var.x() : invokeL.booleanValue;
     }
 }

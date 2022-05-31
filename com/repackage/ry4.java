@@ -1,99 +1,34 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.Advertisement;
 /* loaded from: classes7.dex */
-public class ry4 {
+public class ry4 implements Comparable<ry4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static class a extends BdAsyncTask<String, Integer, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public NetWork a;
-        public final String b;
-        public final String c;
-        public final String d;
-
-        public a(String str, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                Boolean bool = Boolean.FALSE;
-                try {
-                    NetWork netWork = new NetWork(this.b);
-                    this.a = netWork;
-                    bool = Boolean.valueOf(netWork.downloadFile(this.c + ".tmp", new Handler(Looper.getMainLooper()), TbConfig.NET_MSG_GETLENTH));
-                    if (bool != null && bool.booleanValue()) {
-                        if (!StringUtils.isNull(FileHelper.renameTo(null, this.c + ".tmp", null, this.c)) && !TextUtils.isEmpty(this.b) && !this.b.equals(this.d)) {
-                            FileHelper.DelFile(TbMd5.getNameMd5FromUrl(this.d));
-                        }
-                    } else {
-                        FileHelper.DelFile(this.c + ".tmp");
-                    }
-                } catch (Exception unused) {
-                }
-                return bool;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-                super.onPostExecute((a) bool);
-                if (bool == null || !bool.booleanValue()) {
-                    return;
-                }
-                new ry4().g();
-            }
-        }
-    }
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
 
     public ry4() {
         Interceptable interceptable = $ic;
@@ -109,103 +44,150 @@ public class ry4 {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(ry4 ry4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ry4Var)) == null) ? k() > ry4Var.k() ? -1 : 1 : invokeL.intValue;
+    }
+
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbadkSettings.getInst().loadString("launch_config_local_url", "") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
-        JSONArray jSONArray;
-        JSONObject optJSONObject;
-        String str;
-        String str2;
-        JSONObject optJSONObject2;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONArray = jSONObject.getJSONArray("APP_INDEX_START");
-        } catch (JSONException e) {
-            e.printStackTrace();
-            jSONArray = null;
-        }
-        TbadkSettings inst = TbadkSettings.getInst();
-        if (jSONArray == null || jSONArray.length() == 0 || (optJSONObject = jSONArray.optJSONObject(0)) == null) {
-            return;
-        }
-        int optInt = optJSONObject.optInt("url_type");
-        String optString = optJSONObject.optString("url");
-        String optString2 = optJSONObject.optString("apk_url");
-        String optString3 = optJSONObject.optString("apk_name");
-        String optString4 = optJSONObject.optString("app_name");
-        inst.saveString("url", optString);
-        inst.saveInt("url_type", optInt);
-        inst.saveString("apk_url", optString2);
-        inst.saveString("apk_name", optString3);
-        inst.saveString("app_name", optString4);
-        JSONArray optJSONArray = optJSONObject.optJSONArray("goods_info");
-        if (optJSONArray == null || optJSONArray.length() == 0 || (optJSONObject2 = optJSONArray.optJSONObject(0)) == null) {
-            str = null;
-            str2 = null;
-        } else {
-            str = optJSONObject2.optString("thread_pic");
-            str2 = optJSONObject2.optString("thread_pic_md5");
-            inst.saveString("apk_size", optJSONObject2.optString("apk_size"));
-        }
-        if (StringUtils.isNull(str2) || StringUtils.isNull(str)) {
-            return;
-        }
-        String loadString = inst.loadString("launch_config_md5", null);
-        if (StringUtils.isNull(loadString)) {
-            inst.saveString("launch_config_md5", str2);
-            inst.saveString("launch_config_remote_url", str);
-            d(str);
-        } else if (TextUtils.equals(loadString, str2)) {
-        } else {
-            inst.saveString("launch_config_md5", str2);
-            inst.saveString("launch_config_remote_url", str);
-            d(str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (String) invokeV.objValue;
     }
 
-    public void d(String str) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            String b = b();
-            if (TextUtils.equals(b, str) && e(b)) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.k : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (StringUtils.isNull(this.g) && StringUtils.isNull(this.h)) {
                 return;
             }
-            f(str, b);
-        }
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            File GetFile = FileHelper.GetFile(TbMd5.getNameMd5FromUrl(str));
-            return GetFile != null && GetFile.exists() && GetFile.isFile();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && ki.H()) {
-            new a(str, TbMd5.getNameMd5FromUrl(str), str2).execute(new String[0]);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String loadString = TbadkSettings.getInst().loadString("launch_config_remote_url", null);
-            if (StringUtils.isNull(loadString)) {
+            String c = ri.c(TbadkApplication.getInst().getAndroidId());
+            String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            StringBuilder sb = new StringBuilder();
+            sb.append("&ANDROIDID=");
+            sb.append(c == null ? "" : c.toLowerCase());
+            sb.append("&OAID=");
+            sb.append(lastCachedOid != null ? lastCachedOid.toUpperCase() : "");
+            String sb2 = sb.toString();
+            if (!StringUtils.isNull(this.g) && !this.g.contains("ANDROIDID") && !this.g.contains("OAID")) {
+                this.g += sb2;
+            }
+            if (StringUtils.isNull(this.h) || this.h.contains("ANDROIDID") || this.h.contains("OAID")) {
                 return;
             }
-            TbadkSettings.getInst().saveString("launch_config_local_url", loadString);
+            this.h += sb2;
+        }
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? !"0".equals(this.l) : invokeV.booleanValue;
+    }
+
+    public void o(Advertisement advertisement) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, advertisement) == null) {
+            this.a = advertisement.time.longValue();
+            this.b = advertisement.pic;
+            this.c = advertisement.pic_click;
+            this.d = advertisement.jump_link;
+            this.e = advertisement.advertisement_id;
+            this.g = advertisement.view_statistics_url;
+            this.h = advertisement.click_statistics_url;
+            this.i = advertisement.floating_text;
+            this.j = advertisement.scheme;
+            this.k = advertisement.package_name;
+            this.l = advertisement.display_ad_icon;
+            m();
+        }
+    }
+
+    public void p(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, jSONObject) == null) {
+            this.b = jSONObject.optString("pic");
+            this.c = jSONObject.optString("pic_click");
+            this.d = jSONObject.optString("jump_link");
+            this.e = jSONObject.optString("advertisement_id");
+            this.g = jSONObject.optString("view_statistics_url");
+            this.h = jSONObject.optString("click_statistics_url");
+            this.i = jSONObject.optString("floating_text");
+            this.j = jSONObject.optString("scheme");
+            this.k = jSONObject.optString("package_name");
+            this.l = jSONObject.optString("display_ad_icon");
+            m();
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.f = i;
         }
     }
 }

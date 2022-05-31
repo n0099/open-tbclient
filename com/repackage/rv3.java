@@ -1,15 +1,22 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.Arrays;
 /* loaded from: classes7.dex */
-public abstract class rv3 {
+public class rv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public sv3[] changedTouches;
+    @V8JavascriptField
+    public long timeStamp;
+    @V8JavascriptField
+    public sv3[] touches;
 
     public rv3() {
         Interceptable interceptable = $ic;
@@ -25,8 +32,12 @@ public abstract class rv3 {
         }
     }
 
-    @NonNull
-    public abstract File a();
-
-    public abstract void b(@NonNull String str, long j);
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SwanGameTouchData{touches=" + Arrays.toString(this.touches) + ", changedTouches=" + Arrays.toString(this.changedTouches) + ", timeStamp=" + this.timeStamp + '}';
+        }
+        return (String) invokeV.objValue;
+    }
 }

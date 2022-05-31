@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gb5;
+import com.repackage.aa5;
 /* loaded from: classes3.dex */
 public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gb5 mIResp;
+    public aa5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TemplateHttpResponseMessage(int i) {
@@ -47,10 +47,10 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
         return (TemplateNetMessage) invokeV.objValue;
     }
 
-    public gb5 getIResp() {
+    public aa5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIResp : (gb5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mIResp : (aa5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -81,7 +81,7 @@ public class TemplateHttpResponseMessage extends TbHttpResponsedMessage {
             if (templateNetMessage == null || templateNetMessage.getIResp() == null) {
                 return;
             }
-            gb5 iResp = templateNetMessage.getIResp();
+            aa5 iResp = templateNetMessage.getIResp();
             this.mIResp = iResp;
             iResp.a(i, bArr);
             setError(this.mIResp.getErrorCode());

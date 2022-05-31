@@ -76,54 +76,54 @@ public class f implements AbstractPushManager {
         if (pushConfiguration.getOpenHmsPush()) {
             StringBuilder sb = new StringBuilder();
             sb.append("ASSEMBLE_PUSH : ");
-            sb.append(" HW user switch : " + this.f71a.getOpenHmsPush() + " HW online switch : " + i.m172a(this.f70a, e.a) + " HW isSupport : " + af.a.equals(n.a(this.f70a)));
-            com.xiaomi.channel.commonutils.logger.b.m109a(sb.toString());
+            sb.append(" HW user switch : " + this.f71a.getOpenHmsPush() + " HW online switch : " + i.m171a(this.f70a, e.a) + " HW isSupport : " + af.a.equals(n.a(this.f70a)));
+            com.xiaomi.channel.commonutils.logger.b.m108a(sb.toString());
         }
-        if (this.f71a.getOpenHmsPush() && i.m172a(this.f70a, e.a) && af.a.equals(n.a(this.f70a))) {
-            if (!m168a(e.a)) {
+        if (this.f71a.getOpenHmsPush() && i.m171a(this.f70a, e.a) && af.a.equals(n.a(this.f70a))) {
+            if (!m167a(e.a)) {
                 e eVar = e.a;
                 a(eVar, aj.a(this.f70a, eVar));
             }
             com.xiaomi.channel.commonutils.logger.b.c("hw manager add to list");
-        } else if (m168a(e.a) && (a2 = a(e.a)) != null) {
-            m167a(e.a);
+        } else if (m167a(e.a) && (a2 = a(e.a)) != null) {
+            m166a(e.a);
             a2.unregister();
         }
         if (this.f71a.getOpenFCMPush()) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append("ASSEMBLE_PUSH : ");
-            sb2.append(" FCM user switch : " + this.f71a.getOpenFCMPush() + " FCM online switch : " + i.m172a(this.f70a, e.b) + " FCM isSupport : " + n.m175a(this.f70a));
-            com.xiaomi.channel.commonutils.logger.b.m109a(sb2.toString());
+            sb2.append(" FCM user switch : " + this.f71a.getOpenFCMPush() + " FCM online switch : " + i.m171a(this.f70a, e.b) + " FCM isSupport : " + n.m174a(this.f70a));
+            com.xiaomi.channel.commonutils.logger.b.m108a(sb2.toString());
         }
-        if (this.f71a.getOpenFCMPush() && i.m172a(this.f70a, e.b) && n.m175a(this.f70a)) {
-            if (!m168a(e.b)) {
+        if (this.f71a.getOpenFCMPush() && i.m171a(this.f70a, e.b) && n.m174a(this.f70a)) {
+            if (!m167a(e.b)) {
                 e eVar2 = e.b;
                 a(eVar2, aj.a(this.f70a, eVar2));
             }
             com.xiaomi.channel.commonutils.logger.b.c("fcm manager add to list");
-        } else if (m168a(e.b) && (a3 = a(e.b)) != null) {
-            m167a(e.b);
+        } else if (m167a(e.b) && (a3 = a(e.b)) != null) {
+            m166a(e.b);
             a3.unregister();
         }
         if (this.f71a.getOpenCOSPush()) {
             StringBuilder sb3 = new StringBuilder();
             sb3.append("ASSEMBLE_PUSH : ");
-            sb3.append(" COS user switch : " + this.f71a.getOpenCOSPush() + " COS online switch : " + i.m172a(this.f70a, e.c) + " COS isSupport : " + n.b(this.f70a));
-            com.xiaomi.channel.commonutils.logger.b.m109a(sb3.toString());
+            sb3.append(" COS user switch : " + this.f71a.getOpenCOSPush() + " COS online switch : " + i.m171a(this.f70a, e.c) + " COS isSupport : " + n.b(this.f70a));
+            com.xiaomi.channel.commonutils.logger.b.m108a(sb3.toString());
         }
-        if (this.f71a.getOpenCOSPush() && i.m172a(this.f70a, e.c) && n.b(this.f70a)) {
+        if (this.f71a.getOpenCOSPush() && i.m171a(this.f70a, e.c) && n.b(this.f70a)) {
             e eVar3 = e.c;
             a(eVar3, aj.a(this.f70a, eVar3));
-        } else if (m168a(e.c) && (a4 = a(e.c)) != null) {
-            m167a(e.c);
+        } else if (m167a(e.c) && (a4 = a(e.c)) != null) {
+            m166a(e.c);
             a4.unregister();
         }
-        if (this.f71a.getOpenFTOSPush() && i.m172a(this.f70a, e.d) && n.c(this.f70a)) {
+        if (this.f71a.getOpenFTOSPush() && i.m171a(this.f70a, e.d) && n.c(this.f70a)) {
             e eVar4 = e.d;
             a(eVar4, aj.a(this.f70a, eVar4));
-        } else if (!m168a(e.d) || (a5 = a(e.d)) == null) {
+        } else if (!m167a(e.d) || (a5 = a(e.d)) == null) {
         } else {
-            m167a(e.d);
+            m166a(e.d);
             a5.unregister();
         }
     }
@@ -146,7 +146,7 @@ public class f implements AbstractPushManager {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m167a(e eVar) {
+    public void m166a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
             this.f72a.remove(eVar);
@@ -165,7 +165,7 @@ public class f implements AbstractPushManager {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m168a(e eVar) {
+    public boolean m167a(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, eVar)) == null) ? this.f72a.containsKey(eVar) : invokeL.booleanValue;
@@ -209,7 +209,7 @@ public class f implements AbstractPushManager {
     public void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m109a("ASSEMBLE_PUSH : assemble push register");
+            com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : assemble push register");
             if (this.f72a.size() <= 0) {
                 a();
             }
@@ -219,7 +219,7 @@ public class f implements AbstractPushManager {
                         abstractPushManager.register();
                     }
                 }
-                i.m169a(this.f70a);
+                i.m168a(this.f70a);
             }
         }
     }
@@ -228,7 +228,7 @@ public class f implements AbstractPushManager {
     public void unregister() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m109a("ASSEMBLE_PUSH : assemble push unregister");
+            com.xiaomi.channel.commonutils.logger.b.m108a("ASSEMBLE_PUSH : assemble push unregister");
             for (AbstractPushManager abstractPushManager : this.f72a.values()) {
                 if (abstractPushManager != null) {
                     abstractPushManager.unregister();

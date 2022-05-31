@@ -1,15 +1,27 @@
 package com.repackage;
+
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes6.dex */
-public interface mk3 {
-    String b();
+public final class mk3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String c();
+    @Inject(force = false)
+    public static km3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new jm3() : (km3) invokeV.objValue;
+    }
 
-    String e();
-
-    String g();
-
-    String h();
-
-    boolean isDebug();
+    @Inject(force = false)
+    public static gl3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new el3() : (gl3) invokeV.objValue;
+    }
 }

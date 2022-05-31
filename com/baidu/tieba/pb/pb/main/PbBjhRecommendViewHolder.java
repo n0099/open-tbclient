@@ -24,9 +24,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.fn4;
+import com.repackage.ki;
 import com.repackage.li;
-import com.repackage.mi;
-import com.repackage.qo4;
 import java.util.ArrayList;
 import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
@@ -35,7 +35,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public AbsPbActivity b;
-    public qo4 c;
+    public fn4 c;
     public String d;
     public boolean e;
     public int f;
@@ -94,7 +94,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
                 int i = 3;
-                if (id == R.id.obfuscated_res_0x7f091f2a) {
+                if (id == R.id.obfuscated_res_0x7f091ed1) {
                     VideoInfo threadVideoInfo = this.a.c.getThreadVideoInfo();
                     if (threadVideoInfo != null) {
                         if (threadVideoInfo.is_vertical.intValue() == 1) {
@@ -135,7 +135,7 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig2));
                         }
                     }
-                } else if (id == R.id.obfuscated_res_0x7f091389 || id == R.id.obfuscated_res_0x7f090379 || id == R.id.obfuscated_res_0x7f090378) {
+                } else if (id == R.id.obfuscated_res_0x7f09134b || id == R.id.obfuscated_res_0x7f090375 || id == R.id.obfuscated_res_0x7f090374) {
                     String tid = this.a.c.getTid();
                     if (this.a.f == 2) {
                         i = 1;
@@ -210,63 +210,63 @@ public class PbBjhRecommendViewHolder extends TypeAdapter.ViewHolder {
         this.a = 3;
         this.y = new a(this);
         this.b = absPbActivity;
-        this.h = view2.findViewById(R.id.obfuscated_res_0x7f091389);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f09099e);
-        this.j = view2.findViewById(R.id.obfuscated_res_0x7f09037b);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f090376);
-        this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090379);
-        this.m = view2.findViewById(R.id.obfuscated_res_0x7f090378);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090377);
-        this.o = view2.findViewById(R.id.obfuscated_res_0x7f09037d);
-        this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090380);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037e);
-        this.r = view2.findViewById(R.id.obfuscated_res_0x7f0911b1);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091f2a);
-        this.s = view2.findViewById(R.id.obfuscated_res_0x7f0911af);
-        this.t = view2.findViewById(R.id.obfuscated_res_0x7f0911b0);
-        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037c);
-        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037f);
-        this.x = view2.findViewById(R.id.obfuscated_res_0x7f09037a);
+        this.h = view2.findViewById(R.id.obfuscated_res_0x7f09134b);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090988);
+        this.j = view2.findViewById(R.id.obfuscated_res_0x7f090377);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f090372);
+        this.l = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090375);
+        this.m = view2.findViewById(R.id.obfuscated_res_0x7f090374);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090373);
+        this.o = view2.findViewById(R.id.obfuscated_res_0x7f090379);
+        this.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09037c);
+        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037a);
+        this.r = view2.findViewById(R.id.obfuscated_res_0x7f091173);
+        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ed1);
+        this.s = view2.findViewById(R.id.obfuscated_res_0x7f091171);
+        this.t = view2.findViewById(R.id.obfuscated_res_0x7f091172);
+        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090378);
+        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09037b);
+        this.x = view2.findViewById(R.id.obfuscated_res_0x7f090376);
     }
 
-    public void i(qo4 qo4Var) {
+    public void i(fn4 fn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qo4Var) == null) {
-            this.c = qo4Var;
-            this.i.setVisibility(qo4Var.g() ? 0 : 8);
-            this.t.setVisibility(qo4Var.k() ? 0 : 8);
-            this.j.setVisibility(qo4Var.i() ? 8 : 0);
-            this.r.setVisibility(qo4Var.i() ? 0 : 8);
+        if (interceptable == null || interceptable.invokeL(1048576, this, fn4Var) == null) {
+            this.c = fn4Var;
+            this.i.setVisibility(fn4Var.g() ? 0 : 8);
+            this.t.setVisibility(fn4Var.k() ? 0 : 8);
+            this.j.setVisibility(fn4Var.i() ? 8 : 0);
+            this.r.setVisibility(fn4Var.i() ? 0 : 8);
             this.u.setOnClickListener(this.y);
             this.m.setOnClickListener(this.y);
             this.l.setOnClickListener(this.y);
             this.l.setConrers(15);
-            this.l.setRadius(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
+            this.l.setRadius(li.f(TbadkCoreApplication.getInst(), R.dimen.tbds21));
             this.l.setDrawCorner(true);
             this.l.setPlaceHolder(2);
-            if (qo4Var.getThreadVideoInfo() != null) {
-                this.n.setText(qo4Var.getTitle());
-                this.l.K(qo4Var.getThreadVideoInfo().thumbnail_url, 10, false);
+            if (fn4Var.getThreadVideoInfo() != null) {
+                this.n.setText(fn4Var.getTitle());
+                this.l.K(fn4Var.getThreadVideoInfo().thumbnail_url, 10, false);
                 this.m.setVisibility(0);
                 this.m.setAlpha(0.5f);
                 this.o.setVisibility(0);
-                this.q.setText(StringUtils.translateSecondsToString(qo4Var.getThreadVideoInfo().video_duration.intValue()));
+                this.q.setText(StringUtils.translateSecondsToString(fn4Var.getThreadVideoInfo().video_duration.intValue()));
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.w.getLayoutParams();
-                if (qo4Var.getAuthor() != null && !li.isEmpty(qo4Var.getAuthor().getName_show())) {
-                    this.v.setText(qo4Var.getAuthor().getName_show());
+                if (fn4Var.getAuthor() != null && !ki.isEmpty(fn4Var.getAuthor().getName_show())) {
+                    this.v.setText(fn4Var.getAuthor().getName_show());
                     this.v.setVisibility(0);
-                    layoutParams.leftMargin = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+                    layoutParams.leftMargin = li.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
                 } else {
                     this.v.setVisibility(8);
                     layoutParams.leftMargin = 0;
                 }
                 this.w.setLayoutParams(layoutParams);
-                this.w.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0308), StringHelper.numFormatOverWan(qo4Var.getThreadVideoInfo().play_count.intValue())));
+                this.w.setText(String.format(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f030a), StringHelper.numFormatOverWan(fn4Var.getThreadVideoInfo().play_count.intValue())));
             } else {
                 this.o.setVisibility(8);
                 this.m.setVisibility(8);
-                this.l.K(qo4Var.getArticeCover(), 10, false);
-                this.n.setText(qo4Var.getTitle());
+                this.l.K(fn4Var.getArticeCover(), 10, false);
+                this.n.setText(fn4Var.getTitle());
             }
             this.h.setOnClickListener(this.y);
         }

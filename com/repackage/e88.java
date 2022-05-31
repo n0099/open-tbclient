@@ -1,39 +1,26 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes5.dex */
-public class e88 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface e88 extends IAdBaseAsyncController {
 
-    public static boolean a(y45 y45Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, y45Var)) == null) {
-            if (y45Var != null) {
-                return y45Var.isViewAttached();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(int i);
     }
 
-    public static void b(y45 y45Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{y45Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) || a(y45Var) || context == null || view2 == null) {
-            return;
-        }
-        if (y45Var == null) {
-            y45Var = new y45(context, onClickListener);
-        }
-        y45Var.k(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-        y45Var.attachView(view2, z);
-        y45Var.p();
-        y45Var.onChangeSkinType();
-    }
+    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
+
+    void c(AdvertAppInfo advertAppInfo, boolean z);
+
+    @Nullable
+    f78 i(AdvertAppInfo advertAppInfo);
+
+    void loadAd();
+
+    void m(AdvertAppInfo advertAppInfo);
 }

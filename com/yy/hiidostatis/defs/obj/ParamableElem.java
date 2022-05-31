@@ -96,9 +96,9 @@ public class ParamableElem implements Serializable {
                 return null;
             }
             if (arrayList.size() == 1) {
-                return Util.replaceEncode(arrayList.get(0), ";");
+                return Util.replaceEncode(arrayList.get(0), DIVIDE_PARAM);
             }
-            return Util.replaceEncode(TextUtils.join(DIVIDE_PARAM_TMP, arrayList.toArray(new String[arrayList.size()])), ";").replace(DIVIDE_PARAM_TMP, ";");
+            return Util.replaceEncode(TextUtils.join(DIVIDE_PARAM_TMP, arrayList.toArray(new String[arrayList.size()])), DIVIDE_PARAM).replace(DIVIDE_PARAM_TMP, DIVIDE_PARAM);
         }
         return (String) invokeV.objValue;
     }

@@ -1,97 +1,88 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.location.Address;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.Lego.DataRes;
+import com.repackage.gf;
+import java.util.Locale;
 /* loaded from: classes7.dex */
-public class rc7 {
+public class rc7 implements hf {
     public static /* synthetic */ Interceptable $ic;
+    public static rc7 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-    public final List<ICardInfo> b;
-    public int c;
-    public boolean d;
-    public String e;
-    public boolean f;
-    public boolean g;
-    public final BdListView h;
-    public final bd7 i;
-    public long j;
-    public String k;
+    public Context a;
+    public boolean b;
+    public String c;
+    public gf.d d;
+    public b e;
+    public LocationClient f;
+    public LocationClientOption g;
+    public Address h;
+    public long i;
+    public boolean j;
 
     /* loaded from: classes7.dex */
-    public class a extends sd5<DataRes> {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qe a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
 
-        public a(rc7 rc7Var, qe qeVar, long j, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rc7Var, qeVar, Long.valueOf(j), str};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = qeVar;
-            this.b = j;
-            this.c = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.sd5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                qe qeVar = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.b);
-                sb.append("_");
-                sb.append(TextUtils.isEmpty(this.c) ? "" : this.c);
-                byte[] bArr = (byte[]) qeVar.get(sb.toString());
-                if (bArr != null && bArr.length != 0) {
-                    try {
-                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    } catch (IOException e) {
-                        BdLog.e(e);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
+                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && (customResponsedMessage.getData() instanceof Boolean)) {
+                    if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                        gf.n().r(rc7.j());
+                    } else {
+                        gf.n().v(rc7.j());
                     }
                 }
-                return null;
             }
-            return (DataRes) invokeV.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements zc5<DataRes> {
+    public class b implements BDLocationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rc7 a;
@@ -114,282 +105,178 @@ public class rc7 {
             this.a = rc7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.zc5
-        /* renamed from: a */
-        public void onReturnDataInUI(DataRes dataRes) {
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
-                this.a.h(dataRes);
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || bDLocation == null || bDLocation.getLocType() == 62 || bDLocation.getLocType() == 63 || bDLocation.getLocType() == 67 || bDLocation.getLocType() == 68 || bDLocation.getLocType() > 161) {
+                    return;
+                }
+                this.a.c();
+                this.a.h = new Address(Locale.getDefault());
+                this.a.h.setLatitude(bDLocation.getLatitude());
+                this.a.h.setLongitude(bDLocation.getLongitude());
+                ys4 k = ys4.k();
+                k.y("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
+                this.a.h.setLocality(bDLocation.getCity());
+                Bundle bundle = new Bundle();
+                bundle.putFloat("radius", bDLocation.getRadius());
+                bundle.putDouble("altitude", bDLocation.getAltitude());
+                bundle.putFloat("speed", bDLocation.getSpeed());
+                bundle.putString("cityCode", bDLocation.getCityCode());
+                bundle.putString("street", bDLocation.getStreet());
+                bundle.putString("streetNumber", bDLocation.getStreetNumber());
+                bundle.putString("province", bDLocation.getProvince());
+                this.a.h.setExtras(bundle);
+                this.a.i = System.currentTimeMillis();
+                StringBuffer stringBuffer = new StringBuffer();
+                if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
+                    stringBuffer.append(bDLocation.getCity());
+                }
+                stringBuffer.append(bDLocation.getDistrict());
+                stringBuffer.append(bDLocation.getStreet());
+                if (bDLocation.getAddrStr() != null) {
+                    this.a.h.setAddressLine(0, stringBuffer.toString());
+                }
+                if (this.a.d != null) {
+                    this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
+                    y88.e().i(String.valueOf(this.a.h.getLatitude()));
+                    y88.e().j(String.valueOf(this.a.h.getLongitude()));
+                    y88.e().k(System.currentTimeMillis());
+                }
             }
+        }
+
+        public /* synthetic */ b(rc7 rc7Var, a aVar) {
+            this(rc7Var);
         }
     }
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(List<ge7> list);
-
-        void b(long j, String str);
-
-        void c(int i, String str);
-
-        void d(String str, String str2, String str3, List<he7> list);
-
-        void onError(int i, String str);
-
-        void onSuccess();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755355061, "Lcom/repackage/rc7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755355061, "Lcom/repackage/rc7;");
+                return;
+            }
+        }
+        MessageManager.getInstance().registerListener(new a(2001330));
     }
 
-    public rc7(BdListView bdListView, bd7 bd7Var) {
+    public rc7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdListView, bd7Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = new LinkedList();
-        this.c = 1;
-        this.e = "";
-        this.f = false;
-        this.g = false;
-        this.h = bdListView;
-        this.i = bd7Var;
+        this.b = true;
+        this.c = "";
+        this.d = null;
+        this.i = 0L;
+        this.j = false;
     }
 
-    public List<ICardInfo> b() {
+    public static rc7 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public final void e(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
-            mr4.f();
-            vd5.b(new a(this, mr4.d("tb.lego_update"), j, str), new b(this));
-        }
-    }
-
-    public final void f(long j, String str) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048580, this, j, str) == null) || (cVar = this.a) == null) {
-            return;
-        }
-        cVar.b(j, str);
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || d() || this.a == null) {
-            return;
-        }
-        this.c++;
-        k(true);
-        this.a.c(this.c, this.e);
-    }
-
-    public final void h(DataRes dataRes) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dataRes) == null) {
-            this.g = true;
-            if (dataRes != null) {
-                if (j(true, dataRes) && (cVar = this.a) != null) {
-                    cVar.onSuccess();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (k == null) {
+                synchronized (rc7.class) {
+                    if (k == null) {
+                        k = new rc7();
+                    }
                 }
-                f(this.j, this.k);
-                return;
             }
-            f(this.j, this.k);
+            return k;
         }
+        return (rc7) invokeV.objValue;
     }
 
-    public void i(boolean z, DataRes dataRes, int i, String str) {
+    @Override // com.repackage.hf
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), dataRes, Integer.valueOf(i), str}) == null) {
-            k(false);
-            if (z) {
-                this.h.z();
-            }
-            if (i == 0 && dataRes != null && j(z, dataRes)) {
-                c cVar = this.a;
-                if (cVar != null) {
-                    cVar.onSuccess();
-                }
-                if (z) {
-                    m(dataRes);
-                }
-            } else if (this.b.size() > 0) {
-                c cVar2 = this.a;
-                if (cVar2 != null) {
-                    cVar2.onError(1, str);
-                }
-            } else {
-                c cVar3 = this.a;
-                if (cVar3 != null) {
-                    cVar3.onError(2, str);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.b && this.f != null) {
+                try {
+                    this.j = z;
+                    if (z) {
+                        this.g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    }
+                    this.f.setLocOption(this.g);
+                    if (!this.f.isStarted()) {
+                        this.f.start();
+                    }
+                    this.f.requestLocation();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    c();
+                    gf.d dVar = this.d;
+                    if (dVar != null) {
+                        dVar.a(5, "", this.h, this.i, this.j);
+                    }
                 }
             }
         }
     }
 
-    public final boolean j(boolean z, DataRes dataRes) {
-        InterceptResult invokeZL;
-        String str;
-        String str2;
-        String str3;
-        JSONObject jSONObject;
-        JSONObject jSONObject2;
+    @Override // com.repackage.hf
+    public void b(gf.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, dataRes)) == null) {
-            if (dataRes == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            this.a = context;
+            this.d = dVar;
+            this.c = "baidu";
+            if (this.b) {
+                try {
+                    this.f = new LocationClient(context);
+                    LocationClientOption locationClientOption = new LocationClientOption();
+                    this.g = locationClientOption;
+                    locationClientOption.setOpenGps(true);
+                    this.g.setIgnoreKillProcess(true);
+                    this.g.setProdName(this.c);
+                    this.g.setAddrType("all");
+                    this.g.setCoorType("bd09ll");
+                    b bVar = new b(this, null);
+                    this.e = bVar;
+                    this.f.registerLocationListener(bVar);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
             }
-            if (z) {
-                this.b.clear();
-            }
-            this.d = dataRes.has_more.intValue() == 1;
-            ArrayList arrayList = new ArrayList();
+        }
+    }
+
+    @Override // com.repackage.hf
+    public void c() {
+        LocationClient locationClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f) != null && locationClient.isStarted()) {
             try {
-                JSONObject jSONObject3 = new JSONObject(dataRes.page_info);
-                JSONArray optJSONArray = jSONObject3.optJSONArray("tab");
-                JSONObject optJSONObject = jSONObject3.optJSONObject("title");
-                if (optJSONObject != null) {
-                    str2 = optJSONObject.optString("name");
-                    str3 = optJSONObject.optString("url");
-                    str = optJSONObject.optString("urlNight");
-                } else {
-                    str = "";
-                    str2 = str;
-                    str3 = str2;
-                }
-                if (optJSONArray != null) {
-                    int i = 0;
-                    while (i < optJSONArray.length()) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
-                        if (optJSONObject2 != null) {
-                            he7 he7Var = new he7();
-                            he7Var.c = optJSONObject2.optString("title");
-                            jSONObject2 = jSONObject3;
-                            he7Var.a = optJSONObject2.optLong("page_id");
-                            optJSONObject2.optInt("page_type");
-                            he7Var.d = optJSONObject2.optInt("rn");
-                            he7Var.b = optJSONObject2.optString("item_id");
-                            he7Var.e = optJSONObject2.optString("params");
-                            he7Var.b();
-                            arrayList.add(he7Var);
-                        } else {
-                            jSONObject2 = jSONObject3;
-                        }
-                        i++;
-                        jSONObject3 = jSONObject2;
-                    }
-                    jSONObject = jSONObject3;
-                    this.a.d(str2, str3, str, arrayList);
-                } else {
-                    jSONObject = jSONObject3;
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("buttons");
-                if (optJSONArray2 != null) {
-                    ArrayList arrayList2 = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i2);
-                        if (optJSONObject3 != null) {
-                            ge7 ge7Var = new ge7();
-                            ge7Var.b(optJSONObject3);
-                            if (ge7Var.a()) {
-                                arrayList2.add(ge7Var);
-                            }
-                        }
-                    }
-                    this.a.a(arrayList2);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                this.f.stop();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            if (dataRes.cards != null) {
-                for (int i3 = 0; i3 < dataRes.cards.size(); i3++) {
-                    ICardInfo i4 = dd7.i(dataRes.cards.get(i3));
-                    if (i4 != null && i4.isValid()) {
-                        this.b.add(i4);
-                    }
-                }
-            }
-            if (this.b.size() == 0) {
-                return false;
-            }
-            try {
-                this.e = this.b.get(this.b.size() - 1).getFlipId();
-            } catch (Exception unused) {
-                this.e = "";
-            }
-            this.i.C(this.b);
-            return true;
-        }
-        return invokeZL.booleanValue;
-    }
-
-    public final void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f = z;
         }
     }
 
-    public void l(c cVar) {
+    @Override // com.repackage.hf
+    public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.a = cVar;
-        }
-    }
-
-    public final void m(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        mr4.f();
-        qe<byte[]> d = mr4.d("tb.lego_update");
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.j);
-        sb.append("_");
-        sb.append(TextUtils.isEmpty(this.k) ? "" : this.k);
-        d.a(sb.toString(), dataRes.toByteArray());
-    }
-
-    public void update(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048588, this, j, str) == null) {
-            this.c = 1;
-            this.j = j;
-            this.k = str;
-            if (this.b.size() == 0 && !this.g) {
-                e(j, str);
-            } else {
-                f(j, str);
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
         }
     }
 }

@@ -8,9 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class du1 extends au1 {
+public class du1 extends ns1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
     public du1() {
         Interceptable interceptable = $ic;
@@ -26,18 +28,24 @@ public class du1 extends au1 {
         }
     }
 
-    @Override // com.repackage.au1
-    public void a(bu1 bu1Var, Canvas canvas) {
+    @Override // com.repackage.ns1
+    public void a(os1 os1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bu1Var, canvas) == null) {
-            bu1Var.f.reset();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, os1Var, canvas) == null) {
+            if (os1Var.a() == 0) {
+                os1Var.b(canvas.save());
+            }
+            canvas.translate(this.a, this.b);
         }
     }
 
-    @Override // com.repackage.au1
+    @Override // com.repackage.ns1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
+            return;
         }
+        this.a = yc3.g((float) jSONArray.optDouble(0));
+        this.b = yc3.g((float) jSONArray.optDouble(1));
     }
 }

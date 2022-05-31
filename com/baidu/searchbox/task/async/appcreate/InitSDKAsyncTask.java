@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cp8;
-import com.repackage.dp8;
+import com.repackage.em8;
+import com.repackage.fm8;
 /* loaded from: classes2.dex */
 public class InitSDKAsyncTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -34,7 +34,7 @@ public class InitSDKAsyncTask extends LaunchTask {
     private void initJpusbSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            cp8.b().d(TbadkCoreApplication.getInst());
+            em8.b().d(TbadkCoreApplication.getInst());
         }
     }
 
@@ -50,8 +50,8 @@ public class InitSDKAsyncTask extends LaunchTask {
     private void initStatSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65539, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            dp8.b().a(TbadkCoreApplication.getInst());
-            dp8 b = dp8.b();
+            fm8.b().a(TbadkCoreApplication.getInst());
+            fm8 b = fm8.b();
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             TbadkCoreApplication.getInst();
             b.e(inst, TbadkCoreApplication.getFrom(), true);

@@ -1,127 +1,198 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes7.dex */
 public class ud0 {
     public static /* synthetic */ Interceptable $ic;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public Set<String> b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static ud0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(39842834, "Lcom/repackage/ud0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(39842834, "Lcom/repackage/ud0$b;");
-                    return;
-                }
-            }
-            a = new ud0(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755264944, "Lcom/repackage/ud0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755264944, "Lcom/repackage/ud0;");
-                return;
-            }
-        }
-        c = iu4.o("advert_hide_list");
-    }
-
-    public /* synthetic */ ud0(a aVar) {
-        this();
-    }
-
-    public static ud0 b() {
-        InterceptResult invokeV;
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (ud0) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public boolean a(String str) {
+    public static void b(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, file) == null) {
+            c(file, true);
+        }
+    }
+
+    public static void c(File file, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, file, z) == null) && file != null && file.isDirectory()) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null && listFiles.length > 0) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        c(file2, z);
+                    } else {
+                        file2.delete();
+                    }
+                }
+            }
+            if (z) {
+                file.delete();
+            }
+        }
+    }
+
+    public static boolean d(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
+            if (file != null && file.exists()) {
+                return file.delete();
             }
-            if (this.b == null) {
-                this.b = this.a.getStringSet(c, null);
-            }
-            Set<String> set = this.b;
-            if (set == null) {
-                return false;
-            }
-            return set.contains(str);
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public void c(String str) {
+    public static void e(File file) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || StringUtils.isNull(str)) {
-            return;
-        }
-        Set<String> stringSet = this.a.getStringSet(c, null);
-        this.b = stringSet;
-        if (stringSet == null) {
-            this.b = new HashSet();
-        }
-        this.b.add(str);
-        this.a.edit().putStringSet(c, this.b).commit();
-    }
-
-    public ud0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file) == null) {
+            if (file.isDirectory()) {
+                b(file);
+            } else {
+                d(file);
             }
         }
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
+    }
+
+    public static boolean f(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) ? file != null && file.exists() && file.isFile() : invokeL.booleanValue;
+    }
+
+    public static String g(Context context, String str) {
+        InterceptResult invokeLL;
+        InputStreamReader inputStreamReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader bufferedReader = null;
+            try {
+                inputStreamReader = new InputStreamReader(context.getAssets().open(str));
+                try {
+                    try {
+                        BufferedReader bufferedReader2 = new BufferedReader(inputStreamReader);
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                sb.append(readLine);
+                            } catch (Exception e) {
+                                e = e;
+                                bufferedReader = bufferedReader2;
+                                e.printStackTrace();
+                                a(bufferedReader);
+                                a(inputStreamReader);
+                                return sb.toString();
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedReader = bufferedReader2;
+                                a(bufferedReader);
+                                a(inputStreamReader);
+                                throw th;
+                            }
+                        }
+                        a(bufferedReader2);
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                inputStreamReader = null;
+            } catch (Throwable th3) {
+                th = th3;
+                inputStreamReader = null;
+            }
+            a(inputStreamReader);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
+    public static String h(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65543, null, file)) != null) {
+            return (String) invokeL.objValue;
+        }
+        ?? f = f(file);
+        FileInputStream fileInputStream2 = null;
+        try {
+            if (f != 0) {
+                try {
+                    fileInputStream = new FileInputStream(file);
+                    try {
+                        String b = wd0.b(fileInputStream);
+                        wd0.a(fileInputStream);
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return b;
+                    } catch (IOException e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        wd0.a(fileInputStream);
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        return null;
+                    }
+                } catch (IOException e4) {
+                    e = e4;
+                    fileInputStream = null;
+                } catch (Throwable th) {
+                    th = th;
+                    wd0.a(fileInputStream2);
+                    if (fileInputStream2 != null) {
+                        try {
+                            fileInputStream2.close();
+                        } catch (IOException e5) {
+                            e5.printStackTrace();
+                        }
+                    }
+                    throw th;
+                }
+            }
+            return null;
+        } catch (Throwable th2) {
+            th = th2;
+            fileInputStream2 = f;
+        }
     }
 }

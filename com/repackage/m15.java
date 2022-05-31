@@ -1,24 +1,24 @@
 package com.repackage;
 
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class m15 implements Comparable<m15> {
+public class m15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public View b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(p15 p15Var);
-    }
-
-    public m15() {
+    public m15(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,27 +28,28 @@ public abstract class m15 implements Comparable<m15> {
                 return;
             }
         }
-        d();
+        this.a = view2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(m15 m15Var) {
-        InterceptResult invokeL;
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m15Var)) == null) {
-            if (m15Var == null) {
-                return 1;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if (!z && this.a.getVisibility() == 4) {
+                this.a.setVisibility(8);
             }
-            return c() - m15Var.c();
+            if (z || this.b == null) {
+                return;
+            }
+            b();
+            this.b = null;
         }
-        return invokeL.intValue;
     }
 
-    public abstract void b(a aVar);
-
-    public abstract int c();
-
-    public abstract void d();
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setVisibility(4);
+            q15.j(this.b);
+        }
+    }
 }

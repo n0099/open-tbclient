@@ -1,190 +1,210 @@
 package com.repackage;
 
 import android.text.TextUtils;
-import android.util.AtomicFile;
-import android.util.SparseArray;
-import androidx.annotation.NonNull;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PayWebActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.channels.FileChannel;
-import java.nio.channels.FileLock;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URI;
+import java.net.URISyntaxException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ef3 {
+public class ef3 extends bf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Removed duplicated region for block: B:101:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:106:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0149  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean a(@NonNull JSONArray jSONArray, @NonNull File file, int i) {
-        InterceptResult invokeLLI;
-        FileOutputStream fileOutputStream;
-        FileChannel fileChannel;
-        FileLock fileLock;
-        AtomicFile atomicFile;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLI = interceptable.invokeLLI(65536, null, jSONArray, file, i)) != null) {
-            return invokeLLI.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755739585, "Lcom/repackage/ef3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755739585, "Lcom/repackage/ef3;");
+                return;
+            }
         }
-        StringBuilder sb = new StringBuilder();
-        AtomicFile atomicFile2 = null;
-        r1 = null;
-        FileLock fileLock2 = null;
-        FileChannel fileChannel2 = null;
-        try {
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-                SparseArray sparseArray = new SparseArray(i);
-                ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < i; i2++) {
-                    arrayList.add(bufferedReader.readLine());
-                }
-                for (int i3 = 0; i3 < i; i3++) {
-                    String str = (String) arrayList.get(i3);
-                    if (TextUtils.isEmpty(str) || (optJSONArray = new JSONObject(str).optJSONArray("descriptions")) == null) {
-                        return false;
-                    }
-                    HashMap hashMap = new HashMap();
-                    for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                        JSONObject jSONObject = (JSONObject) optJSONArray.get(i4);
-                        hashMap.put(jSONObject.optString("name"), jSONObject);
-                    }
-                    sparseArray.put(i3, hashMap);
-                }
-                for (int i5 = 0; i5 < jSONArray.length(); i5++) {
-                    JSONObject jSONObject2 = (JSONObject) jSONArray.get(i5);
-                    String optString = jSONObject2.optString("name");
-                    int i6 = 0;
-                    while (true) {
-                        if (i6 >= i) {
-                            break;
-                        } else if (((Map) sparseArray.get(i6)).containsKey(optString)) {
-                            ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
-                            break;
-                        } else {
-                            if (i6 == i - 1) {
-                                ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
-                            }
-                            i6++;
-                        }
-                    }
-                }
-                for (int i7 = 0; i7 < i; i7++) {
-                    JSONObject jSONObject3 = new JSONObject((String) arrayList.get(i7));
-                    JSONArray jSONArray2 = new JSONArray();
-                    jSONObject3.optJSONArray("descriptions");
-                    for (Map.Entry entry : ((Map) sparseArray.get(i7)).entrySet()) {
-                        jSONArray2.put(entry.getValue());
-                    }
-                    jSONObject3.put("descriptions", jSONArray2);
-                    if (i7 != i - 1) {
-                        sb.append(jSONObject3.toString());
-                        sb.append("\n");
-                    } else {
-                        sb.append(jSONObject3.toString());
-                    }
-                }
-                bufferedReader.close();
-                atomicFile = new AtomicFile(file);
-                try {
-                    atomicFile.startWrite();
-                    fileOutputStream = atomicFile.startWrite();
-                    try {
-                        fileChannel = fileOutputStream.getChannel();
-                    } catch (IOException | JSONException unused) {
-                        fileChannel = null;
-                        fileLock = fileChannel;
-                        atomicFile2 = atomicFile;
-                        if (atomicFile2 != null) {
-                            if (fileLock != null) {
-                                try {
-                                    fileLock.release();
-                                } catch (IOException unused2) {
-                                }
-                            }
-                            atomicFile2.failWrite(fileOutputStream);
-                        }
-                        if (fileChannel != null) {
-                            try {
-                                fileChannel.close();
-                            } catch (IOException unused3) {
-                            }
-                        }
-                        return false;
-                    }
-                } catch (IOException | JSONException unused4) {
-                    fileOutputStream = null;
-                    fileChannel = null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                if (fileChannel2 != null) {
-                    try {
-                        fileChannel2.close();
-                    } catch (IOException unused5) {
-                    }
-                }
-                throw th;
+        b = rf1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ef3(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+    }
+
+    public boolean b(String str) {
+        URI uri;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                try {
-                    fileLock = fileChannel.lock();
-                } catch (IOException | JSONException unused6) {
-                    fileLock = fileLock2;
+                uri = new URI(str);
+            } catch (URISyntaxException e) {
+                if (b) {
+                    e.printStackTrace();
                 }
-                try {
-                    fileOutputStream.write(sb.toString().getBytes());
-                    if (fileLock != null) {
-                        fileLock.release();
-                    } else {
-                        fileLock2 = fileLock;
-                    }
-                    atomicFile.finishWrite(fileOutputStream);
-                    if (fileChannel != null) {
-                        try {
-                            fileChannel.close();
-                            return true;
-                        } catch (IOException unused7) {
-                            return true;
-                        }
-                    }
-                    return true;
-                } catch (IOException | JSONException unused8) {
-                    atomicFile2 = atomicFile;
-                    if (atomicFile2 != null) {
-                    }
-                    if (fileChannel != null) {
-                    }
-                    return false;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                fileChannel2 = fileChannel;
-                if (fileChannel2 != null) {
-                }
-                throw th;
+                uri = null;
             }
-        } catch (IOException | JSONException unused9) {
-            fileOutputStream = null;
-            fileChannel = null;
-            fileLock = null;
+            return uri == null || TextUtils.isEmpty(uri.getPath()) || TextUtils.equals("/", uri.getPath());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            if (b) {
+                Log.i("WebStatsStrategy", "onFcpSubmit: " + str);
+            }
+            if (this.a.d("na_fcp")) {
+                return;
+            }
+            this.a.g("na_fcp");
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || b(str) || this.a.d("na_first_image_paint")) {
+            return;
+        }
+        this.a.g("na_first_image_paint");
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || b(str) || this.a.d("na_first_text_paint")) {
+            return;
+        }
+        this.a.g("na_first_text_paint");
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (b) {
+                Log.i("WebStatsStrategy", "onFmpSubmit: " + str);
+            }
+            if (!this.a.d("na_up_screen")) {
+                this.a.g("na_up_screen");
+            }
+            if (this.a.d("fe_fmp")) {
+                a();
+                l();
+            }
+        }
+    }
+
+    public void g(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) || jSONArray == null || jSONArray.length() <= 0) {
+            return;
+        }
+        for (int i = 0; i < jSONArray.length(); i++) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                this.a.h(jSONObject.optString("actionId"), jSONObject.optLong("timestamp"));
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        this.a.g("fe_fmp");
+        if (this.a.d("na_up_screen")) {
+            a();
+            l();
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || b(str) || this.a.d("na_load_url_end")) {
+            return;
+        }
+        this.a.g("na_load_url_end");
+        this.a.f("load_end_url", str);
+        this.a.f("fmpArrived", this.a.d("fe_fmp") ? "1" : "0");
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            if (b) {
+                Log.i("WebStatsStrategy", "onLoadUrlStart: " + str);
+            }
+            if (this.a.d("na_load_url")) {
+                return;
+            }
+            this.a.g("na_load_url");
+            this.a.f(PayWebActivity.LOAD_URL, str);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            if (b) {
+                Log.i("WebStatsStrategy", "onUserCancel: report");
+            }
+            a();
+            l();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.a.d("na_start")) {
+            return;
+        }
+        this.a.g("na_start");
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.a.e()) {
+            this.a.k();
+            mh2.e();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.i();
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
         }
     }
 }

@@ -1,223 +1,160 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.SystemProperties;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.down.utils.Constants;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import androidx.core.view.MarginLayoutParamsCompat;
+import androidx.core.view.ViewCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
-import com.repackage.x70;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y80 {
+public final class y80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
-            try {
-                x70.c cVar = new x70.c(context);
-                cVar.e(str);
-                cVar.f("1");
-                cVar.c(j);
-                cVar.d(str2);
-                cVar.a(501112L);
-                cVar.b();
-            } catch (Exception e) {
-                b90.c("LCPCommon", "businessEvent exception ", e);
-            }
-        }
-    }
-
-    public static String b(Context context) {
+    public static int a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                b90.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) ? b(view2, false) : invokeL.intValue;
     }
 
-    public static Object c(Context context, boolean z) {
+    public static int b(View view2, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String str = Build.VERSION.RELEASE;
-            String str2 = Build.MANUFACTURER;
-            String str3 = Build.MODEL;
-            String b = TextUtils.isEmpty(b(context)) ? "" : b(context);
-            long currentTimeMillis = System.currentTimeMillis();
-            String b2 = c90.b(context);
-            String e = c90.e(context);
-            try {
-                if (z) {
-                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
-                        jSONObject.put("cuid", e);
-                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
-                        jSONObject.put(HttpConstants.OS_VERSION, str);
-                        jSONObject.put("manufacture", str2);
-                        jSONObject.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, str3);
-                        jSONObject.put("app_id", c90.b(context));
-                        jSONObject.put("app_version", b);
-                        jSONObject.put("sdk_version", "2280016");
-                        jSONObject.put(TimeDisplaySetting.TIME_DISPLAY_SETTING, currentTimeMillis);
-                        jSONObject.put("sign", f(b2, e, "android", currentTimeMillis));
-                        return jSONObject;
-                    }
-                    b90.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
-                    return null;
-                }
-                String str4 = "nonNet";
-                if (RequsetNetworkUtils.isNetworkAvailable(context)) {
-                    str4 = RequsetNetworkUtils.isWifiConnected(context) ? "wifi" : RequsetNetworkUtils.getMobileType(context);
-                }
-                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
-                newBuilder.w(e);
-                newBuilder.x("android");
-                newBuilder.B(str);
-                newBuilder.y(str2);
-                newBuilder.z(str3);
-                newBuilder.u(b2);
-                newBuilder.v(b);
-                newBuilder.D("2280016");
-                newBuilder.A(str4);
-                newBuilder.C(d(context));
-                return newBuilder.build();
-            } catch (Exception e2) {
-                b90.c("LCPCommon", "getData :", e2);
-                return null;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, view2, z)) == null) {
+            if (view2 == null) {
+                return 0;
             }
+            return n(view2) ? z ? view2.getLeft() + g(view2) : view2.getLeft() : z ? view2.getRight() - g(view2) : view2.getRight();
         }
-        return invokeLZ.objValue;
+        return invokeLZ.intValue;
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String upperCase = Build.MANUFACTURER.toUpperCase();
-            String str3 = "";
-            if (upperCase.contains("XIAOMI")) {
-                str = "ro.miui.ui.version.code";
-            } else if (upperCase.contains("HUAWEI")) {
-                str = "ro.build.version.emui";
-            } else if (upperCase.contains("MEIZU")) {
-                str = RomUtils.PROP_RO_BUILD_DISPLAY_ID;
-            } else if (upperCase.contains("OPPO")) {
-                str = "ro.build.version.opporom";
-            } else {
-                str = upperCase.contains("VIVO") ? "ro.vivo.os.version" : "";
-            }
-            try {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    str2 = SystemProperties.get(str);
-                } else {
-                    Class<?> cls = Class.forName("android.os.SystemProperties");
-                    str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
-                }
-                str3 = str2;
-            } catch (Throwable unused) {
-                if (Build.VERSION.SDK_INT >= 21 && upperCase.contains("HUAWEI")) {
-                    return Constants.SDK_VER;
-                }
-                if (upperCase.contains("HUAWEI")) {
-                    return "1.0";
-                }
-                if (upperCase.contains("XIAOMI")) {
-                    return "4.0";
-                }
-                if (upperCase.contains("MEIZU")) {
-                    return "6.0";
-                }
-                if (upperCase.contains("OPPO")) {
-                    return "3.0";
-                }
-                if (upperCase.contains("VIVO")) {
-                    return "3.2";
-                }
-            }
-            if (upperCase.contains("HUAWEI") && !TextUtils.isEmpty(str3)) {
-                String substring = str3.substring(str3.indexOf("_") + 1, str3.length());
-                return (substring.matches("\\d+\\.\\d+$") || Build.VERSION.SDK_INT < 21) ? substring : Constants.SDK_VER;
-            }
-            if (upperCase.contains("MEIZU")) {
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = Build.DISPLAY;
-                }
-                Matcher matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str3);
-                if (matcher.find()) {
-                    str3 = matcher.group();
-                }
-            } else if (upperCase.contains("OPPO") && !TextUtils.isEmpty(str3)) {
-                Matcher matcher2 = Pattern.compile("^V(\\d+\\.\\d+)").matcher(str3);
-                if (matcher2.find()) {
-                    str3 = matcher2.group(1);
-                }
-            } else if (upperCase.contains("VIVO") && !TextUtils.isEmpty(str3)) {
-                Matcher matcher3 = Pattern.compile("^\\d+(\\.\\d+)?").matcher(str3);
-                if (matcher3.find()) {
-                    return matcher3.group();
-                }
-            }
-            return str3;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str) {
+    public static int c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append(0);
-                    }
-                    sb.append(Integer.toHexString(i));
-                }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
             }
+            return MarginLayoutParamsCompat.getMarginEnd((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    @SuppressLint({"DefaultLocale"})
-    public static String f(String str, String str2, String str3, long j) {
-        InterceptResult invokeCommon;
+    public static int d(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) ? e(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j))) : (String) invokeCommon.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view2.getLayoutParams();
+            return MarginLayoutParamsCompat.getMarginStart(marginLayoutParams) + MarginLayoutParamsCompat.getMarginEnd(marginLayoutParams);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int e(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return MarginLayoutParamsCompat.getMarginStart((ViewGroup.MarginLayoutParams) view2.getLayoutParams());
+        }
+        return invokeL.intValue;
+    }
+
+    public static int f(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return view2.getMeasuredWidth();
+        }
+        return invokeL.intValue;
+    }
+
+    public static int g(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return ViewCompat.getPaddingEnd(view2);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int h(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return view2.getPaddingLeft() + view2.getPaddingRight();
+        }
+        return invokeL.intValue;
+    }
+
+    public static int i(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return ViewCompat.getPaddingStart(view2);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int j(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) ? k(view2, false) : invokeL.intValue;
+    }
+
+    public static int k(View view2, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65546, null, view2, z)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return n(view2) ? z ? view2.getRight() - i(view2) : view2.getRight() : z ? view2.getLeft() + i(view2) : view2.getLeft();
+        }
+        return invokeLZ.intValue;
+    }
+
+    public static int l(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view2)) == null) {
+            if (view2 == null) {
+                return 0;
+            }
+            return view2.getWidth();
+        }
+        return invokeL.intValue;
+    }
+
+    public static int m(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, view2)) == null) ? l(view2) + d(view2) : invokeL.intValue;
+    }
+
+    public static boolean n(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view2)) == null) ? ViewCompat.getLayoutDirection(view2) == 1 : invokeL.booleanValue;
     }
 }

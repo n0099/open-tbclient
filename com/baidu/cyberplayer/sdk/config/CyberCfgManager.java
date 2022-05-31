@@ -29,6 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ETAG;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.sdk.VideoCloudSetting;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -582,7 +583,7 @@ public class CyberCfgManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             String a2 = a(this.d, "update_core_info", "");
-            if (!TextUtils.isEmpty(a2) && (split = a2.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue() && b(split[1]) && isAllowUpdate("cyber-media-dex", split[1], SDKVersion.VERSION)) {
+            if (!TextUtils.isEmpty(a2) && (split = a2.split(ParamableElem.DIVIDE_PARAM)) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue() && b(split[1]) && isAllowUpdate("cyber-media-dex", split[1], SDKVersion.VERSION)) {
                 this.d.put("update_core_ver", keepMainProcessVersion("cyber-media-dex", split[1]));
                 this.d.put("update_core_enable_downgrade", split[2]);
             }
@@ -604,7 +605,7 @@ public class CyberCfgManager {
                     while (keys.hasNext()) {
                         String next = keys.next();
                         String string = jSONObject.getString(next);
-                        if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string) && (split = string.split(";")) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue()) {
+                        if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(string) && (split = string.split(ParamableElem.DIVIDE_PARAM)) != null && split.length == 3 && a.a(split[0], SDKVersion.VERSION).booleanValue()) {
                             this.d.put(next, string);
                         }
                     }
@@ -640,7 +641,7 @@ public class CyberCfgManager {
                 return;
             }
             try {
-                String[] split = a2.split(";");
+                String[] split = a2.split(ParamableElem.DIVIDE_PARAM);
                 if (split == null || split.length != 2) {
                     return;
                 }
@@ -667,7 +668,7 @@ public class CyberCfgManager {
             String a2 = a(this.d, "remote_forbidden_by_rom", "16,17,18,19,20;1");
             if (!TextUtils.isEmpty(a2)) {
                 try {
-                    String[] split = a2.split(";");
+                    String[] split = a2.split(ParamableElem.DIVIDE_PARAM);
                     if (split != null && split.length == 2) {
                         String[] split2 = split[0].split(",");
                         int i2 = 0;
@@ -696,7 +697,7 @@ public class CyberCfgManager {
         if (interceptable == null || interceptable.invokeV(65564, this) == null) {
             String prefStr = getPrefStr(SR_REMAINING_INFO, null);
             if (!TextUtils.isEmpty(prefStr)) {
-                String[] split = prefStr.split(";");
+                String[] split = prefStr.split(ParamableElem.DIVIDE_PARAM);
                 if (split.length == 2) {
                     this.d.put("sr_last_run_time", split[0]);
                     this.d.put("sr_remaining_nb", split[1]);
@@ -723,7 +724,7 @@ public class CyberCfgManager {
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
-            String[] split = a2.split(";");
+            String[] split = a2.split(ParamableElem.DIVIDE_PARAM);
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
                 arrayList.add(str);
@@ -742,7 +743,7 @@ public class CyberCfgManager {
                 if (TextUtils.isEmpty(a2)) {
                     return false;
                 }
-                String[] split = a2.split(";");
+                String[] split = a2.split(ParamableElem.DIVIDE_PARAM);
                 ArrayList arrayList = new ArrayList();
                 for (String str : split) {
                     arrayList.add(str);
@@ -765,7 +766,7 @@ public class CyberCfgManager {
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
-            String[] split = a2.split(";");
+            String[] split = a2.split(ParamableElem.DIVIDE_PARAM);
             ArrayList arrayList = new ArrayList();
             for (String str : split) {
                 arrayList.add(str);
@@ -1027,7 +1028,7 @@ public class CyberCfgManager {
                 if (TextUtils.isEmpty(a2)) {
                     return false;
                 }
-                String[] split = a2.split(";");
+                String[] split = a2.split(ParamableElem.DIVIDE_PARAM);
                 ArrayList arrayList = new ArrayList();
                 for (String str2 : split) {
                     arrayList.add(str2);

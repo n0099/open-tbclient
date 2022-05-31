@@ -18,13 +18,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, b> a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,11 +52,11 @@ public class a {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void call(String str, List<String> list, C0651a c0651a) {
+        public void call(String str, List<String> list, C0653a c0653a) {
             Method method;
             Object invoke;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c0651a) == null) {
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, list, c0653a) == null) {
                 Method[] declaredMethods = getClass().getDeclaredMethods();
                 int length = declaredMethods.length;
                 int i = 0;
@@ -72,8 +72,8 @@ public class a {
                     i++;
                 }
                 if (method == null) {
-                    if (c0651a != null) {
-                        c0651a.a();
+                    if (c0653a != null) {
+                        c0653a.a();
                         return;
                     }
                     return;
@@ -88,15 +88,15 @@ public class a {
                     Class<?> returnType = method.getReturnType();
                     SLog.d("openSDK_LOG.JsBridge", "-->call, result: " + invoke + " | ReturnType: " + returnType.getName());
                     if (!"void".equals(returnType.getName()) && returnType != Void.class) {
-                        if (c0651a == null || !customCallback()) {
+                        if (c0653a == null || !customCallback()) {
                             return;
                         }
-                        c0651a.a(invoke != null ? invoke.toString() : null);
+                        c0653a.a(invoke != null ? invoke.toString() : null);
                     }
                 } catch (Exception e) {
                     SLog.e("openSDK_LOG.JsBridge", "-->handler call mehtod ex. targetMethod: " + method, e);
-                    if (c0651a != null) {
-                        c0651a.a();
+                    if (c0653a != null) {
+                        c0653a.a();
                     }
                 }
             }
@@ -135,9 +135,9 @@ public class a {
         }
     }
 
-    public void a(String str, String str2, List<String> list, C0651a c0651a) {
+    public void a(String str, String str2, List<String> list, C0653a c0653a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c0651a) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, list, c0653a) == null) {
             SLog.v("openSDK_LOG.JsBridge", "getResult---objName = " + str + " methodName = " + str2);
             int size = list.size();
             for (int i = 0; i < size; i++) {
@@ -150,26 +150,26 @@ public class a {
             b bVar = this.a.get(str);
             if (bVar != null) {
                 SLog.d("openSDK_LOG.JsBridge", "call----");
-                bVar.call(str2, list, c0651a);
+                bVar.call(str2, list, c0653a);
                 return;
             }
             SLog.d("openSDK_LOG.JsBridge", "not call----objName NOT FIND");
-            if (c0651a != null) {
-                c0651a.a();
+            if (c0653a != null) {
+                c0653a.a();
             }
         }
     }
 
     /* renamed from: com.tencent.open.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C0651a {
+    /* loaded from: classes7.dex */
+    public static class C0653a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public WeakReference<WebView> a;
         public long b;
         public String c;
 
-        public C0651a(WebView webView, long j, String str) {
+        public C0653a(WebView webView, long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -237,9 +237,9 @@ public class a {
                     return false;
                 }
                 List<String> subList = arrayList.subList(4, arrayList.size() - 1);
-                C0651a c0651a = new C0651a(webView, 4L, str);
+                C0653a c0653a = new C0653a(webView, 4L, str);
                 webView.getUrl();
-                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0651a);
+                a((String) arrayList.get(2), (String) arrayList.get(3), subList, c0653a);
                 return true;
             }
             return false;

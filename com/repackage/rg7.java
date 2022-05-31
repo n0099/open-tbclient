@@ -1,77 +1,98 @@
 package com.repackage;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.live.interfaces.realauth.LiveRealAuthCallback;
-import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.ICertification;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import com.baidu.webkit.sdk.SevenZipUtils;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes7.dex */
-public class rg7 implements LiveRealAuthService {
+public class rg7 implements jn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
+    public static int d;
+    public static boolean e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
+    public qg7 a;
+    public List<sg7> b;
 
-    /* loaded from: classes7.dex */
-    public class a implements ICertification.CertificationCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LiveRealAuthCallback a;
-
-        public a(rg7 rg7Var, LiveRealAuthCallback liveRealAuthCallback) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755351217, "Lcom/repackage/rg7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rg7Var, liveRealAuthCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = liveRealAuthCallback;
-        }
-
-        @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
-        public void onResult(int i, Map<String, Object> map) {
-            LiveRealAuthCallback liveRealAuthCallback;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, map) == null) || (liveRealAuthCallback = this.a) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755351217, "Lcom/repackage/rg7;");
                 return;
             }
-            liveRealAuthCallback.onRealAuthResult(i, map);
         }
+        c = BdUniqueId.gen();
+        d = 3;
+        e = false;
     }
 
-    public rg7() {
+    public rg7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
+            return;
+        }
+        String str = vipSpecialList.card_id;
+        qg7 qg7Var = new qg7();
+        this.a = qg7Var;
+        qg7Var.e(4);
+        this.a.d(vipSpecialList.class_name);
+        this.a.f(vipSpecialList.class_url_name);
+        this.a.g(vipSpecialList.class_url);
+        String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
+        if (StringUtils.isNull(f) || !f.equals(currentAccount)) {
+            e = false;
+            f = currentAccount;
+        }
+        this.b = new ArrayList();
+        for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
+            this.b.add(new sg7(vipSpecialList.item.get(i3)));
+            if (e) {
+                if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
+                    this.b.add(new sg7(true, true));
+                }
+            } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
+                this.b.add(new sg7(true, false));
+                return;
             }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveRealAuthService
-    public void doAuth(Map<String, ?> map, LiveRealAuthCallback liveRealAuthCallback) {
-        CustomResponsedMessage runTask;
+    @Override // com.repackage.jn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, map, liveRealAuthCallback) == null) || (runTask = MessageManager.getInstance().runTask(2921433, ICertification.class)) == null || runTask.getData() == null) {
-            return;
-        }
-        ((ICertification) runTask.getData()).certification(TbadkCoreApplication.getInst(), map, new a(this, liveRealAuthCallback));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.CommonReq;
 import tbclient.NewTopicList.DataReq;
 import tbclient.NewTopicList.NewTopicListReqIdl;
@@ -47,10 +47,10 @@ public class RequestGetTopicListMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1249common = this.f998common;
+            builder.f1243common = this.f998common;
             builder.call_from = this.callFrom;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             NewTopicListReqIdl.Builder builder2 = new NewTopicListReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -1,112 +1,80 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mutiprocess.event.GoodsEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z53;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wm5 extends r23 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String d = "com.baidu.tieba://";
+public class wm5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+    public TbPageContext<?> a;
+    public xm5 b;
+    public boolean c;
+    public um5 d;
+    public CustomMessageListener e;
+    public Runnable f;
 
     /* loaded from: classes7.dex */
-    public class a implements nf3<x53<z53.e>> {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ wm5 h;
+        public final /* synthetic */ wm5 a;
 
-        public a(wm5 wm5Var, CallbackHandler callbackHandler, Context context, String str, String str2, String str3, String str4, String str5) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wm5 wm5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wm5Var, callbackHandler, context, str, str2, str3, str4, str5};
+                Object[] objArr = {wm5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.h = wm5Var;
-            this.a = callbackHandler;
-            this.b = context;
-            this.c = str;
-            this.d = str2;
-            this.e = str3;
-            this.f = str4;
-            this.g = str5;
+            this.a = wm5Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(x53<z53.e> x53Var) {
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
-                if (!s53.h(x53Var)) {
-                    s53.q(x53Var, this.a, this.h.c);
-                } else if (!this.h.l(this.b, this.c, this.d, this.e, this.f, this.g)) {
-                    ux1.c("PageTransitionAction", "page transition fail");
-                    this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
-                } else {
-                    ux1.i("PageTransitionAction", "page transition success");
-                    this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.b();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements BdUniDispatchSchemeController.b {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ wm5 a;
 
-        public b(Context context) {
+        public b(wm5 wm5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
+                Object[] objArr = {wm5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -116,232 +84,136 @@ public class wm5 extends r23 {
                     return;
                 }
             }
-            this.a = context;
+            this.a = wm5Var;
         }
 
-        @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
-        public void a(HashMap<String, Object> hashMap) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_URL) instanceof String)) {
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a, null, (String) hashMap.get(BdUniDispatchSchemeController.PARAM_URL), true);
-                tbWebViewActivityConfig.setIsFromSchema(true);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.i();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755196558, "Lcom/repackage/wm5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755196558, "Lcom/repackage/wm5;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wm5(r13 r13Var) {
-        super(r13Var, "/swanAPI/pageTransition");
+    public wm5(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
+        this.c = false;
+        this.e = new a(this, 2000994);
+        this.f = new b(this);
+        this.a = tbPageContext;
+        this.b = new xm5(tbPageContext);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public static String m(String str, String str2, String str3, String str4, String str5) {
-        InterceptResult invokeLLLLL;
-        String str6;
-        String str7;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3, str4, str5)) == null) {
-            if (TextUtils.isEmpty(str5)) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            try {
-                JSONObject jSONObject = new JSONObject(str5);
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (TextUtils.isEmpty(next)) {
-                        return null;
-                    }
-                    String obj = jSONObject.opt(next).toString();
-                    sb.append(next + "=" + Uri.encode(obj) + "&");
-                }
-                if (!TextUtils.isEmpty(str4)) {
-                    str4 = "/" + str4;
-                }
-                if (TextUtils.equals(str3, "NA")) {
-                    str6 = "";
-                } else {
-                    str6 = "/" + str3;
-                }
-                if (TextUtils.isEmpty(str2)) {
-                    str2 = str6 + str4;
-                }
-                String str8 = d;
-                if (TextUtils.isEmpty(str2)) {
-                    if (!TextUtils.isEmpty(str)) {
-                        str8 = str8 + str;
-                    }
-                } else {
-                    String substring = str2.substring(1, str2.length());
-                    if (TextUtils.isEmpty(str)) {
-                        str7 = str8 + substring;
-                    } else {
-                        str7 = str8 + str + "/" + substring;
-                    }
-                    str8 = str7;
-                }
-                StringBuilder sb2 = new StringBuilder(sb.substring(0, sb.length() - 1));
-                String str9 = str8 + "?" + ((Object) sb2);
-                if (r23.b) {
-                    Log.i("PageTransitionAction", "encodeParams: " + ((Object) sb2));
-                }
-                return str9;
-            } catch (JSONException e) {
-                if (r23.b) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-        }
-        return (String) invokeLLLLL.objValue;
-    }
-
-    public static boolean n(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str) || context == null) {
-                return false;
-            }
-            if (!TextUtils.isEmpty(str) && str.contains("tbwebview")) {
-                Uri parse = Uri.parse(str);
-                if (BdUniDispatchSchemeController.isUniScheme(parse)) {
-                    BdUniDispatchSchemeController.getInstance().parseWebViewScheme(str, parse, new b(context));
-                } else {
-                    TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(context);
-                    tbWebViewActivityConfig.setUri(parse);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
-                }
-                return true;
-            }
-            if (!TextUtils.isEmpty(str) && str.contains("com.baidu.tieba")) {
-                Uri parse2 = Uri.parse(str);
-                if ("miniapp".equals(parse2.getAuthority()) && "/goods".equals(parse2.getPath())) {
-                    e65.i(new GoodsEvent(parse2.getQueryParameter("goodsList")));
-                    return true;
-                }
-            }
-            return UtilHelper.dealOneScheme(context, str);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (u03Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "null swanApp");
-                return false;
-            }
-            String param = unitedSchemeEntity.getParam("params");
-            if (TextUtils.isEmpty(param)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
-                return false;
-            }
-            JSONObject d2 = ud3.d(param);
-            String optString = d2.optString("cb");
-            this.c = optString;
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            String optString2 = d2.optString("authority");
-            String optString3 = d2.optString("path");
-            String optString4 = d2.optString("module", "NA");
-            String optString5 = d2.optString("action");
-            JSONObject optJSONObject = d2.optJSONObject("scheme");
-            try {
-                optJSONObject.put("launchMode", "standard");
-            } catch (JSONException e) {
-                if (r23.b) {
-                    e.printStackTrace();
-                }
-            }
-            u03Var.d0().g((Activity) context, "mapp_i_baiduapp_page_trans", new a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optJSONObject.toString()));
-            ux1.i("PageTransitionAction", "callback success");
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean l(Context context, String str, String str2, String str3, String str4, String str5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, str2, str3, str4, str5})) == null) {
-            boolean z = false;
-            if (!TextUtils.isEmpty(str5) && context != null) {
-                String str6 = null;
-                if (str3.hashCode() == -330473854) {
-                    str3.equals("anything");
-                }
-                if ("icashwebview".equals(str4)) {
-                    if (!StringUtils.isNull(str5)) {
-                        try {
-                            String optString = new JSONObject(str5).optString("url");
-                            if (!StringUtils.isNull(optString)) {
-                                o(optString);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                } else {
-                    str6 = m(str, str2, str3, str4, str5);
-                    z = n(context, str6);
-                }
-                if (r23.b) {
-                    Log.i("PageTransitionAction", "result = " + z + "\n拼接后的uri is: " + str6);
-                }
-            }
-            return z;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void o(String str) {
-        u03 L;
-        px2 z;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (L = u03.L()) == null || (z = L.z()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c) {
             return;
         }
-        Bundle bundle = new Bundle();
-        bundle.putString("key_param_url", str);
-        z.V(bundle, vm5.class);
+        if (xc5.a(1)) {
+            mg.a().removeCallbacks(this.f);
+            mg.a().postDelayed(this.f, 1000L);
+            return;
+        }
+        xm5 xm5Var = this.b;
+        if (xm5Var != null) {
+            xm5Var.r();
+        }
+    }
+
+    public um5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (um5) invokeV.objValue;
+    }
+
+    public View d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.j() : (View) invokeV.objValue;
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void f(um5 um5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, um5Var) == null) || um5Var == null || um5Var.a == null) {
+            return;
+        }
+        this.d = um5Var;
+        xm5 xm5Var = this.b;
+        if (xm5Var != null) {
+            xm5Var.n(um5Var);
+            StatisticItem statisticItem = new StatisticItem("c12644");
+            int i = um5Var.b;
+            if (i == 0) {
+                statisticItem.param("obj_type", 1);
+            } else if (i == 1) {
+                statisticItem.param("obj_type", 2);
+            }
+            statisticItem.param("tid", um5Var.a.getTid());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.o();
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
+            mg.a().removeCallbacks(this.f);
+            xm5 xm5Var = this.b;
+            if (xm5Var != null) {
+                xm5Var.p();
+            }
+        }
+    }
+
+    public final void i() {
+        um5 um5Var;
+        ThreadData threadData;
+        xm5 xm5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (um5Var = this.d) == null || (threadData = um5Var.a) == null || threadData.getThreadAlaInfo() == null || (xm5Var = this.b) == null) {
+            return;
+        }
+        xm5Var.x(this.d.a.getThreadAlaInfo().hls_url);
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            xm5 xm5Var = this.b;
+            if (xm5Var != null) {
+                xm5Var.r();
+            }
+            mg.a().removeCallbacks(this.f);
+        }
     }
 }

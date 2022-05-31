@@ -1,7 +1,6 @@
 package com.repackage;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class ye2 extends oe2<ue2> {
+public class ye2 extends bd2<sf2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,27 +27,23 @@ public class ye2 extends oe2<ue2> {
         }
     }
 
-    @Override // com.repackage.oe2
+    @Override // com.repackage.bd2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pageScrollUp" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "publishLocalStream" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.oe2
+    @Override // com.repackage.bd2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ue2 ue2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull sf2 sf2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ue2Var) == null) {
-            int i = command.arg1;
-            int g = le3.g(command.arg2);
-            int i2 = command.arg3;
-            int g2 = le3.g(command.arg4);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, sf2Var) == null) {
             String str = command.what;
-            d(ue2Var, str, "(top, inputHeight, keyboardHeight, cursorSpacing) " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + g + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + g2, false);
-            ue2Var.z0(i, g, i2, g2);
+            d(sf2Var, str, "" + command.obj, true);
+            sf2Var.E();
         }
     }
 }

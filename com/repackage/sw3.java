@@ -1,27 +1,43 @@
 package com.repackage;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class sw3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile rw3 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sw3 {
+    String a();
 
-    public static synchronized rw3 a() {
-        InterceptResult invokeV;
-        rw3 rw3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (sw3.class) {
-                if (a == null) {
-                    a = new rw3();
-                }
-                rw3Var = a;
-            }
-            return rw3Var;
-        }
-        return (rw3) invokeV.objValue;
-    }
+    String b();
+
+    String c();
+
+    String d();
+
+    String e();
+
+    String f();
+
+    String g();
+
+    String h();
+
+    String i();
+
+    String j();
+
+    String k();
+
+    String l();
+
+    String m();
+
+    String n();
+
+    String o();
+
+    String p();
+
+    String q();
+
+    String r();
+
+    String s();
+
+    String t();
 }

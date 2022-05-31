@@ -1,55 +1,99 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.sj0;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class kj0 {
+public class kj0 implements qj0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentLinkedQueue<sj0.b<?>> a;
+    public final AtomicBoolean b;
 
-    public static cz0 a(@NonNull rj0 rj0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rj0Var)) == null) {
-            cz0 cz0Var = new cz0();
-            cz0Var.h(rj0Var.d());
-            cz0Var.n(rj0Var.b);
-            cz0Var.m(rj0Var.c.status);
-            cz0Var.j(rj0Var.d);
-            cz0Var.o(rj0Var.g);
-            File file = rj0Var.h;
-            if (file != null) {
-                cz0Var.f(file.getAbsolutePath());
-            } else {
-                cz0Var.f("");
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final kj0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-240907581, "Lcom/repackage/kj0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-240907581, "Lcom/repackage/kj0$a;");
+                    return;
+                }
             }
-            cz0Var.k((int) (rj0Var.i * 1000.0f));
-            cz0Var.p((int) (rj0Var.j * 1000.0f));
-            cz0Var.l(rj0Var.l);
-            cz0Var.g(rj0Var.m);
-            uj0 uj0Var = rj0Var.p;
-            if (uj0Var != null) {
-                cz0Var.i(uj0.a(uj0Var));
-            } else {
-                cz0Var.i("");
-            }
-            sj0 sj0Var = rj0Var.q;
-            if (sj0Var != null) {
-                cz0Var.d(sj0.a(sj0Var));
-            } else {
-                cz0Var.d("");
-            }
-            tj0 tj0Var = rj0Var.r;
-            if (tj0Var != null) {
-                cz0Var.e(tj0.a(tj0Var));
-            } else {
-                cz0Var.e("");
-            }
-            return cz0Var;
+            a = new kj0();
         }
-        return (cz0) invokeL.objValue;
+    }
+
+    public kj0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
+    }
+
+    public static qj0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (qj0) invokeV.objValue;
+    }
+
+    @Override // com.repackage.qj0
+    public <T extends oj0> void a(tj0 tj0Var, rj0<T> rj0Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, tj0Var, rj0Var, t) == null) {
+            if (ih0.a()) {
+                this.a.offer(new sj0.b<>(tj0Var, rj0Var, t));
+                if (this.b.compareAndSet(false, true)) {
+                    py0.c(this, "BackgroundDeliver", 3);
+                    return;
+                }
+                return;
+            }
+            rj0Var.onEvent(t);
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        while (true) {
+            sj0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
+                return;
+            }
+        }
     }
 }

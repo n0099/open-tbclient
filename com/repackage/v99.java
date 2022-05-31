@@ -1,359 +1,497 @@
 package com.repackage;
 
+import android.content.ContentValues;
 import android.content.Context;
-import android.graphics.SurfaceTexture;
-import android.opengl.GLSurfaceView;
+import android.database.Cursor;
+import android.database.SQLException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.DuMixCallback;
-import com.baidu.ar.capture.ICaptureResult;
-import com.baidu.minivideo.arface.bean.Filter;
-import com.baidu.minivideo.arface.bean.Sticker;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ga9;
-import java.util.HashMap;
+import com.repackage.t99;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class v99 {
+public class v99 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static v99 c;
+    public static ReentrantLock d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ea9 a;
+    public ReentrantReadWriteLock a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(Object obj);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755276197, "Lcom/repackage/v99;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755276197, "Lcom/repackage/v99;");
+                return;
+            }
+        }
+        b = AppConfig.isDebug();
+        c = null;
+        d = new ReentrantLock();
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        boolean a();
-
-        int b();
-
-        void c(int i, int i2, int i3, int i4);
-
-        void d(byte[] bArr);
-
-        String e();
-
-        boolean f();
-
-        void g(int i, int i2, int i3, boolean z);
-
-        void h(boolean z);
-
-        void i(boolean z);
-
-        void j(boolean z);
-
-        boolean k(SurfaceTexture surfaceTexture, f fVar);
-
-        void l(int i);
-
-        void m(boolean z);
-
-        void n();
-
-        boolean o();
-
-        boolean p();
-
-        void q();
-
-        int r();
-
-        void release();
-
-        void s(a aVar);
-
-        void t(int i, int i2, int i3, int i4);
-
-        void u(int i);
-
-        int v();
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void onBeautyEnableChanged(me0 me0Var);
-
-        void onChangeGender(boolean z);
-
-        void onLuaMessage(HashMap<String, Object> hashMap);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface e extends ga9.b {
-        void a(ICaptureResult iCaptureResult);
-
-        void c();
-
-        void d(int i);
-
-        void e();
-
-        void f();
-
-        void g(int i, int i2);
-
-        void h(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface f {
-        void a(byte[] bArr, int i);
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public v99(Context context) {
+        super(context, "voyager.db", (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ea9(context);
+        this.a = new ReentrantReadWriteLock(true);
     }
 
-    public boolean A() {
-        InterceptResult invokeV;
+    public static v99 f(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a0() : invokeV.booleanValue;
-    }
-
-    public boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c0() : invokeV.booleanValue;
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.X();
-        }
-    }
-
-    public void D(int i) {
-        ea9 ea9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (ea9Var = this.a) == null) {
-            return;
-        }
-        ea9Var.r(i);
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.onDestroy();
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.q0() : (String) invokeV.objValue;
-    }
-
-    public void c(b bVar, int i, int i2, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
-            this.a.A(bVar, i, i2, z, str);
-        }
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ea9 ea9Var = this.a;
-            if (ea9Var != null) {
-                return ea9Var.p0();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (c == null) {
+                d.lock();
+                if (c == null) {
+                    c = new v99(context);
+                }
+                d.unlock();
             }
-            return false;
+            return c;
+        }
+        return (v99) invokeL.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.a.writeLock().lock();
+            try {
+                try {
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        long delete = writableDatabase.delete("task", null, null);
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "clear task data from table task, count = " + delete);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                        return true;
+                    } finally {
+                        writableDatabase.endTransaction();
+                    }
+                } catch (SQLException e) {
+                    if (b) {
+                        e.printStackTrace();
+                    }
+                    this.a.writeLock().unlock();
+                    return false;
+                }
+            } finally {
+                this.a.writeLock().unlock();
+            }
         }
         return invokeV.booleanValue;
     }
 
-    public void e(c cVar) {
+    /* JADX WARN: Removed duplicated region for block: B:16:0x007e A[Catch: all -> 0x009b, SQLException -> 0x009d, Merged into TryCatch #2 {all -> 0x009b, SQLException -> 0x009d, blocks: (B:5:0x0010, B:16:0x007e, B:17:0x0081, B:25:0x0094, B:26:0x0097, B:27:0x009a, B:31:0x009e, B:33:0x00a2), top: B:45:0x0010 }, TRY_ENTER] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c() {
+        InterceptResult invokeV;
+        Cursor cursor;
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.a.B(cVar);
-            this.a.e0();
+        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
+            return (String) invokeV.objValue;
+        }
+        this.a.writeLock().lock();
+        try {
+            SQLiteDatabase writableDatabase = getWritableDatabase();
+            writableDatabase.beginTransactionNonExclusive();
+            try {
+                cursor = writableDatabase.rawQuery("SELECT * FROM task ORDER BY timestamp LIMIT 1", null);
+                if (cursor != null) {
+                    try {
+                        if (cursor.getCount() > 0) {
+                            cursor.moveToFirst();
+                            string = cursor.getString(cursor.getColumnIndex("task_id"));
+                            long delete = writableDatabase.delete("task", "task_id =? ", new String[]{string});
+                            if (b) {
+                                Log.d("VoyagerDBHelper", "delete task data count: " + delete);
+                            }
+                            writableDatabase.setTransactionSuccessful();
+                            if (cursor != null) {
+                                cursor.close();
+                            }
+                            writableDatabase.endTransaction();
+                            return string;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        writableDatabase.endTransaction();
+                        throw th;
+                    }
+                }
+                string = null;
+                writableDatabase.setTransactionSuccessful();
+                if (cursor != null) {
+                }
+                writableDatabase.endTransaction();
+                return string;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
+            }
+        } catch (SQLException e) {
+            if (b) {
+                e.printStackTrace();
+            }
+            return null;
+        } finally {
+            this.a.writeLock().unlock();
         }
     }
 
-    public void f() {
+    public final ContentValues d(t99 t99Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a.onPause();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t99Var)) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("task_id", t99Var.j());
+            contentValues.put("timestamp", Long.valueOf(t99Var.i()));
+            contentValues.put("biz_type", t99Var.a());
+            contentValues.put("file_list", t99Var.g().toString());
+            if (!t99Var.l()) {
+                contentValues.put("zip_src", (Integer) 0);
+            } else {
+                contentValues.put("zip_src", (Integer) 1);
+            }
+            contentValues.put("priority", Integer.valueOf(t99Var.h()));
+            contentValues.put("upload_count", Integer.valueOf(t99Var.k()));
+            contentValues.put("network_type", Integer.valueOf(t99Var.f()));
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject b2 = t99Var.b();
+                if (b2 != null) {
+                    jSONObject.put("ext_info", b2);
+                }
+                JSONObject c2 = t99Var.c();
+                if (c2 != null) {
+                    jSONObject.put("file_meta", c2);
+                }
+                jSONObject.put("max_zip_size", t99Var.e());
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            if (jSONObject.length() > 0) {
+                contentValues.put("extend", jSONObject.toString());
+            }
+            return contentValues;
         }
+        return (ContentValues) invokeL.objValue;
     }
 
-    public void g() {
+    public final String e(ArrayList<String> arrayList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.a.onResume();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
+            StringBuilder sb = new StringBuilder();
+            Iterator<String> it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                String next = it.next();
+                if (i > 0) {
+                    sb.append(",");
+                }
+                sb.append(next);
+                i++;
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public void h() {
-        ea9 ea9Var;
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0140 A[LOOP:0: B:12:0x003a->B:47:0x0140, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x014c A[Catch: all -> 0x0185, SQLException -> 0x0187, TRY_ENTER, TryCatch #0 {SQLException -> 0x0187, blocks: (B:5:0x0011, B:52:0x014c, B:53:0x014f, B:57:0x015f, B:60:0x0181, B:61:0x0184), top: B:75:0x0011, outer: #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x0155 A[DONT_GENERATE] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x015f A[Catch: all -> 0x0185, SQLException -> 0x0187, TRY_ENTER, TryCatch #0 {SQLException -> 0x0187, blocks: (B:5:0x0011, B:52:0x014c, B:53:0x014f, B:57:0x015f, B:60:0x0181, B:61:0x0184), top: B:75:0x0011, outer: #2 }] */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x014a A[EDGE_INSN: B:83:0x014a->B:51:0x014a ?: BREAK  , SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void g(@NonNull ArrayList<String> arrayList, @NonNull LinkedList<t99> linkedList) {
+        SQLiteDatabase writableDatabase;
+        Cursor cursor;
+        long j;
+        ArrayList<String> arrayList2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (ea9Var = this.a) == null) {
+        if (interceptable != null && interceptable.invokeLL(1048580, this, arrayList, linkedList) != null) {
             return;
         }
-        ea9Var.k0();
-    }
-
-    public void i(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
-            this.a.s(i, i2);
+        this.a.writeLock().lock();
+        try {
+            try {
+                writableDatabase = getWritableDatabase();
+                cursor = null;
+            } catch (SQLException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            try {
+                Cursor rawQuery = writableDatabase.rawQuery("SELECT * FROM task", null);
+                if (rawQuery != null) {
+                    try {
+                        if (rawQuery.getCount() > 0) {
+                            rawQuery.moveToFirst();
+                            long currentTimeMillis = System.currentTimeMillis();
+                            while (true) {
+                                String string = rawQuery.getString(rawQuery.getColumnIndex("task_id"));
+                                String string2 = rawQuery.getString(rawQuery.getColumnIndex("biz_type"));
+                                long j2 = rawQuery.getLong(rawQuery.getColumnIndex("timestamp"));
+                                long b2 = j99.f().b(string2);
+                                int i = rawQuery.getInt(rawQuery.getColumnIndex("upload_count"));
+                                int e2 = j99.f().e(string2);
+                                if (b2 + j2 < currentTimeMillis) {
+                                    j = currentTimeMillis;
+                                    arrayList2 = arrayList;
+                                } else if (i >= e2) {
+                                    arrayList2 = arrayList;
+                                    j = currentTimeMillis;
+                                } else {
+                                    int i2 = rawQuery.getInt(rawQuery.getColumnIndex("priority"));
+                                    String string3 = rawQuery.getString(rawQuery.getColumnIndex("file_list"));
+                                    int i3 = rawQuery.getInt(rawQuery.getColumnIndex("network_type"));
+                                    j = currentTimeMillis;
+                                    ArrayList arrayList3 = new ArrayList(Arrays.asList(string3));
+                                    boolean z = rawQuery.getInt(rawQuery.getColumnIndex("zip_src")) != 0;
+                                    t99.b bVar = new t99.b(string, string2, arrayList3, j2);
+                                    bVar.o(i2);
+                                    bVar.n(i3);
+                                    bVar.p(z);
+                                    t99 k = bVar.k();
+                                    k.s(i);
+                                    String string4 = rawQuery.getString(rawQuery.getColumnIndex("extend"));
+                                    if (!TextUtils.isEmpty(string4)) {
+                                        try {
+                                            JSONObject jSONObject = new JSONObject(string4);
+                                            if (jSONObject.length() > 0) {
+                                                JSONObject optJSONObject = jSONObject.optJSONObject("ext_info");
+                                                if (optJSONObject != null && optJSONObject.length() > 0) {
+                                                    k.m(optJSONObject);
+                                                }
+                                                JSONObject optJSONObject2 = jSONObject.optJSONObject("file_meta");
+                                                if (optJSONObject2 != null && optJSONObject2.length() > 0) {
+                                                    k.n(optJSONObject2);
+                                                }
+                                                long optLong = jSONObject.optLong("max_zip_size", 0L);
+                                                if (optLong > 0) {
+                                                    k.o(optLong);
+                                                }
+                                            }
+                                        } catch (JSONException e3) {
+                                            if (b) {
+                                                e3.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                    linkedList.addFirst(k);
+                                    if (rawQuery.moveToNext()) {
+                                        break;
+                                    }
+                                    currentTimeMillis = j;
+                                }
+                                arrayList2.add(string);
+                                if (rawQuery.moveToNext()) {
+                                }
+                            }
+                            if (rawQuery != null) {
+                                rawQuery.close();
+                            }
+                            if (arrayList.size() != 0) {
+                                return;
+                            }
+                            writableDatabase.delete("task", "task_id IN ( " + e(arrayList) + " )", null);
+                            return;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = rawQuery;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        throw th;
+                    }
+                }
+                if (rawQuery != null) {
+                }
+                if (arrayList.size() != 0) {
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } finally {
+            this.a.writeLock().unlock();
         }
     }
 
-    public void j() {
-        ea9 ea9Var;
+    public boolean h(t99 t99Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (ea9Var = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t99Var)) == null) {
+            if (t99Var != null && !TextUtils.isEmpty(t99Var.j()) && !TextUtils.isEmpty(t99Var.a())) {
+                this.a.writeLock().lock();
+                try {
+                    ContentValues d2 = d(t99Var);
+                    SQLiteDatabase writableDatabase = getWritableDatabase();
+                    writableDatabase.beginTransactionNonExclusive();
+                    try {
+                        long insert = writableDatabase.insert("task", null, d2);
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "insert task data into table task, rowId = " + insert);
+                        }
+                        writableDatabase.setTransactionSuccessful();
+                        return true;
+                    } finally {
+                        writableDatabase.endTransaction();
+                    }
+                } catch (SQLException e) {
+                    if (b) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                } finally {
+                    this.a.writeLock().unlock();
+                }
+            }
+            if (b) {
+                Log.d("VoyagerDBHelper", "insert task data : task id should not null");
+            }
+            return false;
         }
-        ea9Var.c();
+        return invokeL.booleanValue;
     }
 
-    public void k(DuMixCallback duMixCallback) {
+    public void i(t99 t99Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, duMixCallback) == null) {
-            this.a.x(duMixCallback);
-        }
-    }
-
-    public void l(Filter filter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, filter) == null) {
-            this.a.y(filter);
-        }
-    }
-
-    public void m(GLSurfaceView gLSurfaceView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, gLSurfaceView) == null) {
-            this.a.w(gLSurfaceView);
-        }
-    }
-
-    public void n() {
-        ea9 ea9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (ea9Var = this.a) == null) {
-            return;
-        }
-        ea9Var.d();
-    }
-
-    public void o(boolean z) {
-        ea9 ea9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (ea9Var = this.a) == null) {
-            return;
-        }
-        ea9Var.f0(z);
-    }
-
-    public void p(SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, onFrameAvailableListener) == null) {
-            this.a.u(onFrameAvailableListener);
-        }
-    }
-
-    public void q(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
-            this.a.C(dVar);
-        }
-    }
-
-    public void r(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) {
-            this.a.D(eVar);
+        if (interceptable == null || interceptable.invokeL(1048582, this, t99Var) == null) {
+            if (t99Var != null && !TextUtils.isEmpty(t99Var.j()) && !TextUtils.isEmpty(t99Var.a())) {
+                this.a.writeLock().lock();
+                try {
+                    try {
+                        int delete = getWritableDatabase().delete("task", "task_id =? ", new String[]{t99Var.j()});
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "delete data from table task, del count = " + delete);
+                        }
+                    } catch (SQLException e) {
+                        if (b) {
+                            e.printStackTrace();
+                        }
+                    }
+                } finally {
+                    this.a.writeLock().unlock();
+                }
+            } else if (b) {
+                Log.d("VoyagerDBHelper", "task data and task id should not null");
+            }
         }
     }
 
-    public void s(boolean z) {
+    public void j(t99 t99Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, t99Var) == null) {
+            if (t99Var != null && !TextUtils.isEmpty(t99Var.j()) && !TextUtils.isEmpty(t99Var.a())) {
+                this.a.writeLock().lock();
+                try {
+                    try {
+                        long update = getWritableDatabase().update("task", d(t99Var), null, null);
+                        if (b) {
+                            Log.d("VoyagerDBHelper", "update data into table task, update count = " + update);
+                        }
+                    } catch (SQLException e) {
+                        if (b) {
+                            e.printStackTrace();
+                        }
+                    }
+                } finally {
+                    this.a.writeLock().unlock();
+                }
+            } else if (b) {
+                Log.d("VoyagerDBHelper", "task data and task id should not null");
+            }
         }
     }
 
-    public void t(boolean z) {
-        ea9 ea9Var;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onConfigure(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (ea9Var = this.a) == null) {
-            return;
-        }
-        ea9Var.G(z);
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.enableWriteAheadLogging();
+            super.onConfigure(sQLiteDatabase);
         }
     }
 
-    public void v(boolean z) {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.a.T(z);
+        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
+            if (b) {
+                Log.i("VoyagerDBHelper", "Creating database voyager.db version: 1");
+            }
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE task (_id INTEGER PRIMARY KEY AUTOINCREMENT,task_id TEXT,timestamp LONG,biz_type TEXT,file_list TEXT,zip_src INTEGER,priority INTEGER,upload_count INTEGER,network_type INTEGER,extend TEXT,reserve1 TEXT);");
+            } catch (Exception e) {
+                if (b) {
+                    Log.w("VoyagerDBHelper", "Error while creating db: " + e.toString());
+                }
+            }
         }
     }
 
-    public void w(boolean z) {
-        ea9 ea9Var;
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (ea9Var = this.a) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLII(1048586, this, sQLiteDatabase, i, i2) == null) && b) {
+            Log.d("VoyagerDBHelper", "old version: " + i + ", new version: " + i2);
         }
-        ea9Var.Y(z);
-    }
-
-    public void x(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
-            this.a.setSpeed(f2);
-        }
-    }
-
-    public boolean y(Sticker sticker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, sticker, str)) == null) ? this.a.H(sticker, str) : invokeLL.booleanValue;
-    }
-
-    public void z(float f2) {
-        ea9 ea9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048605, this, f2) == null) || (ea9Var = this.a) == null) {
-            return;
-        }
-        ea9Var.q(f2);
     }
 }

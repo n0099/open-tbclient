@@ -1,6 +1,7 @@
 package kotlin.ranges;
 
 import com.baidu.android.common.others.IStringUtil;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import kotlin.ExperimentalUnsignedTypes;
 import kotlin.Metadata;
@@ -10,7 +11,7 @@ import kotlin.UnsignedKt;
 import kotlin.WasExperimental;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @SinceKotlin(version = "1.5")
-@Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0007\u0018\u0000 \u00172\u00020\u00012\b\u0012\u0004\u0012\u00020\u00030\u0002:\u0001\u0017B\u0018\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0006J\u001b\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\u0003H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\b\r\u0010\u000eJ\u0013\u0010\u000f\u001a\u00020\u000b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0096\u0002J\b\u0010\u0012\u001a\u00020\u0013H\u0016J\b\u0010\u0014\u001a\u00020\u000bH\u0016J\b\u0010\u0015\u001a\u00020\u0016H\u0016R\u001a\u0010\u0005\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\u0007\u0010\bR\u001a\u0010\u0004\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\t\u0010\bø\u0001\u0000\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\u0018"}, d2 = {"Lkotlin/ranges/ULongRange;", "Lkotlin/ranges/ULongProgression;", "Lkotlin/ranges/ClosedRange;", "Lkotlin/ULong;", "start", "endInclusive", "(JJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "getEndInclusive-s-VKNKU", "()J", "getStart-s-VKNKU", "contains", "", "value", "contains-VKZWuLQ", "(J)Z", "equals", "other", "", TTDownloadField.TT_HASHCODE, "", "isEmpty", "toString", "", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
+@Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\b\u0007\u0018\u0000 \u00172\u00020\u00012\b\u0012\u0004\u0012\u00020\u00030\u0002:\u0001\u0017B\u0018\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0003ø\u0001\u0000¢\u0006\u0002\u0010\u0006J\u001b\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\u0003H\u0096\u0002ø\u0001\u0000¢\u0006\u0004\b\r\u0010\u000eJ\u0013\u0010\u000f\u001a\u00020\u000b2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0096\u0002J\b\u0010\u0012\u001a\u00020\u0013H\u0016J\b\u0010\u0014\u001a\u00020\u000bH\u0016J\b\u0010\u0015\u001a\u00020\u0016H\u0016R\u001a\u0010\u0005\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\u0007\u0010\bR\u001a\u0010\u0004\u001a\u00020\u00038VX\u0096\u0004ø\u0001\u0000ø\u0001\u0001¢\u0006\u0006\u001a\u0004\b\t\u0010\bø\u0001\u0000\u0082\u0002\b\n\u0002\b\u0019\n\u0002\b!¨\u0006\u0018"}, d2 = {"Lkotlin/ranges/ULongRange;", "Lkotlin/ranges/ULongProgression;", "Lkotlin/ranges/ClosedRange;", "Lkotlin/ULong;", "start", "endInclusive", "(JJLkotlin/jvm/internal/DefaultConstructorMarker;)V", "getEndInclusive-s-VKNKU", "()J", "getStart-s-VKNKU", "contains", "", "value", "contains-VKZWuLQ", "(J)Z", "equals", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "", "isEmpty", "toString", "", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
 @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
 /* loaded from: classes8.dex */
 public final class ULongRange extends ULongProgression implements ClosedRange<ULong> {
@@ -39,12 +40,12 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ boolean contains(ULong uLong) {
-        return m1903containsVKZWuLQ(uLong.m912unboximpl());
+        return m1902containsVKZWuLQ(uLong.m911unboximpl());
     }
 
     /* renamed from: contains-VKZWuLQ  reason: not valid java name */
-    public boolean m1903containsVKZWuLQ(long j) {
-        return UnsignedKt.ulongCompare(m1900getFirstsVKNKU(), j) <= 0 && UnsignedKt.ulongCompare(j, m1901getLastsVKNKU()) <= 0;
+    public boolean m1902containsVKZWuLQ(long j) {
+        return UnsignedKt.ulongCompare(m1899getFirstsVKNKU(), j) <= 0 && UnsignedKt.ulongCompare(j, m1900getLastsVKNKU()) <= 0;
     }
 
     @Override // kotlin.ranges.ULongProgression
@@ -52,7 +53,7 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (obj instanceof ULongRange) {
             if (!isEmpty() || !((ULongRange) obj).isEmpty()) {
                 ULongRange uLongRange = (ULongRange) obj;
-                if (m1900getFirstsVKNKU() != uLongRange.m1900getFirstsVKNKU() || m1901getLastsVKNKU() != uLongRange.m1901getLastsVKNKU()) {
+                if (m1899getFirstsVKNKU() != uLongRange.m1899getFirstsVKNKU() || m1900getLastsVKNKU() != uLongRange.m1900getLastsVKNKU()) {
                 }
             }
             return true;
@@ -63,23 +64,23 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ ULong getEndInclusive() {
-        return ULong.m855boximpl(m1904getEndInclusivesVKNKU());
+        return ULong.m854boximpl(m1903getEndInclusivesVKNKU());
     }
 
     /* renamed from: getEndInclusive-s-VKNKU  reason: not valid java name */
-    public long m1904getEndInclusivesVKNKU() {
-        return m1901getLastsVKNKU();
+    public long m1903getEndInclusivesVKNKU() {
+        return m1900getLastsVKNKU();
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ ULong getStart() {
-        return ULong.m855boximpl(m1905getStartsVKNKU());
+        return ULong.m854boximpl(m1904getStartsVKNKU());
     }
 
     /* renamed from: getStart-s-VKNKU  reason: not valid java name */
-    public long m1905getStartsVKNKU() {
-        return m1900getFirstsVKNKU();
+    public long m1904getStartsVKNKU() {
+        return m1899getFirstsVKNKU();
     }
 
     @Override // kotlin.ranges.ULongProgression
@@ -87,17 +88,17 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (isEmpty()) {
             return -1;
         }
-        return ((int) ULong.m861constructorimpl(m1901getLastsVKNKU() ^ ULong.m861constructorimpl(m1901getLastsVKNKU() >>> 32))) + (((int) ULong.m861constructorimpl(m1900getFirstsVKNKU() ^ ULong.m861constructorimpl(m1900getFirstsVKNKU() >>> 32))) * 31);
+        return ((int) ULong.m860constructorimpl(m1900getLastsVKNKU() ^ ULong.m860constructorimpl(m1900getLastsVKNKU() >>> 32))) + (((int) ULong.m860constructorimpl(m1899getFirstsVKNKU() ^ ULong.m860constructorimpl(m1899getFirstsVKNKU() >>> 32))) * 31);
     }
 
     @Override // kotlin.ranges.ULongProgression, kotlin.ranges.ClosedRange
     public boolean isEmpty() {
-        return UnsignedKt.ulongCompare(m1900getFirstsVKNKU(), m1901getLastsVKNKU()) > 0;
+        return UnsignedKt.ulongCompare(m1899getFirstsVKNKU(), m1900getLastsVKNKU()) > 0;
     }
 
     @Override // kotlin.ranges.ULongProgression
     public String toString() {
-        return ULong.m906toStringimpl(m1900getFirstsVKNKU()) + IStringUtil.TOP_PATH + ULong.m906toStringimpl(m1901getLastsVKNKU());
+        return ULong.m905toStringimpl(m1899getFirstsVKNKU()) + IStringUtil.TOP_PATH + ULong.m905toStringimpl(m1900getLastsVKNKU());
     }
 
     public /* synthetic */ ULongRange(long j, long j2, DefaultConstructorMarker defaultConstructorMarker) {

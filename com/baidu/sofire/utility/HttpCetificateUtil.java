@@ -15,6 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -176,13 +177,13 @@ public class HttpCetificateUtil {
                 for (Certificate certificate : serverCertificates) {
                     X509Certificate x509Certificate = (X509Certificate) certificate;
                     sb.append(x509Certificate.toString());
-                    sb.append(";");
+                    sb.append(ParamableElem.DIVIDE_PARAM);
                     byte[] encoded = x509Certificate.getPublicKey().getEncoded();
                     if (encoded != null) {
                         String encodeToString = Base64.encodeToString(encoded, 0);
                         str = str + MD5Util.getMD5(encodeToString.replace("\n", "").replace("\r", ""));
                     }
-                    str = str + ";";
+                    str = str + ParamableElem.DIVIDE_PARAM;
                 }
                 if (TextUtils.isEmpty(str)) {
                     BaiduLog.logD("HttpCetificateUtil:ping is empty");

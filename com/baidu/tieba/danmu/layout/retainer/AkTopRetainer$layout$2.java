@@ -8,26 +8,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
-import com.repackage.g06;
-import com.repackage.g26;
+import com.repackage.r06;
+import com.repackage.ry5;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\b\u0010\u0002\u001a\u0004\u0018\u00010\u0003H\n"}, d2 = {"<anonymous>", "", AdvanceSetting.NETWORK_TYPE, "Lcom/baidu/tieba/danmu/data/DanmakuItem;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class AkTopRetainer$layout$2 extends Lambda implements Function1<g06, Integer> {
+public final class AkTopRetainer$layout$2 extends Lambda implements Function1<ry5, Integer> {
     public static /* synthetic */ Interceptable $ic;
-    public final /* synthetic */ g26 $displayer;
+    public final /* synthetic */ r06 $displayer;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AkTopRetainer$layout$2(g26 g26Var) {
+    public AkTopRetainer$layout$2(r06 r06Var) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {g26Var};
+            Object[] objArr = {r06Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,19 +38,19 @@ public final class AkTopRetainer$layout$2 extends Lambda implements Function1<g0
                 return;
             }
         }
-        this.$displayer = g26Var;
+        this.$displayer = r06Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final Integer invoke(g06 g06Var) {
+    public final Integer invoke(ry5 ry5Var) {
         InterceptResult invokeL;
         DrawState f;
         RectF i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, g06Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ry5Var)) == null) {
             Number number = null;
-            if (g06Var != null && (f = g06Var.f()) != null && (i = f.i()) != null) {
+            if (ry5Var != null && (f = ry5Var.f()) != null && (i = f.i()) != null) {
                 number = Float.valueOf(i.left);
             }
             if (number == null) {

@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import com.repackage.mx9;
+import com.repackage.gu9;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -76,7 +76,7 @@ public class Camera1Session implements CameraSession {
         }
 
         public /* synthetic */ void b(final byte[] bArr) {
-            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: com.repackage.iw9
+            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: com.repackage.ct9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public class Camera1Session implements CameraSession {
                         Camera1Session.camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
                         this.this$0.firstFrameReported = true;
                     }
-                    VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: com.repackage.jw9
+                    VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: com.repackage.dt9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -310,7 +310,7 @@ public class Camera1Session implements CameraSession {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            int b = mx9.b(this.applicationContext);
+            int b = gu9.b(this.applicationContext);
             if (this.info.facing == 0) {
                 b = 360 - b;
             }
@@ -329,7 +329,7 @@ public class Camera1Session implements CameraSession {
     private void listenForTextureFrames() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.repackage.kw9
+            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: com.repackage.et9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -460,7 +460,7 @@ public class Camera1Session implements CameraSession {
             camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.constructionTimeNs));
             this.firstFrameReported = true;
         }
-        VideoFrame videoFrame2 = new VideoFrame(mx9.a((TextureBufferImpl) videoFrame.getBuffer(), this.info.facing == 1, 0), getFrameOrientation(), videoFrame.getTimestampNs());
+        VideoFrame videoFrame2 = new VideoFrame(gu9.a((TextureBufferImpl) videoFrame.getBuffer(), this.info.facing == 1, 0), getFrameOrientation(), videoFrame.getTimestampNs());
         this.events.onFrameCaptured(this, videoFrame2);
         videoFrame2.release();
     }

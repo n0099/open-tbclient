@@ -1,27 +1,35 @@
 package com.repackage;
 
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.R;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class fp6 {
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import tbclient.ThreadInfo;
+import tbclient.VoiceRoom;
+import tbclient.VoiceRoomListPage.VoiceRoomListPageResIdl;
+/* loaded from: classes5.dex */
+public class fp6 implements d65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<BaseFragmentActivity> a;
-    public Animation b;
+    @NonNull
+    public List<ThreadInfo> a;
 
-    public fp6(TbPageContext<BaseFragmentActivity> tbPageContext) {
+    public fp6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,7 +39,61 @@ public class fp6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = AnimationUtils.loadAnimation(tbPageContext.getPageActivity(), R.anim.obfuscated_res_0x7f010070);
+        this.a = new ArrayList();
+    }
+
+    @NonNull
+    public List<VoiceRoomWrapper> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (ThreadInfo threadInfo : this.a) {
+                VoiceRoom voiceRoom = threadInfo.voice_room;
+                if (voiceRoom != null && b(voiceRoom)) {
+                    String str = threadInfo.fname;
+                    if (str == null) {
+                        str = "";
+                    }
+                    arrayList.add(new VoiceRoomWrapper(voiceRoom, str));
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean b(@NonNull VoiceRoom voiceRoom) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceRoom)) == null) {
+            Long l = voiceRoom.room_id;
+            return (l == null || l.longValue() == 0 || TextUtils.isEmpty(voiceRoom.room_name)) ? false : true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.d65
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("voice_room_list");
+                if (optJSONArray != null) {
+                    this.a = DataExt.toEntityList(optJSONArray.toString(), ThreadInfo.class);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.repackage.d65
+    public void initByProtobuf(Message message) {
+        List<ThreadInfo> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof VoiceRoomListPageResIdl) && (list = ((VoiceRoomListPageResIdl) message).data.voice_room_list) != null) {
+            this.a = list;
+        }
     }
 }

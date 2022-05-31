@@ -1,11 +1,13 @@
 package com.repackage;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smallgame.sdk.permission.PermissionListener;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,28 +15,38 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z53;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.repackage.ec4;
+import java.io.File;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Ref;
 /* loaded from: classes7.dex */
-public class w82 implements PermissionProxy {
+public final class w82 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final String b;
+    public static final Map<String, y82> c;
+    public static final w82 d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements nf3<x53<z53.e>> {
+    public static final class a implements ec4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ PermissionListener c;
-        public final /* synthetic */ w82 d;
+        public final /* synthetic */ Ref.ObjectRef b;
+        public final /* synthetic */ Function1 c;
 
-        public a(w82 w82Var, String str, String str2, PermissionListener permissionListener) {
+        public a(String str, Ref.ObjectRef objectRef, Function1 function1) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w82Var, str, str2, permissionListener};
+                Object[] objArr = {str, objectRef, function1};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,66 +56,95 @@ public class w82 implements PermissionProxy {
                     return;
                 }
             }
-            this.d = w82Var;
             this.a = str;
-            this.b = str2;
-            this.c = permissionListener;
+            this.b = objectRef;
+            this.c = function1;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(x53<z53.e> x53Var) {
+        @Override // com.repackage.ec4.a
+        public final void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
-                if (s53.h(x53Var)) {
-                    this.d.b(this.a, this.b, this.c);
-                } else {
-                    this.c.onPermissionResult(this.a, 2);
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                w82 w82Var = w82.d;
+                if (w82.a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by install=" + z + " libname=" + this.a);
                 }
+                if (z) {
+                    w82.d.A(this.a, ((h84) this.b.element).i);
+                    w82 w82Var2 = w82.d;
+                    String str = this.a;
+                    String str2 = ((h84) this.b.element).j;
+                    Intrinsics.checkNotNullExpressionValue(str2, "soPkg.versionName");
+                    w82Var2.B(str, str2);
+                    w82 w82Var3 = w82.d;
+                    String str3 = this.a;
+                    AbiType abiType = ((h84) this.b.element).q;
+                    Intrinsics.checkNotNullExpressionValue(abiType, "soPkg.abi");
+                    w82Var3.y(str3, abiType);
+                    w82.d.z(this.a, true);
+                    this.c.invoke(null);
+                    return;
+                }
+                w82.d.z(this.a, false);
+                this.c.invoke(null);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements xv2 {
+    public static final class b<MsgType> implements ae3<Exception> {
         public static /* synthetic */ Interceptable $ic;
+        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PermissionListener a;
-        public final /* synthetic */ String b;
 
-        public b(w82 w82Var, PermissionListener permissionListener, String str) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(56525794, "Lcom/repackage/w82$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(56525794, "Lcom/repackage/w82$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w82Var, permissionListener, str};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.a = permissionListener;
-            this.b = str;
         }
 
-        @Override // com.repackage.xv2
-        public void a(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.ae3
+        /* renamed from: a */
+        public final void onCallback(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onPermissionResult(this.b, 0);
-            }
-        }
-
-        @Override // com.repackage.xv2
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.onPermissionResult(this.b, 1);
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                w82 w82Var = w82.d;
+                if (w82.a) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("main updatePmsPkg pmsUpdateSo end with e: ");
+                    sb.append(exc);
+                    sb.append(" trace=");
+                    if (exc == null) {
+                        exc = new Exception();
+                    }
+                    sb.append(Log.getStackTraceString(exc));
+                    Log.i("SoLibManager", sb.toString());
+                }
             }
         }
     }
@@ -121,7 +162,10 @@ public class w82 implements PermissionProxy {
                 return;
             }
         }
-        a = eh1.a;
+        d = new w82();
+        a = rf1.a;
+        b = "swan" + File.separator + "libs" + File.separator + "so";
+        c = new LinkedHashMap();
     }
 
     public w82() {
@@ -138,62 +182,287 @@ public class w82 implements PermissionProxy {
         }
     }
 
-    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
+    public final void A(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
-            b bVar = new b(this, permissionListener, str);
-            wv2.e(str2, new String[]{str2}, 2, t03.J().x(), bVar);
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+            v73.a().putLong(o(str), j);
         }
     }
 
-    public final String c(String str) {
+    public final void B(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            v73.a().putString(p(str), str2);
+        }
+    }
+
+    public final void C(x82 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, config) == null) {
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (a) {
+                Log.i("SoLibManager", "main updatePmsPkg start args: " + config);
+            }
+            config.e(b.a);
+            z82 z82Var = new z82(new ma4(5), config);
+            if (a) {
+                Log.i("SoLibManager", "main updatePmsPkg pmsUpdateSo start requester: " + z82Var);
+            }
+            p64.o(z82Var);
+        }
+    }
+
+    public final void f(String libName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, libName) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            c.remove(libName);
+        }
+    }
+
+    public final String g(h84 h84Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, h84Var)) == null) {
+            if ((h84Var != null ? h84Var.q : null) == null) {
+                return "";
             }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -1785599184) {
-                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
-                    c = 1;
-                }
-            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return null;
-                }
-                return "android.permission.RECORD_AUDIO";
-            }
-            return "android.permission.CAMERA";
+            String str = h84Var.p;
+            Intrinsics.checkNotNullExpressionValue(str, "so.libName");
+            AbiType abiType = h84Var.q;
+            Intrinsics.checkNotNullExpressionValue(abiType, "so.abi");
+            return h(str, abiType, h84Var.i);
         }
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
-    public void requestPermission(String str, PermissionListener permissionListener) {
+    public final String h(String libName, AbiType abi, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
-            if (a) {
-                Log.d("V8PermissionDelegate", "requestPermission : " + str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{libName, abi, Long.valueOf(j)})) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            Intrinsics.checkNotNullParameter(abi, "abi");
+            if (TextUtils.isEmpty(libName) || j < 1) {
+                return "";
             }
-            if (permissionListener == null) {
+            File i = i();
+            File file = new File(i, libName + File.separator + j + File.separator + abi.id);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file.getPath();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final File i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            Intrinsics.checkNotNullExpressionValue(appContext, "AppRuntime.getAppContext()");
+            return new File(appContext.getFilesDir(), b);
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public final y82 j(String libName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, libName)) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            return c.get(libName);
+        }
+        return (y82) invokeL.objValue;
+    }
+
+    public final boolean k(String libName) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, libName)) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            return l(libName, s(libName));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean l(String libName, long j) {
+        InterceptResult invokeLJ;
+        AbiType q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, libName, j)) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            u82 a2 = v82.a(libName);
+            if (a2 != null) {
+                if (a2.f()) {
+                    return true;
+                }
+                long s = s(libName);
+                if (s > 0 && j <= s && (q = q(libName)) != null) {
+                    return AbiType.currentAbi().compat(q);
+                }
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public final String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return "swan_so_installed_abi_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return "swan_so_installed_result_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            return "swan_so_installed_version_code_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            return "swan_so_installed_version_name_" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final AbiType q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) ? AbiType.findById(v73.a().getString(m(str), "")) : (AbiType) invokeL.objValue;
+    }
+
+    public final boolean r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) ? v73.a().getBoolean(n(str), true) : invokeL.booleanValue;
+    }
+
+    public final long s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) ? v73.a().getLong(o(str), 0L) : invokeL.longValue;
+    }
+
+    public final y82 t(z82 updater, String libName) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, updater, libName)) == null) {
+            Intrinsics.checkNotNullParameter(updater, "updater");
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            y82 j = j(libName);
+            if (j == null) {
+                y82 y82Var = new y82(updater, libName);
+                c.put(libName, y82Var);
+                return y82Var;
+            }
+            return j;
+        }
+        return (y82) invokeLL.objValue;
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            z(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, true);
+        }
+    }
+
+    public final void v(String libName, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048595, this, libName, j) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            SharedPreferences.Editor edit = oc4.a().edit();
+            edit.putLong("swan_so_latest_update_time_" + libName, j).apply();
+        }
+    }
+
+    public final boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? !r(ZeusWebViewPreloadClass.ZEUS_FILE_DIR) : invokeV.booleanValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r6v1, types: [T, com.repackage.h84] */
+    public final void x(String libName, Function1<? super ab3, Unit> callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, libName, callback) == null) {
+            Intrinsics.checkNotNullParameter(libName, "libName");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            if (a) {
+                Log.i("SoLibManager", "tryInstallUpdatePkg: libName=" + libName);
+            }
+            u82 a2 = v82.a(libName);
+            if (a2 == null) {
                 if (a) {
-                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update libname=" + libName);
+                }
+                ab3 ab3Var = new ab3();
+                ab3Var.k(16);
+                ab3Var.b(2900);
+                ab3Var.f("not available: so=" + a2);
+                callback.invoke(ab3Var);
+            } else if (a2.f()) {
+                if (a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soLib unavailable update soLib=" + a2);
+                }
+                callback.invoke(null);
+            } else {
+                Ref.ObjectRef objectRef = new Ref.ObjectRef();
+                ?? t = c74.i().t(libName);
+                objectRef.element = t;
+                if (((h84) t) != null && ((h84) t).a() && AbiType.currentAbi().compat(((h84) objectRef.element).q)) {
+                    AbiType q = q(libName);
+                    if (l(libName, ((h84) objectRef.element).i) && q != null && q.compat(((h84) objectRef.element).q)) {
+                        if (a) {
+                            Log.i("SoLibManager", "tryInstallUpdatePkg: return by current so better then soPkg update libname=" + libName + " soPkg=" + ((h84) objectRef.element));
+                        }
+                        callback.invoke(null);
+                        return;
+                    }
+                    a2.a(((h84) objectRef.element).a, new a(libName, objectRef, callback));
                     return;
                 }
-                return;
+                if (a) {
+                    Log.i("SoLibManager", "tryInstallUpdatePkg: return by soPkg unavailable update libname=" + libName + " soPkg=" + ((h84) objectRef.element));
+                }
+                ab3 ab3Var2 = new ab3();
+                ab3Var2.k(16);
+                ab3Var2.b(2900);
+                ab3Var2.f("invalid: pkg=" + ((h84) objectRef.element));
+                callback.invoke(ab3Var2);
             }
-            String c = c(str);
-            u03 L = u03.L();
-            if (!TextUtils.isEmpty(c) && L != null && L.x() != null) {
-                L.d0().g(L.x(), str, new a(this, str, c, permissionListener));
-            } else {
-                permissionListener.onPermissionResult(str, 2);
-            }
+        }
+    }
+
+    public final void y(String str, AbiType abiType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, str, abiType) == null) {
+            v73.a().putString(m(str), abiType.id);
+        }
+    }
+
+    public final void z(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048599, this, str, z) == null) {
+            v73.a().putBoolean(n(str), z);
         }
     }
 }

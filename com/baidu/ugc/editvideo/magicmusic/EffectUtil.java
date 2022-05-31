@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
-import com.repackage.ab9;
+import com.repackage.u79;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -78,7 +78,7 @@ public class EffectUtil {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, list)) == null) {
-            if (ab9.e(list)) {
+            if (u79.e(list)) {
                 return null;
             }
             for (int size = list.size() - 1; size >= 0; size--) {

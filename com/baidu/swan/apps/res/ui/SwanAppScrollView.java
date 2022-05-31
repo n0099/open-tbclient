@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eh1;
+import com.repackage.rf1;
 /* loaded from: classes2.dex */
 public class SwanAppScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
@@ -38,7 +38,7 @@ public class SwanAppScrollView extends ScrollView {
                 return;
             }
         }
-        b = eh1.a;
+        b = rf1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

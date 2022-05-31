@@ -22,11 +22,11 @@ public class aj {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, eVar)) == null) {
-            l.a m173a = l.m173a(eVar);
-            if (m173a == null || TextUtils.isEmpty(m173a.a) || TextUtils.isEmpty(m173a.b)) {
+            l.a m172a = l.m172a(eVar);
+            if (m172a == null || TextUtils.isEmpty(m172a.a) || TextUtils.isEmpty(m172a.b)) {
                 return null;
             }
-            return (AbstractPushManager) bh.a(m173a.a, m173a.b, context);
+            return (AbstractPushManager) bh.a(m172a.a, m172a.b, context);
         }
         return (AbstractPushManager) invokeLL.objValue;
     }

@@ -18,24 +18,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fq0;
-import com.repackage.io0;
-import com.repackage.jq0;
-import com.repackage.ki0;
-import com.repackage.lo0;
-import com.repackage.m51;
+import com.repackage.so0;
+import com.repackage.vm0;
+import com.repackage.wo0;
+import com.repackage.xg0;
+import com.repackage.ym0;
+import com.repackage.z31;
 /* loaded from: classes2.dex */
 public class PortraitVideoView extends AdFeedBaseView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fq0 i;
+    public so0 i;
     public NadVideoAdOverContainer j;
     public ImageView k;
     public ViewGroup l;
-    public final jq0 m;
+    public final wo0 m;
 
     /* loaded from: classes2.dex */
-    public class a extends jq0 {
+    public class a extends wo0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PortraitVideoView a;
@@ -58,7 +58,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             this.a = portraitVideoView;
         }
 
-        @Override // com.repackage.jq0, com.repackage.cq0
+        @Override // com.repackage.wo0, com.repackage.po0
         public void onEnd(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -69,7 +69,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // com.repackage.jq0, com.repackage.cq0
+        @Override // com.repackage.wo0, com.repackage.po0
         public void onError(int i, int i2, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -77,7 +77,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // com.repackage.jq0, com.repackage.cq0
+        @Override // com.repackage.wo0, com.repackage.po0
         public void onPause() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -85,7 +85,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // com.repackage.jq0, com.repackage.cq0
+        @Override // com.repackage.wo0, com.repackage.po0
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -93,7 +93,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // com.repackage.jq0, com.repackage.cq0
+        @Override // com.repackage.wo0, com.repackage.po0
         public void onResume() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -101,7 +101,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             }
         }
 
-        @Override // com.repackage.jq0, com.repackage.cq0
+        @Override // com.repackage.wo0, com.repackage.po0
         public void onStart() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a.b != null && (this.a.getTag() instanceof AdBaseModel)) {
@@ -147,15 +147,15 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m51 a;
+        public final /* synthetic */ z31 a;
         public final /* synthetic */ PortraitVideoView b;
 
-        public c(PortraitVideoView portraitVideoView, m51 m51Var) {
+        public c(PortraitVideoView portraitVideoView, z31 z31Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {portraitVideoView, m51Var};
+                Object[] objArr = {portraitVideoView, z31Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -166,7 +166,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
                 }
             }
             this.b = portraitVideoView;
-            this.a = m51Var;
+            this.a = z31Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -200,9 +200,9 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     }
 
     public void A() {
-        fq0 fq0Var;
+        so0 so0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (fq0Var = this.i) != null && fq0Var.isPlaying()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (so0Var = this.i) != null && so0Var.isPlaying()) {
             this.i.pause();
             this.k.setVisibility(0);
         }
@@ -212,9 +212,9 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.l.setVisibility(0);
-            fq0 fq0Var = this.i;
-            if (fq0Var != null) {
-                fq0Var.start();
+            so0 so0Var = this.i;
+            if (so0Var != null) {
+                so0Var.start();
             }
         }
     }
@@ -234,9 +234,9 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             if (this.j.s()) {
                 w();
             }
-            fq0 fq0Var = this.i;
-            if (fq0Var != null) {
-                if (fq0Var.isPause()) {
+            so0 so0Var = this.i;
+            if (so0Var != null) {
+                if (so0Var.isPause()) {
                     this.i.resume();
                 } else {
                     this.i.start();
@@ -251,7 +251,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         if (interceptable == null || interceptable.invokeL(1048580, this, adBaseModel) == null) {
             this.j.setVisibility(0);
             this.j.setData(adBaseModel);
-            this.j.setTag(R.id.obfuscated_res_0x7f0914eb, adBaseModel);
+            this.j.setTag(R.id.obfuscated_res_0x7f0914aa, adBaseModel);
         }
     }
 
@@ -261,13 +261,13 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             x();
             this.j.setOnNewTailFrameReplayClickListener(new b(this));
             if (this.i == null) {
-                fq0 a2 = fq0.a.a(ki0.b(), 0);
+                so0 a2 = so0.a.a(xg0.b(), 0);
                 this.i = a2;
                 a2.a(this.m);
             }
-            io0 io0Var = adBaseModel.j;
-            if (io0Var != null) {
-                this.i.c(io0Var);
+            vm0 vm0Var = adBaseModel.j;
+            if (vm0Var != null) {
+                this.i.c(vm0Var);
             }
             this.i.attachToContainer(this.l);
         }
@@ -285,8 +285,8 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
                 }
                 return;
             }
-            fq0 fq0Var = this.i;
-            if (fq0Var == null || !fq0Var.isPlaying()) {
+            so0 so0Var = this.i;
+            if (so0Var == null || !so0Var.isPlaying()) {
                 return;
             }
             A();
@@ -297,7 +297,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0914ff || view2.getId() == R.id.obfuscated_res_0x7f092386) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f0914be || view2.getId() == R.id.obfuscated_res_0x7f09232b) {
                 Log.d("PortraitVideoView", "onclick area： cover");
                 if (this.i.isPlaying()) {
                     this.i.pause();
@@ -311,11 +311,11 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
-    public void setViewStatChangeListener(m51 m51Var) {
+    public void setViewStatChangeListener(z31 z31Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m51Var) == null) {
-            super.setViewStatChangeListener(m51Var);
-            this.j.setOnUiClickListener(new c(this, m51Var));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z31Var) == null) {
+            super.setViewStatChangeListener(z31Var);
+            this.j.setOnUiClickListener(new c(this, z31Var));
         }
     }
 
@@ -345,23 +345,23 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
         }
     }
 
-    public void y(LayoutInflater layoutInflater, lo0 lo0Var) {
+    public void y(LayoutInflater layoutInflater, ym0 ym0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, layoutInflater, lo0Var) == null) {
-            layoutInflater.inflate((lo0Var == null || lo0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05ba : lo0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO), this);
+        if (interceptable == null || interceptable.invokeLL(1048588, this, layoutInflater, ym0Var) == null) {
+            layoutInflater.inflate((ym0Var == null || ym0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO) == 0) ? R.layout.obfuscated_res_0x7f0d05b0 : ym0Var.a(AdBaseModel.STYLE.PORTRAIT_VIDEO), this);
         }
     }
 
     public void z(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, context) == null) {
-            NadVideoAdOverContainer nadVideoAdOverContainer = (NadVideoAdOverContainer) findViewById(R.id.obfuscated_res_0x7f0914ff);
+            NadVideoAdOverContainer nadVideoAdOverContainer = (NadVideoAdOverContainer) findViewById(R.id.obfuscated_res_0x7f0914be);
             this.j = nadVideoAdOverContainer;
             nadVideoAdOverContainer.setOnClickListener(this);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f092386);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09232b);
             this.k = imageView;
             imageView.setOnClickListener(this);
-            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914ec);
+            this.l = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0914ab);
         }
     }
 
@@ -399,7 +399,7 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (lo0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (ym0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -408,25 +408,25 @@ public class PortraitVideoView extends AdFeedBaseView implements View.OnClickLis
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PortraitVideoView(Context context, AttributeSet attributeSet, int i, lo0 lo0Var) {
-        super(context, attributeSet, i, lo0Var);
+    public PortraitVideoView(Context context, AttributeSet attributeSet, int i, ym0 ym0Var) {
+        super(context, attributeSet, i, ym0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), lo0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), ym0Var};
             interceptable.invokeUnInit(65539, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (lo0) objArr2[3]);
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (ym0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        y(LayoutInflater.from(context), lo0Var);
+        y(LayoutInflater.from(context), ym0Var);
         z(context);
         this.m = new a(this);
     }

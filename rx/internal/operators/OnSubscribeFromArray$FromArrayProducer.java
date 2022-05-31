@@ -5,25 +5,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cy9;
-import com.repackage.ry9;
-import com.repackage.yx9;
+import com.repackage.lv9;
+import com.repackage.su9;
+import com.repackage.wu9;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements yx9 {
+public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements su9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3534218984725836979L;
     public transient /* synthetic */ FieldHolder $fh;
     public final T[] array;
-    public final cy9<? super T> child;
+    public final wu9<? super T> child;
     public int index;
 
-    public OnSubscribeFromArray$FromArrayProducer(cy9<? super T> cy9Var, T[] tArr) {
+    public OnSubscribeFromArray$FromArrayProducer(wu9<? super T> wu9Var, T[] tArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cy9Var, tArr};
+            Object[] objArr = {wu9Var, tArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,29 +33,29 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
                 return;
             }
         }
-        this.child = cy9Var;
+        this.child = wu9Var;
         this.array = tArr;
     }
 
     public void fastPath() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            cy9<? super T> cy9Var = this.child;
+            wu9<? super T> wu9Var = this.child;
             for (T t : this.array) {
                 Object obj = (Object) t;
-                if (cy9Var.isUnsubscribed()) {
+                if (wu9Var.isUnsubscribed()) {
                     return;
                 }
-                cy9Var.onNext(obj);
+                wu9Var.onNext(obj);
             }
-            if (cy9Var.isUnsubscribed()) {
+            if (wu9Var.isUnsubscribed()) {
                 return;
             }
-            cy9Var.onCompleted();
+            wu9Var.onCompleted();
         }
     }
 
-    @Override // com.repackage.yx9
+    @Override // com.repackage.su9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -63,10 +63,10 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
             if (i < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             } else if (j == Long.MAX_VALUE) {
-                if (ry9.b(this, j) == 0) {
+                if (lv9.b(this, j) == 0) {
                     fastPath();
                 }
-            } else if (i == 0 || ry9.b(this, j) != 0) {
+            } else if (i == 0 || lv9.b(this, j) != 0) {
             } else {
                 slowPath(j);
             }
@@ -76,7 +76,7 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
     public void slowPath(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            cy9<? super T> cy9Var = this.child;
+            wu9<? super T> wu9Var = this.child;
             T[] tArr = this.array;
             int length = tArr.length;
             int i = this.index;
@@ -84,16 +84,16 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
                 long j2 = 0;
                 while (true) {
                     if (j != 0 && i != length) {
-                        if (cy9Var.isUnsubscribed()) {
+                        if (wu9Var.isUnsubscribed()) {
                             return;
                         }
-                        cy9Var.onNext((Object) tArr[i]);
+                        wu9Var.onNext((Object) tArr[i]);
                         i++;
                         if (i == length) {
-                            if (cy9Var.isUnsubscribed()) {
+                            if (wu9Var.isUnsubscribed()) {
                                 return;
                             }
-                            cy9Var.onCompleted();
+                            wu9Var.onCompleted();
                             return;
                         }
                         j--;

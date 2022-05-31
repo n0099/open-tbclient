@@ -1,56 +1,9 @@
 package com.repackage;
 
-import androidx.annotation.CallSuper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.x7;
-import kotlin.jvm.internal.Intrinsics;
+import android.graphics.Canvas;
 /* loaded from: classes6.dex */
-public abstract class n06 implements i0, x7.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public g06 a;
+public interface n06 {
+    z06 a(ry5 ry5Var, r06 r06Var, ly5 ly5Var);
 
-    public n06() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = g06.i.a();
-    }
-
-    public final g06 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (g06) invokeV.objValue;
-    }
-
-    public final void b(g06 g06Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g06Var) == null) {
-            Intrinsics.checkNotNullParameter(g06Var, "<set-?>");
-            this.a = g06Var;
-        }
-    }
-
-    @Override // com.repackage.x7.a
-    @CallSuper
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = g06.i.a();
-        }
-    }
+    void b(ry5 ry5Var, Canvas canvas, r06 r06Var, ly5 ly5Var);
 }

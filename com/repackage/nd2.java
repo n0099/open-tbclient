@@ -1,240 +1,165 @@
 package com.repackage;
 
-import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.api.module.subscription.SubscribeHelper;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class nd2 extends r23 {
+public class nd2 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context c;
-    public u03 d;
-    public CallbackHandler e;
+    public Context a;
+    public String[] b;
 
     /* loaded from: classes6.dex */
-    public class a implements SubscribeHelper.k {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
+    }
 
-        public a(nd2 nd2Var, UnitedSchemeEntity unitedSchemeEntity) {
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nd2Var, unitedSchemeEntity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = unitedSchemeEntity;
         }
 
-        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
-        public void a(int i, @NonNull String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, jSONObject) == null) {
-                this.a.result = UnitedSchemeUtility.wrapCallbackParams(i, str);
-            }
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements SubscribeHelper.k {
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ nd2 b;
+        public TextView a;
 
-        public b(nd2 nd2Var, String str) {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nd2Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = nd2Var;
-            this.a = str;
         }
 
-        @Override // com.baidu.swan.apps.api.module.subscription.SubscribeHelper.k
-        public void a(int i, @NonNull String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, jSONObject) == null) {
-                if (jSONObject == null) {
-                    this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(i, str).toString());
-                } else {
-                    this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i).toString());
-                }
-            }
+        public /* synthetic */ c(a aVar) {
+            this();
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements od2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ nd2 b;
-
-        public c(nd2 nd2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nd2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nd2Var;
-            this.a = str;
-        }
-
-        @Override // com.repackage.yy2
-        public void a(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                if (az2.c.c()) {
-                    return;
-                }
-                if (bk2.h0().e(this.b.c)) {
-                    az2.c.e();
-                } else {
-                    az2.c.f();
-                }
-            }
-        }
-
-        @Override // com.repackage.yy2
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.b.e.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(500105, "请求formId失败").toString());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nd2(r13 r13Var) {
-        super(r13Var, "/swanAPI/getFormId");
+    public nd2(Context context, @NonNull String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
+            Object[] objArr = {context, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context;
+        this.b = strArr;
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLLL;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (unitedSchemeEntity == null) {
-                if (r23.b) {
-                    Log.w("GetFormIdAction", "entity is null");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.length : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.b[i] : invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: com.repackage.nd2$b */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        c cVar;
+        View inflate;
+        c cVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                if (i == 11) {
+                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b2, null);
+                    b bVar = new b(null);
+                    bVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09075e);
+                    cVar2 = bVar;
+                } else {
+                    inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d00b4, null);
+                    c cVar3 = new c(null);
+                    cVar3.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090fd1);
+                    cVar2 = cVar3;
+                    if (i == 9) {
+                        if (TextUtils.isEmpty(this.b[9])) {
+                            inflate.setBackgroundColor(this.a.getResources().getColor(R.color.obfuscated_res_0x7f0603b8));
+                            cVar2 = cVar3;
+                        } else {
+                            inflate.setBackgroundResource(R.drawable.obfuscated_res_0x7f080184);
+                            cVar2 = cVar3;
+                        }
+                    }
                 }
-                return false;
-            } else if (u03Var != null && (context instanceof Activity) && callbackHandler != null) {
-                this.c = context;
-                this.d = u03Var;
-                this.e = callbackHandler;
-                JSONObject a2 = r23.a(unitedSchemeEntity, "params");
-                if (a2 != null && a2.length() != 0) {
-                    String optString = a2.optString("cb");
-                    if (TextUtils.isEmpty(optString)) {
-                        if (r23.b) {
-                            Log.w("GetFormIdAction", "cb is empty");
-                        }
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "cb is empty");
-                        return false;
-                    }
-                    String N = u03Var.N();
-                    if (TextUtils.isEmpty(N)) {
-                        if (r23.b) {
-                            Log.w("GetFormIdAction", "appKey is empty");
-                        }
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "appKey is empty");
-                        return false;
-                    }
-                    if (TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE.equals(a2.optString("reportType"))) {
-                        SubscribeHelper subscribeHelper = new SubscribeHelper();
-                        if (!subscribeHelper.n(this.c, this.d, N, a2, SubscribeHelper.invokeSubscribeFrom.GET_FORM_ID_BUTTON, new a(this, unitedSchemeEntity))) {
-                            return false;
-                        }
-                        subscribeHelper.o(N, new b(this, optString));
-                    } else {
-                        l(N, optString);
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
-                return false;
+                view2 = inflate;
+                view2.setTag(cVar2);
+                cVar = cVar2;
             } else {
-                if (r23.b) {
-                    Log.d("GetFormIdAction", "runtime parameter error");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "runtime parameter error");
-                return false;
+                cVar = view2.getTag();
             }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void l(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            if (!SubscribeHelper.l()) {
-                this.e.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(ud3.f(null, "data", ud3.f(null, "formid", "")), 0).toString());
-                return;
+            if (i != 11 && (cVar instanceof c)) {
+                ((c) cVar).a.setText(this.b[i]);
             }
-            bk2.W().c(str, new c(this, str2));
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

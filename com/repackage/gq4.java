@@ -1,123 +1,103 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.view.View;
+import android.view.Window;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.dialog.CircleView1080;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gq4 {
+public class gq4 extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public ArrayList<UserData> b;
-    public aq4 c;
-    public int d;
+    public String a;
+    public TextView b;
+    public TextView c;
+    public CircleView1080 d;
     public int e;
 
-    public gq4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gq4(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new aq4();
-        this.d = 0;
-        this.e = 0;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public ArrayList<UserData> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public aq4 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (aq4) invokeV.objValue;
-    }
-
-    public ArrayList<UserData> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            try {
-                g(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.detailException(e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setText(str);
             }
         }
     }
 
-    public void g(JSONObject jSONObject) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == this.e) {
             return;
         }
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    UserData userData = new UserData();
-                    userData.parserJson(optJSONArray.getJSONObject(i));
-                    userData.mAttentionType = 2;
-                    this.a.add(userData);
-                }
-            }
-            if (optJSONArray2 != null) {
-                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    UserData userData2 = new UserData();
-                    userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                    userData2.mAttentionType = 1;
-                    this.b.add(userData2);
-                }
-            }
-            this.c.i(jSONObject.optJSONObject("page"));
-            this.d = jSONObject.optInt("tafriendnum", 0);
-            this.e = jSONObject.optInt("commonfriendnum", 0);
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        this.e = i;
+        TextView textView = this.b;
+        if (textView != null) {
+            textView.setText(i + "%");
+        }
+        CircleView1080 circleView1080 = this.d;
+        if (circleView1080 != null) {
+            circleView1080.setProgress(i);
         }
     }
 
-    public void h(aq4 aq4Var) {
+    @Override // android.app.Dialog
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aq4Var) == null) {
-            this.c = aq4Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.show();
+            Window window = getWindow();
+            if (window != null) {
+                window.setContentView(R.layout.obfuscated_res_0x7f0d06f0);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f090a8d);
+                if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
+                    layoutParams.topMargin = li.f(getContext(), R.dimen.tbds50);
+                    findViewById.setLayoutParams(layoutParams);
+                }
+                TextView textView = (TextView) window.findViewById(R.id.obfuscated_res_0x7f091f34);
+                this.c = textView;
+                if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+                    layoutParams2.topMargin = li.f(getContext(), R.dimen.tbds35);
+                    this.c.setLayoutParams(layoutParams2);
+                }
+                if (!StringUtils.isNull(this.a)) {
+                    this.c.setText(this.a);
+                }
+                this.b = (TextView) window.findViewById(R.id.obfuscated_res_0x7f091f35);
+                this.d = (CircleView1080) window.findViewById(R.id.obfuscated_res_0x7f09062f);
+            }
         }
     }
 }

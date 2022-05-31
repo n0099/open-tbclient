@@ -26,13 +26,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a17;
-import com.repackage.e17;
-import com.repackage.kg;
+import com.repackage.dz6;
+import com.repackage.fi4;
+import com.repackage.hz6;
+import com.repackage.jg;
+import com.repackage.ji;
+import com.repackage.jn;
 import com.repackage.ki;
-import com.repackage.li;
-import com.repackage.ro;
-import com.repackage.sj4;
 import com.repackage.x8;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -43,7 +43,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements a17 {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements dz6 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -87,7 +87,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 if (StringUtils.isNull(str)) {
                     return;
                 }
-                this.a.topicID = kg.g(str, -1L);
+                this.a.topicID = jg.g(str, -1L);
             }
         }
     }
@@ -118,7 +118,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                sj4.b(statisticItem, paramPair);
+                fi4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -128,7 +128,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
                 statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!li.isEmpty(paramPair.get("ext_log"))) {
+                if (!ki.isEmpty(paramPair.get("ext_log"))) {
                     try {
                         JSONObject jSONObject = new JSONObject(paramPair.get("ext_log"));
                         Iterator<String> keys = jSONObject.keys();
@@ -168,14 +168,14 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.m85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.a17
+    @Override // com.repackage.dz6
     public void loadData() {
         int i;
         String substring;
@@ -209,7 +209,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                         substring = decode.substring(i);
                     }
                     if (!StringUtils.isNull(substring)) {
-                        this.topicID = kg.g(substring, -1L);
+                        this.topicID = jg.g(substring, -1L);
                     }
                 }
             } else {
@@ -217,7 +217,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             }
             if (this.topicID < 0) {
                 finish();
-            } else if (!ki.A()) {
+            } else if (!ji.A()) {
                 this.mTopicDetailView.s();
                 this.mTopicDetailView.C(true);
             } else {
@@ -232,22 +232,22 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.repackage.a17
-    public void netCallback(int i, e17 e17Var) {
+    @Override // com.repackage.dz6
+    public void netCallback(int i, hz6 hz6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, e17Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, hz6Var) == null) {
             this.mTopicDetailView.s();
-            if (i == 0 && e17Var != null && !ListUtils.isEmpty(e17Var.f)) {
+            if (i == 0 && hz6Var != null && !ListUtils.isEmpty(hz6Var.f)) {
                 this.mTopicDetailView.t();
-                this.mTopicDetailView.setData(e17Var);
+                this.mTopicDetailView.setData(hz6Var);
                 return;
             }
             this.mTopicDetailView.C(true);
         }
     }
 
-    @Override // com.repackage.a17
-    public void netThreadCallback(int i, boolean z, List<ro> list) {
+    @Override // com.repackage.dz6
+    public void netThreadCallback(int i, boolean z, List<jn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
             this.mTopicDetailView.setNextData(i, z, list);

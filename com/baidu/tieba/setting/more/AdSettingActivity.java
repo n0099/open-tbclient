@@ -29,12 +29,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hj8;
-import com.repackage.ku4;
-import com.repackage.nr4;
+import com.repackage.at4;
+import com.repackage.dq4;
+import com.repackage.fa8;
+import com.repackage.ig8;
 import com.repackage.wa;
-import com.repackage.yc8;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int NO_SET_MEMBER_CLOSE_AD = -1;
@@ -43,11 +43,11 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public transient /* synthetic */ FieldHolder $fh;
     public wa mMemberCloseAdListener;
     public int mMemberCloseAdSettingState;
-    public yc8 mView;
-    public ku4 mWaitingDialog;
+    public fa8 mView;
+    public at4 mWaitingDialog;
 
-    /* loaded from: classes4.dex */
-    public class a implements nr4.e {
+    /* loaded from: classes3.dex */
+    public class a implements dq4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdSettingActivity a;
@@ -70,20 +70,20 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             this.a = adSettingActivity;
         }
 
-        @Override // com.repackage.nr4.e
-        public void onClick(nr4 nr4Var) {
+        @Override // com.repackage.dq4.e
+        public void onClick(dq4 dq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
                 MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.a.getPageContext().getPageActivity(), 2, "", 20);
                 memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_SITE, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
-                nr4Var.dismiss();
+                dq4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements nr4.e {
+    /* loaded from: classes3.dex */
+    public class b implements dq4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdSettingActivity a;
@@ -106,16 +106,16 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             this.a = adSettingActivity;
         }
 
-        @Override // com.repackage.nr4.e
-        public void onClick(nr4 nr4Var) {
+        @Override // com.repackage.dq4.e
+        public void onClick(dq4 dq4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
-                nr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, dq4Var) == null) {
+                dq4Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c extends wa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -208,7 +208,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             }
         }
         this.mMemberCloseAdSettingState = NO_SET_MEMBER_CLOSE_AD;
-        this.mWaitingDialog = new ku4(getPageContext());
+        this.mWaitingDialog = new at4(getPageContext());
         this.mMemberCloseAdListener = new c(this, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
     }
 
@@ -226,10 +226,10 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
             if (i == 0) {
-                this.mView.h();
+                this.mView.g();
                 currentAccountObj.setMemberCloseAdVipClose(0);
             } else {
-                this.mView.i();
+                this.mView.h();
                 currentAccountObj.setMemberCloseAdVipClose(1);
             }
             this.mMemberCloseAdSettingState = NO_SET_MEMBER_CLOSE_AD;
@@ -242,12 +242,12 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void showMemberDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            nr4 nr4Var = new nr4(getPageContext().getPageActivity());
-            nr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0aa2);
-            nr4Var.setButtonTextColor(R.color.CAM_X0305);
-            nr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ce6, new a(this));
-            nr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new b(this));
-            nr4Var.create(getPageContext()).show();
+            dq4 dq4Var = new dq4(getPageContext().getPageActivity());
+            dq4Var.setMessageId(R.string.obfuscated_res_0x7f0f0aa9);
+            dq4Var.setButtonTextColor(R.color.CAM_X0305);
+            dq4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cea, new a(this));
+            dq4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0376, new b(this));
+            dq4Var.create(getPageContext()).show();
         }
     }
 
@@ -287,7 +287,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.mView = new yc8(this);
+            this.mView = new fa8(this);
             registerTask();
             registerListener(this.mMemberCloseAdListener);
         }
@@ -296,8 +296,8 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
     public void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            hj8.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
-            hj8.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
+            ig8.h(309348, MemberCloseAdSocketResponseMessage.class, false, false);
+            ig8.c(309348, CmdConfigHttp.CMD_MEMBER_CLOSE_AD, TbConfig.SET_MEMBER_CLOSE_AD, MemberCloseAdHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -312,7 +312,7 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
             MemberCloseAdRequestMessage memberCloseAdRequestMessage = new MemberCloseAdRequestMessage(CmdConfigHttp.CMD_MEMBER_CLOSE_AD, 309348);
             memberCloseAdRequestMessage.setVipClose(i);
             MessageManager.getInstance().sendMessage(memberCloseAdRequestMessage);
-            this.mWaitingDialog.i(R.string.obfuscated_res_0x7f0f1122);
+            this.mWaitingDialog.i(R.string.obfuscated_res_0x7f0f1133);
             this.mWaitingDialog.h(true);
         }
     }
@@ -323,12 +323,12 @@ public class AdSettingActivity extends BaseActivity implements BdSwitchView.b {
         if (interceptable == null || interceptable.invokeZ(65543, this, z) == null) {
             int i = this.mMemberCloseAdSettingState;
             if (i == SET_MEMBER_CLOSE_AD_FALSE) {
-                this.mView.i();
-            } else if (i == SET_MEMBER_CLOSE_AD_TRUE) {
                 this.mView.h();
+            } else if (i == SET_MEMBER_CLOSE_AD_TRUE) {
+                this.mView.g();
             }
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f1113);
+                showToast(R.string.obfuscated_res_0x7f0f1124);
             }
             this.mMemberCloseAdSettingState = NO_SET_MEMBER_CLOSE_AD;
             this.mWaitingDialog.h(false);

@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.zxing.Result;
 import java.util.Map;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class EmailAddressResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern COMMA;

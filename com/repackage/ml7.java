@@ -1,41 +1,9 @@
 package com.repackage;
-
-import android.graphics.Color;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class ml7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ml7 {
+    void onFail(String str);
 
-    public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return Color.parseColor(b(str));
-            } catch (Exception unused) {
-                return 0;
-            }
-        }
-        return invokeL.intValue;
-    }
+    void onProgress(int i);
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03fb) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1359) + str;
-            }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03fb) + str;
-        }
-        return (String) invokeL.objValue;
-    }
+    void onSuccess(String str);
 }

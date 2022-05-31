@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ro;
-import com.repackage.wq5;
-import com.repackage.xq5;
-import com.repackage.yq5;
-import com.repackage.zq5;
+import com.repackage.jn;
+import com.repackage.pp5;
+import com.repackage.qp5;
+import com.repackage.rp5;
+import com.repackage.sp5;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public b b;
-    public List<ro> c;
+    public List<jn> c;
     public HttpMessageListener d;
 
     /* loaded from: classes3.dex */
@@ -72,31 +72,31 @@ public class SpecialConcernTabModel extends BdBaseModel {
                     boolean z = alaSpecialConcernResponse.hasMore;
                     if (ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
                         if (this.a.a == 1) {
-                            this.a.c.add(new xq5());
+                            this.a.c.add(new qp5());
                         }
                     } else {
-                        for (wq5 wq5Var : alaSpecialConcernResponse.followList) {
-                            yq5 yq5Var = new yq5();
-                            yq5Var.a = wq5Var.a;
-                            yq5Var.b = wq5Var.b;
-                            yq5Var.c = false;
-                            this.a.c.add(yq5Var);
+                        for (pp5 pp5Var : alaSpecialConcernResponse.followList) {
+                            rp5 rp5Var = new rp5();
+                            rp5Var.a = pp5Var.a;
+                            rp5Var.b = pp5Var.b;
+                            rp5Var.c = false;
+                            this.a.c.add(rp5Var);
                         }
                     }
                     if (!ListUtils.isEmpty(alaSpecialConcernResponse.recommendList)) {
-                        zq5 zq5Var = new zq5();
+                        sp5 sp5Var = new sp5();
                         if (!ListUtils.isEmpty(alaSpecialConcernResponse.followList)) {
-                            zq5Var.a = false;
+                            sp5Var.a = false;
                         } else {
-                            zq5Var.a = true;
+                            sp5Var.a = true;
                         }
-                        this.a.c.add(zq5Var);
-                        for (wq5 wq5Var2 : alaSpecialConcernResponse.recommendList) {
-                            yq5 yq5Var2 = new yq5();
-                            yq5Var2.a = wq5Var2.a;
-                            yq5Var2.b = wq5Var2.b;
-                            yq5Var2.c = true;
-                            this.a.c.add(yq5Var2);
+                        this.a.c.add(sp5Var);
+                        for (pp5 pp5Var2 : alaSpecialConcernResponse.recommendList) {
+                            rp5 rp5Var2 = new rp5();
+                            rp5Var2.a = pp5Var2.a;
+                            rp5Var2.b = pp5Var2.b;
+                            rp5Var2.c = true;
+                            this.a.c.add(rp5Var2);
                         }
                     }
                     SpecialConcernTabModel.z(this.a);
@@ -114,7 +114,7 @@ public class SpecialConcernTabModel extends BdBaseModel {
     public interface b {
         void a(int i, String str);
 
-        void b(List<ro> list, boolean z, int i);
+        void b(List<jn> list, boolean z, int i);
     }
 
     public SpecialConcernTabModel(TbPageContext tbPageContext) {

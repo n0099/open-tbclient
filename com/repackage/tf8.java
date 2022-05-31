@@ -1,23 +1,26 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ForumRuleStatus;
 /* loaded from: classes7.dex */
-public class tf8 implements pf8 {
+public class tf8 implements jn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final of8 a;
+    public ForumRuleStatus a;
 
-    public tf8(@NonNull of8 of8Var) {
+    public tf8(ForumData forumData, ForumRuleStatus forumRuleStatus) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {of8Var};
+            Object[] objArr = {forumData, forumRuleStatus};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,15 +30,29 @@ public class tf8 implements pf8 {
                 return;
             }
         }
-        this.a = of8Var;
+        this.a = forumRuleStatus;
     }
 
-    @Override // com.repackage.pf8
-    public void a() {
+    public ForumRuleStatus a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            j95.b().l(System.currentTimeMillis());
-            uf8.g(this.a).b();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ForumRuleStatus) invokeV.objValue;
+    }
+
+    public void b(ForumRuleStatus forumRuleStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumRuleStatus) == null) {
+            this.a = forumRuleStatus;
         }
+    }
+
+    @Override // com.repackage.jn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

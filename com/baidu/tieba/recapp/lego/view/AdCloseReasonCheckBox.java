@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.di8;
-import com.repackage.mi;
+import com.repackage.ef8;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class AdCloseReasonCheckBox extends CheckBox {
     public static /* synthetic */ Interceptable $ic;
@@ -50,9 +50,9 @@ public class AdCloseReasonCheckBox extends CheckBox {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            b(R.string.J_X07, mi.f(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304);
+            b(R.string.J_X07, li.f(context, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0304);
             SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0304, R.color.CAM_X0105);
-            int f = mi.f(context, R.dimen.obfuscated_res_0x7f0701e8);
+            int f = li.f(context, R.dimen.obfuscated_res_0x7f0701e8);
             setPadding(f, 0, f, 0);
             setGravity(17);
             setButtonDrawable((Drawable) null);
@@ -73,7 +73,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             this.c = gradientDrawable2;
             gradientDrawable2.setShape(0);
             this.c.setCornerRadius(f);
-            this.c.setStroke(i2, di8.a(SkinManager.getColor(i4), 0.5f));
+            this.c.setStroke(i2, ef8.a(SkinManager.getColor(i4), 0.5f));
             StateListDrawable stateListDrawable = new StateListDrawable();
             this.d = stateListDrawable;
             stateListDrawable.addState(new int[]{-16842912}, this.b);

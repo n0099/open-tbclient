@@ -1,77 +1,90 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class qk {
+public class qk extends tk {
     public static /* synthetic */ Interceptable $ic;
-    public static qk a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964029653, "Lcom/repackage/qk;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964029653, "Lcom/repackage/qk;");
-                return;
-            }
-        }
-        a = new qk();
-    }
+    public final Rect A;
+    public final Paint x;
+    public final Paint y;
+    public final Rect z;
 
     public qk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.x = new Paint();
+        this.y = new Paint();
+        this.z = new Rect(0, 0, 0, 0);
+        this.A = new Rect(0, 0, 0, 0);
+        this.x.setColor(-16777216);
+        this.x.setStyle(Paint.Style.FILL);
+        this.x.setAntiAlias(true);
+        this.y.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+    }
+
+    @Override // com.repackage.mk, com.repackage.kk
+    public void h(Canvas canvas, nk nkVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, nkVar, imageView) == null) {
+            Matrix matrix = this.f;
+            if (matrix != null) {
+                canvas.concat(matrix);
+            }
+            if (nkVar.e()) {
+                Bitmap bitmap = nkVar.a.getBitmap();
+                if (this.w) {
+                    x(canvas, bitmap);
+                    return;
+                }
+                this.A.set(0, 0, nkVar.b(), nkVar.a());
+                nkVar.b.g(canvas, this.A, this.g, this.c);
+            } else if (nkVar.d()) {
+                if (this.w) {
+                    x(canvas, nkVar.b.p());
+                    return;
+                }
+                this.A.set(0, 0, nkVar.b(), nkVar.a());
+                nkVar.b.g(canvas, this.A, this.g, this.c);
+            } else {
+                this.A.set(0, 0, nkVar.b(), nkVar.a());
+                nkVar.b.g(canvas, this.A, this.g, this.c);
             }
         }
     }
 
-    public static qk b() {
-        InterceptResult invokeV;
+    public void x(Canvas canvas, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (qk) invokeV.objValue;
-    }
-
-    public mk a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            switch (i) {
-                case 0:
-                    return new ok();
-                case 1:
-                    return new wk();
-                case 2:
-                    return new sk();
-                case 3:
-                    return new yk();
-                case 4:
-                    return new xk();
-                case 5:
-                    return new rk();
-                case 6:
-                    return new uk();
-                default:
-                    return new ok();
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, bitmap) == null) {
+            this.A.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            this.z.set(0, 0, (int) this.g.width(), (int) this.g.height());
+            canvas.save();
+            canvas.drawARGB(0, 0, 0, 0);
+            canvas.drawPath(this.t, this.x);
+            canvas.drawBitmap(bitmap, this.A, this.g, this.y);
+            canvas.restore();
         }
-        return (mk) invokeI.objValue;
     }
 }

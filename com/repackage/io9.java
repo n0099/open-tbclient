@@ -1,91 +1,42 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
 /* loaded from: classes6.dex */
-public class io9 {
+public class io9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static io9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ po9 a;
 
-    public io9() {
+    public io9(po9 po9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {po9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = po9Var;
     }
 
-    public static io9 a() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (io9.class) {
-                    if (a == null) {
-                        a = new io9();
-                    }
-                }
-            }
-            return a;
-        }
-        return (io9) invokeV.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x0064, code lost:
-        if (((r6 / 60) / 60) >= r10.a.getSharedPreferences("_prefs", 0).getInt("interval", 0)) goto L12;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void b(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
-            if (context == null) {
-                throw new RuntimeException("Error:Context is not allowed to be null");
-            }
-            context.getApplicationContext();
-            if (!TextUtils.isEmpty(str)) {
-                hq9.v(context, str);
-            }
-            oq9.b(new fo9(this, context));
-            try {
-                oq9.b(new gq9(context));
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            tr9 c = tr9.c(context);
-            long B = hq9.B(c.a);
-            boolean z = true;
-            if (B > 0) {
-                try {
-                    long time = (new Date().getTime() - B) / 1000;
-                    if (time < 0) {
-                        c.f();
-                    }
-                    z = false;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            if (z) {
-                c.b = System.currentTimeMillis();
-                oq9.b(new qr9(c));
-            }
-            ro9.E(context);
-            sp9.a(context);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            nn9 a = rn9.a(this.a.a.c.a);
+            a.e(new vn9(this.a.a.c.b.b()), 200, System.currentTimeMillis() - this.a.a.a);
+            a.m();
+            this.a.a.c.c.onLoaded();
+            this.a.a.c.d = true;
         }
     }
 }

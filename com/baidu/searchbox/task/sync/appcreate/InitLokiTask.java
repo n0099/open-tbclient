@@ -23,13 +23,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.au4;
-import com.repackage.bu4;
-import com.repackage.fc1;
-import com.repackage.fu4;
-import com.repackage.on;
-import com.repackage.s20;
-import com.repackage.zt4;
+import com.repackage.f10;
+import com.repackage.gm;
+import com.repackage.ps4;
+import com.repackage.qs4;
+import com.repackage.rs4;
+import com.repackage.sa1;
+import com.repackage.ul4;
+import com.repackage.vs4;
 import java.lang.Thread;
 import java.util.LinkedList;
 import java.util.List;
@@ -56,56 +57,57 @@ public class InitLokiTask extends LaunchTask {
 
     private void initLoki() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            if (Loki.isLokiService(fc1.b())) {
-                ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler = new ForwardingDeviceEventSceneHandler();
-                forwardingDeviceEventSceneHandler.addEventHandleCallback(new au4());
-                LinkedList linkedList = new LinkedList();
-                linkedList.add(new LogSystemUploaderStrategy(true, true));
-                Loki.initService(new LogSystemProcessor(forwardingDeviceEventSceneHandler, linkedList));
-                Loki.setAppExtraCall(new AppExtraUtil.AppExtraCall(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLokiTask.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ InitLokiTask this$0;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    @Override // com.baidu.searchbox.logsystem.util.AppExtraUtil.AppExtraCall
-                    public JSONObject getAppExtraInfo() {
-                        InterceptResult invokeV;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                            JSONObject jSONObject = new JSONObject();
-                            try {
-                                jSONObject.put("tieba", " extraInfo");
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            return jSONObject;
-                        }
-                        return (JSONObject) invokeV.objValue;
-                    }
-                });
-                return;
-            }
-            lokiAdvancedInit(TbadkCoreApplication.getInst());
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || ul4.e()) {
+            return;
         }
+        if (Loki.isLokiService(sa1.b())) {
+            ForwardingDeviceEventSceneHandler forwardingDeviceEventSceneHandler = new ForwardingDeviceEventSceneHandler();
+            forwardingDeviceEventSceneHandler.addEventHandleCallback(new qs4());
+            LinkedList linkedList = new LinkedList();
+            linkedList.add(new LogSystemUploaderStrategy(true, true));
+            Loki.initService(new LogSystemProcessor(forwardingDeviceEventSceneHandler, linkedList));
+            Loki.setAppExtraCall(new AppExtraUtil.AppExtraCall(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLokiTask.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ InitLokiTask this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // com.baidu.searchbox.logsystem.util.AppExtraUtil.AppExtraCall
+                public JSONObject getAppExtraInfo() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("tieba", " extraInfo");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        return jSONObject;
+                    }
+                    return (JSONObject) invokeV.objValue;
+                }
+            });
+            return;
+        }
+        lokiAdvancedInit(TbadkCoreApplication.getInst());
     }
 
     private void lokiAdvancedInit(Context context) {
@@ -141,7 +143,7 @@ public class InitLokiTask extends LaunchTask {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                         LinkedList linkedList = new LinkedList();
-                        linkedList.add(new bu4());
+                        linkedList.add(new rs4());
                         return linkedList;
                     }
                     return (List) invokeV.objValue;
@@ -228,9 +230,9 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            fu4.q().h();
+                            vs4.q().h();
                         }
-                        zt4.a(jSONObject);
+                        ps4.a(jSONObject);
                     }
                 }
 
@@ -245,7 +247,7 @@ public class InitLokiTask extends LaunchTask {
             baseUncaughtExceptionHandler.setProcessLaunchTime(System.currentTimeMillis());
             Loki.init(context, baseUncaughtExceptionHandler);
             Track.getInstance().startTrack(AppRuntime.getAppContext());
-            BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>(this, new s20(this, context, Build.VERSION.SDK_INT > 19 ? new Supplier<List<ProcessEventSceneHandler>>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLokiTask.5
+            BdAsyncTask<Void, Void, Void> bdAsyncTask = new BdAsyncTask<Void, Void, Void>(this, new f10(this, context, Build.VERSION.SDK_INT > 19 ? new Supplier<List<ProcessEventSceneHandler>>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitLokiTask.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLokiTask this$0;
@@ -275,7 +277,7 @@ public class InitLokiTask extends LaunchTask {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                         LinkedList linkedList2 = new LinkedList();
-                        linkedList2.add(new bu4());
+                        linkedList2.add(new rs4());
                         return linkedList2;
                     }
                     return (List) invokeV.objValue;
@@ -307,19 +309,19 @@ public class InitLokiTask extends LaunchTask {
                     this.this$0 = this;
                 }
 
-                @Override // com.repackage.s20
+                @Override // com.repackage.f10
                 public void onAttachExtra(@NonNull Context context2, @NonNull JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            fu4.q().h();
+                            vs4.q().h();
                         }
-                        zt4.a(jSONObject);
+                        ps4.a(jSONObject);
                     }
                 }
 
-                @Override // com.repackage.s20
+                @Override // com.repackage.f10
                 public void onDisasterRecovery(@NonNull Context context2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context2) == null) {
@@ -330,7 +332,7 @@ public class InitLokiTask extends LaunchTask {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitLokiTask this$0;
-                public final /* synthetic */ s20 val$nativeCrashHandler;
+                public final /* synthetic */ f10 val$nativeCrashHandler;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -366,7 +368,7 @@ public class InitLokiTask extends LaunchTask {
             bdAsyncTask.setSelfExecute(true);
             bdAsyncTask.setPriority(4);
             bdAsyncTask.execute(new Void[0]);
-            Thread.setDefaultUncaughtExceptionHandler(new on(Thread.getDefaultUncaughtExceptionHandler()));
+            Thread.setDefaultUncaughtExceptionHandler(new gm(Thread.getDefaultUncaughtExceptionHandler()));
         }
     }
 

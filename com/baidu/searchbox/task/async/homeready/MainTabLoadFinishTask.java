@@ -3,6 +3,7 @@ package com.baidu.searchbox.task.async.homeready;
 import android.webkit.WebSettings;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
@@ -13,8 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iu4;
-import com.repackage.u20;
+import com.repackage.h10;
+import com.repackage.r30;
+import com.repackage.ys4;
+import java.io.UnsupportedEncodingException;
 /* loaded from: classes2.dex */
 public class MainTabLoadFinishTask extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -34,20 +37,48 @@ public class MainTabLoadFinishTask extends LaunchTask {
         }
     }
 
+    private String getRealOaid(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        byte[] b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
+            if (StringUtils.isNull(str) || (split = str.split("-")) == null || split.length <= 1) {
+                return "";
+            }
+            String str2 = split[1];
+            if (StringUtils.isNull(str2) || (b = new r30("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+                return "";
+            }
+            try {
+                return new String(b, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
     private void initMainTab() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             if (AdToMainTabActivitySwitch.getIsOn()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
             }
             Loki.startTrack();
             try {
-                iu4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                ys4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
-                iu4.k().y("key_last_cached_oid", u20.e(TbadkCoreApplication.getInst().getContext()).f());
+                String f = h10.e(TbadkCoreApplication.getInst().getContext()).f();
+                String q = ys4.k().q("key_last_cached_oid", "");
+                if (StringUtils.isNull(q) || !q.equals(f)) {
+                    ys4.k().y("key_last_cached_oid", f);
+                    ys4.k().y("key_last_cached_real_oid", getRealOaid(f));
+                }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

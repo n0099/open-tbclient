@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.handler.a.b;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.repackage.tl9;
+import com.repackage.ni9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -61,7 +61,7 @@ public class f implements Parcelable {
             return fVar;
         }
         str = "no control statics can parse ";
-        tl9.b("statics", str);
+        ni9.b("statics", str);
         return fVar;
     }
 

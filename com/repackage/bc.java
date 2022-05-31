@@ -137,7 +137,7 @@ public class bc implements ic {
                 }
                 if (componentType == Byte.TYPE) {
                     try {
-                        di.k((byte[]) this.a, 0);
+                        ci.k((byte[]) this.a, 0);
                     } catch (Exception unused) {
                         return null;
                     }

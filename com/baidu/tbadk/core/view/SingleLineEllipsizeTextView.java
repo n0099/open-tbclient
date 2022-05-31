@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.ki;
 /* loaded from: classes3.dex */
 public class SingleLineEllipsizeTextView extends EMTextView {
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public class SingleLineEllipsizeTextView extends EMTextView {
         if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             super.onMeasure(i, i2);
             CharSequence text = getText();
-            if (li.isEmpty(text.toString())) {
+            if (ki.isEmpty(text.toString())) {
                 return;
             }
             TextPaint paint = getPaint();

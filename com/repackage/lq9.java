@@ -1,22 +1,25 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBNativeListener;
+import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public final class lq9 implements ThreadFactory {
+public class lq9 implements tp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
+    public final /* synthetic */ fk9 a;
 
-    public lq9() {
+    public lq9(fk9 fk9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fk9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,16 +29,42 @@ public final class lq9 implements ThreadFactory {
                 return;
             }
         }
-        this.a = new AtomicInteger(1);
+        this.a = fk9Var;
     }
 
-    @Override // java.util.concurrent.ThreadFactory
-    public Thread newThread(Runnable runnable) {
-        InterceptResult invokeL;
+    @Override // com.repackage.tp9
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            return new Thread(runnable, "T#" + this.a.getAndIncrement());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (Thread) invokeL.objValue;
+    }
+
+    @Override // com.repackage.tp9
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            Info info = (Info) obj;
+            try {
+                this.a.c = info;
+                if (this.a.f != null) {
+                    if (info == null || info.getType() != 11) {
+                        this.a.f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.a.g()) {
+                        this.a.f.onLoaded();
+                    }
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    @Override // com.repackage.tp9
+    public void onFail(PBError pBError) {
+        PBNativeListener pBNativeListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.a.f) == null) {
+            return;
+        }
+        pBNativeListener.onFail(pBError);
     }
 }

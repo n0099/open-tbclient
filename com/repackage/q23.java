@@ -1,49 +1,48 @@
 package com.repackage;
 
-import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z53;
-import com.repackage.zk2;
-import java.io.File;
+import com.repackage.qy1;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class q23 extends r23 {
+public final class q23 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements nf3<u53> {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ CallbackHandler d;
-        public final /* synthetic */ u03 e;
-        public final /* synthetic */ q23 f;
+        public final /* synthetic */ String a;
 
-        public a(q23 q23Var, JSONObject jSONObject, Context context, String str, CallbackHandler callbackHandler, u03 u03Var) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q23Var, jSONObject, context, str, callbackHandler, u03Var};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,400 +52,310 @@ public class q23 extends r23 {
                     return;
                 }
             }
-            this.f = q23Var;
-            this.a = jSONObject;
-            this.b = context;
-            this.c = str;
-            this.d = callbackHandler;
-            this.e = u03Var;
+            this.a = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(u53 u53Var) {
+        @Override // java.lang.Runnable
+        public void run() {
+            qy1 V;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, u53Var) == null) {
-                if (ng3.f(this.a)) {
-                    this.f.p(this.f.s(f43.e(), this.a.optString("path")), this.b, this.c, this.d, this.a, this.e);
-                    return;
-                }
-                String r = this.f.r(u53Var, this.a);
-                if (!oe3.G() && TextUtils.isEmpty(r)) {
-                    r = zk3.e().g(this.e.N(), this.e.l(), this.a.optString("path"));
-                }
-                String str = r;
-                if (r23.b) {
-                    Log.d("ShareAction", "final share url is " + str);
-                }
-                this.f.p(str, this.b, this.c, this.d, this.a, this.e);
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (V = uk2.U().V()) == null) {
+                return;
             }
+            qy1.b i = V.i(this.a);
+            i.f();
+            i.b();
+            hw1.k("ActionUtils", "popAllFragment: finish");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements nf3<x53<z53.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ JSONObject d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ q23 f;
-
-        public b(q23 q23Var, Context context, CallbackHandler callbackHandler, String str, JSONObject jSONObject, String str2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755432065, "Lcom/repackage/q23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q23Var, context, callbackHandler, str, jSONObject, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f = q23Var;
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = str;
-            this.d = jSONObject;
-            this.e = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(x53<z53.e> x53Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
-                this.f.n(this.a, this.b, this.c, this.d, s53.h(x53Var), this.e);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements zk2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ q23 c;
-
-        public c(q23 q23Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q23Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = q23Var;
-            this.a = callbackHandler;
-            this.b = str;
-        }
-
-        @Override // com.repackage.zk2.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.q(this.a, this.b, false);
-            }
-        }
-
-        @Override // com.repackage.zk2.a
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.q(this.a, this.b, true);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q23(r13 r13Var) {
-        super(r13Var, "/swanAPI/share");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755432065, "Lcom/repackage/q23;");
                 return;
             }
         }
+        a = rf1.a;
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+    public static y52 a(nl1<?> nl1Var, hp2 hp2Var, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nl1Var, hp2Var, str)) == null) {
+            wz2 f = uk2.U().f(hp2Var.d);
+            y52 y52Var = new y52();
+            y52Var.i = nl1Var.M();
+            y52Var.a = hp2Var.c;
+            if (hz2.L() != null) {
+                y52Var.c = hz2.L().c0(hp2Var.d);
+            }
+            y52Var.k = v52.c(hz2.L(), hp2Var.a);
+            y52Var.b = hp2.b(hp2Var);
+            y52Var.d = f.g;
+            y52Var.e = String.valueOf(ew1.a());
+            if (hz2.L() != null) {
+                String W = hz2.L().W(hp2Var.d);
+                if (!TextUtils.isEmpty(W)) {
+                    if (a) {
+                        Log.d("ActionUtils", "add initData: " + W);
+                    }
+                    y52Var.f = W;
+                }
+            }
+            y52Var.g = a || uk2.U().N();
+            y52Var.h = str;
+            if (gv2.H()) {
+                y52Var.j = kw1.d();
+            }
+            if (a) {
+                Log.i("ActionUtils", "buildPageEvent: " + Arrays.toString(new Exception().getStackTrace()));
+            }
+            j93.b(y52Var.a, y52Var.b);
+            return y52Var;
+        }
+        return (y52) invokeLLL.objValue;
+    }
+
+    public static JSONObject b(@NonNull hz2 hz2Var, String str, String str2, List<String> list) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (context != null && u03Var != null) {
-                if (u03Var.m0()) {
-                    if (r23.b) {
-                        Log.d("ShareAction", "ShareAction does not supported when app is invisible.");
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
-                }
-                JSONObject a2 = r23.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    ux1.c("Share", "params invalid");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params invalid");
-                    return false;
-                }
-                String optString = a2.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    ux1.c("Share", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "params invalid");
-                    return false;
-                }
-                try {
-                    a2.put("iconUrl", a2.optString("imageUrl", ""));
-                } catch (JSONException e) {
-                    if (r23.b) {
-                        Log.d("ShareAction", e.toString());
-                    }
-                }
-                u03Var.d0().e("mapp_i_share_update_weburl", new a(this, a2, context, optString, callbackHandler, u03Var));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
-            ux1.c("Share", "context or swanApp is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "system error");
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            u03 a0 = u03.a0();
-            if (a0 == null) {
-                return null;
-            }
-            return c83.M(str, a0.b);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void n(@NonNull Context context, CallbackHandler callbackHandler, String str, @NonNull JSONObject jSONObject, boolean z, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, callbackHandler, str, jSONObject, Boolean.valueOf(z), str2}) == null) {
-            String optString = jSONObject.optString("shareUrl");
-            JSONArray optJSONArray = jSONObject.optJSONArray("defaultPannel");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, hz2Var, str, str2, list)) == null) {
+            String f = zc3.f(str);
+            String o = zc3.o(str);
+            String b = z23.b(f);
+            String b0 = hz2Var.b0(f);
+            String c0 = hz2Var.c0(f);
+            JSONObject jSONObject = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("linkUrl", str2);
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
+                jSONObject.put("root", b0);
+                jSONObject.put("pageType", c0);
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str);
                 }
-                if (!TextUtils.isEmpty(optString) && (me3.q(optString) || z)) {
-                    jSONObject.put("customShareUrl", true);
-                    jSONObject.put("linkUrl", optString);
+                if (!TextUtils.equals(f, b)) {
+                    if (!TextUtils.isEmpty(o)) {
+                        b = b + "?" + o;
+                    }
+                    jSONObject.put("pageRoutePath", b);
                 }
-                if (optJSONArray != null && optJSONArray.length() > 0 && !z) {
-                    jSONObject.put("pannel", optJSONArray);
+                if (list != null && !list.isEmpty()) {
+                    JSONArray jSONArray = new JSONArray();
+                    for (String str3 : list) {
+                        jSONArray.put(str3);
+                    }
+                    jSONObject.put("removedSlaveIDs", jSONArray);
                 }
             } catch (JSONException e) {
-                if (r23.b) {
-                    Log.d("ShareAction", e.toString());
-                }
-            }
-            t(context, callbackHandler, str, jSONObject);
-        }
-    }
-
-    public final JSONObject o(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        String m;
-        Uri a2;
-        Uri a3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            String optString = jSONObject.optString("imageUrl");
-            if (optString.startsWith("bdfile")) {
-                String m2 = m(optString);
-                if (m2 == null) {
-                    return jSONObject;
-                }
-                try {
-                    jSONObject.putOpt("imageUrl", re3.a(hm2.U().getActivity(), new File(m2)).toString());
-                } catch (JSONException e) {
-                    if (r23.b) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("command");
-            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject("info")) == null) {
-                return jSONObject;
-            }
-            String optString2 = optJSONObject.optString("img_show");
-            if (optString2.startsWith("bdfile")) {
-                String m3 = m(optString2);
-                if (m3 == null || (a3 = re3.a(hm2.U().getActivity(), new File(m3))) == null) {
-                    return jSONObject;
-                }
-                try {
-                    optJSONObject.putOpt("img_show", a3.toString());
-                    optJSONObject2.putOpt("info", optJSONObject);
-                    jSONObject.putOpt("command", optJSONObject2);
-                } catch (JSONException e2) {
-                    if (r23.b) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-            String optString3 = optJSONObject.optString("img_save");
-            if (!optString3.startsWith("bdfile") || (m = m(optString3)) == null || (a2 = re3.a(hm2.U().getActivity(), new File(m))) == null) {
-                return jSONObject;
-            }
-            try {
-                optJSONObject.putOpt("img_save", a2.toString());
-                optJSONObject2.putOpt("info", optJSONObject);
-                jSONObject.putOpt("command", optJSONObject2);
-            } catch (JSONException e3) {
-                if (r23.b) {
-                    e3.printStackTrace();
+                if (a) {
+                    e.printStackTrace();
                 }
             }
             return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        return (JSONObject) invokeLLLL.objValue;
     }
 
-    public final void p(String str, @NonNull Context context, @NonNull String str2, @NonNull CallbackHandler callbackHandler, @NonNull JSONObject jSONObject, @NonNull u03 u03Var) {
+    public static JSONObject c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, context, str2, callbackHandler, jSONObject, u03Var}) == null) {
-            String optString = jSONObject.optString("shareUrl");
-            JSONArray optJSONArray = jSONObject.optJSONArray("pannel");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("defaultPannel");
-            if (optJSONArray == null || optJSONArray.length() <= 0) {
-                if (optJSONArray2 != null) {
-                    try {
-                        if (optJSONArray2.length() > 0) {
-                            jSONObject.put("pannel", optJSONArray2);
-                        }
-                    } catch (JSONException e) {
-                        if (r23.b) {
-                            Log.d("ShareAction", e.toString());
-                        }
-                    }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? d(str, "") : (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
                 }
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("linkUrl", str);
-                }
-                if (TextUtils.isEmpty(optString)) {
-                    t(context, callbackHandler, str2, jSONObject);
-                    return;
-                } else if (me3.q(optString)) {
-                    jSONObject.put("linkUrl", optString);
-                    jSONObject.put("customShareUrl", true);
-                    t(context, callbackHandler, str2, jSONObject);
-                    return;
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
                 }
             }
-            if (ng3.f(jSONObject)) {
-                n(context, callbackHandler, str2, jSONObject, true, str);
-            } else {
-                u03Var.d0().g(context, "mapp_i_share_update_linkurl", new b(this, context, callbackHandler, str2, jSONObject, str));
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r7v2, types: [com.repackage.ol1] */
+    public static void e(nl1<?> nl1Var, hp2 hp2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, nl1Var, hp2Var, str) == null) {
+            ls2.a("route", "createAndLoadPage start.");
+            String a2 = bd3.a(hp2Var.c, hp2Var.a, hp2Var.b);
+            y52 a3 = a(nl1Var, hp2Var, str);
+            ms2.q("route", str).F(new UbcFlowEvent("slave_dispatch_start"));
+            oc3.d();
+            nl1Var.u().setDefaultViewSize(Integer.MIN_VALUE, Integer.MIN_VALUE, hp2Var.e());
+            nl1Var.U(a3.b);
+            uk2.U().m(nl1Var.c(), y52.a(a3));
+            if (z52.b()) {
+                z52 z52Var = new z52();
+                z52Var.a = nl1Var.c();
+                uk2.U().u(z52.a(z52Var));
             }
+            r53.F(nl1Var.c(), a3.b);
+            m52.o(a2, nl1Var);
+            ls2.a("route", "createAndLoadPage end.");
         }
     }
 
-    public final void q(CallbackHandler callbackHandler, String str, boolean z) {
+    public static void f(String str, String str2, @NonNull String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048581, this, callbackHandler, str, z) == null) || callbackHandler == null || TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            HashMap hashMap = new HashMap();
+            if (!TextUtils.isEmpty(str2)) {
+                hashMap.put("from", str2);
+            }
+            hashMap.put("url", str3);
+            i92 i92Var = new i92(str, hashMap);
+            PrefetchEvent.c createFromReLaunch = PrefetchEvent.createFromReLaunch(str2);
+            if (createFromReLaunch == null) {
+                uk2.U().u(i92Var);
+                return;
+            }
+            x52 x52Var = new x52();
+            x52Var.t(createFromReLaunch);
+            x52Var.t(i92Var);
+            uk2.U().u(x52Var);
+        }
+    }
+
+    public static List<String> g(qy1 qy1Var) {
+        InterceptResult invokeL;
+        ny1 j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, qy1Var)) == null) {
+            if (qy1Var != null && qy1Var.k() >= ap1.g && (j = qy1Var.j(0)) != null && (j instanceof py1)) {
+                return ((py1) j).t3();
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        nl1 n3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            py1 H = uk2.U().H();
+            if (H == null || (n3 = H.n3()) == null) {
+                return null;
+            }
+            return n3.o();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean i(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            String h = h();
+            if (a) {
+                Log.i("ActionUtils", "lastPageUrl: " + h + "\ncurPageUrl: " + str);
+            }
+            if (h != null && str != null) {
+                String x1 = ek2.x1(h);
+                String x12 = ek2.x1(str);
+                return (TextUtils.equals(x1, x12) || TextUtils.equals(Uri.decode(x1), x12) || TextUtils.equals(x1, Uri.decode(x12))) ? false : true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, unitedSchemeEntity, callbackHandler, str) == null) {
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "No Package").toString(), str);
+        }
+    }
+
+    public static void k(hn1 hn1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65547, null, hn1Var, str) == null) || hn1Var == null) {
             return;
         }
-        JSONObject jSONObject = new JSONObject();
-        try {
-            jSONObject.put("result", z);
-        } catch (JSONException e) {
-            if (r23.b) {
-                Log.d("ShareAction", e.toString());
+        hn1Var.d(str, new hr1(1001, "No Package"));
+    }
+
+    public static void l(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var, String str, String str2, List<String> list, String str3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{unitedSchemeEntity, callbackHandler, hz2Var, str, str2, list, str3}) == null) || hz2Var == null || TextUtils.isEmpty(str3)) {
+            return;
+        }
+        UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(b(hz2Var, str2, str, list), 0).toString(), str3);
+    }
+
+    public static void m(hn1 hn1Var, hz2 hz2Var, String str, String str2, List<String> list, String str3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{hn1Var, hz2Var, str, str2, list, str3}) == null) || hn1Var == null || hz2Var == null || TextUtils.isEmpty(str3)) {
+            return;
+        }
+        hn1Var.d(str3, new hr1(0, b(hz2Var, str2, str, list)));
+    }
+
+    public static String n(UnitedSchemeEntity unitedSchemeEntity, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, unitedSchemeEntity, str, str2)) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            String str3 = unitedSchemeEntity.getParams().get(str);
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            try {
+                return new JSONObject(str3).optString(str2);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return null;
             }
         }
-        int i = z ? 0 : 1001;
-        ux1.i("Share", "result=" + z);
-        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, i).toString());
+        return (String) invokeLLL.objValue;
     }
 
-    public String r(u53 u53Var, JSONObject jSONObject) {
+    public static String o(UnitedSchemeEntity unitedSchemeEntity, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, u53Var, jSONObject)) == null) ? (u53Var == null || u53Var.d || u53Var.j != 1 || TextUtils.isEmpty(u53Var.o.optString("web_url"))) ? "" : s(u53Var.o.optString("web_url"), jSONObject.optString("path")) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, unitedSchemeEntity, str)) == null) ? n(unitedSchemeEntity, str, "url") : (String) invokeLL.objValue;
     }
 
-    public String s(String str, String str2) {
-        InterceptResult invokeLL;
+    @Nullable
+    public static String p(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            if (!TextUtils.isEmpty(str2)) {
-                if (!str.endsWith("/")) {
-                    str = str + "/";
-                }
-                if (str2.startsWith("/")) {
-                    str2 = str2.substring(1);
-                }
-                str = str + str2;
-            }
-            return me3.a(me3.a(str, "_swebfr", "1"), "_swebFromHost", bk2.n().a());
+            return jSONObject.optString("url");
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void t(@NonNull Context context, CallbackHandler callbackHandler, String str, JSONObject jSONObject) {
+    public static void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, callbackHandler, str, jSONObject) == null) {
-            jSONObject.remove("defaultPannel");
-            jSONObject.remove("shareUrl");
-            u03 a0 = u03.a0();
-            if (a0 != null) {
-                String T = a0.V().T();
-                String a2 = mc2.a();
-                JSONObject optJSONObject = jSONObject.optJSONObject("categoryInfo");
-                if (optJSONObject != null) {
-                    ud3.f(optJSONObject, "source", T);
-                    if (!TextUtils.isEmpty(a2)) {
-                        ud3.f(optJSONObject, "nid", a2);
-                    }
-                } else {
-                    JSONObject f = ud3.f(null, "source", T);
-                    if (!TextUtils.isEmpty(a2)) {
-                        ud3.f(f, "nid", a2);
-                    }
-                    ud3.f(jSONObject, "categoryInfo", f);
-                }
-            }
-            bk2.f0().a(context, o(jSONObject), new c(this, callbackHandler, str));
+        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+            hw1.k("ActionUtils", "popAllFragment: routeType=" + str);
+            bd3.e0(new a(str));
         }
     }
 }

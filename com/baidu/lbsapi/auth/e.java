@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public class e {
     public List<HashMap<String, String>> b;
     public a<String> c;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes.dex */
     public interface a<Result> {
         void a(Result result);
     }

@@ -1,17 +1,105 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.qa2;
+import java.io.File;
+import java.util.Iterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
-public class ta2 {
+public abstract class ta2<T extends qa2> extends s92<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public CopyOnWriteArrayList<ae3<Exception>> b;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ta2 a;
+
+        public a(ta2 ta2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ta2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ta2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hw1.k("ExtCore-PresetControl", "run: tryUpdateAsync start doUpdate");
+                sa2 b = sa2.b(this.a.a);
+                na2 na2Var = new na2();
+                na2Var.a = b.a;
+                na2Var.b = b.b;
+                na2Var.c = this.a.a.a();
+                ta2 ta2Var = this.a;
+                ta2Var.l(ta2Var.g(na2Var));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ae3 a;
+        public final /* synthetic */ Exception b;
+
+        public b(ta2 ta2Var, ae3 ae3Var, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ta2Var, ae3Var, exc};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ae3Var;
+            this.b = exc;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onCallback(this.b);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -26,11 +114,192 @@ public class ta2 {
                 return;
             }
         }
-        a = eh1.a;
-        bk2.g0().getSwitch("swan_js_event_dispatch_opt", 0);
-        b = false;
-        if (a) {
-            Log.d("MessageDispatchOptSwitch", "swan_js_event_dispatch_opt - " + b);
+        c = rf1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ta2(@NonNull T t) {
+        super(t);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((qa2) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new CopyOnWriteArrayList<>();
+    }
+
+    @Override // com.repackage.s92
+    public File a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new File(super.a(), "preset") : (File) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            o("0");
+            n(0L);
+        }
+    }
+
+    /* JADX WARN: Incorrect types in method signature: <T:Lcom/repackage/na2;>(TT;)Ljava/lang/Exception; */
+    public Exception g(@NonNull na2 na2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, na2Var)) == null) {
+            if (c) {
+                Log.d("ExtCore-PresetControl", "doUpdate: preset");
+            }
+            if (TextUtils.isEmpty(na2Var.c)) {
+                if (c) {
+                    Log.e("ExtCore-PresetControl", "doUpdate: preset with null coreFilePath");
+                }
+                return new IllegalStateException("ExtCore-PresetControl doUpdate: failed by updateInfo.coreFilePath is empty");
+            }
+            long j = na2Var.b;
+            if (kf4.V(na2Var.c, b(j).getPath())) {
+                ya2.b(a(), j);
+                n(j);
+                o(na2Var.a);
+                ya2.i(this.a.c(), false);
+                return null;
+            }
+            Exception exc = new Exception("ExtCore-PresetControl doUpdate: failed by can not unzip coreFile = " + na2Var.c);
+            if (c) {
+                Log.e("ExtCore-PresetControl", "doUpdate preset unzip failed: " + Log.getStackTraceString(exc));
+            }
+            return exc;
+        }
+        return (Exception) invokeL.objValue;
+    }
+
+    @NonNull
+    public ExtensionCore h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ExtensionCore extensionCore = new ExtensionCore();
+            long i = i();
+            extensionCore.extensionCoreVersionCode = i;
+            extensionCore.extensionCoreVersionName = j();
+            extensionCore.extensionCorePath = b(i).getPath();
+            extensionCore.extensionCoreType = 0;
+            return extensionCore;
+        }
+        return (ExtensionCore) invokeV.objValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? v73.a().getLong(this.a.b(), 0L) : invokeV.longValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? v73.a().getString(this.a.e(), "") : (String) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!h().isAvailable()) {
+                if (c) {
+                    Log.d("ExtCore-PresetControl", "isNeedUpdate: true, getCurExtensionCore not available.");
+                }
+                return true;
+            } else if (!ya2.h(this.a.c())) {
+                if (c) {
+                    Log.d("ExtCore-PresetControl", "isNeedUpdate: false");
+                }
+                return false;
+            } else {
+                sa2 b2 = sa2.b(this.a);
+                long i = i();
+                long j = b2.b;
+                if (c) {
+                    Log.d("ExtCore-PresetControl", "isNeedUpdate curVer: " + i + " newVer: " + j);
+                }
+                return i < j;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void l(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
+            Iterator<ae3<Exception>> it = this.b.iterator();
+            while (it.hasNext()) {
+                m(it.next(), exc);
+            }
+            this.b.clear();
+        }
+    }
+
+    public final void m(@Nullable ae3<Exception> ae3Var, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ae3Var, exc) == null) || ae3Var == null) {
+            return;
+        }
+        bd3.e0(new b(this, ae3Var, exc));
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            v73.a().putLong(this.a.b(), j);
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            v73.a().putString(this.a.e(), str);
+        }
+    }
+
+    @SuppressLint({"SwanNewThread"})
+    public void p(@Nullable ae3<Exception> ae3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ae3Var) == null) {
+            hw1.k("ExtCore-PresetControl", "tryUpdateAsync: start");
+            if (!k()) {
+                hw1.k("ExtCore-PresetControl", "tryUpdateAsync: isNeedUpdate = false");
+                m(ae3Var, null);
+                return;
+            }
+            if (this.b.isEmpty()) {
+                new Thread(new a(this), "updateExtensionCoreAsync").start();
+            }
+            if (ae3Var != null) {
+                this.b.add(ae3Var);
+            }
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && k()) {
+            sa2 b2 = sa2.b(this.a);
+            na2 na2Var = new na2();
+            na2Var.a = b2.a;
+            na2Var.b = b2.b;
+            na2Var.c = this.a.a();
+            l(g(na2Var));
         }
     }
 }

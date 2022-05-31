@@ -1,214 +1,130 @@
 package com.repackage;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tbadk.widget.viewpager.VerticalViewPager;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class lu8 implements View.OnClickListener, Animator.AnimatorListener, ValueAnimator.AnimatorUpdateListener {
+public class lu8 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean d;
-    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TBLottieAnimationView a;
-    public final VerticalViewPager b;
-    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755516478, "Lcom/repackage/lu8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755516478, "Lcom/repackage/lu8;");
-                return;
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
+                    }
+                    i2 = i3;
+                }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
             }
-        }
-        d = iu4.k().h("key_video_guide_up_slide_animated", false);
-        e = iu4.k().h("key_video_guide_left_slide_animated", false);
-    }
-
-    public lu8(TBLottieAnimationView tBLottieAnimationView, VerticalViewPager verticalViewPager) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tBLottieAnimationView, verticalViewPager};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
             }
+            return jArr;
         }
-        this.c = false;
-        this.a = tBLottieAnimationView;
-        this.b = verticalViewPager;
-        f();
+        return (long[]) invokeCommon.objValue;
     }
 
-    public static void a() {
+    public static ou8 b(qu8 qu8Var, gu8 gu8Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            e = true;
-        }
-    }
-
-    public final void b(VerticalViewPager verticalViewPager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, verticalViewPager) == null) {
-            verticalViewPager.setCurrentItem(verticalViewPager.getCurrentItem() + 1, true);
-        }
-    }
-
-    public void c() {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tBLottieAnimationView = this.a) == null || this.b == null || this.c || !d || e || tBLottieAnimationView.isAnimating()) {
-            return;
-        }
-        this.a.setImageAssetsFolder("lottie_video_guide_left");
-        k(R.raw.obfuscated_res_0x7f11005b);
-        e = true;
-        this.c = true;
-        iu4.k().u("key_video_guide_left_slide_animated", true);
-    }
-
-    public void d() {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tBLottieAnimationView = this.a) == null || this.b == null || this.c || d || tBLottieAnimationView.isAnimating()) {
-            return;
-        }
-        this.a.setImageAssetsFolder("lottie_video_guide_up");
-        k(R.raw.obfuscated_res_0x7f11005c);
-        d = true;
-        this.c = true;
-        iu4.k().u("key_video_guide_up_slide_animated", true);
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.a.isAnimating()) {
-                this.a.pauseAnimation();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, qu8Var, gu8Var)) == null) {
+            if (qu8Var == null || gu8Var == null || qu8Var.e == null) {
+                return null;
             }
-            this.a.setVisibility(8);
+            long[] a = a(qu8Var.b, qu8Var.a);
+            MultiMediaData multiMediaData = qu8Var.e;
+            ou8 ou8Var = new ou8();
+            ou8Var.e = new ArrayList();
+            ou8Var.a = multiMediaData.path;
+            ou8Var.c = qu8Var.c;
+            ou8Var.d = qu8Var.d;
+            ou8Var.b = multiMediaData.rotation;
+            for (int i = 0; i < qu8Var.b; i++) {
+                long j = multiMediaData.start + a[i];
+                iu8 iu8Var = new iu8();
+                iu8Var.a = bu8.b(multiMediaData.path, j, multiMediaData.type);
+                iu8Var.b = multiMediaData.path;
+                iu8Var.f = i;
+                iu8Var.g = multiMediaData.type;
+                iu8Var.h = qu8Var.c;
+                iu8Var.i = qu8Var.d;
+                iu8Var.j = gu8Var;
+                iu8Var.d = j;
+                iu8Var.c = multiMediaData.rotation;
+                ou8Var.e.add(iu8Var);
+            }
+            return ou8Var;
         }
+        return (ou8) invokeLL.objValue;
     }
 
-    public final void f() {
-        TBLottieAnimationView tBLottieAnimationView;
+    public static List<ou8> c(pu8 pu8Var, gu8 gu8Var) {
+        InterceptResult invokeLL;
+        List<iu8> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (tBLottieAnimationView = this.a) == null || this.b == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, pu8Var, gu8Var)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (pu8Var == null || gu8Var == null || pu8Var.b <= 0 || u79.e(pu8Var.e) || u79.e(pu8Var.f)) {
+                return null;
+            }
+            long[] a = a(pu8Var.b, pu8Var.a);
+            ArrayList arrayList = new ArrayList();
+            ou8 ou8Var = null;
+            for (int i = 0; i < pu8Var.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(pu8Var.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) u79.c(pu8Var.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        ou8Var = new ou8();
+                        ou8Var.e = new ArrayList();
+                        ou8Var.a = multiMediaData2.path;
+                        ou8Var.c = pu8Var.c;
+                        ou8Var.d = pu8Var.d;
+                        ou8Var.b = multiMediaData2.rotation;
+                        arrayList.add(ou8Var);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) u79.c(pu8Var.e, findInputIndexInSegments), j) * 1000;
+                    iu8 iu8Var = new iu8();
+                    iu8Var.a = bu8.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    iu8Var.b = multiMediaData2.path;
+                    iu8Var.f = i;
+                    iu8Var.g = multiMediaData2.type;
+                    iu8Var.h = pu8Var.c;
+                    iu8Var.i = pu8Var.d;
+                    iu8Var.d = multiMediaDataSeekTime;
+                    iu8Var.j = gu8Var;
+                    iu8Var.c = multiMediaData2.rotation;
+                    if (ou8Var != null && (list = ou8Var.e) != null) {
+                        list.add(iu8Var);
+                    }
+                    multiMediaData = multiMediaData2;
+                }
+            }
+            return arrayList;
         }
-        tBLottieAnimationView.setOnClickListener(this);
-        this.a.addAnimatorUpdateListener(this);
-        this.a.addAnimatorListener(this);
-        this.a.setRepeatCount(2);
-        this.a.setRepeatMode(1);
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = false;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a == null || this.b == null) {
-            return;
-        }
-        e();
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.setVisibility(0);
-            this.a.playAnimation();
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            b(this.b);
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.a.setAnimation(i);
-            i();
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, animator) == null) || this.a == null || this.b == null) {
-            return;
-        }
-        e();
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, animator) == null) {
-        }
-    }
-
-    @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-    public void onAnimationUpdate(ValueAnimator valueAnimator) {
-        TBLottieAnimationView tBLottieAnimationView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, valueAnimator) == null) || (tBLottieAnimationView = this.a) == null || this.b == null || !tBLottieAnimationView.isAnimating() || e || !d) {
-            return;
-        }
-        valueAnimator.getAnimatedFraction();
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
-            e();
-        }
+        return (List) invokeLL.objValue;
     }
 }

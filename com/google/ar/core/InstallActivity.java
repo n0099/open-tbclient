@@ -22,13 +22,13 @@ import com.google.ar.core.exceptions.FatalException;
 import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 import com.google.protobuf.CodedInputStream;
-import com.repackage.bl9;
-import com.repackage.dl9;
-import com.repackage.fl9;
-import com.repackage.gl9;
-import com.repackage.hl9;
-import com.repackage.il9;
-import com.repackage.kl9;
+import com.repackage.ai9;
+import com.repackage.bi9;
+import com.repackage.ci9;
+import com.repackage.ei9;
+import com.repackage.vh9;
+import com.repackage.xh9;
+import com.repackage.zh9;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(24)
 /* loaded from: classes4.dex */
@@ -66,26 +66,26 @@ public class InstallActivity extends Activity {
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.kl9.a(com.google.ar.core.p):void, com.repackage.kl9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.ei9.a(com.google.ar.core.p):void, com.repackage.ei9.b(java.lang.Exception):void] */
     public static /* synthetic */ void access$000(InstallActivity installActivity, Exception exc) {
         installActivity.finishWithFailure(exc);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.kl9.a(com.google.ar.core.p):void, com.repackage.kl9.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.ei9.a(com.google.ar.core.p):void, com.repackage.ei9.b(java.lang.Exception):void] */
     public static /* synthetic */ p access$402(InstallActivity installActivity, p pVar) {
         installActivity.lastEvent = pVar;
         return pVar;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.kl9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.ei9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean access$500(InstallActivity installActivity) {
         return installActivity.waitingForCompletion;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.kl9.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [com.repackage.ei9.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void access$600(InstallActivity installActivity) {
         installActivity.closeInstaller();
     }
@@ -103,8 +103,8 @@ public class InstallActivity extends Activity {
             getWindow().getDecorView().setMinimumWidth(i);
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.setDuration(300L);
-            ofFloat.addUpdateListener(new hl9(this, width, i, height));
-            ofFloat.addListener(new il9(this));
+            ofFloat.addUpdateListener(new bi9(this, width, i, height));
+            ofFloat.addListener(new ci9(this));
             ofFloat.start();
         }
     }
@@ -121,8 +121,8 @@ public class InstallActivity extends Activity {
     public void finishWithFailure(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, exc) == null) {
-            dl9.d().a = exc;
-            dl9.d().g();
+            xh9.d().a = exc;
+            xh9.d().g();
             this.finished = true;
             super.finish();
         }
@@ -138,11 +138,11 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
             setContentView(R.layout.__arcore_education);
-            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new fl9(this));
+            findViewById(R.id.__arcore_cancelButton).setOnClickListener(new zh9(this));
             if (!isOptional()) {
                 findViewById(R.id.__arcore_cancelButton).setVisibility(8);
             }
-            findViewById(R.id.__arcore_continueButton).setOnClickListener(new gl9(this));
+            findViewById(R.id.__arcore_continueButton).setOnClickListener(new ai9(this));
             TextView textView = (TextView) findViewById(R.id.__arcore_messageText);
             if (this.messageType.ordinal() != 1) {
                 textView.setText(R.string.__arcore_install_app);
@@ -186,7 +186,7 @@ public class InstallActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             this.installStarted = true;
             this.lastEvent = p.b;
-            dl9.d().e(this).c(this, new kl9(this));
+            xh9.d().e(this).c(this, new ei9(this));
         }
     }
 
@@ -232,7 +232,7 @@ public class InstallActivity extends Activity {
                         return;
                     }
                     AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                    dl9.d().e(this).e(this, new bl9(atomicReference));
+                    xh9.d().e(this).e(this, new vh9(atomicReference));
                     int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
                     if (ordinal == 0) {
                         Log.w(TAG, "Preliminary compatibility check failed.");
@@ -256,7 +256,7 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (!this.finished) {
-                dl9.d().g();
+                xh9.d().g();
             }
             super.onDestroy();
         }
@@ -286,7 +286,7 @@ public class InstallActivity extends Activity {
                     } else if (this.lastEvent == p.a) {
                         this.waitingForCompletion = true;
                     } else {
-                        finishWithFailure(dl9.d().a);
+                        finishWithFailure(xh9.d().a);
                     }
                 }
             }

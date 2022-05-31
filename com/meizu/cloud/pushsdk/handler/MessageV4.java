@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-import com.repackage.tl9;
+import com.repackage.ni9;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -47,10 +47,10 @@ public class MessageV4 extends MessageV3 {
                     }
                 }
             } catch (JSONException e) {
-                tl9.b(TAG, "parse messageV4 error " + e.getMessage());
+                ni9.b(TAG, "parse messageV4 error " + e.getMessage());
             }
         }
-        tl9.d(TAG, "MessageV4 " + messageV4);
+        ni9.d(TAG, "MessageV4 " + messageV4);
         return messageV4;
     }
 

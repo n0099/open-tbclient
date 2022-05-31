@@ -1,59 +1,95 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.permissionhelper.app.ActivityCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.wv;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public final class xv implements wv {
+public class xv {
     public static /* synthetic */ Interceptable $ic;
+    public static xv b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964022585, "Lcom/repackage/xv;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964022585, "Lcom/repackage/xv;");
+                return;
+            }
+        }
+        b = new xv();
+    }
 
     public xv() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.wv
-    public void a(SubTaskState subTaskState) {
-        iv d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
-            wv.a.c(this, subTaskState);
-            hv v = BDPTask.m.v();
-            if (v == null || (d = v.d()) == null) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            d.c(subTaskState.getTaskInfo().getActionId(), subTaskState.getTaskStatus().getCurStatusCodeMsg());
+        }
+        this.a = new HashMap();
+    }
+
+    public static xv b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (xv) invokeV.objValue;
+    }
+
+    public void a(int i, ActivityCompat.OnRequestPermissionsResultCallback onRequestPermissionsResultCallback) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, onRequestPermissionsResultCallback) == null) || this.a == null) {
+            return;
+        }
+        synchronized (xv.class) {
+            if (this.a.containsKey(Integer.valueOf(i))) {
+                this.a.remove(Integer.valueOf(i));
+            }
+            this.a.put(Integer.valueOf(i), onRequestPermissionsResultCallback);
         }
     }
 
-    @Override // com.repackage.wv
-    public boolean b(TaskInfo taskInfo, int i) {
-        InterceptResult invokeLI;
+    public ActivityCompat.OnRequestPermissionsResultCallback c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) ? wv.a.b(this, taskInfo, i) : invokeLI.booleanValue;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Map<Integer, ActivityCompat.OnRequestPermissionsResultCallback> map = this.a;
+            if (map == null || !map.containsKey(Integer.valueOf(i))) {
+                return null;
+            }
+            return this.a.get(Integer.valueOf(i));
+        }
+        return (ActivityCompat.OnRequestPermissionsResultCallback) invokeI.objValue;
     }
 
-    public void c(SubTaskState subTaskState) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
-            wv.a.a(this, subTaskState);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (xv.class) {
+                if (this.a != null && this.a.containsKey(Integer.valueOf(i))) {
+                    this.a.remove(Integer.valueOf(i));
+                }
+            }
         }
     }
 }

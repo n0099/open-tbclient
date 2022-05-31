@@ -16,8 +16,7 @@ import tbclient.ActiveCenterStatus;
 import tbclient.ActiveConfig.DataRes;
 /* loaded from: classes2.dex */
 public class ActiveCenterData implements Serializable {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String PREF_KEY_ACTIVE_DIALOG_DAY_NUM = "pref_key_active_dialog_day_num";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int is_first_up;
     public boolean is_new_window;

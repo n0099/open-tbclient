@@ -1,23 +1,21 @@
 package com.repackage;
 
-import android.content.Context;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface w30 {
-    String a();
+public class w30 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String a(Context context);
-
-    String b(Context context);
-
-    String c(Context context);
-
-    JSONArray d(Context context);
-
-    String e(Context context);
-
-    JSONArray f(Context context);
-
-    JSONObject g(Context context);
+    public static byte[] a(byte[] bArr, p30 p30Var) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, p30Var)) == null) {
+            e30 b = e30.b();
+            b.c(2, p30Var);
+            return b.a(bArr);
+        }
+        return (byte[]) invokeLL.objValue;
+    }
 }

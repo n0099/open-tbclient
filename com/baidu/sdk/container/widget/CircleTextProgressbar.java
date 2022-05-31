@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.m11;
+import com.repackage.zz0;
 /* loaded from: classes2.dex */
 public class CircleTextProgressbar extends AbsCountDownView {
     public static /* synthetic */ Interceptable $ic;
@@ -211,11 +211,11 @@ public class CircleTextProgressbar extends AbsCountDownView {
             ColorStateList valueOf = ColorStateList.valueOf(0);
             this.f = valueOf;
             this.g = valueOf.getColorForState(getDrawableState(), 0);
-            setWidth(m11.c.a(context, 40.0f));
-            setHeight(m11.c.a(context, 40.0f));
+            setWidth(zz0.c.a(context, 40.0f));
+            setHeight(zz0.c.a(context, 40.0f));
             setOutLineColor(-7697782);
             setProgressColor(-12956454);
-            setProgressLineWidth(m11.c.a(context, 2.0f));
+            setProgressLineWidth(zz0.c.a(context, 2.0f));
             setTextSize(1, 10.0f);
             setTextColor(-1);
             setText("跳过");

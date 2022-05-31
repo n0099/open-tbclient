@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.library.widget.refresh.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CustomRecyclerView extends RecyclerView implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,14 +37,14 @@ public class CustomRecyclerView extends RecyclerView implements d {
     public Rect mUnderneathRect;
     public boolean mUseCustomScrollToPosition;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public @interface FixScrollDirection {
         public static final int HORIZONTAL = 1;
         public static final int NONE = 0;
         public static final int VERTICAL = 2;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface TouchEventInterceptor {
         boolean shouldInterceptTouchEvent(MotionEvent motionEvent);
     }

@@ -1,29 +1,25 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
-public class q91 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface q91 {
+    void a();
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    void b();
+
+    void c(String str);
+
+    boolean d(String str);
+
+    void e();
+
+    void f(jc1 jc1Var);
+
+    void g();
+
+    @NonNull
+    ViewGroup h();
+
+    void onAdShow();
 }

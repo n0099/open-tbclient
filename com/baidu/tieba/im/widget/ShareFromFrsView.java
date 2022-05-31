@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.ki;
 /* loaded from: classes3.dex */
 public class ShareFromFrsView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -56,7 +56,7 @@ public class ShareFromFrsView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return li.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f064b);
+            return ki.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f0652);
         }
         return (String) invokeL.objValue;
     }
@@ -64,13 +64,13 @@ public class ShareFromFrsView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0760, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090b93);
-            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b34);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b81);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090b9d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b82);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090b9e);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0754, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090b7c);
+            this.b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b1d);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6a);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090b86);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090b87);
         }
     }
 

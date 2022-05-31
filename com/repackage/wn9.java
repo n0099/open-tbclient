@@ -1,64 +1,69 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.activitys.H5Activity;
+import org.json.JSONException;
 /* loaded from: classes7.dex */
-public class wn9 implements rn9 {
+public class wn9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ H5Activity a;
+    public final /* synthetic */ do9 a;
 
-    public wn9(H5Activity h5Activity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wn9(do9 do9Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {h5Activity};
+            Object[] objArr = {do9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = h5Activity;
+        this.a = do9Var;
     }
 
-    @Override // com.repackage.rn9
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        String str;
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            H5Activity h5Activity = this.a;
-            if (vp9.d(h5Activity.e, h5Activity.h)) {
-                this.a.h = System.currentTimeMillis();
-                H5Activity h5Activity2 = this.a;
-                vp9.a(h5Activity2.a, str, h5Activity2.e, h5Activity2.i, str2);
-                tq9 a = xq9.a(this.a.a);
-                a.h(new br9(this.a.e), str);
-                a.l("desc", str2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            int i = message.what;
+            try {
+                if (i != 11) {
+                    if (i == 12) {
+                        str = (String) message.obj;
+                        context = this.a.a;
+                    }
+                }
+                str = (String) message.obj;
+                nn9 a = rn9.a(this.a.a);
+                try {
+                    a.b = rn9.d("ps", new vn9(this.a.b));
+                    a.k("co", 2002);
+                    a.l("msg", str);
+                } catch (JSONException unused) {
+                }
                 a.m();
-                qo9.c(this.a.e.getId() + this.a.f, "is_click", null);
-                ro9.p(this.a.e, str2);
-                return true;
+                context = this.a.a;
+                sn9.a(context, Uri.parse(str));
+            } catch (Exception unused2) {
             }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.repackage.rn9
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.g = str;
         }
     }
 }

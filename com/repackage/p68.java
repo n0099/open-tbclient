@@ -1,103 +1,135 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.TextView;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class p68 extends uw5<m58> {
+public class p68 {
     public static /* synthetic */ Interceptable $ic;
+    public static p68 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext i;
-    public View j;
-    public TbImageView k;
-    public TextView l;
+    public ConcurrentHashMap<String, q68> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p68(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public p68() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View k = k();
-        this.j = k;
-        this.i = tbPageContext;
-        k.setTag(this);
-        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090ca9);
-        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090ca7);
+        this.a = new ConcurrentHashMap<>();
     }
 
-    @Override // com.repackage.uw5
-    public int d() {
+    public static p68 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d03ef : invokeV.intValue;
-    }
-
-    @Override // com.repackage.uw5
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
-            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
-            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uw5
-    /* renamed from: s */
-    public void l(m58 m58Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m58Var) == null) {
-            if (m58Var == null) {
-                this.j.setVisibility(8);
-                return;
-            }
-            m(this.i, TbadkCoreApplication.getInst().getSkinType());
-            this.k.K(m58Var.a, 10, false);
-            this.j.setOnClickListener(this);
-            if (m58Var.b > 0) {
-                this.l.setVisibility(0);
-                long j = m58Var.b;
-                if (j > 99) {
-                    this.l.setText("99");
-                    return;
-                } else {
-                    this.l.setText(String.valueOf(j));
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (p68.class) {
+                    if (b == null) {
+                        b = new p68();
+                    }
                 }
             }
-            this.l.setVisibility(8);
+            return b;
+        }
+        return (p68) invokeV.objValue;
+    }
+
+    public ConcurrentHashMap<String, q68> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ConcurrentHashMap) invokeV.objValue;
+    }
+
+    public q68 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            ConcurrentHashMap<String, q68> concurrentHashMap = this.a;
+            if (concurrentHashMap == null) {
+                return null;
+            }
+            return concurrentHashMap.get(str);
+        }
+        return (q68) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        ConcurrentHashMap<String, q68> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
+            return;
+        }
+        Iterator<String> it = concurrentHashMap.keySet().iterator();
+        while (it.hasNext()) {
+            q68 q68Var = this.a.get(it.next());
+            if (q68Var != null && str.equals(q68Var.b)) {
+                it.remove();
+            }
+        }
+    }
+
+    public void e(boolean z) {
+        ConcurrentHashMap<String, q68> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (concurrentHashMap = this.a) == null) {
+            return;
+        }
+        for (String str : concurrentHashMap.keySet()) {
+            q68 q68Var = this.a.get(str);
+            if (q68Var != null) {
+                q68Var.e = z;
+            }
+        }
+    }
+
+    public void f(boolean z, String str) {
+        ConcurrentHashMap<String, q68> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) || TextUtils.isEmpty(str) || (concurrentHashMap = this.a) == null) {
+            return;
+        }
+        for (String str2 : concurrentHashMap.keySet()) {
+            q68 q68Var = this.a.get(str2);
+            if (q68Var != null && str.equals(q68Var.b)) {
+                q68Var.e = z;
+            }
+        }
+    }
+
+    public void g(HashMap<String, q68> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, hashMap) == null) {
+            this.a.clear();
+            if (hashMap == null) {
+                return;
+            }
+            this.a.putAll(hashMap);
+        }
+    }
+
+    public void h(String str, HashMap<String, q68> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, hashMap) == null) {
+            if (this.a == null) {
+                this.a = new ConcurrentHashMap<>();
+            }
+            d(str);
+            this.a.putAll(hashMap);
         }
     }
 }

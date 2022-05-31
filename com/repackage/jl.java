@@ -1,46 +1,71 @@
 package com.repackage;
 
-import android.content.pm.Signature;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.nps.interfa.ISignatureVerifier;
-import com.baidu.pyramid.annotation.Service;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class jl implements ISignatureVerifier {
+public class jl {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, ml> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public jl() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964036349, "Lcom/repackage/jl;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1964036349, "Lcom/repackage/jl;");
+                return;
             }
         }
+        HashMap hashMap = new HashMap();
+        a = hashMap;
+        hashMap.put(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, new il());
     }
 
-    @Override // com.baidu.nps.interfa.ISignatureVerifier
-    public boolean checkSignature(String str, Signature[] signatureArr) {
-        InterceptResult invokeLL;
+    public static void a(String str, int i) {
+        ml mlVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, signatureArr)) == null) {
-            if (BdLog.isDebugMode()) {
-                return true;
-            }
-            String c = il.c(signatureArr);
-            BdLog.e("new signature: " + c);
-            return "YvigAa51R7YgCp8eDveR1g==".equals(c);
+        if (!(interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) || (mlVar = a.get(str)) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        mlVar.b(i);
+    }
+
+    public static void b(String str, int i, long j) {
+        ml mlVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) || (mlVar = a.get(str)) == null) {
+            return;
+        }
+        mlVar.c(i, j);
+    }
+
+    public static void c(String str, int i, int i2) {
+        ml mlVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) || (mlVar = a.get(str)) == null) {
+            return;
+        }
+        mlVar.d(i, i2);
+    }
+
+    public static void d(String str, int i, int i2) {
+        ml mlVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) || (mlVar = a.get(str)) == null) {
+            return;
+        }
+        mlVar.e(i, i2);
     }
 }

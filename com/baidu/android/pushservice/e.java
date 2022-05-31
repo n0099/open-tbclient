@@ -37,6 +37,7 @@ import com.heytap.mcssdk.callback.PushCallback;
 import com.heytap.mcssdk.mode.SubscribeResult;
 import com.huawei.agconnect.config.AGConnectServicesConfig;
 import com.huawei.hms.aaid.HmsInstanceId;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONObject;
@@ -713,7 +714,7 @@ public class e {
                         return stringExtra;
                     }
                     String fragment = data.getFragment();
-                    if (TextUtils.isEmpty(fragment) || (split = fragment.split(";")) == null || split.length <= 0) {
+                    if (TextUtils.isEmpty(fragment) || (split = fragment.split(ParamableElem.DIVIDE_PARAM)) == null || split.length <= 0) {
                         return stringExtra;
                     }
                     for (int i2 = 0; i2 < split.length; i2++) {
@@ -765,7 +766,7 @@ public class e {
         if (android.text.TextUtils.isEmpty(r3) != false) goto L39;
      */
     /* JADX WARN: Code restructure failed: missing block: B:16:0x0048, code lost:
-        r3 = r3.split(";");
+        r3 = r3.split(com.yy.hiidostatis.defs.obj.ParamableElem.DIVIDE_PARAM);
      */
     /* JADX WARN: Code restructure failed: missing block: B:17:0x004e, code lost:
         if (r3 == null) goto L39;

@@ -1,42 +1,35 @@
 package com.repackage;
 
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
-import com.baidu.searchbox.v8engine.event.EventTarget;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface e82 extends JSRuntime, sz1, TypedCallbackHandler {
-    n82 A();
+public class e82 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    JsSerializeValue D(byte[] bArr, boolean z);
-
-    byte[] O(JsSerializeValue jsSerializeValue, boolean z);
-
-    void a0(String str, String str2);
-
-    boolean dispatchEvent(JSEvent jSEvent);
-
-    r82 g0();
-
-    String getInitBasePath();
-
-    int getInvokeSourceType();
-
-    EventTarget p();
-
-    boolean post(Runnable runnable);
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void postOnJSThread(Runnable runnable);
-
-    @Override // com.baidu.searchbox.v8engine.JSRuntime
-    void runOnJSThread(Runnable runnable);
-
-    void setPreferredFramesPerSecond(short s);
-
-    void throwJSException(JSExceptionType jSExceptionType, String str);
-
-    EventTarget x();
+    @SuppressLint({"SwitchIntDef"})
+    public static p82 a(@NonNull n82 n82Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, n82Var)) == null) {
+            int i = n82Var.a;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return new o82(n82Var);
+                        }
+                        return new s82(n82Var);
+                    }
+                    return new q82(n82Var);
+                }
+                return new t82(n82Var);
+            }
+            return new r82(n82Var);
+        }
+        return (p82) invokeL.objValue;
+    }
 }

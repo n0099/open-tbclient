@@ -1,1515 +1,1134 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.os.Environment;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.AtListActivityConfig;
-import com.baidu.tbadk.core.atomData.GiftTabActivityConfig;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.PbFullScreenEditorActivityConfig;
-import com.baidu.tbadk.core.atomData.SelectLocationActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.data.VoiceData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbPatternsCompat;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tbadk.editortools.BLauncher;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.editortools.pb.DataModel;
-import com.baidu.tbadk.editortools.pb.ImageModel;
-import com.baidu.tbadk.editortools.pb.PbEditorData;
 import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.tbadk.img.UploadedImageInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tbadkCore.location.LocationData;
-import com.baidu.tieba.tbadkCore.location.LocationModel;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.cj8;
-import com.repackage.nr4;
 import java.io.File;
-import java.util.ArrayList;
+import java.io.RandomAccessFile;
 import java.util.LinkedList;
+import java.util.concurrent.Callable;
 /* loaded from: classes5.dex */
-public class b35 extends a15 implements cj8.f {
+public class b35 implements Callable<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextWatcher A;
-    public c35 B;
-    public int C;
-    public EditorTools D;
-    public boolean E;
-    public LocationModel.e F;
-    public LocationModel.f G;
-    public final NewWriteModel.g H;
-    public final a9 I;
-    public WriteImagesInfo b;
-    public String c;
-    public SpanGroupManager d;
-    public VoiceData.VoiceModel e;
-    public String f;
-    public LocationModel g;
-    public NewWriteModel h;
-    public ImageModel i;
-    public DataModel<?> j;
-    public ForumData k;
-    public ThreadData l;
+    public c35 a;
+    public LinkedList<ImageFileInfo> b;
+    public WriteImagesInfo c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public boolean k;
+    public int l;
     public String m;
-    public TbPageContext n;
-    public String o;
-    public String p;
-    public String q;
-    public long r;
-    public String s;
-    public int t;
-    public VideoInfo u;
-    public boolean v;
-    public NewWriteModel.g w;
-    public z25 x;
-    public y25 y;
-    public boolean z;
+    public ImageUploader.a n;
+    public ImageUploader.b o;
+    public Object p;
+    public boolean q;
+    public int r;
+    public NetWork s;
+    public a35 t;
+    public WriteData u;
 
-    /* loaded from: classes5.dex */
-    public class a implements LocationModel.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b35 a;
-
-        public a(b35 b35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b35Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.n.showToast(R.string.obfuscated_res_0x7f0f0c65);
-                this.a.b0(0, false, null);
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void b(LocationData locationData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locationData) == null) {
-                if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
-                    this.a.b0(2, true, locationData.getFormatted_address());
-                } else {
-                    onFail(null);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                if (this.a.E) {
-                    TbPageContext tbPageContext = this.a.n;
-                    if (StringUtils.isNull(str)) {
-                        str = this.a.a().getContext().getString(R.string.obfuscated_res_0x7f0f0a48);
-                    }
-                    tbPageContext.showToast(str);
-                }
-                this.a.b0(0, false, null);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements LocationModel.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b35 a;
-
-        public b(b35 b35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b35Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b0(0, false, null);
-            }
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.f
-        public void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.b0(2, true, str);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements PermissionJudgePolicy.OnPermissionsGrantedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(b35 b35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.OnPermissionsGrantedListener
-        public void onPermissionsGranted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                iu4.k().u("key_post_thread_has_request_location", true);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements nr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b35 a;
-
-        public d(b35 b35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b35Var;
-        }
-
-        @Override // com.repackage.nr4.e
-        public void onClick(nr4 nr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
-                this.a.b0(0, true, null);
-                nr4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements nr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b35 a;
-
-        public e(b35 b35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b35Var;
-        }
-
-        @Override // com.repackage.nr4.e
-        public void onClick(nr4 nr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, nr4Var) == null) {
-                if (ki.z()) {
-                    this.a.b0(1, true, null);
-                    this.a.g.N();
-                } else {
-                    this.a.F.a();
-                }
-                nr4Var.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements NewWriteModel.g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b35 a;
-
-        public f(b35 b35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b35Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ey4 ey4Var, WriteData writeData, AntiData antiData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, ey4Var, writeData, antiData}) == null) {
-                if (writeData == null) {
-                    writeData = this.a.h.b0();
-                }
-                if (z) {
-                    this.a.Y(true);
-                    WriteData b0 = this.a.h.b0();
-                    this.a.S();
-                    cj8.w(this.a.m, null);
-                    if (b0 == null) {
-                        return;
-                    }
-                    if (b0.getType() == 2) {
-                        cj8.n(b0.getThreadId(), this.a);
-                    }
-                } else if (writeData != null && ey4Var != null && !TextUtils.isEmpty(ey4Var.d())) {
-                    writeData.setVcodeMD5(ey4Var.b());
-                    writeData.setVcodeUrl(ey4Var.c());
-                    writeData.setVcodeExtra(ey4Var.a());
-                    if (this.a.l != null) {
-                        writeData.setBaijiahaoData(this.a.l.getBaijiahaoData());
-                    }
-                    if (je5.b(ey4Var.d())) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.n.getPageActivity(), 12006, writeData, false, ey4Var.d())));
-                    } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.n.getPageActivity(), writeData, 12006)));
-                    }
-                } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.n.getPageActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                }
-                b35 b35Var = this.a;
-                b35Var.G(b35Var.h.b0());
-                NewWriteModel.g gVar = this.a.w;
-                if (gVar != null) {
-                    gVar.callback(z, postWriteCallBackData, ey4Var, writeData, antiData);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class g extends BdAsyncTask<Void, Integer, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b35 a;
-
-        public g(b35 b35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b35Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                FileHelper.deleteFile(new File(Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + this.a.f));
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h extends a9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b35 a;
-
-        public h(b35 b35Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b35Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b35Var;
-        }
-
-        @Override // com.repackage.a9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof Bitmap)) {
-                this.a.h.i0(true);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b35(EditorTools editorTools) {
-        super(editorTools);
+    public b35(c35 c35Var, LinkedList<ImageFileInfo> linkedList, WriteImagesInfo writeImagesInfo, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {editorTools};
+            Object[] objArr = {c35Var, linkedList, writeImagesInfo, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((EditorTools) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new WriteImagesInfo();
-        this.c = "";
-        this.h = null;
-        this.i = null;
-        this.m = null;
-        this.o = null;
-        this.t = 0;
-        this.z = false;
-        this.C = 0;
-        this.E = true;
-        this.F = new a(this);
-        this.G = new b(this);
-        this.H = new f(this);
-        this.I = new h(this);
-        this.D = editorTools;
+        this.s = null;
+        this.a = c35Var;
+        this.b = linkedList;
+        this.c = writeImagesInfo;
+        this.d = z;
+        this.e = i;
     }
 
-    public void A() {
+    public void a() {
+        NetWork netWork;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SelectLocationActivityConfig(this.n.getPageActivity())));
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (netWork = this.s) == null) {
+            return;
+        }
+        netWork.cancelNetConnect();
+    }
+
+    public void b(int i, int i2, int i3, int i4, int i5, boolean z, int i6, String str, ImageUploader.a aVar, ImageUploader.b bVar, Object obj, boolean z2, int i7) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z), Integer.valueOf(i6), str, aVar, bVar, obj, Boolean.valueOf(z2), Integer.valueOf(i7)}) == null) {
+            this.f = i;
+            this.g = i2;
+            this.h = i3;
+            this.i = i4;
+            this.j = i5;
+            this.k = z;
+            this.l = i6;
+            this.m = str;
+            this.n = aVar;
+            this.o = bVar;
+            this.p = obj;
+            this.q = z2;
+            this.r = i7;
         }
     }
 
-    public boolean B() {
-        InterceptResult invokeV;
-        LinkedList<ImageFileInfo> chosedFiles;
+    public void c(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.b;
-            return (writeImagesInfo == null || (chosedFiles = writeImagesInfo.getChosedFiles()) == null || chosedFiles.isEmpty()) ? false : true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+            this.u = writeData;
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean C() {
-        InterceptResult invokeV;
+    public final ImageUploadResult d(ImageFileInfo imageFileInfo, boolean z, boolean z2, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (StringUtils.isNull(this.c)) {
-                WriteImagesInfo writeImagesInfo = this.b;
-                if (writeImagesInfo == null || writeImagesInfo.size() <= 0) {
-                    VoiceData.VoiceModel voiceModel = this.e;
-                    if (voiceModel == null || StringUtils.isNull(voiceModel.getId())) {
-                        VideoInfo videoInfo = this.u;
-                        return videoInfo != null && videoInfo.isAvaliable();
-                    }
-                    return true;
-                }
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{imageFileInfo, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (imageFileInfo == null) {
+                return null;
             }
-            return true;
+            if (this.t == null) {
+                this.t = new a35();
+            }
+            ImageUploadResult e = e(this.t.j(this.u, imageFileInfo, z), z, z2, i, i2);
+            String filePath = imageFileInfo.getFilePath();
+            if (i45.b.a(filePath)) {
+                e.setSharpText(filePath);
+            }
+            return e;
         }
-        return invokeV.booleanValue;
+        return (ImageUploadResult) invokeCommon.objValue;
     }
 
-    public boolean D() {
+    /* JADX WARN: Can't wrap try/catch for region: R(12:43|(13:47|48|(1:50)(1:292)|51|52|53|54|(2:55|(6:57|58|59|(1:270)(24:61|(1:63)(5:(2:265|266)(1:(2:252|253)(1:264))|(2:258|259)|255|256|257)|64|65|(5:231|232|233|234|235)(2:67|68)|69|70|(2:72|73)(1:229)|74|(1:78)|79|80|(1:82)|83|(1:85)(1:221)|86|87|(1:89)|(6:91|(1:93)|94|(1:98)|99|(6:101|(1:103)|104|(1:106)|107|(5:110|111|(3:192|193|(1:195))|113|(2:115|(5:119|120|121|122|(2:125|126)(1:124))(1:145))(7:146|147|148|(1:150)(10:151|(4:153|154|155|156)(1:187)|157|(1:159)(1:186)|160|(5:174|175|176|177|178)(1:162)|163|164|(3:166|167|168)(1:170)|169)|121|122|(0)(0)))(2:219|218)))|220|104|(0)|107|(1:219)(5:110|111|(0)|113|(0)(0)))|36|37)(2:284|285))|127|128|129|36|37)|293|294|295|296|297|298|299|129|36|37) */
+    /* JADX WARN: Code restructure failed: missing block: B:156:0x0393, code lost:
+        r8 = r26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:157:0x0397, code lost:
+        r8.append(r27);
+        r8.append(r4);
+        com.repackage.xi8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = pic = null    p = " + r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:158:0x03b1, code lost:
+        r11 = r7;
+        r29 = r17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:206:0x04d3, code lost:
+        r11 = r7;
+        r29 = r17;
+        r15 = r26;
+        r16 = 0;
+        r15.append(r27);
+        r15.append(r4);
+        r15.append("|picNull=");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:207:0x04e7, code lost:
+        if (r11 != null) goto L211;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:208:0x04e9, code lost:
+        r7 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:209:0x04eb, code lost:
+        r7 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:210:0x04ec, code lost:
+        r15.append(r7);
+        r15.append("|picErrNo=");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:211:0x04f4, code lost:
+        if (r11 == null) goto L202;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:212:0x04f6, code lost:
+        r15.append(r11.error_code);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:213:0x04fb, code lost:
+        if (r11 != null) goto L127;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:214:0x04fd, code lost:
+        r3 = new com.baidu.tbadk.img.ImageUploadResult();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:216:0x0503, code lost:
+        r3.error_code = -7;
+        r3.error_msg = r2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:218:0x0508, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:248:0x0584, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:249:0x0585, code lost:
+        r3 = r0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:250:0x0587, code lost:
+        r0 = e;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:256:0x0592, code lost:
+        r3 = r0;
+        r2 = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:257:0x0594, code lost:
+        r29 = null;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0165, code lost:
+        r9 = r23;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0167, code lost:
+        r9.append("|startChunk=");
+        r9.append(r4);
+        r4 = new com.baidu.tbadk.img.ImageUploadResult();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0174, code lost:
+        r4.error_code = -54;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0176, code lost:
+        r3 = r4;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x0179, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x017a, code lost:
+        r3 = r0;
+        r29 = r2;
+        r2 = r4;
+        r15 = r9;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x01bf, code lost:
+        if (r15.length != r10) goto L255;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:136:0x031e A[Catch: all -> 0x0207, Exception -> 0x020d, TRY_ENTER, TRY_LEAVE, TryCatch #10 {Exception -> 0x020d, blocks: (B:82:0x01ff, B:98:0x022d, B:103:0x026c, B:105:0x0270, B:108:0x02a2, B:111:0x02ad, B:117:0x02c2, B:119:0x02cf, B:121:0x02d9, B:122:0x02e2, B:126:0x02ef, B:127:0x02f6, B:131:0x0307, B:136:0x031e), top: B:299:0x01ff }] */
+    /* JADX WARN: Removed duplicated region for block: B:149:0x0351 A[Catch: all -> 0x0207, Exception -> 0x0342, TRY_ENTER, TryCatch #14 {all -> 0x0207, blocks: (B:82:0x01ff, B:98:0x022d, B:103:0x026c, B:105:0x0270, B:108:0x02a2, B:111:0x02ad, B:117:0x02c2, B:119:0x02cf, B:121:0x02d9, B:122:0x02e2, B:126:0x02ef, B:127:0x02f6, B:131:0x0307, B:136:0x031e, B:142:0x0338, B:149:0x0351, B:151:0x0371, B:154:0x0376, B:157:0x0397, B:166:0x03e2, B:173:0x03f8), top: B:299:0x01ff }] */
+    /* JADX WARN: Removed duplicated region for block: B:159:0x03b6  */
+    /* JADX WARN: Removed duplicated region for block: B:198:0x04ab A[LOOP:0: B:41:0x015a->B:198:0x04ab, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:260:0x059a A[Catch: all -> 0x0623, TryCatch #0 {all -> 0x0623, blocks: (B:258:0x0596, B:260:0x059a, B:264:0x05ab, B:266:0x05ba, B:268:0x05be, B:270:0x05c5, B:269:0x05c1, B:261:0x05a0, B:195:0x0495, B:197:0x0499, B:180:0x0444, B:188:0x046f, B:190:0x0473, B:192:0x0489, B:206:0x04d3, B:210:0x04ec, B:212:0x04f6, B:214:0x04fd, B:216:0x0503), top: B:284:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:261:0x05a0 A[Catch: all -> 0x0623, TryCatch #0 {all -> 0x0623, blocks: (B:258:0x0596, B:260:0x059a, B:264:0x05ab, B:266:0x05ba, B:268:0x05be, B:270:0x05c5, B:269:0x05c1, B:261:0x05a0, B:195:0x0495, B:197:0x0499, B:180:0x0444, B:188:0x046f, B:190:0x0473, B:192:0x0489, B:206:0x04d3, B:210:0x04ec, B:212:0x04f6, B:214:0x04fd, B:216:0x0503), top: B:284:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:264:0x05ab A[Catch: all -> 0x0623, TryCatch #0 {all -> 0x0623, blocks: (B:258:0x0596, B:260:0x059a, B:264:0x05ab, B:266:0x05ba, B:268:0x05be, B:270:0x05c5, B:269:0x05c1, B:261:0x05a0, B:195:0x0495, B:197:0x0499, B:180:0x0444, B:188:0x046f, B:190:0x0473, B:192:0x0489, B:206:0x04d3, B:210:0x04ec, B:212:0x04f6, B:214:0x04fd, B:216:0x0503), top: B:284:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:266:0x05ba A[Catch: all -> 0x0623, TryCatch #0 {all -> 0x0623, blocks: (B:258:0x0596, B:260:0x059a, B:264:0x05ab, B:266:0x05ba, B:268:0x05be, B:270:0x05c5, B:269:0x05c1, B:261:0x05a0, B:195:0x0495, B:197:0x0499, B:180:0x0444, B:188:0x046f, B:190:0x0473, B:192:0x0489, B:206:0x04d3, B:210:0x04ec, B:212:0x04f6, B:214:0x04fd, B:216:0x0503), top: B:284:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:268:0x05be A[Catch: all -> 0x0623, TryCatch #0 {all -> 0x0623, blocks: (B:258:0x0596, B:260:0x059a, B:264:0x05ab, B:266:0x05ba, B:268:0x05be, B:270:0x05c5, B:269:0x05c1, B:261:0x05a0, B:195:0x0495, B:197:0x0499, B:180:0x0444, B:188:0x046f, B:190:0x0473, B:192:0x0489, B:206:0x04d3, B:210:0x04ec, B:212:0x04f6, B:214:0x04fd, B:216:0x0503), top: B:284:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:269:0x05c1 A[Catch: all -> 0x0623, TryCatch #0 {all -> 0x0623, blocks: (B:258:0x0596, B:260:0x059a, B:264:0x05ab, B:266:0x05ba, B:268:0x05be, B:270:0x05c5, B:269:0x05c1, B:261:0x05a0, B:195:0x0495, B:197:0x0499, B:180:0x0444, B:188:0x046f, B:190:0x0473, B:192:0x0489, B:206:0x04d3, B:210:0x04ec, B:212:0x04f6, B:214:0x04fd, B:216:0x0503), top: B:284:0x0039 }] */
+    /* JADX WARN: Removed duplicated region for block: B:324:0x0338 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:335:0x0499 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public ImageUploadResult e(String str, boolean z, boolean z2, int i, int i2) {
+        InterceptResult invokeCommon;
+        Throwable th;
+        RandomAccessFile randomAccessFile;
+        StringBuilder sb;
+        char c;
+        Exception exc;
+        ImageUploadResult imageUploadResult;
+        RandomAccessFile randomAccessFile2;
+        String str2;
+        File file;
+        long length;
+        ImageUploadResult imageUploadResult2;
+        StringBuilder sb2;
+        int i3;
+        long j;
+        int i4;
+        StringBuilder sb3;
+        String str3;
+        int i5;
+        long j2;
+        RandomAccessFile randomAccessFile3;
+        String a;
+        String postMultiNetData;
+        ImageUploadResult parser;
+        ImageUploadResult imageUploadResult3;
+        long j3;
+        int i6;
+        ImageUploadResult imageUploadResult4;
+        long j4;
+        int i7;
+        long j5;
+        String str4;
+        StringBuilder sb4;
+        BitmapFactory.Options options;
+        long j6;
+        byte[] bArr;
+        int i8;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2)})) != null) {
+            return (ImageUploadResult) invokeCommon.objValue;
+        }
+        String str5 = str;
+        xi8.a("发帖：正在上传图片 = " + str5);
+        BitmapFactory.Options options2 = new BitmapFactory.Options();
+        boolean z3 = true;
+        options2.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(str5, options2);
+        byte[] bArr2 = null;
+        if (options2.outWidth != 0 && options2.outHeight != 0) {
+            StringBuilder sb5 = new StringBuilder();
+            try {
+                try {
+                    try {
+                        file = new File(str5);
+                        length = file.length();
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                } catch (Exception e) {
+                    e = e;
+                    sb = sb5;
+                    c = 0;
+                }
+                try {
+                    try {
+                    } catch (Exception e2) {
+                        exc = e2;
+                        imageUploadResult = null;
+                        randomAccessFile2 = null;
+                    }
+                    if ((!z && length > 5242880) || (z && length > Config.FULL_TRACE_LOG_LIMIT)) {
+                        imageUploadResult = new ImageUploadResult();
+                        try {
+                            imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_FILE_ERROR;
+                            imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f060d);
+                            xi8.a("发帖：正在上传图片 失败 限制大小 = " + length + "    p = " + str5);
+                            ig.b(null);
+                            this.s = null;
+                            return imageUploadResult;
+                        } catch (Exception e3) {
+                            exc = e3;
+                            randomAccessFile2 = null;
+                            c = 0;
+                            sb = sb5;
+                            if (!this.k) {
+                            }
+                            if (imageUploadResult == null) {
+                            }
+                            if (imageUploadResult != null) {
+                            }
+                            if (imageUploadResult == null) {
+                            }
+                            Object[] objArr = new Object[2];
+                            objArr[c] = "comment";
+                            objArr[1] = sb.toString();
+                            ns4.a("img", -1L, -1, "imageUpload", r4, r3, objArr);
+                            StringBuilder sb6 = new StringBuilder();
+                            sb6.append("发帖：正在上传图片 上传失败 = ");
+                            sb6.append(r4);
+                            sb6.append(" ");
+                            sb6.append(r3);
+                            sb6.append("    p = ");
+                            str2 = str;
+                            sb6.append(str2);
+                            xi8.a(sb6.toString());
+                            ig.b(randomAccessFile2);
+                            this.s = null;
+                            xi8.a("发帖：上传图片 结束      p = " + str2);
+                            return imageUploadResult;
+                        }
+                    }
+                    xi8.a("发帖：正在上传图片 进行中 限制大小 = " + length + "    p = " + str5);
+                    String b = ri.b(FileHelper.GetStreamFromFile(file));
+                    sb5.append("path=");
+                    sb5.append(str5);
+                    sb5.append("|length=");
+                    sb5.append(length);
+                    sb5.append("|md5=");
+                    sb5.append(b);
+                    if (length != 0 && b != null) {
+                        String str6 = b + this.f;
+                        long j7 = length % ((long) this.f) == 0 ? length / this.f : (length / this.f) + 1;
+                        sb5.append("|chunkNo=");
+                        sb5.append(j7);
+                        randomAccessFile = new RandomAccessFile(str5, "r");
+                        try {
+                            try {
+                                sb5.append("|width=");
+                                sb5.append(this.g);
+                                sb5.append("|height=");
+                                sb5.append(this.h);
+                                sb5.append("|smallWidth=");
+                                sb5.append(this.i);
+                                sb5.append("|smallHeight=");
+                                sb5.append(this.j);
+                                sb5.append("|groupId=");
+                                sb5.append(this.m);
+                                sb2 = sb5;
+                                imageUploadResult2 = null;
+                                i3 = 1;
+                                j = 0;
+                                i4 = 0;
+                            } catch (Exception e4) {
+                                randomAccessFile2 = randomAccessFile;
+                                sb = sb5;
+                                c = 0;
+                                exc = e4;
+                                imageUploadResult = null;
+                            }
+                            while (true) {
+                                int i9 = (i3 > j7 ? 1 : (i3 == j7 ? 0 : -1));
+                                if (i9 > 0) {
+                                    break;
+                                }
+                                try {
+                                    if (this.k == z3) {
+                                        break;
+                                    }
+                                    StringBuilder sb7 = sb2;
+                                    if (i9 > 0) {
+                                        j2 = j7;
+                                        sb3 = sb7;
+                                        str3 = "|startChunk=";
+                                        i5 = 0;
+                                        bArr2 = null;
+                                    } else {
+                                        if (i9 < 0) {
+                                            try {
+                                                try {
+                                                    sb3 = sb7;
+                                                    str3 = "|startChunk=";
+                                                    i5 = this.f;
+                                                } catch (Throwable th3) {
+                                                    th = th3;
+                                                    th = th;
+                                                    ig.b(randomAccessFile);
+                                                    this.s = null;
+                                                    throw th;
+                                                }
+                                            } catch (Exception e5) {
+                                                e = e5;
+                                                randomAccessFile2 = randomAccessFile;
+                                                imageUploadResult = imageUploadResult2;
+                                                sb = sb7;
+                                                c = 0;
+                                                exc = e;
+                                                if (!this.k) {
+                                                }
+                                                if (imageUploadResult == null) {
+                                                }
+                                                if (imageUploadResult != null) {
+                                                }
+                                                if (imageUploadResult == null) {
+                                                }
+                                                Object[] objArr2 = new Object[2];
+                                                objArr2[c] = "comment";
+                                                objArr2[1] = sb.toString();
+                                                ns4.a("img", -1L, -1, "imageUpload", r4, r3, objArr2);
+                                                StringBuilder sb62 = new StringBuilder();
+                                                sb62.append("发帖：正在上传图片 上传失败 = ");
+                                                sb62.append(r4);
+                                                sb62.append(" ");
+                                                sb62.append(r3);
+                                                sb62.append("    p = ");
+                                                str2 = str;
+                                                sb62.append(str2);
+                                                xi8.a(sb62.toString());
+                                                ig.b(randomAccessFile2);
+                                                this.s = null;
+                                                xi8.a("发帖：上传图片 结束      p = " + str2);
+                                                return imageUploadResult;
+                                            }
+                                        } else if (i9 == 0) {
+                                            sb3 = sb7;
+                                            str3 = "|startChunk=";
+                                            i5 = (int) (length - (this.f * (j7 - 1)));
+                                        } else {
+                                            sb3 = sb7;
+                                            str3 = "|startChunk=";
+                                            i5 = 0;
+                                        }
+                                        if (bArr2 != null) {
+                                            try {
+                                            } catch (Exception e6) {
+                                                e = e6;
+                                                randomAccessFile2 = randomAccessFile;
+                                                imageUploadResult = imageUploadResult2;
+                                                sb = sb3;
+                                                c = 0;
+                                                exc = e;
+                                                if (!this.k) {
+                                                }
+                                                if (imageUploadResult == null) {
+                                                }
+                                                if (imageUploadResult != null) {
+                                                }
+                                                if (imageUploadResult == null) {
+                                                }
+                                                Object[] objArr22 = new Object[2];
+                                                objArr22[c] = "comment";
+                                                objArr22[1] = sb.toString();
+                                                ns4.a("img", -1L, -1, "imageUpload", r4, r3, objArr22);
+                                                StringBuilder sb622 = new StringBuilder();
+                                                sb622.append("发帖：正在上传图片 上传失败 = ");
+                                                sb622.append(r4);
+                                                sb622.append(" ");
+                                                sb622.append(r3);
+                                                sb622.append("    p = ");
+                                                str2 = str;
+                                                sb622.append(str2);
+                                                xi8.a(sb622.toString());
+                                                ig.b(randomAccessFile2);
+                                                this.s = null;
+                                                xi8.a("发帖：上传图片 结束      p = " + str2);
+                                                return imageUploadResult;
+                                            }
+                                        }
+                                        try {
+                                            bArr2 = new byte[i5];
+                                            j2 = j7;
+                                            randomAccessFile.seek(this.f * (i3 - 1));
+                                            randomAccessFile.read(bArr2, 0, i5);
+                                        } catch (Exception e7) {
+                                            e = e7;
+                                            randomAccessFile2 = randomAccessFile;
+                                            sb = sb3;
+                                            c = 0;
+                                            imageUploadResult = imageUploadResult2;
+                                            exc = e;
+                                            if (!this.k) {
+                                            }
+                                            if (imageUploadResult == null) {
+                                            }
+                                            if (imageUploadResult != null) {
+                                            }
+                                            if (imageUploadResult == null) {
+                                            }
+                                            Object[] objArr222 = new Object[2];
+                                            objArr222[c] = "comment";
+                                            objArr222[1] = sb.toString();
+                                            ns4.a("img", -1L, -1, "imageUpload", r4, r3, objArr222);
+                                            StringBuilder sb6222 = new StringBuilder();
+                                            sb6222.append("发帖：正在上传图片 上传失败 = ");
+                                            sb6222.append(r4);
+                                            sb6222.append(" ");
+                                            sb6222.append(r3);
+                                            sb6222.append("    p = ");
+                                            str2 = str;
+                                            sb6222.append(str2);
+                                            xi8.a(sb6222.toString());
+                                            ig.b(randomAccessFile2);
+                                            this.s = null;
+                                            xi8.a("发帖：上传图片 结束      p = " + str2);
+                                            return imageUploadResult;
+                                        }
+                                    }
+                                    NetWork netWork = new NetWork(TbConfig.UPLOAD_IMG_URL);
+                                    this.s = netWork;
+                                    String str7 = str6;
+                                    netWork.addPostData("resourceId", str7);
+                                    this.s.addPostData("chunkNo", String.valueOf(i3));
+                                    if (i9 >= 0) {
+                                        try {
+                                            randomAccessFile3 = randomAccessFile;
+                                            try {
+                                                try {
+                                                    this.s.addPostData("isFinish", String.valueOf(1));
+                                                } catch (Exception e8) {
+                                                    e = e8;
+                                                    imageUploadResult = imageUploadResult2;
+                                                    randomAccessFile2 = randomAccessFile3;
+                                                    sb = sb3;
+                                                    c = 0;
+                                                    exc = e;
+                                                    if (!this.k) {
+                                                    }
+                                                    if (imageUploadResult == null) {
+                                                    }
+                                                    if (imageUploadResult != null) {
+                                                    }
+                                                    if (imageUploadResult == null) {
+                                                    }
+                                                    Object[] objArr2222 = new Object[2];
+                                                    objArr2222[c] = "comment";
+                                                    objArr2222[1] = sb.toString();
+                                                    ns4.a("img", -1L, -1, "imageUpload", r4, r3, objArr2222);
+                                                    StringBuilder sb62222 = new StringBuilder();
+                                                    sb62222.append("发帖：正在上传图片 上传失败 = ");
+                                                    sb62222.append(r4);
+                                                    sb62222.append(" ");
+                                                    sb62222.append(r3);
+                                                    sb62222.append("    p = ");
+                                                    str2 = str;
+                                                    sb62222.append(str2);
+                                                    xi8.a(sb62222.toString());
+                                                    ig.b(randomAccessFile2);
+                                                    this.s = null;
+                                                    xi8.a("发帖：上传图片 结束      p = " + str2);
+                                                    return imageUploadResult;
+                                                }
+                                            } catch (Throwable th4) {
+                                                th = th4;
+                                                randomAccessFile = randomAccessFile3;
+                                                ig.b(randomAccessFile);
+                                                this.s = null;
+                                                throw th;
+                                            }
+                                        } catch (Exception e9) {
+                                            e = e9;
+                                            randomAccessFile3 = randomAccessFile;
+                                        } catch (Throwable th5) {
+                                            th = th5;
+                                            th = th;
+                                            ig.b(randomAccessFile);
+                                            this.s = null;
+                                            throw th;
+                                        }
+                                    } else {
+                                        randomAccessFile3 = randomAccessFile;
+                                        this.s.addPostData("isFinish", String.valueOf(0));
+                                    }
+                                    if (this.q) {
+                                        this.s.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(1));
+                                    } else {
+                                        this.s.addPostData(ImageViewerConfig.IS_BJH, String.valueOf(0));
+                                    }
+                                    this.s.addPostData("size", String.valueOf(length));
+                                    this.s.addPostData("width", String.valueOf(options2.outWidth));
+                                    this.s.addPostData("height", String.valueOf(options2.outHeight));
+                                    if (this.i > 0 && this.j > 0) {
+                                        this.s.addPostData("smallWidth", String.valueOf(this.i));
+                                        this.s.addPostData("smallHeight", String.valueOf(this.j));
+                                    }
+                                    try {
+                                        try {
+                                            this.s.addPostData(TbEnum.SystemMessage.KEY_GROUP_ID, String.valueOf(this.m));
+                                            this.s.addPostData("alt", "json");
+                                            if (bArr2 != null) {
+                                                this.s.addPostData("chunk", bArr2);
+                                            }
+                                            if (z) {
+                                                this.s.addPostData("saveOrigin", "1");
+                                            } else {
+                                                this.s.addPostData("saveOrigin", "0");
+                                            }
+                                            if (this.l != 0) {
+                                                this.s.addPostData("pic_water_type", String.valueOf(this.l));
+                                            }
+                                            if (z2) {
+                                                int b2 = am4.c().b();
+                                                if (b2 != 0) {
+                                                    this.s.addPostData("pic_water_type", String.valueOf(b2));
+                                                }
+                                                String currentAccountName = TbadkCoreApplication.getCurrentAccountName();
+                                                if (!StringUtils.isNull(currentAccountName) && b2 == 1) {
+                                                    this.s.addPostData("user_name", currentAccountName);
+                                                }
+                                                String a2 = am4.c().a();
+                                                if (!StringUtils.isNull(a2)) {
+                                                    if (b2 == 2) {
+                                                        this.s.addPostData("forum_name", a2);
+                                                    }
+                                                    a = am4.c().a();
+                                                    if (!StringUtils.isNull(a)) {
+                                                        this.s.addPostData("small_flow_fname", a);
+                                                    }
+                                                    postMultiNetData = this.s.postMultiNetData(true);
+                                                    parser = ImageUploadResult.parser(postMultiNetData);
+                                                    if (postMultiNetData != null || parser == null) {
+                                                        break;
+                                                        break;
+                                                    }
+                                                    try {
+                                                        if (parser.error_code != 0) {
+                                                            try {
+                                                                if (!ImageUploadResult.shouldReply(parser.error_code)) {
+                                                                    break;
+                                                                }
+                                                            } catch (Exception e10) {
+                                                                exc = e10;
+                                                                imageUploadResult = parser;
+                                                                randomAccessFile2 = randomAccessFile3;
+                                                                sb = sb3;
+                                                                c = 0;
+                                                                if (!this.k) {
+                                                                }
+                                                                if (imageUploadResult == null) {
+                                                                }
+                                                                if (imageUploadResult != null) {
+                                                                }
+                                                                if (imageUploadResult == null) {
+                                                                }
+                                                                Object[] objArr22222 = new Object[2];
+                                                                objArr22222[c] = "comment";
+                                                                objArr22222[1] = sb.toString();
+                                                                ns4.a("img", -1L, -1, "imageUpload", r4, r3, objArr22222);
+                                                                StringBuilder sb622222 = new StringBuilder();
+                                                                sb622222.append("发帖：正在上传图片 上传失败 = ");
+                                                                sb622222.append(r4);
+                                                                sb622222.append(" ");
+                                                                sb622222.append(r3);
+                                                                sb622222.append("    p = ");
+                                                                str2 = str;
+                                                                sb622222.append(str2);
+                                                                xi8.a(sb622222.toString());
+                                                                ig.b(randomAccessFile2);
+                                                                this.s = null;
+                                                                xi8.a("发帖：上传图片 结束      p = " + str2);
+                                                                return imageUploadResult;
+                                                            }
+                                                        }
+                                                        if (parser.error_code != ImageUploadResult.CHUNK_ERROR) {
+                                                            xi8.a("发帖：正在上传图片 上传失败 CHUNK_ERROR = " + parser.error_code + "    p = " + str5);
+                                                            if (i3 == parser.chunkNo || parser.chunkNo <= 0) {
+                                                                break;
+                                                            }
+                                                            i3 = parser.chunkNo;
+                                                            j5 = length;
+                                                            imageUploadResult3 = parser;
+                                                            str4 = str7;
+                                                            i8 = i4 + 1;
+                                                            c = 0;
+                                                            long j8 = j2;
+                                                            options = options2;
+                                                            randomAccessFile2 = randomAccessFile3;
+                                                            j6 = j8;
+                                                            StringBuilder sb8 = sb3;
+                                                            bArr = bArr2;
+                                                            sb = sb8;
+                                                            try {
+                                                                if (i8 <= this.r) {
+                                                                    sb.append("|possbile dead loop found. tryCount=");
+                                                                    sb.append(i8);
+                                                                    sb.append(", chunkNo=");
+                                                                    sb.append(j6);
+                                                                    break;
+                                                                }
+                                                                i4 = i8;
+                                                                imageUploadResult2 = imageUploadResult3;
+                                                                j7 = j6;
+                                                                sb2 = sb;
+                                                                str6 = str4;
+                                                                bArr2 = bArr;
+                                                                options2 = options;
+                                                                randomAccessFile = randomAccessFile2;
+                                                                length = j5;
+                                                                z3 = true;
+                                                                str5 = str;
+                                                            } catch (Exception e11) {
+                                                                e = e11;
+                                                                exc = e;
+                                                                imageUploadResult = imageUploadResult3;
+                                                                if (!this.k) {
+                                                                }
+                                                                if (imageUploadResult == null) {
+                                                                }
+                                                                if (imageUploadResult != null) {
+                                                                }
+                                                                if (imageUploadResult == null) {
+                                                                }
+                                                                Object[] objArr222222 = new Object[2];
+                                                                objArr222222[c] = "comment";
+                                                                objArr222222[1] = sb.toString();
+                                                                ns4.a("img", -1L, -1, "imageUpload", r4, r3, objArr222222);
+                                                                StringBuilder sb6222222 = new StringBuilder();
+                                                                sb6222222.append("发帖：正在上传图片 上传失败 = ");
+                                                                sb6222222.append(r4);
+                                                                sb6222222.append(" ");
+                                                                sb6222222.append(r3);
+                                                                sb6222222.append("    p = ");
+                                                                str2 = str;
+                                                                sb6222222.append(str2);
+                                                                xi8.a(sb6222222.toString());
+                                                                ig.b(randomAccessFile2);
+                                                                this.s = null;
+                                                                xi8.a("发帖：上传图片 结束      p = " + str2);
+                                                                return imageUploadResult;
+                                                            }
+                                                        } else {
+                                                            StringBuilder sb9 = sb3;
+                                                            try {
+                                                                if (ImageUploadResult.shouldReply(parser.error_code)) {
+                                                                    j5 = length;
+                                                                    imageUploadResult3 = parser;
+                                                                    str4 = str7;
+                                                                    bArr = bArr2;
+                                                                    i8 = i4 + 1;
+                                                                    c = 0;
+                                                                    sb = sb9;
+                                                                    long j9 = j2;
+                                                                    options = options2;
+                                                                    randomAccessFile2 = randomAccessFile3;
+                                                                    j6 = j9;
+                                                                } else {
+                                                                    int i10 = i3 + 1;
+                                                                    j += i5;
+                                                                    if (i10 > 1) {
+                                                                        try {
+                                                                            j3 = j + ((i10 - 1) * this.f);
+                                                                        } catch (Exception e12) {
+                                                                            exc = e12;
+                                                                            imageUploadResult = parser;
+                                                                            sb = sb9;
+                                                                            randomAccessFile2 = randomAccessFile3;
+                                                                            c = 0;
+                                                                            if (!this.k) {
+                                                                                sb.append("|request cancelled.");
+                                                                            } else {
+                                                                                BdLog.e(exc.getMessage());
+                                                                            }
+                                                                            if (imageUploadResult == null) {
+                                                                                imageUploadResult = new ImageUploadResult();
+                                                                                imageUploadResult.error_code = -1002;
+                                                                                imageUploadResult.error_msg = exc.getMessage();
+                                                                            }
+                                                                            int i11 = imageUploadResult != null ? imageUploadResult.error_code : -1002;
+                                                                            String message = imageUploadResult == null ? imageUploadResult.error_msg : exc.getMessage();
+                                                                            Object[] objArr2222222 = new Object[2];
+                                                                            objArr2222222[c] = "comment";
+                                                                            objArr2222222[1] = sb.toString();
+                                                                            ns4.a("img", -1L, -1, "imageUpload", i11, message, objArr2222222);
+                                                                            StringBuilder sb62222222 = new StringBuilder();
+                                                                            sb62222222.append("发帖：正在上传图片 上传失败 = ");
+                                                                            sb62222222.append(i11);
+                                                                            sb62222222.append(" ");
+                                                                            sb62222222.append(message);
+                                                                            sb62222222.append("    p = ");
+                                                                            str2 = str;
+                                                                            sb62222222.append(str2);
+                                                                            xi8.a(sb62222222.toString());
+                                                                            ig.b(randomAccessFile2);
+                                                                            this.s = null;
+                                                                            xi8.a("发帖：上传图片 结束      p = " + str2);
+                                                                            return imageUploadResult;
+                                                                        }
+                                                                    } else {
+                                                                        j3 = j;
+                                                                    }
+                                                                    if (this.c != null) {
+                                                                        i6 = i10;
+                                                                        this.c.hasUploadFileSize += i5;
+                                                                    } else {
+                                                                        i6 = i10;
+                                                                    }
+                                                                    xi8.a("发帖：正在上传图片 已上传 = " + j3 + "    p = " + str5);
+                                                                    if (this.n != null) {
+                                                                        try {
+                                                                            j4 = j3;
+                                                                            RandomAccessFile randomAccessFile4 = randomAccessFile3;
+                                                                            i7 = i6;
+                                                                            j5 = length;
+                                                                            imageUploadResult4 = parser;
+                                                                            str4 = str7;
+                                                                            c = 0;
+                                                                            sb4 = sb9;
+                                                                            long j10 = j2;
+                                                                            options = options2;
+                                                                            randomAccessFile2 = randomAccessFile4;
+                                                                            j6 = j10;
+                                                                        } catch (Exception e13) {
+                                                                            imageUploadResult4 = parser;
+                                                                            randomAccessFile2 = randomAccessFile3;
+                                                                            c = 0;
+                                                                            exc = e13;
+                                                                            sb = sb9;
+                                                                        }
+                                                                        try {
+                                                                            this.n.a(str, this.p, j4, j5);
+                                                                        } catch (Exception e14) {
+                                                                            exc = e14;
+                                                                            sb = sb4;
+                                                                            imageUploadResult = imageUploadResult4;
+                                                                            if (!this.k) {
+                                                                            }
+                                                                            if (imageUploadResult == null) {
+                                                                            }
+                                                                            if (imageUploadResult != null) {
+                                                                            }
+                                                                            if (imageUploadResult == null) {
+                                                                            }
+                                                                            Object[] objArr22222222 = new Object[2];
+                                                                            objArr22222222[c] = "comment";
+                                                                            objArr22222222[1] = sb.toString();
+                                                                            ns4.a("img", -1L, -1, "imageUpload", i11, message, objArr22222222);
+                                                                            StringBuilder sb622222222 = new StringBuilder();
+                                                                            sb622222222.append("发帖：正在上传图片 上传失败 = ");
+                                                                            sb622222222.append(i11);
+                                                                            sb622222222.append(" ");
+                                                                            sb622222222.append(message);
+                                                                            sb622222222.append("    p = ");
+                                                                            str2 = str;
+                                                                            sb622222222.append(str2);
+                                                                            xi8.a(sb622222222.toString());
+                                                                            ig.b(randomAccessFile2);
+                                                                            this.s = null;
+                                                                            xi8.a("发帖：上传图片 结束      p = " + str2);
+                                                                            return imageUploadResult;
+                                                                        }
+                                                                    } else {
+                                                                        j4 = j3;
+                                                                        j5 = length;
+                                                                        imageUploadResult4 = parser;
+                                                                        c = 0;
+                                                                        sb4 = sb9;
+                                                                        int i12 = i6;
+                                                                        str4 = str7;
+                                                                        long j11 = j2;
+                                                                        options = options2;
+                                                                        randomAccessFile2 = randomAccessFile3;
+                                                                        i7 = i12;
+                                                                        j6 = j11;
+                                                                    }
+                                                                    try {
+                                                                        if (this.o != null) {
+                                                                            long j12 = j4;
+                                                                            bArr = bArr2;
+                                                                            imageUploadResult3 = imageUploadResult4;
+                                                                            sb = sb4;
+                                                                            this.o.a(str, this.p, j12, j5, i, i2);
+                                                                        } else {
+                                                                            imageUploadResult3 = imageUploadResult4;
+                                                                            bArr = bArr2;
+                                                                            sb = sb4;
+                                                                        }
+                                                                        i3 = i7;
+                                                                        i8 = i4;
+                                                                    } catch (Exception e15) {
+                                                                        e = e15;
+                                                                        sb = sb4;
+                                                                        imageUploadResult3 = imageUploadResult4;
+                                                                        exc = e;
+                                                                        imageUploadResult = imageUploadResult3;
+                                                                        if (!this.k) {
+                                                                        }
+                                                                        if (imageUploadResult == null) {
+                                                                        }
+                                                                        if (imageUploadResult != null) {
+                                                                        }
+                                                                        if (imageUploadResult == null) {
+                                                                        }
+                                                                        Object[] objArr222222222 = new Object[2];
+                                                                        objArr222222222[c] = "comment";
+                                                                        objArr222222222[1] = sb.toString();
+                                                                        ns4.a("img", -1L, -1, "imageUpload", i11, message, objArr222222222);
+                                                                        StringBuilder sb6222222222 = new StringBuilder();
+                                                                        sb6222222222.append("发帖：正在上传图片 上传失败 = ");
+                                                                        sb6222222222.append(i11);
+                                                                        sb6222222222.append(" ");
+                                                                        sb6222222222.append(message);
+                                                                        sb6222222222.append("    p = ");
+                                                                        str2 = str;
+                                                                        sb6222222222.append(str2);
+                                                                        xi8.a(sb6222222222.toString());
+                                                                        ig.b(randomAccessFile2);
+                                                                        this.s = null;
+                                                                        xi8.a("发帖：上传图片 结束      p = " + str2);
+                                                                        return imageUploadResult;
+                                                                    }
+                                                                }
+                                                                if (i8 <= this.r) {
+                                                                }
+                                                            } catch (Exception e16) {
+                                                                e = e16;
+                                                                imageUploadResult3 = parser;
+                                                                sb = sb9;
+                                                                randomAccessFile2 = randomAccessFile3;
+                                                                c = 0;
+                                                                exc = e;
+                                                                imageUploadResult = imageUploadResult3;
+                                                                if (!this.k) {
+                                                                }
+                                                                if (imageUploadResult == null) {
+                                                                }
+                                                                if (imageUploadResult != null) {
+                                                                }
+                                                                if (imageUploadResult == null) {
+                                                                }
+                                                                Object[] objArr2222222222 = new Object[2];
+                                                                objArr2222222222[c] = "comment";
+                                                                objArr2222222222[1] = sb.toString();
+                                                                ns4.a("img", -1L, -1, "imageUpload", i11, message, objArr2222222222);
+                                                                StringBuilder sb62222222222 = new StringBuilder();
+                                                                sb62222222222.append("发帖：正在上传图片 上传失败 = ");
+                                                                sb62222222222.append(i11);
+                                                                sb62222222222.append(" ");
+                                                                sb62222222222.append(message);
+                                                                sb62222222222.append("    p = ");
+                                                                str2 = str;
+                                                                sb62222222222.append(str2);
+                                                                xi8.a(sb62222222222.toString());
+                                                                ig.b(randomAccessFile2);
+                                                                this.s = null;
+                                                                xi8.a("发帖：上传图片 结束      p = " + str2);
+                                                                return imageUploadResult;
+                                                            }
+                                                        }
+                                                    } catch (Exception e17) {
+                                                        e = e17;
+                                                        imageUploadResult3 = parser;
+                                                        randomAccessFile2 = randomAccessFile3;
+                                                        sb = sb3;
+                                                    }
+                                                }
+                                            }
+                                            a = am4.c().a();
+                                            if (!StringUtils.isNull(a)) {
+                                            }
+                                            postMultiNetData = this.s.postMultiNetData(true);
+                                            parser = ImageUploadResult.parser(postMultiNetData);
+                                            if (postMultiNetData != null) {
+                                                break;
+                                            }
+                                            if (parser.error_code != 0) {
+                                            }
+                                            if (parser.error_code != ImageUploadResult.CHUNK_ERROR) {
+                                            }
+                                        } catch (Exception e18) {
+                                            e = e18;
+                                            randomAccessFile2 = randomAccessFile3;
+                                            sb = sb3;
+                                            c = 0;
+                                            imageUploadResult = imageUploadResult2;
+                                            exc = e;
+                                            if (!this.k) {
+                                            }
+                                            if (imageUploadResult == null) {
+                                            }
+                                            if (imageUploadResult != null) {
+                                            }
+                                            if (imageUploadResult == null) {
+                                            }
+                                            Object[] objArr22222222222 = new Object[2];
+                                            objArr22222222222[c] = "comment";
+                                            objArr22222222222[1] = sb.toString();
+                                            ns4.a("img", -1L, -1, "imageUpload", i11, message, objArr22222222222);
+                                            StringBuilder sb622222222222 = new StringBuilder();
+                                            sb622222222222.append("发帖：正在上传图片 上传失败 = ");
+                                            sb622222222222.append(i11);
+                                            sb622222222222.append(" ");
+                                            sb622222222222.append(message);
+                                            sb622222222222.append("    p = ");
+                                            str2 = str;
+                                            sb622222222222.append(str2);
+                                            xi8.a(sb622222222222.toString());
+                                            ig.b(randomAccessFile2);
+                                            this.s = null;
+                                            xi8.a("发帖：上传图片 结束      p = " + str2);
+                                            return imageUploadResult;
+                                        }
+                                    } catch (Throwable th6) {
+                                        th = th6;
+                                        RandomAccessFile randomAccessFile5 = randomAccessFile3;
+                                        th = th;
+                                        randomAccessFile = randomAccessFile5;
+                                        ig.b(randomAccessFile);
+                                        this.s = null;
+                                        throw th;
+                                    }
+                                } catch (Exception e19) {
+                                    e = e19;
+                                    randomAccessFile2 = randomAccessFile;
+                                    sb = sb2;
+                                }
+                                xi8.a("发帖：上传图片 结束      p = " + str2);
+                                return imageUploadResult;
+                            }
+                            imageUploadResult2 = imageUploadResult3;
+                            randomAccessFile = randomAccessFile2;
+                            ig.b(randomAccessFile);
+                            this.s = null;
+                            imageUploadResult = imageUploadResult2;
+                            str2 = str;
+                            xi8.a("发帖：上传图片 结束      p = " + str2);
+                            return imageUploadResult;
+                        } catch (Throwable th7) {
+                            th = th7;
+                        }
+                    }
+                    sb = sb5;
+                    c = 0;
+                    imageUploadResult = new ImageUploadResult();
+                    imageUploadResult.error_code = -1007;
+                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f060b);
+                    TiebaStatic.imgError(-1007, "file error: " + imageUploadResult.error_msg, sb.toString());
+                    imageUploadResult2 = imageUploadResult;
+                    randomAccessFile = null;
+                    ig.b(randomAccessFile);
+                    this.s = null;
+                    imageUploadResult = imageUploadResult2;
+                    str2 = str;
+                    xi8.a("发帖：上传图片 结束      p = " + str2);
+                    return imageUploadResult;
+                } catch (Throwable th8) {
+                    th = th8;
+                    randomAccessFile = null;
+                }
+            } catch (Throwable th9) {
+                th = th9;
+                randomAccessFile = null;
+            }
+        } else {
+            xi8.a("发帖：正在上传图片 失败 = " + str5);
+            return null;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Can't rename method to resolve collision */
+    @Override // java.util.concurrent.Callable
+    public Boolean call() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            VoiceData.VoiceModel voiceModel = this.e;
-            return (voiceModel == null || TextUtils.isEmpty(voiceModel.voiceId) || this.e.duration <= 0) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.E = false;
-        }
-    }
-
-    public void F(TbPageContext tbPageContext, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, tbPageContext, bundle) == null) {
-            NewWriteModel newWriteModel = new NewWriteModel(tbPageContext);
-            this.h = newWriteModel;
-            newWriteModel.n0(this.H);
-            ImageModel imageModel = new ImageModel(tbPageContext);
-            this.i = imageModel;
-            imageModel.setLoadDataCallBack(this.I);
-            LocationModel locationModel = new LocationModel(tbPageContext);
-            this.g = locationModel;
-            locationModel.Q(this.F);
-            this.g.R(this.G);
-            if (bundle != null) {
-                this.b.parseJson(bundle.getString("write_images"));
-                this.f = bundle.getString(WriteActivityConfig.PHOTO_NAME);
+            ErrorData errorData = new ErrorData();
+            ImageFileInfo imageFileInfo = this.b.get(this.e);
+            if (TextUtils.isEmpty(imageFileInfo.getTempUploadFileName())) {
+                imageFileInfo.setTempUploadFileName("img_upload_temp_file_" + this.e + ".temp");
             }
-            WriteImagesInfo writeImagesInfo = this.b;
-            if (writeImagesInfo != null) {
-                writeImagesInfo.setMaxImagesAllowed(this.v ? 1 : 9);
-            }
-            if (!StringUtils.isNull(TbadkCoreApplication.getInst().getDefaultBubble()) && a() != null) {
-                a().A(new w05(2, 12, " "));
-            }
-            if (!this.g.B() && a() != null) {
-                a().A(new w05(20, 8, null));
-            }
-            WriteImagesInfo writeImagesInfo2 = this.b;
-            if (writeImagesInfo2 == null || writeImagesInfo2.getChosedFiles() == null || this.b.getChosedFiles().size() <= 0) {
-                return;
-            }
-            EditorTools a2 = a();
-            a2.A(new w05(2, 10, this.b.getChosedFiles().size() + ""));
-        }
-    }
-
-    public void G(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, writeData) == null) || writeData == null) {
-            return;
-        }
-        this.b = new WriteImagesInfo();
-        if (writeData.getWriteImagesInfo() != null) {
-            this.b.copyFrom(writeData.getWriteImagesInfo());
-            WriteImagesInfo writeImagesInfo = this.b;
-            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.b.getChosedFiles().size() > 0) {
-                EditorTools a2 = a();
-                a2.A(new w05(2, 10, this.b.getChosedFiles().size() + ""));
-            }
-        }
-        WriteImagesInfo writeImagesInfo2 = this.b;
-        if (writeImagesInfo2 == null || writeImagesInfo2.size() == 0) {
-            a().A(new w05(2, 10, null));
-        }
-        String content = writeData.getContent();
-        this.c = content;
-        a0(content);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004008));
-    }
-
-    public void H(int i, int i2, Intent intent) {
-        ArrayList<AtSelectData> parcelableArrayListExtra;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
-            PostWriteCallBackData postWriteCallBackData = null;
-            if (i2 != -1) {
-                if (i == 12001) {
-                    n();
-                } else if (i == 12002) {
-                    if (intent == null || !intent.hasExtra(AlbumActivityConfig.LAST_ALBUM_ID)) {
-                        return;
-                    }
-                    this.b.setLastAlbumId(intent.getStringExtra(AlbumActivityConfig.LAST_ALBUM_ID));
-                } else if (i != 12006) {
-                } else {
-                    if (intent != null && (intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) {
-                        postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                    }
-                    PostWriteCallBackData postWriteCallBackData2 = postWriteCallBackData;
-                    NewWriteModel.g gVar = this.w;
-                    if (gVar != null) {
-                        gVar.callback(false, postWriteCallBackData2, null, this.h.b0(), null);
-                    }
+            xi8.a("发帖：发送图片 上传图片 = " + this.e + " = " + imageFileInfo.toJson().toString());
+            boolean isOriginalImg = imageFileInfo.getImageType() == 1 ? false : this.c.isOriginalImg();
+            vi8.m(this.u, imageFileInfo);
+            ImageUploadResult d = d(imageFileInfo, isOriginalImg, this.d, this.e + 1, this.b.size());
+            vi8.d(this.u, imageFileInfo, d);
+            if (d != null) {
+                UploadedImageInfo uploadedPicInfo = d.getUploadedPicInfo();
+                if (uploadedPicInfo != null && !TextUtils.isEmpty(uploadedPicInfo.toPostString())) {
+                    uploadedPicInfo.isGif = imageFileInfo.isGif();
+                    uploadedPicInfo.isBJH = this.q;
+                    imageFileInfo.setServerImageCode(uploadedPicInfo.toPostString());
+                    return Boolean.TRUE;
                 }
-            } else if (i == 11001) {
-                L(null, null);
-            } else if (i == 12006) {
-                WriteData b0 = this.h.b0();
-                PostWriteCallBackData postWriteCallBackData3 = (intent == null || !(intent.getSerializableExtra("post_write_callback_data") instanceof PostWriteCallBackData)) ? null : (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                if (b0 != null) {
-                    b0.deleteUploadedTempImages();
-                }
-                this.h.setWriteData(null);
-                this.h.i0(false);
-                this.e = null;
-                this.u = null;
-                if (!TextUtils.isEmpty(this.m)) {
-                    cj8.w(this.m, null);
-                }
-                Y(true);
-                NewWriteModel.g gVar2 = this.w;
-                if (gVar2 != null) {
-                    gVar2.callback(true, postWriteCallBackData3, null, b0, null);
-                }
-            } else if (i == 12012) {
-                u(intent);
-            } else if (i == 13010) {
-                if (a() == null) {
-                    return;
-                }
-                VideoInfo videoInfo = new VideoInfo();
-                videoInfo.parseFromIntent(intent);
-                if (videoInfo.isAvaliable()) {
-                    this.u = videoInfo;
-                    StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.XIAOYING_DURATION);
-                    statisticItem.param("duration", this.u.getVideoDuration());
-                    TiebaStatic.log(statisticItem);
-                    c0();
-                    a().A(new w05(28, 20, this.u));
-                    a().A(new w05(28, -1, this.u));
-                }
-            } else if (i == 23004) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010040));
-            } else if (i == 25004) {
-                if (intent != null) {
-                    W(intent.getStringExtra(HotTopicActivityConfig.HOT_TOPIC_SELECT_STRING));
-                }
-            } else if (i == 11025) {
-                AtListActivityConfig atListActivityConfig = new AtListActivityConfig(this.n.getPageActivity(), 12004, true);
-                if (x() != null) {
-                    atListActivityConfig.setSelectedAtList(x().u());
-                }
-                ThreadData threadData = this.l;
-                if (threadData != null) {
-                    atListActivityConfig.setFromTid(threadData.getTid());
-                    atListActivityConfig.setFromFid(String.valueOf(this.l.getFid()));
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig));
-                StatisticItem statisticItem2 = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
-                statisticItem2.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                ThreadData threadData2 = this.l;
-                if (threadData2 != null) {
-                    statisticItem2.addParam("tid", threadData2.getTid());
-                    statisticItem2.addParam("fid", this.l.getFid());
-                }
-                TiebaStatic.log(statisticItem2);
-            } else if (i == 11026) {
-                AtListActivityConfig atListActivityConfig2 = new AtListActivityConfig(this.n.getPageActivity(), 12005, true);
-                if (x() != null) {
-                    atListActivityConfig2.setSelectedAtList(x().u());
-                }
-                ThreadData threadData3 = this.l;
-                if (threadData3 != null) {
-                    atListActivityConfig2.setFromTid(threadData3.getTid());
-                    atListActivityConfig2.setFromFid(String.valueOf(this.l.getFid()));
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atListActivityConfig2));
-                StatisticItem statisticItem3 = new StatisticItem(CommonStatisticKey.KEY_AT_PANEL_SHOW);
-                statisticItem3.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-                ThreadData threadData4 = this.l;
-                if (threadData4 != null) {
-                    statisticItem3.addParam("tid", threadData4.getTid());
-                    statisticItem3.addParam("fid", this.l.getFid());
-                }
-                TiebaStatic.log(statisticItem3);
-            } else if (i == 12009 || i == 12010) {
-                if (i == 12010) {
-                    r(intent);
-                }
-            } else {
-                switch (i) {
-                    case TaskResponseData.ERROR_NO_TASK_OFFLINE_03 /* 12002 */:
-                        if (intent == null) {
-                            return;
-                        }
-                        if (intent.getBooleanExtra(AlbumActivityConfig.CAMERA_RESULT, false)) {
-                            r(intent);
-                        } else {
-                            q(intent);
-                        }
-                        a().invalidate();
-                        return;
-                    case 12003:
-                        if (intent == null) {
-                            return;
-                        }
-                        if (intent.getBooleanExtra("delete", false)) {
-                            X();
-                            this.h.i0(false);
-                            return;
-                        }
-                        this.i.D(intent.getStringExtra("file_name"));
-                        return;
-                    case 12004:
-                        if (intent == null || (parcelableArrayListExtra = intent.getParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA)) == null) {
-                            return;
-                        }
-                        V(parcelableArrayListExtra);
-                        return;
-                    default:
-                        return;
-                }
+                errorData.setError_code(d.error_code);
+                errorData.setError_msg(d.error_msg);
+                xi8.a("发帖：发送图片 上传图片 错误 1= " + this.e + " = " + imageFileInfo.toJson().toString());
+                this.a.a(errorData);
+                return Boolean.FALSE;
             }
-        }
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.h.cancelLoadData();
-            this.i.cancelLoadData();
-            this.g.cancelLoadData();
-        }
-    }
-
-    public void J(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            if (PermissionUtil.checkLocationForGoogle(this.n.getPageActivity()) && z) {
-                v0();
-            } else {
-                PermissionUtil.requestLocation(this.n.getPageActivity(), 0, new c(this));
-            }
-        }
-    }
-
-    public void K(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            WriteImagesInfo writeImagesInfo = this.b;
-            if (writeImagesInfo != null) {
-                bundle.putString("write_images", writeImagesInfo.toJsonString());
-            }
-            bundle.putString(WriteActivityConfig.PHOTO_NAME, this.f);
-        }
-    }
-
-    public void L(String str, WriteData writeData) {
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, writeData) == null) {
-            if (this.h.b0() == null) {
-                WriteData F = this.j.F(str);
-                if (F != null && (threadData = this.l) != null) {
-                    F.setBaijiahaoData(threadData.getBaijiahaoData());
-                }
-                this.h.setWriteData(F);
-            }
-            if (this.h.b0() == null) {
-                return;
-            }
-            this.h.setSpanGroupManager(this.d);
-            boolean z = true;
-            if (this.z) {
-                this.h.b0().setCanNoForum(true);
-                if (this.k != null) {
-                    this.h.b0().setVForumId(this.k.getId());
-                    this.h.b0().setVForumName(this.k.getName());
-                }
-            } else {
-                this.h.b0().setCanNoForum(false);
-                this.h.b0().setVForumId("");
-                this.h.b0().setVForumName("");
-            }
-            this.h.b0().setIsBJHPost(this.v);
-            this.h.b0().setWriteImagesInfo(this.b);
-            this.h.b0().setVideoInfo(this.u);
-            this.h.i0(this.b.size() > 0);
-            WriteData b0 = this.h.b0();
-            LocationModel locationModel = this.g;
-            b0.setHasLocationData((locationModel == null || !locationModel.B()) ? false : false);
-            if (str == null) {
-                this.h.b0().setContent(this.c);
-            }
-            VoiceData.VoiceModel voiceModel = this.e;
-            if (voiceModel != null) {
-                if (voiceModel.getId() != null) {
-                    this.h.b0().setVoice(this.e.getId());
-                    this.h.b0().setVoiceDuringTime(this.e.duration);
-                } else {
-                    this.h.b0().setVoice(null);
-                    this.h.b0().setVoiceDuringTime(-1);
-                }
-            } else {
-                this.h.b0().setVoice(null);
-                this.h.b0().setVoiceDuringTime(-1);
-            }
-            if (!this.h.Y()) {
-                this.n.showToast(R.string.obfuscated_res_0x7f0f15b3);
-                return;
-            }
-            y25 y25Var = this.y;
-            if (y25Var == null || !y25Var.a()) {
-                z25 z25Var = this.x;
-                if (z25Var != null) {
-                    z25Var.a();
-                }
-                p(this.h.b0());
-                o();
-                if (!this.h.r0()) {
-                }
-            }
-        }
-    }
-
-    public void M(AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048588, this, antiData) == null) || antiData == null) {
-            return;
-        }
-        this.o = antiData.getVoice_message();
-    }
-
-    public void N(ForumData forumData, UserData userData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, forumData, userData) == null) {
-            this.k = forumData;
-        }
-    }
-
-    public void O(MetaData metaData, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048590, this, metaData, str, str2) == null) || a() == null || metaData == null) {
-            return;
-        }
-        this.r = metaData.getUserIdLong();
-        this.p = metaData.getUserName();
-        this.q = metaData.getName_show();
-        this.m = str;
-        this.s = str2;
-    }
-
-    public void P() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            boolean h2 = iu4.k().h("key_post_thread_has_request_location", false);
-            if (this.v || this.g == null || yk8.a().d() || !this.g.G(this.n.getPageActivity()) || !TbadkCoreApplication.getInst().getLocationShared() || !h2) {
-                return;
-            }
-            this.g.K();
-        }
-    }
-
-    public void Q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.g.B()) {
-                if (this.g.F()) {
-                    this.F.b(yk8.a().b());
-                    return;
-                }
-                if (mi.C()) {
-                    this.g.K();
-                }
-                b0(0, true, null);
-                return;
-            }
-            b0(0, false, null);
-        }
-    }
-
-    public void R() {
-        EditorTools editorTools;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (editorTools = this.D) == null) {
-            return;
-        }
-        editorTools.y();
-    }
-
-    public void S() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.h.setWriteData(null);
-            this.h.i0(false);
-            this.e = null;
-            this.u = null;
-            this.b.clear();
-        }
-    }
-
-    public void T() {
-        c35 c35Var;
-        TextWatcher textWatcher;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (c35Var = this.B) == null || (textWatcher = this.A) == null) {
-            return;
-        }
-        c35Var.i(textWatcher);
-    }
-
-    public void U(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            WriteData b0 = this.h.b0();
-            if (b0 == null) {
-                b0 = new WriteData(1);
-                b0.setThreadId(str);
-                b0.setWriteImagesInfo(this.b);
-            }
-            b0.setContent(this.c);
-            b0.setVideoInfo(this.u);
-            b0.setVoiceModel(this.e);
-            cj8.w(str, b0);
-        }
-    }
-
-    public final void V(ArrayList<AtSelectData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, arrayList) == null) || a() == null) {
-            return;
-        }
-        a().A(new w05(17, 27, arrayList));
-    }
-
-    public void W(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, str) == null) || a() == null) {
-            return;
-        }
-        a().A(new w05(44, 27, str));
-    }
-
-    public final void X() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048599, this) == null) || a() == null) {
-            return;
-        }
-        a().A(new w05(13, -1, null));
-    }
-
-    public final void Y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048600, this, z) == null) || a() == null) {
-            return;
-        }
-        if (z) {
-            a().A(new w05(2, 10, null));
-            a().A(new w05(2, 6, null));
-        }
-        a().A(new w05(9, -1, Boolean.valueOf(z)));
-    }
-
-    public void Z() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048601, this) == null) || StringUtils.isNull(this.p)) {
-            return;
-        }
-        long j = this.r;
-        if (j <= 0) {
-            return;
-        }
-        if (String.valueOf(j).equalsIgnoreCase(TbadkCoreApplication.getCurrentAccount())) {
-            mi.M(this.n.getPageActivity(), R.string.obfuscated_res_0x7f0f0371);
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new GiftTabActivityConfig(this.n.getPageActivity(), this.r, this.p, this.q, GiftTabActivityConfig.FROM_PB, kg.g(this.m, 0L), kg.g(this.s, 0L))));
-    }
-
-    public final void a0(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048602, this, str) == null) || a() == null) {
-            return;
-        }
-        a().A(new w05(6, 27, str));
-    }
-
-    public final void b0(int i, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), str}) == null) {
-            this.t = i;
-            if (a() != null) {
-                a().A(new w05(19, 27, new n25(i, z, str)));
-            }
-        }
-    }
-
-    public final void c0() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048604, this) == null) || a() == null) {
-            return;
-        }
-        a().A(new w05(2, 19, " "));
-    }
-
-    public void d0(y25 y25Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, y25Var) == null) {
-            this.y = y25Var;
-        }
-    }
-
-    public void e0(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048606, this, tbPageContext) == null) {
-            this.n = tbPageContext;
-        }
-    }
-
-    public void f0(boolean z) {
-        BLauncher bLauncher;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048607, this, z) == null) || a() == null || (bLauncher = (BLauncher) a().m(5)) == null) {
-            return;
-        }
-        bLauncher.setOutSetVisibilty(z);
-    }
-
-    public void g0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
-            this.C = i;
-        }
-    }
-
-    public TbPageContext getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.n : (TbPageContext) invokeV.objValue;
-    }
-
-    public void h(mx4 mx4Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048610, this, mx4Var) == null) || mx4Var == null) {
-            return;
-        }
-        if (mx4Var.getType() == EmotionGroupType.BIG_EMOTION || mx4Var.getType() == EmotionGroupType.USER_COLLECT) {
-            ImageFileInfo imageFileInfo = new ImageFileInfo();
-            imageFileInfo.setImageType(1);
-            imageFileInfo.setFilePath(mx4Var.d());
-            imageFileInfo.width = mx4Var.h();
-            imageFileInfo.height = mx4Var.b();
-            this.b.addChooseFile(imageFileInfo);
-            this.b.updateQuality();
-        }
-    }
-
-    public void h0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
-            this.z = z;
-        }
-    }
-
-    public void i(TextWatcher textWatcher) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, textWatcher) == null) {
-            k();
-            c35 c35Var = this.B;
-            if (c35Var == null || textWatcher == null) {
-                return;
-            }
-            c35Var.f(textWatcher);
-        }
-    }
-
-    public void i0(boolean z) {
-        BLauncher bLauncher;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048613, this, z) == null) || a() == null || (bLauncher = (BLauncher) a().m(23)) == null) {
-            return;
-        }
-        bLauncher.setOutSetVisibilty(z);
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
-            if (this.B == null && a() != null) {
-                this.B = (c35) a().n(27);
-            }
-            c35 c35Var = this.B;
-            if (c35Var != null) {
-                c35Var.g(i);
-            }
-        }
-    }
-
-    public void j0(DataModel<?> dataModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, dataModel) == null) {
-            this.j = dataModel;
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048616, this) == null) && this.B == null && a() != null) {
-            this.B = (c35) a().n(27);
-        }
-    }
-
-    public void k0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
-            if (this.B == null && a() != null) {
-                this.B = (c35) a().n(27);
-            }
-            c35 c35Var = this.B;
-            if (c35Var != null) {
-                c35Var.k(str);
-            }
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            WriteImagesInfo writeImagesInfo = this.b;
-            if (writeImagesInfo != null && writeImagesInfo.size() > 0) {
-                this.b.clear();
-            }
-            VideoInfo videoInfo = this.u;
-            if (videoInfo != null && videoInfo.isAvaliable()) {
-                this.u = null;
-            }
-            a().A(new w05(2, 19, null));
-            t0(null);
-            a().A(new w05(2, 6, null));
-            a().A(new w05(33, 6, null));
-            if (!StringUtils.isNull(this.c)) {
-                this.c = "";
-            }
-            a0("");
-            this.h.setWriteData(null);
-            this.h.i0(false);
-        }
-    }
-
-    public void l0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
-            if (this.B == null && a() != null) {
-                this.B = (c35) a().n(27);
-            }
-            c35 c35Var = this.B;
-            if (c35Var != null) {
-                c35Var.l(i);
-            }
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048620, this) == null) {
-            this.u = null;
-        }
-    }
-
-    public void m0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048622, this) == null) {
-            new g(this).execute(new Void[0]);
-        }
-    }
-
-    public void n0(NewWriteModel.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048623, this, gVar) == null) {
-            this.w = gVar;
-        }
-    }
-
-    public final void o() {
-        DataModel<?> dataModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048624, this) == null) || this.l == null || (dataModel = this.j) == null || !dataModel.H()) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_HEATING_THREAD_COMMENT);
-        statisticItem.addParam("obj_locate", 1);
-        if (this.l.isVideoWorksInfo()) {
-            statisticItem.addParam("obj_type", 3);
-        } else if (this.l.isVideoThreadType()) {
-            statisticItem.addParam("obj_type", 2);
-        } else {
-            statisticItem.addParam("obj_type", 1);
-        }
-        statisticItem.addParam("tid", this.l.getTid());
-        statisticItem.addParam(TiebaStatic.Params.FID_1, this.l.getFid());
-        statisticItem.addParam(TiebaStatic.Params.FID_2, this.j.getFromForumId());
-        statisticItem.addParam("order_id", this.j.D());
-        TiebaStatic.log(statisticItem);
-        dl4.a(dl4.f, dl4.c, this.j.D(), this.j.E(), this.j.C(), this.l.statFloor);
-    }
-
-    public void o0(z25 z25Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, z25Var) == null) {
-            this.x = z25Var;
-        }
-    }
-
-    @Override // com.repackage.cj8.f
-    public void onDraftLoaded(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048626, this, writeData) == null) || writeData == null) {
-            return;
-        }
-        if (writeData.getVideoInfo() != null && writeData.getVideoInfo().isAvaliable()) {
-            if (this.u == null) {
-                this.u = new VideoInfo();
-            }
-            this.u.copy(writeData.getVideoInfo());
-            c0();
-            a().A(new w05(39, -1, this.u));
-        }
-        if (writeData.getWriteImagesInfo() != null && this.b.size() == 0) {
-            this.b.copyFrom(writeData.getWriteImagesInfo());
-            WriteImagesInfo writeImagesInfo = this.b;
-            if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && this.b.getChosedFiles().size() > 0) {
-                EditorTools a2 = a();
-                a2.A(new w05(2, 10, this.b.getChosedFiles().size() + ""));
-            }
-        }
-        WriteImagesInfo writeImagesInfo2 = this.b;
-        if (writeImagesInfo2 == null || writeImagesInfo2.size() == 0) {
-            a().A(new w05(2, 10, null));
-        }
-        if (writeData.getVoiceModel() != null && writeData.getVoiceModel().voiceId != null && writeData.getVoiceModel().duration != -1) {
-            if (this.e == null) {
-                this.e = new VoiceData.VoiceModel();
-            }
-            this.e.copy(writeData.getVoiceModel());
-        }
-        if (!li.isEmpty(writeData.getContent()) && li.isEmpty(this.c)) {
-            String content = writeData.getContent();
-            this.c = content;
-            a0(content);
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004008));
-    }
-
-    public void p(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048627, this, writeData) == null) || writeData == null) {
-            return;
-        }
-        int i = 0;
-        if (!TextUtils.isEmpty(writeData.getContent())) {
-            int i2 = 0;
-            while (TbPatternsCompat.EMOTION_PATTERRN.matcher(writeData.getContent()).find()) {
-                i2++;
-            }
-            if (i2 > 0 && this.C > 0) {
-                StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMALL_EMOTION_NUM);
-                statisticItem.param("obj_type", i2);
-                statisticItem.param("obj_source", this.C);
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem.param("tid", writeData.getThreadId());
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        if (writeData.getWriteImagesInfo() == null || ListUtils.isEmpty(writeData.getWriteImagesInfo().getChosedFiles())) {
-            return;
-        }
-        for (ImageFileInfo imageFileInfo : writeData.getWriteImagesInfo().getChosedFiles()) {
-            if (imageFileInfo.getImageType() == 1) {
-                i++;
-            }
-        }
-        if (i <= 0 || this.C <= 0) {
-            return;
-        }
-        StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.KEY_BIG_EMOTION_NUM);
-        statisticItem2.param("obj_type", i);
-        statisticItem2.param("obj_source", this.C);
-        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem2.param("tid", writeData.getThreadId());
-        TiebaStatic.log(statisticItem2);
-    }
-
-    public void p0(boolean z) {
-        BLauncher bLauncher;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048628, this, z) == null) || a() == null || (bLauncher = (BLauncher) a().m(2)) == null) {
-            return;
-        }
-        bLauncher.setOutSetVisibilty(z);
-    }
-
-    public final void q(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, intent) == null) {
-            w(intent, true);
-        }
-    }
-
-    public void q0(SpanGroupManager spanGroupManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, spanGroupManager) == null) {
-            this.d = spanGroupManager;
-        }
-    }
-
-    public final void r(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048631, this, intent) == null) {
-            this.f = intent.getStringExtra(AlbumActivityConfig.CAMERA_PHOTO_NAME);
-            String str = Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + TbConfig.LOCAL_CAMERA_DIR + "/" + this.f;
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                int readPictureDegree = BitmapHelper.readPictureDegree(str);
-                if (readPictureDegree != 0) {
-                    Bitmap loadResizedBitmap = BitmapHelper.loadResizedBitmap(str, mi.d(this.n.getPageActivity(), mi.k(this.n.getPageActivity())), mi.d(this.n.getPageActivity(), mi.i(this.n.getPageActivity())));
-                    Bitmap rotateBitmapBydegree = BitmapHelper.rotateBitmapBydegree(loadResizedBitmap, readPictureDegree);
-                    if (loadResizedBitmap != rotateBitmapBydegree) {
-                        loadResizedBitmap.recycle();
-                    }
-                    FileHelper.saveBitmapByRelativelyPath(TbConfig.LOCAL_CAMERA_DIR, this.f, rotateBitmapBydegree, 100);
-                    rotateBitmapBydegree.recycle();
-                }
-            } catch (Exception unused) {
-            }
-            ImageFileInfo imageFileInfo = new ImageFileInfo();
-            imageFileInfo.setFilePath(str);
-            imageFileInfo.setTempFile(true);
-            this.b.addChooseFile(imageFileInfo);
-            this.b.updateQuality();
-            z(false, null);
-        }
-    }
-
-    public void r0(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, threadData) == null) {
-            this.l = threadData;
-            if (a() == null || this.l == null) {
-                return;
-            }
-            a().setFid(this.l.getFid());
-            a().setTid(this.l.getTid());
-        }
-    }
-
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, str) == null) {
-            cj8.n(str, this);
-        }
-    }
-
-    public void s0(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048634, this, str) == null) {
-            this.m = str;
-        }
-    }
-
-    public int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.t : invokeV.intValue;
-    }
-
-    public void t0(VoiceData.VoiceModel voiceModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, voiceModel) == null) {
-            this.e = voiceModel;
-        }
-    }
-
-    public final void u(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, intent) == null) {
-            w(intent, false);
-        }
-    }
-
-    public final void u0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048638, this) == null) {
-            nr4 nr4Var = new nr4(this.n.getPageActivity());
-            nr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0a46).setPositiveButton(R.string.obfuscated_res_0x7f0f0968, new e(this)).setNegativeButton(R.string.obfuscated_res_0x7f0f0374, new d(this)).create(this.n);
-            nr4Var.show();
-        }
-    }
-
-    public c35 v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
-            if (this.B == null && a() != null) {
-                this.B = (c35) a().n(27);
-            }
-            return this.B;
-        }
-        return (c35) invokeV.objValue;
-    }
-
-    public void v0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048640, this) == null) {
-            if (!this.g.G(this.n.getPageActivity())) {
-                this.n.showToast(R.string.obfuscated_res_0x7f0f0a4d);
-            } else if (!TbadkCoreApplication.getInst().getLocationShared()) {
-                u0();
-            } else if (this.g.F()) {
-                A();
-            } else {
-                this.g.P(false);
-                b0(1, true, null);
-                this.g.K();
-            }
-        }
-    }
-
-    public final void w(Intent intent, boolean z) {
-        String stringExtra;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048641, this, intent, z) == null) || intent == null || (stringExtra = intent.getStringExtra(AlbumActivityConfig.ALBUM_RESULT)) == null) {
-            return;
-        }
-        this.b.parseJson(stringExtra);
-        this.b.updateQuality();
-        if (this.b.getChosedFiles() != null) {
-            z(false, null);
-        }
-    }
-
-    public SpanGroupManager x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) ? this.d : (SpanGroupManager) invokeV.objValue;
-    }
-
-    public WriteImagesInfo y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) ? this.b : (WriteImagesInfo) invokeV.objValue;
-    }
-
-    public void z(boolean z, PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048644, this, z, postWriteCallBackData) == null) {
-            PbEditorData pbEditorData = new PbEditorData();
-            pbEditorData.setEditorType(0);
-            pbEditorData.setContent(this.c);
-            pbEditorData.setWriteImagesInfo(this.b);
-            pbEditorData.setVoiceModel(this.e);
-            PbEditorData.ThreadData threadData = new PbEditorData.ThreadData();
-            ForumData forumData = this.k;
-            if (forumData != null) {
-                threadData.setForumId(forumData.getId());
-                threadData.setForumName(this.k.getName());
-                threadData.setFirstDir(this.k.getFirst_class());
-                threadData.setSecondDir(this.k.getSecond_class());
-            }
-            threadData.setAuthorId(this.r);
-            threadData.setAuthorName(this.p);
-            threadData.setAuthorNameShow(this.q);
-            threadData.setPostId(this.s);
-            threadData.setThreadId(this.m);
-            threadData.isBJH = this.v;
-            pbEditorData.setThreadData(threadData);
-            pbEditorData.setDisableVoiceMessage(this.o);
-            pbEditorData.setOpenVoiceRecordButton(z);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbFullScreenEditorActivityConfig(this.n.getPageActivity(), 25035, pbEditorData, postWriteCallBackData)));
-        }
+            errorData.setError_code(-52);
+            errorData.setError_msg(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f14d7));
+            xi8.a("发帖：发送图片 上传图片 错误 2= " + this.e + " = " + imageFileInfo.toJson().toString());
+            this.a.a(errorData);
+            return Boolean.FALSE;
+        }
+        return (Boolean) invokeV.objValue;
     }
 }

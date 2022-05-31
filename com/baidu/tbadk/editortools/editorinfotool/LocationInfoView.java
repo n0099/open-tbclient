@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.yu4;
+import com.repackage.li;
+import com.repackage.ot4;
 /* loaded from: classes3.dex */
 public class LocationInfoView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
@@ -58,21 +58,21 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(0);
             setGravity(16);
-            yu4 yu4Var = new yu4();
-            yu4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            yu4Var.i(R.drawable.obfuscated_res_0x7f0805fe, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            yu4Var.h(R.color.CAM_X0110);
-            yu4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
-            yu4Var.m(mi.f(getContext(), R.dimen.M_W_X004), mi.f(getContext(), R.dimen.M_W_X004));
-            yu4Var.n(mi.f(getContext(), R.dimen.M_H_X002));
-            yu4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            ot4 ot4Var = new ot4();
+            ot4Var.p(R.color.CAM_X0209, R.color.CAM_X0105);
+            ot4Var.i(R.drawable.obfuscated_res_0x7f0805fc, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            ot4Var.h(R.color.CAM_X0110);
+            ot4Var.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            ot4Var.m(li.f(getContext(), R.dimen.M_W_X004), li.f(getContext(), R.dimen.M_W_X004));
+            ot4Var.n(li.f(getContext(), R.dimen.M_H_X002));
+            ot4Var.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
             this.a = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(yu4Var);
+            tBSpecificationBtn.setConfig(ot4Var);
             this.a.setTextSize(R.dimen.T_X09);
             this.a.setOnClickListener(this);
-            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a50));
-            addView(this.a, new LinearLayout.LayoutParams(-2, mi.f(getContext(), R.dimen.tbds62)));
+            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0531));
+            addView(this.a, new LinearLayout.LayoutParams(-2, li.f(getContext(), R.dimen.tbds62)));
             b(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -119,9 +119,9 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                 }
                 this.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
             } else if (i == 1) {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a4a));
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a51));
             } else {
-                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a50));
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a57));
             }
             this.a.a = Integer.valueOf(i);
         }

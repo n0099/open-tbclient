@@ -1,484 +1,96 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.Editable;
-import android.text.InputFilter;
-import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.R;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ly3;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class x34 {
+public class x34 extends s34<tl2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public EditText b;
-    public EditText c;
-    public RelativeLayout d;
-    public Button e;
-    public boolean f;
-    public ly3.f g;
-    public ny3 h;
-    public View.OnClickListener i;
-    public TextWatcher j;
-    public TextView.OnEditorActionListener k;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x34 a;
-
-        public a(x34 x34Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755222536, "Lcom/repackage/x34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = x34Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null && this.a.f) {
-                if (this.a.g != null) {
-                    this.a.g.c(this.a.c.getText().toString());
-                }
-                if (this.a.h == null || this.a.h.d || this.a.g == null) {
-                    return;
-                }
-                this.a.g.a();
-                this.a.m("");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755222536, "Lcom/repackage/x34;");
+                return;
             }
         }
+        boolean z = rf1.a;
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements TextWatcher {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x34 a;
-
-        /* loaded from: classes7.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Editable a;
-            public final /* synthetic */ b b;
-
-            public a(b bVar, Editable editable) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, editable};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = editable;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (TextUtils.isEmpty(this.a.toString())) {
-                        this.b.a.e.setEnabled(false);
-                    } else if (this.b.a.e.isEnabled()) {
-                    } else {
-                        this.b.a.e.setEnabled(true);
-                    }
-                }
-            }
-        }
-
-        public b(x34 x34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x34Var;
-        }
-
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (this.a.g != null) {
-                    this.a.g.e(editable.toString());
-                }
-                this.a.e.post(new a(this, editable));
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements TextView.OnEditorActionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x34 a;
-
-        public c(x34 x34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x34Var;
-        }
-
-        @Override // android.widget.TextView.OnEditorActionListener
-        public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, keyEvent)) == null) {
-                if (this.a.h == null || this.a.h.e != i || this.a.c == null || !this.a.f) {
-                    return false;
-                }
-                if (this.a.g != null) {
-                    this.a.g.c(this.a.c.getText().toString());
-                }
-                if (this.a.h.d || this.a.g == null) {
-                    return true;
-                }
-                this.a.g.a();
-                this.a.m("");
-                return true;
-            }
-            return invokeLIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x34 a;
-
-        public d(x34 x34Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x34Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x34Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.setEnabled(false);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ny3 a;
-        public final /* synthetic */ x34 b;
-
-        public e(x34 x34Var, ny3 ny3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x34Var, ny3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x34Var;
-            this.a = ny3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int length;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.b.c.getText().length() <= this.a.a.length()) {
-                        length = this.b.c.getText().length();
-                    } else {
-                        length = this.a.a.length();
-                    }
-                    this.b.c.setSelection(length);
-                } catch (Exception e) {
-                    if (eh1.a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ x34 b;
-
-        public f(x34 x34Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x34Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x34Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.c.setSelection(this.a.length());
-            }
-        }
-    }
-
-    @SuppressLint({"InflateParams"})
-    public x34(Context context) {
+    public x34() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f = false;
-        this.i = new a(this);
-        this.j = new b(this);
-        this.k = new c(this);
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0097, (ViewGroup) null);
-        this.a = relativeLayout;
-        this.b = (EditText) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090186);
-        this.d = (RelativeLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090184);
-        this.c = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090185);
-        Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f090181);
-        this.e = button;
-        button.setOnClickListener(this.i);
-        this.c.addTextChangedListener(this.j);
-        this.c.setOnEditorActionListener(this.k);
-        this.e.post(new d(this));
     }
 
-    public View f() {
+    public static x34 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new x34() : (x34) invokeV.objValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
+    @Override // com.repackage.s34
+    public boolean b(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.booleanValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, tl2Var, ql2Var, hz2Var, jSONObject)) == null) ? e(context, tl2Var, ql2Var, hz2Var, jSONObject) : invokeLLLLL.booleanValue;
     }
 
-    public void h() {
-        EditText editText;
-        EditText editText2;
+    public final boolean e(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            InputMethodManager inputMethodManager = (InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method");
-            if (!inputMethodManager.isActive() || (editText = this.c) == null) {
-                return;
-            }
-            inputMethodManager.hideSoftInputFromWindow(editText.getApplicationWindowToken(), 0);
-            this.f = false;
-            this.b.setVisibility(8);
-            this.d.setVisibility(8);
-            ly3.f fVar = this.g;
-            if (fVar == null || (editText2 = this.c) == null) {
-                return;
-            }
-            fVar.d(editText2.getText().toString());
-        }
-    }
-
-    public void i(ly3.f fVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, fVar) == null) {
-            this.g = fVar;
-        }
-    }
-
-    public void j(ny3 ny3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ny3Var) == null) {
-            this.h = ny3Var;
-            if (this.c == null || ny3Var == null) {
-                return;
-            }
-            if (!TextUtils.isEmpty(ny3Var.a)) {
-                this.c.setText(ny3Var.a);
-                if (ny3Var.b > 0) {
-                    if (!TextUtils.isEmpty(ny3Var.a) && ny3Var.a.length() > ny3Var.b) {
-                        ny3Var.b = ny3Var.a.length();
-                    }
-                    this.c.setFilters(new InputFilter[]{new InputFilter.LengthFilter(ny3Var.b)});
-                }
-                this.c.postDelayed(new e(this, ny3Var), 300L);
-            } else {
-                this.c.setText("");
-            }
-            this.e.setEnabled(!TextUtils.isEmpty(ny3Var.a));
-            if (ny3Var.c) {
-                this.c.setMinLines(1);
-                this.c.setInputType(131073);
-                this.e.setText(ny3Var.f);
-                return;
-            }
-            this.c.setMaxLines(1);
-            this.c.setInputType(1);
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d.setVisibility(0);
-            this.c.setFocusableInTouchMode(true);
-            this.c.requestFocus();
-            this.b.setVisibility(8);
-            this.f = true;
-            ly3.f fVar = this.g;
-            if (fVar != null) {
-                fVar.b(i);
-            }
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, tl2Var, ql2Var, hz2Var, jSONObject)) == null) {
+            hw1.i("map", "GetRegionAction start");
+            pl1 A = uk2.U().A(tl2Var.c);
+            if (!(A instanceof nl1)) {
+                hw1.c("map", "WebViewManager is null");
                 return false;
             }
-            this.b.setVisibility(0);
-            this.d.setVisibility(8);
-            this.b.setFocusableInTouchMode(true);
-            this.b.requestFocus();
-            ((InputMethodManager) AppRuntime.getAppContext().getSystemService("input_method")).showSoftInput(this.b, 0);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            if (!this.f || (editText = this.c) == null) {
+            q44 d = p34.b().c((nl1) A).d(tl2Var.b);
+            if (d == null) {
+                hw1.c("map", "can not find map by id " + tl2Var.b);
                 return false;
             }
-            editText.setText(str);
-            this.c.postDelayed(new f(this, str), 300L);
+            MapStatus mapStatus = d.l.getMap().getMapStatus();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
+                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
+                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
+                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
+                jSONObject.put("southwest", jSONObject3);
+                jSONObject.put("northeast", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            hw1.i("map", "GetRegionAction end");
             return true;
         }
-        return invokeL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

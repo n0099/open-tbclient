@@ -1,22 +1,28 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes7.dex */
-public class zq7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface zq7 {
+    void c(boolean z);
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            int i = TbadkCoreApplication.getCurrentMemberType() > 0 ? 1 : 0;
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", i);
-            TiebaStatic.log(statisticItem);
-        }
-    }
+    void d(View.OnLongClickListener onLongClickListener);
+
+    void e(View.OnClickListener onClickListener);
+
+    void f(boolean z);
+
+    void l(View.OnClickListener onClickListener);
+
+    void m(int i);
+
+    void o(TbRichTextView.y yVar);
+
+    void q(String str);
+
+    void s(boolean z);
+
+    void setFromCDN(boolean z);
+
+    void t(kp7 kp7Var);
 }

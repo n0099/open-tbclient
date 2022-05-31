@@ -15,7 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -191,7 +190,7 @@ public final class b extends g {
                                     }
                                 }
                             }
-                        }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+                        }, 4000L);
                         return true;
                     }
                     parseUri.addCategory("android.intent.category.BROWSABLE");

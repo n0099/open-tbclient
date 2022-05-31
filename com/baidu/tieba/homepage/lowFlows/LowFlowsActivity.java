@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.gw6;
-import com.repackage.tw6;
-import com.repackage.ww6;
+import com.repackage.av6;
+import com.repackage.ku6;
+import com.repackage.xu6;
 /* loaded from: classes3.dex */
 public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gw6 mLowFlowsView;
+    public ku6 mLowFlowsView;
 
     public LowFlowsActivity() {
         Interceptable interceptable = $ic;
@@ -34,7 +34,7 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.m85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            gw6 gw6Var = this.mLowFlowsView;
-            if (gw6Var != null) {
-                gw6Var.onChangeSkinType(i);
+            ku6 ku6Var = this.mLowFlowsView;
+            if (ku6Var != null) {
+                ku6Var.onChangeSkinType(i);
             }
         }
     }
@@ -58,20 +58,20 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            ww6 ww6Var = new ww6(getPageContext());
-            this.mLowFlowsView = ww6Var;
-            ww6Var.loadData();
+            av6 av6Var = new av6(getPageContext());
+            this.mLowFlowsView = av6Var;
+            av6Var.loadData();
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        gw6 gw6Var;
+        ku6 ku6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gw6Var = this.mLowFlowsView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (ku6Var = this.mLowFlowsView) == null) {
             return;
         }
-        gw6Var.loadData();
+        ku6Var.loadData();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -79,12 +79,12 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            gw6 gw6Var = this.mLowFlowsView;
-            if (gw6Var != null) {
-                gw6Var.loadData();
+            ku6 ku6Var = this.mLowFlowsView;
+            if (ku6Var != null) {
+                ku6Var.loadData();
             }
             if (getIntent() != null) {
-                tw6.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra("tab_code"));
+                xu6.a("c14083", StringUtils.isNull(getIntent().getStringExtra(LowFlowsActivityConfig.LF_USER_TASKID)) ? "0" : TbSingleton.getInstance().getLFUserTaskId(), getIntent().getStringExtra("tab_code"));
             }
         }
     }

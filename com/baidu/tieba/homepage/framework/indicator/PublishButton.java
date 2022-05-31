@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.yu4;
+import com.repackage.li;
+import com.repackage.ot4;
 /* loaded from: classes3.dex */
 public class PublishButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
@@ -45,13 +45,13 @@ public class PublishButton extends TBSpecificationBtn {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            yu4 yu4Var = new yu4();
-            yu4Var.i(R.drawable.obfuscated_res_0x7f080931, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            yu4Var.g(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-            yu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-            setConfig(yu4Var);
+            ot4 ot4Var = new ot4();
+            ot4Var.i(R.drawable.obfuscated_res_0x7f08093c, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            ot4Var.g(li.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+            ot4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            setConfig(ot4Var);
             setTextSize(R.dimen.T_X08);
-            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0857));
+            setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f085d));
         }
     }
 

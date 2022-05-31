@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ee3;
-import com.repackage.le3;
+import com.repackage.rc3;
+import com.repackage.yc3;
 /* loaded from: classes2.dex */
 public class GameGuideViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -97,7 +97,7 @@ public class GameGuideViewContainer extends FrameLayout {
             int i5 = i4 / 2;
             if (i >= i5) {
                 i2 = (int) (((i4 - i) / i5) * 400.0f);
-                i3 = le3.g(10.0f);
+                i3 = yc3.g(10.0f);
             } else {
                 i2 = (int) ((i / i5) * 400.0f);
                 i3 = i4 - this.a;
@@ -120,9 +120,9 @@ public class GameGuideViewContainer extends FrameLayout {
             this.d = getContext().getResources().getDisplayMetrics().widthPixels;
             this.c = getContext().getResources().getDisplayMetrics().heightPixels;
             if (2 == getContext().getResources().getConfiguration().orientation) {
-                this.d += ee3.c();
+                this.d += rc3.c();
             } else {
-                this.c += ee3.c();
+                this.c += rc3.c();
             }
             this.g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         }
@@ -138,7 +138,7 @@ public class GameGuideViewContainer extends FrameLayout {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            int g = i < le3.g(10.0f) ? le3.g(10.0f) : i;
+            int g = i < yc3.g(10.0f) ? yc3.g(10.0f) : i;
             int i2 = this.d;
             int i3 = this.a;
             return i > i2 - i3 ? i2 - i3 : g;

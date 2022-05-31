@@ -1,100 +1,37 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+import java.util.Arrays;
+import java.util.List;
+/* loaded from: classes6.dex */
 public class r45 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<String> a;
+    public static final List<String> b;
+    public static final List<String> c;
+    public static final List<String> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public View attachedView;
-    public boolean isAttached;
-    public boolean isWrapStyle;
 
-    public r45(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755400290, "Lcom/repackage/r45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755400290, "Lcom/repackage/r45;");
                 return;
             }
         }
-        this.isWrapStyle = false;
-        this.attachedView = view2;
-    }
-
-    public void attachView(View view2, boolean z) {
-        View view3;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() != null) {
-            return;
-        }
-        this.isAttached = true;
-        v45.b(view2, this.isWrapStyle).a(view2, this.attachedView, z);
-        onViewAttached();
-    }
-
-    public void dettachView(View view2) {
-        View view3;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() == null || !(view2 instanceof ViewGroup)) {
-            return;
-        }
-        try {
-            onViewDettached();
-            ((ViewGroup) view2).removeView(this.attachedView);
-            this.isAttached = false;
-        } catch (Exception unused) {
-        }
-    }
-
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.attachedView : (View) invokeV.objValue;
-    }
-
-    public boolean isViewAttached() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.isAttached : invokeV.booleanValue;
-    }
-
-    public void onViewAttached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public void onViewDettached() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    public void setWrapStyle(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.isWrapStyle = z;
-        }
-    }
-
-    public void attachView(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            attachView(view2, false);
-        }
+        a = Arrays.asList("com.baidu.searchbox.feed.video.VideoDetailActivity", "com.baidu.searchbox.live.list.LiveListActivity", "com.baidu.searchbox.schemedispatch.BdBoxSchemeDispatchActivity", "com.baidu.searchbox.music.TTSFullScreenPlayerActivity", "com.baidu.megapp.proxy.activity.FragmentActivityProxy", "com.baidu.searchbox.home.feed.AdVideoDetailScrollActivity", "com.baidu.searchbox.home.feed.video.minidetail.vertical.MiniVideoDetailVerticalNaActivity", "com.baidu.live.master.activity.VoteListActivity", "com.baidu.live.master.activity.EditLiveVoteActivity", "com.baidu.live.master.prepare.AlaLiveIntroActivity", "com.baidu.live.master.prepare.AlaLiveIntroActivity", "com.baidu.live.master.prepare.AlaLiveGoodsActivity", "com.baidu.live.master.prepare.AlaLiveVoteListActivity", "com.baidu.live.master.prepare.AlaLiveVoteEditActivity", "com.baidu.live.master.prepare.AlaLiveSuitableActivity", "com.baidu.live.master.prepare.AlaLiveMoreInfoActivity", "com.baidu.live.master.prepare.AlaLiveCategorySelectActivity", "com.baidu.live.master.prepare.AlaLiveTagEditActivity", "com.baidu.live.master.prepare.MasterMicTypeChooseActivity", "com.baidu.live.master.sdk.activity.CommonWebViewActivity", "com.baidu.live.master.sdk.activity.LivePlayerActivity", "com.baidu.live.master.tieba.personextra.EditHeadActivity", "com.baidu.live.master.tieba.write.album.AlbumActivity", "com.baidu.live.master.ala.person.PersonCardActivity", "com.baidu.live.master.gift.AlaGiftLuckyStarActivity", "com.baidu.live.master.gift.container.AlaGiftTabActivity", "com.baidu.live.master.AlaLiveEndActivity", "com.baidu.live.master.AlaMasterLiveRoomActivity", "com.baidu.live.master.prepare.LivePreLiveListActivity", "com.baidu.live.master.core.prepare.EditOrderLiveActivity", "com.baidu.live.master.prepare.LiveMasterPrepareGoodsActivity", "com.baidu.live.master.bjhlive.activity.LiveCouponDetailActivity", "com.baidu.searchbox.live.liveshow.LiveShowActivity", "com.duowan.mobile.basemedia.watchlive.activity.LiveTemplateActivity", "com.yy.mobile.plugin.pluginmobilelive.MobileLiveActivity");
+        b = Arrays.asList("com.baidu.tieba.write.write.WriteActivity", "com.baidu.tieba.write.write.work.WorkPublishActivity", "com.baidu.tieba.video.record.RecordVideoActivity", "com.baidu.tieba.view.capture.TbCaptureActivity", "com.baidu.tieba.videoplay.VideoPlayActivity", "com.baidu.tieba.videoplay.VideoRecommentPlayActivity", "com.baidu.tieba.videoplay.FrsVideoTabPlayActivity", "com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity", "com.baidu.tieba.pb.pb.foldcomment.FoldCommentActivity", "com.baidu.tieba.pb.pb.main.PbCommentFloatActivity", "com.baidu.tieba.view.videofile.TbFileVideoActivity", "com.baidu.tieba.view.videoedit.TbEditVideoActivity", "com.baidu.tieba.pb.pb.sub.NewSubPbActivity", "com.baidu.tieba.personExtra.PersonChangeActivity");
+        c = Arrays.asList("com.baidu.tieba.view.capture.TbCaptureActivity", "com.baidu.tieba.videoplay.VideoPlayActivity", "com.baidu.tieba.videoplay.VideoRecommentPlayActivity", "com.baidu.tieba.videoplay.FrsVideoTabPlayActivity", "com.baidu.tieba.view.videofile.TbFileVideoActivity", "com.baidu.tieba.view.videoedit.TbEditVideoActivity");
+        d = Arrays.asList("com.baidu.tieba.pb.pb.main.PbActivity", "com.baidu.tieba.frs.FrsActivity");
     }
 }

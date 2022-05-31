@@ -20,16 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
-import com.repackage.pu4;
-import com.repackage.q17;
-import com.repackage.ro;
-import com.repackage.td6;
+import com.repackage.ft4;
+import com.repackage.jc6;
+import com.repackage.ji;
+import com.repackage.jn;
+import com.repackage.tz6;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ValidFragment"})
 /* loaded from: classes3.dex */
-public class TopicFragment extends BaseFragment implements td6, pu4.g, q17 {
+public class TopicFragment extends BaseFragment implements jc6, ft4.g, tz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TopicModel a;
@@ -52,7 +52,7 @@ public class TopicFragment extends BaseFragment implements td6, pu4.g, q17 {
         this.c = false;
     }
 
-    @Override // com.repackage.td6
+    @Override // com.repackage.jc6
     public void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -60,14 +60,14 @@ public class TopicFragment extends BaseFragment implements td6, pu4.g, q17 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.m85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a021" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.m85
+    @Override // com.baidu.tbadk.core.BaseFragment, com.repackage.f75
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
@@ -86,7 +86,7 @@ public class TopicFragment extends BaseFragment implements td6, pu4.g, q17 {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.repackage.td6
+    @Override // com.repackage.jc6
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -94,18 +94,18 @@ public class TopicFragment extends BaseFragment implements td6, pu4.g, q17 {
         }
     }
 
-    @Override // com.repackage.q17
+    @Override // com.repackage.tz6
     public void loadData() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && ki.z()) {
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && ji.z()) {
             this.b.e();
             this.b.l(false);
             this.a.y();
         }
     }
 
-    @Override // com.repackage.q17
-    public void netCallback(int i, List<ro> list) {
+    @Override // com.repackage.tz6
+    public void netCallback(int i, List<jn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048581, this, i, list) == null) {
             this.b.d();
@@ -180,7 +180,7 @@ public class TopicFragment extends BaseFragment implements td6, pu4.g, q17 {
         }
     }
 
-    @Override // com.repackage.pu4.g
+    @Override // com.repackage.ft4.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
@@ -200,14 +200,14 @@ public class TopicFragment extends BaseFragment implements td6, pu4.g, q17 {
         }
     }
 
-    @Override // com.repackage.td6
+    @Override // com.repackage.jc6
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
         }
     }
 
-    @Override // com.repackage.td6
+    @Override // com.repackage.jc6
     public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {

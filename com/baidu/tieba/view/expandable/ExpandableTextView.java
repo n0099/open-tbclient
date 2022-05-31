@@ -26,10 +26,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
-import com.repackage.gs4;
-import com.repackage.mi;
-import com.repackage.uv8;
-import com.repackage.yf5;
+import com.repackage.li;
+import com.repackage.se5;
+import com.repackage.wq4;
+import com.repackage.ws8;
 /* loaded from: classes4.dex */
 public class ExpandableTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -50,8 +50,8 @@ public class ExpandableTextView extends RelativeLayout {
     public e n;
     public boolean o;
     public ViewTreeObserver.OnGlobalLayoutListener p;
-    public yf5 q;
-    public yf5 r;
+    public se5 q;
+    public se5 r;
     public View.OnClickListener s;
 
     /* loaded from: classes4.dex */
@@ -116,8 +116,8 @@ public class ExpandableTextView extends RelativeLayout {
                     spannableString.setSpan(this.a.q, 0, spannableString.length(), 17);
                     this.a.c.append((CharSequence) spannableString);
                     ExpandableTextView expandableTextView = this.a;
-                    expandableTextView.e = new uv8(expandableTextView.c);
-                    ((uv8) this.a.e).a(R.color.transparent);
+                    expandableTextView.e = new ws8(expandableTextView.c);
+                    ((ws8) this.a.e).a(R.color.transparent);
                 }
                 this.a.j.setVisibility(8);
                 this.a.i.setOnTouchListener(this.a.e);
@@ -144,7 +144,7 @@ public class ExpandableTextView extends RelativeLayout {
                         }
                         this.a.b.append((CharSequence) spannableString2);
                     }
-                    ((uv8) this.a.d).a(R.color.transparent);
+                    ((ws8) this.a.d).a(R.color.transparent);
                     this.a.i.setOnTouchListener(this.a.d);
                     this.a.i.setText(this.a.b);
                     this.a.j.setVisibility(8);
@@ -153,10 +153,10 @@ public class ExpandableTextView extends RelativeLayout {
                 int lineCount2 = layout.getLineCount();
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.j.getLayoutParams();
                 if (this.a.j.getWidth() + layout.getLineWidth(lineCount2 - 1) > layout.getWidth()) {
-                    layoutParams.addRule(3, R.id.obfuscated_res_0x7f090938);
+                    layoutParams.addRule(3, R.id.obfuscated_res_0x7f09091e);
                     layoutParams.addRule(8, 0);
                 } else {
-                    layoutParams.addRule(8, R.id.obfuscated_res_0x7f090938);
+                    layoutParams.addRule(8, R.id.obfuscated_res_0x7f09091e);
                     layoutParams.addRule(3, 0);
                 }
                 this.a.j.setLayoutParams(layoutParams);
@@ -165,7 +165,7 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends yf5 {
+    public class b extends se5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ExpandableTextView h;
@@ -192,7 +192,7 @@ public class ExpandableTextView extends RelativeLayout {
             this.h = expandableTextView;
         }
 
-        @Override // com.repackage.yf5, android.text.style.ClickableSpan
+        @Override // com.repackage.se5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -202,7 +202,7 @@ public class ExpandableTextView extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends yf5 {
+    public class c extends se5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ExpandableTextView h;
@@ -229,7 +229,7 @@ public class ExpandableTextView extends RelativeLayout {
             this.h = expandableTextView;
         }
 
-        @Override // com.repackage.yf5, android.text.style.ClickableSpan
+        @Override // com.repackage.se5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -328,7 +328,7 @@ public class ExpandableTextView extends RelativeLayout {
                 }
                 ThreadCardUtils.setWorksPrefix(this.b);
             }
-            this.d = new uv8(this.b);
+            this.d = new ws8(this.b);
             this.i.setText(this.b);
             this.i.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
             this.i.setOnTouchListener(this.d);
@@ -369,7 +369,7 @@ public class ExpandableTextView extends RelativeLayout {
     public void setHasDown() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            gs4.d(this.i).y(R.array.S_O_X001);
+            wq4.d(this.i).y(R.array.S_O_X001);
         }
     }
 
@@ -460,17 +460,17 @@ public class ExpandableTextView extends RelativeLayout {
     public final void v(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ab, this);
-            SpannableClickTextView spannableClickTextView = (SpannableClickTextView) findViewById(R.id.obfuscated_res_0x7f090938);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d089e, this);
+            SpannableClickTextView spannableClickTextView = (SpannableClickTextView) findViewById(R.id.obfuscated_res_0x7f09091e);
             this.i = spannableClickTextView;
             spannableClickTextView.setTextSize(0, TbConfig.getContentSize());
             this.i.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090939);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09091f);
             this.j = textView;
             textView.setOnClickListener(this.s);
-            mi.f(context, R.dimen.tbfontsize42);
+            li.f(context, R.dimen.tbfontsize42);
             this.m = R.color.CAM_X0101;
-            mi.f(context, R.dimen.tbds6);
+            li.f(context, R.dimen.tbds6);
         }
     }
 

@@ -19,11 +19,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a47;
-import com.repackage.aj;
-import com.repackage.mi;
+import com.repackage.d27;
+import com.repackage.li;
+import com.repackage.yi;
 /* loaded from: classes.dex */
-public class FloatNewRecordView extends RelativeLayout implements a47 {
+public class FloatNewRecordView extends RelativeLayout implements d27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -121,47 +121,47 @@ public class FloatNewRecordView extends RelativeLayout implements a47 {
     public final void b(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0757, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d074b, this);
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0902cd);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0915cf);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0915d0);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903cc);
+            this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0902ca);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09158f);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091590);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0903c7);
             this.d = imageView;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
             layoutParams.width = -1;
-            layoutParams.height = mi.d(context, 117.0f);
-            AudioCircleProgress audioCircleProgress = (AudioCircleProgress) findViewById(R.id.obfuscated_res_0x7f0902cf);
+            layoutParams.height = li.d(context, 117.0f);
+            AudioCircleProgress audioCircleProgress = (AudioCircleProgress) findViewById(R.id.obfuscated_res_0x7f0902cc);
             this.e = audioCircleProgress;
             audioCircleProgress.setArcColor(SkinManager.getColor(R.color.CAM_X0302));
-            this.e.setArcWidth(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds30));
+            this.e.setArcWidth(li.f(TbadkCoreApplication.getInst(), R.dimen.tbds30));
             this.e.setBgColor(SkinManager.getColor(R.color.CAM_X0211));
-            this.e.setPadding(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds6));
+            this.e.setPadding(li.f(TbadkCoreApplication.getInst(), R.dimen.tbds6));
             this.a.addAnimatorListener(this.h);
             this.a.setAnimation(R.raw.obfuscated_res_0x7f110022);
             this.a.setImageAssetsFolder("lottie_audio_recoding/");
             this.a.setRepeatCount(-1);
-            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906db)).getLayoutParams()).topMargin = (mi.i(TbadkCoreApplication.getInst()) * 36) / 100;
+            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906be)).getLayoutParams()).topMargin = (li.i(TbadkCoreApplication.getInst()) * 36) / 100;
             a();
         }
     }
 
     public final void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || aj.b - i > 10000 || this.f) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || yi.b - i > 10000 || this.f) {
             return;
         }
-        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0aef), Integer.valueOf(((aj.b - i) / 1000) + 1)));
+        this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af5), Integer.valueOf(((yi.b - i) / 1000) + 1)));
     }
 
-    @Override // com.repackage.a47
+    @Override // com.repackage.d27
     public void closeRecordCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // com.repackage.a47
+    @Override // com.repackage.d27
     public void closeRecordTooShort() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -176,9 +176,9 @@ public class FloatNewRecordView extends RelativeLayout implements a47 {
         this.a.cancelAnimation();
         this.a.setVisibility(8);
         this.b.setVisibility(0);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af3));
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af9));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0310);
-        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08092c, R.color.CAM_X0310, null);
+        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080937, R.color.CAM_X0310, null);
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0310));
         WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_out, null);
         this.f = true;
@@ -191,14 +191,14 @@ public class FloatNewRecordView extends RelativeLayout implements a47 {
             this.a.cancelAnimation();
             this.a.setVisibility(8);
             this.b.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af4));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0afa));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0319);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f08092d, R.color.CAM_X0319, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080938, R.color.CAM_X0319, null);
             this.g = false;
         }
     }
 
-    @Override // com.repackage.a47
+    @Override // com.repackage.d27
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -218,7 +218,7 @@ public class FloatNewRecordView extends RelativeLayout implements a47 {
         }
         this.a.setVisibility(0);
         this.b.setVisibility(8);
-        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0aeb));
+        this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0af1));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
         this.a.playAnimation();
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0302));
@@ -227,58 +227,58 @@ public class FloatNewRecordView extends RelativeLayout implements a47 {
         this.g = true;
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public boolean isOnCancle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onDeletedVoice(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onSendVoice(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onShowErr(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onShowRecordTime(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.e.setProgress((i / 1.0f) / aj.b);
+            this.e.setProgress((i / 1.0f) / yi.b);
             c(i);
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onShowRecording(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onStartedRecorder(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
         }
     }
 
-    @Override // com.repackage.cj
+    @Override // com.repackage.aj
     public void onStopingRecorder() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {

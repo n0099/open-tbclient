@@ -1,102 +1,196 @@
 package com.repackage;
 
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.repackage.ie3;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class ml2 implements yl2 {
+public final class ml2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ol2 a;
+    public final List<nl2> b;
+    public Boolean c;
+    public nl2 d;
 
-    public static SwanAppConfigData a(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file == null || !file.exists()) {
-                return null;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            SwanAppConfigData b = g13.b(file.getAbsolutePath());
-            if (yl2.a) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                StringBuilder sb = new StringBuilder();
-                sb.append("buildAppJsonConfig cost = ");
-                sb.append(currentTimeMillis2 - currentTimeMillis);
-                sb.append("ms ; current thread is main = ");
-                sb.append(Looper.getMainLooper() == Looper.myLooper());
-                sb.append(" ; path = ");
-                sb.append(file);
-                Log.d("SwanPerformance", sb.toString());
-            }
-            return b;
-        }
-        return (SwanAppConfigData) invokeL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ol2 a;
+        public List<nl2> b;
+        public RuntimeException c;
 
-    public static SwanAppConfigData b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file == null || !file.exists()) {
-                return null;
-            }
-            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) nl2.c().b(file.getAbsolutePath());
-            if (swanAppConfigData == null) {
-                swanAppConfigData = xu2.e().j(file);
-                if (swanAppConfigData == null) {
-                    swanAppConfigData = a(file);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                nl2.c().d(file.getAbsolutePath(), swanAppConfigData);
-            } else if (yl2.a) {
-                Log.d("SwanPerformance", "adopt cached app.json");
             }
-            return swanAppConfigData;
         }
-        return (SwanAppConfigData) invokeL.objValue;
+
+        @SuppressLint({"BDThrowableCheck"})
+        public a a(@NonNull List<nl2> list) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                if (list.contains(null)) {
+                    this.c = new IllegalArgumentException("branches contains null value");
+                    if (!ml2.e) {
+                        this.b = null;
+                        return this;
+                    }
+                    throw this.c;
+                }
+                for (nl2 nl2Var : list) {
+                    if (nl2Var.c() + 0 > 100) {
+                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
+                        if (!ml2.e) {
+                            this.b = null;
+                            return this;
+                        }
+                        throw this.c;
+                    }
+                }
+                this.b = Collections.unmodifiableList(list);
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        @Nullable
+        @SuppressLint({"BDThrowableCheck"})
+        public ml2 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.c != null) {
+                    if (ml2.e) {
+                        throw this.c;
+                    }
+                    return null;
+                } else if (this.a == null) {
+                    this.c = new IllegalStateException("testSwitch == null");
+                    if (ml2.e) {
+                        throw this.c;
+                    }
+                    return null;
+                } else {
+                    List<nl2> list = this.b;
+                    if (list == null) {
+                        this.c = new IllegalStateException("branches == null");
+                        if (ml2.e) {
+                            throw this.c;
+                        }
+                        return null;
+                    }
+                    for (nl2 nl2Var : list) {
+                        if (!ol2.c(this.a.f(), nl2Var.e)) {
+                            this.c = new IllegalStateException("branch valueType error");
+                            if (ml2.e) {
+                                throw this.c;
+                            }
+                            return null;
+                        }
+                    }
+                    return new ml2(this);
+                }
+            }
+            return (ml2) invokeV.objValue;
+        }
+
+        public a c(@NonNull ol2 ol2Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ol2Var)) == null) {
+                this.a = ol2Var;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
     }
 
-    public static Boolean c(boolean z) {
-        InterceptResult invokeZ;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755495522, "Lcom/repackage/ml2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755495522, "Lcom/repackage/ml2;");
+                return;
+            }
+        }
+        e = rf1.a;
+    }
+
+    public ml2(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            Boolean bool = (Boolean) nl2.c().b("getNightModeStateCache");
-            if (bool == null) {
-                return Boolean.valueOf(bk2.M().a());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (z) {
-                nl2.c().e("getNightModeStateCache");
-            }
-            return bool;
         }
-        return (Boolean) invokeZ.objValue;
+        this.c = Boolean.FALSE;
+        this.a = aVar.a;
+        this.b = aVar.b;
     }
 
-    public static List<ie3.a> d() {
+    @Nullable
+    public synchronized nl2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            List<ie3.a> list = (List) nl2.c().b("getStorageListCache");
-            if (list == null) {
-                List<ie3.a> d = ie3.d();
-                nl2.c().d("getStorageListCache", d);
-                return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.c.booleanValue()) {
+                    return this.d;
+                }
+                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
+                this.c = Boolean.TRUE;
+                for (int i = 0; i < this.b.size(); i++) {
+                    nl2 nl2Var = this.b.get(i);
+                    currentTimeMillis -= nl2Var.c();
+                    if (currentTimeMillis < 0) {
+                        this.d = nl2Var;
+                        return nl2Var;
+                    }
+                }
+                return null;
             }
-            return list;
         }
-        return (List) invokeV.objValue;
+        return (nl2) invokeV.objValue;
     }
 
-    public static void e(Boolean bool) {
+    @NonNull
+    public ol2 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
-            nl2.c().d("getNightModeStateCache", bool);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ol2) invokeV.objValue;
     }
 }

@@ -1,20 +1,19 @@
 package com.repackage;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ClassForumInfo;
-import tbclient.GetVerticalForumList.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class pp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<np7> a;
+    public boolean a;
+    public int b;
 
     public pp7() {
         Interceptable interceptable = $ic;
@@ -30,26 +29,33 @@ public class pp7 {
         }
     }
 
-    public void a(DataRes dataRes) {
+    public static pp7 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        if (dataRes.class_foruminfo != null) {
-            this.a = new ArrayList();
-            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
-                np7 np7Var = new np7();
-                np7Var.b = classForumInfo.class_id;
-                np7Var.c = classForumInfo.class_name;
-                np7Var.d = classForumInfo.class_icon;
-                ArrayList arrayList = new ArrayList();
-                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
-                    arrayList.add(new tp7(recommendForumInfo, false));
-                }
-                np7Var.a = arrayList;
-                this.a.add(np7Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                pp7 pp7Var = new pp7();
+                pp7Var.a = jSONObject.optBoolean("show", false);
+                pp7Var.b = jSONObject.optInt("position", -1);
+                return pp7Var;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
         }
-        Page page = dataRes.page;
+        return (pp7) invokeL.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "{\"show\":" + this.a + ",\"position\":" + this.b + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

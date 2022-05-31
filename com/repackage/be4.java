@@ -1,6 +1,6 @@
 package com.repackage;
 
-import android.content.SharedPreferences;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,9 +9,9 @@ public class be4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SharedPreferences a() {
-        InterceptResult invokeV;
+    public static boolean a(View view2, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new dh4("key_pms_sp_name") : (SharedPreferences) invokeV.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, view2, i)) == null) ? view2.canScrollVertically(i) : invokeLI.booleanValue;
     }
 }

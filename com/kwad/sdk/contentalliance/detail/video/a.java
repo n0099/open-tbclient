@@ -82,8 +82,8 @@ public class a {
             com.kwad.sdk.core.d.a.c(a.this.a, "onCompletion ——> STATE_COMPLETED");
         }
     };
-    public c.InterfaceC0306c z = new c.InterfaceC0306c() { // from class: com.kwad.sdk.contentalliance.detail.video.a.4
-        @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0306c
+    public c.InterfaceC0307c z = new c.InterfaceC0307c() { // from class: com.kwad.sdk.contentalliance.detail.video.a.4
+        @Override // com.kwad.sdk.core.video.kwai.c.InterfaceC0307c
         public boolean a(com.kwad.sdk.core.video.kwai.c cVar, int i, int i2) {
             if (i != -38) {
                 a.this.e = -1;
@@ -175,10 +175,10 @@ public class a {
 
     /* renamed from: com.kwad.sdk.contentalliance.detail.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C0291a extends TimerTask {
+    public static class C0292a extends TimerTask {
         public WeakReference<a> a;
 
-        public C0291a(a aVar) {
+        public C0292a(a aVar) {
             this.a = new WeakReference<>(aVar);
         }
 
@@ -297,7 +297,7 @@ public class a {
         if (cVar == null) {
             return;
         }
-        cVar.a((c.InterfaceC0306c) null);
+        cVar.a((c.InterfaceC0307c) null);
         this.f.a((c.b) null);
         this.f.a((c.e) null);
         this.f.a((c.h) null);
@@ -319,9 +319,9 @@ public class a {
             this.i = new Timer("ksad-DetailPlayer-timer" + d.getAndIncrement());
         }
         if (this.j == null) {
-            C0291a c0291a = new C0291a(this);
-            this.j = c0291a;
-            this.i.schedule(c0291a, 0L, 500L);
+            C0292a c0292a = new C0292a(this);
+            this.j = c0292a;
+            this.i.schedule(c0292a, 0L, 500L);
         }
     }
 

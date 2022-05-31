@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.gf;
-import com.repackage.rb8;
+import com.repackage.y88;
 /* loaded from: classes3.dex */
 public class UpdateInfoService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
@@ -102,9 +102,9 @@ public class UpdateInfoService extends BdBaseService {
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) && i == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                rb8.e().j(String.valueOf(longitude));
-                rb8.e().i(String.valueOf(latitude));
-                rb8.e().k(System.currentTimeMillis());
+                y88.e().j(String.valueOf(longitude));
+                y88.e().i(String.valueOf(latitude));
+                y88.e().k(System.currentTimeMillis());
                 if (this.a.mModel.z() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     this.a.mModel.B(1, longitude, latitude);
                     this.a.mModel.C();

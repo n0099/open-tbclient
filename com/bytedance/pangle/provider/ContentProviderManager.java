@@ -210,17 +210,17 @@ public class ContentProviderManager {
         return (ContentProviderManager) invokeV.objValue;
     }
 
-    private void installProvider(ProviderInfo providerInfo, Plugin plugin2) {
+    private void installProvider(ProviderInfo providerInfo, Plugin plugin) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, providerInfo, plugin2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65539, this, providerInfo, plugin) == null) {
             if (providerInfo == null) {
-                ZeusLogger.e(ZeusLogger.TAG_PROVIDER, "ProviderInfo is null !! can not install plugin provider ， plugin-mPkgName：【" + plugin2.mPkgName + "】");
+                ZeusLogger.e(ZeusLogger.TAG_PROVIDER, "ProviderInfo is null !! can not install plugin provider ， plugin-mPkgName：【" + plugin.mPkgName + "】");
                 return;
             }
             ZeusLogger.v(ZeusLogger.TAG_PROVIDER, "Start install plugin provider [authority:" + providerInfo.authority + "] [className:" + providerInfo.name + PreferencesUtil.RIGHT_MOUNT);
             try {
-                PluginContentProvider instantiateProvider = instantiateProvider(plugin2.mClassLoader, providerInfo.name);
-                instantiateProvider.attachInfo(ZeusTransformUtils.wrapperContext(plugin2.mHostApplication, plugin2.mPkgName), providerInfo);
+                PluginContentProvider instantiateProvider = instantiateProvider(plugin.mClassLoader, providerInfo.name);
+                instantiateProvider.attachInfo(ZeusTransformUtils.wrapperContext(plugin.mHostApplication, plugin.mPkgName), providerInfo);
                 ZeusLogger.v(ZeusLogger.TAG_PROVIDER, "Install plugin provider finish and invoke plugin provider attachInfo(onCreate) method finish [className:" + providerInfo.name + PreferencesUtil.RIGHT_MOUNT);
                 b bVar = new b(providerInfo.packageName, providerInfo.processName, providerInfo.authority);
                 this.mContentProviderMap.put(bVar, new a(bVar, providerInfo, instantiateProvider));
@@ -314,9 +314,9 @@ public class ContentProviderManager {
         return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048586, this, contentResolver, uri, contentValues, str)) == null) ? com.bytedance.pangle.provider.a.a(contentResolver, uri, contentValues, str) : (Uri) invokeLLLL.objValue;
     }
 
-    public void installContentProviders(Collection<ProviderInfo> collection, Plugin plugin2) {
+    public void installContentProviders(Collection<ProviderInfo> collection, Plugin plugin) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048587, this, collection, plugin2) == null) || collection == null || collection.size() == 0 || plugin2 == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048587, this, collection, plugin) == null) || collection == null || collection.size() == 0 || plugin == null) {
             return;
         }
         for (ProviderInfo providerInfo : collection) {
@@ -329,7 +329,7 @@ public class ContentProviderManager {
                 sb.append(PreferencesUtil.RIGHT_MOUNT);
                 ZeusLogger.v(ZeusLogger.TAG_PROVIDER, sb.toString());
             }
-            installProvider(providerInfo, plugin2);
+            installProvider(providerInfo, plugin);
         }
     }
 

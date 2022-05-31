@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fs;
+import com.repackage.sq;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
@@ -31,7 +31,7 @@ public final class b {
         }
     }
 
-    public final Function2<Function1<? super fs, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super fs, Unit>, Function1<fs, Unit>>> a() {
+    public final Function2<Function1<? super sq, Unit>, Function0<com.baidu.bdtask.ctrl.b>, Function1<Function1<? super sq, Unit>, Function1<sq, Unit>>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TaskNoClickTimesCleanMiddleWare$taskNoClickTimesCleanMiddleWare$1.INSTANCE : (Function2) invokeV.objValue;

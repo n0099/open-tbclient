@@ -1,68 +1,168 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ze0 {
+public final class ze0 extends vk0 {
     public static /* synthetic */ Interceptable $ic;
-    public static le0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public long b;
-        public int c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public boolean j;
-        public boolean k;
-        public boolean l;
-        public int m;
-        public int n;
-        public JSONObject o;
-        public JSONObject p;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ long c;
+        public final /* synthetic */ String d;
 
-        public a() {
+        public a(long j, long j2, long j3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = j;
+            this.b = j2;
+            this.c = j3;
+            this.d = str;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a < bf0.c()) {
+                    bf0.z();
+                } else if (bf0.f()) {
+                    return;
+                } else {
+                    bf0.h(this.b, this.c, this.d);
+                }
+                bf0.g(this.b, "boot_from_cold", this.c, this.d);
             }
         }
     }
 
-    public static void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, jSONObject) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.putOpt("sdk_version", Integer.valueOf(ie0.h()));
-                if (jSONObject2.length() > 0) {
-                    jSONObject2.put("debug_info", jSONObject);
+    /* loaded from: classes7.dex */
+    public static final class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ String c;
+
+        public b(long j, long j2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-            le0 le0Var = a;
-            if (le0Var != null) {
-                le0Var.report(str, jSONObject2);
+            this.a = j;
+            this.b = j2;
+            this.c = str;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                bf0.g(this.a, "boot_from_background", this.b, this.c);
             }
+        }
+    }
+
+    public ze0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.repackage.vk0, com.repackage.yk0
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (TextUtils.equals(activity.getLocalClassName(), "MainActivity")) {
+                if (!bf0.d()) {
+                    bf0.l();
+                    return;
+                }
+                String i = bf0.i();
+                long j2 = bf0.j();
+                a aVar = new a(System.currentTimeMillis() - j2, j2, System.currentTimeMillis(), i);
+                Handler handler = new Handler();
+                j = af0.a;
+                handler.postDelayed(aVar, j);
+            }
+        }
+    }
+
+    @Override // com.repackage.vk0, com.repackage.yk0
+    public void onBackgroundToForeground(Activity activity) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            if (!bf0.d()) {
+                bf0.l();
+            } else if (TextUtils.equals(activity.getLocalClassName(), bf0.k())) {
+                String i = bf0.i();
+                long j2 = bf0.j();
+                long currentTimeMillis = System.currentTimeMillis();
+                if (System.currentTimeMillis() - j2 < bf0.c()) {
+                    bf0.z();
+                    bf0.y();
+                }
+                b bVar = new b(j2, currentTimeMillis, i);
+                Handler handler = new Handler();
+                j = af0.a;
+                handler.postDelayed(bVar, j);
+            }
+        }
+    }
+
+    @Override // com.repackage.vk0, com.repackage.yk0
+    public void onForegroundToBackground(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            Intrinsics.checkNotNullParameter(activity, "activity");
+            bf0.w(activity);
         }
     }
 }

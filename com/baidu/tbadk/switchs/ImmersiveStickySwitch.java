@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iu4;
 import com.repackage.xe;
+import com.repackage.ys4;
 /* loaded from: classes3.dex */
 public class ImmersiveStickySwitch extends xe {
     public static /* synthetic */ Interceptable $ic = null;
@@ -35,9 +35,9 @@ public class ImmersiveStickySwitch extends xe {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i == 1) {
-                iu4.k().u("switch_immersive_sticky_status", true);
+                ys4.k().u("switch_immersive_sticky_status", true);
             } else {
-                iu4.k().u("switch_immersive_sticky_status", false);
+                ys4.k().u("switch_immersive_sticky_status", false);
             }
         }
     }

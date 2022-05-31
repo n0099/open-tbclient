@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.faceunity.gles.GeneratedTexture;
-import com.repackage.va9;
+import com.repackage.p79;
 /* loaded from: classes4.dex */
 public class TransOesTo2dHelper {
     public static /* synthetic */ Interceptable $ic;
@@ -89,7 +89,7 @@ public class TransOesTo2dHelper {
                 Matrix.setIdentityM(fArr, 0);
             } catch (Exception e) {
                 release();
-                va9.g(e);
+                p79.g(e);
             }
             return this.mTexture2DId;
         }

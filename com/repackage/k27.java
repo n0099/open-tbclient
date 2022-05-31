@@ -1,36 +1,25 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.afx.callback.ErrorInfo;
+import com.baidu.searchbox.afx.callback.OnVideoErrorListener;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Random;
+/* compiled from: lambda */
 /* loaded from: classes6.dex */
-public final class k27 {
+public final /* synthetic */ class k27 implements OnVideoErrorListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final Random a;
+    public static final /* synthetic */ k27 a = new k27();
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755610687, "Lcom/repackage/k27;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755610687, "Lcom/repackage/k27;");
-                return;
-            }
-        }
-        a = new Random();
+    private /* synthetic */ k27() {
     }
 
-    public static int a(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.baidu.searchbox.afx.callback.OnVideoErrorListener
+    public final boolean onError(ErrorInfo errorInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) ? i >= i2 ? i : (int) ((a.nextFloat() * (i2 - i)) + i) : invokeII.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, errorInfo)) == null) ? ImEmojiUtil.f = false : invokeL.booleanValue;
     }
 }

@@ -1,24 +1,25 @@
 package com.repackage;
 
 import android.content.Context;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
-import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
+import com.baidu.android.imsdk.internal.IMHttpDnsUrlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.daemon.HttpDnsCacheForHost;
+import com.repackage.t60;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class i70 implements g70, h70 {
+public class i70 extends f70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public t60.d b;
 
     public i70(Context context) {
         Interceptable interceptable = $ic;
@@ -35,104 +36,109 @@ public final class i70 implements g70, h70 {
                 return;
             }
         }
+        this.b = null;
         this.a = context;
     }
 
-    @Override // com.repackage.g70
-    public final String a() {
-        InterceptResult invokeV;
-        Integer num;
+    public void a(t60.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str = e70.d().c() != l70.a ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox" : "https://tcbox.baidu.com/ztbox";
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            sb.append("?");
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append("action=zubc");
-            sb2.append("&appname=imsdk");
-            sb2.append("&uid=");
-            sb2.append(e70.d().a());
-            sb2.append("&ua=");
-            Context context = this.a;
-            DisplayMetrics a = q70.a(context);
-            int i = a != null ? a.widthPixels : 0;
-            DisplayMetrics a2 = q70.a(context);
-            int i2 = a2 != null ? a2.heightPixels : 0;
-            DisplayMetrics a3 = q70.a(context);
-            int i3 = a3 != null ? a3.densityDpi : 0;
-            sb2.append(i + "_" + i2 + "_android_" + q70.b(context) + "_" + i3);
-            sb2.append("&ut=");
-            String str2 = Build.MODEL;
-            String replace = TextUtils.isEmpty(str2) ? "NUL" : str2.replace("_", "-");
-            String str3 = Build.VERSION.RELEASE;
-            String replace2 = TextUtils.isEmpty(str3) ? "0.0" : str3.replace("_", "-");
-            int i4 = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            sb2.append(replace + "_" + replace2 + "_" + i4 + "_" + (TextUtils.isEmpty(str4) ? "NUL" : str4.replace("_", "-")));
-            sb2.append("&network=");
-            o70 o70Var = new o70(this.a);
-            boolean isEmpty = TextUtils.isEmpty(o70Var.a);
-            String str5 = NetworkParam.NET_TYPE_ID_DISCONNECT;
-            if (!isEmpty && (num = o70.c.get(o70Var.a)) != null) {
-                str5 = num + "_" + o70Var.b;
-            }
-            if (str5 == null) {
-                str5 = "unknown";
-            }
-            sb2.append(str5);
-            sb2.append("&appversion=");
-            sb2.append(q70.b(this.a));
-            if (e70.d().c() != l70.a) {
-                sb2.append("&debug=1");
-            }
-            sb.append(sb2.toString());
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.h70
-    public final void a(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
-            String str = new String(bArr);
-            n70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            this.b = dVar;
         }
     }
 
-    @Override // com.repackage.g70
-    public final String b() {
+    @Override // com.repackage.h70.b
+    public Map<String, String> getHeaders() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.h70
-    public final void b(int i, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
-            String str = new String(bArr);
-            n70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
-        }
-    }
-
-    @Override // com.repackage.g70
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "application/octet-stream" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.g70
-    public final Map<String, String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put(BaseContentUploader.NB, "1");
+            hashMap.put("Host", IMHttpDnsUrlRequest.HTTP_DNS_HOST);
             return hashMap;
         }
         return (Map) invokeV.objValue;
+    }
+
+    @Override // com.repackage.h70.b
+    public String getHost() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? IMHttpDnsUrlRequest.HTTP_DNS_URL : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.h70.b
+    public String getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.f70, com.repackage.h70.b
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.h70.b
+    public byte[] getRequestParameter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ("type=ipv4,ipv6&dn=" + x60.S(this.a).x).getBytes();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.repackage.h70.d
+    public void onFailure(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
+            o70.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
+            t60.f(true);
+            t60.c(this.a).b(x60.S(this.a).x, this.b);
+        }
+    }
+
+    @Override // com.repackage.h70.d
+    public void onSuccess(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            String str = new String(bArr);
+            o70.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + x60.S(this.a).x + " is " + str);
+            try {
+                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(x60.S(this.a).x);
+                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray(HttpDnsCacheForHost.JSON_KEY_IPV6);
+                int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
+                int length2 = optJSONArray == null ? 0 : optJSONArray.length();
+                if (length2 + length > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONArray != null && length2 > 0) {
+                        arrayList.add(optJSONArray.getString(0));
+                    }
+                    if (optJSONArray2 != null && length > 0) {
+                        arrayList.add(optJSONArray2.getString(0));
+                    }
+                    t60.j(arrayList);
+                    if (this.b == null || t60.c.size() <= 0) {
+                        return;
+                    }
+                    this.b.a(0, "ok", t60.c.get(0));
+                    if (t60.c.size() > 1) {
+                        t60.d++;
+                        return;
+                    }
+                    return;
+                }
+                o70.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
+                t60.f(true);
+                t60.c(this.a).b(x60.S(this.a).x, this.b);
+            } catch (Exception e) {
+                o70.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
+                t60.f(true);
+                t60.c(this.a).b(x60.S(this.a).x, this.b);
+            }
+        }
     }
 }

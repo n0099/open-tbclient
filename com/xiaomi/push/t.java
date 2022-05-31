@@ -52,7 +52,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Context m675a() {
+    public static Context m674a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Context) invokeV.objValue;
@@ -75,7 +75,7 @@ public class t {
             try {
                 return Class.forName(str);
             } catch (ClassNotFoundException e) {
-                com.xiaomi.channel.commonutils.logger.b.m109a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e.getLocalizedMessage()));
+                com.xiaomi.channel.commonutils.logger.b.m108a(String.format("loadClass fail hasContext= %s, errMsg = %s", Boolean.valueOf(z), e.getLocalizedMessage()));
                 throw new ClassNotFoundException("loadClass fail ", e);
             }
         }
@@ -83,7 +83,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized String m676a() {
+    public static synchronized String m675a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
@@ -116,7 +116,7 @@ public class t {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (l.m577b()) {
+            if (l.m576b()) {
                 return "";
             }
             String str = (String) bh.a("com.xiaomi.xmsf.helper.MIIDAccountHelper", "getMIID", context);
@@ -126,7 +126,7 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m677a(Context context) {
+    public static void m676a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             a = context.getApplicationContext();
@@ -134,14 +134,14 @@ public class t {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m678a() {
+    public static boolean m677a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? TextUtils.equals((String) bh.a("android.os.SystemProperties", SharedPreferenceManager.OPERATION_GET_PERFIX, "sys.boot_completed"), "1") : invokeV.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m679a(Context context) {
+    public static boolean m678a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -167,7 +167,7 @@ public class t {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m680b() {
+    public static boolean m679b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {

@@ -1,141 +1,232 @@
 package com.repackage;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.template.adapter.stats.StatsType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class d95 extends k95 {
+public abstract class d95<T, V extends TypeAdapter.ViewHolder> extends wm<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int i;
+    public boolean j;
+    public TbPageContext<?> k;
+    public pn l;
+    public kl4 m;
+    public q95 n;
 
-    public d95() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d95(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext == null ? null : tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.k95
-    public void b(g95 g95Var) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, g95Var) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            sg a = i95.a();
-            a.b("action", "time_t");
-            f(a, g95Var);
-            a.b("ishttp", g95Var.s ? "1" : "0");
-            a.b("issuccess", g95Var.b ? "1" : "0");
-            a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            a.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(g95Var.e));
-            a.b("wt", String.valueOf(g95Var.p));
-            a.b("qt", String.valueOf(g95Var.f));
-            a.b("connt", String.valueOf(g95Var.g));
-            a.b("rwt", String.valueOf(g95Var.h));
-            a.b("dect", String.valueOf(g95Var.k));
-            a.b("parset", String.valueOf(g95Var.l));
-            a.b("rendert", String.valueOf(g95Var.o));
-            a.b("ss", String.valueOf(g95Var.q));
-            a.b("hs", String.valueOf(g95Var.r));
-            if (g95Var.s && (i = g95Var.t) != 0) {
-                a.b("salno", String.valueOf(i));
-                long j = g95Var.u;
-                if (j != 0) {
-                    a.b("scosttime", String.valueOf(j));
-                }
-            }
-            int i2 = g95Var.v;
-            if (i2 != 0) {
-                a.c("errcode", Integer.valueOf(i2));
-            }
-            if (g95Var.s) {
-                a.b("c_logid", String.valueOf(g95Var.A));
-            } else {
-                a.b("seq_id", String.valueOf(g95Var.z & 4294967295L));
-            }
-            BdStatisticsManager.getInstance().performance(this.a, a);
-        }
-    }
-
-    @Override // com.repackage.k95
-    public void c(g95 g95Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g95Var, i) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow() && g95Var.D > 0) {
-            sg a = i95.a();
-            a.b("action", "time_t");
-            f(a, g95Var);
-            a.b("pct", String.valueOf(g95Var.D));
-            if (i == 0) {
-                a.b("pct_type", String.valueOf(100));
-            } else if (i != 40) {
                 return;
-            } else {
-                a.b("pct_type", String.valueOf(101));
             }
-            BdStatisticsManager.getInstance().performance(this.a, a);
+        }
+        this.i = 0;
+        this.j = true;
+        n(tbPageContext, tbPageContext != null ? tbPageContext.getUniqueId() : null);
+    }
+
+    public void Z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.i = i | this.i;
         }
     }
 
-    @Override // com.repackage.k95
-    public void d(g95 g95Var, boolean z) {
-        int i;
+    public final void a0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, g95Var, z) == null) && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            if (!z || g95Var.B > 0) {
-                if (z || g95Var.C > 0) {
-                    sg a = i95.a();
-                    a.b("action", "time_t");
-                    f(a, g95Var);
-                    if (z) {
-                        a.b(SharedPreferenceManager.OPERATION_PUT_PERFIX, String.valueOf(g95Var.B));
-                    } else {
-                        a.b("pdt", String.valueOf(g95Var.C));
-                    }
-                    a.b("ishttp", g95Var.s ? "1" : "0");
-                    a.b("issuccess", g95Var.b ? "1" : "0");
-                    a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-                    a.b("qt", String.valueOf(g95Var.f));
-                    a.b("connt", String.valueOf(g95Var.g));
-                    a.b("rwt", String.valueOf(g95Var.h));
-                    a.b("dect", String.valueOf(g95Var.k));
-                    a.b("parset", String.valueOf(g95Var.l));
-                    a.b("rendert", String.valueOf(g95Var.o));
-                    a.b("ss", String.valueOf(g95Var.q));
-                    a.b("hs", String.valueOf(g95Var.r));
-                    if (g95Var.s && (i = g95Var.t) != 0) {
-                        a.b("salno", String.valueOf(i));
-                        long j = g95Var.u;
-                        if (j != 0) {
-                            a.b("scosttime", String.valueOf(j));
-                        }
-                    }
-                    int i2 = g95Var.v;
-                    if (i2 != 0) {
-                        a.c("errcode", Integer.valueOf(i2));
-                    }
-                    BdStatisticsManager.getInstance().performance(this.a, a);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.n == null) {
+            this.n = new q95(this.l);
         }
     }
 
-    public final void f(sg sgVar, g95 g95Var) {
+    public void b0(View view2, om4 om4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, sgVar, g95Var) == null) && (g95Var instanceof c95)) {
-            sgVar.c("ptype", Integer.valueOf(((c95) g95Var).F));
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, om4Var) == null) || om4Var == null) {
+            return;
+        }
+        kl4 kl4Var = this.m;
+        if (kl4Var != null) {
+            int i = om4Var.position;
+            kl4Var.a(view2, om4Var, i, i);
+            return;
+        }
+        s95.a(new r95(StatsType.CLICK, om4Var, view2, this.e));
+    }
+
+    public int c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            a0();
+            return this.n.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public int d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            a0();
+            return this.n.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            a0();
+            return this.n.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            a0();
+            return this.n.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            a0();
+            return this.n.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            a0();
+            return this.n.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String i0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            a0();
+            return this.n.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            a0();
+            return this.n.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            a0();
+            return this.n.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean l0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j : invokeV.booleanValue;
+    }
+
+    public boolean m0(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? (i & this.i) > 0 : invokeI.booleanValue;
+    }
+
+    public void n(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048590, this, tbPageContext, bdUniqueId) == null) || tbPageContext == null) {
+            return;
+        }
+        this.a = tbPageContext.getPageActivity();
+        this.k = tbPageContext;
+        this.e = bdUniqueId;
+    }
+
+    public void n0(q95 q95Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, q95Var) == null) {
+            this.n = q95Var;
+        }
+    }
+
+    public void o0(kl4 kl4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, kl4Var) == null) {
+            this.m = kl4Var;
+        }
+    }
+
+    public void p0(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
+            this.e = bdUniqueId;
+        }
+    }
+
+    public void q0(pn pnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, pnVar) == null) {
+            this.l = pnVar;
+        }
+    }
+
+    public void r0(View view2, om4 om4Var, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{view2, om4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || om4Var == null) {
+            return;
+        }
+        kl4 kl4Var = this.m;
+        if (kl4Var != null) {
+            kl4Var.c(view2, om4Var, om4Var.position, j);
+        } else {
+            s95.a(new r95(StatsType.SHOW, om4Var, view2, this.e));
         }
     }
 }

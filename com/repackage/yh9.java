@@ -1,14 +1,18 @@
 package com.repackage;
 
-import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.ar.core.AugmentedFace;
+import com.google.ar.core.Session;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class yh9 extends th9 {
+public final class yh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<Long, AugmentedFace> a;
 
     public yh9() {
         Interceptable interceptable = $ic;
@@ -20,13 +24,26 @@ public abstract class yh9 extends th9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new com.google.ar.core.j(1, 0.75f, true);
     }
 
-    public abstract void c(long j);
-
-    public abstract void d(ViewGroup viewGroup);
-
-    public abstract void e(ii9 ii9Var);
+    public final synchronized AugmentedFace a(long j, Session session) {
+        InterceptResult invokeJL;
+        AugmentedFace augmentedFace;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, session)) == null) {
+            synchronized (this) {
+                augmentedFace = this.a.get(Long.valueOf(j));
+                if (augmentedFace == null) {
+                    augmentedFace = new AugmentedFace(j, session);
+                    this.a.put(Long.valueOf(j), augmentedFace);
+                }
+            }
+            return augmentedFace;
+        }
+        return (AugmentedFace) invokeJL.objValue;
+    }
 }

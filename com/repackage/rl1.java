@@ -1,19 +1,16 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.view.View;
+import com.repackage.ol1;
 /* loaded from: classes7.dex */
-public interface rl1 {
-    void a(String str);
+public interface rl1<T extends ol1> extends pl1<T> {
+    void K();
 
-    void b();
+    boolean e();
 
-    void c(String str);
+    void i(boolean z);
 
-    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable rl2 rl2Var);
+    void k(View.OnClickListener onClickListener);
 
-    void e(String str);
-
-    void f(String str);
+    void removeFromParent();
 }

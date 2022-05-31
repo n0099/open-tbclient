@@ -1,884 +1,226 @@
 package com.repackage;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.utils.FileUtils;
-import com.google.android.material.badge.BadgeDrawable;
-import com.repackage.sa9;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 /* loaded from: classes6.dex */
-public class q79 extends p79 {
+public class q79 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int h;
-    public int i;
-    public int j;
-    public k79 k;
-    public long l;
-    public boolean m;
-    public boolean n;
-    public l79 o;
-    public boolean p;
-    public boolean q;
-    public m79 r;
 
-    /* loaded from: classes6.dex */
-    public class a implements sa9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ q79 b;
-
-        public a(q79 q79Var, StringBuilder sb) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q79Var, sb};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q79Var;
-            this.a = sb;
-        }
-
-        @Override // com.repackage.sa9.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(",createMuteAudio ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                va9.j("FFmpegChain", sb2);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                if (i != 1001 || i2 < 0) {
-                    return false;
-                }
-                va9.j("FFmpegChain", " createMuteAudio 进度i1 = " + i2);
-                q79 q79Var = this.b;
-                q79Var.i((int) (((float) q79Var.i) + (((((float) i2) * 1.0f) / 100.0f) * 10.0f)));
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements sa9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ q79 b;
-
-        public b(q79 q79Var, StringBuilder sb) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q79Var, sb};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q79Var;
-            this.a = sb;
-        }
-
-        @Override // com.repackage.sa9.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(",concatAudio ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                va9.j("FFmpegChain", sb2);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                va9.j("FFmpegChain", " concatMuteAudio 进度i1 = " + i2);
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements sa9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ k79 b;
-        public final /* synthetic */ q79 c;
-
-        public c(q79 q79Var, StringBuilder sb, k79 k79Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q79Var, sb, k79Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = q79Var;
-            this.a = sb;
-            this.b = k79Var;
-        }
-
-        @Override // com.repackage.sa9.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.c) {
-                    this.c.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(",dealAudioPlayData ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                k79 k79Var = this.b;
-                if (k79Var != null && k79Var.a() != null) {
-                    this.a.append(",audioformat:");
-                    this.a.append(this.b.a().f());
-                    this.a.append(",audiopath:");
-                    this.a.append(this.b.a().h());
-                }
-                va9.j("FFmpegChain", sb2);
-                synchronized (this.c) {
-                    this.c.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                if (i != 1001 || i2 < 0) {
-                    return false;
-                }
-                va9.j("FFmpegChain", " dealAudioPlayData 进度i1 = " + i2);
-                q79 q79Var = this.c;
-                q79Var.i(q79Var.i + ((int) ((((((float) (this.c.j + (-1))) + ((((float) i2) * 1.0f) / 100.0f)) * 1.0f) / ((float) this.c.h)) * 60.0f)));
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements sa9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ q79 b;
-
-        public d(q79 q79Var, StringBuilder sb) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q79Var, sb};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q79Var;
-            this.a = sb;
-        }
-
-        @Override // com.repackage.sa9.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("concatAudio ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                va9.j("FFmpegChain", sb2);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                if (i != 1001 || i2 < 0) {
-                    return false;
-                }
-                va9.j("FFmpegChain", " concatAudio 进度i1 = " + i2);
-                q79 q79Var = this.b;
-                q79Var.i((int) (((float) q79Var.i) + (((((float) i2) * 1.0f) / 100.0f) * 10.0f)));
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements sa9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ StringBuilder a;
-        public final /* synthetic */ q79 b;
-
-        public e(q79 q79Var, StringBuilder sb) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q79Var, sb};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = q79Var;
-            this.a = sb;
-        }
-
-        @Override // com.repackage.sa9.a
-        public void onCompletion() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onError(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("mixAudio ffmpegerror:");
-                sb.append(i);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(i2);
-                sb.append(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
-                sb.append(obj != null ? obj.toString() : "");
-                String sb2 = sb.toString();
-                this.a.append(sb2);
-                va9.j("FFmpegChain", sb2);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-
-        @Override // com.repackage.sa9.a
-        public boolean onInfo(int i, int i2, Object obj) {
-            InterceptResult invokeIIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                if (i != 1001 || i2 < 0) {
-                    return false;
-                }
-                va9.j("FFmpegChain", " mixAudio 进度i1 = " + i2);
-                q79 q79Var = this.b;
-                q79Var.i((int) (((float) q79Var.i) + (((((float) i2) * 1.0f) / 100.0f) * 20.0f)));
-                return false;
-            }
-            return invokeIIL.booleanValue;
-        }
-    }
-
-    public q79() {
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (j89.a(str)) {
+                return null;
             }
+            byte[] decode = Base64.decode(str, 0);
+            return BitmapFactory.decodeByteArray(decode, 0, decode.length);
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public final void A() {
-        String str;
-        String a2;
-        l79 l79Var;
-        k79 k79Var;
-        l79 l79Var2;
+    public static int b(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            k79 k79Var2 = this.k;
-            boolean z = k79Var2 != null && k79Var2.c();
-            if (!z && ((l79Var2 = this.o) == null || !FileUtils.isExists(l79Var2.h()))) {
-                g("nosource to create mute audio");
-                return;
-            }
-            if (z && (l79Var = this.o) != null && (k79Var = this.k) != null && !l79Var.equals(k79Var.a())) {
-                z = false;
-            }
-            StringBuilder sb = new StringBuilder();
-            str = "";
-            if (!z) {
-                try {
-                } catch (Throwable th) {
-                    sb.append(th.getMessage());
-                }
-                if (this.o == null) {
-                    return;
-                }
-                str = a(this.o.h(), "_mute.aac");
-                k99.l(this.o.h(), str, -1, -1, 0.0f, -1, 0.0f, -1.0f, false, new a(this, sb));
-                try {
-                    synchronized (this) {
-                        wait();
-                    }
-                } catch (InterruptedException e2) {
-                    sb.append(e2.getMessage());
-                }
-                if (FileUtils.isExists(a2) && TextUtils.isEmpty(sb.toString())) {
-                    va9.j("FFmpegChain", "createconcatMuteAudio 生成成功");
-                    this.k = new k79(new AudioPlayData(a2, 0, -1, 1.0f));
-                    return;
-                }
-                g(sb.toString());
-            }
-            k79 k79Var3 = this.k;
-            str = k79Var3 != null ? k79Var3.a().h() : "";
-            i(this.i + 10);
-            if (FileUtils.isExists(str) && TextUtils.isEmpty(sb.toString())) {
-                va9.j("FFmpegChain", "createMuteAudio 生成成功");
-                k79 k79Var4 = new k79(new AudioPlayData(str, 0, -1, 1.0f));
-                this.k = k79Var4;
-                if (k79Var4.a() == null || this.k.a().e() <= 0) {
-                    return;
-                }
-                long e3 = this.k.a().e();
-                long j = this.l;
-                if (e3 >= j) {
-                    return;
-                }
-                int e4 = (int) ((j / this.k.a().e()) + 1);
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < e4; i++) {
-                    arrayList.add(str);
-                }
-                a2 = a(str, "_concat.aac");
-                k99.b(arrayList, a2, this.g, new b(this, sb), false, true);
-                try {
-                } catch (InterruptedException e5) {
-                    sb.append(e5.getMessage());
-                }
-                synchronized (this) {
-                    wait();
-                    if (FileUtils.isExists(a2)) {
-                        va9.j("FFmpegChain", "createconcatMuteAudio 生成成功");
-                        this.k = new k79(new AudioPlayData(a2, 0, -1, 1.0f));
-                        return;
-                    }
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 > i2 && i7 / i5 > i) {
+                    i5 *= 2;
                 }
             }
-            g(sb.toString());
+            return i5;
         }
+        return invokeLII.intValue;
     }
 
-    public final void B(m79 m79Var) {
+    public static Bitmap c(Bitmap bitmap, Bitmap.CompressFormat compressFormat, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m79Var) == null) {
-            if (m79Var == null || ab9.e(m79Var.c())) {
-                g("concatAudio tempDataForOutPut data error");
-                return;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bitmap, compressFormat, i)) == null) {
+            if (bitmap == null) {
+                return null;
             }
-            List<o79> c2 = m79Var.c();
-            StringBuilder sb = new StringBuilder();
-            for (o79 o79Var : c2) {
-                if (!ab9.e(o79Var.a())) {
-                    ArrayList arrayList = new ArrayList();
-                    for (k79 k79Var : o79Var.a()) {
-                        if (k79Var.b() != null) {
-                            arrayList.add(k79Var.b().audioPath);
-                        }
-                    }
-                    if (!ab9.e(arrayList)) {
-                        String str = this.g;
-                        if (TextUtils.isEmpty(str)) {
-                            str = FileUtils.getParentDir((String) arrayList.get(0));
-                        }
-                        String str2 = str + System.currentTimeMillis() + "_trackconcat.aac";
-                        k99.b(arrayList, str2, this.g, new d(this, sb), false, true);
-                        try {
-                            synchronized (this) {
-                                wait();
-                            }
-                        } catch (InterruptedException e2) {
-                            sb.append(e2.getMessage());
-                        }
-                        if (FileUtils.isExists(str2) && TextUtils.isEmpty(sb.toString())) {
-                            va9.j("FFmpegChain", "concatAudio 生成成功");
-                            k79 k79Var2 = new k79(new AudioPlayData(str2, 0, -1, 1.0f));
-                            o79Var.a().clear();
-                            o79Var.a().add(k79Var2);
-                        } else {
-                            g(sb.toString());
-                        }
-                    }
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(compressFormat, i, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+        }
+        return (Bitmap) invokeLLI.objValue;
+    }
+
+    public static Bitmap d(Bitmap bitmap, int i, int i2, int i3, int i4, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, i, i2, i3, i4);
+            if (z && bitmap != null && !bitmap.equals(createBitmap) && !bitmap.isRecycled()) {
+                bitmap.recycle();
+            }
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Bitmap e(String str, int i, int i2, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)})) == null) {
+            if (FileUtils.isExists(str)) {
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inJustDecodeBounds = true;
+                BitmapFactory.decodeFile(str, options);
+                options.inSampleSize = b(options, i, i2);
+                options.inJustDecodeBounds = false;
+                Bitmap decodeFile = BitmapFactory.decodeFile(str, options);
+                if (f % 360.0f == 0.0f) {
+                    return decodeFile;
                 }
-            }
-        }
-    }
-
-    public final void C(m79 m79Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m79Var) == null) {
-            if (m79Var == null || ab9.b(m79Var.c()) < 2) {
-                str = "mixAudio tempDataForOutPut data error";
-            } else {
-                List<o79> c2 = m79Var.c();
-                StringBuilder sb = new StringBuilder();
-                ArrayList arrayList = new ArrayList();
-                for (o79 o79Var : c2) {
-                    if (o79Var != null && !ab9.e(o79Var.a())) {
-                        k79 k79Var = o79Var.a().get(0);
-                        if (k79Var.b() != null) {
-                            arrayList.add(k79Var.b().audioPath);
-                        }
-                    }
+                if (decodeFile == null) {
+                    return null;
                 }
-                if (arrayList.size() >= 2) {
-                    String str2 = this.g;
-                    if (TextUtils.isEmpty(str2)) {
-                        str2 = FileUtils.getParentDir((String) arrayList.get(0));
-                    }
-                    String str3 = str2 + System.currentTimeMillis() + "_mix.aac";
-                    k99.k(arrayList, str3, -1, new e(this, sb));
-                    try {
-                        synchronized (this) {
-                            wait();
-                        }
-                    } catch (InterruptedException e2) {
-                        sb.append(e2.getMessage());
-                    }
-                    if (!FileUtils.isExists(str3) || !TextUtils.isEmpty(sb.toString())) {
-                        g(sb.toString());
-                        return;
-                    }
-                    va9.j("FFmpegChain", "mixAudio 生成成功");
-                    k79 k79Var2 = new k79(new AudioPlayData(str3, 0, -1, 1.0f));
-                    ArrayList arrayList2 = new ArrayList();
-                    arrayList2.add(k79Var2);
-                    ArrayList arrayList3 = new ArrayList();
-                    arrayList3.add(new o79(arrayList2));
-                    this.r = new m79(arrayList3);
-                    return;
-                }
-                str = "mixAudio inputList data error";
+                Matrix matrix = new Matrix();
+                matrix.postRotate(f);
+                Bitmap createBitmap = Bitmap.createBitmap(decodeFile, 0, 0, decodeFile.getWidth(), decodeFile.getHeight(), matrix, true);
+                decodeFile.recycle();
+                return createBitmap;
             }
-            g(str);
+            return null;
         }
+        return (Bitmap) invokeCommon.objValue;
     }
 
-    @Override // com.repackage.p79
-    public void b() {
+    public static Bitmap f(String str) {
+        FileInputStream fileInputStream;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f = true;
-            synchronized (this) {
-                notifyAll();
-            }
-            o();
-        }
-    }
-
-    @Override // com.repackage.p79
-    public void d(m79 m79Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m79Var) == null) {
-            if (m79Var == null || ab9.e(m79Var.c())) {
-                g("input data error: null or length=0");
-                return;
-            }
-            this.m = false;
-            this.n = false;
-            this.p = false;
-            this.q = false;
-            if (!j(m79Var)) {
-                l(m79Var);
-                return;
-            }
-            String a2 = m79Var.a();
-            this.g = a2;
-            if (!TextUtils.isEmpty(a2) && !FileUtils.isExists(this.g)) {
-                new File(this.g).mkdir();
-            }
-            this.e = false;
-            this.f = false;
-            this.k = m79Var.b();
-            x(m79Var);
-            y(m79Var);
-            this.i = 0;
-            if (this.m && !this.f && !this.e) {
-                A();
-            }
-            if (this.n && !this.f && !this.e) {
-                this.i = 10;
-                i(10);
-                z(m79Var);
-            }
-            if (this.p && !this.f && !this.e) {
-                this.i = 70;
-                i(70);
-                B(this.r);
-            }
-            if (this.q && !this.f && !this.e) {
-                this.i = 80;
-                i(80);
-                C(this.r);
-            }
-            if (this.e || this.f) {
-                return;
-            }
-            l(this.r);
-        }
-    }
-
-    @Override // com.repackage.p79
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public final void q(k79 k79Var, int i) {
-        int i2;
-        k79 k79Var2;
-        StringBuilder sb;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048582, this, k79Var, i) == null) || this.e || this.f) {
-            return;
-        }
-        AudioPlayData b2 = k79Var.b();
-        if (b2 == null) {
-            sb = new StringBuilder();
-            str = "dealAudioPlayData audioPlayData = null,trackIndx:";
-        } else if (this.o != null) {
-            if (!k79Var.c() && (k79Var2 = this.k) != null && k79Var2.b() != null) {
-                b2.audioPath = this.k.b().audioPath;
-                k79Var.d(this.k.a());
-            }
-            StringBuilder sb2 = new StringBuilder();
-            String str2 = b2.audioPath;
-            String a2 = a(str2, System.currentTimeMillis() + "_ffmpeg.aac");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             try {
-                boolean z = k79Var.a() != null && "audio/mp4a-latm".equals(k79Var.a().f());
-                String str3 = b2.audioPath;
-                int g = this.o.g();
-                int d2 = this.o.d();
-                float f = b2.volume;
-                int c2 = this.o.c();
-                float f2 = (b2.start * 1.0f) / 1000.0f;
-                float f3 = ((b2.end - b2.start) * 1.0f) / 1000.0f;
-                i2 = 0;
-                try {
-                    k99.l(str3, a2, g, d2, f, c2, f2, f3, !z, new c(this, sb2, k79Var));
-                    try {
-                        synchronized (this) {
-                            wait();
-                        }
-                    } catch (InterruptedException e2) {
-                        sb2.append(e2.getMessage());
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    sb2.append(th.getMessage());
-                    if (FileUtils.isExists(a2)) {
-                    }
-                    g(sb2.toString());
-                    return;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-                i2 = 0;
+                fileInputStream = new FileInputStream(str);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                fileInputStream = null;
             }
-            if (FileUtils.isExists(a2) || !TextUtils.isEmpty(sb2.toString())) {
-                g(sb2.toString());
-                return;
-            }
-            va9.j("FFmpegChain", "dealAudioPlayData 生成成功");
-            r(this.r, new k79(new AudioPlayData(a2, i2, -1, 1.0f)), i);
-            return;
-        } else {
-            sb = new StringBuilder();
-            str = "dealAudioPlayData mTargetInfo = null ,trackIndx:";
+            return BitmapFactory.decodeStream(fileInputStream);
         }
-        sb.append(str);
-        sb.append(i);
-        g(sb.toString());
+        return (Bitmap) invokeL.objValue;
     }
 
-    public final void r(m79 m79Var, k79 k79Var, int i) {
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x005c  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x005f  */
+    /* JADX WARN: Removed duplicated region for block: B:29:0x0064  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Bitmap g(Bitmap bitmap, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048583, this, m79Var, k79Var, i) == null) || m79Var == null || m79Var.c() == null || m79Var.c().get(i) == null) {
-            return;
-        }
-        m79Var.c().get(i).a().add(k79Var);
-    }
-
-    public final void s(o79 o79Var, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, o79Var, i) == null) || o79Var == null || ab9.e(o79Var.a()) || this.f || this.e) {
-            return;
-        }
-        for (int i2 = 0; !this.e && !this.f && i2 < o79Var.a().size(); i2++) {
-            k79 k79Var = o79Var.a().get(i2);
-            this.j++;
-            if (v(k79Var)) {
-                q(k79Var, i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (bitmap == null || bitmap.isRecycled()) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            if (width == 0 || height == 0 || i == 0 || i2 == 0) {
+                return bitmap;
+            }
+            float f = width;
+            float f2 = height;
+            float f3 = (f * 1.0f) / f2;
+            float f4 = i * 1.0f;
+            float f5 = i2;
+            float f6 = f4 / f5;
+            if (Math.abs(f3 - f6) < 0.01d) {
+                i4 = width;
+            } else if (f3 > f6) {
+                i4 = (i * height) / i2;
             } else {
-                r(this.r, k79Var, i);
-                i(this.i + ((int) (((this.j * 1.0f) / this.h) * 60.0f)));
-            }
-        }
-    }
-
-    public final boolean t(k79 k79Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, k79Var)) == null) {
-            if (k79Var == null || k79Var.b() == null || !FileUtils.isExists(k79Var.b().audioPath)) {
-                return false;
-            }
-            if (k79Var.b().start <= 0 && k79Var.b().end <= 0 && k79Var.b().volume == 1.0f) {
-                return (k79Var.a() == null || "audio/mp4a-latm".equals(k79Var.a().f())) ? false : true;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean v(k79 k79Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, k79Var)) == null) {
-            if (k79Var == null) {
-                return false;
-            }
-            return t(k79Var) || k79Var.a() == null || k79Var.a().k(this.o) != 0;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void x(m79 m79Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, m79Var) == null) {
-            List<o79> c2 = m79Var.c();
-            HashMap hashMap = new HashMap();
-            if (c2.size() > 1) {
-                this.q = true;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < c2.size(); i2++) {
-                if (!ab9.e(c2.get(i2).a())) {
-                    this.h += ab9.b(c2.get(i2).a());
-                    List<k79> a2 = c2.get(i2).a();
-                    if (!ab9.e(a2)) {
-                        if (a2.size() > 1) {
-                            this.p = true;
-                        }
-                        for (k79 k79Var : a2) {
-                            if (k79Var != null && k79Var.b() != null && !k79Var.c()) {
-                                long j = k79Var.b().end - k79Var.b().start;
-                                if (j > this.l) {
-                                    this.l = j;
-                                }
-                                this.m = true;
-                                this.n = true;
-                            }
-                            if (t(k79Var)) {
-                                this.n = true;
-                            }
-                            if (k79Var != null && k79Var.a() != null) {
-                                Integer num = (Integer) hashMap.get(k79Var.a());
-                                if (num == null) {
-                                    num = 0;
-                                }
-                                hashMap.put(k79Var.a(), Integer.valueOf(num.intValue() + 1));
-                            }
-                        }
-                    }
+                i3 = (i2 * width) / i;
+                i4 = width;
+                int i5 = width <= i4 ? (width - i4) / 2 : 0;
+                int i6 = height <= i3 ? (height - i3) / 2 : 0;
+                Matrix matrix = new Matrix();
+                matrix.postScale(f4 / f, (f5 * 1.0f) / f2);
+                Bitmap createBitmap = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix, true);
+                if (z && bitmap != null && !bitmap.equals(createBitmap)) {
+                    bitmap.recycle();
                 }
+                return createBitmap;
             }
-            if (hashMap.size() > 1) {
-                this.n = true;
+            i3 = height;
+            if (width <= i4) {
             }
-            for (l79 l79Var : hashMap.keySet()) {
-                if (((Integer) hashMap.get(l79Var)).intValue() > i && "audio/mp4a-latm".equals(l79Var.f())) {
-                    this.o = l79Var;
-                    i = ((Integer) hashMap.get(l79Var)).intValue();
-                }
+            if (height <= i3) {
             }
-            if (this.o == null) {
-                this.o = l79.b();
+            Matrix matrix2 = new Matrix();
+            matrix2.postScale(f4 / f, (f5 * 1.0f) / f2);
+            Bitmap createBitmap2 = Bitmap.createBitmap(bitmap, i5, i6, i4, i3, matrix2, true);
+            if (z) {
+                bitmap.recycle();
             }
+            return createBitmap2;
         }
+        return (Bitmap) invokeCommon.objValue;
     }
 
-    public final void y(m79 m79Var) {
+    public static Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, m79Var) == null) {
-            if (this.n) {
-                if (m79Var == null || ab9.e(m79Var.c())) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < m79Var.c().size(); i++) {
-                    arrayList.add(new o79(new ArrayList()));
-                }
-                m79Var = new m79(arrayList);
-            }
-            this.r = m79Var;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? s39.c().getContext() : (Context) invokeV.objValue;
     }
 
-    public final void z(m79 m79Var) {
+    public static Bitmap h(Bitmap bitmap, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, m79Var) == null) {
-            List<o79> c2 = m79Var.c();
-            int size = c2.size();
-            for (int i = 0; i < size; i++) {
-                s(c2.get(i), i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (i <= 0 || i2 <= 0 || bitmap == null || bitmap.isRecycled()) {
+                return bitmap;
             }
+            if ((bitmap.getWidth() > bitmap.getHeight()) != (i > i2)) {
+                i2 = i;
+                i = i2;
+            }
+            return (i == bitmap.getWidth() && i2 == bitmap.getHeight()) ? bitmap : i(bitmap, i, i2, z);
         }
+        return (Bitmap) invokeCommon.objValue;
+    }
+
+    public static Bitmap i(Bitmap bitmap, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (bitmap == null || bitmap.isRecycled()) {
+                return null;
+            }
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+            Matrix matrix = new Matrix();
+            matrix.postScale(i / width, i2 / height);
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
+            if (z && bitmap != null && !bitmap.equals(createBitmap)) {
+                bitmap.recycle();
+            }
+            return createBitmap;
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

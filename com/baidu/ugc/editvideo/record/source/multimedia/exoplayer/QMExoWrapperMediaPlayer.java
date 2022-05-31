@@ -17,8 +17,8 @@ import com.baidu.ugc.editvideo.player.VideoPlayData;
 import com.baidu.ugc.editvideo.record.source.DefaultAMediaPlayer;
 import com.baidu.ugc.editvideo.record.source.MediaInfo;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import com.repackage.y69;
-import com.repackage.z69;
+import com.repackage.s39;
+import com.repackage.t39;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.util.List;
@@ -45,7 +45,7 @@ public class QMExoWrapperMediaPlayer implements IMediaPlayer, IMediaPlayer.OnSee
                 return;
             }
         }
-        z69 d = y69.c().d();
+        t39 d = s39.c().d();
         if (d != null) {
             this.mInnerMediaPlayer = d.a();
         }

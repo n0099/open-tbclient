@@ -1,6 +1,9 @@
 package com.repackage;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,100 +11,108 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class k14 {
+public final class k14 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile k14 c;
+    public static ArrayList<h14> a;
+    public static ArrayList<Integer> b;
+    public static final k14 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public volatile ArrayList<j14> b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755611741, "Lcom/repackage/k14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755611741, "Lcom/repackage/k14;");
+                return;
+            }
+        }
+        c = new k14();
+        a = new ArrayList<>();
+        b = new ArrayList<>();
+    }
 
     public k14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = new ArrayList<>(20);
-    }
-
-    public static k14 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (k14.class) {
-                    if (c == null) {
-                        c = new k14();
-                    }
-                }
-            }
-            return c;
-        }
-        return (k14) invokeV.objValue;
-    }
-
-    public synchronized void a(j14 j14Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, j14Var) == null) {
-            synchronized (this) {
-                if (j14Var == null) {
-                    return;
-                }
-                if (this.b.size() < 20) {
-                    this.b.add(j14Var);
-                } else {
-                    this.a++;
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public synchronized void b() {
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b.clear();
-                this.a = 0;
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || b.contains(Integer.valueOf(i))) {
+            return;
+        }
+        b.add(Integer.valueOf(i));
+    }
+
+    public final h14 b(JSRuntime jsRuntime) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
+            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
+            h14 h14Var = new h14(jsRuntime);
+            a.add(h14Var);
+            return h14Var;
+        }
+        return (h14) invokeL.objValue;
+    }
+
+    public final boolean c(h14 socket) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            return !a.contains(socket);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? b.contains(Integer.valueOf(i)) : invokeI.booleanValue;
+    }
+
+    public final void e(h14 socket) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                g(socket.B());
+                a.remove(socket);
             }
         }
     }
 
-    public synchronized JSONObject d() {
-        InterceptResult invokeV;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                int size = this.b.size();
-                if (size == 0) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("dropcnt", this.a);
-                    jSONObject.put("errorcnt", size);
-                    JSONArray jSONArray = new JSONArray();
-                    jSONObject.put("errors", jSONArray);
-                    Iterator<j14> it = this.b.iterator();
-                    while (it.hasNext()) {
-                        jSONArray.put(it.next().a());
-                    }
-                } catch (JSONException unused) {
-                }
-                this.b.clear();
-                return jSONObject;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Iterator<h14> it = a.iterator();
+            while (it.hasNext()) {
+                it.next().close();
             }
         }
-        return (JSONObject) invokeV.objValue;
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            b.remove(Integer.valueOf(i));
+        }
     }
 }

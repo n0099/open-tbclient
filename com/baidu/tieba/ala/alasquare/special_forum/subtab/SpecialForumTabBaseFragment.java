@@ -47,7 +47,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.E0();
+                this.a.G0();
             }
         }
     }
@@ -108,7 +108,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
         this.c = new b(this, 2921414);
     }
 
-    public abstract void E0();
+    public abstract void G0();
 
     public void o() {
         Interceptable interceptable = $ic;

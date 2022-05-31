@@ -109,7 +109,7 @@ public class bu {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m231a() {
+    public String m230a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (String) invokeV.objValue;

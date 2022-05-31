@@ -4,21 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.repackage.ah9;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class bh9 implements ah9.e {
+public class bh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ com.fun.module.gdt.w a;
-    public final /* synthetic */ NativeUnifiedADData b;
+    public final Map<String, Double> a;
 
-    public bh9(ah9 ah9Var, com.fun.module.gdt.w wVar, NativeUnifiedADData nativeUnifiedADData) {
+    public bh9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ah9Var, wVar, nativeUnifiedADData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,15 +25,6 @@ public class bh9 implements ah9.e {
                 return;
             }
         }
-        this.a = wVar;
-        this.b = nativeUnifiedADData;
-    }
-
-    @Override // com.repackage.ah9.e
-    public void onADStatusChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.b(this.b);
-        }
+        this.a = new HashMap();
     }
 }

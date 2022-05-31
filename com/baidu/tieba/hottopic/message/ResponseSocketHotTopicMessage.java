@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a37;
+import com.repackage.d17;
 import com.squareup.wire.Wire;
 import tbclient.Hottopic.HottopicResIdl;
 /* loaded from: classes3.dex */
 public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a37 topicData;
+    public d17 topicData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotTopicMessage() {
@@ -35,10 +35,10 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
         this.topicData = null;
     }
 
-    public a37 getHotTopicData() {
+    public d17 getHotTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.topicData : (a37) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.topicData : (d17) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,10 +65,10 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
         }
         Object extra = getOrginalMessage().getExtra();
         Integer num = extra instanceof Integer ? (Integer) extra : null;
-        a37 a37Var = new a37();
-        this.topicData = a37Var;
+        d17 d17Var = new d17();
+        this.topicData = d17Var;
         if (num != null) {
-            a37Var.p = num.intValue();
+            d17Var.p = num.intValue();
         }
         this.topicData.h(hottopicResIdl.data);
     }

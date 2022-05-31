@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.yu4;
-import com.repackage.zv4;
+import com.repackage.ot4;
+import com.repackage.pu4;
 /* loaded from: classes4.dex */
-public class UserLikeInAttentionButton extends TBSpecificationBtn implements zv4 {
+public class UserLikeInAttentionButton extends TBSpecificationBtn implements pu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
@@ -46,7 +46,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements zv4
         }
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -56,7 +56,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements zv4
         aVar.a(view2);
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -64,7 +64,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements zv4
         }
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -72,14 +72,14 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements zv4
         }
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // com.repackage.zv4
+    @Override // com.repackage.pu4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -109,17 +109,17 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements zv4
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                yu4 yu4Var = new yu4();
-                yu4Var.p(R.color.CAM_X0613, R.color.CAM_X0103);
-                setConfig(yu4Var);
+                ot4 ot4Var = new ot4();
+                ot4Var.p(R.color.CAM_X0613, R.color.CAM_X0103);
+                setConfig(ot4Var);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f87));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f98));
             } else {
-                yu4 yu4Var2 = new yu4();
-                yu4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(yu4Var2);
+                ot4 ot4Var2 = new ot4();
+                ot4Var2.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(ot4Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a2));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
             }
             s(TbadkCoreApplication.getInst().getSkinType());
         }
@@ -165,9 +165,9 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements zv4
                 return;
             }
         }
-        yu4 yu4Var = new yu4();
-        yu4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-        setConfig(yu4Var);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a2));
+        ot4 ot4Var = new ot4();
+        ot4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+        setConfig(ot4Var);
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02a4));
     }
 }

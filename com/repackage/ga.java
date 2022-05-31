@@ -7,9 +7,9 @@ public interface ga {
 
     boolean b(int i, String str);
 
-    void c(hj hjVar);
+    void c(fj fjVar);
 
-    void d(pj pjVar);
+    void d(nj njVar);
 
     void g(Map<String, String> map);
 }

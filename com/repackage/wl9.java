@@ -1,9 +1,7 @@
 package com.repackage;
+
+import com.win.opensdk.PBListener;
 /* loaded from: classes7.dex */
-public interface wl9 {
-    void a();
-
-    void b(int i, double d);
-
-    void c();
+public interface wl9 extends PBListener {
+    void onDisplayed();
 }

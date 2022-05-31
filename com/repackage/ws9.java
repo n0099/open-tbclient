@@ -1,22 +1,23 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.win.opensdk.views.CircleProgressbar;
 /* loaded from: classes7.dex */
-public class ws9 implements Runnable {
+public class ws9 implements vs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ CircleProgressbar a;
+    public final String a;
 
-    public ws9(CircleProgressbar circleProgressbar) {
+    public ws9(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {circleProgressbar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,54 +27,67 @@ public class ws9 implements Runnable {
                 return;
             }
         }
-        this.a = circleProgressbar;
+        if (str != null) {
+            this.a = str;
+            return;
+        }
+        throw new IllegalArgumentException();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x0050  */
-    @Override // java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        CircleProgressbar circleProgressbar;
-        int i;
-        int i2;
+    @Override // com.repackage.vs9
+    public vs9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.removeCallbacks(this);
-            int ordinal = this.a.i.ordinal();
-            if (ordinal == 0) {
-                circleProgressbar = this.a;
-                i = circleProgressbar.h + 1;
-            } else {
-                if (ordinal == 1) {
-                    circleProgressbar = this.a;
-                    i = circleProgressbar.h - 1;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ws9(c()) : (vs9) invokeV.objValue;
+    }
+
+    @Override // com.repackage.vs9
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            for (String str2 : str.replaceAll(" ", "").split(",")) {
+                if (this.a.equals(str2)) {
+                    return true;
                 }
-                CircleProgressbar circleProgressbar2 = this.a;
-                i2 = circleProgressbar2.h;
-                if (i2 < 0 && i2 <= 100) {
-                    yt9 yt9Var = circleProgressbar2.l;
-                    if (yt9Var != null) {
-                        yt9Var.a(circleProgressbar2.m, i2);
-                    }
-                    this.a.invalidate();
-                    CircleProgressbar circleProgressbar3 = this.a;
-                    circleProgressbar3.postDelayed(circleProgressbar3.n, circleProgressbar3.j / 100);
-                    return;
-                }
-                CircleProgressbar circleProgressbar4 = this.a;
-                int i3 = circleProgressbar4.h;
-                circleProgressbar4.h = i3 <= 100 ? i3 < 0 ? 0 : i3 : 100;
             }
-            circleProgressbar.h = i;
-            CircleProgressbar circleProgressbar22 = this.a;
-            i2 = circleProgressbar22.h;
-            if (i2 < 0) {
-            }
-            CircleProgressbar circleProgressbar42 = this.a;
-            int i32 = circleProgressbar42.h;
-            circleProgressbar42.h = i32 <= 100 ? i32 < 0 ? 0 : i32 : 100;
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.vs9
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || ws9.class != obj.getClass()) {
+                return false;
+            }
+            return this.a.equals(((ws9) obj).a);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+    }
+
+    @Override // com.repackage.vs9
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? c() : (String) invokeV.objValue;
     }
 }

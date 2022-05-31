@@ -18,18 +18,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fu6;
-import com.repackage.gu6;
-import com.repackage.iu6;
-import com.repackage.ro;
+import com.repackage.jn;
+import com.repackage.js6;
+import com.repackage.ks6;
+import com.repackage.ms6;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class RecommendBarPageAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ro> a;
-    public List<iu6> b;
+    public List<jn> a;
+    public List<ms6> b;
     public TbPageContext<?> c;
     public int d;
     public byte e;
@@ -55,11 +55,11 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         this.a = new ArrayList(6);
         this.b = new ArrayList(6);
         for (int i3 = 0; i3 < 6; i3++) {
-            this.b.add(new iu6(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d070c, (ViewGroup) null, false), this.c, b));
+            this.b.add(new ms6(LayoutInflater.from(this.c.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0703, (ViewGroup) null, false), this.c, b));
         }
     }
 
-    public ro b(int i) {
+    public jn b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -68,7 +68,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             }
             return this.a.get(i);
         }
-        return (ro) invokeI.objValue;
+        return (jn) invokeI.objValue;
     }
 
     public void c(int i) {
@@ -77,38 +77,38 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         this.d = i;
-        List<iu6> list = this.b;
+        List<ms6> list = this.b;
         if (list == null || list.size() <= 0) {
             return;
         }
-        for (iu6 iu6Var : this.b) {
-            iu6Var.l(i);
+        for (ms6 ms6Var : this.b) {
+            ms6Var.l(i);
         }
     }
 
-    public void d(fu6 fu6Var) {
+    public void d(js6 js6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fu6Var) == null) || fu6Var == null || ListUtils.isEmpty(fu6Var.g())) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, js6Var) == null) || js6Var == null || ListUtils.isEmpty(js6Var.g())) {
             return;
         }
         this.a.clear();
-        this.a.addAll(fu6Var.g());
+        this.a.addAll(js6Var.g());
         for (int i = 0; i < this.a.size() && i < this.b.size(); i++) {
-            iu6 iu6Var = this.b.get(i);
-            iu6Var.m(!fu6Var.i());
-            iu6Var.c((ro) ListUtils.getItem(this.a, i));
+            ms6 ms6Var = this.b.get(i);
+            ms6Var.m(!js6Var.i());
+            ms6Var.c((jn) ListUtils.getItem(this.a, i));
         }
         notifyDataSetChanged();
-        if (this.a.get(0) instanceof gu6) {
-            gu6 gu6Var = (gu6) this.a.get(0);
+        if (this.a.get(0) instanceof ks6) {
+            ks6 ks6Var = (ks6) this.a.get(0);
             StatisticItem param = new StatisticItem("c14004").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", (int) this.e).param("obj_param1", 0);
-            if (!StringUtils.isNull(gu6Var.a)) {
-                param = param.param("obj_name", gu6Var.a);
+            if (!StringUtils.isNull(ks6Var.a)) {
+                param = param.param("obj_name", ks6Var.a);
             }
             TiebaStatic.log(param);
-            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", gu6Var.a()).param("obj_locate", (int) this.e);
-            if (!StringUtils.isNull(gu6Var.a)) {
-                param2 = param2.param("obj_name", gu6Var.a);
+            StatisticItem param2 = new StatisticItem("c13643").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", ks6Var.a()).param("obj_locate", (int) this.e);
+            if (!StringUtils.isNull(ks6Var.a)) {
+                param2 = param2.param("obj_name", ks6Var.a);
             }
             TiebaStatic.log(param2);
         }
@@ -128,15 +128,15 @@ public class RecommendBarPageAdapter extends PagerAdapter {
             return;
         }
         for (int i = 0; i < this.b.size(); i++) {
-            iu6 iu6Var = this.b.get(i);
-            gu6 j2 = iu6Var.j();
+            ms6 ms6Var = this.b.get(i);
+            ks6 j2 = ms6Var.j();
             if (j2 != null) {
                 int i2 = 0;
                 while (true) {
-                    gu6.a[] aVarArr = j2.d;
+                    ks6.a[] aVarArr = j2.d;
                     if (i2 < aVarArr.length) {
                         if (aVarArr[i2].g() == j) {
-                            iu6Var.n(i2, z);
+                            ms6Var.n(i2, z);
                         }
                         i2++;
                     }
@@ -158,20 +158,20 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            List<iu6> list = this.b;
+            List<ms6> list = this.b;
             if (list == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            iu6 iu6Var = (iu6) ListUtils.getItem(list, i);
-            if (iu6Var == null) {
+            ms6 ms6Var = (ms6) ListUtils.getItem(list, i);
+            if (ms6Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (iu6Var.b().getParent() == null) {
-                viewGroup.addView(iu6Var.b(), new ViewGroup.LayoutParams(-2, -2));
+            if (ms6Var.b().getParent() == null) {
+                viewGroup.addView(ms6Var.b(), new ViewGroup.LayoutParams(-2, -2));
             }
-            iu6Var.b().setTag(Integer.valueOf(i));
-            iu6Var.c((ro) ListUtils.getItem(this.a, i));
-            return iu6Var.b();
+            ms6Var.b().setTag(Integer.valueOf(i));
+            ms6Var.c((jn) ListUtils.getItem(this.a, i));
+            return ms6Var.b();
         }
         return invokeLI.objValue;
     }

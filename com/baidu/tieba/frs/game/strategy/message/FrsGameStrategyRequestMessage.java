@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.GameForumGuideTab.DataReq;
 import tbclient.GameForumGuideTab.GameForumGuideTabReqIdl;
 /* loaded from: classes3.dex */
@@ -59,7 +59,7 @@ public class FrsGameStrategyRequestMessage extends NetMessage {
             builder.sub_label_id = Integer.valueOf(this.mLabelId);
             builder.pn = Integer.valueOf(this.mPn);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             GameForumGuideTabReqIdl.Builder builder2 = new GameForumGuideTabReqIdl.Builder();
             builder2.data = builder.build(false);

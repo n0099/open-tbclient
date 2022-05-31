@@ -1,8 +1,9 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.games.screenrecord.GameRecorderController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,16 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jx3;
-import java.util.HashMap;
-import okhttp3.HttpUrl;
 /* loaded from: classes6.dex */
 public class hz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile hz3 c;
+    public static final boolean c;
+    public static volatile hz3 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, zy3> a;
+    public GameRecorderController a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +33,8 @@ public class hz3 {
                 return;
             }
         }
-        b = eh1.a;
+        c = rf1.a;
+        d = null;
     }
 
     public hz3() {
@@ -47,91 +47,83 @@ public class hz3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
     }
 
-    public static void a(e82 e82Var, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, e82Var, str) == null) || e82Var == null || e82Var.A() == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        e82Var.A().b(str);
-    }
-
-    public static hz3 b() {
+    public static hz3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
                 synchronized (hz3.class) {
-                    if (c == null) {
-                        c = new hz3();
+                    if (d == null) {
+                        d = new hz3();
                     }
                 }
             }
-            return c;
+            return d;
         }
         return (hz3) invokeV.objValue;
     }
 
-    public final String c(String str, int i) {
-        InterceptResult invokeLI;
-        HttpUrl parse;
+    @NonNull
+    public GameRecorderController b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c) {
+                Log.i("GameRecorderManager", "getRecorderController:" + this.a);
             }
-            return parse.url().toString() + i;
+            GameRecorderController gameRecorderController = this.a;
+            return gameRecorderController == null ? GameRecorderController.j() : gameRecorderController;
         }
-        return (String) invokeLI.objValue;
+        return (GameRecorderController) invokeV.objValue;
     }
 
-    public synchronized zy3 d(e82 e82Var, bt1 bt1Var, int i) {
-        InterceptResult invokeLLI;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e82Var, bt1Var, i)) == null) {
-            synchronized (this) {
-                if (bt1Var == null) {
-                    return null;
-                }
-                String B = bt1Var.B("url");
-                String c2 = c(B, i);
-                if (TextUtils.isEmpty(c2)) {
-                    return null;
-                }
-                zy3 remove = this.a.remove(c2);
-                if (remove != null) {
-                    a(e82Var, "preload used, url = " + B);
-                }
-                if (b) {
-                    Log.d("SwanGamePreloadManager", "obtainRequestTask requestType:" + i + ";url:" + B + ";task:" + remove);
-                }
-                return remove;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (c) {
+                Log.i("GameRecorderManager", "isGamePause:" + this.b);
             }
+            return this.b;
         }
-        return (zy3) invokeLLI.objValue;
+        return invokeV.booleanValue;
     }
 
-    public synchronized void e() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                this.a.clear();
-            }
+            this.b = true;
         }
     }
 
-    public void f(e82 e82Var, jx3.c cVar) {
-        n04 n04Var;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, e82Var, cVar) == null) || e82Var == null || cVar == null || (n04Var = cVar.c) == null || n04Var.g == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = false;
         }
-        e();
-        bk2.g0().getSwitch("swan_game_resource_preload", 0);
+    }
+
+    public void f(GameRecorderController gameRecorderController) {
+        GameRecorderController gameRecorderController2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, gameRecorderController) == null) && (gameRecorderController2 = this.a) != null && gameRecorderController2 == gameRecorderController) {
+            gameRecorderController2.p();
+            this.a = null;
+        }
+    }
+
+    public void g(GameRecorderController gameRecorderController) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gameRecorderController) == null) {
+            GameRecorderController gameRecorderController2 = this.a;
+            if (gameRecorderController2 != null && gameRecorderController2 != gameRecorderController) {
+                gameRecorderController2.p();
+            }
+            this.a = gameRecorderController;
+        }
     }
 }

@@ -1,113 +1,158 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdptask.bdtls.DH;
+import com.baidu.bdptask.bdtls.RSA;
+import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import com.repackage.ar;
+import com.repackage.br;
+import com.repackage.yq;
+import com.repackage.zq;
+import java.nio.ByteBuffer;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes6.dex */
-public final class lr extends rr {
+public class lr {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final String e;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static fr a(jr jrVar, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65536, null, jrVar, bArr)) != null) {
+            return (fr) invokeLL.objValue;
+        }
+        fr frVar = null;
+        if (jrVar == null || bArr == null || bArr.length == 0) {
+            return null;
+        }
+        try {
+            if (bArr[0] != 2) {
+                return null;
+            }
+            fr frVar2 = new fr();
+            try {
+                cr a = cr.a(Arrays.copyOfRange(bArr, 1, bArr.length));
+                if (a == null) {
+                    return null;
                 }
+                frVar2.a(a);
+                List<ar> b = a.b();
+                if (b == null) {
+                    return null;
+                }
+                for (ar arVar : b) {
+                    int a2 = arVar.a();
+                    byte[] b2 = arVar.b();
+                    if (a2 == 0) {
+                        int a3 = rr.a(RSA.decrypt(b2));
+                        jrVar.e(DH.getDHSecretKey(a3, jrVar.o().intValue(), jrVar.p().intValue()));
+                        jrVar.l(Integer.valueOf(a3));
+                    }
+                }
+                if (a.e() == null) {
+                    return null;
+                }
+                yq.a d = yq.d();
+                d.a(a.e());
+                jrVar.h(d.b().a());
+                if (jrVar.q() == null) {
+                    return null;
+                }
+                long currentTimeMillis = (System.currentTimeMillis() / 1000) + a.c();
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("liftTime=" + a.c());
+                DebugTrace debugTrace2 = DebugTrace.a;
+                debugTrace2.a("expireTime=" + currentTimeMillis);
+                jrVar.c(currentTimeMillis);
+                if (a.d() != null) {
+                    jrVar.j(a.d());
+                    return frVar2;
+                }
+                return frVar2;
+            } catch (Exception e) {
+                e = e;
+                frVar = frVar2;
+                DebugTrace debugTrace3 = DebugTrace.a;
+                debugTrace3.a("exception=" + e.getMessage());
+                return frVar;
             }
-        }
-
-        public final lr a(TaskInfo taskInfo, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) ? new lr(taskInfo, str, null, 0, null, null, 60, null) : (lr) invokeLL.objValue;
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+        } catch (Exception e2) {
+            e = e2;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1964034241, "Lcom/repackage/lr;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static byte[] b(jr jrVar, fr frVar) throws Exception {
+        InterceptResult invokeLL;
+        byte[] encrypt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jrVar, frVar)) == null) {
+            if (frVar == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1964034241, "Lcom/repackage/lr;");
-                return;
+            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+            byte[] bArr = new byte[32];
+            new Random().nextBytes(bArr);
+            br.a a = br.a();
+            a.a(Integer.valueOf(currentTimeMillis));
+            a.b(ys.a(bArr));
+            br c = a.c();
+            int dHGroupId = DH.getDHGroupId();
+            int dHSecret = DH.getDHSecret();
+            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
+            jrVar.d(Integer.valueOf(dHGroupId));
+            jrVar.g(Integer.valueOf(dHSecret));
+            jrVar.i(Integer.valueOf(dHPublicKey));
+            byte[] d = rr.d(dHPublicKey);
+            if (d == null || (encrypt = RSA.encrypt(d)) == null) {
+                return null;
             }
-        }
-        f = new a(null);
-    }
-
-    public /* synthetic */ lr(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, str, (i2 & 4) != 0 ? taskInfo.getSingleKey() : str2, (i2 & 8) != 0 ? 8 : i, (i2 & 16) != 0 ? null : num, (i2 & 32) != 0 ? null : str3);
-    }
-
-    @Override // com.repackage.fs
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedCacheAction" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.rr
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lr(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3) {
-        super(str2, num, str3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, str2, Integer.valueOf(i), num, str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            byte[] bytes = zs.b(bt.b(us.a()), false).getBytes();
+            LinkedList linkedList = new LinkedList();
+            ar.a d2 = ar.d();
+            d2.a(0);
+            d2.b(ys.a(encrypt));
+            linkedList.offer(d2.c());
+            ar.a d3 = ar.d();
+            d3.a(1);
+            d3.b(ys.a(new byte[]{0}));
+            linkedList.offer(d3.c());
+            ar.a d4 = ar.d();
+            d4.a(2);
+            d4.b(ys.a(rr.d(dHGroupId)));
+            linkedList.offer(d4.c());
+            ar.a d5 = ar.d();
+            d5.a(3);
+            d5.b(ys.a(bytes));
+            linkedList.offer(d5.c());
+            if (wq.c.h().d()) {
+                DebugTrace debugTrace = DebugTrace.a;
+                debugTrace.a("groupId encode=" + dHGroupId);
+                DebugTrace debugTrace2 = DebugTrace.a;
+                debugTrace2.a("secretC encode=" + dHSecret);
+                DebugTrace debugTrace3 = DebugTrace.a;
+                debugTrace3.a("pubKey encode=" + dHPublicKey);
+                DebugTrace debugTrace4 = DebugTrace.a;
+                debugTrace4.a("signature encode=" + new String(bytes));
             }
+            zq.a d6 = zq.d();
+            Iterator it = linkedList.iterator();
+            while (it.hasNext()) {
+                d6.a((ar) it.next());
+            }
+            d6.b(c);
+            d6.c(ys.a(kr.a));
+            byte[] a2 = d6.d().a();
+            ByteBuffer allocate = ByteBuffer.allocate(a2.length + 1);
+            allocate.put((byte) 1);
+            allocate.put(a2);
+            return allocate.array();
         }
-        this.d = str;
-        this.e = str2;
+        return (byte[]) invokeLL.objValue;
     }
 }

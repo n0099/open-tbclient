@@ -3,6 +3,7 @@ package com.baidu.tieba.service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PbChosenActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -62,7 +63,7 @@ public class WebNativeReceiver extends BroadcastReceiver {
                 intent2.putExtra("from", stringExtra2);
             } else if (stringExtra.equals("groupinfo")) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 13);
-                intent2.putExtra("groupid", intent.getStringExtra("groupid"));
+                intent2.putExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID, intent.getStringExtra(DBTableDefine.GroupMessageColumns.COLUMN_GROUPID));
             } else if (stringExtra.equals(TiebaStatic.DQPay.TYPE_VALUE)) {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 15);
                 intent2.putExtra("pay_type", intent.getStringExtra("pay_type"));

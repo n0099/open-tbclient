@@ -61,6 +61,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
 import com.kuaishou.weapon.un.w0;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -459,7 +460,7 @@ public class SapiUtils implements NoProguard {
                 if (TextUtils.isEmpty(cookie)) {
                     return "";
                 }
-                for (String str3 : cookie.split(";")) {
+                for (String str3 : cookie.split(ParamableElem.DIVIDE_PARAM)) {
                     String trim = str3.trim();
                     if (!TextUtils.isEmpty(trim) && (indexOf = trim.indexOf("=")) > -1) {
                         String[] strArr = new String[2];
@@ -1403,7 +1404,7 @@ public class SapiUtils implements NoProguard {
         String defaultSmsPackage;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65606, null, context, str, list) == null) {
-            String join = (list == null || list.isEmpty()) ? "" : TextUtils.join(w0.w1.equalsIgnoreCase(Build.MANUFACTURER) ? "," : ";", list);
+            String join = (list == null || list.isEmpty()) ? "" : TextUtils.join(w0.w1.equalsIgnoreCase(Build.MANUFACTURER) ? "," : ParamableElem.DIVIDE_PARAM, list);
             Uri parse = Uri.parse("smsto:" + join);
             Intent intent = new Intent();
             intent.setData(parse);

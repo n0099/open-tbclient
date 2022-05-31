@@ -1,18 +1,15 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.data.UserData;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetUserInfo.DataRes;
-/* loaded from: classes7.dex */
-public class r35 {
+/* loaded from: classes6.dex */
+public class r35 implements p35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
 
     public r35() {
         Interceptable interceptable = $ic;
@@ -28,19 +25,19 @@ public class r35 {
         }
     }
 
-    public UserData a() {
-        InterceptResult invokeV;
+    @Override // com.repackage.p35
+    public void a(View view2, View view3, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (UserData) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
+            LinearLayout linearLayout = (LinearLayout) view2;
+            if (z) {
+                linearLayout.addView(view3, 0);
+            } else {
+                linearLayout.addView(view3);
+            }
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view3.getLayoutParams();
+            layoutParams.gravity = 1;
+            view3.setLayoutParams(layoutParams);
         }
-        UserData userData = new UserData();
-        this.a = userData;
-        userData.parserProtobuf(dataRes.user);
     }
 }

@@ -1,62 +1,24 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.anim.AnimationProperty;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class jn2 extends gn2 {
+public final class jn2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nn2 A;
-    public double B;
-    public int C;
-    public String z;
 
-    public jn2() {
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.z = "";
-        this.C = 1000;
-    }
-
-    @Override // com.repackage.gn2, com.repackage.kw1, com.repackage.tq2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(65536, null, cursor) == null) || cursor == null) {
             return;
         }
-        super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        nn2 nn2Var = new nn2();
-        this.A = nn2Var;
-        nn2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble(AnimationProperty.ROTATE);
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
-    }
-
-    @Override // com.repackage.kw1, com.repackage.tq2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        nn2 nn2Var;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (TextUtils.isEmpty(this.c) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.z) || (nn2Var = this.A) == null || !nn2Var.isValid()) ? false : true : invokeV.booleanValue;
+        try {
+            if (cursor.isClosed()) {
+                return;
+            }
+            cursor.close();
+        } catch (Exception unused) {
+        }
     }
 }

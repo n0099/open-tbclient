@@ -54,13 +54,13 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0851, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0844, (ViewGroup) this, true);
             setOrientation(1);
-            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906bf);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09036e);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09036f);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09036d);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0922d9);
+            this.b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906a2);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09036a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09036b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090369);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09227e);
             this.b.setOnClickListener(null);
         }
     }
@@ -79,7 +79,7 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     public void setBigTbeanToastText(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0304), StringHelper.numberUniform(i));
+            String format = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0306), StringHelper.numberUniform(i));
             this.h = format;
             this.d.setText(format);
         }
@@ -106,7 +106,7 @@ public class UserDefineConfirmBottomView extends LinearLayout {
                 this.e.setVisibility(0);
                 return;
             }
-            this.d.setText(R.string.obfuscated_res_0x7f0f14d4);
+            this.d.setText(R.string.obfuscated_res_0x7f0f14e8);
             this.d.setGravity(17);
             this.f.setEnabled(false);
             b(false);

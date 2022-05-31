@@ -1,147 +1,134 @@
 package com.repackage;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 /* loaded from: classes5.dex */
-public class dk7 {
+public class dk7 extends n65<ck7, i65> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public TbPageContext b;
-    public NavigationBar c;
-    public NoNetworkView d;
-    public TbImageView e;
-    public TextView f;
+    public View f;
     public TextView g;
     public TextView h;
     public TextView i;
     public TextView j;
-    public TextView k;
-    public int l;
+    public View k;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dk7 a;
-
-        public a(dk7 dk7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dk7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dk7Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.b, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-            }
-        }
-    }
-
-    public dk7(TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dk7(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, view2, viewEventCenter);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, view2, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = 3;
-        this.a = tbPageContext.getPageActivity();
-        this.b = tbPageContext;
-        tbPageContext.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d0536);
-        NavigationBar navigationBar = (NavigationBar) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091534);
-        this.c = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.c.showBottomLine();
-        this.d = (NoNetworkView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0915ac);
-        this.c.onChangeSkinType(tbPageContext, TbadkApplication.getInst().getSkinType());
-        this.e = (TbImageView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091e21);
-        this.f = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091e22);
-        this.g = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f09168d);
-        this.i = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091e27);
-        this.h = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f092057);
-        TextView textView = (TextView) tbPageContext.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091618);
-        this.j = textView;
-        textView.setOnClickListener(new a(this));
-        c();
+        this.f = view2;
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092017);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906be);
+        this.h = textView;
+        textView.setSingleLine();
+        this.h.setEllipsize(TextUtils.TruncateAt.END);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091feb);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09128c);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f09121a);
     }
 
-    public void b(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.r65
+    /* renamed from: j */
+    public void f(ck7 ck7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0d62), str));
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = this.c.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0386));
-            this.d.c(this.b, TbadkApplication.getInst().getSkinType());
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-            SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080a30);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0305);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0111);
-            SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_orange);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (this.l != i) {
-                this.c.onChangeSkinType(this.b, i);
-                this.d.c(this.b, i);
-                SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
-                SkinManager.setImageResource(this.e, R.drawable.obfuscated_res_0x7f080a30);
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0305);
-                SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
-                SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0111);
-                SkinManager.setBackgroundResource(this.j, R.drawable.btn_all_orange);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ck7Var) == null) {
+            super.f(ck7Var);
+            if (ck7Var == null) {
+                return;
             }
-            this.l = i;
+            if (this.g != null) {
+                if (ck7Var.k() == 49) {
+                    if (StringUtils.isNull(ck7Var.c())) {
+                        if (StringUtils.isNull(ck7Var.m())) {
+                            this.g.setText(e(R.string.obfuscated_res_0x7f0f0dc3));
+                        } else {
+                            this.g.setText(ck7Var.m());
+                        }
+                    } else {
+                        this.g.setText(ck7Var.c());
+                    }
+                } else if (ck7Var.i() != null) {
+                    if (ck7Var.s()) {
+                        this.g.setText(String.format("%s%s", e(R.string.obfuscated_res_0x7f0f0dc5), ck7Var.i()));
+                    } else {
+                        this.g.setText(ck7Var.i());
+                    }
+                }
+            }
+            if (this.h != null) {
+                if (ck7Var.k() == 49 && !TextUtils.isEmpty(ck7Var.m())) {
+                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0dc6), ck7Var.m()));
+                } else if (ck7Var.k() == 49) {
+                    this.h.setText(String.format(e(R.string.obfuscated_res_0x7f0f0dc6), e(R.string.obfuscated_res_0x7f0f0dc3)));
+                } else if (ck7Var.d() != null) {
+                    this.h.setText(ck7Var.d());
+                }
+            }
+            if (ck7Var.k() == 49) {
+                this.j.setVisibility(ck7Var.q() ? 0 : 8);
+            } else {
+                this.j.setVisibility(8);
+            }
+            if (this.i != null) {
+                String postTimeString = StringHelper.getPostTimeString(new Date(ck7Var.l()));
+                if (postTimeString == null) {
+                    postTimeString = "";
+                }
+                this.i.setText(postTimeString);
+            }
         }
+    }
+
+    @Override // com.repackage.xf8
+    @SuppressLint({"ResourceAsColor"})
+    public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i)) == null) {
+            SkinManager.setBackgroundResource(this.f, R.drawable.list_item_selector);
+            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0101);
+            TBSelector.makeDrawableSelector().cornerRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).gradientLinear(DrawableSelector.LEFT_RIGHT, R.color.CAM_X0308, R.color.CAM_X0301).into(this.j);
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 }

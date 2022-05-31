@@ -1,372 +1,349 @@
 package com.repackage;
 
-import android.webkit.JavascriptInterface;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.Pair;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.JsFunction;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.games.view.recommend.listmode.ListRecommendAdapter;
+import com.baidu.swan.games.view.recommend.listmode.ListRecommendDivider;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.ReturnKeyType;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.InetAddress;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.jvm.internal.StringCompanionObject;
-import kotlin.text.Charsets;
-import org.apache.http.cookie.ClientCookie;
+import com.repackage.ly2;
 /* loaded from: classes7.dex */
-public final class u24 extends EventTargetImpl {
+public class u24 extends n24 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public DatagramSocket b;
-    public int c;
-    public y24 d;
-    public o24 e;
-    public ArrayList<JsFunction> f;
-    public ArrayList<JsFunction> g;
-    public ArrayList<JsFunction> h;
-    public ArrayList<JsFunction> i;
+    public ly2 j;
+    public View k;
+    public View l;
+    public ImageView m;
+    public View n;
+    public RecyclerView o;
+    public ListRecommendAdapter p;
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u24 a;
+
+        public a(u24 u24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u24Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.c != null) {
+                    this.a.c.c();
+                }
+                this.a.B();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements ListRecommendAdapter.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u24 a;
+
+        public b(u24 u24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u24Var;
+        }
+
+        @Override // com.baidu.swan.games.view.recommend.listmode.ListRecommendAdapter.a
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.c != null) {
+                    this.a.c.v(i);
+                }
+                this.a.y();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u24 a;
+
+        public c(u24 u24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u24Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.b != null && this.a.c != null) {
+                    this.a.c.p();
+                }
+                this.a.y();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u24 a;
+
+        public d(u24 u24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u24Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.y();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u24 a;
+
+        public e(u24 u24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u24Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.n.getLayoutParams();
+                layoutParams.width = this.a.l.getWidth();
+                int height = this.a.l.getHeight();
+                layoutParams.height = height;
+                layoutParams.topMargin = -height;
+                this.a.n.setVisibility(0);
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u24(JSRuntime jsRuntime) {
-        super(jsRuntime);
+    public u24(@NonNull Context context, @NonNull q24 q24Var) {
+        super(context, q24Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jsRuntime};
+            Object[] objArr = {context, q24Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (q24) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
-        this.a = "%s:fail %s";
-        this.d = new y24();
-        this.e = new o24();
-        this.f = new ArrayList<>();
-        this.g = new ArrayList<>();
-        this.h = new ArrayList<>();
-        this.i = new ArrayList<>();
     }
 
-    public final void A(DatagramPacket dp) {
-        byte[] address;
+    public final void A(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dp) == null) {
-            Intrinsics.checkNotNullParameter(dp, "dp");
-            try {
-                byte[] bArr = new byte[dp.getLength()];
-                System.arraycopy(dp.getData(), dp.getOffset(), bArr, 0, dp.getLength());
-                InetAddress address2 = dp.getAddress();
-                String str = (address2 == null || (address = address2.getAddress()) == null || address.length != 4) ? "IPv6" : "IPv4";
-                Iterator<JsFunction> it = this.f.iterator();
-                while (it.hasNext()) {
-                    String inetAddress = dp.getAddress().toString();
-                    Intrinsics.checkNotNullExpressionValue(inetAddress, "dp.address.toString()");
-                    it.next().call(new s24(bArr, new t24(inetAddress, dp.getLength(), dp.getPort(), str)));
-                }
-            } catch (Throwable unused) {
-                Iterator<JsFunction> it2 = this.h.iterator();
-                while (it2.hasNext()) {
-                    z(it2.next(), "onMessage", "receive failed");
-                }
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            view2.setOnClickListener(new a(this));
+            this.p.f(new b(this));
+            this.k.findViewById(R.id.obfuscated_res_0x7f091e0d).setOnClickListener(new c(this));
+            this.m.setOnClickListener(new d(this));
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            C();
+            ly2 ly2Var = this.j;
+            if (ly2Var != null) {
+                ly2Var.show();
             }
         }
     }
 
-    public final int B() {
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            boolean a2 = oi2.M().a();
+            this.n.setVisibility(8);
+            this.m.setImageResource(a2 ? R.drawable.obfuscated_res_0x7f0811e8 : R.drawable.obfuscated_res_0x7f0811e7);
+            if (a2) {
+                this.l.post(new e(this));
+            }
+        }
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SwanAppActivity activity = uk2.U().getActivity();
+            float min = Math.min(activity != null && activity.isLandScape() ? 2.5f : 5.0f, this.o.getAdapter().getItemCount());
+            Resources resources = this.a.getResources();
+            float dimension = resources.getDimension(R.dimen.obfuscated_res_0x7f0706d8);
+            float dimension2 = resources.getDimension(R.dimen.obfuscated_res_0x7f0706d7);
+            float dimension3 = resources.getDimension(R.dimen.obfuscated_res_0x7f0706e3);
+            Pair<Integer, Integer> x = uk2.U().x();
+            this.o.getLayoutParams().width = (int) Math.min(dimension3, ((Integer) x.first).intValue());
+            this.o.getLayoutParams().height = (int) Math.min((int) ((min * (resources.getDimension(R.dimen.obfuscated_res_0x7f0706df) + dimension)) + dimension2), ((Integer) x.second).intValue() * 0.67f);
+            this.o.requestLayout();
+        }
+    }
+
+    @Override // com.repackage.n24, com.repackage.o24
+    public void e(v24 v24Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, v24Var) == null) {
+            super.e(v24Var);
+            this.p.g(v24Var);
+            D();
+        }
+    }
+
+    @Override // com.repackage.n24
+    @SuppressLint({"InflateParams"})
+    public View i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final int C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            for (int i = 49152; i <= 65535; i++) {
-                try {
-                    this.b = new DatagramSocket(i);
-                    y(i);
-                    return i;
-                } catch (Throwable unused) {
-                }
-            }
-            return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            View i = super.i();
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d2, (ViewGroup) null);
+            this.k = inflate;
+            this.l = inflate.findViewById(R.id.obfuscated_res_0x7f091e0c);
+            this.n = this.k.findViewById(R.id.obfuscated_res_0x7f091e0f);
+            this.m = (ImageView) this.k.findViewById(R.id.obfuscated_res_0x7f091e0b);
+            z();
+            RecyclerView recyclerView = (RecyclerView) this.k.findViewById(R.id.obfuscated_res_0x7f091e0e);
+            this.o = recyclerView;
+            recyclerView.setItemAnimator(null);
+            this.o.setLayoutManager(new LinearLayoutManager(this.a));
+            this.o.addItemDecoration(new ListRecommendDivider(this.a));
+            ListRecommendAdapter listRecommendAdapter = new ListRecommendAdapter(this.a);
+            this.p = listRecommendAdapter;
+            this.o.setAdapter(listRecommendAdapter);
+            A(i);
+            return i;
         }
-        return invokeV.intValue;
+        return (View) invokeV.objValue;
     }
 
-    public final DatagramSocket D() {
-        InterceptResult invokeV;
+    public final void y() {
+        ly2 ly2Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (DatagramSocket) invokeV.objValue;
-    }
-
-    public final void E(String method, String error) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, method, error) == null) {
-            Intrinsics.checkNotNullParameter(method, "method");
-            Intrinsics.checkNotNullParameter(error, "error");
-            Iterator<JsFunction> it = this.h.iterator();
-            while (it.hasNext()) {
-                z(it.next(), method, error);
-            }
-        }
-    }
-
-    public final void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Iterator<JsFunction> it = this.g.iterator();
-            while (it.hasNext()) {
-                it.next().call();
-            }
-        }
-    }
-
-    public final bt1 G(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jsObject)) == null) {
-            bt1 F = bt1.F(jsObject);
-            return F != null ? F : new bt1();
-        }
-        return (bt1) invokeL.objValue;
-    }
-
-    public final void H(q24 q24Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, q24Var) == null) || x24.c.c(this)) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ly2Var = this.j) == null) {
             return;
         }
-        try {
-            if (!this.d.a().offer(new p24(new DatagramPacket(q24Var.b(), q24Var.d(), q24Var.c(), InetAddress.getByName(q24Var.a()), q24Var.e()), this))) {
-                E(ReturnKeyType.SEND, "send queue is full");
-                return;
-            }
-            if (!this.d.b()) {
-                this.d.c(true);
-                this.d.start();
-            }
-            if (this.e.a()) {
-                return;
-            }
-            this.e.b(true);
-            this.e.c(this);
-            F();
-            this.e.start();
-        } catch (Throwable unused) {
-        }
+        ly2Var.dismiss();
     }
 
-    @JavascriptInterface
-    public final int bind(int i) {
-        InterceptResult invokeI;
+    public final void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (i != -1 && !x24.c.d(i)) {
-                try {
-                    this.b = new DatagramSocket(i);
-                    y(i);
-                    return i;
-                } catch (Throwable unused) {
-                    return C();
-                }
-            }
-            return C();
-        }
-        return invokeI.intValue;
-    }
-
-    @JavascriptInterface
-    public final void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            try {
-                DatagramSocket datagramSocket = this.b;
-                if (datagramSocket != null) {
-                    datagramSocket.close();
-                }
-                this.d.c(false);
-                this.d.interrupt();
-                this.e.b(false);
-                this.e.interrupt();
-                x24.c.e(this);
-                Iterator<JsFunction> it = this.i.iterator();
-                while (it.hasNext()) {
-                    it.next().call("success");
-                }
-            } catch (Throwable unused) {
-                E("close", "close failed");
-            }
-        }
-    }
-
-    @JavascriptInterface
-    public final void offCloseCallback(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
-            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            this.i.remove(bv3.e(bt1.F(jsObject)).a);
-        }
-    }
-
-    @JavascriptInterface
-    public final void offErrorCallback(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jsObject) == null) {
-            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            this.h.remove(bv3.e(bt1.F(jsObject)).a);
-        }
-    }
-
-    @JavascriptInterface
-    public final void offListeningCallback(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jsObject) == null) {
-            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            this.g.remove(bv3.e(bt1.F(jsObject)).a);
-        }
-    }
-
-    @JavascriptInterface
-    public final void offMessageCallback(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jsObject) == null) {
-            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            this.f.remove(bv3.e(bt1.F(jsObject)).a);
-        }
-    }
-
-    @JavascriptInterface
-    public final void onCloseCallback(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jsObject) == null) {
-            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            bt1 G = G(jsObject);
-            if (G != null) {
-                this.i.add(bv3.e(G).a);
-            }
-        }
-    }
-
-    @JavascriptInterface
-    public final void onErrorCallback(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, jsObject) == null) {
-            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            bt1 G = G(jsObject);
-            if (G != null) {
-                this.h.add(bv3.e(G).a);
-            }
-        }
-    }
-
-    @JavascriptInterface
-    public final void onListeningCallback(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, jsObject) == null) {
-            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            this.g.add(bv3.e(bt1.F(jsObject)).a);
-        }
-    }
-
-    @JavascriptInterface
-    public final void onMessageCallback(JsObject jsObject) {
-        bt1 G;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, jsObject) == null) {
-            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            if (x24.c.c(this) || (G = G(jsObject)) == null) {
-                return;
-            }
-            this.f.add(bv3.e(G).a);
-        }
-    }
-
-    @JavascriptInterface
-    public final void send(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, jsObject) == null) {
-            Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            bt1 F = bt1.F(jsObject);
-            q24 q24Var = new q24();
-            String C = F.C("address", "");
-            Intrinsics.checkNotNullExpressionValue(C, "jsObjectMap.optString(PARAM_ADDRESS, \"\")");
-            q24Var.f(C);
-            String B = F.B("message");
-            if (B == null || B.length() == 0) {
-                byte[] buffer = F.s("message").buffer();
-                if (buffer != null) {
-                    q24Var.h(F.r("length", buffer.length));
-                    q24Var.i(F.q("offset"));
-                    q24Var.g(buffer);
-                }
-            } else {
-                Charset charset = Charsets.UTF_8;
-                if (B != null) {
-                    byte[] bytes = B.getBytes(charset);
-                    Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
-                    q24Var.g(bytes);
-                    Charset charset2 = Charsets.UTF_8;
-                    if (B == null) {
-                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                    }
-                    byte[] bytes2 = B.getBytes(charset2);
-                    Intrinsics.checkNotNullExpressionValue(bytes2, "(this as java.lang.String).getBytes(charset)");
-                    q24Var.h(bytes2.length);
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                }
-            }
-            q24Var.j(F.r(ClientCookie.PORT_ATTR, -1));
-            if (q24Var.e() == -1) {
-                E(ReturnKeyType.SEND, "port is empty");
-                return;
-            }
-            if (q24Var.a().length() == 0) {
-                E(ReturnKeyType.SEND, "address is empty");
-            } else {
-                H(q24Var);
-            }
-        }
-    }
-
-    public final void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            x24.c.a(i);
-            this.c = i;
-        }
-    }
-
-    public final void z(JsFunction jsFunction, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048596, this, jsFunction, str, str2) == null) {
-            StringCompanionObject stringCompanionObject = StringCompanionObject.INSTANCE;
-            String format = String.format(this.a, Arrays.copyOf(new Object[]{str, str2}, 2));
-            Intrinsics.checkNotNullExpressionValue(format, "java.lang.String.format(format, *args)");
-            if (jsFunction != null) {
-                jsFunction.call(new r24(format));
-            }
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            ly2.a aVar = new ly2.a(this.a);
+            aVar.m(true);
+            aVar.f(true);
+            aVar.k(false);
+            aVar.j();
+            aVar.b();
+            aVar.p(17170445);
+            aVar.W(this.k);
+            aVar.t(false);
+            this.j = aVar.c();
+            qb3.b(uk2.U().getActivity(), this.j);
         }
     }
 }

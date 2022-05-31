@@ -1,193 +1,137 @@
 package com.repackage;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.widget.RelativeLayout;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThemeCardInUserData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.Log;
-import com.baidu.webkit.sdk.WebKitFactory;
-import com.baidu.webkit.sdk.WebViewFactory;
-import com.baidu.webkit.sdk.WebViewFactoryProvider;
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.net.URLEncoder;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class wx {
+public class wx extends ow implements bx<ThreadData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext e;
+    public TbImageView f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1964023484, "Lcom/repackage/wx;")) == null) {
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ThemeCardInUserData a;
+        public final /* synthetic */ wx b;
+
+        public a(wx wxVar, ThemeCardInUserData themeCardInUserData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wxVar, themeCardInUserData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = wxVar;
+            this.a = themeCardInUserData;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.b.e.getPageActivity(), this.a.getCardId())));
+            }
+        }
+    }
+
+    public wx(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = true;
+        this.e = tbPageContext;
+        h(-1);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(li.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070264), li.f(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d5));
+        layoutParams.addRule(11);
+        layoutParams.topMargin = li.f(tbPageContext.getPageActivity(), R.dimen.tbds30);
+        layoutParams.rightMargin = li.f(tbPageContext.getPageActivity(), R.dimen.tbds30);
+        i(layoutParams);
+        TbImageView tbImageView = new TbImageView(tbPageContext.getPageActivity());
+        this.f = tbImageView;
+        g(tbImageView);
+    }
+
+    public void l(ThreadData threadData) {
+        MetaData author;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null || this.f == null || (author = threadData.getAuthor()) == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        ThemeCardInUserData themeCard = author.getThemeCard();
+        if (themeCard != null && !StringUtils.isNull(themeCard.getCardImageUrlAndroid()) && !threadData.isHeadLinePost) {
+            if (this.g && (this.f.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f.getLayoutParams();
+                layoutParams.rightMargin = li.f(this.e.getPageActivity(), R.dimen.tbds106);
+                this.f.setLayoutParams(layoutParams);
+            }
+            this.f.setVisibility(0);
+            this.f.setImageDrawable(null);
+            this.f.K(themeCard.getCardImageUrlAndroid(), 10, false);
+            this.f.setOnClickListener(new a(this, themeCard));
+            return;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-1964023484, "Lcom/repackage/wx;");
+        this.f.setVisibility(8);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.bx
+    /* renamed from: m */
+    public void a(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) {
+            l(threadData);
         }
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        MessageDigest messageDigest;
-        DataInputStream dataInputStream;
+    public void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            DataInputStream dataInputStream2 = null;
-            try {
-                try {
-                    messageDigest = MessageDigest.getInstance("MD5");
-                    dataInputStream = new DataInputStream(new FileInputStream(str));
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] bArr = new byte[131072];
-                while (true) {
-                    int read = dataInputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    messageDigest.update(bArr, 0, read);
-                }
-                String b = b(messageDigest.digest(), "");
-                try {
-                    dataInputStream.close();
-                } catch (Exception unused) {
-                }
-                return b;
-            } catch (Exception e2) {
-                e = e2;
-                dataInputStream2 = dataInputStream;
-                e.printStackTrace();
-                if (dataInputStream2 != null) {
-                    try {
-                        dataInputStream2.close();
-                    } catch (Exception unused2) {
-                    }
-                }
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                dataInputStream2 = dataInputStream;
-                if (dataInputStream2 != null) {
-                    try {
-                        dataInputStream2.close();
-                    } catch (Exception unused3) {
-                    }
-                }
-                throw th;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.g = z;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(byte[] bArr, String str) {
-        InterceptResult invokeLL;
+    public void o(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.f.setPageId(bdUniqueId);
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String processTypeString = WebKitFactory.getProcessTypeString();
-            if (TextUtils.isEmpty(processTypeString) || !processTypeString.equals("1")) {
-                Boolean bool = Boolean.FALSE;
-                WebViewFactoryProvider provider = WebViewFactory.getProvider();
-                if (provider != null) {
-                    bool = (Boolean) provider.getStaticWebSeting(WebViewFactoryProvider.SETTING_NA2_WEB_ENABLE);
-                }
-                return bool.booleanValue();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        NetworkInfo activeNetworkInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context != null && (connectivityManager = (ConnectivityManager) context.getSystemService("connectivity")) != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null) {
-                int type = activeNetworkInfo.getType();
-                if (activeNetworkInfo.isAvailable() && 1 == type) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e(View view2) {
-        InterceptResult invokeL;
-        ViewParent parent;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view2)) == null) {
-            if (view2 == null || (parent = view2.getParent()) == null || view2.getVisibility() != 0) {
-                return false;
-            }
-            ViewGroup viewGroup = (ViewGroup) parent;
-            int indexOfChild = viewGroup.indexOfChild(view2);
-            int childCount = viewGroup.getChildCount();
-            if (indexOfChild == childCount - 1) {
-                return true;
-            }
-            for (int i = indexOfChild + 1; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt.getVisibility() == 0 && childAt.getHeight() > 0 && childAt.getWidth() > 0 && view2.getHeight() > 0 && view2.getWidth() > 0 && childAt.getWidth() >= view2.getWidth() && childAt.getHeight() >= view2.getHeight()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return URLEncoder.encode(new String(vx.a(str.getBytes())), "UTF-8");
-            } catch (Exception e) {
-                Log.printStackTrace(e);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
     }
 }

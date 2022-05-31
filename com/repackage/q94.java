@@ -1,74 +1,61 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.request.HttpRequestBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
+import com.baidubce.AbstractBceClient;
+import java.util.Map;
+import okhttp3.MediaType;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class q94 extends o94 {
+public class q94 extends i84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String g;
-    public int h;
-    public long i;
-    public String j;
-    public long k;
-    public String l;
-    public String m;
-    public String n;
 
-    public q94() {
+    public static void a(String str, Map<String, String> map, Map<String, String> map2, m84<String> m84Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeLLLL(65536, null, str, map, map2, m84Var) == null) || d(str, m84Var)) {
+            return;
+        }
+        c(j64.g().getRequest(), str, map, map2, m84Var);
+    }
+
+    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, m84<String> m84Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, m84Var) == null) || d(str, m84Var)) {
+            return;
+        }
+        f64 postStringRequest = j64.g().postStringRequest();
+        r64.a(postStringRequest, map);
+        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
+        c(postStringRequest, str, map, map2, m84Var);
+    }
+
+    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
+    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, m84<String> m84Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, m84Var) == null) {
+            httpRequestBuilder.url(n84.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(i84.b).cookieManager(i84.a).enableStat(true).build().executeStat(m84Var);
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean d(String str, m84<String> m84Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.g) || this.i <= 0 || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.m) || TextUtils.isEmpty(this.n)) ? false : true : invokeV.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (super.equals(obj)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, m84Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return true;
             }
-            if (obj != null && (obj instanceof q94)) {
-                q94 q94Var = (q94) obj;
-                return (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(q94Var.j)) ? this.g.equals(q94Var.g) && this.i == q94Var.i : TextUtils.equals(this.g, q94Var.g) && this.i == q94Var.i && TextUtils.equals(this.j, q94Var.j);
+            if (m84Var != null) {
+                m84Var.onStart();
+                return false;
             }
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Objects.hash(this.g, Integer.valueOf(this.h), Long.valueOf(this.i), this.j) : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "bundleId=" + this.g + ", category=" + this.h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
-        }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

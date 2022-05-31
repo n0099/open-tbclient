@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.hn0;
+import com.repackage.ul0;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -20,7 +20,7 @@ public final class VideoViewComponent$videoViewService$2 extends Lambda implemen
     public final /* synthetic */ VideoViewComponent this$0;
 
     /* loaded from: classes2.dex */
-    public static final class a implements hn0 {
+    public static final class a implements ul0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoViewComponent$videoViewService$2 a;
@@ -44,14 +44,14 @@ public final class VideoViewComponent$videoViewService$2 extends Lambda implemen
             this.a = videoViewComponent$videoViewService$2;
         }
 
-        @Override // com.repackage.hn0
+        @Override // com.repackage.ul0
         public int getVideoHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.this$0.u() : invokeV.intValue;
         }
 
-        @Override // com.repackage.hn0
+        @Override // com.repackage.ul0
         public FrameLayout h() {
             InterceptResult invokeV;
             VideoViewHolder videoViewHolder;
@@ -63,14 +63,14 @@ public final class VideoViewComponent$videoViewService$2 extends Lambda implemen
             return (FrameLayout) invokeV.objValue;
         }
 
-        @Override // com.repackage.hn0
+        @Override // com.repackage.ul0
         public boolean k() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.this$0.p : invokeV.booleanValue;
         }
 
-        @Override // com.repackage.hn0
+        @Override // com.repackage.ul0
         public int l() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;

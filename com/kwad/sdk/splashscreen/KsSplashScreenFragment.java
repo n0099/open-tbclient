@@ -77,8 +77,8 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.a<g> im
     }
 
     private void g() {
-        this.f = (AdBaseFrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091150);
-        DetailVideoView detailVideoView = (DetailVideoView) this.c.findViewById(R.id.obfuscated_res_0x7f091155);
+        this.f = (AdBaseFrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f091112);
+        DetailVideoView detailVideoView = (DetailVideoView) this.c.findViewById(R.id.obfuscated_res_0x7f091117);
         this.g = detailVideoView;
         detailVideoView.setAd(true);
         this.g.setVisibility(8);
@@ -116,7 +116,7 @@ public class KsSplashScreenFragment extends com.kwad.sdk.contentalliance.a<g> im
 
     @Override // com.kwad.sdk.contentalliance.a
     public int b() {
-        return R.layout.obfuscated_res_0x7f0d0464;
+        return R.layout.obfuscated_res_0x7f0d045a;
     }
 
     @Override // com.kwad.sdk.contentalliance.a

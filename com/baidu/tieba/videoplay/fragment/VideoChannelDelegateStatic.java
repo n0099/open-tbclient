@@ -28,17 +28,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d55;
-import com.repackage.e55;
-import com.repackage.f55;
-import com.repackage.g55;
-import com.repackage.j55;
-import com.repackage.k55;
+import com.repackage.a45;
+import com.repackage.b45;
+import com.repackage.e45;
+import com.repackage.f45;
 import com.repackage.wa;
+import com.repackage.y35;
+import com.repackage.z35;
 import java.util.List;
 import tbclient.VideoRedIcon.RedIcon;
 /* loaded from: classes4.dex */
-public class VideoChannelDelegateStatic extends d55 {
+public class VideoChannelDelegateStatic extends y35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
@@ -75,7 +75,7 @@ public class VideoChannelDelegateStatic extends d55 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-                ((f55) customResponsedMessage.getData()).a(new VideoChannelDelegateStatic());
+                ((a45) customResponsedMessage.getData()).a(new VideoChannelDelegateStatic());
             }
         }
     }
@@ -111,7 +111,7 @@ public class VideoChannelDelegateStatic extends d55 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2921610 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof VideoClickTabData)) {
                 VideoMiddleFragment videoMiddleFragment = new VideoMiddleFragment();
-                videoMiddleFragment.Z0(BdUniqueId.gen());
+                videoMiddleFragment.b1(BdUniqueId.gen());
                 VideoClickTabData videoClickTabData = (VideoClickTabData) customResponsedMessage.getData();
                 if (videoClickTabData != null) {
                     videoMiddleFragment.setArguments(videoClickTabData.getVideoMiddleBundle());
@@ -157,7 +157,7 @@ public class VideoChannelDelegateStatic extends d55 {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements g55.a {
+    public class d implements b45.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -180,7 +180,7 @@ public class VideoChannelDelegateStatic extends d55 {
             this.a = context;
         }
 
-        @Override // com.repackage.g55.a
+        @Override // com.repackage.b45.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -257,12 +257,12 @@ public class VideoChannelDelegateStatic extends d55 {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             RedIcon redIcon;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof k55)) {
-                k55 k55Var = (k55) responsedMessage;
-                if (k55Var.getResData() == null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof f45)) {
+                f45 f45Var = (f45) responsedMessage;
+                if (f45Var.getResData() == null) {
                     return;
                 }
-                List<RedIcon> dataList = k55Var.getDataList();
+                List<RedIcon> dataList = f45Var.getDataList();
                 if (ListUtils.isEmpty(dataList) || (redIcon = dataList.get(0)) == null || redIcon.type.intValue() != 1) {
                     return;
                 }
@@ -313,33 +313,33 @@ public class VideoChannelDelegateStatic extends d55 {
         return i;
     }
 
-    @Override // com.repackage.d55
-    public e55 a() {
+    @Override // com.repackage.y35
+    public z35 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            e55 e55Var = new e55();
+            z35 z35Var = new z35();
             Bundle bundle = new Bundle();
             VideoChannelFragment videoChannelFragment = new VideoChannelFragment();
-            videoChannelFragment.Z0(BdUniqueId.gen());
-            e55Var.a = videoChannelFragment;
+            videoChannelFragment.b1(BdUniqueId.gen());
+            z35Var.a = videoChannelFragment;
             videoChannelFragment.setArguments(bundle);
-            e55Var.e = 22;
-            e55Var.b = R.string.obfuscated_res_0x7f0f14fb;
-            e55Var.i = e55.l;
-            e55Var.f = R.raw.lottie_tab_video_channel;
-            e55Var.h = j55.d().c("channel");
-            return e55Var;
+            z35Var.e = 22;
+            z35Var.b = R.string.obfuscated_res_0x7f0f1511;
+            z35Var.i = z35.l;
+            z35Var.f = R.raw.lottie_tab_video_channel;
+            z35Var.h = e45.d().c("channel");
+            return z35Var;
         }
-        return (e55) invokeV.objValue;
+        return (z35) invokeV.objValue;
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.y35
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) g55.e().d(1003, new d(this, context));
+            this.b = (MaintabBottomIndicator) b45.e().d(1003, new d(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.b;
@@ -352,14 +352,14 @@ public class VideoChannelDelegateStatic extends d55 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.y35
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.VIDEO_CHANNEL_TAB_AVAILABLE : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.y35
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -370,7 +370,7 @@ public class VideoChannelDelegateStatic extends d55 {
         }
     }
 
-    @Override // com.repackage.d55
+    @Override // com.repackage.y35
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -387,10 +387,10 @@ public class VideoChannelDelegateStatic extends d55 {
     public final void j(@NonNull RedIcon redIcon) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, redIcon) == null) {
-            e55 e55Var = new e55();
-            e55Var.g = redIcon.image;
-            e55Var.e = 22;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, e55Var));
+            z35 z35Var = new z35();
+            z35Var.g = redIcon.image;
+            z35Var.e = 22;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, z35Var));
         }
     }
 

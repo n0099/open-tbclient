@@ -25,7 +25,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean d;
     public ConnectivityManager e;
-    public C0136a f;
+    public C0135a f;
     public boolean g;
     public Context mContext;
 
@@ -38,12 +38,12 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0136a extends BroadcastReceiver {
+    public class C0135a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a h;
 
-        public C0136a(a aVar) {
+        public C0135a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -82,7 +82,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ C0136a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C0135a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
     }
@@ -174,9 +174,9 @@ public class a {
                     this.e = (ConnectivityManager) this.mContext.getSystemService("connectivity");
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction(c);
-                    C0136a c0136a = new C0136a(this, null);
-                    this.f = c0136a;
-                    this.mContext.registerReceiver(c0136a, intentFilter);
+                    C0135a c0135a = new C0135a(this, null);
+                    this.f = c0135a;
+                    this.mContext.registerReceiver(c0135a, intentFilter);
                     this.g = true;
                 }
             }

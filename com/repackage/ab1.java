@@ -1,274 +1,186 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.airbnb.lottie.LottieComposition;
-import com.airbnb.lottie.LottieCompositionFactory;
-import com.airbnb.lottie.LottieListener;
+import android.content.ContentProvider;
+import android.content.ContentProviderOperation;
+import android.content.ContentProviderResult;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.OperationApplicationException;
+import android.content.UriMatcher;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.Configuration;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Binder;
+import android.os.Bundle;
+import android.os.CancellationSignal;
+import android.os.ParcelFileDescriptor;
+import android.os.Process;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.util.zip.ZipInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ab1 {
+public abstract class ab1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ContentProvider a;
+    public final int b;
+    public final int c;
 
-    /* loaded from: classes5.dex */
-    public class a implements LottieListener<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-
-        public a(ab1 ab1Var, f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab1Var, fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(Throwable th) {
-            f fVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.a) == null) {
-                return;
-            }
-            fVar.b();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements LottieListener<LottieComposition> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-
-        public b(ab1 ab1Var, f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab1Var, fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(LottieComposition lottieComposition) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                if (lottieComposition != null) {
-                    f fVar = this.a;
-                    if (fVar != null) {
-                        fVar.a(lottieComposition);
-                        return;
-                    }
-                    return;
-                }
-                f fVar2 = this.a;
-                if (fVar2 != null) {
-                    fVar2.b();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements LottieListener<Throwable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-
-        public c(ab1 ab1Var, f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab1Var, fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(Throwable th) {
-            f fVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, th) == null) || (fVar = this.a) == null) {
-                return;
-            }
-            fVar.b();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements LottieListener<LottieComposition> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f a;
-
-        public d(ab1 ab1Var, f fVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ab1Var, fVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.airbnb.lottie.LottieListener
-        /* renamed from: a */
-        public void onResult(LottieComposition lottieComposition) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
-                if (lottieComposition != null) {
-                    f fVar = this.a;
-                    if (fVar != null) {
-                        fVar.a(lottieComposition);
-                        return;
-                    }
-                    return;
-                }
-                f fVar2 = this.a;
-                if (fVar2 != null) {
-                    fVar2.b();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public static ab1 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-534557344, "Lcom/repackage/ab1$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-534557344, "Lcom/repackage/ab1$e;");
-                    return;
-                }
-            }
-            a = new ab1(null);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface f {
-        void a(LottieComposition lottieComposition);
-
-        void b();
-    }
-
-    public /* synthetic */ ab1(a aVar) {
-        this();
-    }
-
-    public static ab1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? e.a : (ab1) invokeV.objValue;
-    }
-
-    public void a(File file, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, file, fVar) == null) && file != null && file.exists()) {
-            try {
-                LottieCompositionFactory.fromZipStream(new ZipInputStream(new FileInputStream(file.getPath())), null).addListener(new b(this, fVar)).addFailureListener(new a(this, fVar));
-            } catch (Exception unused) {
-                if (fVar != null) {
-                    fVar.b();
-                }
-            }
-        }
-    }
-
-    public void b(String str, f fVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fVar) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File q = kb1.q(str);
-        if (q != null && q.exists()) {
-            a(q, fVar);
-            return;
-        }
-        try {
-            LottieCompositionFactory.fromUrl(ki0.b(), str).addListener(new d(this, fVar)).addFailureListener(new c(this, fVar));
-        } catch (Exception unused) {
-            if (fVar != null) {
-                fVar.b();
-            }
-        }
-    }
-
-    public ab1() {
+    public ab1(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = i;
+        this.c = i2;
     }
+
+    public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+            int size = arrayList.size();
+            ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
+            for (int i = 0; i < size; i++) {
+                contentProviderResultArr[i] = arrayList.get(i).apply(this.a, contentProviderResultArr, i);
+            }
+            return contentProviderResultArr;
+        }
+        return (ContentProviderResult[]) invokeL.objValue;
+    }
+
+    public void b(ContentProvider contentProvider) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.a == null) {
+            this.a = contentProvider;
+        }
+    }
+
+    public int c(int i, Uri uri, ContentValues[] contentValuesArr) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, uri, contentValuesArr)) == null) {
+            int length = contentValuesArr.length;
+            for (ContentValues contentValues : contentValuesArr) {
+                insert(i, uri, contentValues);
+            }
+            return length;
+        }
+        return invokeILL.intValue;
+    }
+
+    public Bundle call(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, bundle)) == null) {
+            return null;
+        }
+        return (Bundle) invokeLLL.objValue;
+    }
+
+    public boolean d(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, bundle)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public abstract int delete(int i, Uri uri, String str, String[] strArr);
+
+    public void e(Uri uri, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, uri, i) == null) && Binder.getCallingUid() != Process.myUid()) {
+            throw new SecurityException();
+        }
+    }
+
+    public abstract void f(UriMatcher uriMatcher, String str);
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public final Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    public abstract String getType(int i, Uri uri);
+
+    public final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public void i(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
+        }
+    }
+
+    public abstract Uri insert(int i, Uri uri, ContentValues contentValues);
+
+    public abstract boolean j();
+
+    public AssetFileDescriptor k(int i, Uri uri, String str) throws FileNotFoundException {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048591, this, i, uri, str)) == null) {
+            m(i, uri, str);
+            throw null;
+        }
+        return (AssetFileDescriptor) invokeILL.objValue;
+    }
+
+    public AssetFileDescriptor l(int i, Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), uri, str, cancellationSignal})) == null) {
+            k(i, uri, str);
+            throw null;
+        }
+        return (AssetFileDescriptor) invokeCommon.objValue;
+    }
+
+    public ParcelFileDescriptor m(int i, Uri uri, String str) throws FileNotFoundException {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048593, this, i, uri, str)) == null) {
+            throw new FileNotFoundException("No files supported by provider at " + uri);
+        }
+        return (ParcelFileDescriptor) invokeILL.objValue;
+    }
+
+    public abstract Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2);
+
+    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2, cancellationSignal})) == null) ? query(i, uri, strArr, str, strArr2, str2) : (Cursor) invokeCommon.objValue;
+    }
+
+    public abstract int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
 }

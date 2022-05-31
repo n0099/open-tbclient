@@ -106,8 +106,8 @@ public class g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, pluginDownloadBean)) == null) {
-            Plugin plugin2 = Zeus.getPlugin(pluginDownloadBean.mPackageName);
-            if ((plugin2 != null && plugin2.isVersionInstalled(pluginDownloadBean.mVersionCode)) && PluginDirHelper.isPackageVersionDirExists(pluginDownloadBean.mPackageName, pluginDownloadBean.mVersionCode)) {
+            Plugin plugin = Zeus.getPlugin(pluginDownloadBean.mPackageName);
+            if ((plugin != null && plugin.isVersionInstalled(pluginDownloadBean.mVersionCode)) && PluginDirHelper.isPackageVersionDirExists(pluginDownloadBean.mPackageName, pluginDownloadBean.mVersionCode)) {
                 ZeusLogger.e(ZeusLogger.TAG_DOWNLOAD, "interceptPluginDownload, packageName:" + pluginDownloadBean.mPackageName + " downloadVersionCode:" + pluginDownloadBean.mVersionCode);
                 return true;
             }
@@ -131,7 +131,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pluginDownloadBean, zeusPluginListener) == null) {
             try {
-                Plugin plugin2 = Zeus.getPlugin(pluginDownloadBean.mPackageName);
+                Plugin plugin = Zeus.getPlugin(pluginDownloadBean.mPackageName);
                 if (b(pluginDownloadBean)) {
                     if (zeusPluginListener != null) {
                         zeusPluginListener.onEvent(13, "already download");
@@ -139,9 +139,9 @@ public class g {
                     }
                     return;
                 }
-                if (plugin2 != null) {
-                    plugin2.setHostCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mClientVersionMin, pluginDownloadBean.mClientVersionMax);
-                    plugin2.setApiCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mApiVersionMin, pluginDownloadBean.mApiVersionMax);
+                if (plugin != null) {
+                    plugin.setHostCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mClientVersionMin, pluginDownloadBean.mClientVersionMax);
+                    plugin.setApiCompatVersion(pluginDownloadBean.mVersionCode, pluginDownloadBean.mApiVersionMin, pluginDownloadBean.mApiVersionMax);
                 }
                 PluginProvider pluginProvider = com.bytedance.pangle.g.a().b.getPluginProvider();
                 if (pluginProvider != null && pluginProvider.useLocalPlugin()) {
@@ -170,8 +170,8 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                Plugin plugin2 = Zeus.getPlugin(str);
-                if (plugin2 != null && !plugin2.isLoaded() && (l = this.h.get(str)) != null) {
+                Plugin plugin = Zeus.getPlugin(str);
+                if (plugin != null && !plugin.isLoaded() && (l = this.h.get(str)) != null) {
                     if (System.currentTimeMillis() - l.longValue() < 5000) {
                     }
                 }

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
+import com.repackage.li;
 /* loaded from: classes3.dex */
 public class ItemTableRowView extends View {
     public static /* synthetic */ Interceptable $ic;
@@ -65,13 +65,13 @@ public class ItemTableRowView extends View {
                 return;
             }
         }
-        t = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
-        u = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
-        v = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
-        w = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        x = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
-        y = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
-        z = mi.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
+        t = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds16);
+        u = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X001);
+        v = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds644);
+        w = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
+        x = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds2);
+        y = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X003);
+        z = li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds6);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

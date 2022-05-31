@@ -1,27 +1,31 @@
 package com.repackage;
 
+import com.baidu.tieba.stampmission.mission.StampMission;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class se8 {
+public class se8 extends StampMission {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile re8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized re8 a() {
-        InterceptResult invokeV;
-        re8 re8Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public se8() {
+        super(StampMission.Type.LIKE_THREAD, StampMission.a.b);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (se8.class) {
-                if (a == null) {
-                    a = new re8();
-                }
-                re8Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((StampMission.Type) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return re8Var;
         }
-        return (re8) invokeV.objValue;
     }
 }

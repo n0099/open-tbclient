@@ -1,197 +1,236 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.os.Process;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.swan.game.ad.downloader.exception.DownloadPauseException;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-/* loaded from: classes6.dex */
-public class en3 {
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+/* loaded from: classes5.dex */
+public class en3 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ln3 a;
+    public final DownloadInfo b;
+    public final a c;
+    public long d;
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x004e */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.ByteArrayOutputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static byte[] a(byte[] bArr, Key key, int i) {
-        InterceptResult invokeLLI;
-        ByteArrayOutputStream byteArrayOutputStream;
-        byte[] doFinal;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
+
+        void b();
+    }
+
+    public en3(ln3 ln3Var, DownloadInfo downloadInfo, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, bArr, key, i)) == null) {
-            ?? r0 = 0;
-            if (bArr != null && bArr.length != 0 && key != null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ln3Var, downloadInfo, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = ln3Var;
+        this.b = downloadInfo;
+        this.d = downloadInfo.getProgress();
+        this.c = aVar;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.isPause()) {
+            throw new DownloadPauseException(7);
+        }
+    }
+
+    public final void b() {
+        InputStream inputStream;
+        RandomAccessFile randomAccessFile;
+        Exception e;
+        IOException e2;
+        ProtocolException e3;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        RandomAccessFile randomAccessFile2 = null;
+        try {
+            try {
                 try {
-                    if (i > 0) {
+                    URL url = new URL(this.b.getUri());
+                    long j = this.d;
+                    Response execute = new OkHttpClient().newCall(new Request.Builder().addHeader("RANGE", "bytes=" + j + "-").url(url).build()).execute();
+                    if (execute == null || execute.body() == null) {
+                        inputStream = null;
+                    } else {
+                        inputStream = execute.body().byteStream();
                         try {
-                            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                            cipher.init(1, key);
-                            byteArrayOutputStream = new ByteArrayOutputStream();
+                            RandomAccessFile randomAccessFile3 = new RandomAccessFile(this.b.getPath(), "rw");
                             try {
-                                int length = bArr.length;
-                                int i2 = 0;
+                                randomAccessFile3.seek(j);
+                                byte[] bArr = new byte[1024];
+                                int i = 0;
                                 while (true) {
-                                    int i3 = length - i2;
-                                    if (i3 <= 0) {
+                                    int read = inputStream.read(bArr);
+                                    if (read == -1) {
                                         break;
                                     }
-                                    if (i3 > i) {
-                                        doFinal = cipher.doFinal(bArr, i2, i);
-                                    } else {
-                                        doFinal = cipher.doFinal(bArr, i2, i3);
-                                    }
-                                    byteArrayOutputStream.write(doFinal, 0, doFinal.length);
-                                    i2 += i;
+                                    a();
+                                    i += read;
+                                    randomAccessFile3.write(bArr, 0, read);
+                                    this.b.setProgress(this.d + i);
+                                    this.c.b();
                                 }
-                                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                                try {
-                                    byteArrayOutputStream.close();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
+                                execute.body().close();
+                                this.c.a();
+                                randomAccessFile2 = randomAccessFile3;
+                            } catch (DownloadPauseException unused) {
+                                randomAccessFile2 = randomAccessFile3;
+                                if (randomAccessFile2 != null) {
+                                    randomAccessFile2.close();
                                 }
-                                return byteArray;
-                            } catch (InvalidKeyException e2) {
-                                e = e2;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                    try {
-                                        byteArrayOutputStream.close();
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
-                                    }
+                                if (inputStream != null) {
+                                    inputStream.close();
+                                    return;
                                 }
-                                return null;
-                            } catch (NoSuchAlgorithmException e4) {
-                                e = e4;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            } catch (BadPaddingException e5) {
-                                e = e5;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            } catch (IllegalBlockSizeException e6) {
+                                return;
+                            } catch (ProtocolException e4) {
+                                e3 = e4;
+                                throw new DownloadException(4, "Protocol error", e3);
+                            } catch (IOException e5) {
+                                e2 = e5;
+                                throw new DownloadException(5, "IO error", e2);
+                            } catch (Exception e6) {
                                 e = e6;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
-                            } catch (NoSuchPaddingException e7) {
-                                e = e7;
-                                e.printStackTrace();
-                                if (byteArrayOutputStream != null) {
-                                }
-                                return null;
+                                throw new DownloadException(9, "other error", e);
                             }
-                        } catch (InvalidKeyException e8) {
+                        } catch (DownloadPauseException unused2) {
+                        } catch (ProtocolException e7) {
+                            e = e7;
+                            e3 = e;
+                            throw new DownloadException(4, "Protocol error", e3);
+                        } catch (IOException e8) {
                             e = e8;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (NoSuchAlgorithmException e9) {
+                            e2 = e;
+                            throw new DownloadException(5, "IO error", e2);
+                        } catch (Exception e9) {
                             e = e9;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (BadPaddingException e10) {
-                            e = e10;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (IllegalBlockSizeException e11) {
-                            e = e11;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
-                        } catch (NoSuchPaddingException e12) {
-                            e = e12;
-                            byteArrayOutputStream = null;
-                            e.printStackTrace();
-                            if (byteArrayOutputStream != null) {
-                            }
-                            return null;
+                            e = e;
+                            throw new DownloadException(9, "other error", e);
                         } catch (Throwable th) {
                             th = th;
-                            if (r0 != 0) {
+                            randomAccessFile = null;
+                            th = th;
+                            if (randomAccessFile != null) {
                                 try {
-                                    r0.close();
-                                } catch (IOException e13) {
-                                    e13.printStackTrace();
+                                    randomAccessFile.close();
+                                } catch (Exception e10) {
+                                    e10.printStackTrace();
+                                    throw th;
                                 }
+                            }
+                            if (inputStream != null) {
+                                inputStream.close();
                             }
                             throw th;
                         }
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    r0 = key;
+                    if (randomAccessFile2 != null) {
+                        randomAccessFile2.close();
+                    }
+                    if (inputStream != null) {
+                        inputStream.close();
+                    }
+                } catch (Exception e11) {
+                    e11.printStackTrace();
                 }
+            } catch (DownloadPauseException unused3) {
+                inputStream = null;
+            } catch (ProtocolException e12) {
+                e = e12;
+            } catch (IOException e13) {
+                e = e13;
+            } catch (Exception e14) {
+                e = e14;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = null;
+                randomAccessFile = null;
             }
-            return null;
+        } catch (Throwable th3) {
+            th = th3;
         }
-        return (byte[]) invokeLLI.objValue;
     }
 
-    public static byte[] b(byte[] bArr, String str, int i) {
-        InterceptResult invokeLLI;
-        PublicKey c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bArr, str, i)) == null) {
-            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (c = c(str)) == null) {
-                return null;
-            }
-            return a(bArr, c, i);
-        }
-        return (byte[]) invokeLLI.objValue;
-    }
-
-    public static PublicKey c(String str) {
+    public final long c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
-                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
-                e.printStackTrace();
-                return null;
+                Response execute = new OkHttpClient().newCall(new Request.Builder().url(str).build()).execute();
+                if (execute == null || !execute.isSuccessful() || execute.body() == null) {
+                    return 0L;
+                }
+                long contentLength = execute.body().contentLength();
+                execute.body().close();
+                return contentLength;
+            } catch (MalformedURLException e) {
+                throw new DownloadException(2, "Bad url.", e);
+            } catch (ProtocolException e2) {
+                throw new DownloadException(4, "Protocol error", e2);
+            } catch (IOException e3) {
+                throw new DownloadException(5, "IO error", e3);
+            } catch (Exception e4) {
+                throw new DownloadException(9, "Unknown error", e4);
             }
         }
-        return (PublicKey) invokeL.objValue;
+        return invokeL.longValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Process.setThreadPriority(10);
+            try {
+                if (this.b.getSize() <= 0) {
+                    long c = c(this.b.getUri());
+                    if (c > 0) {
+                        this.b.setSize(c);
+                    } else {
+                        throw new DownloadException(6, "length <= 0");
+                    }
+                }
+                this.b.setStatus(DownloadState.DOWNLOADING.value());
+                this.a.b(this.b);
+                b();
+            } catch (DownloadException e) {
+                this.b.setStatus(DownloadState.DOWNLOAD_FAILED.value());
+                this.b.setException(e);
+                this.a.b(this.b);
+                this.a.a(e);
+            }
+        }
     }
 }

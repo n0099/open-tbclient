@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.en0;
+import com.repackage.rl0;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
@@ -19,7 +19,7 @@ public final class AlsComponent$alsService$2 extends Lambda implements Function0
     public final /* synthetic */ AlsComponent this$0;
 
     /* loaded from: classes2.dex */
-    public static final class a implements en0 {
+    public static final class a implements rl0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlsComponent$alsService$2 a;
@@ -43,7 +43,7 @@ public final class AlsComponent$alsService$2 extends Lambda implements Function0
             this.a = alsComponent$alsService$2;
         }
 
-        @Override // com.repackage.en0
+        @Override // com.repackage.rl0
         public void a(String type, String area) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, type, area) == null) {
@@ -53,7 +53,7 @@ public final class AlsComponent$alsService$2 extends Lambda implements Function0
             }
         }
 
-        @Override // com.repackage.en0
+        @Override // com.repackage.rl0
         public void c(String type, String area, String ext1) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, type, area, ext1) == null) {

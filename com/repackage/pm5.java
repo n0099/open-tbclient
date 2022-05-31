@@ -1,94 +1,86 @@
 package com.repackage;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.aiapps.apps.permission.PermissionActivity;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class pm5 {
+public class pm5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static List<String> a;
+    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public ThreadData d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755405095, "Lcom/repackage/pm5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755405095, "Lcom/repackage/pm5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755405095, "Lcom/repackage/pm5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        i = BdUniqueId.gen();
+    }
+
+    public pm5() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-755405095, "Lcom/repackage/pm5;");
-        }
-    }
-
-    @TargetApi(23)
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            List<String> list = a;
-            if (list == null) {
-                a = new ArrayList();
-            } else {
-                list.clear();
-            }
-            if (context.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") != 0) {
-                a.add("android.permission.WRITE_EXTERNAL_STORAGE");
-                a.add("android.permission.READ_EXTERNAL_STORAGE");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f = false;
+        this.g = false;
+        this.h = false;
     }
 
-    @TargetApi(23)
-    public static boolean b(Context context, int i, String[] strArr, int[] iArr) {
-        InterceptResult invokeLILL;
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65538, null, context, i, strArr, iArr)) == null) {
-            if (strArr.length >= 1 || iArr.length >= 1) {
-                if (!c(context)) {
-                    d(context);
-                    return true;
-                } else if (context instanceof PermissionActivity) {
-                    ((Activity) context).finish();
-                    return true;
-                } else {
-                    return false;
-                }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.repackage.jn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
+    }
+
+    @Deprecated
+    public void parserProtobuf(ThreadInfo threadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadInfo) == null) {
+            if (this.d == null) {
+                this.d = new ThreadData();
             }
-            return false;
-        }
-        return invokeLILL.booleanValue;
-    }
-
-    @TargetApi(23)
-    public static boolean c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? context.checkSelfPermission("android.permission.WRITE_EXTERNAL_STORAGE") == 0 : invokeL.booleanValue;
-    }
-
-    @TargetApi(23)
-    public static void d(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            if (!c(context)) {
-                a(context);
-                List<String> list = a;
-                ((Activity) context).requestPermissions((String[]) list.toArray(new String[list.size()]), 102);
-            } else if (context instanceof PermissionActivity) {
-                ((Activity) context).finish();
-            }
+            this.d.parserProtobuf(threadInfo);
         }
     }
 }

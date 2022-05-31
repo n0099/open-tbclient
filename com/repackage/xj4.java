@@ -1,5 +1,8 @@
 package com.repackage;
+
+import android.content.Context;
+import android.view.View;
 /* loaded from: classes7.dex */
-public interface xj4<T> extends qm4<T> {
-    void a(T t);
+public interface xj4 {
+    View a(Context context);
 }

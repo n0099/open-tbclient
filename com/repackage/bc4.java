@@ -1,16 +1,13 @@
 package com.repackage;
 
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class bc4 implements ec4 {
+public class bc4 extends na4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,61 +25,11 @@ public abstract class bc4 implements ec4 {
         }
     }
 
-    public static <T> T e(@Nullable T t, @Nullable cc4<T> cc4Var) {
-        InterceptResult invokeLL;
+    @Override // com.repackage.na4, com.repackage.qa4
+    public void a(JSONArray jSONArray, a74 a74Var, @Nullable a74 a74Var2, @Nullable a74 a74Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, t, cc4Var)) == null) {
-            if (t != null && cc4Var != null) {
-                cc4Var.a(t);
-            }
-            return t;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, a74Var, a74Var2, a74Var3) == null) {
+            yb4.a().c(jSONArray, a74Var, a74Var2, a74Var3);
         }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.ec4
-    @Nullable
-    public JSONObject a(@Nullable cc4<JSONObject> cc4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cc4Var)) == null) {
-            JSONObject d = d();
-            e(d, cc4Var);
-            return d;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @Override // com.repackage.ec4
-    @Nullable
-    public JSONArray b(@Nullable cc4<JSONArray> cc4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cc4Var)) == null) {
-            JSONArray c = c();
-            e(c, cc4Var);
-            return c;
-        }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    @Nullable
-    public JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    @Nullable
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,180 +1,81 @@
 package com.repackage;
 
-import android.util.Pair;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te1;
-import java.util.HashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public class ye1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ye1 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-    public AtomicBoolean b;
-    public AtomicBoolean c;
-    public AtomicBoolean d;
-    public HashMap<Integer, te1.a> e;
 
-    public ye1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicBoolean(false);
-        this.b = new AtomicBoolean(false);
-        this.c = new AtomicBoolean(false);
-        this.d = new AtomicBoolean(false);
-        this.e = new HashMap<>();
-    }
-
-    public static ye1 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f == null) {
-                synchronized (ye1.class) {
-                    if (f == null) {
-                        f = new ye1();
-                    }
-                }
-            }
-            return f;
-        }
-        return (ye1) invokeV.objValue;
-    }
-
-    public synchronized int a(te1.a aVar) {
+    public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
-        int currentTimeMillis;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            synchronized (this) {
-                currentTimeMillis = (int) System.currentTimeMillis();
-                this.e.put(Integer.valueOf(currentTimeMillis), aVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = new byte[256];
+            for (int i = 0; i < 256; i++) {
+                bArr2[i] = (byte) i;
             }
-            return currentTimeMillis;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized Pair<Boolean, te1.a> b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            synchronized (this) {
-                if (!this.e.containsKey(Integer.valueOf(i))) {
-                    return new Pair<>(Boolean.FALSE, null);
-                }
-                if1.a().b(i);
-                this.e.remove(Integer.valueOf(i));
-                return new Pair<>(Boolean.TRUE, this.e.get(Integer.valueOf(i)));
+            if (bArr == null || bArr.length == 0) {
+                return null;
             }
-        }
-        return (Pair) invokeI.objValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a.set(z);
-        }
-    }
-
-    public boolean e(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.a.compareAndSet(z, z2) : invokeCommon.booleanValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b.set(z);
-        }
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.get() : invokeV.booleanValue;
-    }
-
-    public synchronized boolean h(int i) {
-        InterceptResult invokeI;
-        boolean containsKey;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            synchronized (this) {
-                containsKey = this.e.containsKey(Integer.valueOf(i));
+            int i2 = 0;
+            int i3 = 0;
+            for (int i4 = 0; i4 < 256; i4++) {
+                i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
+                byte b = bArr2[i4];
+                bArr2[i4] = bArr2[i3];
+                bArr2[i3] = b;
+                i2 = (i2 + 1) % bArr.length;
             }
-            return containsKey;
+            return bArr2;
         }
-        return invokeI.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public boolean i(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.b.compareAndSet(z, z2) : invokeCommon.booleanValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.c.set(z);
-        }
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c.get() : invokeV.booleanValue;
-    }
-
-    public synchronized boolean l(int i) {
-        InterceptResult invokeI;
-        boolean containsKey;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            synchronized (this) {
-                containsKey = this.e.containsKey(Integer.valueOf(i));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            if (bArr == null || bArr2 == null) {
+                return null;
             }
-            return containsKey;
+            return d(bArr, bArr2);
         }
-        return invokeI.booleanValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public boolean m(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public static byte[] c(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.c.compareAndSet(z, z2) : invokeCommon.booleanValue;
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d.set(z);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            if (bArr == null || bArr2 == null) {
+                return null;
+            }
+            return d(bArr, bArr2);
         }
+        return (byte[]) invokeLL.objValue;
     }
 
-    public boolean o(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? this.d.compareAndSet(z, z2) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            byte[] a = a(bArr2);
+            byte[] bArr3 = new byte[bArr.length];
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < bArr.length; i3++) {
+                i = (i + 1) & 255;
+                i2 = ((a[i] & 255) + i2) & 255;
+                byte b = a[i];
+                a[i] = a[i2];
+                a[i2] = b;
+                bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
+                bArr3[i3] = (byte) (bArr3[i3] ^ 42);
+            }
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

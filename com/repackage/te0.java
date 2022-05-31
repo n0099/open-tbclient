@@ -1,30 +1,21 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
-import java.io.File;
-import java.util.Objects;
+import java.util.Map;
+@Service
 /* loaded from: classes7.dex */
-public class te0 {
+public class te0 extends hg0 {
     public static /* synthetic */ Interceptable $ic;
-    public static te0 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
-    public File c;
-    public File d;
-    public File e;
-    public File f;
-    public File g;
 
     public te0() {
         Interceptable interceptable = $ic;
@@ -40,121 +31,22 @@ public class te0 {
         }
     }
 
-    public static synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            synchronized (te0.class) {
-                if (h == null) {
-                    h = new te0();
-                }
-            }
-        }
-    }
-
-    public static File b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return d().f;
-            }
-            return d().e;
-        }
-        return (File) invokeZ.objValue;
-    }
-
-    public static te0 d() {
+    @Override // com.repackage.hg0
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (h == null) {
-                a();
-            }
-            return h;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "onDownloadBtnClick" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.hg0
+    public boolean b(@NonNull Context context, @NonNull lg0 lg0Var, @Nullable Map<String, Object> map, @Nullable pg0 pg0Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, lg0Var, map, pg0Var)) == null) {
+            boolean b = super.b(context, lg0Var, map, pg0Var);
+            c(pg0Var, lg0Var, b ? 0 : 1001, b);
+            return true;
         }
-        return (te0) invokeV.objValue;
-    }
-
-    public static File e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            File file = new File(context.getFilesDir(), FileUtils.DIR_DUAR);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static File f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? d().g : (File) invokeV.objValue;
-    }
-
-    @SuppressLint({"NewApi"})
-    public File c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (Environment.getExternalStorageState().equals("mounted")) {
-                return ((Context) Objects.requireNonNull(context)).getExternalFilesDir(FileUtils.DIR_DUAR);
-            }
-            return null;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public File g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (File) invokeV.objValue;
-    }
-
-    public File h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (File) invokeV.objValue;
-    }
-
-    public void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.a = e(context);
-            File c = c(context);
-            this.b = c;
-            if (c == null) {
-                this.b = this.a;
-            }
-            if (this.b != null) {
-                this.c = new File(this.b, "sdk");
-                File file = new File(this.c, "arsource");
-                this.d = file;
-                if (!file.exists()) {
-                    this.d.mkdirs();
-                }
-            }
-            if (this.a != null) {
-                new File(this.a, "sdk");
-                File file2 = new File(this.a, "sdklibs/armeabi-v7a");
-                this.e = file2;
-                if (!file2.exists()) {
-                    this.e.mkdirs();
-                }
-                File file3 = new File(this.a, "sdklibs/arm64-v8a");
-                this.f = file3;
-                if (!file3.exists()) {
-                    this.f.mkdirs();
-                }
-                File file4 = new File(this.a, "sdklibs/armeabi-v7a-2");
-                this.g = file4;
-                if (file4.exists()) {
-                    return;
-                }
-                this.g.mkdirs();
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

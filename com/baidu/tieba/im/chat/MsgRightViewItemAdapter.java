@@ -69,7 +69,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.eo
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.repackage.wm
     public /* bridge */ /* synthetic */ View S(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
         c0(i, view2, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view2;
@@ -82,20 +82,20 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.S(i, view2, viewGroup, chatMessage, msgViewHolder);
             MsgrightView c = msgViewHolder.c();
-            c.B(this.o);
-            c.t(this.t);
-            c.r(this.p);
+            c.A(this.o);
+            c.s(this.t);
+            c.q(this.p);
             c.setUpdateListener(this.r);
-            c.A(this.q);
-            c.n();
+            c.z(this.q);
+            c.m();
             chatMessage.getCacheData().setIs_left(0);
-            c.w(this.j);
-            c.x(this.k);
-            c.y(i);
-            c.o(this.l);
-            c.u(chatMessage.getCacheData().getLastMsgTime());
-            c.z(viewGroup, chatMessage);
-            c.q(viewGroup, chatMessage);
+            c.v(this.j);
+            c.w(this.k);
+            c.x(i);
+            c.n(this.l);
+            c.t(chatMessage.getCacheData().getLastMsgTime());
+            c.y(viewGroup, chatMessage);
+            c.o(viewGroup, chatMessage);
             this.i.getLayoutMode().k(false);
             this.i.getLayoutMode().j(view2);
             return view2;
@@ -113,14 +113,14 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: m0 */
     public MsgCommonItemAdapter.MsgViewHolder<MsgrightView> M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
             MsgrightView msgrightView = new MsgrightView(this.i);
-            return new a(this, msgrightView.g(), msgrightView);
+            return new a(this, msgrightView.e(), msgrightView);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }

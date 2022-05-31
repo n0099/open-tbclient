@@ -1,83 +1,46 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
+import com.repackage.kg3;
+import com.repackage.og3;
+import com.repackage.sf3;
+import com.repackage.zh3;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jg3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+public interface jg3 {
+    String a(Context context);
 
-    public jg3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-    }
+    String b(Context context);
 
-    @NonNull
-    public jg3 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            this.a = i | this.a;
-            return this;
-        }
-        return (jg3) invokeI.objValue;
-    }
+    void c(Context context, Bundle bundle, tf1 tf1Var);
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
+    hg3 d(Context context);
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
-    }
+    void e(Activity activity, String str, String str2, ig3 ig3Var);
 
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a & 1) == 1 : invokeV.booleanValue;
-    }
+    void f(Context context, zh3.d dVar);
 
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = (~i) & this.a;
-        }
-    }
+    boolean g(Context context);
 
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.b = i;
-        }
-    }
+    String getBduss(Context context);
 
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
-    }
+    void h(vf1 vf1Var);
+
+    void i(Context context, kg3.d dVar);
+
+    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
+
+    String k(Context context);
+
+    void l(Activity activity, String str, String str2, ig3 ig3Var);
+
+    void m(Activity activity, String str, oh3 oh3Var);
+
+    void n(String str, ArrayList<String> arrayList, og3.c cVar);
+
+    void o(sf3.a aVar, String str, List<String> list);
 }

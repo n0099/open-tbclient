@@ -1,269 +1,207 @@
 package com.repackage;
 
-import android.animation.Keyframe;
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
-import androidx.annotation.UiThread;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.R;
+import com.baidu.location.BDLocation;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.MyLocationConfiguration;
+import com.baidu.mapapi.map.MyLocationData;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@UiThread
+import com.repackage.h44;
+import com.repackage.hj2;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a44 implements b44 {
+public class a44 extends s34<tl2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public i44 b;
-    public b c;
-    public Handler d;
-    public ViewGroup e;
-    public int f;
-    public boolean g;
-    public ObjectAnimator h;
-    public d44 i;
 
     /* loaded from: classes5.dex */
-    public class a extends Handler {
+    public class a implements h44.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a44 a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ q44 b;
+        public final /* synthetic */ o34 c;
+        public final /* synthetic */ a44 d;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(a44 a44Var, Looper looper) {
-            super(looper);
+        public a(a44 a44Var, Context context, q44 q44Var, o34 o34Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a44Var, looper};
+                Object[] objArr = {a44Var, context, q44Var, o34Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = a44Var;
+            this.d = a44Var;
+            this.a = context;
+            this.b = q44Var;
+            this.c = o34Var;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
+        @Override // com.repackage.h44.c
+        public void onFail() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                int f = this.a.f();
-                if (f > 0 && this.a.g) {
-                    this.a.d.sendEmptyMessageDelayed(1, f);
-                }
-                this.a.k();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hw1.o("map", "location permission fail");
+            }
+        }
+
+        @Override // com.repackage.h44.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                hw1.o("map", "location permission success");
+                this.d.e(this.a, this.b, this.c);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void c();
+    public class b implements hj2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q44 a;
+        public final /* synthetic */ o34 b;
 
-        void p();
+        public b(a44 a44Var, q44 q44Var, o34 o34Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a44Var, q44Var, o34Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q44Var;
+            this.b = o34Var;
+        }
 
-        void v(int i);
+        @Override // com.repackage.hj2.a
+        public void a(g23 g23Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, g23Var) == null) {
+                hw1.i("map", "get location " + g23Var.a().toString());
+                BaiduMap map = this.a.l.getMap();
+                map.animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(g23Var.c, g23Var.b)));
+                map.setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+                map.setMyLocationEnabled(true);
+                map.setMyLocationData(new MyLocationData.Builder().accuracy((float) g23Var.e).latitude(g23Var.c).longitude(g23Var.b).build());
+                this.b.p(true);
+            }
+        }
+
+        @Override // com.repackage.hj2.a
+        public void onFailed(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                hw1.i("map", "get location error " + i);
+            }
+        }
     }
 
-    public a44(@NonNull Context context, @NonNull d44 d44Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755906768, "Lcom/repackage/a44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755906768, "Lcom/repackage/a44;");
+                return;
+            }
+        }
+        boolean z = rf1.a;
+    }
+
+    public a44() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, d44Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = context;
-        this.i = d44Var;
-        j(i());
-        h();
-        b();
     }
 
-    @NonNull
-    public static a44 c(int i, @NonNull Context context, @NonNull d44 d44Var) {
-        InterceptResult invokeILL;
+    public static a44 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, context, d44Var)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    return new f44(context, d44Var);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new a44() : (a44) invokeV.objValue;
+    }
+
+    @Override // com.repackage.s34
+    public boolean b(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, tl2Var, ql2Var, hz2Var, jSONObject)) == null) ? g(context, tl2Var, ql2Var, hz2Var) : invokeLLLLL.booleanValue;
+    }
+
+    public final void e(Context context, q44 q44Var, o34 o34Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, q44Var, o34Var) == null) {
+            oi2.I().b("gcj02", true, false, new b(this, q44Var, o34Var));
+        }
+    }
+
+    public final boolean g(Context context, tl2 tl2Var, ql2 ql2Var, hz2 hz2Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, tl2Var, ql2Var, hz2Var)) == null) {
+            hw1.i("map", "MoveToLocationAction start");
+            pl1 A = uk2.U().A(tl2Var.c);
+            if (!(A instanceof nl1)) {
+                hw1.c("map", "WebViewManager is null");
+                return false;
+            }
+            o34 c = p34.b().c((nl1) A);
+            q44 d = c.d(tl2Var.b);
+            if (d == null) {
+                hw1.c("map", "can not find map by id " + tl2Var.b);
+                return false;
+            } else if (!d.k) {
+                hw1.o("map", "can not move to location because showLocation is not set");
+                return false;
+            } else {
+                BDLocation e = c.e();
+                if (e != null && c.g()) {
+                    d.l.getMap().animateMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(e.getLatitude(), e.getLongitude())));
+                    d.l.getMap().setMyLocationConfiguration(new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, null));
+                    d.l.getMap().setMyLocationEnabled(true);
+                    d.l.getMap().setMyLocationData(new MyLocationData.Builder().accuracy(e.getRadius()).latitude(e.getLatitude()).longitude(e.getLongitude()).build());
+                    hw1.i("map", "MoveToLocationAction end");
+                    return true;
                 }
-                return new h44(context, d44Var);
-            }
-            return new f44(context, d44Var);
-        }
-        return (a44) invokeILL.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.setVisibility(8);
-            n34.a(this.e, g());
-        }
-    }
-
-    public final ObjectAnimator d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.e, PropertyValuesHolder.ofKeyframe(View.ROTATION, Keyframe.ofFloat(0.0f, 0.0f), Keyframe.ofFloat(0.2f, 6.0f), Keyframe.ofFloat(0.4f, -6.0f), Keyframe.ofFloat(0.6f, 6.0f), Keyframe.ofFloat(0.8f, -6.0f), Keyframe.ofFloat(1.0f, 0.0f)));
-            ofPropertyValuesHolder.setDuration(600L);
-            return ofPropertyValuesHolder;
-        }
-        return (ObjectAnimator) invokeV.objValue;
-    }
-
-    @Override // com.repackage.z34
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g = false;
-            this.d.removeCallbacksAndMessages(null);
-            n34.d(this.e);
-        }
-    }
-
-    @Override // com.repackage.b44
-    public void e(i44 i44Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, i44Var) == null) {
-            this.b = i44Var;
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 5000;
-        }
-        return invokeV.intValue;
-    }
-
-    public final ar2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ar2 ar2Var = new ar2();
-            ar2Var.l(j34.a(this.i.left) - this.f);
-            ar2Var.m(j34.a(this.i.top) - this.f);
-            ar2Var.n(-2);
-            ar2Var.j(-2);
-            return ar2Var;
-        }
-        return (ar2) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h = d();
-            this.d = new a(this, Looper.getMainLooper());
-        }
-    }
-
-    @Override // com.repackage.z34
-    public void hide() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.g = false;
-            this.d.removeMessages(1);
-            this.e.setVisibility(8);
-        }
-    }
-
-    @SuppressLint({"InflateParams"})
-    public View i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07de, (ViewGroup) null) : (View) invokeV.objValue;
-    }
-
-    public final void j(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
-            this.f = (int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f0706c8);
-            this.e = new FrameLayout(this.a);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(j34.a(this.i.width), j34.a(this.i.height));
-            int i = this.f;
-            layoutParams.setMargins(i, i, i, i);
-            this.e.setBackgroundColor(0);
-            this.e.addView(view2, layoutParams);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.h.start();
-        }
-    }
-
-    @Override // com.repackage.b44
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && this.g) {
-            this.d.removeMessages(1);
-            if (z) {
-                this.d.sendEmptyMessage(1);
+                h44.b(context, new a(this, context, d, c));
+                return true;
             }
         }
-    }
-
-    @Override // com.repackage.z34
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.g = true;
-            this.e.setVisibility(0);
-            this.d.removeMessages(1);
-            this.d.sendEmptyMessage(1);
-        }
-    }
-
-    @Override // com.repackage.b44
-    public void u(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.c = bVar;
-        }
-    }
-
-    @Override // com.repackage.b44
-    public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            n34.f(this.e, g());
-        }
+        return invokeLLLL.booleanValue;
     }
 }

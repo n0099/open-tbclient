@@ -1,378 +1,519 @@
 package com.repackage;
 
-import android.graphics.drawable.GradientDrawable;
-import android.text.SpannableStringBuilder;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.util.Base64;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.R;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wz8 extends BaseAdapter {
+public class wz8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public LinkedList<rv4> b;
-    public LinkedList<wo4> c;
-    public b d;
+    public Context a;
 
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ wz8 b;
-
-        public a(wz8 wz8Var, int i) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755183972, "Lcom/repackage/wz8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wz8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = wz8Var;
-            this.a = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            rv4 g;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (g = this.b.g(this.a)) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755183972, "Lcom/repackage/wz8;");
                 return;
             }
-            if (this.b.d != null) {
-                this.b.d.b(g.e());
-            }
-            if (this.b.d != null) {
-                this.b.d.a(this.b.c);
-            }
         }
+        b = w09.m();
     }
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(List<wo4> list);
-
-        void b(int i);
-    }
-
-    /* loaded from: classes7.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public View b;
-        public View c;
-        public TbImageView d;
-        public TextView e;
-        public ImageView f;
-        public TextView g;
-        public TextView h;
-        public View i;
-
-        public c(wz8 wz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ c(wz8 wz8Var, a aVar) {
-            this(wz8Var);
-        }
-    }
-
-    public wz8(TbPageContext tbPageContext) {
+    public wz8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new LinkedList<>();
-        this.a = tbPageContext;
+        this.a = context;
     }
 
-    public final void c() {
+    public final boolean a(g19 g19Var) {
+        InterceptResult invokeL;
+        File[] listFiles;
+        Throwable th;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.clear();
-            if (ListUtils.isEmpty(this.b)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, g19Var)) == null) {
+            File file = new File(this.a.getFilesDir() + File.separator + "ubcdir", "proc");
+            if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
+                return false;
             }
-            Iterator<rv4> it = this.b.iterator();
-            while (it.hasNext()) {
-                rv4 next = it.next();
-                if (next.h() && (next instanceof TbLinkSpanGroup)) {
-                    TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
-                    if (tbLinkSpanGroup.t() != null) {
-                        wo4 t = tbLinkSpanGroup.t();
-                        t.p = tbLinkSpanGroup.f();
-                        this.c.add(t);
+            for (File file2 : listFiles) {
+                BufferedReader bufferedReader = null;
+                try {
+                    try {
+                        BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                        long j = Long.MAX_VALUE;
+                        int i = 0;
+                        long j2 = 0;
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                                if (jSONObject.has("abtest")) {
+                                    g19Var.K("1");
+                                }
+                                long j3 = jSONObject.getLong("timestamp");
+                                if (j3 > 0) {
+                                    if (j3 < j) {
+                                        j = j3;
+                                    }
+                                    if (j3 > j2) {
+                                        j2 = j3;
+                                    }
+                                }
+                                if (b) {
+                                    Log.d("UBCFileData", jSONObject.toString());
+                                }
+                                g19Var.b(jSONObject);
+                                i++;
+                                if (i >= 10) {
+                                    break;
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                bufferedReader = bufferedReader2;
+                                e.printStackTrace();
+                                if (bufferedReader != null) {
+                                    bufferedReader.close();
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                bufferedReader = bufferedReader2;
+                                if (bufferedReader != null) {
+                                    try {
+                                        bufferedReader.close();
+                                    } catch (Exception e2) {
+                                        e2.printStackTrace();
+                                    }
+                                }
+                                throw th;
+                            }
+                        }
+                        g19Var.J(j, j2);
+                        if (b) {
+                            Log.d("UBCFileData", "line num " + i + " delete file ");
+                        }
+                        try {
+                            bufferedReader2.close();
+                        } catch (Exception e3) {
+                            e3.printStackTrace();
+                        }
+                    } catch (Exception e4) {
+                        e = e4;
                     }
-                }
-            }
-            Collections.sort(this.c);
-        }
-    }
-
-    public LinkedList<wo4> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (LinkedList) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:10:0x001a  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ListUtils.isEmpty(this.c)) {
-                return true;
-            }
-            Iterator<wo4> it = this.c.iterator();
-            while (it.hasNext()) {
-                wo4 next = it.next();
-                if (next.b == 2 || !next.i) {
-                    return false;
-                }
-                while (it.hasNext()) {
+                } catch (Throwable th3) {
+                    th = th3;
                 }
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public LinkedList<rv4> f() {
-        InterceptResult invokeV;
+    public final File b(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (LinkedList) invokeV.objValue;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            if (!TextUtils.isEmpty(str)) {
+                File file2 = new File(file, "proc");
+                if (!file2.exists()) {
+                    file2.mkdirs();
+                }
+                return new File(file2, str);
+            }
+            return new File(file, z ? "filereal" : "filedata");
+        }
+        return (File) invokeLZ.objValue;
     }
 
-    public rv4 g(int i) {
-        InterceptResult invokeI;
-        LinkedList<rv4> linkedList;
+    public void c(boolean z) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            long itemId = getItemId(i);
-            if (itemId != 0 && (linkedList = this.b) != null) {
-                Iterator<rv4> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    rv4 next = it.next();
-                    if (next.e() == itemId) {
-                        return next;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (file.exists()) {
+                File file2 = new File(file, z ? "filereal" : "filedata");
+                if (file2.exists()) {
+                    file2.delete();
+                }
+                File file3 = new File(file, "proc");
+                if (!file3.exists() || !file3.isDirectory() || (listFiles = file3.listFiles()) == null || listFiles.length == 0) {
+                    return;
+                }
+                for (File file4 : listFiles) {
+                    if (file4.isFile()) {
+                        file4.delete();
                     }
                 }
             }
-            return null;
         }
-        return (rv4) invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void d(i09 i09Var, File file) {
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            LinkedList<wo4> linkedList = this.c;
-            if (linkedList == null) {
-                return 0;
-            }
-            return linkedList.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            LinkedList<wo4> linkedList = this.c;
-            if (linkedList == null || linkedList.size() <= i) {
-                return null;
-            }
-            return this.c.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            LinkedList<wo4> linkedList = this.c;
-            return (linkedList == null || linkedList.size() <= i || this.c.get(i) == null) ? 0 : this.c.get(i).a;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
-        View view3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            wo4 wo4Var = (wo4) getItem(i);
-            if (wo4Var == null) {
-                return null;
-            }
-            if (view2 == null) {
-                view3 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03ec, (ViewGroup) null);
-                cVar = new c(this, null);
-                cVar.a = view3.findViewById(R.id.obfuscated_res_0x7f09069e);
-                cVar.b = view3.findViewById(R.id.obfuscated_res_0x7f09069c);
-                TbImageView tbImageView = (TbImageView) view3.findViewById(R.id.obfuscated_res_0x7f09069a);
-                cVar.d = tbImageView;
-                tbImageView.setConrers(15);
-                cVar.d.setRadius(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10));
-                cVar.d.setPlaceHolderAutoChangeSkinType(1);
-                cVar.d.setGifIconSupport(false);
-                cVar.d.setLongIconSupport(false);
-                cVar.d.setDrawBorder(true);
-                cVar.d.setBorderWidth(mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-                cVar.d.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-                cVar.e = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090699);
-                cVar.f = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090698);
-                cVar.c = view3.findViewById(R.id.obfuscated_res_0x7f090946);
-                cVar.g = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f09069d);
-                cVar.h = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090697);
-                cVar.i = view3.findViewById(R.id.obfuscated_res_0x7f09069f);
-                view3.setTag(cVar);
-            } else {
-                cVar = (c) view2.getTag();
-                view3 = view2;
-            }
-            cVar.d.K(wo4Var.e, 10, false);
-            if (TextUtils.isEmpty(wo4Var.f)) {
-                cVar.c.setVisibility(8);
-                cVar.e.setMaxLines(2);
-            } else {
-                cVar.c.setVisibility(0);
-                cVar.e.setMaxLines(1);
-            }
-            if (TextUtils.isEmpty(wo4Var.f)) {
-                cVar.g.setVisibility(8);
-            } else {
-                cVar.g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f040e), wo4Var.f));
-                cVar.g.setVisibility(0);
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (!TextUtils.isEmpty(wo4Var.l)) {
-                spannableStringBuilder.append((CharSequence) wo4Var.l);
-                int f = mi.f(TbadkCoreApplication.getInst(), R.dimen.L_X01);
-                int f2 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-                int f3 = mi.f(TbadkCoreApplication.getInst(), R.dimen.T_X10);
-                int f4 = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-                int f5 = mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
-                int f6 = mi.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                lu4 lu4Var = new lu4(f, -1, R.color.CAM_X0305, f3, R.color.CAM_X0305, f4, mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                lu4Var.b(f2);
-                lu4Var.h(f5);
-                lu4Var.i(f6);
-                spannableStringBuilder.setSpan(lu4Var, 0, wo4Var.l.length(), 17);
-            }
-            if (!wo4Var.n && wo4Var.b != 2 && !wo4Var.i) {
-                String str = wo4Var.g;
-                if (str != null) {
-                    spannableStringBuilder.append((CharSequence) str);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, i09Var, file) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("id", i09Var.l());
+                jSONObject.put("timestamp", i09Var.p());
+                jSONObject.put("type", "0");
+                if (!TextUtils.isEmpty(i09Var.f())) {
+                    jSONObject.put("content", i09Var.f());
+                } else if (i09Var.m() != null) {
+                    jSONObject.put("content", i09Var.m().toString());
                 }
-                cVar.e.setMaxLines(1);
-            } else {
-                String str2 = wo4Var.c;
-                if (str2 != null) {
-                    spannableStringBuilder.append((CharSequence) str2);
+                if (!TextUtils.isEmpty(i09Var.h())) {
+                    jSONObject.put("abtest", i09Var.h());
+                }
+                if (!TextUtils.isEmpty(i09Var.e())) {
+                    jSONObject.put("c", i09Var.e());
+                }
+                if (i09Var.q()) {
+                    jSONObject.put("of", "1");
+                }
+                jSONObject.put(Constant.ID_TYPE, b09.o().z(i09Var.l()));
+                JSONObject d = i09Var.d();
+                if (d != null) {
+                    jSONObject.put("bizInfo", d);
+                }
+            } catch (JSONException e) {
+                if (b) {
+                    Log.d("UBCFileData", e.getMessage());
                 }
             }
-            cVar.e.setText(spannableStringBuilder);
-            cVar.f.setOnClickListener(new a(this, i));
-            mi.f(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-            SkinManager.setBackgroundShapeDrawable(cVar.a, 0, R.color.CAM_X0205, R.color.CAM_X0205);
-            gs4 d = gs4.d(cVar.b);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0206);
-            cVar.f.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080802, WebPManager.ResourceStateType.NORMAL));
-            SkinManager.setViewTextColor(cVar.e, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(cVar.g, (int) R.color.CAM_X0305);
-            SkinManager.setViewTextColor(cVar.h, (int) R.color.CAM_X0109);
-            SkinManager.setBackgroundColorToTransparent(cVar.i, R.color.CAM_X0206, GradientDrawable.Orientation.RIGHT_LEFT);
-            return view3;
+            if (b) {
+                Log.d("UBCFileData", "saveEvent:" + jSONObject.toString());
+            }
+            byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file, true);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e2) {
+                e = e2;
+            }
+            try {
+                fileOutputStream.write(encode);
+                fileOutputStream.write("\n".getBytes());
+                fileOutputStream.flush();
+                try {
+                    fileOutputStream.close();
+                } catch (Exception e3) {
+                    e = e3;
+                    e.printStackTrace();
+                    s09.f().a(i09Var.l(), false);
+                }
+            } catch (Exception e4) {
+                e = e4;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (Exception e5) {
+                        e = e5;
+                        e.printStackTrace();
+                        s09.f().a(i09Var.l(), false);
+                    }
+                }
+                s09.f().a(i09Var.l(), false);
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                if (fileOutputStream2 != null) {
+                    try {
+                        fileOutputStream2.close();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                s09.f().a(i09Var.l(), false);
+                throw th;
+            }
+            s09.f().a(i09Var.l(), false);
         }
-        return (View) invokeILL.objValue;
     }
 
-    public void h() {
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x009a, code lost:
+        if (r5.exists() != false) goto L39;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x009c, code lost:
+        r5.delete();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00c8, code lost:
+        if (r5.exists() != false) goto L39;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean e(g19 g19Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            c();
-            notifyDataSetChanged();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, g19Var)) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File file2 = new File(file, "filequality");
+            boolean z = false;
+            if (file2.exists()) {
+                BufferedReader bufferedReader = null;
+                try {
+                    try {
+                        BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                        long j = Long.MAX_VALUE;
+                        long j2 = 0;
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                                if (jSONObject.has("abtest")) {
+                                    g19Var.K("1");
+                                }
+                                long j3 = jSONObject.getLong("timestamp");
+                                if (j3 > 0) {
+                                    if (j3 < j) {
+                                        j = j3;
+                                    }
+                                    if (j3 > j2) {
+                                        j2 = j3;
+                                    }
+                                }
+                                g19Var.b(jSONObject);
+                                z = true;
+                            } catch (Exception e) {
+                                e = e;
+                                bufferedReader = bufferedReader2;
+                                if (b) {
+                                    Log.d("UBCFileData", "getExceptionList read fail:", e);
+                                }
+                                if (bufferedReader != null) {
+                                    try {
+                                        bufferedReader.close();
+                                    } catch (Exception e2) {
+                                        if (b) {
+                                            Log.d("UBCFileData", "getExceptionList close fail:", e2);
+                                        }
+                                    }
+                                }
+                                if (z) {
+                                }
+                                return z;
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedReader = bufferedReader2;
+                                Throwable th2 = th;
+                                if (bufferedReader != null) {
+                                    try {
+                                        bufferedReader.close();
+                                    } catch (Exception e3) {
+                                        if (b) {
+                                            Log.d("UBCFileData", "getExceptionList close fail:", e3);
+                                        }
+                                    }
+                                }
+                                if (z && file2.exists()) {
+                                    file2.delete();
+                                }
+                                throw th2;
+                            }
+                        }
+                        g19Var.J(j, j2);
+                        try {
+                            bufferedReader2.close();
+                        } catch (Exception e4) {
+                            if (b) {
+                                Log.d("UBCFileData", "getExceptionList close fail:", e4);
+                            }
+                        }
+                        if (z) {
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                }
+                return z;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0078, code lost:
+        if (com.repackage.wz8.b == false) goto L67;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x007a, code lost:
+        android.util.Log.d("UBCFileData", "getExceptionList close fail:", r14);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0099, code lost:
+        if (com.repackage.wz8.b == false) goto L67;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean f(g19 g19Var, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, g19Var, z)) == null) {
+            boolean a = !z ? a(g19Var) : false;
+            File b2 = b("", z);
+            if (b2.exists()) {
+                BufferedReader bufferedReader = null;
+                try {
+                    try {
+                        BufferedReader bufferedReader2 = new BufferedReader(new FileReader(b2));
+                        long j = Long.MAX_VALUE;
+                        long j2 = 0;
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                                if (jSONObject.has("abtest")) {
+                                    g19Var.K("1");
+                                }
+                                long j3 = jSONObject.getLong("timestamp");
+                                if (j3 > 0) {
+                                    if (j3 < j) {
+                                        j = j3;
+                                    }
+                                    if (j3 > j2) {
+                                        j2 = j3;
+                                    }
+                                }
+                                g19Var.b(jSONObject);
+                                a = true;
+                            } catch (Exception e) {
+                                e = e;
+                                bufferedReader = bufferedReader2;
+                                if (b) {
+                                    Log.d("UBCFileData", "getExceptionList read fail:", e);
+                                }
+                                if (bufferedReader != null) {
+                                    try {
+                                        bufferedReader.close();
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                    }
+                                }
+                                return a;
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedReader = bufferedReader2;
+                                if (bufferedReader != null) {
+                                    try {
+                                        bufferedReader.close();
+                                    } catch (Exception e3) {
+                                        if (b) {
+                                            Log.d("UBCFileData", "getExceptionList close fail:", e3);
+                                        }
+                                    }
+                                }
+                                throw th;
+                            }
+                        }
+                        g19Var.J(j, j2);
+                        try {
+                            bufferedReader2.close();
+                        } catch (Exception e4) {
+                            e = e4;
+                        }
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                }
+            }
+            return a;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public void g(i09 i09Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, i09Var, z) == null) {
+            d(i09Var, b(i09Var.i(), z));
         }
     }
 
-    public void i(LinkedList<rv4> linkedList) {
+    public void h(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, linkedList) == null) {
-            this.b = linkedList;
+        if (interceptable == null || interceptable.invokeL(1048583, this, exc) == null) {
+            if (b) {
+                exc.printStackTrace();
+            }
+            y09.a().h(Log.getStackTraceString(exc));
         }
     }
 
-    public void j(b bVar) {
+    public void i(i09 i09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i09Var) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            File file2 = new File(file, "filequality");
+            if (file2.length() > b09.o().p()) {
+                if (!file2.delete()) {
+                    return;
+                }
+                file2 = new File(file, "filequality");
+            }
+            d(i09Var, file2);
         }
     }
 }

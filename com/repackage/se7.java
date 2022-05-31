@@ -1,23 +1,20 @@
 package com.repackage;
 
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.legoBusiness.homeExtra.interviewLiveSquare.AlarmReceiver;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.auth.NTLMEngineImpl;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class se7 extends xk4 {
+public class se7 implements ExtLiveJumpPageService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,43 +32,19 @@ public class se7 extends xk4 {
         }
     }
 
-    @Override // com.repackage.xk4, com.repackage.al4
-    public cl4 b(Object obj, HashMap<String, String> hashMap, String str) {
-        InterceptResult invokeLLL;
-        Map.Entry<String, String> next;
+    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService
+    public void goToLiveShowPlayBack(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, hashMap, str)) == null) {
-            Context baseContext = TbadkCoreApplication.getInst().getBaseContext();
-            cl4 cl4Var = new cl4();
-            if (obj instanceof md7) {
-                md7 md7Var = (md7) obj;
-                Intent intent = new Intent(baseContext, AlarmReceiver.class);
-                Iterator<Map.Entry<String, String>> it = hashMap.entrySet().iterator();
-                int i = 0;
-                while (it.hasNext() && (next = it.next()) != null) {
-                    intent.putExtra(next.getKey(), next.getValue());
-                    if ("task_id".equals(next.getKey())) {
-                        i = Integer.parseInt(next.getValue());
-                    }
-                }
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                intent.setData(Uri.parse(currentAccount));
-                cl4Var.a = PendingIntent.getBroadcast(baseContext, i, intent, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH) != null;
-                md7Var.m(true);
-                md7Var.l(cl4Var.a);
-            }
-            return cl4Var;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, str2) == null) {
         }
-        return (cl4) invokeLLL.objValue;
     }
 
-    @Override // com.repackage.xk4
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.ext.ExtLiveJumpPageService
+    public void goToPersonCenter(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interview/checkInterviewNoticeStatus" : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) || context == null || StringUtils.isNull(str)) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(context).createNormalConfig(jg.g(str, 0L), !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str), false)));
     }
 }

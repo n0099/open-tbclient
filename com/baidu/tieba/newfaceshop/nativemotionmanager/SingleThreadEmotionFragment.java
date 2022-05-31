@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ap7;
-import com.repackage.ng;
-import com.repackage.uo7;
+import com.repackage.dm7;
+import com.repackage.jm7;
+import com.repackage.mg;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements uo7<List<EmotionPackageData>> {
+public class SingleThreadEmotionFragment extends BaseFragment implements dm7<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ap7 a;
+    public jm7 a;
     public SingleThreadEmotionModel b;
     public CustomMessageListener c;
 
@@ -99,7 +99,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements uo7<Lis
                 return;
             }
             this.b.a.update(this.a);
-            this.b.G0();
+            this.b.I0();
         }
     }
 
@@ -153,7 +153,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements uo7<Lis
         this.c = new a(this, 2921314);
     }
 
-    public final void F0() {
+    public final void H0() {
         SingleThreadEmotionModel singleThreadEmotionModel;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (singleThreadEmotionModel = this.b) == null) {
@@ -162,27 +162,27 @@ public class SingleThreadEmotionFragment extends BaseFragment implements uo7<Lis
         singleThreadEmotionModel.loadData();
     }
 
-    public final void G0() {
-        ap7 ap7Var;
+    public final void I0() {
+        jm7 jm7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ap7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jm7Var = this.a) == null) {
             return;
         }
-        ap7Var.b();
+        jm7Var.b();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.uo7
-    /* renamed from: H0 */
+    @Override // com.repackage.dm7
+    /* renamed from: J0 */
     public void onSuccess(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            ng.a().post(new b(this, list));
+            mg.a().post(new b(this, list));
         }
     }
 
-    @Override // com.repackage.uo7
-    public void c0() {
+    @Override // com.repackage.dm7
+    public void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
@@ -193,9 +193,9 @@ public class SingleThreadEmotionFragment extends BaseFragment implements uo7<Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            ap7 ap7Var = this.a;
-            if (ap7Var != null) {
-                ap7Var.e(i);
+            jm7 jm7Var = this.a;
+            if (jm7Var != null) {
+                jm7Var.e(i);
             }
         }
     }
@@ -205,12 +205,12 @@ public class SingleThreadEmotionFragment extends BaseFragment implements uo7<Lis
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new ap7(getPageContext());
+            this.a = new jm7(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
             this.b = singleThreadEmotionModel;
             singleThreadEmotionModel.G(this);
             registerListener(this.c);
-            F0();
+            H0();
             return this.a.a();
         }
         return (View) invokeLLL.objValue;
@@ -231,11 +231,11 @@ public class SingleThreadEmotionFragment extends BaseFragment implements uo7<Lis
         }
     }
 
-    @Override // com.repackage.uo7
+    @Override // com.repackage.dm7
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ng.a().post(new c(this));
+            mg.a().post(new c(this));
         }
     }
 }

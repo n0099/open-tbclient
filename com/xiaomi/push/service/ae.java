@@ -50,7 +50,7 @@ public final class ae extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo223a() {
+    public String mo222a() {
         InterceptResult invokeV;
         String b;
         Interceptable interceptable = $ic;

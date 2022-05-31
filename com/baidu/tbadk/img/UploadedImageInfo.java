@@ -1,5 +1,8 @@
 package com.baidu.tbadk.img;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,18 +12,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.i45;
+import com.repackage.ri;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class UploadedImageInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final String MD5_EMOTION_FORMAT = "meme,%s,%d,%d,%s";
+    public static final String MD5_KEY = "7S6wbXjEKL9N";
     public static final String POST_BJH_FORMAT = "#(pic_bos,%s,%d,%d,%b)";
+    public static final String POST_EMOTION_FORMAT = "#(meme,%s,%d,%d,%s,%s)";
     public static final String POST_FORMAT = "#(pic,%s,%d,%d)";
     public transient /* synthetic */ FieldHolder $fh;
     public int height;
     public boolean isBJH;
     public boolean isGif;
     public String pic_id;
+    @Nullable
+    public String sharpText;
     public int width;
 
     public UploadedImageInfo() {
@@ -84,27 +94,31 @@ public class UploadedImageInfo implements Serializable {
         }
     }
 
+    public void setSharpText(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.sharpText = str;
+        }
+    }
+
     public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.width = i;
         }
     }
 
+    @SuppressLint({"DefaultLocale"})
     public String toPostString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String str = this.pic_id;
-            return str != null ? this.isBJH ? String.format(POST_BJH_FORMAT, str, Integer.valueOf(this.width), Integer.valueOf(this.height), Boolean.valueOf(this.isGif)) : String.format(POST_FORMAT, str, Integer.valueOf(this.width), Integer.valueOf(this.height)) : "";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.pic_id != null ? !TextUtils.isEmpty(this.sharpText) ? String.format(POST_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), ri.c(String.format(MD5_EMOTION_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), MD5_KEY)).toLowerCase(), i45.b.b(this.sharpText)) : this.isBJH ? String.format(POST_BJH_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height), Boolean.valueOf(this.isGif)) : String.format(POST_FORMAT, this.pic_id, Integer.valueOf(this.width), Integer.valueOf(this.height)) : "" : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? toPostString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? toPostString() : (String) invokeV.objValue;
     }
 
     public void parserJson(JSONObject jSONObject) {

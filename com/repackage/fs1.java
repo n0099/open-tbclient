@@ -1,85 +1,36 @@
 package com.repackage;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.pms.constants.PmsConstant;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.v8.NodeJS;
-import com.repackage.rl2;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class fs1 extends tr1 {
+/* loaded from: classes5.dex */
+public class fs1 extends es1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ u03 b;
-
-        public a(JSONObject jSONObject, u03 u03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, u03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jSONObject;
-            this.b = u03Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fs1.y(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
+    /* loaded from: classes5.dex */
+    public class a implements CanvasView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ HybridUbcFlow b;
-        public final /* synthetic */ an1 c;
+        public final /* synthetic */ CallbackHandler b;
 
-        public b(String str, HybridUbcFlow hybridUbcFlow, an1 an1Var) {
+        public a(fs1 fs1Var, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, hybridUbcFlow, an1Var};
+                Object[] objArr = {fs1Var, str, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -90,36 +41,34 @@ public class fs1 extends tr1 {
                 }
             }
             this.a = str;
-            this.b = hybridUbcFlow;
-            this.c = an1Var;
+            this.b = callbackHandler;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.swan.apps.canvas.view.CanvasView.c
+        public void a() {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (TextUtils.equals(this.a, "1")) {
-                    this.b.S();
-                } else {
-                    this.b.C(this.c);
-                }
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (str = this.a) == null) {
+                return;
             }
+            this.b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fs1(@NonNull vo1 vo1Var) {
-        super(vo1Var);
+    public fs1(e03 e03Var) {
+        super(e03Var, "/swanAPI/canvas/drawCanvas");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vo1Var};
+            Object[] objArr = {e03Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vo1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((e03) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -127,339 +76,50 @@ public class fs1 extends tr1 {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x004d  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x005b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void A(HybridUbcFlow hybridUbcFlow, u03 u03Var, String str, @Nullable an1 an1Var) {
-        long j;
+    @Override // com.repackage.e13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, hybridUbcFlow, u03Var, str, an1Var) == null) || hybridUbcFlow == null || u03Var == null) {
-            return;
-        }
-        if (!o72.U().p0()) {
-            if (TextUtils.equals(str, "1")) {
-                hybridUbcFlow.S();
-                return;
-            } else {
-                hybridUbcFlow.C(an1Var);
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
+            fu1 m = m(unitedSchemeEntity);
+            if (m == null) {
+                hw1.c("SwanAppCanvas", "draw model is null");
+                unitedSchemeEntity.result = l(201);
+                return false;
             }
-        }
-        long I = bk2.g0().I();
-        if (I <= 0) {
-            return;
-        }
-        rl2.a X = u03Var.X();
-        boolean z = false;
-        if (X != null) {
-            long currentTimeMillis = System.currentTimeMillis() - X.N();
-            if (currentTimeMillis < I) {
-                j = I - currentTimeMillis;
-                if (z) {
-                    if (j <= 0) {
-                        return;
-                    }
-                    od3.c(new b(str, hybridUbcFlow, an1Var), "waitFcp", j, TimeUnit.MILLISECONDS);
-                    return;
-                } else if (TextUtils.equals(str, "1")) {
-                    hybridUbcFlow.S();
-                    return;
-                } else {
-                    hybridUbcFlow.C(an1Var);
-                    return;
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "the params is empty");
+                return false;
+            }
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(m.b)) {
+                aw1.a("SwanAppAction", "canvasId is empty ");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            if (TextUtils.isEmpty(m.c)) {
+                aw1.a("SwanAppAction", "drawCanvas slaveId is empty");
+                py1 H = uk2.U().H();
+                if (H != null) {
+                    m.c = H.s3();
                 }
             }
-            z = true;
-        }
-        j = 0;
-        if (z) {
-        }
-    }
-
-    public static void B(JSONObject jSONObject, u03 u03Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, jSONObject, u03Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(jSONObject, u03Var), "handlePerformMsg", 2);
-        }
-    }
-
-    public static void C(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) || (optJSONArray = jSONObject.optJSONArray("data")) == null || optJSONArray.length() < 1) {
-            return;
-        }
-        bu2.e().c(optJSONArray.optJSONObject(0));
-    }
-
-    public static void D(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("ext")) == null) {
-            return;
-        }
-        String optString = optJSONObject.optString("routeId");
-        if (TextUtils.isEmpty(optString)) {
-            return;
-        }
-        HybridUbcFlow q = zt2.q("route", optString);
-        if (TextUtils.equals(optJSONObject.optString("hasWebView"), "1")) {
-            q.I(HybridUbcFlow.SubmitStrategy.ROUTE_WEB);
-        }
-        q.G(H(jSONObject.optJSONArray("data")));
-        q.n();
-        cn1 A = hm2.U().A(optJSONObject.optString("slaveId"));
-        if (A instanceof SwanAppSlaveManager) {
-            ((SwanAppSlaveManager) A).m1();
-        }
-    }
-
-    public static void E(@Nullable JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, jSONArray) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("FlowJarAction-671: ");
-            sb.append(jSONArray == null ? StringUtil.NULL_STRING : jSONArray);
-            ux1.k("UbcFlowJarApi", sb.toString());
-            if (jSONArray == null || jSONArray.length() == 0) {
-                return;
+            hv1 hv1Var = (hv1) uv1.a(m);
+            if (hv1Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the component is null");
+                return false;
             }
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    if (TextUtils.equals(jSONObject.optString("type"), "feTraceError")) {
-                        u63.d().h(jSONObject);
-                    } else {
-                        u63.d().k(jSONObject);
-                    }
-                } catch (JSONException unused) {
-                }
-            }
+            boolean F = hv1Var.F(m, new a(this, optString, callbackHandler));
+            j(unitedSchemeEntity, callbackHandler, F);
+            return F;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static void F(JSONArray jSONArray) {
-        c02 H;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) || (H = hm2.U().H()) == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = jSONArray.getJSONObject(0);
-            if (jSONObject != null) {
-                String string = jSONObject.getString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                String optString = jSONObject.optString(PmsConstant.Statistic.Key.REV_TIMESTAMP);
-                long j = 0;
-                if (!TextUtils.isEmpty(optString)) {
-                    try {
-                        j = Long.valueOf(optString).longValue();
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-                H.K3(new y73(string, j));
-            }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public static UbcFlowEvent G(JSONObject jSONObject) {
+    public fu1 m(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            String optString = jSONObject.optString("actionId");
-            long optLong = jSONObject.optLong("timestamp");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
-            ubcFlowEvent.h(optLong);
-            return ubcFlowEvent;
-        }
-        return (UbcFlowEvent) invokeL.objValue;
-    }
-
-    public static List<UbcFlowEvent> H(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray == null) {
-                return arrayList;
-            }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                UbcFlowEvent G = G(jSONArray.optJSONObject(i));
-                if (G != null) {
-                    G.e("FE");
-                    arrayList.add(G);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static void y(JSONObject jSONObject, u03 u03Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, jSONObject, u03Var) == null) {
-            q22 W = o72.U().W();
-            int j = W instanceof u22 ? ((u22) W).j() : 0;
-            e73.C(true);
-            e73.r();
-            HybridUbcFlow p = zt2.p(NodeJS.STARTUP_SCRIPT_NAME);
-            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
-            an1 an1Var = null;
-            String str2 = "0";
-            if (optJSONObject != null) {
-                str2 = optJSONObject.optString("hasWebView", "0");
-                str = optJSONObject.optString("hasRelaunch");
-                cn1 A = hm2.U().A(optJSONObject.optString("slaveId"));
-                if (A instanceof an1) {
-                    an1Var = (an1) A;
-                }
-            } else {
-                str = "";
-            }
-            if (TextUtils.equals(str2, "1")) {
-                HybridUbcFlow.SubmitStrategy i = p.i();
-                if (i == HybridUbcFlow.SubmitStrategy.HYBRID) {
-                    p.I(HybridUbcFlow.SubmitStrategy.HYBRID_WEB);
-                } else if (i == HybridUbcFlow.SubmitStrategy.RELAUNCH) {
-                    p.I(HybridUbcFlow.SubmitStrategy.RELAUNCH_WEB);
-                }
-            }
-            if (TextUtils.equals(str, "none")) {
-                if (TextUtils.equals(str2, "1")) {
-                    p.S();
-                } else {
-                    p.C(an1Var);
-                }
-            }
-            A(p, u03Var, str2, an1Var);
-            JSONArray optJSONArray = jSONObject.optJSONArray("data");
-            p.D("codecache", String.valueOf(j));
-            p.D("slave_codecache", String.valueOf(z()));
-            p.G(H(optJSONArray));
-            p.n();
-        }
-    }
-
-    public static int z() {
-        InterceptResult invokeV;
-        c02 o;
-        an1 n3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            d02 V = hm2.U().V();
-            if (V == null || (o = V.o()) == null || (n3 = o.n3()) == null) {
-                return 0;
-            }
-            return n3.i0();
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0089, code lost:
-        if (r2.equals("670") != false) goto L20;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public us1 I(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            char c = 0;
-            q("#ubcFlowJar", false);
-            u03 a0 = u03.a0();
-            if (a0 == null) {
-                return new us1(1001, "swan app is null");
-            }
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("flowId");
-                if (TextUtils.isEmpty(optString)) {
-                    return new us1(201, "empty flowId");
-                }
-                switch (optString.hashCode()) {
-                    case 53647:
-                        break;
-                    case 53648:
-                        if (optString.equals("671")) {
-                            c = 3;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 55357:
-                        if (optString.equals("805")) {
-                            c = 1;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 56506:
-                        if (optString.equals("967")) {
-                            c = 4;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 46733230:
-                        if (optString.equals("10360")) {
-                            c = 2;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    case 1529139648:
-                        if (optString.equals("renderMonitorLog")) {
-                            c = 5;
-                            break;
-                        }
-                        c = 65535;
-                        break;
-                    default:
-                        c = 65535;
-                        break;
-                }
-                if (c == 0) {
-                    B(jSONObject, a0);
-                } else if (c == 1) {
-                    F(jSONObject.optJSONArray("data"));
-                } else if (c == 2) {
-                    pg3.a().g(jSONObject.optJSONArray("data"));
-                } else if (c == 3) {
-                    E(jSONObject.optJSONArray("data"));
-                } else if (c == 4) {
-                    D(jSONObject);
-                } else if (c != 5) {
-                    return new us1(201, "unknown flowId");
-                } else {
-                    C(jSONObject);
-                }
-                return us1.f();
-            }
-            return us1Var;
-        }
-        return (us1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.xo1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "UbcFlowJarApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) ? new fu1(unitedSchemeEntity.getParams().get("params")) : (fu1) invokeL.objValue;
     }
 }

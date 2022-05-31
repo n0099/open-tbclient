@@ -1,27 +1,27 @@
 package com.repackage;
 
-import android.util.Base64;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.sn1;
+import java.util.ArrayList;
+import java.util.Iterator;
+@Service
 /* loaded from: classes7.dex */
-public class z14 {
+public class z14 extends sn1 implements tg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e82 a;
-    public x14 b;
+    public ArrayList<sn1.a> a;
 
-    public z14(e82 e82Var) {
+    public z14() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e82Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,106 +31,66 @@ public class z14 {
                 return;
             }
         }
-        this.a = e82Var;
-        this.b = new x14();
+        this.a = new ArrayList<>();
     }
 
-    @NonNull
-    public d24 a() {
+    @Nullable
+    public static z14 d() {
+        InterceptResult invokeV;
+        dv3 dv3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            qy1 V = uk2.U().V();
+            if (V == null || (dv3Var = (dv3) V.n(dv3.class)) == null) {
+                return null;
+            }
+            return dv3Var.t3();
+        }
+        return (z14) invokeV.objValue;
+    }
+
+    @Override // com.repackage.tg1
+    public sn1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.b.j();
-            qc3.h.update();
-            return d24.i(null);
-        }
-        return (d24) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() : (sn1) invokeV.objValue;
     }
 
-    @NonNull
-    public c24 b() {
-        InterceptResult invokeV;
+    @Override // com.repackage.sn1
+    public synchronized void b(sn1.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String[] n = this.b.n();
-            c24 c24Var = new c24();
-            c24Var.keys = n;
-            c24Var.currentSize = this.b.m() / 1024;
-            c24Var.limitSize = this.b.s() / 1024;
-            c24Var.errMsg = a24.b("getStorageInfoSync");
-            return c24Var;
-        }
-        return (c24) invokeV.objValue;
-    }
-
-    @NonNull
-    public d24 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (str == null) {
-                return d24.b("parameter error: the key cannot be null.");
-            }
-            String p = this.b.p(str, null);
-            Object D = p != null ? this.a.D(Base64.decode(p, 2), true) : null;
-            if (D == null) {
-                D = d24.h();
-            }
-            return d24.i(D);
-        }
-        return (d24) invokeL.objValue;
-    }
-
-    public final void d(JsSerializeValue jsSerializeValue) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jsSerializeValue) == null) || jsSerializeValue == null) {
-            return;
-        }
-        jsSerializeValue.release();
-    }
-
-    @NonNull
-    public d24 e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str == null) {
-                return d24.b("parameter error: the key cannot be null.");
-            }
-            this.b.u(str);
-            qc3.h.update();
-            return d24.i(null);
-        }
-        return (d24) invokeL.objValue;
-    }
-
-    @NonNull
-    public d24 f(String str, JsSerializeValue jsSerializeValue) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, jsSerializeValue)) == null) {
-            if (str == null) {
-                d(jsSerializeValue);
-                return d24.b("parameter error: the key cannot be null.");
-            } else if (jsSerializeValue == null) {
-                return d24.i(null);
-            } else {
-                byte[] O = this.a.O(jsSerializeValue, true);
-                d(jsSerializeValue);
-                if (O == null) {
-                    return d24.b("parameter error: the data parse failed.");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            synchronized (this) {
+                if (!this.a.contains(aVar)) {
+                    this.a.add(aVar);
                 }
-                String encodeToString = Base64.encodeToString(O, 2);
-                String p = this.b.p(str, null);
-                int length = str.getBytes().length;
-                if (this.b.s() - this.b.m() < (encodeToString.length() + length) - (p == null ? 0 : p.length() + length)) {
-                    return d24.b("storage error: the storage space insufficient.");
-                }
-                boolean t = this.b.t(str, encodeToString);
-                qc3.h.update();
-                return t ? d24.i(null) : d24.b("storage error: the storage is invalid.");
             }
         }
-        return (d24) invokeLL.objValue;
+    }
+
+    @Override // com.repackage.sn1
+    public synchronized void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (this) {
+                Iterator<sn1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().b(i);
+                }
+            }
+        }
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                Iterator<sn1.a> it = this.a.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                this.a.clear();
+            }
+        }
     }
 }

@@ -1,10 +1,9 @@
 package com.repackage;
 
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,49 +11,56 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public class t52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
+    public final List<i92> a;
 
     /* loaded from: classes7.dex */
-    public static class a extends PrefetchEvent.c {
+    public static class a extends i92 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@Nullable Map<String, String> map, String str) {
-            super(map, str);
+        public a(@Nullable Map<String, String> map) {
+            super("TopPages", map);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {map, str};
+                Object[] objArr = {map};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((Map) objArr2[0], (String) objArr2[1]);
+                    super((String) objArr2[0], (Map) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+        }
+
+        @Override // com.repackage.h92
+        public String c(fy1 fy1Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fy1Var)) == null) {
+                if (this.d == null) {
+                    this.d = super.c(fy1Var);
+                }
+                return this.d;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
@@ -71,7 +77,7 @@ public class t52 {
                 return;
             }
         }
-        l = eh1.a;
+        b = rf1.a;
     }
 
     public t52() {
@@ -84,65 +90,50 @@ public class t52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public static t52 a(an1<?> an1Var, PrefetchEvent prefetchEvent, u03 u03Var) {
-        InterceptResult invokeLLL;
+    public t52 a(i92 i92Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, an1Var, prefetchEvent, u03Var)) == null) {
-            long currentTimeMillis = l ? System.currentTimeMillis() : 0L;
-            t52 t52Var = new t52();
-            t52Var.h = an1Var.c();
-            t52Var.a = prefetchEvent.appPath;
-            t52Var.b = prefetchEvent.pageUrl;
-            t52Var.f = prefetchEvent.rootPath;
-            SwanAppConfigData P = u03Var.P();
-            t52Var.c = prefetchEvent.pageType;
-            String c = e13.c(prefetchEvent.appPath, me3.f(m43.b(prefetchEvent.pageUrl)));
-            t52Var.g = c;
-            j13 b = j13.b(c, P.e);
-            t52Var.k = b.r;
-            t52Var.d = b.g;
-            t52Var.e = prefetchEvent.isT7Available;
-            t52Var.i = prefetchEvent.sConsole;
-            if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {
-                t52Var.j = prefetchEvent.userActionApis;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, i92Var)) == null) {
+            if (i92Var != null) {
+                this.a.add(i92Var);
             }
-            if (l) {
-                long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload event cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-            }
-            return t52Var;
+            return this;
         }
-        return (t52) invokeLLL.objValue;
+        return (t52) invokeL.objValue;
     }
 
     public a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long currentTimeMillis = l ? System.currentTimeMillis() : 0L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long currentTimeMillis = b ? System.currentTimeMillis() : 0L;
             TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.h);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-            treeMap.put("pagePath", this.b);
-            treeMap.put("pageType", this.c);
-            treeMap.put("onReachBottomDistance", this.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.e));
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.i);
-            treeMap.put("root", this.f);
-            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.j);
-            sw2.a(treeMap, "slave preload ready event");
-            m43.a(this.b, treeMap);
-            treeMap.put("pageConfig", this.g);
-            if (l) {
+            treeMap.put(NotificationCompat.WearableExtender.KEY_PAGES, c().toString());
+            if (b) {
                 long currentTimeMillis2 = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                Log.d("TopPageEvent", "build slave preload msg cost - " + (currentTimeMillis2 - currentTimeMillis) + "ms");
             }
-            return new a(treeMap, "preload");
+            return new a(treeMap);
         }
         return (a) invokeV.objValue;
+    }
+
+    public final JSONArray c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (i92 i92Var : this.a) {
+                jSONArray.put(i92Var.s());
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
     }
 }

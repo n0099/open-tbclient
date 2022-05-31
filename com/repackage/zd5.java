@@ -1,74 +1,95 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Rect;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class zd5 {
+public class zd5 extends ee5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConstrainImageLayout.c e;
 
-    public static boolean a(Context context, String str, zn4 zn4Var) {
-        InterceptResult invokeLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, zn4Var)) == null) {
-            if (context == null || zn4Var == null) {
-                return false;
+    /* loaded from: classes7.dex */
+    public class a implements ConstrainImageLayout.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(zd5 zd5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zd5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
-            } else {
-                i = "frs".equals(str) ? 3 : -1;
-            }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(zn4Var.getThreadData().originalThreadData, context, i, (Rect) null, zn4Var.getThreadData().getForum_name());
-            return true;
         }
-        return invokeLLL.booleanValue;
+
+        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
+        public void a(TbImageView tbImageView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
+                tbImageView.setRadiusById(R.string.J_X05);
+                tbImageView.t();
+                tbImageView.setDrawCorner(true);
+                tbImageView.setConrers(0);
+                if (i2 == 1) {
+                    tbImageView.setConrers(15);
+                } else if (i2 > 1) {
+                    if (i == 0) {
+                        tbImageView.setConrers(5);
+                    } else if (i == i2 - 1) {
+                        tbImageView.setConrers(10);
+                    }
+                }
+            }
+        }
     }
 
-    public static boolean b(Context context, String str, zn4 zn4Var) {
-        InterceptResult invokeLLL;
-        int i;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zd5(int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, zn4Var)) == null) {
-            if (context == null || zn4Var == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
-            } else {
-                i = "frs".equals(str) ? 3 : -1;
-            }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(zn4Var, context, i, false);
-            return true;
         }
-        return invokeLLL.booleanValue;
+        this.e = new a(this);
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ee5, com.repackage.be5
+    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
+        InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb() : invokeV.booleanValue;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
+            if (list.size() < this.b) {
+                list.size();
+            }
+            constrainImageLayout.setTbImageViewConfiguration(this.e);
+            return super.a(constrainImageLayout, list, i, i2);
+        }
+        return invokeLLII.intValue;
     }
 }

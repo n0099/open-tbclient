@@ -23,35 +23,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ck0;
-import com.repackage.e11;
-import com.repackage.ez0;
-import com.repackage.g11;
-import com.repackage.ik0;
-import com.repackage.ki0;
-import com.repackage.l51;
-import com.repackage.lo0;
-import com.repackage.m11;
-import com.repackage.m41;
-import com.repackage.m51;
-import com.repackage.n51;
-import com.repackage.nh0;
-import com.repackage.rj0;
-import com.repackage.s51;
-import com.repackage.sn0;
-import com.repackage.th0;
-import com.repackage.tn0;
+import com.repackage.a41;
+import com.repackage.ag0;
+import com.repackage.ei0;
+import com.repackage.f41;
+import com.repackage.fm0;
+import com.repackage.gg0;
+import com.repackage.gm0;
+import com.repackage.pi0;
+import com.repackage.rx0;
+import com.repackage.rz0;
+import com.repackage.tz0;
+import com.repackage.vi0;
+import com.repackage.xg0;
+import com.repackage.y31;
+import com.repackage.ym0;
+import com.repackage.z21;
+import com.repackage.z31;
+import com.repackage.zz0;
 import java.util.List;
 /* loaded from: classes2.dex */
 public abstract class AdFeedBaseView extends FrameLayout implements Object<View> {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
-    public m51 a;
-    public n51 b;
-    public l51 c;
-    public s51 d;
-    public ck0 e;
+    public z31 a;
+    public a41 b;
+    public y31 c;
+    public f41 d;
+    public pi0 e;
     public GestureDetector f;
     public boolean g;
 
@@ -89,7 +89,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
     }
 
     /* loaded from: classes2.dex */
-    public class b implements s51.d {
+    public class b implements f41.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdFeedBaseView a;
@@ -112,11 +112,11 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
             this.a = adFeedBaseView;
         }
 
-        @Override // com.repackage.s51.d
-        public void a(List<sn0.a> list) {
+        @Override // com.repackage.f41.d
+        public void a(List<fm0.a> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0b84, 0).show();
+                Toast.makeText(this.a.getContext(), (int) R.string.obfuscated_res_0x7f0f0b8a, 0).show();
                 this.a.setVisibility(8);
                 AdFeedBaseView adFeedBaseView = this.a;
                 if (adFeedBaseView.a == null || !(adFeedBaseView.getTag() instanceof AdBaseModel)) {
@@ -128,7 +128,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
     }
 
     /* loaded from: classes2.dex */
-    public class c implements ik0 {
+    public class c implements vi0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdBaseModel a;
@@ -153,96 +153,96 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
             this.a = adBaseModel;
         }
 
-        @Override // com.repackage.ik0
-        public void a(rj0 rj0Var) {
+        @Override // com.repackage.vi0
+        public void a(ei0 ei0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, rj0Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, ei0Var) == null) {
                 AdFeedBaseView adFeedBaseView = this.b;
-                if (adFeedBaseView.c == null || !adFeedBaseView.e(rj0Var, this.a)) {
+                if (adFeedBaseView.c == null || !adFeedBaseView.e(ei0Var, this.a)) {
                     return;
                 }
                 this.b.c.e(this.a);
             }
         }
 
-        @Override // com.repackage.ik0
-        public void b(rj0 rj0Var, AdDownloadCode adDownloadCode) {
+        @Override // com.repackage.vi0
+        public void b(ei0 ei0Var, AdDownloadCode adDownloadCode) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rj0Var, adDownloadCode) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ei0Var, adDownloadCode) == null) {
                 AdFeedBaseView adFeedBaseView = this.b;
-                if (adFeedBaseView.c == null || !adFeedBaseView.e(rj0Var, this.a)) {
+                if (adFeedBaseView.c == null || !adFeedBaseView.e(ei0Var, this.a)) {
                     return;
                 }
                 this.b.c.c(this.a);
             }
         }
 
-        @Override // com.repackage.ik0
-        public void c(rj0 rj0Var) {
+        @Override // com.repackage.vi0
+        public void c(ei0 ei0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rj0Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ei0Var) == null) {
                 AdFeedBaseView adFeedBaseView = this.b;
-                if (adFeedBaseView.c == null || !adFeedBaseView.e(rj0Var, this.a)) {
+                if (adFeedBaseView.c == null || !adFeedBaseView.e(ei0Var, this.a)) {
                     return;
                 }
                 this.b.c.a(this.a);
             }
         }
 
-        @Override // com.repackage.ik0
-        public void d(rj0 rj0Var) {
+        @Override // com.repackage.vi0
+        public void d(ei0 ei0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, rj0Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048579, this, ei0Var) == null) {
                 AdFeedBaseView adFeedBaseView = this.b;
-                if (adFeedBaseView.c == null || !adFeedBaseView.e(rj0Var, this.a)) {
+                if (adFeedBaseView.c == null || !adFeedBaseView.e(ei0Var, this.a)) {
                     return;
                 }
                 this.b.c.c(this.a);
             }
         }
 
-        @Override // com.repackage.ik0
-        public void e(rj0 rj0Var) {
+        @Override // com.repackage.vi0
+        public void e(ei0 ei0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, rj0Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048580, this, ei0Var) == null) {
                 AdFeedBaseView adFeedBaseView = this.b;
-                if (adFeedBaseView.c == null || !adFeedBaseView.e(rj0Var, this.a)) {
+                if (adFeedBaseView.c == null || !adFeedBaseView.e(ei0Var, this.a)) {
                     return;
                 }
                 this.b.c.a(this.a);
             }
         }
 
-        @Override // com.repackage.ik0
-        public void f(rj0 rj0Var, float f) {
+        @Override // com.repackage.vi0
+        public void f(ei0 ei0Var, float f) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(1048581, this, rj0Var, f) == null) {
+            if (interceptable == null || interceptable.invokeLF(1048581, this, ei0Var, f) == null) {
                 AdFeedBaseView adFeedBaseView = this.b;
-                if (adFeedBaseView.c == null || !adFeedBaseView.e(rj0Var, this.a)) {
+                if (adFeedBaseView.c == null || !adFeedBaseView.e(ei0Var, this.a)) {
                     return;
                 }
                 this.b.c.g(this.a, f);
             }
         }
 
-        @Override // com.repackage.ik0
-        public void g(rj0 rj0Var) {
+        @Override // com.repackage.vi0
+        public void g(ei0 ei0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, rj0Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, ei0Var) == null) {
                 AdFeedBaseView adFeedBaseView = this.b;
-                if (adFeedBaseView.c == null || !adFeedBaseView.e(rj0Var, this.a)) {
+                if (adFeedBaseView.c == null || !adFeedBaseView.e(ei0Var, this.a)) {
                     return;
                 }
                 this.b.c.b(this.a);
             }
         }
 
-        @Override // com.repackage.ik0
-        public void h(rj0 rj0Var) {
+        @Override // com.repackage.vi0
+        public void h(ei0 ei0Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, rj0Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048583, this, ei0Var) == null) {
                 AdFeedBaseView adFeedBaseView = this.b;
-                if (adFeedBaseView.c == null || !adFeedBaseView.e(rj0Var, this.a)) {
+                if (adFeedBaseView.c == null || !adFeedBaseView.e(ei0Var, this.a)) {
                     return;
                 }
                 this.b.c.f(this.a);
@@ -325,7 +325,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
                 return;
             }
         }
-        h = m11.c.a(ki0.b(), 15.0f);
+        h = zz0.c.a(xg0.b(), 15.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -350,30 +350,30 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
     }
 
     public void c() {
-        ck0 ck0Var;
+        pi0 pi0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ck0Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pi0Var = this.e) == null) {
             return;
         }
-        ck0Var.j();
+        pi0Var.j();
         this.e = null;
     }
 
     public final void d() {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0914ba)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f091479)) == null) {
             return;
         }
-        m41.a(this, findViewById, h);
+        z21.a(this, findViewById, h);
         findViewById.setOnClickListener(new a(this));
     }
 
-    public final boolean e(rj0 rj0Var, AdBaseModel adBaseModel) {
+    public final boolean e(ei0 ei0Var, AdBaseModel adBaseModel) {
         InterceptResult invokeLL;
-        tn0 tn0Var;
+        gm0 gm0Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, rj0Var, adBaseModel)) == null) ? (rj0Var == null || adBaseModel == null || (tn0Var = adBaseModel.l) == null || !TextUtils.equals(rj0Var.g, tn0Var.c) || !TextUtils.equals(rj0Var.d(), tn0Var.d)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ei0Var, adBaseModel)) == null) ? (ei0Var == null || adBaseModel == null || (gm0Var = adBaseModel.l) == null || !TextUtils.equals(ei0Var.g, gm0Var.c) || !TextUtils.equals(ei0Var.d(), gm0Var.d)) ? false : true : invokeLL.booleanValue;
     }
 
     public final void f() {
@@ -383,36 +383,36 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
             if (adBaseModel.a) {
                 return;
             }
-            m51 m51Var = this.a;
-            if (m51Var != null) {
-                m51Var.c(adBaseModel);
+            z31 z31Var = this.a;
+            if (z31Var != null) {
+                z31Var.c(adBaseModel);
             }
-            ez0.c(new ClogBuilder().w(ClogBuilder.LogType.SHOW).n(adBaseModel.f.d));
+            rx0.c(new ClogBuilder().w(ClogBuilder.LogType.SHOW).n(adBaseModel.f.d));
             adBaseModel.a = true;
         }
     }
 
     public void g() {
         AdBaseModel adBaseModel;
-        lo0 lo0Var;
+        ym0 ym0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if ((getTag() instanceof AdBaseModel) && (lo0Var = (adBaseModel = (AdBaseModel) getTag()).p) != null && !lo0Var.m) {
-                m51 m51Var = this.a;
-                if (m51Var != null) {
-                    m51Var.a(adBaseModel);
+            if ((getTag() instanceof AdBaseModel) && (ym0Var = (adBaseModel = (AdBaseModel) getTag()).p) != null && !ym0Var.m) {
+                z31 z31Var = this.a;
+                if (z31Var != null) {
+                    z31Var.a(adBaseModel);
                 }
-                ez0.c(new ClogBuilder().w(ClogBuilder.LogType.CLOSE).n(adBaseModel.f.d));
+                rx0.c(new ClogBuilder().w(ClogBuilder.LogType.CLOSE).n(adBaseModel.f.d));
                 return;
             }
             if (this.d == null) {
                 if (!(getTag() instanceof AdBaseModel)) {
                     return;
                 }
-                this.d = new s51(getContext(), (AdBaseModel) getTag());
+                this.d = new f41(getContext(), (AdBaseModel) getTag());
             }
             this.d.h(new b(this));
-            g11.b(this.d);
+            tz0.b(this.d);
         }
     }
 
@@ -423,13 +423,13 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
     }
 
     public final void h(@NonNull AdBaseModel adBaseModel) {
-        tn0 tn0Var;
+        gm0 gm0Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) && (tn0Var = adBaseModel.l) != null && tn0Var.e) {
-            this.e = new ck0(rj0.b(adBaseModel));
-            l51 l51Var = this.c;
-            if (l51Var != null) {
-                l51Var.d(adBaseModel);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, adBaseModel) == null) && (gm0Var = adBaseModel.l) != null && gm0Var.e) {
+            this.e = new pi0(ei0.b(adBaseModel));
+            y31 y31Var = this.c;
+            if (y31Var != null) {
+                y31Var.d(adBaseModel);
             }
             this.e.n(new c(this, adBaseModel));
         }
@@ -451,17 +451,17 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
             if (TextUtils.isEmpty(adBaseModel.f.c)) {
                 return;
             }
-            e11.e(adBaseModel);
-            th0.c(e11.b(adBaseModel, adBaseModel.f.c), getContext());
+            rz0.e(adBaseModel);
+            gg0.c(rz0.b(adBaseModel, adBaseModel.f.c), getContext());
             ClogBuilder n = new ClogBuilder().w(ClogBuilder.LogType.CLICK).g(ClogBuilder.Area.HOTAREA).n(adBaseModel.f.d);
-            nh0 nh0Var = adBaseModel.q;
-            if (nh0Var != null) {
-                n.k(nh0Var.a());
+            ag0 ag0Var = adBaseModel.q;
+            if (ag0Var != null) {
+                n.k(ag0Var.a());
             }
-            ez0.c(n);
-            m51 m51Var = this.a;
-            if (m51Var != null) {
-                m51Var.b(adBaseModel);
+            rx0.c(n);
+            z31 z31Var = this.a;
+            if (z31Var != null) {
+                z31Var.b(adBaseModel);
             }
             adBaseModel.b = true;
         }
@@ -511,24 +511,24 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         }
     }
 
-    public void setVideoMediaListener(n51 n51Var) {
+    public void setVideoMediaListener(a41 a41Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, n51Var) == null) {
-            this.b = n51Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, a41Var) == null) {
+            this.b = a41Var;
         }
     }
 
-    public void setViewDownloadListener(l51 l51Var) {
+    public void setViewDownloadListener(y31 y31Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, l51Var) == null) {
-            this.c = l51Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, y31Var) == null) {
+            this.c = y31Var;
         }
     }
 
-    public void setViewStatChangeListener(m51 m51Var) {
+    public void setViewStatChangeListener(z31 z31Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, m51Var) == null) {
-            this.a = m51Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, z31Var) == null) {
+            this.a = z31Var;
         }
     }
 
@@ -536,7 +536,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, adBaseModel) == null) {
             setTag(adBaseModel);
-            this.d = new s51(getContext(), adBaseModel);
+            this.d = new f41(getContext(), adBaseModel);
             h(adBaseModel);
             if (getVisibility() != 0) {
                 setVisibility(0);
@@ -578,7 +578,7 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (lo0) objArr2[3]);
+                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (ym0) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -587,13 +587,13 @@ public abstract class AdFeedBaseView extends FrameLayout implements Object<View>
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdFeedBaseView(Context context, AttributeSet attributeSet, int i, lo0 lo0Var) {
+    public AdFeedBaseView(Context context, AttributeSet attributeSet, int i, ym0 ym0Var) {
         super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i), lo0Var};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), ym0Var};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

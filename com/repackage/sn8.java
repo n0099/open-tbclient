@@ -1,110 +1,98 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
-import com.baidu.tbadk.core.data.VideoClickTabData;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.net.URLEncoder;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class sn8 extends CustomMessageListener {
+public class sn8 extends BdAsyncTask<String, String, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final tm8 b;
+    public String a;
+    public a b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sn8(MainTabActivity mainTabActivity, tm8 tm8Var) {
-        super(2007002);
+    /* loaded from: classes7.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
+
+        void onError(String str);
+    }
+
+    public sn8(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, tm8Var};
+            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = tm8Var;
-        setPriority(100);
-    }
-
-    public final void a(Intent intent) {
-        tm8 tm8Var;
-        int a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, intent) == null) || intent == null || (tm8Var = this.b) == null || tm8Var.z() == null) {
-            return;
-        }
-        try {
-            if (intent.hasExtra("locate_type")) {
-                a = intent.getIntExtra("locate_type", 1);
-            } else {
-                a = this.a.mAppEntranceModel.a();
-            }
-            this.b.z().setCurrentTabByType(a);
-        } catch (Throwable th) {
-            BdLog.e(th);
-            this.a.finish();
-        }
+        this.a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.b = aVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ArrayList<d55> b;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Integer doInBackground(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null || (b = ((f55) customResponsedMessage.getData()).b()) == null || b.size() == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            try {
+                NetWork netWork = new NetWork(this.a);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray("result");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            return Integer.valueOf(optJSONObject.optInt("main", -1));
+                        }
+                    }
+                    return -1;
+                }
+                return -1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
+        }
+        return (Integer) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(Integer num) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) || this.b == null || num == null) {
             return;
         }
-        this.b.A(b);
-        MainTabActivity mainTabActivity = this.a;
-        if (mainTabActivity.isUseCurrType) {
-            if (mainTabActivity.reloginGotoType != 23) {
-                tm8 tm8Var = this.b;
-                if (tm8Var != null && tm8Var.z() != null) {
-                    this.b.z().setCurrentTabByType(this.a.reloginGotoType);
-                }
-            } else {
-                VideoClickTabData videoClickTabData = new VideoClickTabData();
-                Bundle reloginVideoMiddleBundle = TbSingleton.getInstance().getReloginVideoMiddleBundle();
-                TbSingleton.getInstance().setReloginVideoMiddleBundle(null);
-                reloginVideoMiddleBundle.remove(VideoPlayActivityConfig.VIDEO_VIEW_RECT);
-                videoClickTabData.setVideoMiddleBundle(reloginVideoMiddleBundle);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921610, videoClickTabData));
-            }
+        if (num.intValue() == -1) {
+            this.b.onError(null);
+        } else if (num.intValue() == 1) {
+            this.b.c();
+        } else if (num.intValue() != 2 && num.intValue() != 0) {
+            this.b.a();
         } else {
-            tm8 tm8Var2 = this.b;
-            if (tm8Var2 != null && tm8Var2.z() != null) {
-                if (this.a.getIntent() != null && this.a.getIntent().getDataString() != null && this.a.getIntent().getDataString().startsWith(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
-                    this.b.z().setCurrentTabByType(2);
-                } else {
-                    a(this.a.getIntent());
-                }
-            }
+            this.b.b();
         }
-        this.a.isUseCurrType = false;
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921333, null));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921543, null));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921567, null));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921579, 0));
     }
 }

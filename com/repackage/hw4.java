@@ -1,19 +1,18 @@
 package com.repackage;
 
-import com.baidu.tieba.R;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class hw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
+    public List<iw4> a;
 
     public hw4() {
         Interceptable interceptable = $ic;
@@ -25,38 +24,44 @@ public class hw4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = 0;
-        this.d = null;
     }
 
-    public static String a(int i) {
-        InterceptResult invokeI;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return ej.a(R.string.obfuscated_res_0x7f0f153f);
-                case 2:
-                    return ej.a(R.string.obfuscated_res_0x7f0f1544);
-                case 3:
-                    return ej.a(R.string.obfuscated_res_0x7f0f0c2d);
-                case 4:
-                    return ej.a(R.string.obfuscated_res_0x7f0f1542);
-                case 5:
-                    return ej.a(R.string.obfuscated_res_0x7f0f1540);
-                case 6:
-                    return ej.a(R.string.obfuscated_res_0x7f0f1543);
-                case 7:
-                    return ej.a(R.string.obfuscated_res_0x7f0f1541);
-                default:
-                    return "";
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    ys4.k().y("key_index_tab_info_list", "[]");
+                    return;
+                }
+                JSONArray jSONArray2 = new JSONArray(ys4.k().q("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    iw4 iw4Var = new iw4();
+                    iw4 iw4Var2 = new iw4();
+                    iw4Var.f(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        iw4Var2.f(jSONArray2.getJSONObject(i2));
+                        if (iw4Var.c != null && iw4Var.c.equals(iw4Var2.c)) {
+                            if (!TextUtils.isEmpty(iw4Var2.e) && iw4Var2.e.equals(iw4Var.e)) {
+                                z = false;
+                                iw4Var.f = z;
+                            }
+                            z = true;
+                            iw4Var.f = z;
+                        }
+                    }
+                    if (!iw4Var.d()) {
+                        this.a.add(iw4Var);
+                    }
+                }
+                ys4.k().y("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        return (String) invokeI.objValue;
     }
 }

@@ -1,58 +1,53 @@
 package com.repackage;
 
+import android.annotation.TargetApi;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActivityPage.HotTopic;
-import tbclient.RecomTopicList;
-/* loaded from: classes7.dex */
-public class r07 extends aw6 {
+import com.repackage.o07;
+/* loaded from: classes6.dex */
+public class r07 extends o07.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
 
-    public r07() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r07(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f7c);
     }
 
-    public void i(HotTopic hotTopic) {
+    @Override // com.repackage.o07.b, com.repackage.o07.a
+    @TargetApi(11)
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hotTopic) == null) || hotTopic == null) {
-            return;
-        }
-        this.floorPosition = hotTopic.floor_position.intValue();
-        parserProtobuf(hotTopic.topic_list);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.isHardwareAccelerated() : invokeV.booleanValue;
     }
 
-    public void parserProtobuf(List<RecomTopicList> list) {
+    @Override // com.repackage.o07.b, com.repackage.o07.a
+    @TargetApi(14)
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || ListUtils.isEmpty(list)) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.setScrollX(i);
         }
-        int min = Math.min(list.size(), 6);
-        ArrayList arrayList = new ArrayList(list.size());
-        for (int i = 0; i < min; i++) {
-            arrayList.add(new zv6(list.get(i), i));
-        }
-        g(arrayList);
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.tq7;
-import com.repackage.uq7;
+import com.repackage.co7;
+import com.repackage.do7;
 /* loaded from: classes3.dex */
 public class RemindActivity extends BaseActivity<RemindActivity> {
     public static /* synthetic */ Interceptable $ic;
@@ -31,7 +31,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0212a implements uq7.e {
+        public class C0212a implements do7.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
@@ -54,37 +54,37 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                 this.a = aVar;
             }
 
-            @Override // com.repackage.uq7.e
+            @Override // com.repackage.do7.e
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                    tq7.f().d(z, str);
+                    co7.f().d(z, str);
                     this.a.a.finishActivity(true);
                 }
             }
 
-            @Override // com.repackage.uq7.e
+            @Override // com.repackage.do7.e
             public void b(boolean z, boolean z2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                    tq7.f().d(z2, str);
+                    co7.f().d(z2, str);
                     this.a.a.finishActivity(true);
                 }
             }
 
-            @Override // com.repackage.uq7.e
+            @Override // com.repackage.do7.e
             public void c() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    tq7.f().d(false, null);
+                    co7.f().d(false, null);
                 }
             }
 
-            @Override // com.repackage.uq7.e
+            @Override // com.repackage.do7.e
             public void onFail() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                    tq7.f().d(false, null);
+                    co7.f().d(false, null);
                 }
             }
         }
@@ -111,7 +111,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                uq7.i().g(this.a, new C0212a(this));
+                do7.i().g(this.a, new C0212a(this));
             }
         }
     }
@@ -178,7 +178,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
             if (z) {
                 return;
             }
-            tq7.f().a(null);
+            co7.f().a(null);
         }
     }
 
@@ -187,11 +187,11 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0722);
-            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923fd)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f091a7d)).setOnClickListener(new a(this));
-            findViewById(R.id.obfuscated_res_0x7f090985).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f090986)).setOnClickListener(new b(this));
+            setContentView(R.layout.obfuscated_res_0x7f0d0719);
+            ((NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923a2)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f091a2e)).setOnClickListener(new a(this));
+            findViewById(R.id.obfuscated_res_0x7f09096f).setVisibility(FaceFeedbackEnableSwitch.isOn() ? 0 : 8);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f090970)).setOnClickListener(new b(this));
         }
     }
 }

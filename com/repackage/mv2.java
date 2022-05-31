@@ -1,11 +1,13 @@
 package com.repackage;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
-public interface mv2 {
+public interface mv2<T> {
     long a();
 
-    void b(long j);
+    String b();
 
-    void c(long j);
+    boolean c();
 
-    String getType();
+    void onEvent(@NonNull T t);
 }

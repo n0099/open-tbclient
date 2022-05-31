@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.kuaishou.weapon.un.w0;
 import com.sina.weibo.sdk.utils.WbAuthConstants;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.PayFailMsg;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
@@ -201,7 +202,7 @@ public final class AlipayProxy extends DefaultPayMethod {
             if (str == null) {
                 return null;
             }
-            List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{";"}, false, 0, 6, (Object) null);
+            List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{ParamableElem.DIVIDE_PARAM}, false, 0, 6, (Object) null);
             JSONObject jSONObject = new JSONObject();
             for (String str4 : split$default) {
                 List split$default2 = StringsKt__StringsKt.split$default((CharSequence) str4, new String[]{"="}, false, 0, 6, (Object) null);

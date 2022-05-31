@@ -1,7 +1,7 @@
 package com.tachikoma.core.manager;
 
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface IProvider<T> {
     void apply(String str, Object obj, HashMap<String, Object> hashMap);
 

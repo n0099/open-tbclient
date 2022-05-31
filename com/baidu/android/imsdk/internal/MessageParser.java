@@ -34,9 +34,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.repackage.b80;
-import com.repackage.f80;
-import com.repackage.r70;
+import com.repackage.e60;
+import com.repackage.o60;
+import com.repackage.s60;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -633,13 +633,13 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (r70.e) {
+                if (e60.e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
                     bLCPRequest.a = 2L;
                     bLCPRequest.b = 95L;
                     bLCPRequest.c = newAckMessage.getBody().getBytes();
                     bLCPRequest.d = System.nanoTime();
-                    b80.c(bLCPRequest, new f80(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                    o60.c(bLCPRequest, new s60(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
@@ -664,7 +664,7 @@ public class MessageParser {
                             this.val$context = context;
                         }
 
-                        @Override // com.repackage.f80
+                        @Override // com.repackage.s60
                         public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {

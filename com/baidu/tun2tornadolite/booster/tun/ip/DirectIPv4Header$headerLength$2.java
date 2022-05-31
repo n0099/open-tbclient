@@ -48,6 +48,6 @@ public final class DirectIPv4Header$headerLength$2 extends Lambda implements Fun
     public final Integer invoke(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Integer.valueOf((UByte.m707constructorimpl(this.$buffer[i]) & 255 & 15) * 4) : (Integer) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Integer.valueOf((UByte.m706constructorimpl(this.$buffer[i]) & 255 & 15) * 4) : (Integer) invokeI.objValue;
     }
 }

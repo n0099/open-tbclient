@@ -16,8 +16,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
-import com.repackage.ge5;
-import com.repackage.jg;
+import com.repackage.ad5;
+import com.repackage.ig;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -86,12 +87,12 @@ public class ThirdStatisticHelper {
                         } catch (Exception e) {
                             e = e;
                             BdLog.e(e);
-                            jg.e(httpURLConnection);
+                            ig.e(httpURLConnection);
                             return null;
                         }
                     } catch (Throwable th2) {
                         th = th2;
-                        jg.e(httpURLConnection);
+                        ig.e(httpURLConnection);
                         throw th;
                     }
                 } catch (Exception e2) {
@@ -100,10 +101,10 @@ public class ThirdStatisticHelper {
                 } catch (Throwable th3) {
                     th = th3;
                     httpURLConnection = null;
-                    jg.e(httpURLConnection);
+                    ig.e(httpURLConnection);
                     throw th;
                 }
-                jg.e(httpURLConnection);
+                ig.e(httpURLConnection);
                 return null;
             }
             return (Integer) invokeL.objValue;
@@ -150,8 +151,8 @@ public class ThirdStatisticHelper {
                 StringBuilder sb = new StringBuilder();
                 for (String str : list) {
                     sb.append(str);
-                    if (!str.endsWith(";")) {
-                        sb.append(";");
+                    if (!str.endsWith(ParamableElem.DIVIDE_PARAM)) {
+                        sb.append(ParamableElem.DIVIDE_PARAM);
                     }
                 }
                 sb.deleteCharAt(sb.length() - 1);
@@ -172,7 +173,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", ge5.b());
+                httpURLConnection.setRequestProperty("User-Agent", ad5.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }
@@ -193,7 +194,7 @@ public class ThirdStatisticHelper {
                     sb.append(allCookies);
                 }
                 if (str != null) {
-                    sb.append(";");
+                    sb.append(ParamableElem.DIVIDE_PARAM);
                     sb.append(str);
                 }
                 return sb.toString();
@@ -263,7 +264,7 @@ public class ThirdStatisticHelper {
                                 BdLog.e(e);
                             }
                         } finally {
-                            jg.e(httpURLConnection);
+                            ig.e(httpURLConnection);
                         }
                     }
                     if (i != 200) {
@@ -280,7 +281,7 @@ public class ThirdStatisticHelper {
                                     httpURLConnection.connect();
                                     i = httpURLConnection.getResponseCode();
                                     requestStatistic(i2 + 1, String.valueOf(i));
-                                    jg.e(httpURLConnection);
+                                    ig.e(httpURLConnection);
                                 }
                             }
                         } else if (url != null) {
@@ -297,7 +298,7 @@ public class ThirdStatisticHelper {
                             }
                             i = httpURLConnection.getResponseCode();
                             requestStatistic(i2 + 1, String.valueOf(i));
-                            jg.e(httpURLConnection);
+                            ig.e(httpURLConnection);
                         }
                     }
                 }

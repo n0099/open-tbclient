@@ -53,7 +53,7 @@ public class it extends ByteArrayOutputStream {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m555a() {
+    public byte[] m554a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((ByteArrayOutputStream) this).buf : (byte[]) invokeV.objValue;

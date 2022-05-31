@@ -95,19 +95,19 @@ public class DownloadProgressView extends FrameLayout {
     }
 
     public void a(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d041c, this);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0910d3);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0412, this);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091092);
         this.a = textProgressBar;
         textProgressBar.setTextDimen(this.h);
         this.a.a(this.f, this.g);
         this.a.setProgressDrawable(this.i);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0910c7);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091089);
         this.b = textView;
         textView.setTextColor(this.e);
         this.b.setTextSize(0, this.h);
         this.b.setVisibility(0);
         this.b.setBackground(this.j);
-        findViewById(R.id.obfuscated_res_0x7f091091).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.widget.DownloadProgressView.1
+        findViewById(R.id.obfuscated_res_0x7f091053).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.widget.DownloadProgressView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 DownloadProgressView.this.performClick();
@@ -125,12 +125,12 @@ public class DownloadProgressView extends FrameLayout {
         Drawable drawable = obtainStyledAttributes.getDrawable(6);
         this.i = drawable;
         if (drawable == null) {
-            this.i = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bca);
+            this.i = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bdb);
         }
         Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
         this.j = drawable2;
         if (drawable2 == null) {
-            this.j = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bc9);
+            this.j = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080bda);
         }
         String string = obtainStyledAttributes.getString(5);
         this.k = string;

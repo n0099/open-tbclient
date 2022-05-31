@@ -44,7 +44,7 @@ public class c extends com.kwad.sdk.core.video.videoview.a implements bc.a {
         super.a();
         ImageView imageView = ((com.kwad.sdk.core.video.videoview.a) this).b;
         if (imageView != null) {
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bde);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bef);
         }
         TextView textView = ((com.kwad.sdk.core.video.videoview.a) this).c;
         if (textView != null) {

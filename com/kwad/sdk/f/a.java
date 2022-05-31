@@ -66,8 +66,8 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
             }
         }
     };
-    public InterfaceC0320a h = new InterfaceC0320a() { // from class: com.kwad.sdk.f.a.7
-        @Override // com.kwad.sdk.f.a.InterfaceC0320a
+    public InterfaceC0321a h = new InterfaceC0321a() { // from class: com.kwad.sdk.f.a.7
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
         public void a() {
             if (a.this.d != null) {
                 try {
@@ -77,21 +77,21 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
             }
         }
 
-        @Override // com.kwad.sdk.f.a.InterfaceC0320a
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
         public void a(View view2, KsNativeAd ksNativeAd) {
             if (a.this.d != null) {
                 a.this.d.onAdClicked(view2, a.this);
             }
         }
 
-        @Override // com.kwad.sdk.f.a.InterfaceC0320a
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
         public void a(KsNativeAd ksNativeAd) {
             if (a.this.d != null) {
                 a.this.d.onAdShow(a.this);
             }
         }
 
-        @Override // com.kwad.sdk.f.a.InterfaceC0320a
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
         public boolean a(DialogInterface.OnClickListener onClickListener) {
             if (a.this.d != null) {
                 try {
@@ -104,7 +104,7 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
             return false;
         }
 
-        @Override // com.kwad.sdk.f.a.InterfaceC0320a
+        @Override // com.kwad.sdk.f.a.InterfaceC0321a
         public void b() {
             if (a.this.d != null) {
                 try {
@@ -117,7 +117,7 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
 
     /* renamed from: com.kwad.sdk.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0320a {
+    public interface InterfaceC0321a {
         void a();
 
         void a(View view2, KsNativeAd ksNativeAd);
@@ -203,12 +203,12 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
             b = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(b);
         }
-        b.setViewCallback(new a.InterfaceC0304a() { // from class: com.kwad.sdk.f.a.5
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0304a
+        b.setViewCallback(new a.InterfaceC0305a() { // from class: com.kwad.sdk.f.a.5
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0304a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void a(View view2) {
                 if (!a.this.a.mPvReported) {
                     a.this.h.a(a.this);
@@ -216,11 +216,11 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
                 com.kwad.sdk.core.report.a.a(a.this.a, (JSONObject) null);
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0304a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0304a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC0305a
             public void b() {
             }
         });
@@ -387,7 +387,7 @@ public class a extends AbstractKsNativeAd implements DialogInterface.OnDismissLi
         if (context == null) {
             return null;
         }
-        return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080cbf);
+        return BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080cd0);
     }
 
     @Override // com.kwad.sdk.api.KsNativeAd

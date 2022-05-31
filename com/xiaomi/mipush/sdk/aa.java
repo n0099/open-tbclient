@@ -10,14 +10,14 @@ import java.util.concurrent.ScheduledFuture;
 public class aa implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ MiTinyDataClient.a.C0656a a;
+    public final /* synthetic */ MiTinyDataClient.a.C0658a a;
 
-    public aa(MiTinyDataClient.a.C0656a c0656a) {
+    public aa(MiTinyDataClient.a.C0658a c0658a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0656a};
+            Object[] objArr = {c0658a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,7 +27,7 @@ public class aa implements Runnable {
                 return;
             }
         }
-        this.a = c0656a;
+        this.a = c0658a;
     }
 
     @Override // java.lang.Runnable

@@ -1,30 +1,13 @@
 package com.repackage;
 
-import android.graphics.BitmapFactory;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.win.opensdk.PBListener;
 /* loaded from: classes5.dex */
-public final class am9 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final BitmapFactory.Options a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface am9 extends PBListener {
+    void c(boolean z, long j);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755851836, "Lcom/repackage/am9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755851836, "Lcom/repackage/am9;");
-                return;
-            }
-        }
-        a = new BitmapFactory.Options();
-    }
+    void d(String str);
+
+    void f();
+
+    void g();
 }

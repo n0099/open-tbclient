@@ -1,21 +1,17 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TimeLineInfo;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes6.dex */
 public class j17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<i17> b;
+    public long a;
 
     public j17() {
         Interceptable interceptable = $ic;
@@ -31,24 +27,34 @@ public class j17 {
         }
     }
 
-    public void a(long j, TimeLine timeLine) {
-        Long l;
+    public void a(UserInfo userInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(1048576, this, j, timeLine) == null) || timeLine == null || ListUtils.isEmpty(timeLine.timeline_info)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
+            this.a = userInfo.user_id.longValue();
+            String str = userInfo.user_name;
+            String str2 = userInfo.portrait;
         }
-        this.a = timeLine.title;
-        this.b = new ArrayList();
-        int i = 0;
-        for (TimeLineInfo timeLineInfo : timeLine.timeline_info) {
-            if (timeLineInfo != null && (((l = timeLineInfo.tid) != null && l.longValue() != 0) || !TextUtils.isEmpty(timeLineInfo.title) || !TextUtils.isEmpty(timeLineInfo.bg_color) || !TextUtils.isEmpty(timeLineInfo.show_time) || !TextUtils.isEmpty(timeLineInfo.small_title))) {
-                i17 i17Var = new i17();
-                i17Var.a = j;
-                i17Var.f = i;
-                i17Var.a(timeLineInfo);
-                this.b.add(i17Var);
-                i++;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
+            return obj != null && j17.class == obj.getClass() && this.a == ((j17) obj).a;
         }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = this.a;
+            return (int) (j ^ (j >>> 32));
+        }
+        return invokeV.intValue;
     }
 }

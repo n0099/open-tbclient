@@ -18,6 +18,7 @@ public class ThreadRecommendInfoData implements Serializable {
     public String forumAvatar;
     public String forumName;
     public String recommendReason;
+    public long recommendTopicId;
     public int showNum;
     public String showType;
 
@@ -44,6 +45,7 @@ public class ThreadRecommendInfoData implements Serializable {
                 this.showNum = jSONObject.optInt("show_num");
                 this.showType = jSONObject.optString(RecordVideoActivityConfig.SHOW_TYPE);
                 this.recommendReason = jSONObject.optString("recommend_reason");
+                this.recommendTopicId = jSONObject.optLong("topic_id");
             } catch (Exception e) {
                 BdLog.e(e);
             }
@@ -60,5 +62,6 @@ public class ThreadRecommendInfoData implements Serializable {
         this.showNum = threadRecommendInfo.show_num.intValue();
         this.showType = threadRecommendInfo.show_type;
         this.recommendReason = threadRecommendInfo.recommend_reason;
+        this.recommendTopicId = threadRecommendInfo.topic_id.longValue();
     }
 }

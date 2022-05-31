@@ -1,210 +1,77 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.ILiveNPSPlugin;
-import com.baidu.searchbox.live.interfaces.LiveConstants;
-import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes5.dex */
-public class ah7 implements EventDispatcherService {
+public class ah7 implements jn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public qg7 a;
+    public List<bh7> b;
 
-    public ah7() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755856703, "Lcom/repackage/ah7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755856703, "Lcom/repackage/ah7;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
+
+    public ah7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void f(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, arrayList) != null) || arrayList == null || arrayList.size() == 0) {
-        }
-    }
-
-    public final void a(Map<String, ?> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public final void c(Map<String, ?> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(ILiveNPSPlugin.PARAMS_ROOM_ID, map.get(ILiveNPSPlugin.PARAMS_ROOM_ID));
-                jSONObject.put("isClosed", map.get("isClosed"));
-                jSONObject.put("liveId", map.get("liveId"));
-                jSONObject.put("type", map.get("type"));
-                jSONObject.put("sid", map.get("sid"));
-                jSONObject.put("ssid", map.get("ssid"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921547, jSONObject));
-        }
-    }
-
-    public void d(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, str, map) == null) || li.isEmpty(str)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        if (map != null) {
-            for (String str2 : map.keySet()) {
-                statisticItem.param(str2, map.get(str2));
-            }
-        }
-        TiebaStatic.log(statisticItem);
-    }
-
-    public void e(Map<String, ?> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, map) == null) || map == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        String obj = map.remove("key").toString();
-        for (String str : map.keySet()) {
-            hashMap.put(str, map.get(str).toString());
-        }
-        d(obj, hashMap);
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public final void h(Map<String, ?> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
-            String str = (String) map.get("data");
-            if (TextUtils.isEmpty(str) || str == null) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            try {
-                ue7.o(new JSONObject(str));
-            } catch (JSONException unused) {
-            }
+        }
+        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
+            return;
+        }
+        String str = vipSpecialList.card_id;
+        qg7 qg7Var = new qg7();
+        this.a = qg7Var;
+        qg7Var.e(1);
+        this.a.d(vipSpecialList.class_name);
+        this.a.f(vipSpecialList.class_url_name);
+        this.a.g(vipSpecialList.class_url);
+        this.b = new ArrayList();
+        for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
+            this.b.add(new bh7(vipSpecialItem));
         }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.searchbox.live.interfaces.service.EventDispatcherService
-    public void onEvent(String str, Map<String, ?> map) {
-        char c;
+    @Override // com.repackage.jn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, map) == null) {
-            switch (str.hashCode()) {
-                case -2147386482:
-                    if (str.equals("sync_webview_cookie")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1369745389:
-                    if (str.equals("living_room_is_closed")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1326603888:
-                    if (str.equals(LiveConstants.SdkToHostEvents.DO_LOG)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -841542404:
-                    if (str.equals(LiveConstants.SdkToHostEvents.GO_FEEDBACK)) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 152519529:
-                    if (str.equals("live_show_close")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1766660371:
-                    if (str.equals(LiveConstants.SdkToHostEvents.BUY_TBEAN_RESULT)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1785162541:
-                    if (str.equals(LiveConstants.SdkToHostEvents.KEY_PRE_DOWANLOAD_SWAN)) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    g();
-                    return;
-                case 1:
-                    b();
-                    return;
-                case 2:
-                    e(map);
-                    return;
-                case 3:
-                    f((ArrayList) map.get(str));
-                    return;
-                case 4:
-                    a(map);
-                    return;
-                case 5:
-                    h(map);
-                    return;
-                case 6:
-                    c(map);
-                    return;
-                default:
-                    return;
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

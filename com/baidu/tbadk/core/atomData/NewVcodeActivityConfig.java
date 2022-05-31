@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.kg;
-/* loaded from: classes3.dex */
+import com.repackage.jg;
+/* loaded from: classes2.dex */
 public class NewVcodeActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_AD = "is_ad";
@@ -43,7 +43,7 @@ public class NewVcodeActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("model", writeData);
         getIntent().putExtra("is_ad", z);
-        getIntent().putExtra("page_type", kg.e(str, 0));
+        getIntent().putExtra("page_type", jg.e(str, 0));
     }
 
     public void setHideFeedBackButton() {

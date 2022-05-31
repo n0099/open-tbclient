@@ -16,9 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ok8;
+import com.repackage.ph8;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class SupplementSignActivity extends TbWebViewActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,11 +27,11 @@ public class SupplementSignActivity extends TbWebViewActivity {
     public int continuousSignAllDays;
     public int forumId;
     public CustomMessageListener mBuyMemberListener;
-    public ok8 mSupplementSignInterface;
+    public ph8 mSupplementSignInterface;
     public int signBonusPoint;
     public int supplementSignDays;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
         this.supplementSignDays = 0;
         this.signBonusPoint = 0;
         this.mBuyMemberListener = new a(this, 2001194);
-        this.mSupplementSignInterface = new ok8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
+        this.mSupplementSignInterface = new ph8(this) { // from class: com.baidu.tieba.supplementSign.SupplementSignActivity.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SupplementSignActivity this$0;
@@ -110,7 +110,7 @@ public class SupplementSignActivity extends TbWebViewActivity {
                 this.this$0 = this;
             }
 
-            @Override // com.repackage.ok8
+            @Override // com.repackage.ph8
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;

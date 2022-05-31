@@ -1,226 +1,201 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.sweetsqlite.BooleanColumn;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class uz0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Object obj, Class<?>... clsArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, obj, clsArr) == null) {
-            for (Class<?> cls : clsArr) {
-                if (cls == obj.getClass()) {
-                    return;
-                }
-            }
-            throw new IllegalArgumentException("Expected " + Arrays.toString(clsArr) + ", but got" + obj.getClass().getName());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755243802, "Lcom/repackage/uz0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755243802, "Lcom/repackage/uz0;");
         }
     }
 
-    public static ContentValues b(Column[] columnArr) {
-        InterceptResult invokeL;
+    public uz0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, columnArr)) == null) {
-            ContentValues contentValues = new ContentValues();
-            for (Column column : columnArr) {
-                if (column.isAssignedValue) {
-                    int type = column.type();
-                    if (type == 1) {
-                        contentValues.put(column.field.b, Integer.valueOf(((BooleanColumn) column).getValue() ? 1 : 0));
-                    } else if (type == 2) {
-                        contentValues.put(column.field.b, Integer.valueOf(((IntegerColumn) column).getValue()));
-                    } else if (type == 3) {
-                        contentValues.put(column.field.b, Long.valueOf(((LongColumn) column).getValue()));
-                    } else if (type == 4) {
-                        contentValues.put(column.field.b, ((StringColumn) column).getValue());
-                    } else {
-                        throw new IllegalStateException("Unsupported type:" + column.type());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = a;
+            if (str == null) {
+                synchronized (uz0.class) {
+                    str = a;
+                    if (str == null) {
+                        Context b = xg0.b();
+                        String c = c();
+                        if (c == null && (c = b(b)) == null) {
+                            c = b.getPackageName();
+                        }
+                        a = c;
+                        str = c;
                     }
                 }
             }
-            return contentValues;
+            return str;
         }
-        return (ContentValues) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static ContentValues c(oz0[] oz0VarArr, Object[] objArr) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return null;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    public static String c() {
+        InterceptResult invokeV;
+        ?? r2;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            BufferedReader bufferedReader2 = 0;
+            BufferedReader bufferedReader3 = null;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+                r2 = null;
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    readLine = readLine.trim();
+                }
+                try {
+                    bufferedReader.close();
+                    return readLine;
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return readLine;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                r2 = null;
+                bufferedReader3 = bufferedReader;
+                e("AppProcessManager", e);
+                if (bufferedReader3 != null) {
+                    try {
+                        bufferedReader3.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                bufferedReader2 = r2;
+                return bufferedReader2;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != 0) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:8:0x001b A[Catch: Exception -> 0x003a, TryCatch #0 {Exception -> 0x003a, blocks: (B:5:0x0005, B:6:0x0015, B:8:0x001b, B:10:0x002d, B:12:0x0031), top: B:25:0x0005 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean d(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, oz0VarArr, objArr)) == null) {
-            if (oz0VarArr.length == objArr.length) {
-                ContentValues contentValues = new ContentValues();
-                for (int i = 0; i < oz0VarArr.length; i++) {
-                    oz0 oz0Var = oz0VarArr[i];
-                    Object obj = objArr[i];
-                    int i2 = oz0Var.a;
-                    if (i2 == 1) {
-                        a(obj, Boolean.class);
-                        contentValues.put(oz0Var.b, Boolean.valueOf(((Boolean) obj).booleanValue()));
-                    } else if (i2 == 2) {
-                        a(obj, Integer.class, Short.class, Byte.class);
-                        contentValues.put(oz0Var.b, Integer.valueOf(((Integer) obj).intValue()));
-                    } else if (i2 == 3) {
-                        a(obj, Long.class, Integer.class, Short.class, Byte.class);
-                        contentValues.put(oz0Var.b, Long.valueOf(((Long) obj).longValue()));
-                    } else if (i2 == 4) {
-                        a(obj, String.class, CharSequence.class);
-                        contentValues.put(oz0Var.b, (String) obj);
-                    } else {
-                        throw new IllegalArgumentException("Unsupported field type.");
-                    }
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65541, null, context, str)) != null) {
+            return invokeLL.booleanValue;
+        }
+        try {
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                String str2 = runningAppProcessInfo.processName;
+                int myPid = Process.myPid();
+                if (str2.equals(str) || runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.importance == 100;
                 }
-                return contentValues;
-            }
-            throw new IllegalArgumentException("invalid columns & values pair.");
-        }
-        return (ContentValues) invokeLL.objValue;
-    }
-
-    public static Column[] d(xz0 xz0Var, oz0... oz0VarArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, xz0Var, oz0VarArr)) == null) {
-            Column[] columnArr = new Column[oz0VarArr.length];
-            for (int i = 0; i < oz0VarArr.length; i++) {
-                columnArr[i] = xz0Var.b().c()[nz0.a(xz0Var.b().d(), oz0VarArr[i])];
-            }
-            return columnArr;
-        }
-        return (Column[]) invokeLL.objValue;
-    }
-
-    public static ContentValues e(Column... columnArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, columnArr)) == null) {
-            ContentValues contentValues = new ContentValues(columnArr.length);
-            for (Column column : columnArr) {
-                if (column.isAssignedValue) {
-                    int type = column.type();
-                    if (type == 1) {
-                        contentValues.put(column.field.b, Integer.valueOf(oz0.a(column) ? 1 : 0));
-                    } else if (type == 2) {
-                        contentValues.put(column.field.b, Integer.valueOf(oz0.b(column)));
-                    } else if (type == 3) {
-                        contentValues.put(column.field.b, Long.valueOf(oz0.c(column)));
-                    } else if (type == 4) {
-                        contentValues.put(column.field.b, oz0.d(column));
-                    } else {
-                        throw new IllegalArgumentException("Unsupported column type.");
-                    }
-                } else {
-                    throw new IllegalArgumentException("All columns must be initialized.");
+                while (r4.hasNext()) {
                 }
             }
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public static void f(Column column, Column column2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, column, column2) == null) && column.type() == column2.type()) {
-            column2.isAssignedValue = column.isAssignedValue;
-            int type = column.type();
-            if (type == 1) {
-                ((BooleanColumn) column2).value = ((BooleanColumn) column).value;
-            } else if (type == 2) {
-                ((IntegerColumn) column2).value = ((IntegerColumn) column).value;
-            } else if (type == 3) {
-                ((LongColumn) column2).value = ((LongColumn) column).value;
-            } else if (type == 4) {
-                ((StringColumn) column2).value = ((StringColumn) column).value;
-            } else {
-                throw new IllegalStateException("Unsupported type:" + column.type());
-            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 
-    public static boolean g(BooleanColumn booleanColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
+    public static void e(String str, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, booleanColumn, cursor, i)) == null) {
-            boolean z = i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i);
-            if (z) {
-                booleanColumn.setValue(cursor.getInt(i) > 0);
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, exc) == null) {
         }
-        return invokeLLI.booleanValue;
-    }
-
-    public static void h(Column column, Cursor cursor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65543, null, column, cursor, i) == null) {
-            int type = column.type();
-            if (type == 1) {
-                g((BooleanColumn) column, cursor, i);
-            } else if (type == 2) {
-                i((IntegerColumn) column, cursor, i);
-            } else if (type == 3) {
-                j((LongColumn) column, cursor, i);
-            } else if (type == 4) {
-                k((StringColumn) column, cursor, i);
-            } else {
-                throw new IllegalStateException("Unsupported type:" + column.type());
-            }
-        }
-    }
-
-    public static boolean i(IntegerColumn integerColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, integerColumn, cursor, i)) == null) {
-            boolean z = i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i);
-            if (z) {
-                integerColumn.setValue(cursor.getInt(i));
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean j(LongColumn longColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, longColumn, cursor, i)) == null) {
-            boolean z = i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i);
-            if (z) {
-                longColumn.setValue(cursor.getLong(i));
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean k(StringColumn stringColumn, Cursor cursor, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, stringColumn, cursor, i)) == null) {
-            boolean z = i >= 0 && cursor.getColumnCount() > i && !cursor.isNull(i);
-            if (z) {
-                stringColumn.setValue(cursor.getString(i));
-            }
-            return z;
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public static boolean l(Column column) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, column)) == null) ? column != null && column.field.d == 3 : invokeL.booleanValue;
     }
 }

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.is4;
+import com.repackage.yq4;
 /* loaded from: classes3.dex */
 public class EMRichTextAnyIconSpan extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
@@ -188,8 +188,8 @@ public class EMRichTextAnyIconSpan extends ReplacementSpan {
             float f2 = f + this.e;
             float f3 = this.g;
             Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            if (is4.b(charSequence)) {
-                is4.a(fontMetricsInt, (int) paint.getTextSize());
+            if (yq4.b(charSequence)) {
+                yq4.a(fontMetricsInt, (int) paint.getTextSize());
                 dimenPixelSize = f3 - UtilHelper.getDimenPixelSize(R.dimen.tbds2);
             } else {
                 dimenPixelSize = f3 + UtilHelper.getDimenPixelSize(R.dimen.tbds3) + this.h;

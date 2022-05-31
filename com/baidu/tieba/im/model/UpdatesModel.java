@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.sd5;
-import com.repackage.t57;
-import com.repackage.vd5;
-import com.repackage.zc5;
+import com.repackage.mc5;
+import com.repackage.pc5;
+import com.repackage.tb5;
+import com.repackage.v37;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -102,12 +102,12 @@ public class UpdatesModel {
         return (List) invokeL.objValue;
     }
 
-    public static void deleteUpdatesData(UpdatesItemData updatesItemData, zc5<Boolean> zc5Var) {
+    public static void deleteUpdatesData(UpdatesItemData updatesItemData, tb5<Boolean> tb5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, updatesItemData, zc5Var) == null) || updatesItemData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, updatesItemData, tb5Var) == null) || updatesItemData == null) {
             return;
         }
-        vd5.c(new sd5<Boolean>(updatesItemData) { // from class: com.baidu.tieba.im.model.UpdatesModel.2
+        pc5.c(new mc5<Boolean>(updatesItemData) { // from class: com.baidu.tieba.im.model.UpdatesModel.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UpdatesItemData val$data;
@@ -132,19 +132,19 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.repackage.sd5
+            @Override // com.repackage.mc5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(t57.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v37.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
             }
-        }, zc5Var);
+        }, tb5Var);
     }
 
-    public static void requestUpdatesDataFromDB(zc5<LinkedList<GroupNewsPojo>> zc5Var) {
+    public static void requestUpdatesDataFromDB(tb5<LinkedList<GroupNewsPojo>> tb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, zc5Var) == null) {
-            vd5.c(new sd5<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
+        if (interceptable == null || interceptable.invokeL(65541, null, tb5Var) == null) {
+            pc5.c(new mc5<LinkedList<GroupNewsPojo>>() { // from class: com.baidu.tieba.im.model.UpdatesModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -163,26 +163,26 @@ public class UpdatesModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.repackage.sd5
+                @Override // com.repackage.mc5
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? t57.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change") : (LinkedList) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? v37.f().c(0L, Integer.MAX_VALUE, 0, "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change") : (LinkedList) invokeV.objValue;
                 }
-            }, zc5Var);
+            }, tb5Var);
         }
     }
 
-    public static void updateUpdatesData(zc5<Boolean> zc5Var, UpdatesItemData... updatesItemDataArr) {
+    public static void updateUpdatesData(tb5<Boolean> tb5Var, UpdatesItemData... updatesItemDataArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, zc5Var, updatesItemDataArr) == null) || updatesItemDataArr == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, tb5Var, updatesItemDataArr) == null) || updatesItemDataArr == null) {
             return;
         }
         LinkedList linkedList = new LinkedList();
         for (UpdatesItemData updatesItemData : updatesItemDataArr) {
             linkedList.add(updatesItemData.toGroupNewsPojo());
         }
-        vd5.c(new sd5<Boolean>(linkedList) { // from class: com.baidu.tieba.im.model.UpdatesModel.1
+        pc5.c(new mc5<Boolean>(linkedList) { // from class: com.baidu.tieba.im.model.UpdatesModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ LinkedList val$list;
@@ -207,13 +207,13 @@ public class UpdatesModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.repackage.sd5
+            @Override // com.repackage.mc5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? t57.f().n(this.val$list) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? v37.f().m(this.val$list) : (Boolean) invokeV.objValue;
             }
-        }, zc5Var);
+        }, tb5Var);
     }
 
     public void addSelect(UpdatesItemData updatesItemData) {
@@ -249,10 +249,10 @@ public class UpdatesModel {
         }
     }
 
-    public void deleteDatas(zc5<Boolean> zc5Var) {
+    public void deleteDatas(tb5<Boolean> tb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zc5Var) == null) {
-            vd5.c(new sd5<Boolean>(this) { // from class: com.baidu.tieba.im.model.UpdatesModel.3
+        if (interceptable == null || interceptable.invokeL(1048580, this, tb5Var) == null) {
+            pc5.c(new mc5<Boolean>(this) { // from class: com.baidu.tieba.im.model.UpdatesModel.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UpdatesModel this$0;
@@ -277,13 +277,13 @@ public class UpdatesModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.repackage.sd5
+                @Override // com.repackage.mc5
                 public Boolean doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(t57.f().b(this.this$0.dataToDelete)) : (Boolean) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v37.f().b(this.this$0.dataToDelete)) : (Boolean) invokeV.objValue;
                 }
-            }, zc5Var);
+            }, tb5Var);
         }
     }
 

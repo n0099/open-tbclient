@@ -1,21 +1,17 @@
 package com.repackage;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 /* loaded from: classes7.dex */
-public interface uz6 {
-    boolean a();
+public class uz6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(BdUniqueId bdUniqueId);
+    public abstract void a();
 
-    void destory();
+    public abstract void b(List<jn> list);
 
-    List<ThreadData> k();
-
-    void loadMore();
-
-    void q(String str, String str2, int i);
-
-    void refresh();
+    public abstract void c(BdUniqueId bdUniqueId);
 }

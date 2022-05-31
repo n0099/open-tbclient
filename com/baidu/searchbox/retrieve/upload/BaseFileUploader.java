@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vc9;
+import com.repackage.p99;
 import java.io.File;
 /* loaded from: classes2.dex */
 public abstract class BaseFileUploader {
@@ -26,5 +26,5 @@ public abstract class BaseFileUploader {
         }
     }
 
-    public abstract vc9 uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file);
+    public abstract p99 uploadSync(@NonNull String str, @NonNull String str2, @NonNull File file);
 }

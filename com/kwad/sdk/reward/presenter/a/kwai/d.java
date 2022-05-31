@@ -46,6 +46,6 @@ public class d extends g {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f091192);
+        this.b = (FrameLayout) a(R.id.obfuscated_res_0x7f091154);
     }
 }

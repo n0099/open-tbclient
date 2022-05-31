@@ -37,12 +37,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ag;
 import com.repackage.b9;
 import com.repackage.bg;
-import com.repackage.cg;
 import com.repackage.f9;
-import com.repackage.kg;
-import com.repackage.mi;
+import com.repackage.jg;
+import com.repackage.li;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
@@ -72,7 +72,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public String o;
     public String p;
     public String q;
-    public bg<TbImageView> r;
+    public ag<TbImageView> r;
     public View.OnClickListener s;
     public boolean t;
     public b9<?> u;
@@ -82,7 +82,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public String y;
     public int z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,8 +122,8 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements cg<TbImageView> {
+    /* loaded from: classes3.dex */
+    public static class b implements bg<TbImageView> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -148,7 +148,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.cg
+        @Override // com.repackage.bg
         public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             e(tbImageView2);
@@ -157,7 +157,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
         /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.repackage.cg
+        @Override // com.repackage.bg
         public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
             TbImageView tbImageView2 = tbImageView;
             h(tbImageView2);
@@ -171,7 +171,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cg
+        @Override // com.repackage.bg
         /* renamed from: f */
         public void b(TbImageView tbImageView) {
             Interceptable interceptable = $ic;
@@ -184,7 +184,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.cg
+        @Override // com.repackage.bg
         /* renamed from: g */
         public TbImageView d() {
             InterceptResult invokeV;
@@ -214,7 +214,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +256,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                                     imageUrlData.originalSize = mediaData.getOriginalSize();
                                     imageUrlData.isLongPic = mediaData.isLongPic();
                                     imageUrlData.mIsShowOrigonButton = mediaData.isShowOriginBtn();
-                                    imageUrlData.threadId = kg.g(this.b.q, -1L);
+                                    imageUrlData.threadId = jg.g(this.b.q, -1L);
                                     imageUrlData.postId = mediaData.getPostId();
                                     concurrentHashMap.put(mediaData.getSrc_pic(), imageUrlData);
                                 }
@@ -333,14 +333,14 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface d {
         void a(int i);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface e {
-        bg<TbImageView> getFrsCommonImageLayoutPool();
+        ag<TbImageView> getFrsCommonImageLayoutPool();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -364,10 +364,10 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         }
     }
 
-    public static bg<TbImageView> m(Context context, int i) {
+    public static ag<TbImageView> m(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) ? new bg<>(new b(context), i, 0) : (bg) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) ? new ag<>(new b(context), i, 0) : (ag) invokeLI.objValue;
     }
 
     @Override // android.view.ViewGroup
@@ -425,7 +425,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             Bitmap bitmap = this.C;
             if (bitmap == null || bitmap.isRecycled()) {
-                Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f0802b3);
+                Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f0802b2);
                 this.C = cashBitmap;
                 if (cashBitmap != null) {
                     this.D = new Rect(0, 0, this.C.getWidth(), this.C.getHeight());
@@ -534,7 +534,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         if (!(interceptable == null || interceptable.invokeLLI(1048589, this, tbImageView, mediaData, i) == null) || tbImageView == null) {
             return;
         }
-        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081221);
+        tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081233);
         String picUrl = mediaData.getPicUrl();
         if (mediaData.getType() == 5) {
             picUrl = null;
@@ -572,7 +572,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             this.l = i;
             this.u = b9Var;
             Resources resources = getResources();
-            this.y = resources.getString(R.string.obfuscated_res_0x7f0f06ff) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0700);
+            this.y = resources.getString(R.string.obfuscated_res_0x7f0f0706) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0707);
             if (this.r == null && (b9Var.getOrignalPage() instanceof e)) {
                 this.r = ((e) b9Var.getOrignalPage()).getFrsCommonImageLayoutPool();
             }
@@ -595,7 +595,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                     while (i5 < i4) {
                         TbImageView b2 = this.r.b();
                         StringBuilder sb = new StringBuilder();
-                        sb.append(b9Var.getString(R.string.obfuscated_res_0x7f0f0528));
+                        sb.append(b9Var.getString(R.string.obfuscated_res_0x7f0f052f));
                         i5++;
                         sb.append(i5);
                         b2.setContentDescription(sb.toString());
@@ -644,7 +644,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
     public void setItemSize(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.g = mi.d(this.e, i);
+            this.g = li.d(this.e, i);
         }
     }
 
@@ -719,25 +719,25 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
         this.r = null;
         this.t = true;
         this.e = context;
-        this.i = mi.d(context, 2);
-        this.g = mi.d(this.e, this.j);
+        this.i = li.d(context, 2);
+        this.g = li.d(this.e, this.j);
         setOnHierarchyChangeListener(new a(this));
-        this.v = mi.d(this.e, 50.0f);
-        this.w = mi.d(this.e, 23.0f);
+        this.v = li.d(this.e, 50.0f);
+        this.w = li.d(this.e, 23.0f);
         Paint paint = new Paint();
         this.x = paint;
         paint.setDither(true);
         this.x.setFilterBitmap(true);
         Resources resources = getResources();
-        String str = resources.getString(R.string.obfuscated_res_0x7f0f06ff) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0700);
+        String str = resources.getString(R.string.obfuscated_res_0x7f0f0706) + this.l + resources.getString(R.string.obfuscated_res_0x7f0f0707);
         this.y = str;
-        this.z = ((str.length() + 2) * mi.d(this.e, 10.0f)) / 2;
-        this.A = mi.d(this.e, 10.0f);
+        this.z = ((str.length() + 2) * li.d(this.e, 10.0f)) / 2;
+        this.A = li.d(this.e, 10.0f);
         Paint paint2 = new Paint(257);
         this.B = paint2;
         paint2.setColor(-1);
         this.B.setTextSize(resources.getDimension(R.dimen.obfuscated_res_0x7f0701d5));
-        Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f0802b3);
+        Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.obfuscated_res_0x7f0802b2);
         this.C = cashBitmap;
         if (cashBitmap != null) {
             this.D = new Rect(0, 0, this.C.getWidth(), this.C.getHeight());

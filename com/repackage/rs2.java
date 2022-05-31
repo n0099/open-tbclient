@@ -1,5 +1,5 @@
 package com.repackage;
 /* loaded from: classes7.dex */
 public interface rs2 {
-    void a();
+    boolean a(ps2 ps2Var);
 }

@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g55;
-import com.repackage.zs6;
+import com.repackage.b45;
+import com.repackage.dr6;
 /* loaded from: classes2.dex */
 public class InitBottomIndicatorView2Task extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
@@ -39,11 +39,11 @@ public class InitBottomIndicatorView2Task extends LaunchTask {
             try {
                 MaintabBottomIndicator maintabBottomIndicator = new MaintabBottomIndicator(TbadkCoreApplication.getInst());
                 maintabBottomIndicator.setLayoutParams(new LinearLayout.LayoutParams(0, -1, 1.0f));
-                g55.e().a(1004, maintabBottomIndicator);
+                b45.e().a(1004, maintabBottomIndicator);
                 MaintabBottomIndicator maintabBottomIndicator2 = new MaintabBottomIndicator(TbadkCoreApplication.getInst());
                 maintabBottomIndicator2.setLayoutParams(new LinearLayout.LayoutParams(0, -1, 1.0f));
-                g55.e().a(1005, maintabBottomIndicator2);
-                g55.e().a(1012, new zs6(TbadkCoreApplication.getInst()));
+                b45.e().a(1005, maintabBottomIndicator2);
+                b45.e().a(1012, new dr6(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 BdLog.e(e);
             }

@@ -1,270 +1,314 @@
 package com.repackage;
 
-import android.opengl.GLES20;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.LruCache;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Map;
+import com.repackage.xf0;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public class vf0 extends tf0 {
+public class vf0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern d;
+    public static volatile vf0 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LruCache<String, wf0<?>> a;
+    public final xf0 b;
+    public final String c;
 
-    public vf0() {
+    /* loaded from: classes7.dex */
+    public class a implements d<Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(vf0 vf0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX DEBUG: Throwable added to exception handler: 'OutOfMemoryError', keep only Throwable */
+        @Override // com.repackage.vf0.d
+        /* renamed from: c */
+        public Bitmap b(byte[] bArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+                if (bArr != null) {
+                    try {
+                        if (bArr.length != 0) {
+                            BitmapFactory.Options options = new BitmapFactory.Options();
+                            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+                            options.inPurgeable = true;
+                            options.inInputShareable = true;
+                            return BitmapFactory.decodeStream(new ByteArrayInputStream(bArr), null, options);
+                        }
+                    } catch (Throwable unused) {
+                    }
+                }
+                return null;
+            }
+            return (Bitmap) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.repackage.vf0.d
+        /* renamed from: d */
+        public <D> Bitmap a(D d) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d)) == null) {
+                if (d instanceof Bitmap) {
+                    return (Bitmap) d;
+                }
+                return null;
+            }
+            return (Bitmap) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements xf0.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ c b;
+        public final /* synthetic */ vf0 c;
+
+        public b(vf0 vf0Var, String str, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vf0Var, str, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = vf0Var;
+            this.a = str;
+            this.b = cVar;
+        }
+
+        @Override // com.repackage.xf0.e
+        public void a(String str, wf0<File> wf0Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, wf0Var) == null) && this.a.equals(str)) {
+                this.b.a();
+                this.c.b.n(this);
+            }
+        }
+
+        @Override // com.repackage.xf0.e
+        public void b(String str, wf0<File> wf0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, wf0Var) == null) {
+            }
+        }
+
+        @Override // com.repackage.xf0.e
+        public void c(String str, wf0<File> wf0Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, wf0Var) == null) && this.a.equals(str)) {
+                this.b.b();
+                this.c.b.n(this);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a();
+
+        void b();
+    }
+
+    /* loaded from: classes7.dex */
+    public interface d<T> {
+        <D> T a(D d);
+
+        T b(byte[] bArr);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755233231, "Lcom/repackage/vf0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755233231, "Lcom/repackage/vf0;");
+                return;
+            }
+        }
+        d = Pattern.compile("[^a-zA-Z0-9]");
+    }
+
+    public vf0(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.repackage.sf0
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-            if (this.e) {
-                System.currentTimeMillis();
-            }
-            I();
-            if (i != this.f || i2 != this.g) {
-                this.f = i;
-                this.g = i2;
-                t(" w * h : " + i + " * " + i2);
-                s();
-            }
-            if (i == 0 || i2 == 0) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            q();
-            pf0 pf0Var = this.c;
-            if (pf0Var != null) {
-                pf0Var.g();
-            }
-            pf0 pf0Var2 = this.d;
-            if (pf0Var2 != null) {
-                pf0Var2.g();
-            }
         }
+        File cacheDir = context.getCacheDir();
+        this.c = (cacheDir.getPath() + "/nad/") + "nad_image_cache/";
+        this.a = new LruCache<>(i);
+        this.b = xf0.l(this.c, i2);
     }
 
-    @Override // com.repackage.sf0
-    public int d(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        of0 G;
-        InterceptResult invokeLIL;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaTrack, i, map)) == null) {
-            try {
-                if (this.c != null && i != 0 && mediaTrack != null && this.m != null && this.l != null && (G = G(map, mediaTrack)) != null) {
-                    return this.c.e(i, G);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                u(e.toString(), e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str.length() >= 160) {
+                return c01.c(str, false);
             }
-            return i;
+            return d.matcher(str).replaceAll("").trim();
         }
-        return invokeLIL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x0099 */
-    /* JADX DEBUG: Multi-variable search result rejected for r11v1, resolved type: int */
-    /* JADX DEBUG: Multi-variable search result rejected for r11v2, resolved type: float[] */
-    /* JADX DEBUG: Multi-variable search result rejected for r11v3, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.repackage.sf0
-    public int f(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map) {
-        InterceptResult invokeCommon;
-        int i3;
-        int i4;
-        int z;
+    public static vf0 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{mediaTrack, Integer.valueOf(i), Integer.valueOf(i2), map})) != null) {
-            return invokeCommon.intValue;
-        }
-        try {
-            try {
-                if (this.c != null && mediaTrack != null && this.m != null && this.l != null) {
-                    pf0 pf0Var = this.c;
-                    float f = mediaTrack.glClearColor[0];
-                    float f2 = mediaTrack.glClearColor[1];
-                    float f3 = mediaTrack.glClearColor[2];
-                    i3 = mediaTrack.glClearColor[3];
-                    pf0Var.h(f, f2, f3, i3);
-                    ArrayList arrayList = new ArrayList();
-                    try {
-                        if (mediaTrack.mediaSegments == null || mediaTrack.mediaSegments.size() <= this.i) {
-                            i4 = i;
-                        } else {
-                            MediaSegment mediaSegment = mediaTrack.mediaSegments.get(this.i);
-                            i4 = i == 0 ? mediaSegment.textureId : i;
-                            if (i2 == 1) {
-                                z = z(mediaSegment, i4, map);
-                            } else if (i2 == 2) {
-                                z = y(mediaSegment, i4, map);
-                            } else if (i2 == 3) {
-                                z = A(mediaTrack, i4, map);
-                            } else if (i2 == 4) {
-                                C(map, arrayList, mediaTrack);
-                            } else if (i2 != 5) {
-                                z = B(mediaTrack, mediaSegment, i4, map, arrayList);
-                            } else {
-                                z = x(i4);
-                            }
-                            i4 = z;
-                        }
-                        if (i4 != 0 && arrayList.size() > 0) {
-                            i4 = this.c.f(i4, arrayList);
-                        }
-                        return i4;
-                    } catch (Exception e) {
-                        e = e;
-                        e.printStackTrace();
-                        u(e.toString(), e);
-                        pf0 pf0Var2 = this.c;
-                        if (pf0Var2 != null) {
-                            pf0Var2.h(0.0f, 0.0f, 0.0f, 0.0f);
-                        }
-                        return i3;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (vf0.class) {
+                    if (e == null) {
+                        e = new vf0(xg0.b(), 6, 50000000);
                     }
                 }
-                pf0 pf0Var3 = this.c;
-                if (pf0Var3 != null) {
-                    pf0Var3.h(0.0f, 0.0f, 0.0f, 0.0f);
+            }
+            return e;
+        }
+        return (vf0) invokeV.objValue;
+    }
+
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String b2 = b(str);
+            return this.c + b2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public wf0<?> e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            wf0<?> g = g(str);
+            return g != null ? g : f(str);
+        }
+        return (wf0) invokeL.objValue;
+    }
+
+    public final wf0<File> f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.b.i(str) : (wf0) invokeL.objValue;
+    }
+
+    public final wf0<?> g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.a.get(str) : (wf0) invokeL.objValue;
+    }
+
+    @Nullable
+    public Bitmap h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? (Bitmap) i(str, new a(this)) : (Bitmap) invokeL.objValue;
+    }
+
+    public final <T> T i(String str, d<T> dVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, dVar)) == null) {
+            wf0<?> e2 = e(b(str));
+            if (e2 != null) {
+                if (File.class.equals(e2.c())) {
+                    return dVar.b(e2.b());
                 }
-                return i;
-            } catch (Exception e2) {
-                e = e2;
-                i3 = i;
+                if (Byte.TYPE.equals(e2.c())) {
+                    return null;
+                }
+                return dVar.a(e2.a());
             }
-        } finally {
-            pf0 pf0Var4 = this.c;
-            if (pf0Var4 != null) {
-                pf0Var4.h(0.0f, 0.0f, 0.0f, 0.0f);
+            if (!this.b.e) {
+                File file = new File(c(str));
+                if (file.exists()) {
+                    return dVar.b(new wf0(file).b());
+                }
             }
+            return null;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public void j(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, bitmap) == null) {
+            k(str, new wf0<>(bitmap), true, null);
         }
     }
 
-    @Override // com.repackage.sf0
-    public int h(MediaSegment mediaSegment, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
+    public final void k(String str, wf0<?> wf0Var, boolean z, c cVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, mediaSegment, i, map)) == null) ? mediaSegment == null ? i : r(mediaSegment, i, map) : invokeLIL.intValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x004e, code lost:
-        if (r8 != null) goto L26;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0050, code lost:
-        r8.h(0.0f, 0.0f, 0.0f, 0.0f);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x006b, code lost:
-        if (r8 == null) goto L27;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x006e, code lost:
-        return r9;
-     */
-    @Override // com.repackage.sf0
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int i(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
-        InterceptResult invokeLIL;
-        pf0 pf0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLIL = interceptable.invokeLIL(1048580, this, mediaTrack, i, map)) != null) {
-            return invokeLIL.intValue;
-        }
-        try {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, wf0Var, Boolean.valueOf(z), cVar}) == null) {
             try {
-                if (this.c != null && mediaTrack != null && this.m != null && this.l != null) {
-                    this.c.h(mediaTrack.glClearColor[0], mediaTrack.glClearColor[1], mediaTrack.glClearColor[2], mediaTrack.glClearColor[3]);
-                    ArrayList arrayList = new ArrayList();
-                    i = D(map, arrayList, mediaTrack, i);
-                    if (i != 0 && arrayList.size() > 0) {
-                        return this.c.f(i, arrayList);
-                    }
-                    pf0Var = this.c;
+                String b2 = b(str);
+                if (z) {
+                    this.a.put(b2, wf0Var);
                 }
-                pf0 pf0Var2 = this.c;
-                if (pf0Var2 != null) {
-                    pf0Var2.h(0.0f, 0.0f, 0.0f, 0.0f);
+                File file = new File(this.b.j() + b2);
+                if (cVar != null) {
+                    this.b.e(new b(this, b2, cVar));
                 }
-                return i;
-            } catch (Exception e) {
-                e.printStackTrace();
-                u(e.toString(), e);
-                pf0Var = this.c;
-            }
-        } finally {
-            pf0 pf0Var3 = this.c;
-            if (pf0Var3 != null) {
-                pf0Var3.h(0.0f, 0.0f, 0.0f, 0.0f);
+                this.b.q(wf0Var.b(), new wf0<>(file));
+            } catch (Throwable unused) {
             }
         }
-    }
-
-    @Override // com.repackage.sf0
-    public int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) {
-            if (i == 0 || this.m == null) {
-                return i;
-            }
-            Map<String, ShaderConfig> map = this.l;
-            if (map != null && !map.containsKey(ag0.g)) {
-                this.l.put(ag0.g, ShaderConfig.getGaussianBlurHShaderConfig(f));
-                this.l.put(ag0.h, ShaderConfig.getGaussianBlurVShaderConfig(f));
-                Map<String, of0> l = yf0.l(this.a, this.l);
-                for (Map.Entry<String, of0> entry : l.entrySet()) {
-                    of0 value = entry.getValue();
-                    value.l();
-                    value.v(i2, i3);
-                }
-                this.m.putAll(l);
-            }
-            if (this.d == null) {
-                this.d = new pf0();
-            }
-            this.d.g();
-            this.d.c(i2, i3);
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(this.m.get(ag0.g));
-            arrayList.add(this.m.get(ag0.h));
-            float[] fArr3 = fArr;
-            float[] fArr4 = fArr2;
-            int i4 = 0;
-            while (i4 < arrayList.size()) {
-                of0 of0Var = (of0) arrayList.get(i4);
-                of0Var.v(i2, i3);
-                if (i4 == 0) {
-                    of0Var.e(GLES20.glGetUniformLocation(of0Var.j(), "wRatio"), "wRatio", new ShaderParams("wRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
-                } else {
-                    of0Var.e(GLES20.glGetUniformLocation(of0Var.j(), "hRatio"), "hRatio", new ShaderParams("hRatio", ShaderParams.VALUE_TYPE_FLOAT, new float[]{f}));
-                }
-                w(of0Var, fArr3, fArr4, null);
-                i4++;
-                fArr3 = null;
-                fArr4 = null;
-            }
-            return this.d.f(i, arrayList);
-        }
-        return invokeCommon.intValue;
     }
 }

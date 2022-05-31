@@ -1,25 +1,46 @@
 package com.repackage;
 
-import android.os.Handler;
-import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.yunjiasu.tornadosdk.Pinger;
-/* compiled from: lambda */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunNativeAd;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.repackage.ud9;
 /* loaded from: classes7.dex */
-public final /* synthetic */ class xd9 implements Handler.Callback {
+public class xd9 implements ud9.e {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ xd9 a = new xd9();
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ FunNativeAd a;
+    public final /* synthetic */ NativeUnifiedADData b;
 
-    private /* synthetic */ xd9() {
+    public xd9(ud9 ud9Var, FunNativeAd funNativeAd, NativeUnifiedADData nativeUnifiedADData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ud9Var, funNativeAd, nativeUnifiedADData};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = funNativeAd;
+        this.b = nativeUnifiedADData;
     }
 
-    @Override // android.os.Handler.Callback
-    public final boolean handleMessage(Message message) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ud9.e
+    public void onADStatusChanged() {
+        ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) ? Pinger.m96pingHandler$lambda0(message) : invokeL.booleanValue;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gdtADStatusChangeListener = this.a.getChannelNativeAds().getGdtADStatusChangeListener()) == null) {
+            return;
+        }
+        gdtADStatusChangeListener.onADStatusChanged(this.b);
     }
 }

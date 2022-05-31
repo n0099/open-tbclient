@@ -1,32 +1,39 @@
 package com.repackage;
 
-import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.b26;
+import tbclient.ApkDetail;
 /* loaded from: classes7.dex */
-public final class w16 extends s16 {
+public class w16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w16() {
-        super(new AkTopRetainer(0.0f, 0.5f, 1, null), new z16());
+    public static void a(l16 l16Var) {
+        ItemData itemData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((b26) objArr[0], (b26.a) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeL(65536, null, l16Var) == null) || l16Var == null || (itemData = l16Var.a) == null) {
+            return;
         }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
+        httpMessage.addParam("item_id", itemData.itemId);
+        httpMessage.addParam("app_name", itemData.mTitle);
+        httpMessage.addParam("source_type", l16Var.b);
+        httpMessage.addParam("icon_url", itemData.mIconUrl);
+        httpMessage.addParam("score", Double.valueOf(itemData.mScore));
+        httpMessage.addParam("tags", itemData.mTags);
+        httpMessage.addParam("apk_name", itemData.pkgName);
+        ApkDetail apkDetail = itemData.apkDetail;
+        if (apkDetail != null) {
+            httpMessage.addParam("developer", apkDetail.developer);
+            httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
+            httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
+            httpMessage.addParam("version", itemData.apkDetail.version);
+            httpMessage.addParam("version_code", itemData.apkDetail.version_code);
+        }
+        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
     }
 }

@@ -11,8 +11,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eh1;
-import com.repackage.r44;
+import com.repackage.e34;
+import com.repackage.rf1;
 @Keep
 /* loaded from: classes2.dex */
 public class GameWebViewJavascriptInterface {
@@ -35,7 +35,7 @@ public class GameWebViewJavascriptInterface {
                 return;
             }
         }
-        DEBUG = eh1.a;
+        DEBUG = rf1.a;
     }
 
     public GameWebViewJavascriptInterface() {
@@ -59,7 +59,7 @@ public class GameWebViewJavascriptInterface {
             if (DEBUG) {
                 Log.i(TAG, "closeGameWebView");
             }
-            r44 F = r44.F();
+            e34 F = e34.F();
             if (F != null) {
                 F.close();
             }
@@ -73,7 +73,7 @@ public class GameWebViewJavascriptInterface {
             if (DEBUG) {
                 Log.i(TAG, "onGameLoadingFinish");
             }
-            r44 F = r44.F();
+            e34 F = e34.F();
             if (F != null) {
                 F.I();
             }

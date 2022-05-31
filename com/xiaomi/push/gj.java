@@ -39,7 +39,7 @@ public class gj {
         }
         this.f419a = new ConcurrentHashMap();
         this.b = new ConcurrentHashMap();
-        m390a();
+        m389a();
     }
 
     public static synchronized gj a() {
@@ -77,7 +77,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m388a() {
+    private ClassLoader[] m387a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
@@ -95,7 +95,7 @@ public class gj {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m389a(String str, String str2) {
+    public Object m388a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? this.f419a.get(a(str, str2)) : invokeLL.objValue;
@@ -107,7 +107,7 @@ public class gj {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void m390a() {
+    public void m389a() {
         Map<String, Object> map;
         Object obj;
         Map<String, Object> map2;
@@ -115,7 +115,7 @@ public class gj {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                for (ClassLoader classLoader : m388a()) {
+                for (ClassLoader classLoader : m387a()) {
                     Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                     while (resources.hasMoreElements()) {
                         InputStream openStream = resources.nextElement().openStream();

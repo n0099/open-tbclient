@@ -1,7 +1,10 @@
 package com.repackage;
 
-import com.baidu.swan.menu.BaseMenuView;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public interface u64 {
-    void a(BaseMenuView baseMenuView);
+    void a(@Nullable Map<String, String> map);
+
+    void onFail(Exception exc);
 }

@@ -1,81 +1,134 @@
 package com.repackage;
 
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class uv1 extends rv1 {
+public class uv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String k;
-    public String l;
-    public float m;
-    public boolean n;
-    public boolean o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uv1(String str) {
-        super(str);
-        String[] split;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755247615, "Lcom/repackage/uv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755247615, "Lcom/repackage/uv1;");
+                return;
+            }
+        }
+        boolean z = rf1.a;
+    }
+
+    @Nullable
+    public static <C extends wu1> C a(xu1 xu1Var) {
+        InterceptResult invokeL;
+        C c;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, xu1Var)) == null) {
+            if (xu1Var == null) {
+                aw1.a("Component-Finder", "find a null component: null model");
+                return null;
             }
-        }
-        this.l = "sans-serif";
-        this.m = le3.g(10.0f);
-        this.n = false;
-        this.o = false;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = jSONObject.optString("text");
-            String optString = jSONObject.optString("font");
-            if (optString == null || optString.length() <= 0) {
-                return;
+            String d = xu1Var.d();
+            String str = xu1Var.c;
+            if (TextUtils.isEmpty(str)) {
+                hw1.c("Component-Finder", "find a null " + d + " : slaveId is empty");
+                return null;
             }
-            for (String str2 : optString.split(" ")) {
-                if (str2.contains("italic")) {
-                    this.o = true;
-                } else if (str2.contains("oblique")) {
-                    this.o = true;
-                } else if (str2.contains("bold")) {
-                    this.n = true;
-                } else if (!str2.contains("normal")) {
-                    if (Character.isDigit(str2.charAt(0))) {
-                        int length = str2.length();
-                        int i3 = 0;
-                        while (true) {
-                            if (i3 >= str2.length()) {
-                                break;
-                            } else if (!Character.isDigit(str2.charAt(i3))) {
-                                length = i3;
-                                break;
-                            } else {
-                                i3++;
-                            }
-                        }
-                        this.m = le3.g(Float.parseFloat(str2.substring(0, length)));
-                    } else {
-                        this.l = str2;
-                    }
+            xv1 d2 = d(str);
+            if (d2 == null) {
+                hw1.c("Component-Finder", "find a null " + d + " : null component context");
+                return null;
+            }
+            String str2 = xu1Var.b;
+            if (TextUtils.isEmpty(str2)) {
+                hw1.o("Component-Finder", "find " + d + " with a empty componentId");
+                List<wu1> list = d2.a().c.get(xu1Var.a);
+                if (list == null) {
+                    hw1.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
+                    return null;
+                } else if (list.size() <= 0) {
+                    hw1.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
+                    return null;
+                } else {
+                    hw1.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
+                    c = (C) list.get(0);
                 }
+            } else {
+                c = (C) d2.a().b.get(str2);
             }
-        } catch (Exception e) {
-            if (eh1.a) {
-                e.printStackTrace();
+            if (c == null) {
+                hw1.c("Component-Finder", "find a null " + d + " : not exist");
+                return null;
             }
+            return c;
         }
+        return (C) invokeL.objValue;
+    }
+
+    @Nullable
+    public static <C extends wu1> C b(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            xv1 d = d(str);
+            if (d == null) {
+                hw1.c("Component-Finder", "find a null " + str2 + " : null component context");
+                return null;
+            }
+            C c = (C) d.a().b.get(str2);
+            if (c == null) {
+                hw1.c("Component-Finder", "find a null " + str2 + " : not exist");
+                return null;
+            }
+            return c;
+        }
+        return (C) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static xv1 c(xu1 xu1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, xu1Var)) == null) {
+            if (xu1Var == null) {
+                aw1.a("Component-Finder", "find component context with a null model");
+                return null;
+            }
+            return d(xu1Var.c);
+        }
+        return (xv1) invokeL.objValue;
+    }
+
+    @Nullable
+    public static xv1 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                hw1.c("Component-Finder", "find component context with a null slave id");
+                return null;
+            }
+            pl1 A = uk2.U().A(str);
+            if (A instanceof nl1) {
+                return ((nl1) A).f0();
+            }
+            return null;
+        }
+        return (xv1) invokeL.objValue;
     }
 }

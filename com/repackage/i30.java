@@ -1,446 +1,238 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.e30;
-import com.repackage.k50;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.SecureRandom;
+import java.security.spec.AlgorithmParameterSpec;
+import java.security.spec.MGF1ParameterSpec;
+import java.util.Locale;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource;
 /* loaded from: classes6.dex */
-public class i30 extends e30 {
+public final class i30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k50.a f;
-    public a g;
+    public int a;
+    public String b;
+    public k30 c;
+    public byte[] d;
+    public int e;
+    public p30 f;
+    public String g;
 
-    /* loaded from: classes6.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public boolean c;
-        public boolean d;
-        public final /* synthetic */ i30 e;
-
-        public a(i30 i30Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i30Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = i30Var;
-            this.d = true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755669525, "Lcom/repackage/i30;")) == null) {
+            return;
         }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public void b(long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.a == j) {
-                return;
-            }
-            this.a = j;
-            this.c = true;
-        }
-
-        public final boolean c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(str);
-                        this.a = jSONObject.getLong("pub_lst_ts");
-                        this.b = jSONObject.getString("pub_id");
-                        jSONObject.getInt("d_form_ver");
-                        this.c = false;
-                        return true;
-                    } catch (Exception unused) {
-                    }
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public long d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.longValue;
-        }
-
-        public boolean e(String str) {
-            InterceptResult invokeL;
-            Context context;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.d = false;
-                try {
-                    context = this.e.a.a.createPackageContext(str, 0);
-                } catch (PackageManager.NameNotFoundException e) {
-                    e.printStackTrace();
-                    context = null;
-                }
-                if (context == null) {
-                    return false;
-                }
-                try {
-                    File externalCacheDir = context.getExternalCacheDir();
-                    if (externalCacheDir == null) {
-                        return false;
-                    }
-                    return c(k50.e(new File(externalCacheDir, "com.baidu.helios" + File.separator + "esc-es"), "pub.dat", "UTF-8", true));
-                } catch (Throwable unused) {
-                    return false;
-                }
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void f(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || str.equals(this.b)) {
-                return;
-            }
-            this.b = str;
-            this.c = true;
-        }
-
-        public boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                if (this.d) {
-                    if (this.c) {
-                        try {
-                            JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("pub_id", this.b);
-                            jSONObject.put("pub_lst_ts", this.a);
-                            jSONObject.put("d_form_ver", 1);
-                            this.e.f.i("pub.dat", jSONObject.toString(), true);
-                            this.c = false;
-                            return true;
-                        } catch (Exception unused) {
-                        }
-                    }
-                    return false;
-                }
-                throw new IllegalStateException();
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                try {
-                    File externalCacheDir = this.e.a.a.getExternalCacheDir();
-                    File file = new File(externalCacheDir, "com.baidu.helios" + File.separator + "esc-es");
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("pub_id", this.b);
-                    jSONObject.put("pub_lst_ts", this.a);
-                    jSONObject.put("d_form_ver", 1);
-                    k50.f(file, "pub.dat", jSONObject.toString(), "UTF-8", true);
-                    return true;
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? c(this.e.f.g("pub.dat", true)) : invokeV.booleanValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755669525, "Lcom/repackage/i30;");
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends e30.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String d;
-        public long e;
-        public long f;
-        public long g;
-        public String h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(i30 i30Var, String str) {
-            super(i30Var.f, str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i30Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((k50.a) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.repackage.e30.b
-        public void c(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.d = jSONObject.getString("pkg");
-                this.f = jSONObject.getInt("tar_pkg_lst_pub_ts");
-                this.e = jSONObject.getLong("last_fe_ts");
-                this.h = jSONObject.getString("id");
-                this.g = jSONObject.getLong("tar_pkg_lst_up_ts");
-                jSONObject.getInt("d_form_ver");
-            }
-        }
-
-        @Override // com.repackage.e30.b
-        public void e(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                jSONObject.put("pkg", this.d);
-                jSONObject.put("last_fe_ts", this.e);
-                jSONObject.put("tar_pkg_lst_pub_ts", this.f);
-                jSONObject.put("id", this.h);
-                jSONObject.put("tar_pkg_lst_up_ts", this.g);
-                jSONObject.put("d_form_ver", 1);
-            }
-        }
-
-        public String f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (String) invokeV.objValue;
-        }
-
-        public void g(a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-                i(aVar.a());
-                k(aVar.d());
-            }
-        }
-
-        public boolean h(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-                if (this.e != j) {
-                    this.e = j;
-                    a(true);
-                    return true;
-                }
-                return false;
-            }
-            return invokeJ.booleanValue;
-        }
-
-        public boolean i(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                if (str.equals(this.h)) {
-                    return false;
-                }
-                this.h = str;
-                a(true);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public long j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.longValue;
-        }
-
-        public boolean k(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
-                if (this.f != j) {
-                    this.f = j;
-                    a(true);
-                    return true;
-                }
-                return false;
-            }
-            return invokeJ.booleanValue;
-        }
-
-        public boolean l(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                if (str.equals(this.d)) {
-                    return false;
-                }
-                this.d = str;
-                a(true);
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public String m() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (String) invokeV.objValue;
-        }
-
-        public boolean n(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-                if (this.g != j) {
-                    this.g = j;
-                    a(true);
-                    return true;
-                }
-                return false;
-            }
-            return invokeJ.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i30() {
-        super("esc-es", 7000000L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], ((Long) objArr[1]).longValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = new a(this);
+        this.g = "SHA-1";
+        this.b = "PKCS1Padding";
     }
 
-    @Override // com.repackage.e30
-    public e30.g b(String str, e30.f fVar) {
-        InterceptResult invokeLL;
-        PackageInfo packageInfo;
+    public void a(int i, p30 p30Var, SecureRandom secureRandom) throws InvalidKeyException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, fVar)) == null) {
-            Context context = this.a.a;
-            b bVar = null;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, p30Var, secureRandom) == null) {
             try {
-                packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException unused) {
-                packageInfo = null;
+                b(i, p30Var, secureRandom, null);
+            } catch (InvalidAlgorithmParameterException e) {
+                InvalidKeyException invalidKeyException = new InvalidKeyException("Wrong parameters");
+                invalidKeyException.initCause(e);
+                throw invalidKeyException;
             }
-            if (packageInfo == null) {
-                return e30.g.b(-1);
-            }
-            if (fVar.a) {
-                bVar = new b(this, str);
-                bVar.d();
-                if (str.equals(bVar.m()) && packageInfo.lastUpdateTime == bVar.j()) {
-                    String f = bVar.f();
-                    if (!TextUtils.isEmpty(f)) {
-                        return e30.g.f(f);
-                    }
-                }
-            }
-            if (context.checkPermission("android.permission.READ_EXTERNAL_STORAGE", Process.myPid(), Process.myUid()) == 0) {
-                a aVar = new a(this);
-                if (aVar.e(str)) {
-                    if (fVar.a && bVar != null) {
-                        bVar.g(aVar);
-                        bVar.h(System.currentTimeMillis());
-                        bVar.n(packageInfo.lastUpdateTime);
-                        bVar.l(str);
-                        bVar.b();
-                    }
-                    return e30.g.f(aVar.a());
-                }
-                return e30.g.b(-2);
-            }
-            return e30.g.b(-100);
-        }
-        return (e30.g) invokeLL.objValue;
-    }
-
-    @Override // com.repackage.e30
-    public void e(e30.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f = this.b.f("esc-es");
         }
     }
 
-    @Override // com.repackage.e30
-    public e30.e f(e30.d dVar) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00c8  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b(int i, p30 p30Var, SecureRandom secureRandom, AlgorithmParameterSpec algorithmParameterSpec) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        boolean z;
+        OAEPParameterSpec oAEPParameterSpec;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return e30.e.a();
+        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), p30Var, secureRandom, algorithmParameterSpec}) != null) {
+            return;
+        }
+        if (i != 1) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        throw new InvalidKeyException("Unknown mode: " + i);
+                    }
+                }
             }
-            this.g.i();
+            z = false;
+            if (p30Var instanceof p30) {
+                throw new InvalidKeyException("only support helios key");
+            }
+            this.a = z ? 1 : 4;
+            this.f = p30Var;
+            int a = h30.a(p30Var.b());
+            this.e = 0;
+            String str = this.b;
+            if (str == "NoPadding") {
+                if (algorithmParameterSpec != null) {
+                    throw new InvalidAlgorithmParameterException("Parameters not supported");
+                }
+                this.c = k30.b(3, a, secureRandom);
+                this.d = new byte[a];
+                return;
+            } else if (str == "PKCS1Padding") {
+                if (algorithmParameterSpec != null) {
+                    throw new InvalidAlgorithmParameterException("Parameters not supported");
+                }
+                k30 b = k30.b(this.a > 2 ? 1 : 2, a, secureRandom);
+                this.c = b;
+                if (z) {
+                    this.d = new byte[b.a()];
+                    return;
+                } else {
+                    this.d = new byte[a];
+                    return;
+                }
+            } else {
+                int i2 = this.a;
+                if (i2 == 3 || i2 == 4) {
+                    throw new InvalidKeyException("OAEP cannot be used to sign or verify signatures");
+                }
+                if (algorithmParameterSpec == null) {
+                    oAEPParameterSpec = new OAEPParameterSpec(this.g, "MGF1", MGF1ParameterSpec.SHA1, PSource.PSpecified.DEFAULT);
+                } else if (!(algorithmParameterSpec instanceof OAEPParameterSpec)) {
+                    throw new InvalidAlgorithmParameterException("Wrong Parameters for OAEP Padding");
+                } else {
+                    oAEPParameterSpec = (OAEPParameterSpec) algorithmParameterSpec;
+                }
+                k30 c = k30.c(4, a, secureRandom, oAEPParameterSpec);
+                this.c = c;
+                if (z) {
+                    this.d = new byte[c.a()];
+                    return;
+                } else {
+                    this.d = new byte[a];
+                    return;
+                }
+            }
+        }
+        z = true;
+        if (p30Var instanceof p30) {
+        }
+    }
+
+    public final byte[] c() throws BadPaddingException, IllegalBlockSizeException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.e;
+            byte[] bArr = this.d;
+            if (i > bArr.length) {
+                throw new IllegalBlockSizeException("Data must not be longer than " + this.d.length + " bytes");
+            }
             try {
-                return i(dVar);
+                int i2 = this.a;
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 == 4) {
+                                return this.c.h(h30.e(h30.d(bArr, 0, i), this.f));
+                            }
+                            throw new AssertionError("Internal error");
+                        }
+                        throw new UnsupportedOperationException("only verify supported");
+                    }
+                    throw new UnsupportedOperationException("only verify supported");
+                }
+                return h30.e(this.c.g(bArr, 0, i), this.f);
             } finally {
-                this.g.g();
+                this.e = 0;
             }
         }
-        return (e30.e) invokeL.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public final e30.e i(e30.d dVar) {
-        InterceptResult invokeL;
+    public byte[] d(byte[] bArr, int i, int i2) throws BadPaddingException, IllegalBlockSizeException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dVar)) == null) {
-            String c = this.a.c.a("aid").c();
-            if (c.equals(this.g.a())) {
-                return e30.e.d();
-            }
-            this.g.f(c);
-            this.g.b(System.currentTimeMillis());
-            this.g.g();
-            return this.g.h() ? e30.e.d() : e30.e.a();
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            f(bArr, i, i2);
+            return c();
         }
-        return (e30.e) invokeL.objValue;
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public void e(String str) throws NoSuchPaddingException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            String str2 = "NoPadding";
+            if (!str.equalsIgnoreCase("NoPadding")) {
+                str2 = "PKCS1Padding";
+                if (!str.equalsIgnoreCase("PKCS1Padding")) {
+                    String lowerCase = str.toLowerCase(Locale.ENGLISH);
+                    if (lowerCase.equals("oaeppadding")) {
+                        this.b = "OAEP";
+                        return;
+                    } else if (!lowerCase.startsWith("oaepwith") || !lowerCase.endsWith("andmgf1padding")) {
+                        throw new NoSuchPaddingException("Padding " + str + " not supported");
+                    } else {
+                        this.b = "OAEP";
+                        this.g = str.substring(8, str.length() - 14);
+                        throw new NoSuchPaddingException("MessageDigest not available for " + str);
+                    }
+                }
+            }
+            this.b = str2;
+        }
+    }
+
+    public final void f(byte[] bArr, int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) || i2 == 0 || bArr == null) {
+            return;
+        }
+        int i4 = this.e;
+        int i5 = i4 + i2;
+        byte[] bArr2 = this.d;
+        if (i5 > bArr2.length) {
+            i3 = bArr2.length + 1;
+        } else {
+            System.arraycopy(bArr, i, bArr2, i4, i2);
+            i3 = this.e + i2;
+        }
+        this.e = i3;
     }
 }

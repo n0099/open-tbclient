@@ -1,34 +1,39 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import android.util.Pair;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z53;
+import java.util.HashMap;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ko1 extends zo1 {
+public class ko1 extends kn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View f;
+    public int g;
+    public ViewTreeObserver.OnGlobalLayoutListener h;
 
     /* loaded from: classes6.dex */
-    public class a implements nf3<x53<z53.e>> {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ko1 b;
+        public final /* synthetic */ ko1 a;
 
-        public a(ko1 ko1Var, String str) {
+        public a(ko1 ko1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ko1Var, str};
+                Object[] objArr = {ko1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,40 +43,62 @@ public class ko1 extends zo1 {
                     return;
                 }
             }
-            this.b = ko1Var;
-            this.a = str;
+            this.a = ko1Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.nf3
-        /* renamed from: a */
-        public void onCallback(x53<z53.e> x53Var) {
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, x53Var) == null) {
-                if (s53.h(x53Var)) {
-                    this.b.z(this.a);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                this.a.f.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.a.g == height) {
                     return;
                 }
-                int b = x53Var.b();
-                s53.f(b);
-                this.b.d(this.a, new us1(b, s53.f(b)));
+                if (this.a.g - height <= 180) {
+                    if (height - this.a.g > 180) {
+                        HashMap hashMap = new HashMap();
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("height", 0);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        hashMap.put("data", jSONObject.toString());
+                        uk2.U().u(new i92("keyboardHeightChange", hashMap));
+                        this.a.g = height;
+                        return;
+                    }
+                    return;
+                }
+                HashMap hashMap2 = new HashMap();
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("height", yc3.O(this.a.g - height));
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                hashMap2.put("data", jSONObject2.toString());
+                uk2.U().u(new i92("keyboardHeightChange", hashMap2));
+                this.a.g = height;
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ko1(@NonNull vo1 vo1Var) {
-        super(vo1Var);
+    public ko1(@NonNull in1 in1Var) {
+        super(in1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vo1Var};
+            Object[] objArr = {in1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vo1) newInitContext.callArgs[0]);
+                super((in1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,43 +106,75 @@ public class ko1 extends zo1 {
         }
     }
 
-    @Override // com.repackage.xo1
+    public final void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SwanAppActivity activity = uk2.U().getActivity();
+            if (activity == null) {
+                hw1.c("SoftKeyboardApi", "activity is null");
+                return;
+            }
+            this.f = activity.getWindow().getDecorView();
+            Rect rect = new Rect();
+            this.f.getWindowVisibleDisplayFrame(rect);
+            this.g = rect.height();
+            if (this.h == null) {
+                this.h = new a(this);
+                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
+            }
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.h != null) {
+                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
+            }
+            this.h = null;
+            this.g = 0;
+        }
+    }
+
+    public hr1 C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#startKeyboardHeightChange", false);
+            if (hz2.a0() == null) {
+                return new hr1(1001, "swan app is null");
+            }
+            A();
+            return hr1.f();
+        }
+        return (hr1) invokeV.objValue;
+    }
+
+    public hr1 D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            q("#stopKeyboardHeightChange", false);
+            if (hz2.a0() == null) {
+                return new hr1(1001, "swan app is null");
+            }
+            B();
+            return hr1.f();
+        }
+        return (hr1) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kn1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
+    }
+
+    @Override // com.repackage.kn1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "AllianceAccountApi" : (String) invokeV.objValue;
-    }
-
-    public us1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getUnionBDUSS", false);
-            u03 a0 = u03.a0();
-            if (a0 == null) {
-                return new us1(1001, "swan app is null");
-            }
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    return new us1(201, "cb is empty");
-                }
-                a0.d0().g(t03.J(), "account_get_union_bduss", new a(this, optString));
-                return us1.f();
-            }
-            return us1Var;
-        }
-        return (us1) invokeL.objValue;
-    }
-
-    public final void z(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            ud3.f(jSONObject, "bduss", fo1.a.a());
-            d(str, new us1(0, jSONObject));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
     }
 }

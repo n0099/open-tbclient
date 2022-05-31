@@ -1,18 +1,17 @@
 package com.repackage;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class m77 {
+public class m77 extends c67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m77() {
+        super(r57.j(), 2001149);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,35 +19,12 @@ public class m77 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((n57) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public String a(String str) {
-        InterceptResult invokeL;
-        hx4 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str != null) {
-                try {
-                    lw4 lw4Var = new lw4(TbConfig.UPLOAD_CHUNK_AUDIO_ADDRESS, TbConfig.FINISH_UPLOAD_CHUNK_AUDIO_ADDRESS);
-                    String storeFile = FileHelper.getStoreFile(str, 1);
-                    lw4Var.a("type", 2);
-                    ix4 d = lw4Var.d(storeFile);
-                    if (d == null || !d.d() || (a = d.a()) == null) {
-                        return null;
-                    }
-                    String b = a.b();
-                    iw4.b(str, b);
-                    return b;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
     }
 }

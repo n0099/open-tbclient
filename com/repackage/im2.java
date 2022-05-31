@@ -1,11 +1,8 @@
 package com.repackage;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,14 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class im2 implements Application.ActivityLifecycleCallbacks {
+public class im2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile im2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public float i;
+    public String j;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +39,7 @@ public class im2 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        c = eh1.a;
+        boolean z = rf1.a;
     }
 
     public im2() {
@@ -51,134 +55,51 @@ public class im2 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.a = false;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = 0;
+        this.e = false;
+        this.f = false;
+        this.g = true;
+        this.h = 0;
+        this.i = 1.0f;
     }
 
-    public static im2 a() {
-        InterceptResult invokeV;
+    public static im2 a(JSONObject jSONObject, im2 im2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (im2.class) {
-                    if (d == null) {
-                        d = new im2();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, im2Var)) == null) {
+            im2 im2Var2 = new im2();
+            if (jSONObject != null) {
+                im2Var2.a = jSONObject.optString("audioId", im2Var.a);
+                im2Var2.b = jSONObject.optString("slaveId", im2Var.b);
+                im2Var2.e = jSONObject.optBoolean("autoplay", im2Var.e);
+                im2Var2.f = jSONObject.optBoolean("loop", im2Var.f);
+                im2Var2.c = jSONObject.optString("src", im2Var.c);
+                im2Var2.d = jSONObject.optInt(FetchLog.START_TIME, im2Var.d);
+                im2Var2.g = jSONObject.optBoolean("obeyMuteSwitch", im2Var.g);
+                im2Var2.h = jSONObject.optInt("position", im2Var.h);
+                im2Var2.i = (float) jSONObject.optDouble("volume", im2Var.i);
+                im2Var2.j = jSONObject.optString("cb", im2Var.j);
             }
-            return d;
+            return im2Var2;
         }
-        return (im2) invokeV.objValue;
+        return (im2) invokeLL.objValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
     }
 
-    public void c() {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (c) {
-                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
-            }
-            bk2.c().registerActivityLifecycleCallbacks(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "playerId : " + this.a + "; slaveId : " + this.b + "; url : " + this.c + "; AutoPlay : " + this.e + "; Loop : " + this.f + "; startTime : " + this.d + "; ObeyMute : " + this.g + "; pos : " + this.h;
         }
-    }
-
-    public void d(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (z2 = this.a) == z) {
-            return;
-        }
-        if (z2) {
-            this.a = false;
-            wm2.a().e(null);
-            return;
-        }
-        this.a = true;
-        wm2.a().d(null);
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c) {
-                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
-            }
-            bk2.c().unregisterActivityLifecycleCallbacks(this);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, activity) == null) || this.a) {
-            return;
-        }
-        this.a = true;
-        wm2.a().d(activity);
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
-            int i = this.b + 1;
-            this.b = i;
-            if (i != 1 || this.a) {
-                return;
-            }
-            if (c) {
-                Log.d("SwanAppLifecycle", "onBackgroundToForeground");
-            }
-            this.a = true;
-            wm2.a().d(activity);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
-            int i = this.b - 1;
-            this.b = i;
-            if (i == 0 && this.a) {
-                if (c) {
-                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
-                }
-                this.a = false;
-                wm2.a().e(activity);
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

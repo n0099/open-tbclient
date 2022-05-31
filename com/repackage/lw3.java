@@ -1,15 +1,20 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import okhttp3.Callback;
+import okhttp3.Request;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public abstract class lw3 implements dc2 {
+public class lw3 implements ug1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,37 +32,18 @@ public abstract class lw3 implements dc2 {
         }
     }
 
-    @Override // com.repackage.dc2
-    @NonNull
-    public String a() {
+    @Override // com.repackage.ug1
+    public HttpManager a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "aigames/extcore/game-extension-core.zip" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? nx3.b() : (HttpManager) invokeV.objValue;
     }
 
-    @Override // com.repackage.dc2
-    public int c() {
-        InterceptResult invokeV;
+    @Override // com.repackage.ug1
+    public void call(HttpManager httpManager, Request request, Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof nx3)) {
+            ((nx3) httpManager).call(request, callback);
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.repackage.dc2
-    @NonNull
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "aigames/extcore/game-extension-config.json" : (String) invokeV.objValue;
-    }
-
-    @Override // com.repackage.dc2
-    @NonNull
-    public File f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new File(jx3.d(), "extension_core") : (File) invokeV.objValue;
     }
 }

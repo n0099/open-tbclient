@@ -14,8 +14,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.player.AudioPlayData;
 import com.baidu.ugc.editvideo.record.source.multimedia.MultiMediaDataSourceTimerManager;
 import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
-import com.repackage.va9;
-import com.repackage.za9;
+import com.repackage.p79;
+import com.repackage.t79;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +95,7 @@ public class VLogAudioPlayer {
                         return;
                     }
                 } else if (this.this$0.mMediaPlayer != null) {
-                    va9.e(VLogAudioPlayer.TAG, "是否静音：" + this.this$0.isMute);
+                    p79.e(VLogAudioPlayer.TAG, "是否静音：" + this.this$0.isMute);
                     if (!this.this$0.isMute) {
                         try {
                             this.this$0.updateVolume(this.this$0.mMediaPlayer.getCurrentPosition());
@@ -577,14 +577,14 @@ public class VLogAudioPlayer {
                 AudioPlayData audioPlayData2 = list.get(i);
                 if (!TextUtils.isEmpty(audioPlayData2.audioPath)) {
                     mediaMetadataRetriever.setDataSource(audioPlayData2.audioPath);
-                    int c = za9.c(mediaMetadataRetriever.extractMetadata(9), 0);
-                    audioPlayData2.realDuration = c;
+                    int b = t79.b(mediaMetadataRetriever.extractMetadata(9), 0);
+                    audioPlayData2.realDuration = b;
                     if (audioPlayData == null) {
-                        if (c <= 0) {
+                        if (b <= 0) {
                         }
                         audioPlayData = audioPlayData2;
                     } else {
-                        if (c <= audioPlayData.realDuration) {
+                        if (b <= audioPlayData.realDuration) {
                         }
                         audioPlayData = audioPlayData2;
                     }
@@ -1008,7 +1008,7 @@ public class VLogAudioPlayer {
                     for (int i = 0; i < this.val$playDataList.size(); i++) {
                         AudioPlayData audioPlayData = (AudioPlayData) this.val$playDataList.get(i);
                         if (audioPlayData != null) {
-                            this.this$0.handledAudioList.add(audioPlayData.m92clone());
+                            this.this$0.handledAudioList.add(audioPlayData.m91clone());
                         }
                     }
                     VLogAudioPlayer vLogAudioPlayer = this.this$0;
@@ -1021,7 +1021,7 @@ public class VLogAudioPlayer {
     public void setMute(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            va9.e(TAG, "设置静音");
+            p79.e(TAG, "设置静音");
             this.isMute = z;
             setVolume(0.0f);
         }
@@ -1101,7 +1101,7 @@ public class VLogAudioPlayer {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        va9.e(VLogAudioPlayer.TAG, "设置音量为 = " + this.val$volume);
+                        p79.e(VLogAudioPlayer.TAG, "设置音量为 = " + this.val$volume);
                         this.this$0.setVolumeInternal(this.val$volume);
                     }
                 }

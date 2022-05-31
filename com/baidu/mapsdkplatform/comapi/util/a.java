@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,7 +20,7 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static class C0110a {
+    public static class C0109a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +46,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
             String packageName = context.getPackageName();
             String a = a(context, packageName);
-            return a + ";" + packageName;
+            return a + ParamableElem.DIVIDE_PARAM + packageName;
         }
         return (String) invokeL.objValue;
     }
@@ -93,7 +94,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x509Certificate)) == null) {
             try {
-                return C0110a.a(a(x509Certificate.getEncoded()));
+                return C0109a.a(a(x509Certificate.getEncoded()));
             } catch (CertificateEncodingException unused) {
                 return null;
             }

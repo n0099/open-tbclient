@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.z87;
+import com.repackage.x67;
 import com.squareup.wire.Wire;
 import protobuf.CommitGroupMsg.CommitGroupMsgResIdl;
 /* loaded from: classes3.dex */
@@ -42,7 +42,7 @@ public class ResponseCommitGroupMessage extends ResponseCommitMessage {
             if (getError() != 0) {
                 return;
             }
-            setMsgId(z87.a(commitGroupMsgResIdl.data.msgId.longValue()));
+            setMsgId(x67.a(commitGroupMsgResIdl.data.msgId.longValue()));
             setRecordId(commitGroupMsgResIdl.data.recordId.longValue());
             setGroupId(String.valueOf(commitGroupMsgResIdl.data.groupId));
         }

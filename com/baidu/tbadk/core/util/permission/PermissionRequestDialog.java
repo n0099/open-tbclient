@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.nr4;
+import com.repackage.dq4;
 /* loaded from: classes3.dex */
-public class PermissionRequestDialog extends nr4 {
+public class PermissionRequestDialog extends dq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -62,23 +62,23 @@ public class PermissionRequestDialog extends nr4 {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d022b, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09222e);
-            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09222d);
-            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09222b);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0921d3);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921d2);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921d0);
             this.mCloseView = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f03ed);
-            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09222c);
+            textView.setText(R.string.obfuscated_res_0x7f0f03f0);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921d1);
             this.mContinueView = textView2;
-            textView2.setText(R.string.obfuscated_res_0x7f0f07b3);
+            textView2.setText(R.string.obfuscated_res_0x7f0f07b9);
             onChangeSkinType();
             setContentView(this.mRootView);
         }
     }
 
-    @Override // com.repackage.nr4
-    public nr4 create(b9<?> b9Var) {
+    @Override // com.repackage.dq4
+    public dq4 create(b9<?> b9Var) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -105,16 +105,16 @@ public class PermissionRequestDialog extends nr4 {
             }
             String str2 = null;
             if (c == 0) {
-                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fce);
-                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fc8);
+                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fde);
+                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fd8);
             } else if (c == 1) {
-                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fd0);
-                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fca);
+                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fe0);
+                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fda);
             } else if (c != 2) {
                 string = null;
             } else {
-                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fcf);
-                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fc9);
+                str2 = b9Var.getString(R.string.obfuscated_res_0x7f0f0fdf);
+                string = b9Var.getString(R.string.obfuscated_res_0x7f0f0fd9);
             }
             this.mTitleView.setText(str2);
             this.mDetailView.setText(string);
@@ -184,7 +184,7 @@ public class PermissionRequestDialog extends nr4 {
             });
             return this;
         }
-        return (nr4) invokeL.objValue;
+        return (dq4) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

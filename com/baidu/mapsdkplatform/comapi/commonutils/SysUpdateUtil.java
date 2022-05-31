@@ -76,11 +76,11 @@ public class SysUpdateUtil implements SysUpdateObserver {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:51:0x00c9, code lost:
         if ("10.0.0.200".equals(r9.trim()) != false) goto L47;
      */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x00d1  */
-    /* JADX WARN: Removed duplicated region for block: B:57:0x00d9  */
+    /* JADX WARN: Removed duplicated region for block: B:56:0x00d4  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00dc  */
     @Override // com.baidu.mapsdkplatform.comapi.util.SysUpdateObserver
     /*
         Code decompiled incorrectly, please refer to instructions dump.

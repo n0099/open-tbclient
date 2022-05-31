@@ -1,7 +1,52 @@
 package com.repackage;
 
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public interface fu2 extends gu2 {
-    void d(JSONObject jSONObject);
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.lu2;
+/* loaded from: classes5.dex */
+public final class fu2 implements lu2.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final ku2 b;
+
+    public fu2(int i, @NonNull ku2 ku2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), ku2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = ku2Var;
+    }
+
+    @Override // com.repackage.lu2.a
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
+            if (i != this.a) {
+                this.b.b(2, "request permission fail");
+                return;
+            }
+            for (int i2 : iArr) {
+                if (i2 == -1) {
+                    this.b.b(1, "user denied");
+                    return;
+                }
+            }
+            this.b.a("permission granted successful");
+        }
+    }
 }

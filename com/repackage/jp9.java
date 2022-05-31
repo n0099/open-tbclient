@@ -1,125 +1,49 @@
 package com.repackage;
 
-import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.PBError;
-import com.win.opensdk.PBInterstitialListener;
-import com.win.opensdk.core.Info;
 /* loaded from: classes6.dex */
-public class jp9 implements oo9 {
+public class jp9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Context b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public Info f;
-    public er9 g;
-    public PBInterstitialListener h;
-    public vs9 i;
-    public long j;
-    public Handler k;
+    public final /* synthetic */ vl9 a;
 
-    public jp9(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jp9(vl9 vl9Var, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {vl9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = new vo9(this, Looper.getMainLooper());
-        this.b = context;
-        this.a = str;
+        this.a = vl9Var;
     }
 
-    @Override // com.repackage.oo9
-    public void a(String str, String str2, Object obj) {
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        vl9 vl9Var;
+        wl9 wl9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
-            if (TextUtils.equals(str, this.f.getId() + this.a)) {
-                char c = 65535;
-                int hashCode = str2.hashCode();
-                if (hashCode != -1122984843) {
-                    if (hashCode != -1122893139) {
-                        if (hashCode == 109719091 && str2.equals("is_click")) {
-                            c = 0;
-                        }
-                    } else if (str2.equals("is_display")) {
-                        c = 2;
-                    }
-                } else if (str2.equals("is_dismiss")) {
-                    c = 1;
-                }
-                if (c == 0) {
-                    this.h.onClicked();
-                } else if (c == 1) {
-                    this.h.onInterstitialDismissed();
-                } else if (c != 2) {
-                } else {
-                    this.h.onInterstitialDisplayed();
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (wl9Var = (vl9Var = this.a).c) == null || vl9Var.d) {
+            return;
         }
-    }
-
-    public final void b(Info info) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, info) == null) {
-            boolean z = false;
-            this.e = false;
-            this.f = info;
-            this.j = System.currentTimeMillis();
-            if (e() && this.f.getType() == 21) {
-                z = true;
-            }
-            if (z) {
-                if (c()) {
-                    this.h.onLoaded();
-                    return;
-                }
-                er9 er9Var = new er9(this.b);
-                this.g = er9Var;
-                er9Var.a = new hp9(this);
-                this.g.a(this.f.getLoad(), this.f);
-                this.k.sendEmptyMessageDelayed(11, this.f.getWt() * 1000);
-                return;
-            }
-            this.h.onFail(PBError.PID_TYPE_ERROR);
-        }
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c && !this.e && e() && !this.f.isShown() && this.f.isEffective() : invokeV.booleanValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f != null : invokeV.booleanValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? e() && this.f.getType() == 21 : invokeV.booleanValue;
+        wl9Var.onFail(PBError.LOAD_TIME_OUT);
+        this.a.e = true;
     }
 }

@@ -1,19 +1,7 @@
 package com.repackage;
-
-import java.io.File;
 /* loaded from: classes7.dex */
-public interface tl1 extends lu2 {
-    File a();
+public interface tl1 {
+    void a(jy1 jy1Var);
 
-    void e(String str, String str2);
-
-    void e(String str, String str2, Throwable th);
-
-    void flush(boolean z);
-
-    void i(String str, String str2);
-
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    void b(jy1 jy1Var);
 }

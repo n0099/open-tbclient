@@ -20,15 +20,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.c31;
-import com.repackage.d31;
-import com.repackage.pl0;
-import com.repackage.s21;
-import com.repackage.y21;
-import com.repackage.z21;
+import com.repackage.ck0;
+import com.repackage.f11;
+import com.repackage.l11;
+import com.repackage.m11;
+import com.repackage.p11;
+import com.repackage.q11;
 import org.json.JSONObject;
 /* loaded from: classes2.dex */
-public class AdWebActivity extends BaseActivity implements SlideInterceptor, y21, z21 {
+public class AdWebActivity extends BaseActivity implements SlideInterceptor, l11, m11 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_WEBVIEW_CORE_TYPE = "key_webview_core_type";
     public static final String TAG = "AdWebActivity";
@@ -48,7 +48,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, y21
                 return;
             }
         }
-        this.mBaseBrowserContainer = s21.a.a(this, this, pl0.b().a().a(KEY_WEBVIEW_CORE_TYPE, 0));
+        this.mBaseBrowserContainer = f11.a.a(this, this, ck0.b().a().a(KEY_WEBVIEW_CORE_TYPE, 0));
     }
 
     public void addSpeedLogOnCreateBegin(Intent intent) {
@@ -63,7 +63,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, y21
         }
     }
 
-    @Override // com.repackage.y21
+    @Override // com.repackage.l11
     public void doFinish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -80,7 +80,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, y21
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.y21
+    @Override // com.repackage.l11
     @NonNull
     public Activity getActivity() {
         InterceptResult invokeV;
@@ -97,7 +97,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, y21
         return invokeIL.booleanValue;
     }
 
-    @Override // com.repackage.z21
+    @Override // com.repackage.m11
     public boolean handleLoadUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -107,7 +107,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, y21
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.y21
+    @Override // com.repackage.l11
     public boolean handleSetContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -216,7 +216,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, y21
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             requestWindowFeature(1);
-            if (d31.b.a().a(getIntent())) {
+            if (q11.b.a().a(getIntent())) {
                 setPendingTransition(0, 0, 0, 0);
                 forceActivityTransparent(true);
             } else {
@@ -239,7 +239,7 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, y21
             }
             this.mBaseBrowserContainer.v("1");
             this.mBaseBrowserContainer.m();
-            c31.g().a(getActivity());
+            p11.g().a(getActivity());
         }
     }
 

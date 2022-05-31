@@ -1,66 +1,94 @@
 package com.repackage;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 /* loaded from: classes7.dex */
 public final class zd3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755115896, "Lcom/repackage/zd3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ae3 a;
+        public final /* synthetic */ Object b;
+
+        public a(ae3 ae3Var, Object obj) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ae3Var, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755115896, "Lcom/repackage/zd3;");
-                return;
+            this.a = ae3Var;
+            this.b = obj;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.onCallback(this.b);
             }
         }
-        boolean z = eh1.a;
     }
 
-    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+    public static <T> void a(Handler handler, ae3<T> ae3Var, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, context, drawable, mode, i) == null) || context == null || drawable == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, handler, ae3Var, collection) == null) || ae3Var == null || collection == null || collection.isEmpty()) {
             return;
         }
-        int d = d(context);
-        if (i >= 0 && i < 255) {
-            d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
-        }
-        drawable.setColorFilter(d, mode);
-    }
-
-    public static void b(Context context, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
-            c(context, drawable, 255);
+        for (T t : collection) {
+            e(handler, ae3Var, t);
         }
     }
 
-    public static void c(Context context, Drawable drawable, int i) {
+    public static <T> void b(Handler handler, ae3<T> ae3Var, T... tArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
-            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, handler, ae3Var, tArr) == null) || ae3Var == null || tArr == null || tArr.length < 1) {
+            return;
+        }
+        for (T t : tArr) {
+            e(handler, ae3Var, t);
         }
     }
 
-    public static int d(Context context) {
-        InterceptResult invokeL;
+    public static <T> void c(ae3<T> ae3Var, Collection<T> collection) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? context.getResources().getColor(R.color.obfuscated_res_0x7f0603e7) : invokeL.intValue;
+        if (interceptable == null || interceptable.invokeLL(65538, null, ae3Var, collection) == null) {
+            a(null, ae3Var, collection);
+        }
+    }
+
+    public static <T> void d(ae3<T> ae3Var, T... tArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, ae3Var, tArr) == null) {
+            b(null, ae3Var, tArr);
+        }
+    }
+
+    public static <T> void e(Handler handler, ae3<T> ae3Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, handler, ae3Var, t) == null) {
+            if (handler == null) {
+                ae3Var.onCallback(t);
+            } else {
+                handler.post(new a(ae3Var, t));
+            }
+        }
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.xm9;
-import com.repackage.ym9;
-import com.repackage.zm9;
+import com.repackage.rj9;
+import com.repackage.sj9;
+import com.repackage.tj9;
 import com.sina.weibo.sdk.utils.LogUtil;
 import com.weibo.ssosdk.WeiboSsoSdk;
 /* loaded from: classes7.dex */
@@ -77,7 +77,7 @@ public final class WeiboSsoManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             try {
-                WeiboSsoSdk.i().m(new ym9(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
+                WeiboSsoSdk.i().m(new sj9(this) { // from class: com.sina.weibo.sdk.sso.WeiboSsoManager.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ WeiboSsoManager this$0;
@@ -100,7 +100,7 @@ public final class WeiboSsoManager {
                         this.this$0 = this;
                     }
 
-                    @Override // com.repackage.ym9
+                    @Override // com.repackage.sj9
                     public void handler(WeiboSsoSdk.d dVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dVar) == null) {
@@ -135,19 +135,19 @@ public final class WeiboSsoManager {
     public String getMfp(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? xm9.n(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? rj9.n(context) : (String) invokeL.objValue;
     }
 
     public void init(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
             LogUtil.d(TAG, "init config");
-            zm9 zm9Var = new zm9();
-            zm9Var.j(context);
-            zm9Var.i(str);
-            zm9Var.k("1478195010");
-            zm9Var.l("1000_0001");
-            WeiboSsoSdk.j(zm9Var);
+            tj9 tj9Var = new tj9();
+            tj9Var.j(context);
+            tj9Var.i(str);
+            tj9Var.k("1478195010");
+            tj9Var.l("1000_0001");
+            WeiboSsoSdk.j(tj9Var);
             initAid();
         }
     }

@@ -1,9 +1,7 @@
 package com.repackage;
-
-import android.view.View;
 /* loaded from: classes7.dex */
 public interface xr4 {
-    void a();
+    void a(String str);
 
-    View getView();
+    void b();
 }

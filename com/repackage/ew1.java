@@ -1,80 +1,93 @@
 package com.repackage;
 
-import android.graphics.Paint;
-import android.text.style.LineHeightSpan;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Build;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ew1 implements LineHeightSpan {
+import com.repackage.ly2;
+/* loaded from: classes5.dex */
+public class ew1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755723310, "Lcom/repackage/ew1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hz2 a;
+
+        public a(hz2 hz2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hz2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755723310, "Lcom/repackage/ew1;");
-                return;
+            this.a = hz2Var;
+        }
+
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                SwanAppActivity x = this.a.x();
+                if (x != null && Build.VERSION.SDK_INT >= 21) {
+                    x.finishAndRemoveTask();
+                }
+                System.exit(0);
             }
         }
-        b = eh1.a;
     }
 
-    public ew1(int i) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            a = z;
         }
-        this.a = i;
     }
 
-    @Override // android.text.style.LineHeightSpan
-    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
-        int i5;
+    public static void c(Context context, boolean z) {
+        hz2 L;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
-            if (b) {
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
-            }
-            if (this.a < 0 || (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) < 0) {
-                return;
-            }
-            if (b) {
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
-            }
-            int i6 = (this.a - i5) / 2;
-            if (b) {
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
-            }
-            fontMetricsInt.descent += i6;
-            fontMetricsInt.ascent -= i6;
-            if (b) {
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
-            }
+        if (!(interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) || (L = hz2.L()) == null) {
+            return;
+        }
+        fw1.c(z);
+        int i = z ? R.string.obfuscated_res_0x7f0f019c : R.string.obfuscated_res_0x7f0f0110;
+        ly2.a aVar = new ly2.a(context);
+        aVar.V(context.getString(R.string.obfuscated_res_0x7f0f014c));
+        aVar.x(context.getString(i));
+        aVar.n(new pe3());
+        aVar.m(false);
+        aVar.O(R.string.obfuscated_res_0x7f0f0113, new a(L));
+        aVar.X();
+    }
+
+    public static void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            c(context, !a());
         }
     }
 }

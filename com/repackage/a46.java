@@ -1,222 +1,81 @@
 package com.repackage;
 
-import com.baidu.tieba.R;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.HttpsConnSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class a46 extends o15 {
+public class a46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755906706, "Lcom/repackage/a46;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755906706, "Lcom/repackage/a46;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        o15.a.put("video_icon", Integer.valueOf((int) R.drawable.ico_link_video));
-        HashMap<String, Integer> hashMap = o15.a;
-        Integer valueOf = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b4d);
-        hashMap.put("image_emoticon34", valueOf);
-        HashMap<String, Integer> hashMap2 = o15.a;
-        Integer valueOf2 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b4e);
-        hashMap2.put("image_emoticon35", valueOf2);
-        HashMap<String, Integer> hashMap3 = o15.a;
-        Integer valueOf3 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b4f);
-        hashMap3.put("image_emoticon36", valueOf3);
-        HashMap<String, Integer> hashMap4 = o15.a;
-        Integer valueOf4 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b50);
-        hashMap4.put("image_emoticon37", valueOf4);
-        HashMap<String, Integer> hashMap5 = o15.a;
-        Integer valueOf5 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b51);
-        hashMap5.put("image_emoticon38", valueOf5);
-        HashMap<String, Integer> hashMap6 = o15.a;
-        Integer valueOf6 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b54);
-        hashMap6.put("image_emoticon40", valueOf6);
-        HashMap<String, Integer> hashMap7 = o15.a;
-        Integer valueOf7 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b52);
-        hashMap7.put("image_emoticon39", valueOf7);
-        HashMap<String, Integer> hashMap8 = o15.a;
-        Integer valueOf8 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b55);
-        hashMap8.put("image_emoticon41", valueOf8);
-        HashMap<String, Integer> hashMap9 = o15.a;
-        Integer valueOf9 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b56);
-        hashMap9.put("image_emoticon42", valueOf9);
-        HashMap<String, Integer> hashMap10 = o15.a;
-        Integer valueOf10 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b57);
-        hashMap10.put("image_emoticon43", valueOf10);
-        HashMap<String, Integer> hashMap11 = o15.a;
-        Integer valueOf11 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b58);
-        hashMap11.put("image_emoticon44", valueOf11);
-        HashMap<String, Integer> hashMap12 = o15.a;
-        Integer valueOf12 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b59);
-        hashMap12.put("image_emoticon45", valueOf12);
-        HashMap<String, Integer> hashMap13 = o15.a;
-        Integer valueOf13 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5a);
-        hashMap13.put("image_emoticon46", valueOf13);
-        HashMap<String, Integer> hashMap14 = o15.a;
-        Integer valueOf14 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5b);
-        hashMap14.put("image_emoticon47", valueOf14);
-        HashMap<String, Integer> hashMap15 = o15.a;
-        Integer valueOf15 = Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5c);
-        hashMap15.put("image_emoticon48", valueOf15);
-        o15.a.put("image_emoticon49", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5d));
-        o15.a.put("image_emoticon50", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5f));
-        o15.a.put("image_emoticon77", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b72));
-        o15.a.put("image_emoticon78", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b73));
-        o15.a.put("image_emoticon79", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b74));
-        o15.a.put("image_emoticon80", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b76));
-        o15.a.put("image_emoticon81", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b77));
-        o15.a.put("image_emoticon82", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b78));
-        o15.a.put("image_emoticon83", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b79));
-        o15.a.put("image_emoticon84", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b7a));
-        o15.a.put("image_emoticon101", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b13));
-        o15.a.put("image_emoticon102", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b14));
-        o15.a.put("image_emoticon103", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b15));
-        o15.a.put("image_emoticon104", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b16));
-        o15.a.put("image_emoticon105", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b17));
-        o15.a.put("image_emoticon106", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b18));
-        o15.a.put("image_emoticon107", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b19));
-        o15.a.put("image_emoticon108", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1a));
-        o15.a.put("image_emoticon109", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1b));
-        o15.a.put("image_emoticon110", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1d));
-        o15.a.put("image_emoticon111", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1e));
-        o15.a.put("image_emoticon112", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1f));
-        o15.a.put("image_emoticon113", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b20));
-        o15.a.put("image_emoticon114", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b21));
-        o15.a.put("image_emoticon115", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b22));
-        o15.a.put("image_emoticon116", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b23));
-        o15.a.put("image_emoticon117", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b24));
-        o15.a.put("image_emoticon118", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b25));
-        o15.a.put("image_emoticon119", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b26));
-        o15.a.put("image_emoticon120", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b28));
-        o15.a.put("image_emoticon121", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b29));
-        o15.a.put("image_emoticon122", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b2a));
-        o15.a.put("image_emoticon123", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b2b));
-        o15.a.put("image_emoticon124", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b2c));
-        o15.b.add(valueOf);
-        o15.b.add(valueOf2);
-        o15.b.add(valueOf3);
-        o15.b.add(valueOf4);
-        o15.b.add(valueOf5);
-        o15.b.add(valueOf6);
-        o15.b.add(valueOf7);
-        o15.b.add(valueOf8);
-        o15.b.add(valueOf10);
-        o15.b.add(valueOf11);
-        o15.b.add(valueOf15);
-        o15.b.add(valueOf14);
-        o15.b.add(valueOf13);
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5f));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b72));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b73));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b74));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b76));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b77));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b78));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b79));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b7a));
-        o15.b.add(valueOf12);
-        o15.b.add(valueOf9);
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b13));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b14));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b15));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b16));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b17));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b18));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b19));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1a));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1b));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1d));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1e));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1f));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b20));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b21));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b22));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b23));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b24));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b25));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b26));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b28));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b29));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b2a));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b2b));
-        o15.b.add(Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b2c));
-        o15.c.put("#(爱心)", valueOf);
-        o15.c.put("#(心碎)", valueOf2);
-        o15.c.put("#(玫瑰)", valueOf3);
-        o15.c.put("#(礼物)", valueOf4);
-        o15.c.put("#(彩虹)", valueOf5);
-        o15.c.put("#(星星月亮)", valueOf7);
-        o15.c.put("#(太阳)", valueOf6);
-        o15.c.put("#(钱币)", valueOf8);
-        o15.c.put("#(灯泡)", valueOf9);
-        o15.c.put("#(茶杯)", valueOf10);
-        o15.c.put("#(蛋糕)", valueOf11);
-        o15.c.put("#(音乐)", valueOf12);
-        o15.c.put("#(haha)", valueOf13);
-        o15.c.put("#(胜利)", valueOf14);
-        o15.c.put("#(大拇指)", valueOf15);
-        o15.c.put("#(弱)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5d));
-        o15.c.put("#(OK)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b5f));
-        o15.c.put("#(沙发)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b72));
-        o15.c.put("#(手纸)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b73));
-        o15.c.put("#(香蕉)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b74));
-        o15.c.put("#(便便)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b76));
-        o15.c.put("#(药丸)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b77));
-        o15.c.put("#(红领巾)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b78));
-        o15.c.put("#(蜡烛)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b79));
-        o15.c.put("#(三道杠)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b7a));
-        o15.c.put("#(不跟丑人说话)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b13));
-        o15.c.put("#(么么哒)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b14));
-        o15.c.put("#(亲亲才能起来)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b15));
-        o15.c.put("#(伦家只是宝宝)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b16));
-        o15.c.put("#(你是我的人)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b17));
-        o15.c.put("#(假装看不见)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b18));
-        o15.c.put("#(单身等撩)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b19));
-        o15.c.put("#(吓到宝宝了)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1a));
-        o15.c.put("#(哈哈哈)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1b));
-        o15.c.put("#(嗯嗯)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1d));
-        o15.c.put("#(好幸福)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1e));
-        o15.c.put("#(宝宝不开心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b1f));
-        o15.c.put("#(小姐姐别走)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b20));
-        o15.c.put("#(小姐姐在吗)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b21));
-        o15.c.put("#(小姐姐来啦)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b22));
-        o15.c.put("#(小姐姐来玩呀)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b23));
-        o15.c.put("#(我养你)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b24));
-        o15.c.put("#(我是不会骗你的)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b25));
-        o15.c.put("#(扎心了)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b26));
-        o15.c.put("#(无聊)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b28));
-        o15.c.put("#(月亮代表我的心)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b29));
-        o15.c.put("#(来追我呀)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b2a));
-        o15.c.put("#(爱你的形状)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b2b));
-        o15.c.put("#(白眼)", Integer.valueOf((int) R.drawable.obfuscated_res_0x7f080b2c));
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                if (TbadkCoreApplication.getInst().checkInterrupt()) {
+                    return null;
+                }
+                NetWork netWork = new NetWork("http://tiebac.baidu.com/empty.gif");
+                netWork.getNetData();
+                boolean isNetSuccess = netWork.isNetSuccess();
+                NetWork netWork2 = new NetWork("https://tiebac.baidu.com/empty.gif");
+                netWork2.getNetData();
+                boolean isNetSuccess2 = netWork2.isNetSuccess();
+                NetWork netWork3 = new NetWork("http://c.tieba.baidu.com/c/s/recordHttpsConnectivity");
+                netWork3.addPostData("is_success_http", String.valueOf(isNetSuccess ? 1 : 0));
+                netWork3.addPostData("is_success_https", String.valueOf(isNetSuccess2 ? 1 : 0));
+                netWork3.postNetData();
+                TiebaStatic.log(new StatisticItem("c13734").param("obj_locate", 1).param("obj_type", isNetSuccess ? 1 : 0));
+                TiebaStatic.log(new StatisticItem("c13734").param("obj_locate", 2).param("obj_type", isNetSuccess2 ? 1 : 0));
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
     }
 
-    public a46() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            a aVar = new a();
+            aVar.setPriority(1);
+            aVar.execute(new Void[0]);
         }
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ji.z() && SwitchManager.getInstance().findType(HttpsConnSwitch.KEY) == 1 : invokeV.booleanValue;
     }
 }

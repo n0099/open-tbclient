@@ -318,7 +318,7 @@ public class as implements ar, InvocationHandler {
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m109a("mdid:" + str);
+            com.xiaomi.channel.commonutils.logger.b.m108a("mdid:" + str);
         }
     }
 
@@ -349,7 +349,7 @@ public class as implements ar, InvocationHandler {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo188b() {
+    public String mo187b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

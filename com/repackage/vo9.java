@@ -12,16 +12,16 @@ import com.win.opensdk.PBError;
 public class vo9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ jp9 a;
+    public final /* synthetic */ pp9 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vo9(jp9 jp9Var, Looper looper) {
+    public vo9(pp9 pp9Var, Looper looper) {
         super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jp9Var, looper};
+            Object[] objArr = {pp9Var, looper};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,20 +32,25 @@ public class vo9 extends Handler {
                 return;
             }
         }
-        this.a = jp9Var;
+        this.a = pp9Var;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
-            this.a.e = true;
-            this.a.k.removeMessages(11);
-            int wt = this.a.e() ? this.a.f.getWt() : 0;
-            tq9 a = xq9.a(this.a.b);
-            a.e(new br9(this.a.f), 2002, wt * 1000);
-            a.m();
-            this.a.h.onFail(PBError.TIMEOUT);
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            int i = message.what;
+            pp9.h();
+            if (i == 100101) {
+                this.a.j.removeMessages(100101);
+                nn9 a = rn9.a(this.a.a);
+                vn9 vn9Var = new vn9(null);
+                vn9Var.a = this.a.b;
+                a.g(vn9Var, bn9.L(this.a.a) * 1000, 2002, 0);
+                a.m();
+                this.a.d(PBError.TIMEOUT);
+            }
         }
     }
 }

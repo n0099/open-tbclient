@@ -9,6 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hx1;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class up1 extends np1 {
@@ -20,16 +22,14 @@ public class up1 extends np1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ up1 d;
+        public final /* synthetic */ up1 b;
 
-        public a(up1 up1Var, String str, boolean z, boolean z2) {
+        public a(up1 up1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {up1Var, str, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                Object[] objArr = {up1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,53 +39,93 @@ public class up1 extends np1 {
                     return;
                 }
             }
-            this.d = up1Var;
+            this.b = up1Var;
             this.a = str;
-            this.b = z;
-            this.c = z2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            boolean j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gc3 z = up1.z();
-                if (z == null) {
-                    ux1.c("TabBarApi", "tabBarViewController is null");
-                    this.d.d(this.a, new us1(1001));
-                    return;
-                }
-                if (this.b) {
-                    j = z.r(this.c);
-                } else {
-                    j = z.j(this.c);
-                }
-                if (!j) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append(this.b ? "open" : "close");
-                    sb.append("bottom bar fail");
-                    ux1.c("TabBarApi", sb.toString());
-                    this.d.d(this.a, new us1(1001));
-                }
-                this.d.d(this.a, new us1(0));
+                this.b.d(this.a, new hr1(0, b.a().b()));
             }
         }
     }
 
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float a;
+        public float b;
+        public float c;
+        public float d;
+        public float e;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @NonNull
+        public static b a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                b bVar = new b();
+                bVar.a = hx1.d();
+                hx1.c i = hx1.i();
+                bVar.b = i.c;
+                bVar.c = i.a;
+                bVar.d = i.b;
+                bVar.e = gx1.b();
+                return bVar;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public JSONObject b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("deviceTotalMem", this.a);
+                    jSONObject.put("deviceUsedMem", this.b);
+                    jSONObject.put("hostUsedMem", this.c);
+                    jSONObject.put("appUsedMem", this.d);
+                    jSONObject.put("appUsedCpu", this.e);
+                } catch (JSONException e) {
+                    hw1.l("GetDeviceProfileApi", "#toJSONObject 失败", e);
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public up1(@NonNull vo1 vo1Var) {
-        super(vo1Var);
+    public up1(@NonNull in1 in1Var) {
+        super(in1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vo1Var};
+            Object[] objArr = {in1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((vo1) newInitContext.callArgs[0]);
+                super((in1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,137 +133,30 @@ public class up1 extends np1 {
         }
     }
 
-    public static boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            d02 V = hm2.U().V();
-            return V == null || V.o() == null || !V.o().d2();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static gc3 z() {
-        InterceptResult invokeV;
-        c02 l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            d02 V = hm2.U().V();
-            if (V == null || (l = V.l()) == null) {
-                return null;
-            }
-            return l.u3();
-        }
-        return (gc3) invokeV.objValue;
-    }
-
-    public final us1 A(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (B()) {
-                ux1.c("TabBarApi", "fail not TabBar page");
-                return new us1(1001, "fail not TabBar page");
-            }
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    ux1.c("TabBarApi", "callback is null");
-                    return new us1(1001, "callback is null");
-                }
-                oe3.e0(new a(this, optString, z, jSONObject.optBoolean("animation")));
-                return us1.f();
-            }
-            return us1Var;
-        }
-        return (us1) invokeLZ.objValue;
-    }
-
-    public us1 C(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#openTabBar", false);
-            return A(str, true);
-        }
-        return (us1) invokeL.objValue;
-    }
-
-    public us1 D(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#setTabBarItem", false);
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                if (B()) {
-                    ux1.c("TabBarApi", "fail not TabBar page");
-                    return new us1(1001, "fail not TabBar page");
-                }
-                gc3 z = z();
-                if (z == null) {
-                    ux1.c("TabBarApi", "tabBarViewController is null");
-                    return new us1(1001, "tabBarViewController is null");
-                } else if (!z.x(jSONObject.optInt("index"), jSONObject.optString("text"), jSONObject.optString("iconPath"), jSONObject.optString("selectedIconPath"))) {
-                    ux1.c("TabBarApi", "set tab bar item fail");
-                    return new us1(1001, "set tab bar item fail");
-                } else {
-                    return us1.f();
-                }
-            }
-            return us1Var;
-        }
-        return (us1) invokeL.objValue;
-    }
-
-    @Override // com.repackage.xo1
+    @Override // com.repackage.kn1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "TabBarApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetDeviceProfileApi" : (String) invokeV.objValue;
     }
 
-    public us1 x(String str) {
+    public hr1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            q("#closeTabBar", false);
-            return A(str, false);
-        }
-        return (us1) invokeL.objValue;
-    }
-
-    public us1 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#closeTabBarRedDot", false);
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
-                int optInt = ((JSONObject) s.second).optInt("index");
-                if (B()) {
-                    ux1.c("TabBarApi", "fail not TabBar page");
-                    return new us1(1001, "fail not TabBar page");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#getDeviceProfile", false);
+            Pair<hr1, JSONObject> s = s(str);
+            hr1 hr1Var = (hr1) s.first;
+            if (hr1Var.isSuccess()) {
+                String optString = ((JSONObject) s.second).optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    return new hr1(202, "cb is empty");
                 }
-                gc3 z = z();
-                if (z == null) {
-                    ux1.c("TabBarApi", "tabBarViewController is null");
-                    return new us1(1001, "tabBarViewController is null");
-                } else if (!z.k(optInt)) {
-                    ux1.c("TabBarApi", "close red dot fail");
-                    return new us1(1001, "close red dot fail");
-                } else {
-                    return us1.f();
-                }
+                bc3.k(new a(this, optString), "GetDeviceProfileApi");
+                return hr1.f();
             }
-            return us1Var;
+            return hr1Var;
         }
-        return (us1) invokeL.objValue;
+        return (hr1) invokeL.objValue;
     }
 }

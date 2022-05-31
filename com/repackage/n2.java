@@ -16,7 +16,6 @@ import com.badlogic.gdx.graphics.Mesh;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.GLVersion;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -408,7 +407,7 @@ public class n2 extends w0 implements GLSurfaceView.Renderer {
                         th.printStackTrace();
                     }
                 }
-                this.d.getInput().h0();
+                this.d.getInput().i0();
                 this.l++;
                 this.d.getApplicationListener().render();
             }
@@ -516,7 +515,7 @@ public class n2 extends w0 implements GLSurfaceView.Renderer {
                     this.a.queueEvent(new a(this));
                     while (this.p) {
                         try {
-                            this.v.wait(PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+                            this.v.wait(4000L);
                             if (this.p) {
                                 b1.a.error("AndroidGraphics", "waiting for pause synchronization took too long; assuming deadlock and killing");
                                 Process.killProcess(Process.myPid());

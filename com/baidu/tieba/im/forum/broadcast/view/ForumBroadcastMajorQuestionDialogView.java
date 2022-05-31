@@ -47,15 +47,15 @@ public class ForumBroadcastMajorQuestionDialogView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02a3, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a1f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d029f, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a09);
             this.a = linearLayout;
-            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a21);
-            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a20);
-            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091013);
-            this.c.setText(R.string.obfuscated_res_0x7f0f1213);
-            this.d.setText(R.string.obfuscated_res_0x7f0f0653);
-            this.e.setText(R.string.obfuscated_res_0x7f0f0988);
+            this.c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090a0b);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a0a);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fd5);
+            this.c.setText(R.string.obfuscated_res_0x7f0f1225);
+            this.d.setText(R.string.obfuscated_res_0x7f0f065a);
+            this.e.setText(R.string.obfuscated_res_0x7f0f098e);
             SkinManager.setBackgroundResource(this.a, R.drawable.bg_frs_private_dialog);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0107);

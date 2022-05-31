@@ -1,38 +1,209 @@
 package com.repackage;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.DegradeData;
-import com.baidu.searchbox.pms.bean.ErrorInfo;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.searchbox.pms.bean.ResultData;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.callback.DefaultPackageCallback;
-import com.baidu.searchbox.pms.download.DownloadOptions;
-import com.baidu.searchbox.pms.init.PmsManager;
-import com.baidu.searchbox.pms.utils.DebugUtils;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class hn extends DefaultPackageCallback {
+public class hn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DefaultDownloadCallback a;
-    public jn b;
+    public en a;
+    public in b;
+    public RecyclerView c;
+    public VelocityTracker d;
+    public float e;
+    public float f;
+    public int g;
+    public int h;
+    public int i;
+    public g85 j;
+    public RecyclerView.OnChildAttachStateChangeListener k;
+    public RecyclerView.OnScrollListener l;
+    public RecyclerView.OnItemTouchListener m;
 
-    public hn(DefaultDownloadCallback defaultDownloadCallback) {
+    /* loaded from: classes6.dex */
+    public class a implements RecyclerView.OnChildAttachStateChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hn a;
+
+        public a(hn hnVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hnVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hnVar;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
+        public void onChildViewAttachedToWindow(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.r(view2);
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnChildAttachStateChangeListener
+        public void onChildViewDetachedFromWindow(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+                this.a.s(view2);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends RecyclerView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hn a;
+
+        public b(hn hnVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hnVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hnVar;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+                this.a.u(i);
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
+                this.a.t(i, i2);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements RecyclerView.OnItemTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hn a;
+
+        public c(hn hnVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hnVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hnVar;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, recyclerView, motionEvent)) == null) {
+                int actionMasked = motionEvent.getActionMasked();
+                if (actionMasked == 0) {
+                    this.a.c.stopScroll();
+                    this.a.e = motionEvent.getX();
+                    this.a.f = motionEvent.getY();
+                    hn hnVar = this.a;
+                    View x = hnVar.x(hnVar.e, this.a.f);
+                    hn hnVar2 = this.a;
+                    hnVar2.g = hnVar2.c.getChildAdapterPosition(x);
+                    if (this.a.d == null) {
+                        this.a.d = VelocityTracker.obtain();
+                    }
+                    this.a.d.addMovement(motionEvent);
+                    return false;
+                }
+                if (actionMasked != 2) {
+                    if (actionMasked == 3 || actionMasked == 1) {
+                        this.a.e = 0.0f;
+                        this.a.f = 0.0f;
+                        this.a.d.clear();
+                        return false;
+                    }
+                    return false;
+                }
+                float x2 = motionEvent.getX();
+                float y = motionEvent.getY();
+                int i = (this.a.i == 2 ? y - this.a.f : x2 - this.a.e) >= 0.0f ? 2 : 1;
+                if (i != this.a.h) {
+                    this.a.h = i;
+                    this.a.d.clear();
+                }
+                this.a.d.addMovement(motionEvent);
+                this.a.d.computeCurrentVelocity(50);
+                hn hnVar3 = this.a;
+                hnVar3.v(hnVar3.d.getXVelocity(), this.a.d.getYVelocity());
+                this.a.e = x2;
+                this.a.f = y;
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        public void onRequestDisallowInterceptTouchEvent(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
+        public void onTouchEvent(RecyclerView recyclerView, MotionEvent motionEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, recyclerView, motionEvent) == null) {
+            }
+        }
+    }
+
+    public hn(fn fnVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback};
+            Object[] objArr = {fnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,94 +213,127 @@ public class hn extends DefaultPackageCallback {
                 return;
             }
         }
-        this.a = defaultDownloadCallback;
+        this.k = new a(this);
+        this.l = new b(this);
+        this.m = new c(this);
+        this.a = new en(fnVar);
+        this.b = new in(fnVar);
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onDegradeData(DegradeData degradeData) {
+    public void q(RecyclerView recyclerView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, degradeData) == null) {
-            super.onDegradeData(degradeData);
-        }
-    }
-
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onFetchError(ErrorInfo errorInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, errorInfo) == null) || errorInfo == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) || recyclerView == null) {
             return;
         }
-        BdLog.e(errorInfo.errorMsg);
+        RecyclerView recyclerView2 = this.c;
+        if (recyclerView2 != null) {
+            recyclerView2.removeOnItemTouchListener(this.m);
+            this.c.removeOnScrollListener(this.l);
+            this.c.removeOnChildAttachStateChangeListener(this.k);
+        }
+        this.c = recyclerView;
+        this.i = i;
+        if (recyclerView instanceof BdTypeRecyclerView) {
+            this.b.e((BdTypeRecyclerView) recyclerView, i);
+        } else {
+            this.a.e(recyclerView, i);
+        }
+        this.c.addOnItemTouchListener(this.m);
+        this.c.addOnScrollListener(this.l);
+        this.c.addOnChildAttachStateChangeListener(this.k);
     }
 
-    @Override // com.baidu.searchbox.pms.callback.DefaultPackageCallback, com.baidu.searchbox.pms.callback.PackageCallback
-    public void onResultData(ResultData resultData) {
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, resultData) == null) || resultData == null) {
-            return;
-        }
-        DebugUtils.log(resultData);
-        ArrayList<PackageInfo> arrayList = new ArrayList();
-        arrayList.addAll(resultData.addList);
-        arrayList.addAll(resultData.updateList);
-        if (!arrayList.isEmpty()) {
-            for (PackageInfo packageInfo : arrayList) {
-                if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
-                    DownloadOptions downloadOptions = new DownloadOptions();
-                    downloadOptions.fileDir = in.a(packageInfo.name);
-                    PmsManager.getInstance().download(packageInfo, downloadOptions, new gn(this.a));
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.k(view2);
+            } else {
+                this.a.g(view2);
             }
         }
-        arrayList.clear();
-        arrayList.addAll(resultData.configChangeList);
-        arrayList.addAll(resultData.filterList);
-        if (!arrayList.isEmpty()) {
-            for (PackageInfo packageInfo2 : arrayList) {
-                if (packageInfo2 != null && !StringUtils.isNull(packageInfo2.name)) {
-                    if (!packageInfo2.name.contains(".so")) {
-                        ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                        String str = packageInfo2.name;
-                        resHashMap.put(str, in.a(str));
-                    } else if (kn.a(BdBaseApplication.getInst().getContext(), in.a(packageInfo2.name))) {
-                        ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
-                        String str2 = packageInfo2.name;
-                        resHashMap2.put(str2, in.a(str2));
-                        jn jnVar = this.b;
-                        if (jnVar != null) {
-                            jnVar.onSoFileLoaded(packageInfo2.name);
-                        }
+    }
+
+    public final void s(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.l(view2);
+            } else {
+                this.a.h(view2);
+            }
+        }
+    }
+
+    public final void t(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.p(i, i2, this.g);
+            }
+            this.a.l(i, i2, this.g);
+        }
+    }
+
+    public final void u(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i == 1) {
+                if (TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+                    if (this.j == null) {
+                        this.j = new g85("anim_switch_slide");
                     }
+                    this.j.b();
                 }
+            } else if (i == 0 && this.j != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_slide")) {
+                this.j.c();
             }
-        }
-        if (resultData.invalidList.isEmpty()) {
-            return;
-        }
-        BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
-        if (searchTask == null || searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING) {
-            fn fnVar = new fn();
-            fnVar.setKey("key_res_del");
-            fnVar.execute(resultData.invalidList);
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.q(i);
+            }
+            this.a.m(i);
         }
     }
 
-    public hn(DefaultDownloadCallback defaultDownloadCallback, jn jnVar) {
+    public final void v(float f, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {defaultDownloadCallback, jnVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            if (this.c instanceof BdTypeRecyclerView) {
+                this.b.t(f, f2, this.g);
             }
+            this.a.o(f, f2, this.g);
         }
-        this.a = defaultDownloadCallback;
-        this.b = jnVar;
+    }
+
+    public void w() {
+        RecyclerView recyclerView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (recyclerView = this.c) == null) {
+            return;
+        }
+        recyclerView.removeOnItemTouchListener(this.m);
+        this.c.removeOnScrollListener(this.l);
+        this.c.removeOnChildAttachStateChangeListener(this.k);
+    }
+
+    public View x(float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            RecyclerView recyclerView = this.c;
+            if (recyclerView == null) {
+                return null;
+            }
+            for (int childCount = recyclerView.getChildCount() - 1; childCount >= 0; childCount--) {
+                View childAt = this.c.getChildAt(childCount);
+                float translationX = childAt.getTranslationX();
+                float translationY = childAt.getTranslationY();
+                if (f >= childAt.getLeft() + translationX && f <= childAt.getRight() + translationX && f2 >= childAt.getTop() + translationY && f2 <= childAt.getBottom() + translationY) {
+                    return childAt;
+                }
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

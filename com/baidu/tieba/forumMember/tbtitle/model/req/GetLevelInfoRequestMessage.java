@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jd5;
+import com.repackage.dc5;
 import tbclient.GetLevelInfo.DataReq;
 import tbclient.GetLevelInfo.GetLevelInfoReqIdl;
 /* loaded from: classes3.dex */
@@ -45,7 +45,7 @@ public class GetLevelInfoRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.forum_id = Long.valueOf(getForumId());
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                jd5.a(builder, true);
+                dc5.a(builder, true);
             }
             GetLevelInfoReqIdl.Builder builder2 = new GetLevelInfoReqIdl.Builder();
             builder2.data = builder.build(false);

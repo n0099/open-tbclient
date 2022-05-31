@@ -1,17 +1,20 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActHot;
+import tbclient.ActPost;
+import tbclient.LinkInfo;
 /* loaded from: classes6.dex */
-public class og8 extends dg8 {
+public class og8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pg8 c;
+    public ArrayList<mg8> a;
+    public ArrayList<ng8> b;
 
     public og8() {
         Interceptable interceptable = $ic;
@@ -23,33 +26,33 @@ public class og8 extends dg8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    @Override // com.repackage.dg8
-    public void d(JSONObject jSONObject) throws Exception {
-        JSONObject optJSONObject;
+    public void a(ActPost actPost) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("forum_dir")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, actPost) == null) || actPost == null) {
             return;
         }
-        pg8 pg8Var = new pg8();
-        pg8Var.a(optJSONObject);
-        i(pg8Var);
-    }
-
-    public pg8 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (pg8) invokeV.objValue;
-    }
-
-    public void i(pg8 pg8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pg8Var) == null) {
-            this.c = pg8Var;
-            g(null);
+        String str = actPost.list_head;
+        for (ActHot actHot : actPost.act_hot) {
+            if (actHot != null) {
+                mg8 mg8Var = new mg8();
+                mg8Var.g(actHot);
+                this.a.add(mg8Var);
+            }
+        }
+        List<LinkInfo> list = actPost.link_info;
+        for (LinkInfo linkInfo : list) {
+            if (list != null) {
+                ng8 ng8Var = new ng8();
+                ng8Var.a(linkInfo);
+                this.b.add(ng8Var);
+            }
         }
     }
 }

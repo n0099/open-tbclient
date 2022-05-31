@@ -1,22 +1,25 @@
 package com.repackage;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
 public interface il1 {
+    ql1 a(Context context);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onResult(String str);
-    }
+    ml1 b(Context context);
 
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
+    ql1 c(Context context);
 
-    void b(Context context, String str, String str2, String str3);
+    c12 d();
 
-    void c(HashMap<String, String> hashMap, File file, a aVar);
+    nl1 e(Context context, int i);
 
-    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+    ql1 f(Context context);
+
+    ql1 g(Context context);
+
+    d12 h(Context context, int i);
+
+    ql1 i(Context context);
+
+    boolean j(int i);
 }

@@ -1,112 +1,57 @@
 package com.repackage;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONObject;
+import com.win.opensdk.views.CloseParentView;
 /* loaded from: classes7.dex */
-public class xp9 {
+public class xp9 extends Handler {
     public static /* synthetic */ Interceptable $ic;
-    public static final xp9 a;
-    public static ConcurrentHashMap b;
-    public static Context c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ CloseParentView a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755163760, "Lcom/repackage/xp9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755163760, "Lcom/repackage/xp9;");
-                return;
-            }
-        }
-        a = new xp9();
-        b = new ConcurrentHashMap();
-    }
-
-    public xp9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xp9(CloseParentView closeParentView, Looper looper) {
+        super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {closeParentView, looper};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = closeParentView;
     }
 
-    public static xp9 b(Context context) {
-        InterceptResult invokeL;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            c = context.getApplicationContext();
-            return a;
-        }
-        return (xp9) invokeL.objValue;
-    }
-
-    public long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            Long l = (Long) b.get(str);
-            if (l == null || l.longValue() <= 0) {
-                try {
-                    String C = hq9.C(c);
-                    if (!TextUtils.isEmpty(C)) {
-                        JSONObject jSONObject = new JSONObject(C);
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys.hasNext()) {
-                            String next = keys.next();
-                            if (TextUtils.equals(str, next)) {
-                                return jSONObject.optLong(next, 0L);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return 0L;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 10) {
+            CloseParentView closeParentView = this.a;
+            closeParentView.a.setText(String.valueOf(closeParentView.h));
+            CloseParentView closeParentView2 = this.a;
+            if (closeParentView2.h <= 0) {
+                closeParentView2.a.setVisibility(8);
+                this.a.a.setClickable(false);
+                this.a.i.removeMessages(10);
+            } else {
+                closeParentView2.a.setVisibility(0);
+                this.a.a.setClickable(true);
             }
-            return l.longValue();
-        }
-        return invokeL.longValue;
-    }
-
-    public void c(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            b.put(str, Long.valueOf(j));
-            try {
-                String C = hq9.C(c);
-                JSONObject jSONObject = !TextUtils.isEmpty(C) ? new JSONObject(C) : new JSONObject();
-                jSONObject.put(str, j);
-                Context context = c;
-                String jSONObject2 = jSONObject.toString();
-                SharedPreferences.Editor edit = context.getSharedPreferences("res_prefs", 0).edit();
-                edit.putString("key_local_res", jSONObject2);
-                edit.apply();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            this.a.i.sendEmptyMessageDelayed(10, 1000L);
+            this.a.h--;
         }
     }
 }

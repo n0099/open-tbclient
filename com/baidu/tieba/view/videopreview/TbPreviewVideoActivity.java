@@ -173,16 +173,16 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091933);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0918e2);
             this.navigationBar = navigationBar;
-            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.backBtnListener).findViewById(R.id.obfuscated_res_0x7f09249c)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809e0));
-            this.videoView = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f091935);
+            ((ImageView) navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.backBtnListener).findViewById(R.id.obfuscated_res_0x7f092442)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809ec));
+            this.videoView = (CustomVideoView) findViewById(R.id.obfuscated_res_0x7f0918e4);
             if (!StringUtils.isNull(this.videoInfo.getVideoPath())) {
                 this.videoView.setVideoPath(this.videoInfo.getVideoPath());
             }
             this.videoView.setOnPreparedListener(new b(this));
             this.videoView.setOnCompletionListener(new c(this));
-            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f091931);
+            VideoControllerView videoControllerView = (VideoControllerView) findViewById(R.id.obfuscated_res_0x7f0918e0);
             this.videoViewController = videoControllerView;
             videoControllerView.setPlayer(this.videoView);
         }
@@ -201,7 +201,7 @@ public class TbPreviewVideoActivity extends BaseActivity<TbPreviewVideoActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d004e);
+            setContentView(R.layout.obfuscated_res_0x7f0d004a);
             initDataFromIntent();
             initListener();
             initView();

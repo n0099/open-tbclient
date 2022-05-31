@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eo;
-import com.repackage.eu6;
-import com.repackage.mi;
+import com.repackage.is6;
+import com.repackage.li;
+import com.repackage.wm;
 /* loaded from: classes3.dex */
-public class ConcernTipAdapter extends eo<eu6, ConcernTipViewHolder> {
+public class ConcernTipAdapter extends wm<is6, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int i;
     public static int j;
@@ -53,8 +53,8 @@ public class ConcernTipAdapter extends eo<eu6, ConcernTipViewHolder> {
                 }
             }
             this.c = 3;
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906b2);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f0906b1);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090695);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090694);
         }
 
         public void c(int i) {
@@ -70,7 +70,7 @@ public class ConcernTipAdapter extends eo<eu6, ConcernTipViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, eu6.f);
+        super(context, is6.f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,18 +87,18 @@ public class ConcernTipAdapter extends eo<eu6, ConcernTipViewHolder> {
                 return;
             }
         }
-        i = mi.f(context, R.dimen.tbds102);
-        j = mi.f(context, R.dimen.tbds166);
+        i = li.f(context, R.dimen.tbds102);
+        j = li.f(context, R.dimen.tbds166);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: Z */
     public ConcernTipViewHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = View.inflate(viewGroup.getContext(), R.layout.obfuscated_res_0x7f0d01f8, null);
+            View inflate = View.inflate(viewGroup.getContext(), R.layout.obfuscated_res_0x7f0d01f2, null);
             SkinManager.setBackgroundColor(inflate, R.color.CAM_X0205);
             ConcernTipViewHolder concernTipViewHolder = new ConcernTipViewHolder(inflate);
             ViewGroup.LayoutParams u = u(viewGroup);
@@ -111,18 +111,18 @@ public class ConcernTipAdapter extends eo<eu6, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.eo
+    @Override // com.repackage.wm
     /* renamed from: a0 */
-    public View S(int i2, View view2, ViewGroup viewGroup, eu6 eu6Var, ConcernTipViewHolder concernTipViewHolder) {
+    public View S(int i2, View view2, ViewGroup viewGroup, is6 is6Var, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view2, viewGroup, eu6Var, concernTipViewHolder})) == null) {
-            concernTipViewHolder.a.setText(eu6Var.b);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view2, viewGroup, is6Var, concernTipViewHolder})) == null) {
+            concernTipViewHolder.a.setText(is6Var.b);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.a.getLayoutParams();
-            if (eu6Var.c) {
+            if (is6Var.c) {
                 layoutParams.height = j;
                 concernTipViewHolder.b.setVisibility(0);
-            } else if (eu6Var.d) {
+            } else if (is6Var.d) {
                 layoutParams.height = i;
             }
             concernTipViewHolder.a.setLayoutParams(layoutParams);

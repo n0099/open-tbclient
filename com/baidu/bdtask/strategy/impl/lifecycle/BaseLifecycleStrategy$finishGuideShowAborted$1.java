@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fs;
+import com.repackage.sq;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
@@ -49,7 +49,7 @@ public final class BaseLifecycleStrategy$finishGuideShowAborted$1 extends Lambda
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("showFinishGuide abort by ");
-            fs g = this.this$0.g(this.$subState);
+            sq g = this.this$0.g(this.$subState);
             sb.append(g != null ? g.e() : null);
             return sb.toString();
         }

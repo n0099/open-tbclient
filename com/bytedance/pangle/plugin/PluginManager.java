@@ -63,12 +63,12 @@ public class PluginManager {
         this.pluginInstaller = new b();
     }
 
-    private void ensurePluginFileExist(Plugin plugin2) {
+    private void ensurePluginFileExist(Plugin plugin) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, plugin2) == null) || plugin2 == null || !plugin2.isInstalled() || new File(PluginDirHelper.getSourceFile(plugin2.mPkgName, plugin2.getVersion())).exists()) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, plugin) == null) || plugin == null || !plugin.isInstalled() || new File(PluginDirHelper.getSourceFile(plugin.mPkgName, plugin.getVersion())).exists()) {
             return;
         }
-        deletePackage(plugin2.mPkgName);
+        deletePackage(plugin.mPkgName);
     }
 
     public static PluginManager getInstance() {
@@ -107,9 +107,9 @@ public class PluginManager {
                         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
                         for (String str2 : arrayList) {
                             try {
-                                Plugin plugin2 = new Plugin(new JSONObject(str2), this.mHandler);
-                                concurrentHashMap.put(plugin2.mPkgName, plugin2);
-                                ZeusLogger.i(ZeusLogger.TAG_INIT, "PluginManagerparsePluginsJson. find " + plugin2.mPkgName);
+                                Plugin plugin = new Plugin(new JSONObject(str2), this.mHandler);
+                                concurrentHashMap.put(plugin.mPkgName, plugin);
+                                ZeusLogger.i(ZeusLogger.TAG_INIT, "PluginManagerparsePluginsJson. find " + plugin.mPkgName);
                             } catch (JSONException e) {
                                 ZeusLogger.e(ZeusLogger.TAG_INIT, "PluginManager parsePluginsJson failed. " + str2.trim(), e);
                             }
@@ -138,9 +138,9 @@ public class PluginManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Plugin plugin2 = getPlugin(str);
-            ensurePluginFileExist(plugin2);
-            boolean z = plugin2 != null && plugin2.isInstalled();
+            Plugin plugin = getPlugin(str);
+            ensurePluginFileExist(plugin);
+            boolean z = plugin != null && plugin.isInstalled();
             ZeusLogger.d(ZeusLogger.TAG_PPM, "PluginManager checkPluginInstalled, " + str + " = " + z);
             return z;
         }
@@ -181,12 +181,12 @@ public class PluginManager {
             if (!this.mIsParsePluginConfig) {
                 parsePluginConfig();
             }
-            Plugin plugin2 = this.mPlugins.get(str);
-            if (!z || plugin2 == null) {
+            Plugin plugin = this.mPlugins.get(str);
+            if (!z || plugin == null) {
                 return null;
             }
-            plugin2.init();
-            return plugin2;
+            plugin.init();
+            return plugin;
         }
         return (Plugin) invokeLZ.objValue;
     }
@@ -198,8 +198,8 @@ public class PluginManager {
             if (!this.mIsParsePluginConfig) {
                 parsePluginConfig();
             }
-            for (Plugin plugin2 : this.mPlugins.values()) {
-                plugin2.init();
+            for (Plugin plugin : this.mPlugins.values()) {
+                plugin.init();
             }
             return new ArrayList(this.mPlugins.values());
         }
@@ -220,8 +220,8 @@ public class PluginManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            Plugin plugin2 = getPlugin(str);
-            return plugin2 != null && plugin2.isLoaded();
+            Plugin plugin = getPlugin(str);
+            return plugin != null && plugin.isLoaded();
         }
         return invokeL.booleanValue;
     }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.q07;
+import com.repackage.uy6;
 import com.squareup.wire.Wire;
 import tbclient.ActivityPage.ActivityPageResIdl;
 import tbclient.Error;
@@ -15,7 +15,7 @@ import tbclient.Error;
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q07 tabFeedData;
+    public uy6 tabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -52,9 +52,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
                 setErrorString(activityPageResIdl.error.usermsg);
             }
             if (getError() == 0 && activityPageResIdl.data != null) {
-                q07 q07Var = new q07();
-                this.tabFeedData = q07Var;
-                q07Var.j(activityPageResIdl.data);
+                uy6 uy6Var = new uy6();
+                this.tabFeedData = uy6Var;
+                uy6Var.j(activityPageResIdl.data);
             }
         }
     }

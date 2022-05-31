@@ -1,19 +1,19 @@
 package com.repackage;
 
-import android.util.Pair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
+import com.baidu.ugc.editvideo.record.source.IDataSourceView;
+import com.repackage.s69;
 /* loaded from: classes7.dex */
-public class x69 {
+public class x69 implements IDataSourceView.IPlayerDataSourceView, s69.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) || y69.c().g() == null) {
-            return;
-        }
-        y69.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
-    }
+    public abstract void c();
+
+    public abstract void d(float f);
+
+    public abstract void e(int i);
+
+    public abstract void f();
 }

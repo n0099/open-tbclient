@@ -1,41 +1,22 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class o84 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface o84 {
 
-    @NonNull
-    @SuppressLint({"LambdaLast"})
-    public static Bundle a(@NonNull l84 l84Var, @Nullable Bundle bundle, String... strArr) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, l84Var, bundle, strArr)) == null) {
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            if (bundle.getLong("timestamp", -1L) < 0) {
-                bundle.putLong("timestamp", System.currentTimeMillis());
-            }
-            return l84Var.m(bundle, new HashSet(Arrays.asList(strArr)));
-        }
-        return (Bundle) invokeLLL.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, String str2, JSONObject jSONObject);
+
+        void b(String str, int i);
+
+        void onFail(Exception exc);
+
+        void onStart();
     }
 
-    @NonNull
-    @SuppressLint({"LambdaLast"})
-    public static Bundle b(@NonNull l84 l84Var, @NonNull String... strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, l84Var, strArr)) == null) ? a(l84Var, null, strArr) : (Bundle) invokeLL.objValue;
-    }
+    void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, a aVar);
+
+    void j(String str, Map<String, String> map, Map<String, String> map2, a aVar);
 }

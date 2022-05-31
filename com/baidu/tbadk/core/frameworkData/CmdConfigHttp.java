@@ -303,6 +303,7 @@ public class CmdConfigHttp {
     public static final int CMD_UEG_CANCEL = 1003414;
     public static final int CMD_UEG_REPORT = 1003402;
     public static final int CMD_UPLOAD_COLLECT_EMOTION_INFO = 1003339;
+    public static final int CMD_UPLOAD_DIY_EMOTION_INFO = 1003532;
     public static final int CMD_UPLOAD_DOWNLOAD_INFO = 1003513;
     public static final int CMD_UPLOAD_FACE_GROUP = 1003345;
     public static final int CMD_URL_PARSER_MESSAGE = 1003476;
@@ -340,7 +341,6 @@ public class CmdConfigHttp {
     public static final int FRS_MANGA_TAB_CMD = 1001711;
     public static final int FRS_MEMBER_TAB_CMD = 1001706;
     public static final int GETPAYINFO_CMD = 1001505;
-    public static final int GET_GIFT_LIST = 1001509;
     public static final int GET_PRIVATE_INFO_CMD = 1002501;
     public static final int JUMP_TO_NEW_GUIDE_HTTP_CMD = 1001520;
     public static final int LOGIN_HTTP_BASE_CMD = 1001100;
@@ -370,7 +370,6 @@ public class CmdConfigHttp {
     public static final int REPORT_USER_INFO = 1001522;
     public static final int REQUEST_BUBBLELIST_CMD = 1001500;
     public static final int SEARCH_FRIEND_CMD = 1001521;
-    public static final int SEND_GIFT = 1001510;
     public static final int SET_BUBBLE_CMD = 1001501;
     public static final int SET_PRIVATE_CMD = 1001506;
     public static final int SHARE_GET_FORUM_PROFIX_HTTP_CMD = 1002701;

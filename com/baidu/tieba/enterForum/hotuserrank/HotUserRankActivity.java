@@ -17,12 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iu4;
-import com.repackage.k56;
-import com.repackage.kg;
-import com.repackage.l56;
-import com.repackage.m56;
-import com.repackage.ng;
+import com.repackage.jg;
+import com.repackage.mg;
+import com.repackage.w36;
+import com.repackage.x36;
+import com.repackage.y36;
+import com.repackage.ys4;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -39,10 +39,10 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     public String mInputCategory;
     public int mJumpPosition;
     public Runnable mLoadDataRunnable;
-    public m56 mModel;
-    public m56.b mOnDataResListener;
+    public y36 mModel;
+    public y36.b mOnDataResListener;
     public String mRuleUrl;
-    public List<l56> mTabDataList;
+    public List<x36> mTabDataList;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -111,7 +111,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements m56.b {
+    public class c implements y36.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotUserRankActivity a;
@@ -134,43 +134,43 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             this.a = hotUserRankActivity;
         }
 
-        @Override // com.repackage.m56.b
-        public void a(k56 k56Var) {
+        @Override // com.repackage.y36.b
+        public void a(w36 w36Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, k56Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, w36Var) == null) {
                 HotUserRankActivity hotUserRankActivity = this.a;
                 hotUserRankActivity.hideLoadingView(hotUserRankActivity.mHotUserRankView.i());
-                if (k56Var == null || k56Var.a == null) {
+                if (w36Var == null || w36Var.a == null) {
                     return;
                 }
-                this.a.mRuleUrl = k56Var.d;
+                this.a.mRuleUrl = w36Var.d;
                 if (this.a.mForumId > 0) {
-                    ng.a().post(this.a.mLoadDataRunnable);
+                    mg.a().post(this.a.mLoadDataRunnable);
                     return;
                 }
-                TiebaFieldsInfo tiebaFieldsInfo = k56Var.a.f;
+                TiebaFieldsInfo tiebaFieldsInfo = w36Var.a.f;
                 if (tiebaFieldsInfo != null && !ListUtils.isEmpty(tiebaFieldsInfo.tieba_fields)) {
-                    List<String> list = k56Var.a.f.tieba_fields;
+                    List<String> list = w36Var.a.f.tieba_fields;
                     this.a.mTabDataList.clear();
                     for (int i = 0; i < list.size(); i++) {
                         String str = list.get(i);
                         if (str != null && str.equals(this.a.mInputCategory)) {
                             this.a.mJumpPosition = i;
                         }
-                        l56 l56Var = new l56();
-                        l56Var.b = str;
-                        l56Var.a = str;
-                        this.a.mTabDataList.add(l56Var);
+                        x36 x36Var = new x36();
+                        x36Var.b = str;
+                        x36Var.a = str;
+                        this.a.mTabDataList.add(x36Var);
                     }
-                    ng.a().post(this.a.mLoadDataRunnable);
+                    mg.a().post(this.a.mLoadDataRunnable);
                     return;
                 }
                 HotUserRankActivity hotUserRankActivity2 = this.a;
-                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c2d), true);
+                hotUserRankActivity2.showNetRefreshView(hotUserRankActivity2.mHotUserRankView.i(), this.a.getString(R.string.obfuscated_res_0x7f0f0c33), true);
             }
         }
 
-        @Override // com.repackage.m56.b
+        @Override // com.repackage.y36.b
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -205,7 +205,7 @@ public class HotUserRankActivity extends BaseFragmentActivity {
     private void checkShowUpdateTip() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            long m = iu4.k().m("key_hot_user_rank_last_update_time", 0L);
+            long m = ys4.k().m("key_hot_user_rank_last_update_time", 0L);
             Calendar calendar = Calendar.getInstance();
             calendar.set(11, 6);
             calendar.set(13, 0);
@@ -219,8 +219,8 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             }
             if (z) {
                 this.mHotUserRankView.o(0);
-                ng.a().postDelayed(this.mHideUpdateTipRunnable, 5000L);
-                iu4.k().x("key_hot_user_rank_last_update_time", currentTimeMillis);
+                mg.a().postDelayed(this.mHideUpdateTipRunnable, 5000L);
+                ys4.k().x("key_hot_user_rank_last_update_time", currentTimeMillis);
             }
         }
     }
@@ -237,13 +237,13 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             String queryParameter = uri.getQueryParameter(Info.kBaiduModuleKey);
             this.mInputCategory = queryParameter;
             if (TextUtils.isEmpty(queryParameter)) {
-                this.mForumId = kg.g(uri.getQueryParameter("fid"), -1L);
+                this.mForumId = jg.g(uri.getQueryParameter("fid"), -1L);
             }
         }
         this.isGod = getIntent().getBooleanExtra(HotUserRankActivityConfig.KEY_IS_GOD, false);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.m85
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -266,19 +266,19 @@ public class HotUserRankActivity extends BaseFragmentActivity {
             HotUserRankView hotUserRankView = new HotUserRankView(this);
             this.mHotUserRankView = hotUserRankView;
             setContentView(hotUserRankView.i());
-            m56 m56Var = new m56(getUniqueId());
-            this.mModel = m56Var;
-            m56Var.n(this.mOnDataResListener);
+            y36 y36Var = new y36(getUniqueId());
+            this.mModel = y36Var;
+            y36Var.n(this.mOnDataResListener);
             parseIntent();
             if (!TextUtils.isEmpty(this.mInputCategory)) {
                 this.mModel.i(this.mInputCategory);
             } else if (this.mForumId > 0) {
-                this.mHotUserRankView.n(getString(R.string.obfuscated_res_0x7f0f0670));
+                this.mHotUserRankView.n(getString(R.string.obfuscated_res_0x7f0f0677));
                 this.mModel.h(this.mForumId);
             }
             this.mHotUserRankView.m(this.isGod);
             if (this.isGod) {
-                this.mHotUserRankView.n(getString(R.string.obfuscated_res_0x7f0f0266));
+                this.mHotUserRankView.n(getString(R.string.obfuscated_res_0x7f0f0267));
             }
             showLoadingView(this.mHotUserRankView.i());
         }
@@ -289,8 +289,8 @@ public class HotUserRankActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            ng.a().removeCallbacks(this.mLoadDataRunnable);
-            ng.a().removeCallbacks(this.mHideUpdateTipRunnable);
+            mg.a().removeCallbacks(this.mLoadDataRunnable);
+            mg.a().removeCallbacks(this.mHideUpdateTipRunnable);
             this.mModel.k();
             this.mHotUserRankView.k();
         }

@@ -1,25 +1,26 @@
 package com.repackage;
 
-import android.content.Context;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.widget.ProgressBar;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.win.opensdk.activitys.H5OpenActivity;
 /* loaded from: classes5.dex */
-public final class al9 extends Thread {
+public class al9 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final kl9 b;
-    public volatile boolean c;
+    public final /* synthetic */ H5OpenActivity a;
 
-    public al9(Context context, kl9 kl9Var) {
+    public al9(H5OpenActivity h5OpenActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, kl9Var};
+            Object[] objArr = {h5OpenActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,31 +30,30 @@ public final class al9 extends Thread {
                 return;
             }
         }
-        this.a = context;
-        this.b = kl9Var;
+        this.a = h5OpenActivity;
     }
 
-    public final void a() {
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = true;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
+            ProgressBar progressBar = this.a.c;
+            if (progressBar != null) {
+                progressBar.setVisibility(0);
+                this.a.c.setProgress(i);
+                if (i == 100) {
+                    this.a.c.setVisibility(8);
+                }
+            }
+            super.onProgressChanged(webView, i);
         }
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public final void run() {
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            while (!this.c) {
-                if (dl9.d().h(this.a)) {
-                    this.b.a(com.google.ar.core.p.c);
-                    return;
-                }
-                try {
-                    Thread.sleep(200L);
-                } catch (InterruptedException unused) {
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
+            super.onReceivedTitle(webView, str);
         }
     }
 }

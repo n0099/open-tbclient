@@ -82,7 +82,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         this.a = "%s秒后进入试玩页";
         this.u = false;
         this.t = aVar == null ? new a() : aVar;
-        FrameLayout.inflate(context, this.t.b() ? R.layout.obfuscated_res_0x7f0d0438 : R.layout.obfuscated_res_0x7f0d0437, this);
+        FrameLayout.inflate(context, this.t.b() ? R.layout.obfuscated_res_0x7f0d042e : R.layout.obfuscated_res_0x7f0d042d, this);
         c(this.t.a);
     }
 
@@ -152,24 +152,24 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
 
     private void c(boolean z) {
         setClickable(true);
-        this.c = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f0910aa);
-        this.b = findViewById(R.id.obfuscated_res_0x7f0910a5);
-        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091177);
-        this.d = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091028);
-        this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ad);
-        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0910ab);
-        this.f = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0910a4);
-        this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09101e);
-        this.k = findViewById(R.id.obfuscated_res_0x7f0910a1);
+        this.c = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09106c);
+        this.b = findViewById(R.id.obfuscated_res_0x7f091067);
+        this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091139);
+        this.d = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f090fea);
+        this.g = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09106f);
+        this.h = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09106d);
+        this.f = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091066);
+        this.i = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090fe0);
+        this.k = findViewById(R.id.obfuscated_res_0x7f091063);
         this.f.setTextDimen(bb.a(getContext(), 10.0f));
         this.f.setTextColor(-1);
-        this.j = (CompoundButton) findViewById(R.id.obfuscated_res_0x7f0910a7);
-        this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a2);
-        this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910a6);
-        this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a8);
-        this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f0910a3);
-        this.q = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09103c);
-        this.l = findViewById(R.id.obfuscated_res_0x7f091021);
+        this.j = (CompoundButton) findViewById(R.id.obfuscated_res_0x7f091069);
+        this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091064);
+        this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091068);
+        this.o = (TextView) findViewById(R.id.obfuscated_res_0x7f09106a);
+        this.p = (TextView) findViewById(R.id.obfuscated_res_0x7f091065);
+        this.q = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f090ffe);
+        this.l = findViewById(R.id.obfuscated_res_0x7f090fe3);
         new f(this, this);
         new f(this.e, this);
         new f(this.f, this);
@@ -180,7 +180,7 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         new f(this.l, this);
         new f(this.i, this);
         this.j.setOnCheckedChangeListener(this);
-        this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f0910ac);
+        this.r = (TextView) findViewById(R.id.obfuscated_res_0x7f09106e);
         a(this.c, z);
     }
 
@@ -212,13 +212,13 @@ public class b extends KSFrameLayout implements CompoundButton.OnCheckedChangeLi
         String at;
         if (com.kwad.sdk.core.response.a.a.B(adInfo)) {
             this.n.setVisibility(0);
-            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080bba);
+            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080bcb);
             KSImageLoader.loadWithRadius(this.n, com.kwad.sdk.core.response.a.a.au(adInfo), adTemplate, 4);
             textView = this.o;
             at = com.kwad.sdk.core.response.a.a.t(adInfo);
         } else {
             this.n.setVisibility(0);
-            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080bba);
+            this.n.setImageResource(R.drawable.obfuscated_res_0x7f080bcb);
             KSImageLoader.loadWithRadius(this.n, com.kwad.sdk.core.response.a.d.o(adTemplate), adTemplate, 4);
             textView = this.o;
             at = com.kwad.sdk.core.response.a.a.at(adInfo);

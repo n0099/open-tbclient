@@ -1,19 +1,16 @@
 package com.repackage;
 
-import android.content.ContentValues;
-import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class w84 extends s84<r94> {
+public class w84 extends u84<h94> implements d94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile h94 b;
 
     public w84() {
         Interceptable interceptable = $ic;
@@ -29,56 +26,114 @@ public class w84 extends s84<r94> {
         }
     }
 
-    @Override // com.repackage.s84
-    public List<r94> e(Cursor cursor) {
-        InterceptResult invokeL;
+    @Override // com.repackage.d94
+    public <T> void a(h94<T> h94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048576, this, h94Var) == null) {
+            this.b = h94Var;
+        }
+    }
+
+    @Override // com.repackage.d94
+    public <T> void b(h94<T> h94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h94Var) == null) {
+            if (this.b == h94Var) {
+                this.b = null;
             }
-            do {
-                r94 r94Var = new r94();
-                if (b(cursor, r94Var)) {
-                    arrayList.add(r94Var);
+            k(h94Var);
+        }
+    }
+
+    public synchronized h94 g() {
+        InterceptResult invokeV;
+        h94 h94Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                h94Var = (h94) super.c();
+            }
+            return h94Var;
+        }
+        return (h94) invokeV.objValue;
+    }
+
+    public synchronized void h(h94 h94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, h94Var) == null) {
+            synchronized (this) {
+                if (h94Var == null) {
+                    return;
                 }
-            } while (cursor.moveToNext());
-            return arrayList;
+                if (this.b != null && this.b.d(h94Var)) {
+                    h94Var.e().f(h94Var.f());
+                    return;
+                }
+                h94 e = e(h94Var);
+                if (e != null) {
+                    h94Var.e().f(h94Var.f());
+                    if (h94Var.g() <= e.g()) {
+                        return;
+                    }
+                }
+                int g = h94Var.g();
+                if (g != 200) {
+                    if (g == 300) {
+                        j(h94Var);
+                        if (e != null) {
+                            this.a.remove(e);
+                            this.a.add(0, e);
+                        } else {
+                            this.a.add(0, h94Var);
+                        }
+                    } else if (e == null) {
+                        this.a.add(h94Var);
+                    }
+                } else if (e != null) {
+                    this.a.remove(e);
+                    this.a.add(0, e);
+                } else {
+                    this.a.add(0, h94Var);
+                }
+                notifyAll();
+            }
         }
-        return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.s84
-    /* renamed from: f */
-    public ContentValues c(r94 r94Var) {
-        InterceptResult invokeL;
+    public synchronized h94 i() {
+        InterceptResult invokeV;
+        h94 h94Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, r94Var)) == null) {
-            ContentValues a = super.a(r94Var);
-            a.put("pkg_type", Integer.valueOf(r94Var.o));
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                h94Var = (h94) super.d();
+            }
+            return h94Var;
         }
-        return (ContentValues) invokeL.objValue;
+        return (h94) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.s84
-    /* renamed from: g */
-    public r94 d(Cursor cursor) {
-        InterceptResult invokeL;
+    public final void j(h94 h94Var) {
+        h94 h94Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
-                return null;
-            }
-            r94 r94Var = new r94();
-            if (b(cursor, r94Var)) {
-                return r94Var;
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, h94Var) == null) || h94Var.g() != 300 || (h94Var2 = this.b) == null || h94Var2.g() == 300) {
+            return;
         }
-        return (r94) invokeL.objValue;
+        h94Var2.o();
+        for (int i = 0; i < 500 && this.b != null; i++) {
+            try {
+                Thread.sleep(10L);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void k(h94 h94Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, h94Var) == null) && h94Var.k()) {
+            h94Var.r(true);
+            this.a.add(0, h94Var);
+        }
     }
 }

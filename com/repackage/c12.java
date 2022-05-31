@@ -1,29 +1,29 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class c12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public z02 a;
 
     /* loaded from: classes5.dex */
-    public class a implements SwanAppNetworkUtils.b {
+    public class a implements z62 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
+        public final /* synthetic */ z62 a;
 
-        public a(c12 c12Var, b bVar) {
+        public a(c12 c12Var, z62 z62Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c12Var, bVar};
+                Object[] objArr = {c12Var, z62Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -33,29 +33,18 @@ public class c12 {
                     return;
                 }
             }
-            this.a = bVar;
+            this.a = z62Var;
         }
 
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
+        @Override // com.repackage.z62
+        public void a(p62 p62Var) {
+            z62 z62Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 1) {
-                    this.a.a(NetworkStatus.NETWORK_GOOD);
-                } else if (i == 2) {
-                    this.a.a(NetworkStatus.NETWORK_BAD);
-                } else if (i != 3) {
-                    this.a.a(NetworkStatus.NETWORK_UNKNOWN);
-                } else {
-                    this.a.a(NetworkStatus.NETWORK_OFFLINE);
-                }
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, p62Var) == null) || (z62Var = this.a) == null) {
+                return;
             }
+            z62Var.a(p62Var);
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(NetworkStatus networkStatus);
     }
 
     public c12() {
@@ -68,15 +57,41 @@ public class c12 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new z02(ow1.d().getPath(), ow1.b);
     }
 
-    public void a(@NonNull b bVar) {
+    public p62 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            z02 z02Var = this.a;
+            if (z02Var != null) {
+                return z02Var.d();
+            }
+            return null;
+        }
+        return (p62) invokeV.objValue;
+    }
+
+    public void b() {
+        z02 z02Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (z02Var = this.a) == null) {
             return;
         }
-        SwanAppNetworkUtils.b(new a(this, bVar));
+        z02Var.e();
+        this.a = null;
+    }
+
+    public void c(z62 z62Var) {
+        z02 z02Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z62Var) == null) || (z02Var = this.a) == null) {
+            return;
+        }
+        z02Var.f(new a(this, z62Var));
     }
 }

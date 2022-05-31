@@ -1,203 +1,122 @@
 package com.repackage;
 
-import android.util.LongSparseArray;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import androidx.annotation.RequiresApi;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import androidx.collection.LongSparseArray;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
-import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedActivity;
-import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
+import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.v67;
-import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes7.dex */
-public class z47 extends BaseAdapter {
+public class z47 extends ua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<OfficialBarFeedActivity> a;
-    public List<w67> b;
-    public LongSparseArray<i67> c;
-    public OfficialBarFeedMsglistAdapter.c d;
-    public BdTypeListView e;
-    public boolean f;
 
-    /* loaded from: classes7.dex */
-    public class a extends MsgCommonItemAdapter.MsgViewHolder<v47> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(z47 z47Var, View view2, v47 v47Var) {
-            super(view2, v47Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z47Var, view2, v47Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((View) objArr2[0], objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    public z47(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, OfficialBarFeedMsglistAdapter.c cVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z47() {
+        super(202003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.c = null;
-        this.a = tbPageContext;
-        this.d = cVar;
-        this.e = bdTypeListView;
+    }
+
+    public final void c(GroupMsgData groupMsgData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) || groupMsgData == null || groupMsgData.getGroupInfo() == null) {
+            return;
+        }
+        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public w67 getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.repackage.ra
+    /* renamed from: d */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<w67> list = this.b;
-            if (list == null || list.size() == 0 || i < 0 || i >= getCount()) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
+            MessageSyncMessage messageSyncMessage = null;
+            if (socketResponsedMessage instanceof ResponsePullMessage) {
+                if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                    messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
+                }
+                if (messageSyncMessage != null) {
+                    ns4.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), IMTrackDatabase.AckEnum.TABLE_NAME, socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
+                }
+                if (socketResponsedMessage.getError() == 110000) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
+                }
+                ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
+                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+                if (groupMsg != null && groupMsg.size() > 0) {
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                            c(groupMsgData);
+                        }
+                    }
+                }
+                if (!e(responsePullMessage)) {
+                    x47.l().n();
+                }
+                return socketResponsedMessage;
             }
-            return this.b.get(i);
+            return null;
         }
-        return (w67) invokeI.objValue;
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 
-    public final View b(int i, View view2, ViewGroup viewGroup, w67 w67Var, MsgCommonItemAdapter.MsgViewHolder<v47> msgViewHolder) {
-        InterceptResult invokeCommon;
+    public final boolean e(ResponsePullMessage responsePullMessage) {
+        InterceptResult invokeL;
+        Long l;
+        Long l2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w67Var, msgViewHolder})) == null) {
-            v47 c = msgViewHolder.c();
-            v67.a d = w67Var.d();
-            d.m = w67Var.b();
-            LongSparseArray<i67> longSparseArray = this.c;
-            c.l(this.a.getPageActivity().getBaseContext(), d, w67Var.c(), longSparseArray == null ? null : longSparseArray.get(d.h), w67Var.e(), w67Var.g(), i);
-            StatisticItem statisticItem = new StatisticItem(this.f ? "c13865" : "c13863");
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            String str = d.n;
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
+            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
+                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
+                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
+                    return false;
+                }
+                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
+                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
+                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
+                    LongSparseArray<Long> r = q47.o().r();
+                    boolean z = false;
+                    for (GroupMsgData groupMsgData : groupMsg) {
+                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && r47.a(groupMsgData.getGroupInfo().getCustomType()) && (l = r.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
+                            if (l.longValue() > l2.longValue()) {
+                                z = true;
+                            }
+                            if (groupMsgData.hasMore()) {
+                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
+                            }
+                        }
+                    }
+                    if (z && longSparseArray.size() > 0) {
+                        x47.l().r(longSparseArray);
+                        return true;
+                    }
+                }
             }
-            statisticItem.param("tid", str);
-            statisticItem.param("fid", d.e);
-            TiebaStatic.log(statisticItem);
-            return view2;
+            return false;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public void c(List<w67> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            if (this.b == null) {
-                this.b = new LinkedList();
-            }
-            this.b.clear();
-            this.b.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    @RequiresApi(api = 16)
-    public void e(LongSparseArray<i67> longSparseArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, longSparseArray) == null) {
-            if (this.c == null) {
-                this.c = new LongSparseArray<>();
-            }
-            this.c.clear();
-            for (int i = 0; i < longSparseArray.size(); i++) {
-                this.c.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
-            }
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<w67> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            a aVar2 = view2 != null ? (a) view2.getTag() : null;
-            if (aVar2 == null) {
-                v47 v47Var = new v47(this.a, this.f);
-                v47Var.m(this.d);
-                View g = v47Var.g();
-                a aVar3 = new a(this, v47Var.g(), v47Var);
-                g.setTag(aVar3);
-                view2 = g;
-                aVar = aVar3;
-            } else {
-                aVar = aVar2;
-            }
-            b(i, view2, viewGroup, getItem(i), aVar);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return invokeL.booleanValue;
     }
 }

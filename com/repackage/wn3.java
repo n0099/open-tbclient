@@ -1,33 +1,20 @@
 package com.repackage;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class wn3 implements xn3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wn3 {
+    void a(String str, JSONObject jSONObject);
 
-    public wn3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean b();
 
-    @Override // com.repackage.xn3
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-        }
-    }
+    boolean c(View view2);
+
+    boolean d(View view2, qm3 qm3Var);
+
+    void e();
+
+    boolean f(View view2, qm3 qm3Var);
+
+    boolean removeView(View view2);
 }

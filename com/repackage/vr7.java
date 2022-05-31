@@ -1,84 +1,45 @@
 package com.repackage;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class vr7 {
+public class vr7 extends ur7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public TextView c;
-    public TextView d;
-    public ImageView e;
 
-    public vr7(View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vr7(ne5 ne5Var) {
+        super(ne5Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
+            Object[] objArr = {ne5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ne5) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = view2;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09063b);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090638);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090639);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09063a);
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.a, R.drawable.bg_rec_lick);
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_rec_comment);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0110, 1);
-            SkinManager.setImageResource(this.e, R.drawable.recommend_pb_share_selector);
-        }
-    }
-
-    public void b(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.d.setText(str);
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.e.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a.setVisibility(z ? 0 : 8);
-        }
+        o(TbConfig.getContentLineSpace(), 1.0f);
+        i(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
+        y(0);
+        l(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        m(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
+        r(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32), li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44));
+        f(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
+        s(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32));
+        u(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds38));
+        j(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
+        h(li.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
     }
 }

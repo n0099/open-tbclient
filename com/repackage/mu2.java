@@ -1,282 +1,128 @@
 package com.repackage;
 
-import android.os.Looper;
-import android.os.MessageQueue;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class mu2 implements yl2 {
+public class mu2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public boolean d;
-    public List<Runnable> e;
-    public qv2 f;
 
-    /* loaded from: classes6.dex */
-    public class a implements qv2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mu2 c;
-
-        public a(mu2 mu2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755486873, "Lcom/repackage/mu2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mu2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = mu2Var;
-        }
-
-        @Override // com.repackage.qv2
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.repackage.qv2
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.c = false;
-                this.c.k();
-                this.c.d = false;
-            }
-        }
-
-        @Override // com.repackage.qv2
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-            }
-        }
-
-        @Override // com.repackage.qv2
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.c.c = false;
-                this.c.k();
-                this.c.o();
-            }
-        }
-
-        @Override // com.repackage.qv2
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.c.c = true;
-                this.c.n();
-                this.c.p();
-            }
-        }
-
-        @Override // com.repackage.qv2
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "IdleHandler" : (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mu2 a;
-
-        public b(mu2 mu2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mu2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mu2Var;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.c) {
-                    this.a.l();
-                } else {
-                    this.a.k();
-                }
-                return this.a.c;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final mu2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-173430904, "Lcom/repackage/mu2$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-173430904, "Lcom/repackage/mu2$c;");
-                    return;
-                }
-            }
-            a = new mu2(null);
-        }
-    }
-
-    public /* synthetic */ mu2(a aVar) {
-        this();
-    }
-
-    public static mu2 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? c.a : (mu2) invokeV.objValue;
-    }
-
-    public boolean i(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            if (runnable == null) {
-                return false;
-            }
-            if (this.c) {
-                this.e.add(runnable);
-                return true;
-            }
-            oe3.a0(runnable);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.e.isEmpty()) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        for (Runnable runnable : this.e) {
-            t03.L().post(runnable);
-        }
-        if (yl2.a) {
-            long currentTimeMillis2 = System.currentTimeMillis();
-            Log.d("SwanPerformance", "idle handle all, cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; thread num = " + this.e.size());
-        }
-        this.e.clear();
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e.isEmpty()) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        Runnable remove = this.e.remove(0);
-        if (remove != null) {
-            t03.L().post(remove);
-        }
-        if (yl2.a) {
-            long currentTimeMillis2 = System.currentTimeMillis();
-            Log.d("SwanPerformance", "idle handle one, cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; thread num = " + this.e.size());
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ov2.g().i(this.f, 5000);
-            this.c = true;
-            p();
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Looper.getMainLooper();
-            Looper.myQueue().addIdleHandler(new b(this));
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.d) {
-            this.d = false;
-            bk2.p0().c();
-            if (yl2.a) {
-                Log.d("SwanPerformance", "YaLog notify");
-            }
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.d) {
-            return;
-        }
-        this.d = true;
-        bk2.p0().b(3000);
-        if (yl2.a) {
-            Log.d("SwanPerformance", "YaLog block time = 3000");
-        }
-    }
-
-    public mu2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755486873, "Lcom/repackage/mu2;");
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
-        this.e = new CopyOnWriteArrayList();
-        this.f = new a(this);
+        a = rf1.a;
+    }
+
+    public static void a(SwanAppConfigData swanAppConfigData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, swanAppConfigData) == null) || swanAppConfigData == null) {
+            return;
+        }
+        List<bv2> e = swanAppConfigData.e();
+        if (e != null && !e.isEmpty()) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            b(e, jSONObject, jSONObject2);
+            if (w92.k()) {
+                boolean z = false;
+                for (bv2 bv2Var : e) {
+                    String h = w92.h(bv2Var.a);
+                    if (!TextUtils.isEmpty(h) && new File(h).exists()) {
+                        bv2Var.e = h;
+                        c(jSONObject, jSONObject2, bv2Var);
+                        z = true;
+                        hw1.i("Module-Plugin", "use debug dependencies，name=" + bv2Var.a + " path=" + bv2Var.e);
+                    } else {
+                        hw1.o("Module-Plugin", "debug dependencies not exist，name=" + bv2Var.a + " path=" + bv2Var.e);
+                    }
+                }
+                if (!z) {
+                    zy2.g(AppRuntime.getAppContext(), "no debug dependency").G();
+                    hw1.c("Module-Plugin", "no debug dependency");
+                }
+            }
+            String jSONObject3 = jSONObject.toString();
+            String jSONObject4 = jSONObject2.toString();
+            fv2.c("dependenciesPath", jSONObject3);
+            fv2.c("dependenciesConfig", jSONObject4);
+            return;
+        }
+        fv2.c("dependenciesPath", null);
+        fv2.c("dependenciesConfig", null);
+        if (a) {
+            zu2.b("this swan app not apply on someone dynamic lib");
+        }
+    }
+
+    public static void b(@NonNull List<bv2> list, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, list, jSONObject, jSONObject2) == null) || list.isEmpty()) {
+            return;
+        }
+        for (bv2 bv2Var : list) {
+            if (bv2Var != null) {
+                if (bv2Var.g) {
+                    c(jSONObject, jSONObject2, bv2Var);
+                } else {
+                    g84 q = c74.i().q(bv2Var.a, bv2Var.h, bv2Var.i);
+                    if (q == null) {
+                        zu2.a(Log.getStackTraceString(new Throwable(bv2Var.a + " query db fail")));
+                    } else {
+                        File t = di2.t(bv2Var.a, String.valueOf(q.i));
+                        if (t != null && t.exists()) {
+                            bv2Var.e = t.getAbsolutePath();
+                            c(jSONObject, jSONObject2, bv2Var);
+                        } else {
+                            zu2.a(Log.getStackTraceString(new Throwable(bv2Var.a + " local file not exist")));
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void c(@NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull bv2 bv2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, jSONObject, jSONObject2, bv2Var) == null) {
+            String str = bv2Var.e;
+            String str2 = bv2Var.f;
+            if (a) {
+                zu2.b("apply dep path, name = " + bv2Var.a + "; inline = " + bv2Var.g + "; path = " + str + "; config = " + str2);
+            }
+            if (TextUtils.isEmpty(str)) {
+                zu2.b(Log.getStackTraceString(new Throwable(bv2Var.a + " path is empty")));
+                return;
+            }
+            hc3.f(jSONObject, bv2Var.a, str);
+            if (TextUtils.isEmpty(bv2Var.f)) {
+                return;
+            }
+            File file = new File(str, str2);
+            if (file.exists() && file.isFile()) {
+                hc3.f(jSONObject2, bv2Var.a, hc3.d(kf4.E(file)));
+            }
+        }
     }
 }

@@ -1,226 +1,190 @@
 package com.repackage;
 
-import android.view.View;
+import android.content.Context;
+import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.mobstat.Config;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
-import com.baidu.tieba.R;
-import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.turbonet.net.OkHttp3Interceptor;
+import com.baidu.turbonet.net.TurbonetConfig;
+import com.baidu.turbonet.net.TurbonetContext;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
 /* loaded from: classes7.dex */
-public class x48 extends r48 implements ol7, o48 {
+public class x48 {
     public static /* synthetic */ Interceptable $ic;
+    public static OkHttpClient a;
+    public static TurbonetContext b;
+    public static long c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext b;
-    public long c;
-    public boolean d;
-    public BdUniqueId e;
-    public t48 f;
-    public r68 g;
-    public PersonPolymericModel h;
-    public s48 i;
-    public BaseFragmentActivity j;
-    public View k;
-    public PersonPostModel l;
-    public int m;
-    public List<j18> n;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x48(BaseFragment baseFragment, t48 t48Var, BdUniqueId bdUniqueId, long j, boolean z) {
-        super(z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, t48Var, bdUniqueId, Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = true;
-        this.m = 3;
-        BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
-        this.j = baseFragmentActivity;
-        this.b = baseFragmentActivity.getPageContext();
-        this.c = j;
-        this.f = t48Var;
-        this.e = bdUniqueId;
-        this.k = t48Var.e;
-        this.l = new PersonPostModel(this.b, bdUniqueId, null, this.a, PersonPostModel.FROM_PERSON_POLYMERIC);
-        r68 r68Var = new r68(baseFragment, t48Var, bdUniqueId, z, this.c);
-        this.g = r68Var;
-        r68Var.W(this);
-        g();
-        this.h = this.f.r();
-        this.i = this.f.l();
-        ArrayList arrayList = new ArrayList(2);
-        this.n = arrayList;
-        arrayList.add(new j18());
-        this.n.add(new j18());
-    }
-
-    @Override // com.repackage.ol7
-    public void a() {
-        t48 t48Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (t48Var = this.f) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755221451, "Lcom/repackage/x48;")) == null) {
             return;
         }
-        t48Var.a();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755221451, "Lcom/repackage/x48;");
+        }
     }
 
-    @Override // com.repackage.o48
-    public r68 b() {
+    public static OkHttpClient a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (r68) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            b = g();
+            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(b);
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
+            return builder.build();
+        }
+        return (OkHttpClient) invokeV.objValue;
     }
 
-    @Override // com.repackage.o48
-    public void d(String str) {
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String b() {
+        InterceptResult invokeV;
+        String path;
+        boolean equalsIgnoreCase;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
+            return (String) invokeV.objValue;
+        }
+        Context context = TbadkCoreApplication.getInst().getContext();
+        try {
+            String externalStorageState = Environment.getExternalStorageState();
+            equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
+            z = (equalsIgnoreCase || Environment.isExternalStorageRemovable() || externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) ? false : true;
+        } catch (Exception unused) {
+            File cacheDir = context.getCacheDir();
+            if (cacheDir == null) {
+                return null;
+            }
+            path = cacheDir.getPath();
+        }
+        if (!equalsIgnoreCase && !z) {
+            path = context.getCacheDir().getPath();
+            return !path.endsWith(File.separator) ? path.substring(0, path.length() - 1) : path;
+        }
+        path = context.getExternalCacheDir().getPath();
+        if (!path.endsWith(File.separator)) {
         }
     }
 
-    @Override // com.repackage.o48
-    public void e() {
-        r68 r68Var;
+    public static OkHttpClient c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (r68Var = this.g) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                a = a();
+            }
+            return a;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public static TurbonetConfig d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            TurbonetConfig turbonetConfig = new TurbonetConfig();
+            turbonetConfig.j(15);
+            turbonetConfig.c(true);
+            turbonetConfig.b(true);
+            turbonetConfig.e(true);
+            turbonetConfig.a("http://tb-video.bdstatic.com|2");
+            turbonetConfig.f(true);
+            turbonetConfig.i("bdns", "bce_http_dns_account_id", "119799");
+            turbonetConfig.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
+            turbonetConfig.i("bdbus", "min_trigger_interval", 180);
+            turbonetConfig.i("bdns", "dual_stack_bdns_cache_policy", 1);
+            File file = new File(b(), "turbonetcache");
+            if (file.exists()) {
+                if (file.isFile()) {
+                    file.delete();
+                    file.mkdirs();
+                }
+            } else {
+                file.mkdirs();
+            }
+            turbonetConfig.k(file.getAbsolutePath());
+            turbonetConfig.d(3, Config.FULL_TRACE_LOG_LIMIT);
+            turbonetConfig.i(TbConfig.TMP_LOG_DIR_NAME, "lite_log_in_response_header", Boolean.TRUE);
+            turbonetConfig.i("app", "app_package_name", "com.baidu.tieba");
+            turbonetConfig.i("nq", "network_quality_enabled", Boolean.TRUE);
+            turbonetConfig.i("nq", "watch_all", Boolean.TRUE);
+            turbonetConfig.i("nq", "rejudge_interval_sec", 10);
+            turbonetConfig.i("nq", "weak_window_sec", 30);
+            turbonetConfig.i("nq", "weak_min_cnt", 10);
+            turbonetConfig.i("nq", "probe_enabled", Boolean.FALSE);
+            turbonetConfig.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
+            turbonetConfig.i("nq", "weak_policy_tcp_retrans_percentage", 30);
+            turbonetConfig.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
+            turbonetConfig.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
+            turbonetConfig.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
+            turbonetConfig.i("nq", "weak_policy_http_ttfb_percentage", 30);
+            turbonetConfig.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
+            turbonetConfig.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
+            turbonetConfig.i("nq", "weak_policy_tcp_rtt_percentage", 30);
+            turbonetConfig.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
+            return turbonetConfig;
+        }
+        return (TurbonetConfig) invokeV.objValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            TurbonetContext turbonetContext = b;
+            if (turbonetContext != null && c == 0) {
+                c = turbonetContext.c();
+            }
+            return c;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || d) {
             return;
         }
-        r68Var.M();
-    }
-
-    @Override // com.repackage.o48
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        d = true;
+        try {
+            c();
+        } catch (Throwable th) {
+            th.printStackTrace();
         }
     }
 
-    @Override // com.repackage.ol7
-    public void g() {
+    public static TurbonetContext g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.l.resetThreadPn();
-            PersonPolymericModel personPolymericModel = this.h;
-            if (personPolymericModel != null) {
-                personPolymericModel.M();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
+            b = turbonetContext;
+            return turbonetContext;
         }
-    }
-
-    public void j(rv8 rv8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, rv8Var) == null) {
-            this.g.X(rv8Var);
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || this.m == i) {
-            return;
-        }
-        r68 r68Var = this.g;
-        if (r68Var != null) {
-            r68Var.T(i);
-        }
-        this.m = i;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.e);
-            r68 r68Var = this.g;
-            if (r68Var != null) {
-                r68Var.U();
-            }
-        }
-    }
-
-    @Override // com.repackage.ol7
-    public void loadData() {
-        t48 t48Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (t48Var = this.f) == null) {
-            return;
-        }
-        t48Var.loadData();
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && z && this.d) {
-            loadData();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && TbadkCoreApplication.isLogin() && !this.a && this.c == TbadkCoreApplication.getCurrentAccountId()) {
-            this.a = true;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.b.getPageActivity()).createNormalConfig(kg.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, TbadkCoreApplication.getCurrentAccountInfo() == null ? false : TbadkCoreApplication.getCurrentAccountInfo().isBigV())));
-            this.j.finish();
-        }
-    }
-
-    public void o(y48 y48Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, y48Var) == null) {
-            this.g.N();
-            this.j.hideLoadingView(this.k);
-            boolean z = true;
-            if (y48Var == null) {
-                this.i.y(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c2d), true);
-                this.i.m();
-                this.i.t(8);
-                return;
-            }
-            this.i.o();
-            if (y48Var.e() != null && ((y48Var.e().getHide_stat() == 1 && y48Var.e().getBlock_stat() == 1) || (y48Var.e().getHide_stat() == 1 && y48Var.e().getBlock_stat() == 2))) {
-                this.i.v(this.a);
-                this.i.t(8);
-                return;
-            }
-            this.i.t(0);
-            y48Var.b();
-            z = (y48Var.f() == null || y48Var.f().size() < 20) ? false : false;
-            if (y48Var.j() != null) {
-                y48Var.j().getSex();
-            }
-            this.d = false;
-            if (this.a && y48Var.j() != null) {
-                y48Var.j().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
-                s35.d().i(y48Var.j());
-            }
-            j18 j18Var = this.n.get(0);
-            j18Var.a(y48Var.f());
-            j18Var.b(z);
-            this.g.Z(y48Var, z, i(y48Var));
-        }
+        return (TurbonetContext) invokeV.objValue;
     }
 }

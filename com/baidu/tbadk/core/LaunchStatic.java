@@ -10,12 +10,14 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.NovelWebViewActivity;
 import com.baidu.tbadk.browser.ShareWebActivity;
 import com.baidu.tbadk.browser.TbWebViewActivity;
 import com.baidu.tbadk.clientConfig.ClientConfigHttpProtoResponse;
 import com.baidu.tbadk.clientConfig.ClientConfigSocketResponse;
 import com.baidu.tbadk.core.atomData.InitUserNameDialogActivityConfig;
 import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.tbadk.core.atomData.NovelWebViewActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareWebActivityConfig;
 import com.baidu.tbadk.core.atomData.SyncServiceConfig;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
@@ -41,16 +43,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import com.repackage.ds4;
-import com.repackage.hj8;
-import com.repackage.i97;
-import com.repackage.jm4;
-import com.repackage.s35;
-import com.repackage.ss4;
-import com.repackage.v37;
-import com.repackage.xk8;
-import com.repackage.y57;
-import com.repackage.ym4;
+import com.repackage.a47;
+import com.repackage.d77;
+import com.repackage.ig8;
+import com.repackage.ir4;
+import com.repackage.nl4;
+import com.repackage.o25;
+import com.repackage.tq4;
+import com.repackage.xk4;
+import com.repackage.y17;
+import com.repackage.yh8;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class LaunchStatic {
@@ -185,17 +187,17 @@ public class LaunchStatic {
         b();
         d();
         c();
-        xk8.a();
-        i97.a();
-        v37.a();
+        yh8.a();
+        d77.a();
+        y17.a();
         ImMemoryCacheRegister.k();
-        y57.i();
-        jm4.f();
+        a47.i();
+        xk4.f();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        ds4.d();
-        ss4.a();
-        ym4.d();
+        tq4.d();
+        ir4.a();
+        nl4.d();
         a();
     }
 
@@ -229,6 +231,7 @@ public class LaunchStatic {
             TbadkCoreApplication.getInst().RegisterIntent(SyncServiceConfig.class, TiebaSyncService.class);
             TbadkCoreApplication.getInst().RegisterIntent(TbWebViewActivityConfig.class, TbWebViewActivity.class);
             TbadkCoreApplication.getInst().RegisterIntent(ShareWebActivityConfig.class, ShareWebActivity.class);
+            TbadkCoreApplication.getInst().RegisterIntent(NovelWebViewActivityConfig.class, NovelWebViewActivity.class);
             TbadkCoreApplication.getInst().RegisterIntent(InitUserNameDialogActivityConfig.class, InitUserNameDialogActivity.class);
         }
     }
@@ -248,9 +251,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            s35.d().f();
-            hj8.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, hj8.a(TbConfig.GET_PAY_CONFIG, 303039));
+            o25.d().f();
+            ig8.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, ig8.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

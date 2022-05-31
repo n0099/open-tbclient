@@ -9,7 +9,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.annotation.WorkerThread;
 import androidx.webkit.internal.AssetHelper;
-import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -120,7 +119,7 @@ public final class WebViewAssetLoader {
                     return;
                 }
             }
-            FORBIDDEN_DATA_DIRS = new String[]{"app_webview/", "databases/", PluginInstallerService.APK_LIB_DIR_PREFIX, "shared_prefs/", "code_cache/"};
+            FORBIDDEN_DATA_DIRS = new String[]{"app_webview/", "databases/", "lib/", "shared_prefs/", "code_cache/"};
         }
 
         public InternalStoragePathHandler(@NonNull Context context, @NonNull File file) {

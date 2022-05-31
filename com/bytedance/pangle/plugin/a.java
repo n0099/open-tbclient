@@ -43,9 +43,9 @@ public final class a implements Runnable {
             e a = com.bytedance.pangle.e.a.d.a(this.a);
             boolean z = false;
             if (a != null) {
-                Plugin plugin2 = PluginManager.getInstance().getPlugin(a.a);
-                if (plugin2 != null) {
-                    z = plugin2.install(this.a, a);
+                Plugin plugin = PluginManager.getInstance().getPlugin(a.a);
+                if (plugin != null) {
+                    z = plugin.install(this.a, a);
                     ZeusPluginListener zeusPluginListener = this.b;
                     if (zeusPluginListener != null) {
                         zeusPluginListener.onEvent(z ? 21 : 22, "install result = ".concat(String.valueOf(z)));

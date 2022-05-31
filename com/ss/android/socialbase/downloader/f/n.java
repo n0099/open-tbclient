@@ -1,7 +1,6 @@
 package com.ss.android.socialbase.downloader.f;
 
 import androidx.annotation.NonNull;
-import com.baidu.adp.plugin.PluginCenter;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class n {
@@ -74,7 +73,7 @@ public class n {
 
     public long k() {
         long optInt = this.a.optInt("read_timeout", -1);
-        if (optInt >= PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL) {
+        if (optInt >= 4000) {
             return optInt;
         }
         return -1L;

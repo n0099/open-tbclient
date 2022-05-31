@@ -1,21 +1,25 @@
 package com.repackage;
 
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
-import com.baidu.tieba.R;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.ej1;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class dg3 implements u64 {
+public class dg3 implements ej1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
 
     public dg3() {
         Interceptable interceptable = $ic;
@@ -27,45 +31,82 @@ public class dg3 implements u64 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
-    @Override // com.repackage.u64
-    public void a(BaseMenuView baseMenuView) {
+    @Override // com.repackage.ej1
+    public void a(ej1.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, baseMenuView) == null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        if (bk2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            aVar.onFinish();
         }
     }
 
-    public final void b(ViewGroup viewGroup) {
+    @Override // com.repackage.ej1
+    public void b(Activity activity, Bundle bundle, tf1 tf1Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && viewGroup != null && (viewGroup instanceof FrameLayout)) {
-            if (this.a == null) {
-                FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-                this.a = frameLayout;
-                frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603c8);
-            }
-            viewGroup.removeView(this.a);
-            viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bundle, tf1Var) == null) {
+            hf3.M(activity, false, bundle, tf1Var);
         }
     }
 
-    public final void c(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
+    @Override // com.repackage.ej1
+    public void c(vf1 vf1Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vf1Var) == null) {
+            hf3.c(vf1Var);
         }
-        viewGroup.removeView(frameLayout);
-        this.a = null;
+    }
+
+    @Override // com.repackage.ej1
+    public String d(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? hf3.i(context) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ej1
+    public boolean e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) ? hf3.F(context) : invokeL.booleanValue;
+    }
+
+    @Override // com.repackage.ej1
+    public String f(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) ? hf3.l(context) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ej1
+    public void g(ej1.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            cVar.a(true);
+        }
+    }
+
+    @Override // com.repackage.ej1
+    public String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) ? hf3.y(context) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ej1
+    public String i(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) ? hf3.l(context) : (String) invokeL.objValue;
+    }
+
+    @Override // com.repackage.ej1
+    public void j(tf1 tf1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, tf1Var) == null) {
+            new ch3().h(tf1Var);
+        }
     }
 }

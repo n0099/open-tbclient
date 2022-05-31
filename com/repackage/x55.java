@@ -1,13 +1,7 @@
 package com.repackage;
-
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes7.dex */
-public interface x55 {
-    int getPid();
+public interface x55 extends y55 {
+    boolean initByByteArray(byte[] bArr);
 
-    int getTag();
-
-    int getType();
-
-    void setTag(BdUniqueId bdUniqueId);
+    byte[] toCacheByteArray();
 }

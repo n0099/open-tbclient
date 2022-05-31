@@ -22,7 +22,7 @@ public class l implements com.kwad.sdk.core.webview.kwai.a {
         public boolean a;
         public String b;
         public int c;
-        public b.C0312b d;
+        public b.C0313b d;
     }
 
     /* loaded from: classes5.dex */
@@ -60,7 +60,7 @@ public class l implements com.kwad.sdk.core.webview.kwai.a {
                     public void run() {
                         p.a aVar2 = new p.a();
                         aVar2.h = aVar.d.a;
-                        com.kwad.sdk.core.download.a.a.a(new a.C0295a(l.this.a.d.getContext()).a(adTemplate).a(bVar).a(aVar.c).a(true).a(aVar2).c(true).a(new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.l.1.1
+                        com.kwad.sdk.core.download.a.a.a(new a.C0296a(l.this.a.d.getContext()).a(adTemplate).a(bVar).a(aVar.c).a(true).a(aVar2).c(true).a(new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.l.1.1
                             @Override // com.kwad.sdk.core.download.a.a.b
                             public void a() {
                                 if (l.this.c != null) {

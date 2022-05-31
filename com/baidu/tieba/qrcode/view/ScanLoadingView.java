@@ -56,13 +56,13 @@ public class ScanLoadingView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04d7, (ViewGroup) this, true);
-            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f09130e);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04cd, (ViewGroup) this, true);
+            TBLottieAnimationView tBLottieAnimationView = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0912d0);
             this.a = tBLottieAnimationView;
             tBLottieAnimationView.loop(true);
             this.a.setFrame(0);
-            SkinManager.setLottieAnimation(this.a, R.raw.obfuscated_res_0x7f110068);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f09131b), R.color.CAM_X0108, 1);
+            SkinManager.setLottieAnimation(this.a, R.raw.obfuscated_res_0x7f110069);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f0912dd), R.color.CAM_X0108, 1);
             setVisibility(8);
         }
     }

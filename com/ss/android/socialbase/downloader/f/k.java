@@ -4,7 +4,6 @@ import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.adp.plugin.PluginCenter;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.h.e;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -951,7 +950,7 @@ public class k implements f, c.a {
             m mVar2 = iVar.a;
             if (mVar2 != null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                long j2 = currentTimeMillis - PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+                long j2 = currentTimeMillis - 4000;
                 long a2 = mVar2.a(j2, currentTimeMillis);
                 long a3 = mVar.a(j2, currentTimeMillis);
                 float f3 = (a2 <= 0 || a3 <= 0) ? -1.0f : ((float) a3) / ((float) (a2 + a3));

@@ -1,7 +1,7 @@
 package com.repackage;
 
 import android.util.Log;
-import com.baidu.appsearchlib.Info;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,28 +9,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
-import com.repackage.h63;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class ht3 extends zs3 {
+public class ht3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public nx3 a;
+    public String b;
+    public String c;
+    public ft3 d;
 
     /* loaded from: classes6.dex */
-    public class a implements h63.f {
+    public class a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yd2 a;
+        public final /* synthetic */ ht3 a;
 
-        public a(ht3 ht3Var, yd2 yd2Var) {
+        public a(ht3 ht3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ht3Var, yd2Var};
+                Object[] objArr = {ht3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -40,20 +48,130 @@ public class ht3 extends zs3 {
                     return;
                 }
             }
-            this.a = yd2Var;
+            this.a = ht3Var;
         }
 
-        @Override // com.repackage.h63.f
-        public void a(int i) {
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == -1) {
-                    ht3.c(this.a, "202");
-                } else if (i != 1) {
-                    this.a.onFail(101, "noPermission");
-                } else {
-                    ht3.c(this.a, BasicPushStatus.SUCCESS_CODE);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                if (ht3.e) {
+                    Log.e("AudioDownloader", this.a.b + " load failed");
+                    iOException.printStackTrace();
                 }
+                if (this.a.d != null) {
+                    this.a.d.fail(-1, this.a.b);
+                }
+            }
+        }
+
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
+            FileOutputStream fileOutputStream;
+            File file;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                byte[] bArr = new byte[2048];
+                InputStream inputStream = null;
+                try {
+                    InputStream byteStream = response.body().byteStream();
+                    try {
+                        try {
+                            String d = ct3.d(this.a.b);
+                            String str = this.a.c + d.substring(0, d.lastIndexOf("/"));
+                            File file2 = new File(str);
+                            if (!file2.exists() || !file2.isDirectory()) {
+                                file2.mkdirs();
+                            }
+                            String substring = d.substring(d.lastIndexOf("/") + 1);
+                            file = new File(str, substring + ".bddownload");
+                            try {
+                                fileOutputStream = new FileOutputStream(file);
+                                while (true) {
+                                    try {
+                                        int read = byteStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        fileOutputStream.write(bArr, 0, read);
+                                    } catch (Exception e) {
+                                        e = e;
+                                        inputStream = byteStream;
+                                        try {
+                                            if (ht3.e) {
+                                                Log.e("AudioDownloader", this.a.b + " load failed", e);
+                                            }
+                                            if (file != null) {
+                                                file.delete();
+                                            }
+                                            if (this.a.d != null) {
+                                                this.a.d.fail(-1, this.a.b);
+                                            }
+                                            kf4.d(inputStream);
+                                            kf4.d(fileOutputStream);
+                                            kf4.d(response);
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            kf4.d(inputStream);
+                                            kf4.d(fileOutputStream);
+                                            kf4.d(response);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        inputStream = byteStream;
+                                        kf4.d(inputStream);
+                                        kf4.d(fileOutputStream);
+                                        kf4.d(response);
+                                        throw th;
+                                    }
+                                }
+                                fileOutputStream.flush();
+                                File file3 = new File(str, substring);
+                                if (file3.exists() && !file3.isDirectory()) {
+                                    file3.delete();
+                                }
+                                String absolutePath = file3.getAbsolutePath();
+                                if (file.renameTo(file3)) {
+                                    if (ht3.e) {
+                                        Log.e("AudioDownloader", this.a.b + " load rename success path = " + absolutePath);
+                                    }
+                                    if (this.a.d != null) {
+                                        this.a.d.a(this.a.b, absolutePath);
+                                    }
+                                } else {
+                                    if (ht3.e) {
+                                        Log.e("AudioDownloader", this.a.b + " load rename error path = " + absolutePath);
+                                    }
+                                    file.delete();
+                                    if (this.a.d != null) {
+                                        this.a.d.fail(-1, absolutePath);
+                                    }
+                                }
+                                kf4.d(byteStream);
+                            } catch (Exception e2) {
+                                e = e2;
+                                fileOutputStream = null;
+                            }
+                        } catch (Exception e3) {
+                            e = e3;
+                            file = null;
+                            fileOutputStream = null;
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    file = null;
+                    fileOutputStream = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    fileOutputStream = null;
+                }
+                kf4.d(fileOutputStream);
+                kf4.d(response);
             }
         }
     }
@@ -71,63 +189,36 @@ public class ht3 extends zs3 {
                 return;
             }
         }
-        c = eh1.a;
+        e = rf1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ht3() {
-        super("addShortcutToDesktop");
+    public ht3(nx3 nx3Var, String str, String str2, ft3 ft3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {nx3Var, str, str2, ft3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.b = "";
+        this.c = "";
+        this.a = nx3Var;
+        this.c = str;
+        this.b = str2;
+        this.d = ft3Var;
     }
 
-    public static void c(yd2 yd2Var, String str) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, yd2Var, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("data", str);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-            }
-            yd2Var.a(jSONObject);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.call(new Request.Builder().url(this.b).build(), new a(this));
         }
-    }
-
-    @Override // com.repackage.zs3
-    public us1 a(JSONObject jSONObject, yd2 yd2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, yd2Var)) == null) {
-            u03 a0 = u03.a0();
-            if (a0 != null && a0.x() != null && a0.V() != null) {
-                if (h63.s(a0.x(), a0.V().K(), a0.V().H()) == 1) {
-                    c(yd2Var, Info.kBaiduPIDValue);
-                    return null;
-                }
-                h63.j(a0.x(), a0.V(), 1, new a(this, yd2Var));
-                return null;
-            }
-            yd2Var.onFail(100, "swan or activity is null");
-            if (c) {
-                Log.d("AddShortcutToDesktop", "swan or activity is null");
-                return null;
-            }
-            return null;
-        }
-        return (us1) invokeLL.objValue;
     }
 }

@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.jq8;
-import com.repackage.p85;
-import com.repackage.vp8;
-import com.repackage.xp8;
-import com.repackage.yp8;
+import com.repackage.an8;
+import com.repackage.i75;
+import com.repackage.ln8;
+import com.repackage.xm8;
+import com.repackage.zm8;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupModel.c mCallback;
-    public vp8 mItemController;
+    public xm8 mItemController;
     public BubbleGroupModel mModel;
-    public yp8 mView;
+    public an8 mView;
 
     /* loaded from: classes4.dex */
     public class a implements BubbleGroupModel.c {
@@ -49,14 +49,14 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.group.BubbleGroupModel.c
-        public void a(int i, String str, jq8 jq8Var, List<xp8> list) {
+        public void a(int i, String str, ln8 ln8Var, List<zm8> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, jq8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, ln8Var, list}) == null) {
                 BubbleGroupActivity bubbleGroupActivity = this.a;
                 bubbleGroupActivity.hideLoadingView(bubbleGroupActivity.mView.d());
                 this.a.mView.i();
                 if (i == 0) {
-                    this.a.mView.k(jq8Var, list, this.a.mModel.F());
+                    this.a.mView.k(ln8Var, list, this.a.mModel.F());
                     return;
                 }
                 this.a.showToast(str);
@@ -81,7 +81,7 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         this.mCallback = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.repackage.m85
+    @Override // com.baidu.tbadk.BaseActivity, com.repackage.f75
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -89,17 +89,17 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public p85 getPageStayDurationItem() {
+    public i75 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            p85 pageStayDurationItem = super.getPageStayDurationItem();
+            i75 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (p85) invokeV.objValue;
+        return (i75) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -107,9 +107,9 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            yp8 yp8Var = this.mView;
-            if (yp8Var != null) {
-                yp8Var.f();
+            an8 an8Var = this.mView;
+            if (an8Var != null) {
+                an8Var.f();
             }
         }
     }
@@ -122,11 +122,11 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
             BubbleGroupModel bubbleGroupModel = new BubbleGroupModel(this);
             this.mModel = bubbleGroupModel;
             bubbleGroupModel.I(this.mCallback);
-            vp8 vp8Var = new vp8(getPageContext());
-            this.mItemController = vp8Var;
-            yp8 yp8Var = new yp8(this, vp8Var);
-            this.mView = yp8Var;
-            yp8Var.e();
+            xm8 xm8Var = new xm8(getPageContext());
+            this.mItemController = xm8Var;
+            an8 an8Var = new an8(this, xm8Var);
+            this.mView = an8Var;
+            an8Var.e();
             showLoadingView(this.mView.d());
             this.mModel.loadData();
         }
@@ -142,12 +142,12 @@ public class BubbleGroupActivity extends BaseActivity<BubbleGroupActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        yp8 yp8Var;
+        an8 an8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mModel == null || (yp8Var = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mModel == null || (an8Var = this.mView) == null) {
             return;
         }
-        showLoadingView(yp8Var.d());
+        showLoadingView(an8Var.d());
         this.mModel.loadData();
     }
 }

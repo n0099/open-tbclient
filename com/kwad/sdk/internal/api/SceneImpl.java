@@ -107,7 +107,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public SceneImpl m106clone() {
+    public SceneImpl m105clone() {
         String jSONObject = toJson().toString();
         try {
             SceneImpl sceneImpl = new SceneImpl();

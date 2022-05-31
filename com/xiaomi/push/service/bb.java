@@ -39,17 +39,17 @@ public class bb implements ee {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, hashMap) == null) {
             ie ieVar = new ie();
-            ieVar.b(ea.a(context).m323a());
+            ieVar.b(ea.a(context).m322a());
             ieVar.d(ea.a(context).b());
             ieVar.c(hp.I.f490a);
             ieVar.a(at.a());
             ieVar.f631a = hashMap;
             byte[] a = ip.a(y.a(ieVar.c(), ieVar.b(), ieVar, hf.i));
             if (!(context instanceof XMPushService)) {
-                com.xiaomi.channel.commonutils.logger.b.m109a("MoleInfo : context is not correct in pushLayer " + ieVar.m504a());
+                com.xiaomi.channel.commonutils.logger.b.m108a("MoleInfo : context is not correct in pushLayer " + ieVar.m503a());
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m109a("MoleInfo : send data directly in pushLayer " + ieVar.m504a());
+            com.xiaomi.channel.commonutils.logger.b.m108a("MoleInfo : send data directly in pushLayer " + ieVar.m503a());
             ((XMPushService) context).a(context.getPackageName(), a, true);
         }
     }
@@ -68,7 +68,7 @@ public class bb implements ee {
     public void c(Context context, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, hashMap) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m109a("MoleInfo：\u3000" + dv.b(hashMap));
+            com.xiaomi.channel.commonutils.logger.b.m108a("MoleInfo：\u3000" + dv.b(hashMap));
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
-import com.repackage.tl9;
+import com.repackage.ni9;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +77,7 @@ public class SubTagsStatus extends BasicPushStatus {
             }
             arrayList.add(tag);
         }
-        tl9.b(BasicPushStatus.TAG, "tags " + arrayList);
+        ni9.b(BasicPushStatus.TAG, "tags " + arrayList);
         setTagList(arrayList);
     }
 

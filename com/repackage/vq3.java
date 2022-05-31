@@ -1,355 +1,310 @@
 package com.repackage;
 
+import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
-import android.os.Bundle;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import android.util.Log;
+import androidx.core.content.FileProvider;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.gamecenter.appmanager.install.InstallPluginDelegateActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
+import java.io.File;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class vq3 implements cy3 {
+public class vq3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public static final /* synthetic */ int[] b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(80567100, "Lcom/repackage/vq3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(80567100, "Lcom/repackage/vq3$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[Download.DownloadState.values().length];
-            b = iArr;
-            try {
-                iArr[Download.DownloadState.WAITING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                b[Download.DownloadState.DOWNLOADING.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                b[Download.DownloadState.PAUSE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                b[Download.DownloadState.FAILED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                b[Download.DownloadState.CANCEL.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                b[Download.DownloadState.FINISH.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            int[] iArr2 = new int[SwanAppDownloadAction.SwanAppDownloadType.values().length];
-            a = iArr2;
-            try {
-                iArr2[SwanAppDownloadAction.SwanAppDownloadType.TYPE_QUERY_STATUS.ordinal()] = 1;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD.ordinal()] = 2;
-            } catch (NoSuchFieldError unused8) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_PAUSE_DOWNLOAD.ordinal()] = 3;
-            } catch (NoSuchFieldError unused9) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_CANCEL_DOWNLOAD.ordinal()] = 4;
-            } catch (NoSuchFieldError unused10) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_STOP_SERVICE.ordinal()] = 5;
-            } catch (NoSuchFieldError unused11) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_RESUME_DOWNLOAD.ordinal()] = 6;
-            } catch (NoSuchFieldError unused12) {
-            }
-            try {
-                a[SwanAppDownloadAction.SwanAppDownloadType.TYPE_INSTALL_APP.ordinal()] = 7;
-            } catch (NoSuchFieldError unused13) {
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b extends bx2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public uo3 c;
-
-        public b(uo3 uo3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755222567, "Lcom/repackage/vq3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755222567, "Lcom/repackage/vq3;");
+                return;
+            }
+        }
+        a = rf1.a;
+    }
+
+    public static long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? v73.a().getLong("install_authorize_guide_time_key", 0L) : invokeV.longValue;
+    }
+
+    public static long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? v73.a().getLong("install_continue_guide_time_key", 0L) : invokeV.longValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Build.VERSION.SDK_INT < 26 || AppRuntime.getAppContext().getPackageManager().canRequestPackageInstalls()) ? "continue" : "authorize" : (String) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? v73.a().getInt("install_guide_count_key", 0) : invokeV.intValue;
+    }
+
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? v73.a().getInt("install_guide_max_count_key", 3) : invokeV.intValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? v73.a().getBoolean("install_guide_switch_key", false) : invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? v73.a().getBoolean("install_result_key", false) : invokeV.booleanValue;
+    }
+
+    public static boolean h(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
+            if (context != null) {
+                try {
+                    if (context.getPackageManager() != null) {
+                        return context.getPackageManager().getPackageInfo(str, 0) != null;
+                    }
+                    return false;
+                } catch (Exception unused) {
+                    return false;
                 }
-            }
-            this.c = uo3Var;
-        }
-
-        @Override // com.repackage.zw2
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // com.repackage.zw2
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.repackage.bx2, com.repackage.zw2
-        public void onEvent(@NonNull xw2 xw2Var) {
-            Bundle a;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xw2Var) == null) || (a = xw2Var.a()) == null) {
-                return;
-            }
-            vq3.g(a, this.c);
-        }
-    }
-
-    public vq3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void g(@NonNull Bundle bundle, uo3 uo3Var) {
-        String string;
-        char c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, bundle, uo3Var) == null) || (string = bundle.getString("functionType")) == null || uo3Var == null) {
-            return;
-        }
-        String string2 = bundle.getString("resultData", "");
-        int hashCode = string.hashCode();
-        if (hashCode != -1013362275) {
-            if (hashCode == -530890460 && string.equals("onSuccess")) {
-                c = 0;
-            }
-            c = 65535;
-        } else {
-            if (string.equals("onFail")) {
-                c = 1;
-            }
-            c = 65535;
-        }
-        if (c != 0) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(string2);
-            int optInt = jSONObject.optInt("progress", -1);
-            if (optInt > -1 && optInt <= 100) {
-                uo3Var.a(optInt);
-            }
-            if (jSONObject.optBoolean("installed")) {
-                uo3Var.c(DownloadState.INSTALLED, optInt);
-                return;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return;
-            }
-            switch (a.b[Download.DownloadState.getState(optJSONObject.optInt("status", -1)).ordinal()]) {
-                case 1:
-                    uo3Var.c(DownloadState.WAIT, optInt);
-                    return;
-                case 2:
-                    uo3Var.c(DownloadState.DOWNLOADING, optInt);
-                    return;
-                case 3:
-                    uo3Var.c(DownloadState.DOWNLOAD_PAUSED, optInt);
-                    return;
-                case 4:
-                    uo3Var.c(DownloadState.DOWNLOAD_FAILED, optInt);
-                    return;
-                case 5:
-                    uo3Var.c(DownloadState.DELETED, optInt);
-                    return;
-                case 6:
-                    uo3Var.c(DownloadState.DOWNLOADED, optInt);
-                    return;
-                default:
-                    uo3Var.c(DownloadState.NOT_START, optInt);
-                    return;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // com.repackage.cy3
-    public boolean a(@NonNull Context context, @NonNull SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType, @NonNull uo3 uo3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, swanAppDownloadType, uo3Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("key_download_package_name", getPackageName());
-                jSONObject.put("key_download_url", f());
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put(GameGuideConfigInfo.KEY_CONFIG_NAME, sq3.o.z() == null ? "" : sq3.o.z().configName);
-                jSONObject.put("download_params", jSONObject2.toString());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            String e2 = e(swanAppDownloadType);
-            Bundle bundle = new Bundle();
-            bundle.putString("operation", e2);
-            bundle.putString("ubc_params", new or3().a());
-            bundle.putString("data", jSONObject.toString());
-            px2 z = t03.J().z();
-            if (z != null) {
-                z.W(bundle, gr3.class, new b(uo3Var));
-                return false;
             }
             return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean i(Context context, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65545, null, context, file, z)) == null) {
+            if (context != null && file != null && file.isFile() && file.exists()) {
+                Intent intent = new Intent("android.intent.action.VIEW");
+                if (a) {
+                    Log.e("GameCenterApkUtil", "install apk start");
+                }
+                try {
+                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+                    intent.setFlags(1342177280);
+                    intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", context.getPackageName());
+                    if (z) {
+                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
+                    }
+                    if (Build.VERSION.SDK_INT < 24) {
+                        intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
+                    }
+                    n(context, file, intent);
+                    if ((context instanceof Activity) && g()) {
+                        intent.setAction("android.intent.action.INSTALL_PACKAGE");
+                        intent.setFlags(0);
+                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
+                        if (Build.VERSION.SDK_INT >= 24) {
+                            intent.addFlags(1);
+                        }
+                        ((Activity) context).startActivityForResult(intent, context instanceof InstallPluginDelegateActivity ? InstallPluginDelegateActivity.INSTALL_REQUEST_CODE : 0);
+                    } else {
+                        context.startActivity(intent);
+                    }
+                    if (a) {
+                        Log.e("GameCenterApkUtil", "install apk done");
+                    }
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                    intent.setComponent(null);
+                    n(context, file, intent);
+                    try {
+                        context.startActivity(intent);
+                        if (a) {
+                            Log.e("GameCenterApkUtil", "retry install apk done");
+                        }
+                    } catch (Exception e2) {
+                        if (a) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean j(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, context, str, z)) == null) {
+            if (a) {
+                Log.e("GameCenterApkUtil", "call installApk filePath = " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return i(context, new File(str), z);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                    return false;
+                }
+                return false;
+            }
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) ? f() && m(str) && d() < e() : invokeL.booleanValue;
+    }
+
+    public static boolean l(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) {
+            if (context != null && !TextUtils.isEmpty(str)) {
+                Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.setPackage(str);
+                List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                if (queryIntentActivities != null && queryIntentActivities.size() > 0 && queryIntentActivities.iterator().next() != null) {
+                    String str2 = queryIntentActivities.iterator().next().activityInfo.name;
+                    Intent intent2 = new Intent("android.intent.action.MAIN");
+                    intent2.addCategory("android.intent.category.LAUNCHER");
+                    intent2.setComponent(new ComponentName(str, str2));
+                    intent2.setFlags(270532608);
+                    try {
+                        context.startActivity(intent2);
+                        if (a) {
+                            Log.d("GameCenterApkUtil", "openApp:packageName = " + str);
+                            return true;
+                        }
+                        return true;
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            return (System.currentTimeMillis() / 86400000) - ((TextUtils.equals(str, "authorize") ? a() : b()) / 86400000) > 0;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean n(Context context, File file, Intent intent) {
+        InterceptResult invokeLLL;
+        ActivityInfo activityInfo;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, context, file, intent)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                try {
+                    Uri uriForFile = FileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", file);
+                    if (uriForFile == null) {
+                        return false;
+                    }
+                    intent.setDataAndType(uriForFile, intent.getType());
+                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                    if (queryIntentActivities == null) {
+                        return true;
+                    }
+                    for (ResolveInfo resolveInfo : queryIntentActivities) {
+                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
+                            context.grantUriPermission(str, uriForFile, 1);
+                        }
+                    }
+                } catch (IllegalArgumentException e) {
+                    if (a) {
+                        throw e;
+                    }
+                    return false;
+                }
+            }
+            return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    @Override // com.repackage.cy3
-    public boolean b(Context context, String str, String str2, String str3) {
-        InterceptResult invokeLLLL;
+    public static void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(xq3.b, str2);
-                jSONObject.put("key_download_url", str);
-                jSONObject.put(xq3.c, str3);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            Bundle bundle = new Bundle();
-            bundle.putString("operation", "startDownloadFile");
-            bundle.putString("ubc_params", new or3().a());
-            bundle.putString("data", jSONObject.toString());
-            px2 z = t03.J().z();
-            if (z != null) {
-                z.V(bundle, gr3.class);
-                return false;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+            v73.a().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.repackage.cy3
-    public boolean c() {
-        InterceptResult invokeV;
+    public static void p() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (TextUtils.isEmpty(f()) || TextUtils.isEmpty(getPackageName())) ? false : true;
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            v73.a().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
         }
-        return invokeV.booleanValue;
     }
 
-    public final String e(SwanAppDownloadAction.SwanAppDownloadType swanAppDownloadType) {
-        InterceptResult invokeL;
+    public static void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, swanAppDownloadType)) == null) {
-            switch (a.a[swanAppDownloadType.ordinal()]) {
-                case 1:
-                    return "queryStatus";
-                case 2:
-                    return "startDownload";
-                case 3:
-                    return "pauseDownload";
-                case 4:
-                case 5:
-                    return "deleteDownload";
-                case 6:
-                    return "resumeDownload";
-                case 7:
-                    return "installApp";
-                default:
-                    return "";
-            }
+        if (!(interceptable == null || interceptable.invokeI(65553, null, i) == null) || i <= 0) {
+            return;
         }
-        return (String) invokeL.objValue;
+        v73.a().edit().putInt("install_guide_max_count_key", i).apply();
     }
 
-    public final String f() {
-        InterceptResult invokeV;
+    public static void r(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? sq3.o.H() : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            v73.a().edit().putBoolean("install_guide_switch_key", z).apply();
+        }
     }
 
-    @Override // com.repackage.cy3
-    public String getPackageName() {
-        InterceptResult invokeV;
+    public static void s(boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? sq3.o.I() : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeZ(65555, null, z) == null) {
+            v73.a().putBoolean("install_result_key", z);
+        }
     }
 
-    @Override // com.repackage.cy3
-    public void init() {
+    public static void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            sq3.o.w();
+        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
+            v73.a().edit().putInt("install_guide_count_key", v73.a().getInt("install_guide_count_key", 0) + 1).apply();
         }
     }
 }

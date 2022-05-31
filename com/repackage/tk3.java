@@ -1,25 +1,27 @@
 package com.repackage;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class tk3 extends rk3 {
+public class tk3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile sk3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public tk3() {
+    public static synchronized sk3 a() {
+        InterceptResult invokeV;
+        sk3 sk3Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (tk3.class) {
+                if (a == null) {
+                    a = new sk3();
+                }
+                sk3Var = a;
             }
+            return sk3Var;
         }
+        return (sk3) invokeV.objValue;
     }
 }

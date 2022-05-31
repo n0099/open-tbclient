@@ -1,19 +1,16 @@
 package com.repackage;
 
-import android.annotation.SuppressLint;
+import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.net.NetInfo;
-import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Observable;
-import java.util.Observer;
-/* loaded from: classes6.dex */
-public class fq1 implements Observer {
+import org.json.JSONException;
+/* loaded from: classes5.dex */
+public final class fq1 extends bq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,67 +28,43 @@ public class fq1 implements Observer {
         }
     }
 
-    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
-        InterceptResult invokeLLI;
+    @Override // com.repackage.bq1
+    public hr1 c(@NonNull ny1 ny1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
-            if (i == 200) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ny1Var)) == null) {
+            View r = pi2.i().r(ny1Var);
+            if (r == null) {
+                return new hr1(1001);
             }
-            String statusMsg = netRequestResult.getStatusMsg();
-            NetInfo.Response response = netInfo.getResponse();
-            NetInfo.Base base = netInfo.getBase();
-            StringBuilder sb = new StringBuilder();
-            sb.append(statusMsg);
-            sb.append("; code=");
-            sb.append(response != null ? Integer.valueOf(response.mCode) : "");
-            String sb2 = sb.toString();
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append(sb2);
-            sb3.append("; status=");
-            sb3.append(base != null ? Integer.valueOf(base.mStatus) : "");
-            return sb3.toString();
+            return e(r);
         }
-        return (String) invokeLLI.objValue;
+        return (hr1) invokeL.objValue;
     }
 
-    @Override // java.util.Observer
-    @SuppressLint({"BDThrowableCheck"})
-    public void update(Observable observable, Object obj) {
+    @Override // com.repackage.bq1
+    public hr1 d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) == null) && (obj instanceof NetRequestResult)) {
-            NetRequestResult netRequestResult = (NetRequestResult) obj;
-            String url = netRequestResult.getUrl();
-            String valueOf = String.valueOf(netRequestResult.getId());
-            int statusCode = netRequestResult.getStatusCode();
-            if (statusCode == 3) {
-                e62.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
-            } else if (statusCode != 4) {
-                if (statusCode == 5) {
-                    e62.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
-                } else if (statusCode == 6) {
-                    e62.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new hr1(1001) : (hr1) invokeI.objValue;
+    }
+
+    public final hr1 e(@NonNull View view2) {
+        InterceptResult invokeL;
+        hr1 hr1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            try {
+                hr1Var = new hr1(0, b((int) (yc3.P(view2.getLeft()) + 0.5f), (int) (yc3.P(view2.getTop()) + 0.5f), (int) (yc3.P(view2.getRight()) + 0.5f), (int) (yc3.P(view2.getBottom()) + 0.5f)));
+            } catch (JSONException e) {
+                if (bq1.a) {
+                    e.printStackTrace();
                 }
-            } else if (url != null) {
-                e62.k().q(valueOf, url);
+                hr1Var = new hr1(1001, "result JSONException");
             }
-            NetInfo netInfo = netRequestResult.getNetInfo();
-            int statusCode2 = netRequestResult.getStatusCode();
-            if (netRequestResult.getFromType() != 1 || url == null || netInfo == null) {
-                if (netInfo != null) {
-                    if (statusCode2 < 0 || statusCode2 >= 400) {
-                        n73.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
-                        return;
-                    }
-                    return;
-                }
-                return;
-            }
-            e62.k().B(valueOf, url, netInfo);
-            long l = e62.k().l(valueOf);
-            long currentTimeMillis = System.currentTimeMillis();
-            String e = oe3.n().e();
-            n73.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), n73.l(), e, l, currentTimeMillis, valueOf);
+            hw1.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param normally, result = " + hr1Var);
+            return hr1Var;
         }
+        return (hr1) invokeL.objValue;
     }
 }

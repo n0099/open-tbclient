@@ -1,47 +1,49 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class yd0 {
+public final class yd0 {
     public static /* synthetic */ Interceptable $ic;
-    public static Context a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Context a() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (Context) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "1.1.8.12" : (String) invokeV.objValue;
-    }
-
-    public static void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            if (context == null) {
-                throw new NullPointerException("context is null");
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            if (str2.length() > 2001) {
+                int i = 0;
+                while (i < str2.length()) {
+                    int i2 = i + 2001;
+                    if (i2 < str2.length()) {
+                        b(3, str, str2.substring(i, i2));
+                    } else {
+                        b(3, str, str2.substring(i));
+                    }
+                    i = i2;
+                }
+                return;
             }
-            if (TextUtils.isEmpty(str)) {
-                throw new NullPointerException("clienID is null");
+            b(3, str, str2);
+        }
+    }
+
+    public static void b(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65537, null, i, str, str2) == null) {
+            if (i == 2) {
+                Log.v(str, str2);
+            } else if (i == 3) {
+                Log.d(str, str2);
+            } else if (i == 4) {
+                Log.i(str, str2);
+            } else if (i == 5) {
+                Log.w(str, str2);
+            } else if (i != 6) {
+                Log.d(str, str2);
+            } else {
+                Log.e(str, str2);
             }
-            a = context.getApplicationContext();
-            b = str;
-            context.getPackageName();
         }
     }
 }

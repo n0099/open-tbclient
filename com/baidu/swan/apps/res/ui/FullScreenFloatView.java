@@ -23,8 +23,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eh1;
-import com.repackage.le3;
+import com.repackage.rf1;
+import com.repackage.yc3;
 /* loaded from: classes2.dex */
 public class FullScreenFloatView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -110,7 +110,7 @@ public class FullScreenFloatView extends FrameLayout {
                 return;
             }
         }
-        n = eh1.a;
+        n = rf1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -224,7 +224,7 @@ public class FullScreenFloatView extends FrameLayout {
         }
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07060b);
         int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07060c);
-        this.a.animate().x((le3.o(getContext()) - dimensionPixelOffset) - this.b).y((le3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+        this.a.animate().x((yc3.o(getContext()) - dimensionPixelOffset) - this.b).y((yc3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
     }
 
     public c getDragImageListener() {
@@ -259,7 +259,7 @@ public class FullScreenFloatView extends FrameLayout {
             float y = motionEvent.getY();
             Rect rect = new Rect();
             if (this.a == null) {
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f0909c9);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f0909b3);
                 this.a = findViewById;
                 b(findViewById);
             }
@@ -381,7 +381,7 @@ public class FullScreenFloatView extends FrameLayout {
     public void setFloatButtonText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909c9);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0909b3);
             if (findViewById instanceof Button) {
                 ((Button) findViewById).setText(str);
             }
@@ -391,7 +391,7 @@ public class FullScreenFloatView extends FrameLayout {
     public void setFloatImageBackground(int i) {
         View findViewById;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0909c9)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || (findViewById = findViewById(R.id.obfuscated_res_0x7f0909b3)) == null) {
             return;
         }
         findViewById.setBackgroundResource(i);

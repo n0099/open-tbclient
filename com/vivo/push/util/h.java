@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.ResourceManager;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class h implements BaseNotifyDataAdapter {
     public static /* synthetic */ Interceptable $ic;
     public static int e;

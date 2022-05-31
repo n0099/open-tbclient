@@ -51,7 +51,7 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class TypeAdapters {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapter<AtomicBoolean> ATOMIC_BOOLEAN;
@@ -109,7 +109,7 @@ public final class TypeAdapters {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.bind.TypeAdapters$36  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass36 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$gson$stream$JsonToken;
         public static /* synthetic */ Interceptable $ic;
@@ -173,7 +173,7 @@ public final class TypeAdapters {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class EnumTypeAdapter<T extends Enum<T>> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

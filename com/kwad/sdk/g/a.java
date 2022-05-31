@@ -11,10 +11,10 @@ public class a {
 
     /* renamed from: com.kwad.sdk.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0323a {
+    public interface InterfaceC0324a {
     }
 
-    public static void a(Context context, final InterfaceC0323a interfaceC0323a) {
+    public static void a(Context context, final InterfaceC0324a interfaceC0324a) {
         if (context == null || b) {
             return;
         }

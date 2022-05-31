@@ -1,93 +1,67 @@
 package com.repackage;
 
-import android.util.Log;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class uj3 {
+public class uj3 implements rj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vj3 a;
+    public boolean b;
 
-    public static void a(String str) {
+    public uj3(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            if (pj3.a) {
-                Log.d("BDTLS", "bdtls success");
-            }
-            ek3 m = vj3.l().m();
-            if (m == null) {
-                if (pj3.a) {
-                    Log.d("BDTLS", "bdtls ubc data is null");
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            try {
-                int intValue = m.d() != null ? m.d().intValue() : -1;
-                int intValue2 = m.f() != null ? m.f().intValue() : -1;
-                int intValue3 = m.e() != null ? m.e().intValue() : -1;
-                int intValue4 = m.g() != null ? m.g().intValue() : -1;
-                if (pj3.a) {
-                    Log.d("BDTLS", "bdtls ubc get data");
-                }
-                x73 x73Var = new x73();
-                x73Var.b = str;
-                x73Var.a("dh_group_id", Integer.valueOf(intValue));
-                x73Var.a("dh_secret", Integer.valueOf(intValue2));
-                x73Var.a("dh_pub_c", Integer.valueOf(intValue3));
-                x73Var.a("dh_pub_s", Integer.valueOf(intValue4));
-                if (pj3.a) {
-                    Log.d("BDTLS", "bdtls ubc create event");
-                }
-                n73.d(x73Var);
-            } catch (Exception e) {
-                if (pj3.a) {
-                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
-                    e.printStackTrace();
-                }
-            }
+        }
+        this.b = false;
+        c(context);
+    }
+
+    @Override // com.repackage.rj3
+    public void a() {
+        vj3 vj3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (vj3Var = this.a) != null && vj3Var.c()) {
+            this.b = false;
+            vj3 vj3Var2 = this.a;
+            vj3Var2.d(vj3Var2.a(), "", -1);
         }
     }
 
-    public static void b(ek3 ek3Var, Bdtls$Alert bdtls$Alert) {
+    @Override // com.repackage.rj3
+    public void b(int i) {
+        vj3 vj3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, ek3Var, bdtls$Alert) == null) {
-            if (pj3.a) {
-                Log.d("BDTLS", "bdtls ubc");
-            }
-            if (ek3Var != null && bdtls$Alert != null) {
-                try {
-                    String str = bdtls$Alert.getLevel() == 1 ? "warning" : "fatal_error";
-                    int intValue = ek3Var.d() != null ? ek3Var.d().intValue() : -1;
-                    int intValue2 = ek3Var.f() != null ? ek3Var.f().intValue() : -1;
-                    int intValue3 = ek3Var.e() != null ? ek3Var.e().intValue() : -1;
-                    int intValue4 = ek3Var.g() != null ? ek3Var.g().intValue() : -1;
-                    String str2 = bdtls$Alert.getDescription() != null ? new String(bdtls$Alert.getDescription().toByteArray()) : "";
-                    if (pj3.a) {
-                        Log.d("BDTLS", "bdtls ubc get data");
-                    }
-                    x73 x73Var = new x73();
-                    x73Var.b = "alert";
-                    x73Var.e = str;
-                    x73Var.a("dh_group_id", Integer.valueOf(intValue));
-                    x73Var.a("dh_secret", Integer.valueOf(intValue2));
-                    x73Var.a("dh_pub_c", Integer.valueOf(intValue3));
-                    x73Var.a("dh_pub_s", Integer.valueOf(intValue4));
-                    x73Var.a("alert_msg", str2);
-                    if (pj3.a) {
-                        Log.d("BDTLS", "bdtls ubc create event");
-                    }
-                    n73.d(x73Var);
-                } catch (Exception e) {
-                    if (pj3.a) {
-                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
-                        e.printStackTrace();
-                    }
-                }
-            } else if (pj3.a) {
-                Log.d("BDTLS", "bdtls ubc data is null");
-            }
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.b || (vj3Var = this.a) == null || !vj3Var.c()) {
+            return;
+        }
+        vj3 vj3Var2 = this.a;
+        if (vj3Var2.d(vj3Var2.a(), "", 0) != 0) {
+            return;
+        }
+        this.b = true;
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = vj3.b(context);
         }
     }
 }

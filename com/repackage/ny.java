@@ -1,265 +1,27 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.NewGridImageLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.layout.GridImageLayout;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.vz;
-import com.repackage.zx;
+import com.baidu.webkit.internal.Base64;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.kwad.yoga.YogaNodeJNIBase;
+import kotlin.jvm.internal.ByteCompanionObject;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes6.dex */
-public class ny extends gy {
+public final class ny {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NewGridImageLayout h;
-    public zn4 i;
-    public int j;
-    public String k;
-    public int l;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ny a;
-
-        public a(ny nyVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nyVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nyVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            ny nyVar;
-            zx.a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = (nyVar = this.a).e) == null) {
-                return;
-            }
-            aVar.a(nyVar.i);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements vz.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ny a;
-
-        public b(ny nyVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nyVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nyVar;
-        }
-
-        @Override // com.repackage.vz.b
-        public boolean a(vz.a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.f().booleanValue()) {
-                    fx5.a(this.a.i.getThreadData().getId());
-                    fx5.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    fx5.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ny(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.j = 3;
-        this.h = new NewGridImageLayout(context);
-    }
-
-    public void A(zx.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.e = aVar;
-        }
-    }
-
-    public void B(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.h.setNeedFrsTabName(z);
-        }
-    }
-
-    public void C(bg<ImageView> bgVar, bg<GifView> bgVar2) {
-        NewGridImageLayout newGridImageLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bgVar, bgVar2) == null) || (newGridImageLayout = this.h) == null) {
-            return;
-        }
-        newGridImageLayout.setObjectPool(bgVar, bgVar2);
-    }
-
-    public void D(boolean z) {
-        NewGridImageLayout newGridImageLayout;
-        GridImageLayout gridImageLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (newGridImageLayout = this.h) == null || (gridImageLayout = newGridImageLayout.f) == null) {
-            return;
-        }
-        gridImageLayout.setIsTransform(z);
-    }
-
-    public void E(int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) && f().booleanValue()) {
-            this.h.setPadding(i, i2, i3, i4);
-        }
-    }
-
-    public void F(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.h.n = z;
-        }
-    }
-
-    @Override // com.repackage.zx
-    public View g() {
+    public static byte[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{0, -86, -91, -2, -41, ByteCompanionObject.MAX_VALUE, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, -25, -33, 93, 51, -73, 32, -81, BaseNCodec.PAD_DEFAULT, 108, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 126, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, -125, 125, -55, -29, 34, -60, 84, -67, -46, 125, -93, -67, -27, 97, 54, Base64.INTERNAL_PADDING, 0, -6, 83, 67, -116, 43, -24, 26, 88, -5, 33, 27, -105, 49, 76, -70, -32, 105, -48, 67, 69, 102, -111, -81, 93, -103, -18, 17, 55, 81, -34, -80, -76, -13, -84, 6, 91, 10, 48, -56, -1, 45, 9, 23, 34, 6, 103, Base64.INTERNAL_PADDING, -51, 29, 70, -19, -51, 20, -39, -43, -97, 75, 23, -124, -101, -71, -75, -107, -88, -13, -71, 80, 90, -76, -119, 51, -80, 118, Byte.MIN_VALUE, -12, -108, 98, -29, -27, 60, -119, -74, 110, BaseNCodec.PAD_DEFAULT, 51, -22, 53, 66, -99, -45, -25, 111, -121, 25, -72, ByteCompanionObject.MAX_VALUE, 3, 51, -100, 57, -90, 116, -59, -117, 74, -71, 121, 59, 19, -8, -109, 33, -14, 76, -105, -127, -23, 5, 99, -82, 22, -99, 51, 78, -26, 77, -52, -29, 121, 42, -76, 20, 2, 116, 111, -76, 2, -78, -90, -54, 81, 115, 82, 50, 124, -83, 96, 20, -40, -118, 105, 90, -70, 120, -33, -110, 12, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 34, -125, -116, 69, -54, -103, -109, -124, 26, 94, -89, -98, -11, -66, 89, 48, -68, -51, 107, -60, 12, 114, -71, 119, 49, -31, -65, 113, -99, 3, -90, 79, -88, -38, -87, -25, -38, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 110, -25, 29, 49, 124, -76, -91, 77, -11, -90, 114, -63, 118, -22, -5, -124, 19, 22, -74, -75, 78, 28, Cea608Decoder.CTRL_END_OF_CAPTION, -69} : (byte[]) invokeV.objValue;
     }
 
-    @Override // com.repackage.zx
-    public void h() {
+    public static byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            i(1, new b(this));
-        }
-    }
-
-    @Override // com.repackage.zx
-    public void l(ux5<zn4> ux5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ux5Var) == null) {
-            this.h.setSubClickListener(ux5Var);
-        }
-    }
-
-    @Override // com.repackage.py
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, tbPageContext, i) == null) {
-            if (this.j != i && f().booleanValue()) {
-                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0206);
-            }
-            NewGridImageLayout newGridImageLayout = this.h;
-            if (newGridImageLayout != null) {
-                newGridImageLayout.s(i);
-            }
-            this.j = i;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.oy
-    /* renamed from: u */
-    public void a(zn4 zn4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, zn4Var) == null) {
-            this.i = zn4Var;
-            this.h.setFrom(this.k);
-            this.h.setFromForPb(this.l);
-            this.h.setTransmit(f().booleanValue());
-            this.h.a(zn4Var);
-            this.h.setJumpToPbListener(new a(this));
-        }
-    }
-
-    public void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.h.setBackgroundColor(i);
-        }
-    }
-
-    public void w(int i) {
-        NewGridImageLayout newGridImageLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (newGridImageLayout = this.h) == null) {
-            return;
-        }
-        newGridImageLayout.setCornerStyle(i);
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.k = str;
-        }
-    }
-
-    public void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.h.setFromCDN(z);
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.l = i;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{1, 0, 1} : (byte[]) invokeV.objValue;
     }
 }

@@ -1,5 +1,6 @@
 package com.repackage;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,12 +15,13 @@ import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
 public class j70 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile j70 b;
-    public static final int c;
+    public static j70 c;
     public static final int d;
     public static final int e;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadPoolExecutor a;
+    public Context b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,15 +37,17 @@ public class j70 {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        c = availableProcessors;
-        d = Math.max(4, Math.min(availableProcessors - 1, 4));
-        e = (c * 3) + 1;
+        d = availableProcessors;
+        e = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f = (d * 2) + 1;
     }
 
-    public j70() {
+    public j70(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,41 +58,40 @@ public class j70 {
             }
         }
         this.a = null;
-        ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
+        this.b = context;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(e, f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(false);
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
         Executors.newSingleThreadExecutor();
     }
 
-    public static j70 a() {
-        InterceptResult invokeV;
+    public static j70 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            if (c == null) {
                 synchronized (j70.class) {
-                    if (b == null) {
-                        b = new j70();
+                    if (c == null) {
+                        c = new j70(context);
                     }
                 }
             }
-            return b;
+            return c;
         }
-        return (j70) invokeV.objValue;
+        return (j70) invokeL.objValue;
     }
 
-    public final boolean b(Runnable runnable) {
-        InterceptResult invokeL;
+    public void b(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
             try {
                 this.a.submit(runnable);
-                return true;
             } catch (Throwable th) {
-                n70.b("UBCTaskManager", "Exception ", th);
-                return false;
+                o70.c("TaskManager", "Exception ", th);
             }
         }
-        return invokeL.booleanValue;
     }
 }

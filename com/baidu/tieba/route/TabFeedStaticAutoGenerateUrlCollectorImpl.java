@@ -48,9 +48,7 @@ public final class TabFeedStaticAutoGenerateUrlCollectorImpl implements ICmdRout
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("HomePageTabFeedCollegeSecondActivityConfig");
-            hashMap.put("com.baidu.tieba.homepage.tabfeed.TabFeedStatic", arrayList);
+            hashMap.put("com.baidu.tieba.homepage.tabfeed.TabFeedStatic", new ArrayList());
             return hashMap;
         }
         return (Map) invokeV.objValue;

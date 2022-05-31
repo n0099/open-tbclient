@@ -1,36 +1,71 @@
 package com.repackage;
 
-import android.content.Context;
-import android.os.Process;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.nadcore.player.remote.BDRemotePlayerService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+/* loaded from: classes5.dex */
 public class ey0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<Class<? extends ky0>, ky0> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@Nullable String str, boolean z, int i, Map<String, String> map, CyberPlayerManager.InstallListener installListener, @Nullable CyberPlayerManager.GetNetHandleListener getNetHandleListener) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755721419, "Lcom/repackage/ey0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755721419, "Lcom/repackage/ey0;");
+                return;
+            }
+        }
+        a = new HashMap<>();
+    }
+
+    public ey0() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), map, installListener, getNetHandleListener}) == null) || CyberPlayerManager.isCoreLoaded(i)) {
-            return;
-        }
-        Context b = wp0.b();
-        cj0.c("DumediaUtils", "initCyber, pid = " + Process.myPid());
-        try {
-            if (TextUtils.isEmpty(str)) {
-                str = ki0.a().b();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            CyberPlayerManager.install(b, str, (String) null, i, z ? BDRemotePlayerService.class : null, map, installListener);
-            if (getNetHandleListener != null) {
-                CyberPlayerManager.setNetHandleListener(getNetHandleListener);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+    }
+
+    public static <T extends ky0> T a(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            T t = (T) a.get(cls);
+            if (t == null) {
+                synchronized (ey0.class) {
+                    t = (T) a.get(cls);
+                    if (t == null) {
+                        t = (T) fy0.a(cls);
+                        a.put(cls, t);
+                    }
+                }
+            }
+            return t;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static <T extends ky0> jy0 b(Class<T> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) ? a(cls).b() : (jy0) invokeL.objValue;
     }
 }

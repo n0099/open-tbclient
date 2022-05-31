@@ -1,20 +1,30 @@
 package com.repackage;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.TimeLineInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.TopicList.DataRes;
+import tbclient.TopicList.NewTopicList;
+import tbclient.TopicList.TabList;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes6.dex */
 public class i17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
+    public String a;
+    public List<m17> b;
+    public l17 c;
+    public List<b17> d;
+    public List<a17> e;
+    public List<TopicList> f;
+    public List<NewTopicList> g;
 
     public i17() {
         Interceptable interceptable = $ic;
@@ -30,14 +40,54 @@ public class i17 {
         }
     }
 
-    public void a(TimeLineInfo timeLineInfo) {
+    public List<TopicList> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, timeLineInfo) == null) || timeLineInfo == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (List) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        List<TopicList> list;
+        List<TopicList> list2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.b = timeLineInfo.tid.longValue();
-        this.c = timeLineInfo.title;
-        this.d = li.isEmpty(timeLineInfo.small_title) ? timeLineInfo.show_time : timeLineInfo.small_title;
-        this.e = timeLineInfo.bg_color;
+        List<TabList> list3 = dataRes.tab_list;
+        if (list3 != null && !ListUtils.isEmpty(list3)) {
+            this.b = new ArrayList();
+            for (TabList tabList : dataRes.tab_list) {
+                m17 m17Var = new m17();
+                m17Var.a(tabList);
+                this.b.add(m17Var);
+            }
+        }
+        if (dataRes.media_topic != null) {
+            l17 l17Var = new l17();
+            this.c = l17Var;
+            l17Var.a(dataRes.media_topic);
+        }
+        TopicListModule topicListModule = dataRes.topic_manual;
+        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
+            this.e = new ArrayList();
+            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
+                a17 a17Var = new a17();
+                a17Var.b(dataRes.topic_manual);
+                a17Var.a(dataRes.topic_manual.topic_list.get(i));
+                this.e.add(a17Var);
+            }
+        }
+        TopicListModule topicListModule2 = dataRes.topic_bang;
+        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
+            this.d = new ArrayList();
+            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
+                b17 b17Var = new b17();
+                b17Var.b(dataRes.topic_bang);
+                b17Var.a(dataRes.topic_bang.topic_list.get(i2));
+                this.d.add(b17Var);
+            }
+        }
+        this.f = dataRes.frs_tab_topic;
+        this.g = dataRes.topic_list;
     }
 }

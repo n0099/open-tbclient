@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.my4;
-import com.repackage.t47;
+import com.repackage.ex4;
+import com.repackage.li;
+import com.repackage.w27;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes3.dex */
-public class OfficialBarTipListAdapter extends t47 {
+public class OfficialBarTipListAdapter extends w27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,7 +40,7 @@ public class OfficialBarTipListAdapter extends t47 {
         }
     }
 
-    @Override // com.repackage.t47
+    @Override // com.repackage.w27
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class OfficialBarTipListAdapter extends t47 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.t47
+    @Override // com.repackage.w27
     public boolean f(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -60,15 +60,15 @@ public class OfficialBarTipListAdapter extends t47 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.t47
-    public void h(t47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.w27
+    public void h(w27.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.b.setVisibility(8);
             aVar.d.setVisibility(0);
             aVar.d.setShowOval(true);
             aVar.d.setAutoChangeStyle(true);
-            aVar.d.setStrokeWith(mi.f(this.a, R.dimen.tbds1));
+            aVar.d.setStrokeWith(li.f(this.a, R.dimen.tbds1));
             aVar.d.setStrokeColorResId(R.color.CAM_X0401);
             aVar.d.setTag(null);
             aVar.d.setPlaceHolder(1);
@@ -80,16 +80,16 @@ public class OfficialBarTipListAdapter extends t47 {
         }
     }
 
-    @Override // com.repackage.t47
-    public void l(t47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.w27
+    public void l(w27.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
-            aVar.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03cc, imMessageCenterShowItemData.getFriendName()));
+            aVar.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f03cf, imMessageCenterShowItemData.getFriendName()));
         }
     }
 
-    @Override // com.repackage.t47
-    public void p(t47.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.repackage.w27
+    public void p(w27.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.h.setVisibility(8);
@@ -99,14 +99,14 @@ public class OfficialBarTipListAdapter extends t47 {
         }
     }
 
-    @Override // com.repackage.t47
+    @Override // com.repackage.w27
     public BasicNameValuePair t(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!my4.d().n()) {
+            if (!ex4.d().n()) {
                 str = "";
                 i = 0;
             }

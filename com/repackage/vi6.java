@@ -1,82 +1,75 @@
 package com.repackage;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class vi6 {
+public class vi6 extends cs4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public List<ro> d;
-    public boolean e;
-    public int f;
 
-    public vi6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vi6(as4 as4Var) {
+        super(as4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {as4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((as4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public int a(List<ro> list) {
+    @ds4(isAsync = false, value = "isGameInstall")
+    private JSONObject isGameInstall(JSONObject jSONObject) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            if (ListUtils.isEmpty(this.d)) {
-                LinkedList linkedList = new LinkedList();
-                this.d = linkedList;
-                linkedList.addAll(list);
-                return list.size();
-            }
-            LinkedList linkedList2 = new LinkedList();
-            for (int i = 0; i < list.size(); i++) {
-                ro roVar = list.get(i);
-                int i2 = 0;
-                while (true) {
-                    if (i2 >= this.d.size()) {
-                        z = false;
-                        break;
-                    }
-                    ro roVar2 = this.d.get(i2);
-                    if (roVar != null && (roVar instanceof ui6) && roVar2 != null && (roVar2 instanceof ui6)) {
-                        ThreadData threadData = ((ui6) roVar).getThreadData();
-                        ThreadData threadData2 = ((ui6) roVar2).getThreadData();
-                        if (threadData != null && threadData2 != null && threadData.getTid() != null && threadData2.getTid() != null && threadData.getTid().equals(threadData2.getTid())) {
-                            z = true;
-                            break;
-                        }
-                    }
-                    i2++;
+            JSONObject jSONObject2 = new JSONObject();
+            String optString = jSONObject.optString("packagename");
+            try {
+                PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
+                if (packageInfo != null && packageInfo.packageName.equals(optString)) {
+                    jSONObject2.put("isInstall", true);
+                } else {
+                    jSONObject2.put("isInstall", false);
                 }
-                if (!z) {
-                    ListUtils.add(linkedList2, roVar);
+            } catch (PackageManager.NameNotFoundException e) {
+                try {
+                    jSONObject2.put("isInstall", false);
+                } catch (JSONException unused) {
+                    BdLog.e(e.getMessage());
                 }
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
             }
-            if (linkedList2.size() != 0) {
-                ListUtils.addAll(this.d, 0, linkedList2);
-            }
-            return linkedList2.size();
+            return jSONObject2;
         }
-        return invokeL.intValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Override // com.repackage.cs4
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_IS_GAME_INSTALL" : (String) invokeV.objValue;
     }
 }

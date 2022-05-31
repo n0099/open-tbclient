@@ -3,53 +3,56 @@ package com.repackage;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import okhttp3.HttpUrl;
-import okhttp3.MultipartBody;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.repackage.m52;
+import com.repackage.qy1;
+import com.repackage.w23;
+import java.util.UUID;
+@Deprecated
 /* loaded from: classes7.dex */
-public class u23 extends wr2 {
+public class u23 extends e13 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
+    public Context c;
 
     /* loaded from: classes7.dex */
-    public class a extends ResponseCallback {
+    public class a implements w23.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ u23 f;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ hz2 b;
+        public final /* synthetic */ uk2 c;
+        public final /* synthetic */ hp2 d;
+        public final /* synthetic */ qy1 e;
+        public final /* synthetic */ UnitedSchemeEntity f;
+        public final /* synthetic */ CallbackHandler g;
+        public final /* synthetic */ String h;
+        public final /* synthetic */ Context i;
+        public final /* synthetic */ u23 j;
 
-        public a(u23 u23Var, CallbackHandler callbackHandler, String str, String str2, String str3, String str4) {
+        public a(u23 u23Var, String str, hz2 hz2Var, uk2 uk2Var, hp2 hp2Var, qy1 qy1Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str2, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u23Var, callbackHandler, str, str2, str3, str4};
+                Object[] objArr = {u23Var, str, hz2Var, uk2Var, hp2Var, qy1Var, unitedSchemeEntity, callbackHandler, str2, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,61 +62,65 @@ public class u23 extends wr2 {
                     return;
                 }
             }
-            this.f = u23Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.e = str4;
+            this.j = u23Var;
+            this.a = str;
+            this.b = hz2Var;
+            this.c = uk2Var;
+            this.d = hp2Var;
+            this.e = qy1Var;
+            this.f = unitedSchemeEntity;
+            this.g = callbackHandler;
+            this.h = str2;
+            this.i = context;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // com.repackage.w23.e
+        public void b(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                a83.b("uploadFile", 3011, exc.getMessage(), 1001, exc.getMessage());
-                hm2.U().R();
-                this.a.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, exc.getMessage()).toString());
-                this.f.q(this.e);
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                ns2.d(this.a);
+                hw1.i("navigateTo", "check pages success");
+                a63.F(true, this.b.X().T());
+                this.c.o();
+                m52.e f = m52.f(this.c.getActivity(), r52.c(this.d.a));
+                q23.l(this.f, this.g, this.b, f.a.c(), this.d.a, q23.g(this.e), this.h);
+                this.j.p(f, this.d, this.e, this.a);
             }
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
+        @Override // com.repackage.w23.e
+        public void c(int i, ab3 ab3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-                hm2.U().R();
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, ab3Var) == null) {
+                hw1.c("navigateTo", "check pages failed");
+                a63.F(false, this.b.X().T());
+                this.c.o();
+                if (e13.b) {
+                    Context context = this.i;
+                    zy2.g(context, this.i.getString(R.string.obfuscated_res_0x7f0f01a1) + i).G();
+                }
+                q23.j(this.f, this.g, this.h);
+                v53.j(this.d, ab3Var);
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.f.z(response, this.a, this.b, this.c, this.d, this.e);
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements os2 {
+    public class b implements m52.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
+        public final /* synthetic */ m52.e a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ CallbackHandler d;
+        public final /* synthetic */ hp2 c;
+        public final /* synthetic */ qy1 d;
         public final /* synthetic */ u23 e;
 
-        public b(u23 u23Var, long j, String str, String str2, CallbackHandler callbackHandler) {
+        public b(u23 u23Var, m52.e eVar, String str, hp2 hp2Var, qy1 qy1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {u23Var, Long.valueOf(j), str, str2, callbackHandler};
+                Object[] objArr = {u23Var, eVar, str, hp2Var, qy1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -124,268 +131,171 @@ public class u23 extends wr2 {
                 }
             }
             this.e = u23Var;
-            this.a = j;
+            this.a = eVar;
             this.b = str;
-            this.c = str2;
-            this.d = callbackHandler;
+            this.c = hp2Var;
+            this.d = qy1Var;
         }
 
-        @Override // com.repackage.os2
-        public void a(long j) {
+        @Override // com.repackage.m52.f
+        public void onReady() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                this.e.x(this.a, j, this.b, this.c, this.d);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (e13.b) {
+                    Log.d("NavigateToAction", "tryToExecutePageRoute onReady start.");
+                }
+                ns2.e(this.a, this.b);
+                this.e.o(this.a.a, this.c, this.d, this.b);
+                if (e13.b) {
+                    Log.d("NavigateToAction", "tryToExecutePageRoute onReady end.");
+                }
             }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755312901, "Lcom/repackage/u23;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755312901, "Lcom/repackage/u23;");
+                return;
+            }
+        }
+        d = oi2.g0().r();
+        if (e13.b) {
+            Log.d("NavigateToAction", "NavigateToAction max count: " + d);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u23(r13 r13Var) {
-        super(r13Var, "/swanAPI/uploadFile");
+    public u23(e03 e03Var) {
+        super(e03Var, "/swanAPI/navigateTo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {e03Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((r13) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = 0;
     }
 
-    public static void A(MultipartBody.Builder builder, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, builder, jSONObject) == null) || builder == null || jSONObject == null || jSONObject.length() < 1) {
-            return;
-        }
-        Iterator<String> keys = jSONObject.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            if (!TextUtils.isEmpty(next)) {
-                String optString = jSONObject.optString(next);
-                if (!TextUtils.isEmpty(optString)) {
-                    builder.addFormDataPart(next, optString);
-                }
-            }
-        }
-    }
-
-    public final void B(MultipartBody.Builder builder, String str, String str2, yr2 yr2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, builder, str, str2, yr2Var) == null) || builder == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || yr2Var == null) {
-            return;
-        }
-        builder.addFormDataPart(str, str2, yr2Var);
-    }
-
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
+    @Override // com.repackage.e13
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, hz2 hz2Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (u03Var == null) {
-                a83.b("uploadFile", 2001, "swanApp is null", 1001, "swanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, hz2Var)) == null) {
+            if (e13.b) {
+                Log.d("NavigateToAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            this.c = context;
+            String uuid = UUID.randomUUID().toString();
+            ns2.b(uuid);
+            String o = q23.o(unitedSchemeEntity, "params");
+            if (TextUtils.isEmpty(o)) {
+                hw1.c("navigateTo", "url is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            JSONObject a2 = r23.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                a83.b("uploadFile", 1001, "illegal params", 202, "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
+            uk2 U = uk2.U();
+            qy1 V = U.V();
+            if (V == null) {
+                hw1.c("navigateTo", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            String optString = a2.optString("onProgressUpdate");
-            String optString2 = a2.optString("headersReceivedEvent");
-            String optString3 = a2.optString("cb");
-            if (TextUtils.isEmpty(optString3)) {
-                a83.b("uploadFile", 1001, "illegal resultCallback", 202, "illegal resultCallback");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal resultCallback");
+            hp2 d2 = hp2.d(o, U.z());
+            d2.e = "0";
+            d2.f = uuid;
+            v53.g(d2);
+            if (!bd3.b(U.s(), d2, false)) {
+                hw1.c("navigateTo", "page params error : path=" + d2.a + " ; routePath=" + d2.d);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                v53.i(d2);
                 return false;
             }
-            String f0 = u03.f0();
-            if (TextUtils.isEmpty(f0)) {
-                a83.b("uploadFile", 1001, "illegal appId", 202, "illegal appId");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
+            String n = q23.n(unitedSchemeEntity, "params", "initData");
+            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(d2.d) && hz2.L() != null) {
+                hz2.L().K0(n, d2.d);
+            }
+            String n2 = q23.n(unitedSchemeEntity, "params", FetchLog.START_TIME);
+            if (!TextUtils.isEmpty(n2)) {
+                HybridUbcFlow q = ms2.q("route", uuid);
+                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
+                ubcFlowEvent.h(Long.valueOf(n2).longValue());
+                q.F(ubcFlowEvent);
+            }
+            if (e13.b) {
+                Log.d("NavigateToAction", "PreloadSlaveManager start.");
+            }
+            String optString = hc3.d(unitedSchemeEntity.getParam("params")).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                hw1.c("navigateTo", "cb is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                v53.i(d2);
                 return false;
-            }
-            String a3 = jq1.a(f0);
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            Request w = w(a2, optString, a3, valueOf, u03Var, callbackHandler);
-            if (w == null) {
-                a83.b("uploadFile", 1001, "params is invalid, build request fail", -1, "");
-                unitedSchemeEntity.result = t(this.e);
-                q(valueOf);
+            } else if (u13.b().a(d2)) {
+                u13.b().i("navigateTo", d2);
+                hw1.c("NavigateToAction", "access to this page is prohibited");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
                 return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                U.a();
+                w23.g(hz2Var, d2, "", new a(this, uuid, hz2Var, U, d2, V, unitedSchemeEntity, callbackHandler, optString, context), uuid);
+                return true;
             }
-            JSONObject optJSONObject = a2.optJSONObject("header");
-            ls2 ls2Var = new ls2();
-            HashMap<String, String> m = wr2.m(optJSONObject, true);
-            String optString4 = a2.optString("__plugin__");
-            if (!TextUtils.isEmpty(optString4)) {
-                t94 h = sw2.h(optString4);
-                if (m == null) {
-                    m = new HashMap<>();
-                }
-                m.put("X-SWAN-HOSTSIGN", rw2.b(h));
-            }
-            HashMap<String, String> hashMap = m;
-            hashMap.putAll(ms2.a("uploadFile", a2.optString("__plugin__")));
-            ls2Var.a(hashMap);
-            hm2.U().a0();
-            v74 v74Var = new v74(w.url().toString(), w.body(), new a(this, callbackHandler, optString, optString3, optString2, valueOf));
-            v74Var.c = hashMap;
-            v74Var.i = w.tag();
-            v74Var.f = true;
-            v74Var.g = false;
-            v74Var.h = true;
-            v74Var.k = 2;
-            w74.g().e(v74Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n(a3), 0));
-            return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x00e7, code lost:
-        if (android.text.TextUtils.isEmpty(r0) == false) goto L48;
-     */
-    @Nullable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final Request w(@Nullable JSONObject jSONObject, @Nullable String str, @Nullable String str2, @Nullable String str3, @Nullable u03 u03Var, @Nullable CallbackHandler callbackHandler) {
-        InterceptResult invokeCommon;
-        HttpUrl f;
-        String str4;
+    public final void o(nl1 nl1Var, hp2 hp2Var, qy1 qy1Var, String str) {
+        SwanAppActivity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, str, str2, str3, u03Var, callbackHandler})) == null) {
-            if (jSONObject == null || (f = jq1.f(jSONObject.optString("url"))) == null) {
-                return null;
-            }
-            String httpUrl = f.toString();
-            if (TextUtils.isEmpty(httpUrl)) {
-                return null;
-            }
-            int c = l13.c("uploadFile", httpUrl, jSONObject.optString("__plugin__"));
-            this.e = c;
-            if (c != 0) {
-                return null;
-            }
-            String optString = jSONObject.optString("filePath", "");
-            if (TextUtils.isEmpty(optString) || xg4.x(optString)) {
-                return null;
-            }
-            String a2 = hm2.U().G().a(optString);
-            if (TextUtils.isEmpty(a2)) {
-                return null;
-            }
-            File file = new File(a2);
-            if (file.exists() && file.isFile()) {
-                long length = file.length();
-                if (length > 524288000) {
-                    if (r23.b) {
-                        Log.i("UploadFileAction", "file over size: " + (length / 1048576) + " MB.");
-                    }
-                    this.e = 5;
-                    return null;
-                }
-                String optString2 = jSONObject.optString("name", "");
-                if (TextUtils.isEmpty(optString2)) {
-                    return null;
-                }
-                if (!jSONObject.has("formData") || (jSONObject.opt("formData") instanceof JSONObject)) {
-                    JSONObject optJSONObject = jSONObject.optJSONObject("formData");
-                    this.c.put(str3, 0L);
-                    String name = file.getName();
-                    if (!TextUtils.isEmpty(name)) {
-                        str4 = qd3.d(qd3.b(name));
-                    }
-                    str4 = IMAudioTransRequest.CONTENT_TYPE;
-                    yr2 yr2Var = new yr2(file, str4, new b(this, length, str, str3, callbackHandler));
-                    MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
-                    A(type, optJSONObject);
-                    B(type, optString2, file.getName(), yr2Var);
-                    return new Request.Builder().url(httpUrl).tag(str2).post(type.build()).build();
-                }
-                return null;
-            }
-            return null;
-        }
-        return (Request) invokeCommon.objValue;
-    }
-
-    public final void x(long j, long j2, String str, String str2, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, callbackHandler}) == null) || j <= 0 || j2 > j || j2 == 0 || TextUtils.isEmpty(str) || callbackHandler == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nl1Var, hp2Var, qy1Var, str) == null) || (activity = uk2.U().getActivity()) == null || activity.isFinishing()) {
             return;
         }
-        int floor = (int) Math.floor((100 * j2) / j);
-        if (System.currentTimeMillis() - p(str2) > 500 || floor == 100) {
-            if (floor <= 100) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("progress", floor);
-                    jSONObject.put("totalBytesSent", j2);
-                    jSONObject.put("totalBytesExpectedToSend", j);
-                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-                } catch (Exception e) {
-                    if (r23.b) {
-                        e.printStackTrace();
-                    }
-                }
+        q23.e(nl1Var, hp2Var, str);
+        ns2.c(0, str);
+        if (qy1Var.k() < d) {
+            py1.R3(bd3.n());
+            qy1.b i = qy1Var.i("navigateTo");
+            i.n(qy1.g, qy1.i);
+            i.k("normal", hp2Var).b();
+            rb3.c(qy1Var, this.c);
+            ms2.q("route", str).F(new UbcFlowEvent("na_push_page_end"));
+            ns2.a(str, hp2Var);
+            return;
+        }
+        bp1.A(qy1Var, hp2Var, str, true);
+    }
+
+    public final void p(m52.e eVar, hp2 hp2Var, qy1 qy1Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, eVar, hp2Var, qy1Var, str) == null) {
+            boolean z = eVar != null && eVar.b;
+            HybridUbcFlow q = ms2.q("route", str);
+            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
+            q.D("preload", z ? "1" : "0");
+            if (e13.b) {
+                Log.d("NavigateToAction", "tryToExecutePageRoute start. isReady : " + z);
             }
-            this.c.put(str2, Long.valueOf(System.currentTimeMillis()));
-        }
-    }
-
-    public final void y(@NonNull JSONObject jSONObject, @Nullable ResponseBody responseBody) throws IOException, JSONException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, jSONObject, responseBody) == null) || responseBody == null) {
-            return;
-        }
-        String string = responseBody.string();
-        if (TextUtils.isEmpty(string)) {
-            return;
-        }
-        try {
-            jSONObject.put("data", new JSONObject(string));
-        } catch (JSONException unused) {
-            jSONObject.put("data", string);
-        }
-    }
-
-    public final void z(Response response, CallbackHandler callbackHandler, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{response, callbackHandler, str, str2, str3, str4}) == null) {
-            try {
-                try {
-                    r(str3, wr2.s(response.headers()));
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("statusCode", response.code());
-                    y(jSONObject, response.body());
-                    if (jSONObject.toString().length() > 26214400) {
-                        a83.b("uploadFile", 3002, "response json length over limits", 1001, "response json length over limits");
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, "response json length over limits").toString());
-                    } else {
-                        callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-                    }
-                } catch (Exception e) {
-                    if (r23.b) {
-                        e.printStackTrace();
-                    }
-                    a83.b("uploadFile", 2009, "json exception", 1001, e.getMessage());
-                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
-                }
-            } finally {
-                q(str4);
+            m52.q(eVar, new b(this, eVar, str, hp2Var, qy1Var));
+            if (e13.b) {
+                Log.d("NavigateToAction", "tryToExecutePageRoute end.");
             }
         }
     }

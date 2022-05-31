@@ -1,125 +1,75 @@
 package com.repackage;
 
-import android.view.View;
-import android.view.ViewGroup;
+import android.app.Application;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
+import com.baidu.nps.interfa.IHostAppRuntime;
+import com.baidu.nps.interfa.IHostAppRuntime_HostAppRuntimeManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class w41<T> {
+public class w41 {
     public static /* synthetic */ Interceptable $ic;
+    public static w41 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public d51 a;
-    public z41 b;
+    @Inject
+    public qa1<IHostAppRuntime> a;
 
-    public w41(z41 z41Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755251459, "Lcom/repackage/w41;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755251459, "Lcom/repackage/w41;");
+                return;
+            }
+        }
+        b = new w41();
+    }
+
+    public w41() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {z41Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = z41Var.f();
-        this.b = z41Var;
+        c();
     }
 
-    public w41<T> a(boolean z) {
-        InterceptResult invokeZ;
+    public static w41 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.b.d(z);
-            return this;
-        }
-        return (w41) invokeZ.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (w41) invokeV.objValue;
     }
 
-    public w41<T> b(View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    public Application a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, viewGroup)) == null) {
-            this.a.s(view2, viewGroup);
-            return this;
-        }
-        return (w41) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get().getApplication() : (Application) invokeV.objValue;
     }
 
-    public w41<T> c(int i) {
-        InterceptResult invokeI;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            this.b.m(i);
-            return this;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            oa1 b2 = oa1.b();
+            this.a = b2;
+            b2.a(new IHostAppRuntime_HostAppRuntimeManager_Provider());
         }
-        return (w41) invokeI.objValue;
-    }
-
-    public w41<T> d(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            if (i != -1) {
-                try {
-                    this.a.w(i);
-                } catch (Exception e) {
-                    cj0.h("BubbleBuilder", "", e);
-                    this.a.w(-1);
-                    return this;
-                }
-            }
-            if (i2 != -1) {
-                try {
-                    this.a.x(i2);
-                } catch (Exception e2) {
-                    cj0.h("BubbleBuilder", "", e2);
-                    this.a.x(-1);
-                }
-            }
-            return this;
-        }
-        return (w41) invokeII.objValue;
-    }
-
-    public w41<T> e(BubblePosition bubblePosition) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bubblePosition)) == null) {
-            this.b.e().d = false;
-            this.b.e().e = bubblePosition;
-            return this;
-        }
-        return (w41) invokeL.objValue;
-    }
-
-    public w41<T> f(BubbleManager.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            this.b.n(bVar);
-            return this;
-        }
-        return (w41) invokeL.objValue;
-    }
-
-    public w41<T> g(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            this.b.e().q(f);
-            return this;
-        }
-        return (w41) invokeF.objValue;
     }
 }

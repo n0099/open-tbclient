@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class fe extends he<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public class fe extends he<byte[]> {
         return invokeV.intValue;
     }
 
-    /* JADX WARN: Type inference failed for: r0v14, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r0v14, types: [T, byte[]] */
     @Override // com.repackage.he
     public le<byte[]> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
         InterceptResult invokeLL;
@@ -76,7 +76,7 @@ public class fe extends he<byte[]> {
             Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, m_ns, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
             try {
                 if (!rawQuery.moveToNext()) {
-                    jg.a(rawQuery);
+                    ig.a(rawQuery);
                     return null;
                 }
                 le<byte[]> leVar = new le<>();
@@ -86,12 +86,12 @@ public class fe extends he<byte[]> {
                 leVar.e = rawQuery.getLong(3);
                 leVar.f = rawQuery.getLong(4);
                 leVar.b = rawQuery.getBlob(5);
-                jg.a(rawQuery);
+                ig.a(rawQuery);
                 return leVar;
             } catch (Throwable th) {
                 th = th;
                 cursor = rawQuery;
-                jg.a(cursor);
+                ig.a(cursor);
                 throw th;
             }
         } catch (Throwable th2) {

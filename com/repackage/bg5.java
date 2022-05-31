@@ -1,48 +1,20 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tbadk.gif.GifView;
-import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface bg5 {
-    bg<GifView> getGifViewPool();
+public class bg5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    bg<ImageView> getImageViewPool();
-
-    bg<ItemCardView> getItemCardViewPool();
-
-    ListView getListView();
-
-    bg<RelativeLayout> getRelativeLayoutPool();
-
-    int getRichTextViewId();
-
-    bg<TextView> getTextViewPool();
-
-    bg<LinearLayout> getTextVoiceViewPool();
-
-    bg<TiebaPlusRecommendCard> getTiejiaRecommendPool();
-
-    bg<View> getVoiceViewPool();
-
-    void onAtClicked(Context context, String str);
-
-    void onLinkButtonClicked(Context context, String str);
-
-    void onLinkClicked(Context context, String str, boolean z);
-
-    void onPhoneClicked(Context context, String str, String str2);
-
-    void onSongClicked(Context context, String str);
-
-    void onVideoClicked(Context context, String str);
-
-    void onVideoP2PClicked(Context context, String str);
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long m = ys4.k().m("key_youngster_use_time_dialog_show_time", 0L);
+            return m > System.currentTimeMillis() || System.currentTimeMillis() - m <= 600000;
+        }
+        return invokeV.booleanValue;
+    }
 }

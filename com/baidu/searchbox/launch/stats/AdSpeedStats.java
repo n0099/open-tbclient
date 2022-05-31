@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
+import com.repackage.ji;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
@@ -135,7 +135,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
             if (i != 5054) {
                 switch (i) {
                     case SpeedStatsStampTable.AD_LOAD_METHOD_START_STAMP_KEY /* 3301 */:
-                        this.mNetType = ki.m();
+                        this.mNetType = ji.m();
                         this.mAdLoadMethodStartTimeStamp = j;
                         return;
                     case SpeedStatsStampTable.AD_LOAD_METHOD_END_STAMP_KEY /* 3302 */:
@@ -247,7 +247,7 @@ public final class AdSpeedStats extends AbstractSpeedStats {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mAdShowStartTimeStamp > 0 || this.mAdViewEndTimeStamp > 0 : invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:212:0x0387 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:212:0x0389 A[ADDED_TO_REGION, ORIG_RETURN, RETURN] */
     /* JADX WARN: Removed duplicated region for block: B:37:0x006e  */
     /* JADX WARN: Removed duplicated region for block: B:38:0x0073  */
     /* JADX WARN: Removed duplicated region for block: B:41:0x008a  */

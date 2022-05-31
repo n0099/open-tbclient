@@ -33,7 +33,7 @@ public class f {
 
     public static MessageSnapshot a(byte b, com.kwai.filedownloader.c.c cVar, d.a aVar) {
         InterceptResult invokeCommon;
-        MessageSnapshot c0357d;
+        MessageSnapshot c0358d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), cVar, aVar})) == null) {
             int a = cVar.a();
@@ -42,7 +42,7 @@ public class f {
                     return cVar.q() ? new d.b(a, false, cVar.h()) : new h.b(a, false, (int) cVar.h());
                 }
                 if (b == -1) {
-                    c0357d = cVar.q() ? new d.C0357d(a, cVar.g(), aVar.b()) : new h.d(a, (int) cVar.g(), aVar.b());
+                    c0358d = cVar.q() ? new d.C0358d(a, cVar.g(), aVar.b()) : new h.d(a, (int) cVar.g(), aVar.b());
                 } else if (b == 1) {
                     return cVar.q() ? new d.f(a, cVar.g(), cVar.h()) : new h.f(a, (int) cVar.g(), (int) cVar.h());
                 } else if (b == 2) {
@@ -55,13 +55,13 @@ public class f {
                         String a2 = com.kwai.filedownloader.e.f.a("it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b));
                         com.kwai.filedownloader.e.d.d(f.class, "it can't takes a snapshot for the task(%s) when its status is %d,", cVar, Byte.valueOf(b));
                         IllegalStateException illegalStateException = aVar.b() != null ? new IllegalStateException(a2, aVar.b()) : new IllegalStateException(a2);
-                        return cVar.q() ? new d.C0357d(a, cVar.g(), illegalStateException) : new h.d(a, (int) cVar.g(), illegalStateException);
+                        return cVar.q() ? new d.C0358d(a, cVar.g(), illegalStateException) : new h.d(a, (int) cVar.g(), illegalStateException);
                     }
                     return new MessageSnapshot.b(a);
                 } else {
-                    c0357d = cVar.q() ? new d.h(a, cVar.g(), aVar.b(), aVar.c()) : new h.C0358h(a, (int) cVar.g(), aVar.b(), aVar.c());
+                    c0358d = cVar.q() ? new d.h(a, cVar.g(), aVar.b(), aVar.c()) : new h.C0359h(a, (int) cVar.g(), aVar.b(), aVar.c());
                 }
-                return c0357d;
+                return c0358d;
             }
             throw new IllegalStateException(com.kwai.filedownloader.e.f.a("please use #catchWarn instead %d", Integer.valueOf(a)));
         }
@@ -77,7 +77,7 @@ public class f {
     public static MessageSnapshot a(int i, long j, Throwable th) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), th})) == null) ? j > 2147483647L ? new d.C0357d(i, j, th) : new h.d(i, (int) j, th) : (MessageSnapshot) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j), th})) == null) ? j > 2147483647L ? new d.C0358d(i, j, th) : new h.d(i, (int) j, th) : (MessageSnapshot) invokeCommon.objValue;
     }
 
     public static MessageSnapshot a(int i, File file, boolean z) {
@@ -101,7 +101,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, messageSnapshot)) == null) {
             if (messageSnapshot.b() == -3) {
-                return new a.C0356a(messageSnapshot);
+                return new a.C0357a(messageSnapshot);
             }
             throw new IllegalStateException(com.kwai.filedownloader.e.f.a("take block completed snapshot, must has already be completed. %d %d", Integer.valueOf(messageSnapshot.m()), Byte.valueOf(messageSnapshot.b())));
         }

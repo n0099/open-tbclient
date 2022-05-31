@@ -24,6 +24,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
     public String cantModifyAvatarDesc;
     public String isBusinessAccount;
     public int isMem;
+    public boolean isNickNameInVerifying;
     public long mAlaId;
     public int mBirthdayShowStatus;
     public long mBirthdayTime;
@@ -38,6 +39,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
     public int mSex;
     public String mTiebaId;
     public int mUserAge;
+    public String nickNameInVerifying;
     public String tempNickName;
     public String userId;
 
@@ -85,6 +87,7 @@ public class PersonChangeData extends OrmObject implements Serializable {
             }
         }
         this.mForumAge = "0.1";
+        this.isNickNameInVerifying = false;
         this.mIntro = null;
         this.mSex = 0;
         this.mName = null;

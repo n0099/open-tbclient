@@ -72,7 +72,7 @@ public class NetworkStatus {
     public static NetworkStatus getInstanceClone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().m683clone() : (NetworkStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().m682clone() : (NetworkStatus) invokeV.objValue;
     }
 
     public static void updateEnableV6(boolean z) {
@@ -138,7 +138,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m683clone() {
+    public NetworkStatus m682clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

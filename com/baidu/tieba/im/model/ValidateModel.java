@@ -16,12 +16,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.mi;
-import com.repackage.r67;
-import com.repackage.sd5;
-import com.repackage.t57;
-import com.repackage.vd5;
-import com.repackage.zc5;
+import com.repackage.li;
+import com.repackage.mc5;
+import com.repackage.pc5;
+import com.repackage.q47;
+import com.repackage.tb5;
+import com.repackage.v37;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -110,12 +110,12 @@ public class ValidateModel {
         return (List) invokeL.objValue;
     }
 
-    public static void deleteValidateData(ValidateItemData validateItemData, zc5<Boolean> zc5Var) {
+    public static void deleteValidateData(ValidateItemData validateItemData, tb5<Boolean> tb5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, validateItemData, zc5Var) == null) || validateItemData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, validateItemData, tb5Var) == null) || validateItemData == null) {
             return;
         }
-        vd5.c(new sd5<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.3
+        pc5.c(new mc5<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ValidateItemData val$data;
@@ -140,19 +140,19 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.repackage.sd5
+            @Override // com.repackage.mc5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(t57.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v37.f().a(this.val$data.getNotice_id())) : (Boolean) invokeV.objValue;
             }
-        }, zc5Var);
+        }, tb5Var);
     }
 
     public static ValidateItemData getByNoticeid(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? convertToValidateItemData(t57.f().d(str)) : (ValidateItemData) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? convertToValidateItemData(v37.f().d(str)) : (ValidateItemData) invokeL.objValue;
     }
 
     public static void markShown(List<ValidateItemData> list) {
@@ -198,7 +198,7 @@ public class ValidateModel {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                    t57.f().n(this.val$list);
+                    v37.f().m(this.val$list);
                     return null;
                 }
                 return (Void) invokeL.objValue;
@@ -206,10 +206,10 @@ public class ValidateModel {
         }.execute(new Void[0]);
     }
 
-    public static void requestValidateDataCountFromDB(zc5<Integer> zc5Var) {
+    public static void requestValidateDataCountFromDB(tb5<Integer> tb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, zc5Var) == null) {
-            vd5.c(new sd5<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
+        if (interceptable == null || interceptable.invokeL(65542, null, tb5Var) == null) {
+            pc5.c(new mc5<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -229,20 +229,20 @@ public class ValidateModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.repackage.sd5
+                @Override // com.repackage.mc5
                 public Integer doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Integer.valueOf(t57.f().e("apply_join_group")) : (Integer) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Integer.valueOf(v37.f().e("apply_join_group")) : (Integer) invokeV.objValue;
                 }
-            }, zc5Var);
+            }, tb5Var);
         }
     }
 
-    public static void requestValidateDataFromDB(int i, int i2, zc5<LinkedList<GroupNewsPojo>> zc5Var) {
+    public static void requestValidateDataFromDB(int i, int i2, tb5<LinkedList<GroupNewsPojo>> tb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, zc5Var) == null) {
-            vd5.c(new sd5<LinkedList<GroupNewsPojo>>(i, i2) { // from class: com.baidu.tieba.im.model.ValidateModel.4
+        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, tb5Var) == null) {
+            pc5.c(new mc5<LinkedList<GroupNewsPojo>>(i, i2) { // from class: com.baidu.tieba.im.model.ValidateModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int val$count;
@@ -268,32 +268,32 @@ public class ValidateModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.repackage.sd5
+                @Override // com.repackage.mc5
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? t57.f().c(0L, this.val$count, this.val$offset, "apply_join_group") : (LinkedList) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? v37.f().c(0L, this.val$count, this.val$offset, "apply_join_group") : (LinkedList) invokeV.objValue;
                 }
-            }, zc5Var);
+            }, tb5Var);
         }
     }
 
     public static void setGroupName(ValidateItemData validateItemData, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, validateItemData, str) == null) {
-            if (!BdBaseApplication.getInst().isDebugMode() || mi.B()) {
-                ImMessageCenterPojo j = r67.p().j(str, 1);
-                validateItemData.setGroupName(j != null ? j.getGroup_name() : "");
+            if (!BdBaseApplication.getInst().isDebugMode() || li.C()) {
+                ImMessageCenterPojo i = q47.o().i(str, 1);
+                validateItemData.setGroupName(i != null ? i.getGroup_name() : "");
             }
         }
     }
 
-    public static void updateValidateData(zc5<Boolean> zc5Var, ValidateItemData validateItemData) {
+    public static void updateValidateData(tb5<Boolean> tb5Var, ValidateItemData validateItemData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, zc5Var, validateItemData) == null) || validateItemData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65545, null, tb5Var, validateItemData) == null) || validateItemData == null) {
             return;
         }
-        vd5.c(new sd5<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.1
+        pc5.c(new mc5<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ValidateItemData val$data;
@@ -318,12 +318,12 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.repackage.sd5
+            @Override // com.repackage.mc5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(t57.f().j(this.val$data)) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v37.f().j(this.val$data)) : (Boolean) invokeV.objValue;
             }
-        }, zc5Var);
+        }, tb5Var);
     }
 }

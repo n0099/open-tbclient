@@ -12,8 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.eg;
-import com.repackage.mi;
+import com.repackage.dg;
+import com.repackage.li;
 import com.repackage.rb;
 import com.repackage.vb;
 /* loaded from: classes3.dex */
@@ -46,20 +46,20 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         this.mIsNeedFormat = z2;
         this.mIsForceLoad = z3;
         this.mProcType = i;
-        int k = mi.k(TbadkCoreApplication.getInst());
-        int i4 = mi.i(TbadkCoreApplication.getInst());
+        int k = li.k(TbadkCoreApplication.getInst());
+        int i4 = li.i(TbadkCoreApplication.getInst());
         if (i == 13) {
             k = k <= 0 ? 200 : k;
             this.mSuggestWidth = k;
             if (k > 480) {
                 this.mSuggestWidth = 480;
             }
-            if (this.mSuggestWidth > mi.d(TbadkCoreApplication.getInst(), 320.0f)) {
-                this.mSuggestWidth = mi.d(TbadkCoreApplication.getInst(), 320.0f);
+            if (this.mSuggestWidth > li.d(TbadkCoreApplication.getInst(), 320.0f)) {
+                this.mSuggestWidth = li.d(TbadkCoreApplication.getInst(), 320.0f);
             }
             this.mSuggestHeight = this.mSuggestWidth;
         } else if (i == 17) {
-            int min = Math.min(mi.d(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
+            int min = Math.min(li.d(TbadkCoreApplication.getInst().getApp(), 427.0f), 640);
             this.mSuggestWidth = min;
             this.mSuggestHeight = (int) (min * 1.6f);
         } else if (i == 15) {
@@ -77,8 +77,8 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
             if (k <= 0 || k > 644) {
                 this.mSuggestWidth = 644;
             }
-            if (this.mSuggestWidth > mi.d(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
-                this.mSuggestWidth = mi.d(TbadkCoreApplication.getInst().getApp(), 430.0f);
+            if (this.mSuggestWidth > li.d(TbadkCoreApplication.getInst().getApp(), 430.0f)) {
+                this.mSuggestWidth = li.d(TbadkCoreApplication.getInst().getApp(), 430.0f);
             }
             this.mSuggestHeight = (int) (this.mSuggestWidth * 0.43f);
         } else if (i == 46) {
@@ -119,7 +119,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsFromCDN : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.hg
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, com.repackage.gg
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -164,11 +164,11 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         vbVar.setGif(booleanValue3);
         vbVar.f(this.mIsNeedFormat);
         rb.f().a(vbVar);
-        eg egVar = (eg) objArr[3];
-        if (egVar != null) {
+        dg dgVar = (dg) objArr[3];
+        if (dgVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(vbVar);
-            egVar.a = diskCancelWorker;
+            dgVar.a = diskCancelWorker;
         }
     }
 }

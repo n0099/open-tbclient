@@ -15,7 +15,7 @@ public interface IPluginActivity {
 
     void onCreate(Bundle bundle);
 
-    void setPluginProxyActivity(b bVar, Plugin plugin2);
+    void setPluginProxyActivity(b bVar, Plugin plugin);
 
     void setProxyTheme2Plugin(int i);
 }

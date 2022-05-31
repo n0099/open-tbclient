@@ -1,7 +1,13 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,66 +15,92 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bt3 implements pm1 {
+public class bt3 extends nm2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bt3 c;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ws3 a;
-    public at3 b;
+    public EventTargetImpl d;
+    public ys3 e;
 
-    public bt3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755815504, "Lcom/repackage/bt3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755815504, "Lcom/repackage/bt3;");
                 return;
             }
         }
-        c();
+        f = rf1.a;
     }
 
-    public static bt3 b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bt3(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
+        super(null, jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eventTargetImpl, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = eventTargetImpl;
+    }
+
+    @Override // com.repackage.nm2
+    public void b(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            String optString = this.b.optString(str);
+            ys3 ys3Var = this.e;
+            if (ys3Var != null) {
+                ys3Var.q(optString, jSONObject);
+            }
+            if (this.d.hasEventListener(optString)) {
+                JSEvent jSEvent = new JSEvent(optString);
+                if (jSONObject != null) {
+                    jSEvent.data = jSONObject;
+                }
+                if (f && !"onTimeUpdate".equals(str)) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("type = ");
+                    sb.append(str);
+                    sb.append("  result = ");
+                    sb.append(jSONObject != null ? jSONObject.toString() : StringUtil.NULL_STRING);
+                    Log.d("AudioCallbackForV8", sb.toString());
+                }
+                this.d.dispatchEvent(jSEvent);
+            }
+        }
+    }
+
+    @Override // com.repackage.nm2
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (bt3.class) {
-                    if (c == null) {
-                        c = new bt3();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-        return (bt3) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.pm1
-    public us1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull yd2 yd2Var) {
-        InterceptResult invokeLLL;
+    public void e(ys3 ys3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, yd2Var)) == null) {
-            if (this.a.e(str)) {
-                return this.a.a(str, jSONObject, yd2Var);
-            }
-            if (this.a.f()) {
-                return this.b.a(str, jSONObject, yd2Var);
-            }
-            return new us1(10001, "authorize fail.");
-        }
-        return (us1) invokeLLL.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new ws3();
-            this.b = new at3();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ys3Var) == null) {
+            this.e = ys3Var;
         }
     }
 }

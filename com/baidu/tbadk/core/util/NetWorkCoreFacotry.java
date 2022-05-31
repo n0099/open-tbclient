@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ki;
+import com.repackage.ji;
 /* loaded from: classes3.dex */
 public class NetWorkCoreFacotry {
     public static /* synthetic */ Interceptable $ic = null;
@@ -54,11 +54,11 @@ public class NetWorkCoreFacotry {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             try {
-                if (ki.z()) {
-                    if (ki.H()) {
+                if (ji.z()) {
+                    if (ji.H()) {
                         return "wifi";
                     }
-                    String c = ki.c();
+                    String c = ji.c();
                     if (c != null) {
                         if (c.length() > 0) {
                             return "wap";

@@ -45,8 +45,10 @@ public class CommonStatisticKey {
     public static final String KEY_CHANGE_RICH_TEXT_MODE = "c14553";
     public static final String KEY_CLICK_BIGDAY_AT_WRITE = "c13114";
     public static final String KEY_CLICK_VIDEO_TOPIC = "c14410";
+    public static final String KEY_COMMUNITY_CONVENTION_CLICK = "c14687";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_CLICK = "c14279";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_SHOW = "c14280";
+    public static final String KEY_CREATE_BA_CLICK = "c14676";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK = "c14142";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL = "c14144";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON = "c14145";
@@ -226,7 +228,6 @@ public class CommonStatisticKey {
     public static final String PERSON_INFO_CENTER_LOTTIE_SHOW = "c13248";
     public static final String REF_TYPE_FRS_AD = "4000601";
     public static final String SEARCH_BAR_CLICK = "c10378";
-    public static final String SHARE4SDK = "share4sdk";
     public static final String TICKET_SHOW = "ticket_show";
     public static final String UBS_TEST_MAIN_BOTTOM_LIVE_TAB_CLICK = "c13703";
     public static final String UBS_TEST_PUBLISH_BUTTON_CLICK = "c13702";

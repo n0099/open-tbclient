@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.npsplugin.LayoutInflaterFixer;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.NPSHookManager;
 import com.baidu.nps.main.manager.Configurations;
@@ -33,17 +34,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.d85;
 import com.repackage.d9;
-import com.repackage.ei;
-import com.repackage.iu4;
-import com.repackage.j95;
-import com.repackage.jc1;
-import com.repackage.li0;
-import com.repackage.us4;
-import com.repackage.vs4;
-import com.repackage.wf;
-import com.repackage.ws4;
-import com.repackage.xs4;
+import com.repackage.di;
+import com.repackage.kr4;
+import com.repackage.lr4;
+import com.repackage.mr4;
+import com.repackage.nr4;
+import com.repackage.vf;
+import com.repackage.wa1;
+import com.repackage.yg0;
+import com.repackage.ys4;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -81,12 +82,12 @@ public class TiebaBaseApplication extends TbadkApplication {
             }
             HashSet<String> hashSet = new HashSet<>();
             if (SpeedRuntime.getSpeedContext().isMainProcess()) {
-                String q = iu4.k().q("key_sync_task_switch", "");
+                String q = ys4.k().q("key_sync_task_switch", "");
                 if (!StringUtils.isNull(q) && (split = q.split("_")) != null && split.length > 0) {
                     Collections.addAll(hashSet, split);
                 }
             }
-            if (xs4.a().a) {
+            if (nr4.a().a) {
                 applicationTaskPool = new PBTaskPool();
             } else {
                 applicationTaskPool = new ApplicationTaskPool();
@@ -102,10 +103,10 @@ public class TiebaBaseApplication extends TbadkApplication {
                 return;
             }
             LaunchTaskSchedule.getInstance().start(1);
+            LaunchTaskSchedule.getInstance().start(2);
             if (PreInitMainTabViewSwitch.getIsOn()) {
                 LaunchTaskSchedule.getInstance().startTaskInSingleThread(4);
             }
-            LaunchTaskSchedule.getInstance().start(2);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
                 LaunchTaskSchedule.getInstance().start(3);
             }
@@ -117,8 +118,8 @@ public class TiebaBaseApplication extends TbadkApplication {
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new TaskManagerLaunchFetchListener());
-            arrayList.add(new ws4());
-            arrayList.add(new vs4());
+            arrayList.add(new mr4());
+            arrayList.add(new lr4());
             AppLaunchInfoFetcher.e(this, arrayList);
         }
     }
@@ -135,7 +136,7 @@ public class TiebaBaseApplication extends TbadkApplication {
     private void initBitmapHelper() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            ei.d().f(this.mContext);
+            di.d().e(this.mContext);
         }
     }
 
@@ -146,6 +147,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             Configurations.Builder builder = new Configurations.Builder();
             builder.debug(false);
             NPSManager.getInstance().init(this, builder.build(), false);
+            LayoutInflaterFixer.a();
         }
     }
 
@@ -180,9 +182,9 @@ public class TiebaBaseApplication extends TbadkApplication {
             if (!LaunchUpApplicationSwitch.getIsOn()) {
                 SwanAppInitHelper.initContext(this);
             }
-            jc1.b(this);
+            wa1.b(this);
             if (isMainProcess(false, context)) {
-                us4.b(context);
+                kr4.b(context);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             initNPS();
@@ -190,7 +192,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             TitanIniter.init(this);
             LoaderManager.getInstance().load();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1012);
-            li0.b(this);
+            yg0.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1010);
         }
     }
@@ -204,7 +206,7 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(2000);
             TbadkApplication.sApp = this;
             if (isMainProcess(false)) {
-                us4.a();
+                kr4.a();
             }
             d9.a().b(super.getResources());
             initBdBaseApp(this);
@@ -215,11 +217,11 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(2002);
             initAndStartLaunchTaskSchedule();
             SpeedStatsManager.getInstance().addStatsTimeStamp(2003);
-            j95.b().F(System.currentTimeMillis());
+            d85.b().F(System.currentTimeMillis());
             if (isMainProcess(false)) {
-                us4.j();
+                kr4.j();
             }
-            wf.a().b();
+            vf.a().b();
             SpeedStatsManager.getInstance().addStatsTimeStamp(2004);
             SpeedStats.getInstance().onAppCreateEnd();
         }

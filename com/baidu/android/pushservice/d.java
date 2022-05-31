@@ -837,17 +837,17 @@ public final class d {
             if (this.i != 0 || i == 0) {
                 if (this.i != 0) {
                     if (this.p) {
-                        new b.C0037b(this.l).b(System.currentTimeMillis()).a(i + "").d(401102L).a();
+                        new b.C0036b(this.l).b(System.currentTimeMillis()).a(i + "").d(401102L).a();
                         this.p = false;
                         return;
                     }
-                    new b.C0037b(this.l).a(true).a(this.i).b(System.currentTimeMillis()).a(i + "").c(this.j).d(401101L).a();
+                    new b.C0036b(this.l).a(true).a(this.i).b(System.currentTimeMillis()).a(i + "").c(this.j).d(401101L).a();
                     this.i = 0L;
                     return;
                 }
                 return;
             }
-            new b.C0037b(this.l).a(System.currentTimeMillis()).a(i + "").b(this.q + "/" + this.r + ":" + this.s + ":" + w + ":" + com.baidu.android.pushservice.i.g.g(this.l)).d(401100L).a();
+            new b.C0036b(this.l).a(System.currentTimeMillis()).a(i + "").b(this.q + "/" + this.r + ":" + this.s + ":" + w + ":" + com.baidu.android.pushservice.i.g.g(this.l)).d(401100L).a();
         }
     }
 

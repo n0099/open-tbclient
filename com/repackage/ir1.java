@@ -1,77 +1,112 @@
 package com.repackage;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tachikoma.core.component.input.InputType;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ir1 extends ar1 {
+public class ir1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ir1(@NonNull vo1 vo1Var) {
-        super(vo1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vo1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((vo1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755608951, "Lcom/repackage/ir1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755608951, "Lcom/repackage/ir1;");
                 return;
             }
         }
+        a = rf1.a;
+        b = new String[]{"swan", "swanAPI", "utils"};
     }
 
-    @Override // com.repackage.xo1
-    public String j() {
-        InterceptResult invokeV;
+    @NonNull
+    public static Pair<Boolean, gr1> a(hn1 hn1Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PhoneCallApi" : (String) invokeV.objValue;
-    }
-
-    public us1 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#makePhoneCall", false);
-            if (n()) {
-                ux1.c("PhoneCallApi", "PhoneCallApi does not supported when app is invisible.");
-                return new us1(1001, "PhoneCallApi does not supported when app is invisible.");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, hn1Var, str)) == null) {
+            hr1 hr1Var = new hr1();
+            boolean b2 = b(str, hn1Var.a().i());
+            if (b2) {
+                hr1Var.b = 402;
             }
-            Intent intent = new Intent("android.intent.action.DIAL");
-            Pair<us1, JSONObject> s = s(str);
-            us1 us1Var = (us1) s.first;
-            if (us1Var.isSuccess()) {
-                JSONObject jSONObject = (JSONObject) s.second;
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("phoneNumber");
-                    if (!TextUtils.isEmpty(optString)) {
-                        intent.setData(Uri.fromParts(InputType.TEL, optString, null));
+            return new Pair<>(Boolean.valueOf(b2), hr1Var);
+        }
+        return (Pair) invokeLL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean b(String str, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
+            if (!(callbackHandler instanceof pl1)) {
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
+                }
+                return false;
+            } else if (TextUtils.isEmpty(str)) {
+                if (a) {
+                    throw new RuntimeException("whitelistName is empty");
+                }
+                return false;
+            } else {
+                String e0 = ((pl1) callbackHandler).e0();
+                if ("ai_apps_widget".equals(e0)) {
+                    z = c(str);
+                } else if ("ai_apps_ad_landing".equals(e0)) {
+                    z = !yz2.a(str);
+                } else {
+                    if (!"swan_app_alliance_login_widget".equals(e0) && !"swan_app_alliance_choose_address_widget".equals(e0) && a) {
+                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
+                    }
+                    return false;
+                }
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
+                }
+                return z;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean c(@NonNull String str) {
+        InterceptResult invokeL;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int indexOf = str.indexOf("/");
+            if (indexOf < 0) {
+                return true;
+            }
+            if (str.startsWith("swan")) {
+                String substring = str.substring(indexOf + 1);
+                for (String str2 : b) {
+                    if (yz2.g(str2 + "/" + substring)) {
+                        return false;
                     }
                 }
-                if (dd3.g(getContext(), intent)) {
-                    return us1.f();
-                }
-                return new us1(1001);
+                return true;
             }
-            return us1Var;
+            return !yz2.g(str);
         }
-        return (us1) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

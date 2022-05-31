@@ -1,15 +1,13 @@
 package com.repackage;
 
-import android.database.Cursor;
-import android.database.MatrixCursor;
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,105 +15,165 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cn3 extends zm3 {
+public class cn3 implements ln3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Handler a;
+    public final in3 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755791479, "Lcom/repackage/cn3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cn3 cn3Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755791479, "Lcom/repackage/cn3;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cn3Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-        a = eh1.a;
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                DownloadInfo downloadInfo = (DownloadInfo) message.obj;
+                int status = downloadInfo.getStatus();
+                if (downloadInfo.getDownloadListener() == null) {
+                    return;
+                }
+                switch (b.a[DownloadState.convert(status).ordinal()]) {
+                    case 1:
+                        downloadInfo.getDownloadListener().e(downloadInfo.getProgress(), downloadInfo.getSize());
+                        return;
+                    case 2:
+                        downloadInfo.getDownloadListener().onStart();
+                        return;
+                    case 3:
+                        downloadInfo.getDownloadListener().d();
+                        return;
+                    case 4:
+                        downloadInfo.getDownloadListener().f(downloadInfo.getProgress(), downloadInfo.getSize());
+                        return;
+                    case 5:
+                        downloadInfo.getDownloadListener().a();
+                        return;
+                    case 6:
+                        downloadInfo.getDownloadListener().b(downloadInfo.getException());
+                        return;
+                    case 7:
+                        downloadInfo.getDownloadListener().c();
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
     }
 
-    public cn3() {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-466157301, "Lcom/repackage/cn3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-466157301, "Lcom/repackage/cn3$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[DownloadState.values().length];
+            a = iArr;
+            try {
+                iArr[DownloadState.DOWNLOADING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[DownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[DownloadState.WAIT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[DownloadState.DOWNLOADED.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[DownloadState.DELETED.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+        }
+    }
+
+    public cn3(in3 in3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {in3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = in3Var;
+        this.a = new a(this, Looper.getMainLooper());
+    }
+
+    @Override // com.repackage.ln3
+    public void a(DownloadException downloadException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
         }
     }
 
-    public final Cursor a(String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.ln3
+    public void b(DownloadInfo downloadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            MatrixCursor matrixCursor = new MatrixCursor(new String[]{"params"}, 1);
-            matrixCursor.newRow().add("params", str);
-            return matrixCursor;
-        }
-        return (Cursor) invokeL.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("swan_sdk_version", fh1.a());
-                jSONObject.put("swan_core_version", z93.h(0));
-                jSONObject.put("game_core_version", z93.h(1));
-                jSONObject.put("uid", bk2.h0().i(AppRuntime.getAppContext()));
-                jSONObject.put("puid", bk2.h0().h(AppRuntime.getAppContext()));
-                jSONObject.put("ua", qx1.s());
-                jSONObject.put("ut", qx1.f());
-                jSONObject.put("timestamp", System.currentTimeMillis());
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
+            if (downloadInfo.getStatus() != DownloadState.DELETED.value()) {
+                this.b.a(downloadInfo);
             }
-            return jSONObject.toString();
+            Message obtainMessage = this.a.obtainMessage(downloadInfo.getId().hashCode());
+            obtainMessage.obj = downloadInfo;
+            obtainMessage.sendToTarget();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return Base64.encodeToString(en3.b(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI4nl5QCs/mwaPjm2H4cHaxTBya7F1S1f2IXBwfEB6QD16esL+37EX+SeGR3NQ+0Xxs32Bpl/E70xlII24e/E6GJnU1vks/d1+h4rBjv987X2eppIBrT8f6COjczYcUm0OBa7IGmAMnqMCnOt/U1Wx3Mn7zniQKueT5DjQBOuxyQIDAQAB", 117), 10);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.repackage.zm3
-    @Nullable
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, strArr, str, strArr2, str2)) == null) {
-            String b = b();
-            if (a) {
-                Log.i("ParamsProcessor", "params: " + b);
-            }
-            String c = c(b);
-            if (a) {
-                Log.i("ParamsProcessor", "encryption params: " + c);
-            }
-            return a(c);
-        }
-        return (Cursor) invokeLLLLL.objValue;
     }
 }

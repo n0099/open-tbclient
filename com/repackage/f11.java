@@ -1,17 +1,18 @@
 package com.repackage;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class f11 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.content.Context;
+import com.baidu.nadcore.webview.container.base.AbsContainer;
+import java.util.HashMap;
+/* loaded from: classes5.dex */
+public interface f11 {
+    public static final a a = g11.a;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) ? (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || !str.contains(str3)) ? str : str.replace(str3, str2) : (String) invokeLLL.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        AbsContainer a(l11 l11Var, m11 m11Var, int i);
+
+        boolean b(HashMap<String, String> hashMap, int i);
+
+        void c(Context context, boolean z, int i);
     }
 }

@@ -20,15 +20,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.hj8;
-import com.repackage.q07;
-import com.repackage.tz6;
-import com.repackage.u07;
-import com.repackage.uz6;
+import com.repackage.ig8;
+import com.repackage.uy6;
 import com.repackage.wa;
+import com.repackage.xx6;
+import com.repackage.xy6;
+import com.repackage.yx6;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
+public class TabFeedNetFeedModel extends BdBaseModel implements yx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -36,8 +36,8 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
     public int c;
     public String d;
     public String e;
-    public tz6 f;
-    public u07 g;
+    public xx6 f;
+    public xy6 g;
     public wa h;
 
     /* loaded from: classes3.dex */
@@ -76,11 +76,11 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
                 if (responsedMessage == null) {
                     return;
                 }
-                q07 q07Var = null;
+                uy6 uy6Var = null;
                 if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
-                    q07Var = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
+                    uy6Var = ((TabFeedListHttpResponsedMessage) responsedMessage).tabFeedData;
                 } else if (responsedMessage instanceof TabFeedListSocketResponsedMessage) {
-                    q07Var = ((TabFeedListSocketResponsedMessage) responsedMessage).tabFeedData;
+                    uy6Var = ((TabFeedListSocketResponsedMessage) responsedMessage).tabFeedData;
                 }
                 this.a.mErrorCode = responsedMessage.getError();
                 this.a.mErrorString = responsedMessage.getErrorString();
@@ -90,23 +90,23 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
                 if (this.a.f == null) {
                     return;
                 }
-                if (this.a.mErrorCode != 0 || q07Var == null) {
+                if (this.a.mErrorCode != 0 || uy6Var == null) {
                     this.a.f.onServerError(errorData);
                 } else {
-                    this.a.H(q07Var);
+                    this.a.H(uy6Var);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TabFeedNetFeedModel(TbPageContext tbPageContext, tz6 tz6Var) {
+    public TabFeedNetFeedModel(TbPageContext tbPageContext, xx6 xx6Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tz6Var};
+            Object[] objArr = {tbPageContext, xx6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -121,10 +121,10 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
         this.b = false;
         this.c = 1;
         this.h = new a(this, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, 309655);
-        hj8.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
-        hj8.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
-        this.g = new u07();
-        this.f = tz6Var;
+        ig8.h(309655, TabFeedListSocketResponsedMessage.class, false, false);
+        ig8.c(309655, CmdConfigHttp.CMD_HOME_TAB_ACTIVITY_LIST, TbConfig.URL_TAB_ACTIVITY_TAB, TabFeedListHttpResponsedMessage.class, false, false, true, false);
+        this.g = new xy6();
+        this.f = xx6Var;
     }
 
     public final void G(int i) {
@@ -147,33 +147,33 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
         }
     }
 
-    public final void H(q07 q07Var) {
+    public final void H(uy6 uy6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q07Var) == null) {
-            if (q07Var != null) {
-                this.c = q07Var.b();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uy6Var) == null) {
+            if (uy6Var != null) {
+                this.c = uy6Var.b();
             }
             if (this.f != null) {
-                this.f.J(this.g.a(this.a, q07Var));
+                this.f.J(this.g.a(this.a, uy6Var));
             }
         }
     }
 
-    @Override // com.repackage.uz6
+    @Override // com.repackage.yx6
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            u07 u07Var = this.g;
-            if (u07Var == null) {
+            xy6 xy6Var = this.g;
+            if (xy6Var == null) {
                 return false;
             }
-            return u07Var.c();
+            return xy6Var.c();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.uz6
+    @Override // com.repackage.yx6
     public void b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
@@ -205,7 +205,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
         }
     }
 
-    @Override // com.repackage.uz6
+    @Override // com.repackage.yx6
     public void destory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -215,16 +215,16 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
         }
     }
 
-    @Override // com.repackage.uz6
+    @Override // com.repackage.yx6
     public List<ThreadData> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            u07 u07Var = this.g;
-            if (u07Var == null) {
+            xy6 xy6Var = this.g;
+            if (xy6Var == null) {
                 return null;
             }
-            return u07Var.b();
+            return xy6Var.b();
         }
         return (List) invokeV.objValue;
     }
@@ -239,7 +239,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.repackage.uz6
+    @Override // com.repackage.yx6
     public void loadMore() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.b) {
@@ -249,7 +249,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
         G(2);
     }
 
-    @Override // com.repackage.uz6
+    @Override // com.repackage.yx6
     public void q(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048586, this, str, str2, i) == null) {
@@ -258,7 +258,7 @@ public class TabFeedNetFeedModel extends BdBaseModel implements uz6 {
         }
     }
 
-    @Override // com.repackage.uz6
+    @Override // com.repackage.yx6
     public void refresh() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.b) {

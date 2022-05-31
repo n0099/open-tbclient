@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class GiftTabActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_TYPE = "account_type";
@@ -72,7 +72,7 @@ public class GiftTabActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("gift_receiver_id", j);
+        getIntent().putExtra(GIFT_RECEIVER_ID, j);
         getIntent().putExtra(GIFT_RECEIVER_NAME, str);
         getIntent().putExtra(GIFT_RECEIVER_NAME_SHOW, str2);
         getIntent().putExtra("from", str3);
@@ -98,7 +98,7 @@ public class GiftTabActivityConfig extends IntentConfig {
         }
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(i);
-        getIntent().putExtra("gift_receiver_id", j);
+        getIntent().putExtra(GIFT_RECEIVER_ID, j);
         getIntent().putExtra(GIFT_RECEIVER_NAME, str);
         getIntent().putExtra(GIFT_RECEIVER_NAME_SHOW, str2);
         getIntent().putExtra("from", str3);
@@ -122,7 +122,7 @@ public class GiftTabActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("gift_receiver_id", j);
+        getIntent().putExtra(GIFT_RECEIVER_ID, j);
         getIntent().putExtra(GIFT_RECEIVER_NAME, str);
         getIntent().putExtra(GIFT_RECEIVER_NAME_SHOW, str2);
         getIntent().putExtra("from", str3);

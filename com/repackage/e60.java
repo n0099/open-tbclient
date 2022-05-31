@@ -1,92 +1,72 @@
 package com.repackage;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.HandlerThread;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.IMManager;
+import com.baidu.android.imsdk.account.ILoginListener;
+import com.baidu.android.imsdk.account.LoginManager;
+import com.baidu.android.imsdk.chatmessage.request.IMSendMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.ConnectManager;
-import com.baidu.searchbox.network.outback.OutbackComponent;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
-import com.baidu.searchbox.network.support.okhttp.converters.HeadersConverter;
+import com.baidu.android.imsdk.internal.IMConfigInternal;
+import com.baidu.android.imsdk.internal.IMConnection;
+import com.baidu.android.imsdk.internal.IMSDK;
+import com.baidu.android.imsdk.internal.ListenerManager;
+import com.baidu.android.imsdk.internal.MessageFactory;
+import com.baidu.android.imsdk.internal.NotifyMessageHandler;
+import com.baidu.android.imsdk.request.Message;
+import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.ubc.MessageUbc;
+import com.baidu.android.imsdk.ubc.UBCConstants;
+import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.net.Proxy;
-import java.net.SocketAddress;
-import java.util.List;
-import okhttp3.Call;
-import okhttp3.Connection;
-import okhttp3.EventListener;
-import okhttp3.Handshake;
-import okhttp3.Headers;
-import okhttp3.MediaType;
-import okhttp3.Protocol;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import okio.Buffer;
-import okio.BufferedSource;
-import okio.ForwardingSource;
-import okio.Okio;
-import okio.Source;
+import com.tachikoma.core.component.input.ReturnKeyType;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class e60 extends EventListener {
+public class e60 {
     public static /* synthetic */ Interceptable $ic;
+    public static Handler c;
+    public static final HandlerThread d;
+    public static volatile boolean e;
+    public static volatile Map<Long, Message> f;
+    public static volatile Map<Long, MessageUbc> g;
+    public static volatile e60 h;
+    public static Context i;
     public transient /* synthetic */ FieldHolder $fh;
-    public EventListener a;
+    public AtomicInteger a;
+    public s60 b;
 
     /* loaded from: classes5.dex */
-    public class a extends ResponseBody {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ResponseBody a;
-        public final /* synthetic */ Request b;
-        public final /* synthetic */ e60 c;
+        public final /* synthetic */ Intent a;
+        public final /* synthetic */ e60 b;
 
-        /* renamed from: com.repackage.e60$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0405a implements c {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0405a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // com.repackage.e60.c
-            public void a(long j) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                    this.a.b.onFinishReadContent4NetworkStatRecord(j);
-                }
-            }
-        }
-
-        public a(e60 e60Var, ResponseBody responseBody, Request request) {
+        public a(e60 e60Var, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {e60Var, responseBody, request};
+                Object[] objArr = {e60Var, intent};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -96,593 +76,322 @@ public class e60 extends EventListener {
                     return;
                 }
             }
-            this.c = e60Var;
-            this.a = responseBody;
-            this.b = request;
+            this.b = e60Var;
+            this.a = intent;
         }
 
-        @Override // okhttp3.ResponseBody
-        public long contentLength() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.contentLength() : invokeV.longValue;
-        }
-
-        @Override // okhttp3.ResponseBody
-        public MediaType contentType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.contentType() : (MediaType) invokeV.objValue;
-        }
-
-        @Override // okhttp3.ResponseBody
-        public BufferedSource source() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.c(this.a.source(), new C0405a(this)) : (BufferedSource) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends ForwardingSource {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public boolean b;
-        public final /* synthetic */ c c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(e60 e60Var, Source source, c cVar) {
-            super(source);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e60Var, source, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Source) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = cVar;
-            this.a = 0L;
-        }
-
-        @Override // okio.ForwardingSource, okio.Source, java.io.Closeable, java.lang.AutoCloseable
-        public void close() throws IOException {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    super.close();
-                } finally {
-                    c cVar = this.c;
-                    if (cVar != null && !this.b) {
-                        cVar.a(this.a);
-                    }
-                }
+                this.b.j(this.a);
             }
-        }
-
-        @Override // okio.ForwardingSource, okio.Source
-        public long read(Buffer buffer, long j) throws IOException {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
-                try {
-                    long read = super.read(buffer, j);
-                    int i = (read > (-1L) ? 1 : (read == (-1L) ? 0 : -1));
-                    long j2 = this.a + (i != 0 ? read : 0L);
-                    this.a = j2;
-                    if (i == 0 && this.c != null) {
-                        this.c.a(j2);
-                        this.b = true;
-                    }
-                    return read;
-                } catch (Exception e) {
-                    c cVar = this.c;
-                    if (cVar != null) {
-                        cVar.a(this.a);
-                    }
-                    throw e;
-                }
-            }
-            return invokeLJ.longValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public interface c {
-        void a(long j);
+    public class b implements s60 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e60 a;
+
+        public b(e60 e60Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e60Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e60Var;
+        }
+
+        @Override // com.repackage.s60
+        public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
+            MessageUbc messageUbc;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) {
+                LogUtils.i("IMServiceImpl", "IMService err :" + i + ", methodId :" + j2 + ", data :" + bArr.length + ", Response :" + new String(bArr));
+                int i2 = (j2 > 231L ? 1 : (j2 == 231L ? 0 : -1));
+                if (i2 == 0) {
+                    NotifyMessageHandler.handleRtcReport("begin", new String(bArr));
+                }
+                if (i != 0) {
+                    synchronized (e60.f) {
+                        if (e60.f != null && e60.f.containsKey(Long.valueOf(j3))) {
+                            ((Message) e60.f.get(Long.valueOf(j3))).handleMessageResult(e60.i, null, i, str);
+                            e60.f.remove(Long.valueOf(j3));
+                        }
+                    }
+                    return;
+                }
+                try {
+                    JSONObject jSONObject = new JSONObject(new String(bArr));
+                    int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
+                    String optString = jSONObject.optString("msg", "");
+                    if (this.a.i((int) j2)) {
+                        synchronized (e60.f) {
+                            messageUbc = (MessageUbc) e60.g.get(Long.valueOf(j3));
+                            e60.g.remove(Long.valueOf(j3));
+                        }
+                        if (messageUbc != null) {
+                            r50.d().f(messageUbc.generateUBCData(String.valueOf(optInt), optString), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                        }
+                    }
+                    if (j2 == 96) {
+                        NotifyMessageHandler.handleDeliverMessage(e60.i.getApplicationContext(), jSONObject);
+                    } else if (j2 == 196) {
+                        NotifyMessageHandler.handleMcastMessage(e60.i.getApplicationContext(), jSONObject);
+                    } else if (j2 == 197) {
+                        NotifyMessageHandler.handleConfigMessage(e60.i.getApplicationContext(), jSONObject);
+                    } else if (j2 == 226) {
+                        NotifyMessageHandler.handleMediaNotifyMessage(e60.i.getApplicationContext(), jSONObject);
+                    } else if (i2 == 0) {
+                        NotifyMessageHandler.handleRtcNotifyMessage(e60.i, jSONObject);
+                    } else {
+                        LogUtils.d("IMServiceImpl", "key :" + j3 + "response :" + jSONObject.toString());
+                        synchronized (e60.f) {
+                            if (e60.f != null && e60.f.containsKey(Long.valueOf(j3))) {
+                                ((Message) e60.f.get(Long.valueOf(j3))).handleMessageResult(e60.i, jSONObject, optInt, optString);
+                                e60.f.remove(Long.valueOf(j3));
+                            }
+                        }
+                    }
+                } catch (JSONException e) {
+                    LogUtils.e("IMServiceImpl", "handle response e :", e);
+                    synchronized (e60.f) {
+                        if (e60.f != null && e60.f.containsKey(Long.valueOf(j3))) {
+                            ((Message) e60.f.get(Long.valueOf(j3))).handleMessageResult(e60.i, null, -1, "");
+                            e60.f.remove(Long.valueOf(j3));
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    public e60(EventListener eventListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eventListener};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755785806, "Lcom/repackage/e60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755785806, "Lcom/repackage/e60;");
                 return;
             }
         }
-        this.a = eventListener;
+        HandlerThread handlerThread = new HandlerThread("IMServiceImpl HandlerThread");
+        d = handlerThread;
+        handlerThread.start();
+        c = new Handler(d.getLooper());
+        e = true;
+        f = new LinkedHashMap();
+        g = new LinkedHashMap();
     }
 
-    public final String b(Response response) {
+    public e60() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger();
+        this.b = new b(this);
+        h();
+    }
+
+    public static void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            synchronized (f) {
+                if (f == null) {
+                    return;
+                }
+                for (Message message : f.values()) {
+                    if (message != null) {
+                        message.handleMessageResult(context, null, -1, "");
+                    }
+                }
+            }
+        }
+    }
+
+    public static e60 g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, response)) == null) {
-            Headers headers = response.headers();
-            StringBuilder sb = new StringBuilder();
-            int size = headers.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(headers.name(i));
-                sb.append(":");
-                sb.append(headers.value(i));
-                sb.append(";");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final BufferedSource c(Source source, c cVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, source, cVar)) == null) ? Okio.buffer(new b(this, source, cVar)) : (BufferedSource) invokeLL.objValue;
-    }
-
-    @Override // okhttp3.EventListener
-    public void callEnd(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, call) == null) {
-            if (d(call)) {
-                Request request = (Request) call.request().tag(Request.class);
-                request.getNetworkStatRecord().isConnected = ConnectManager.isNetworkConnected(OutbackComponent.getInstance().getContext());
-                request.getNetworkStatRecord().callEndTimeStamp = System.currentTimeMillis();
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.callEnd(call);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void callFailed(Call call, IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, call, iOException) == null) {
-            if (d(call)) {
-                Request request = (Request) call.request().tag(Request.class);
-                request.getNetworkStatRecord().isConnected = ConnectManager.isNetworkConnected(OutbackComponent.getInstance().getContext());
-                request.getNetworkStatRecord().failTs = System.currentTimeMillis();
-                request.getNetworkStatRecord().exception = iOException;
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.callFailed(call, iOException);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void callStart(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, call) == null) {
-            if (d(call)) {
-                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().callStartTimeStamp = System.currentTimeMillis();
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.callStart(call);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectEnd(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, call, inetSocketAddress, proxy, protocol) == null) {
-            if (d(call)) {
-                Request request = (Request) call.request().tag(Request.class);
-                long currentTimeMillis = System.currentTimeMillis();
-                request.getNetworkStatRecord().connTs = currentTimeMillis;
-                request.getNetworkStatRecord().tcpEndTs = currentTimeMillis;
-                request.getNetworkStatRecord().protocol = protocol == null ? "unknown" : protocol.toString();
-                try {
-                    request.getNetworkStatRecord().useFallbackConn = call.request().isFallbackConn();
-                } catch (Throwable unused) {
-                    request.getNetworkStatRecord().useFallbackConn = false;
-                }
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.connectEnd(call, inetSocketAddress, proxy, protocol);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectFailed(Call call, InetSocketAddress inetSocketAddress, Proxy proxy, Protocol protocol, IOException iOException) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, call, inetSocketAddress, proxy, protocol, iOException) == null) {
-            if (d(call)) {
-                NetworkStatRecord networkStatRecord = ((Request) call.request().tag(Request.class)).getNetworkStatRecord();
-                networkStatRecord.failTs = System.currentTimeMillis();
-                networkStatRecord.exception = iOException;
-                networkStatRecord.protocol = protocol == null ? "unknown" : protocol.toString();
-                networkStatRecord.remoteIP = inetSocketAddress.toString();
-                e(networkStatRecord, proxy);
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.connectFailed(call, inetSocketAddress, proxy, protocol, iOException);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectStart(Call call, InetSocketAddress inetSocketAddress, Proxy proxy) {
-        EventListener eventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, call, inetSocketAddress, proxy) == null) || (eventListener = this.a) == null) {
-            return;
-        }
-        try {
-            eventListener.connectStart(call, inetSocketAddress, proxy);
-            if (d(call)) {
-                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().tcpStartTs = System.currentTimeMillis();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectionAcquired(Call call, Connection connection) {
-        InetAddress localAddress;
-        String str;
-        InetAddress inetAddress;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, call, connection) == null) {
-            if (d(call) && connection != null) {
-                Request request = (Request) call.request().tag(Request.class);
-                if (connection.socket() != null) {
-                    String str2 = "";
-                    if (connection.socket().getLocalAddress() != null) {
-                        str = localAddress.getHostAddress() + ":" + connection.socket().getLocalPort();
-                    } else {
-                        str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (h == null) {
+                synchronized (e60.class) {
+                    if (h == null) {
+                        i = context.getApplicationContext();
+                        h = new e60();
                     }
-                    if (connection.socket().getInetAddress() != null) {
-                        str2 = inetAddress.getHostAddress() + ":" + connection.socket().getPort();
-                    }
-                    NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
-                    networkStatRecord.localIP = str;
-                    networkStatRecord.remoteIP = str2;
-                    if (Util.isTextEmpty(networkStatRecord.protocol)) {
-                        networkStatRecord.protocol = connection.protocol() != null ? "unknown" : connection.protocol().toString();
-                    }
-                    e(networkStatRecord, connection.route().proxy());
                 }
             }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
+            return h;
+        }
+        return (e60) invokeL.objValue;
+    }
+
+    public void f(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            LogUtils.e("IMServiceImpl", "IMServiceImpl.getInstance(context).enqueueWork");
+            TaskManager.getInstance(context).submitForNetWork(new a(this, intent));
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            try {
+                LogUtils.d("IMServiceImpl", "isSmallFlow :" + e);
+                IMManager.init(i.getApplicationContext(), IMConfigInternal.getInstance().getProductLine(i.getApplicationContext()));
+                if (e) {
+                    k();
+                } else if (IMSDK.getInstance(i.getApplicationContext()).init()) {
+                } else {
+                    IMConnection.getInstance(i).disconnectedByPeer();
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public final boolean i(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 == 55 : invokeI.booleanValue;
+    }
+
+    public void j(@NonNull Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+            LogUtils.d("IMServiceImpl", "-- onHandleWork -- " + intent + ", isSmallFlow :" + e);
+            if (intent == null) {
+                intent = new Intent();
+                LogUtils.i("IMServiceImpl", "--- onStart by null intent!");
+            }
+            if (e) {
                 try {
-                    eventListener.connectionAcquired(call, connection);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void connectionReleased(Call call, Connection connection) {
-        EventListener eventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, call, connection) == null) || (eventListener = this.a) == null) {
-            return;
-        }
-        try {
-            eventListener.connectionReleased(call, connection);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public final boolean d(Call call) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, call)) == null) ? call == null || ((Request) call.request().tag(Request.class)) != null : invokeL.booleanValue;
-    }
-
-    @Override // okhttp3.EventListener
-    public void dnsEnd(Call call, String str, List<InetAddress> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, call, str, list) == null) {
-            if (d(call)) {
-                Request request = (Request) call.request().tag(Request.class);
-                request.getNetworkStatRecord().dnsEndTs = System.currentTimeMillis();
-                request.getNetworkStatRecord().dnsTs = request.getNetworkStatRecord().getDnsTime();
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.dnsEnd(call, str, list);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void dnsStart(Call call, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, call, str) == null) {
-            if (d(call)) {
-                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().dnsStartTs = System.currentTimeMillis();
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.dnsStart(call, str);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public final void e(NetworkStatRecord networkStatRecord, Proxy proxy) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, networkStatRecord, proxy) == null) || proxy.type() == Proxy.Type.DIRECT) {
-            return;
-        }
-        networkStatRecord.isProxyConnect = true;
-        SocketAddress address = proxy.address();
-        if (address instanceof InetSocketAddress) {
-            InetSocketAddress inetSocketAddress = (InetSocketAddress) address;
-            networkStatRecord.proxyHostString = inetSocketAddress.getHostString();
-            networkStatRecord.proxyAddress = inetSocketAddress.toString();
-        }
-    }
-
-    public final Response f(Request request, Response response) {
-        InterceptResult invokeLL;
-        ResponseBody body;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, request, response)) == null) ? (response == null || response.isRedirect() || (body = response.body()) == null) ? response : response.newBuilder().body(new a(this, body, request)).build() : (Response) invokeLL.objValue;
-    }
-
-    @Override // okhttp3.EventListener
-    public void requestBodyEnd(Call call, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048591, this, call, j) == null) {
-            if (d(call)) {
-                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().requestBodyLength = j;
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.requestBodyEnd(call, j);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void requestBodyStart(Call call) {
-        EventListener eventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048592, this, call) == null) || (eventListener = this.a) == null) {
-            return;
-        }
-        try {
-            eventListener.requestBodyStart(call);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void requestHeadersEnd(Call call, okhttp3.Request request) {
-        EventListener eventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048593, this, call, request) == null) || (eventListener = this.a) == null) {
-            return;
-        }
-        try {
-            eventListener.requestHeadersEnd(call, request);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void requestHeadersStart(Call call) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, call) == null) {
-            if (d(call)) {
-                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().sendHeaderTs = System.currentTimeMillis();
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.requestHeadersStart(call);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void responseBodyEnd(Call call, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048595, this, call, j) == null) {
-            if (d(call)) {
-                Request request = (Request) call.request().tag(Request.class);
-                request.getNetworkStatRecord().responseTs = System.currentTimeMillis();
-                request.getNetworkStatRecord().responseLength = j;
-            }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.responseBodyEnd(call, j);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void responseBodyStart(Call call) {
-        EventListener eventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048596, this, call) == null) || (eventListener = this.a) == null) {
-            return;
-        }
-        try {
-            eventListener.responseBodyStart(call);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void responseHeadersEnd(Call call, Response response) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048597, this, call, response) == null) {
-            if (d(call)) {
-                Request request = (Request) call.request().tag(Request.class);
-                if (response != null) {
-                    request.getNetworkStatRecord().statusCode = response.code();
-                    request.onReceiveHeader4NetworkStatRecord(System.currentTimeMillis(), HeadersConverter.fromOks(response.headers()));
-                    response = f(request, response);
-                    int code = response.code();
-                    NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
-                    if (response.isRedirect()) {
-                        String header = response.header(com.baidubce.http.Headers.LOCATION);
-                        if (!Util.isTextEmpty(header)) {
-                            networkStatRecord.url = header;
+                    int intExtra = intent.getIntExtra("method", -1);
+                    int intExtra2 = intent.getIntExtra("service_id", -1);
+                    if (intExtra != -1 && intExtra2 != -1) {
+                        if (intExtra == 50 || intExtra == 201) {
+                            k();
                         }
+                        Message createNewMessage = MessageFactory.getInstance().createNewMessage(i, intExtra, intent);
+                        if (createNewMessage != null) {
+                            if (intExtra == 50) {
+                                boolean z = false;
+                                synchronized (f) {
+                                    LogUtils.d("IMServiceImpl", "cur method :50, cur msgList :" + f.keySet());
+                                    Iterator<Long> it = f.keySet().iterator();
+                                    while (it.hasNext()) {
+                                        if (it.next().longValue() % 100 == 50) {
+                                            z = true;
+                                        }
+                                    }
+                                }
+                                if (z || LoginManager.getInstance(i.getApplicationContext()).isIMLogined()) {
+                                    StringBuilder sb = new StringBuilder();
+                                    sb.append("cur state is ");
+                                    sb.append(z ? "logining" : "loggined");
+                                    sb.append(" , abandon other 50");
+                                    LogUtils.d("IMServiceImpl", sb.toString());
+                                    return;
+                                }
+                            }
+                            createNewMessage.isSending(true);
+                            BLCPRequest bLCPRequest = new BLCPRequest();
+                            bLCPRequest.a = intExtra2;
+                            long type = createNewMessage.getType();
+                            bLCPRequest.b = type;
+                            if (intExtra2 == 3 && type == 55) {
+                                bLCPRequest.b = 185L;
+                            }
+                            bLCPRequest.c = createNewMessage.getBody().getBytes();
+                            bLCPRequest.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_30s;
+                            long j = (bLCPRequest.a * 1000000000000000L) + bLCPRequest.b;
+                            StringBuilder sb2 = new StringBuilder();
+                            sb2.append((System.currentTimeMillis() + "").substring((System.currentTimeMillis() + "").length() - 6));
+                            sb2.append(this.a.incrementAndGet());
+                            bLCPRequest.d = j + (Long.valueOf(sb2.toString()).longValue() * 1000);
+                            synchronized (f) {
+                                if (i((int) bLCPRequest.b) && (createNewMessage instanceof IMSendMsg)) {
+                                    g.put(Long.valueOf(bLCPRequest.d), new MessageUbc(i, ((IMSendMsg) createNewMessage).getChatMsg(), UBCConstants.BCSEND_UBCID));
+                                }
+                                f.put(Long.valueOf(bLCPRequest.d), createNewMessage);
+                                LogUtils.d("IMServiceImpl", "requestTaskManager msg Id:" + bLCPRequest.d + ". msg :" + f.keySet().toString());
+                            }
+                            if (intExtra == 50) {
+                                new IMTrack.RequestBuilder(i.getApplicationContext()).method(ReturnKeyType.SEND).requestId("2").errorCode(50L).ext("" + bLCPRequest.d).aliasId(501112L).build();
+                            }
+                            o60.c(bLCPRequest, this.b);
+                            return;
+                        }
+                        return;
                     }
-                    String header2 = response.header("Content-Type");
-                    if (!Util.isTextEmpty(header2)) {
-                        networkStatRecord.contentType = header2;
-                    }
-                    String b2 = code >= 400 ? b(response) : "";
-                    if (!Util.isTextEmpty(b2)) {
-                        networkStatRecord.errheaders = b2;
-                    }
-                    if (request.getNetworkStatRecord().dnsStartTs == -1) {
-                        request.getNetworkStatRecord().dnsStartTs = 0L;
-                    }
-                    if (request.getNetworkStatRecord().dnsEndTs == -1) {
-                        request.getNetworkStatRecord().dnsEndTs = 0L;
-                    }
-                    if (request.getNetworkStatRecord().dnsTs == -1) {
-                        request.getNetworkStatRecord().dnsTs = 0L;
-                    }
-                    if (request.getNetworkStatRecord().connTs == -1) {
-                        request.getNetworkStatRecord().connTs = 0L;
-                        request.getNetworkStatRecord().isConnReused = true;
-                    }
+                    return;
+                } catch (Exception e2) {
+                    LogUtils.e("IMServiceImpl", "onStartCommand isSmallFlow Exception", e2);
+                    return;
                 }
             }
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.responseHeadersEnd(call, response);
-                } catch (Exception e) {
-                    e.printStackTrace();
+            try {
+                if (IMSDK.getInstance(i.getApplicationContext()).handleOnStart(intent)) {
+                    return;
+                }
+                IMConnection.getInstance(i).disconnectedByPeer();
+            } catch (Exception e3) {
+                LogUtils.e(LogUtils.TAG, "onStartCommand", e3);
+                if (intent.hasExtra(Constants.EXTRA_LISTENER_ID) && ((intent.hasExtra("method") && intent.getIntExtra("method", -1) == 52) || intent.hasExtra(Constants.EXTRA_DISCONNECT))) {
+                    IMListener removeListener = ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
+                    if (removeListener instanceof ILoginListener) {
+                        ((ILoginListener) removeListener).onLogoutResult(6, "IMService onStartCommand Exception", BIMManager.getLoginType(i));
+                    }
+                } else if (intent.hasExtra(Constants.EXTRA_LISTENER_ID)) {
+                    ListenerManager.getInstance().removeListener(intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
                 }
             }
         }
     }
 
-    @Override // okhttp3.EventListener
-    public void responseHeadersStart(Call call) {
-        EventListener eventListener;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, call) == null) || (eventListener = this.a) == null) {
-            return;
-        }
-        try {
-            eventListener.responseHeadersStart(call);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int[] iArr = {96, Constants.METHOD_MEDIA_NOTIFY, 196, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 231};
+            for (int i2 = 0; i2 < 5; i2++) {
+                l(2, Integer.valueOf(iArr[i2]).intValue());
+            }
+            l(3, 196);
         }
     }
 
-    @Override // okhttp3.EventListener
-    public void secureConnectEnd(Call call, Handshake handshake) {
+    public final void l(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, call, handshake) == null) {
-            super.secureConnectEnd(call, handshake);
-            EventListener eventListener = this.a;
-            if (eventListener != null) {
-                try {
-                    eventListener.secureConnectEnd(call, handshake);
-                    if (d(call)) {
-                        ((Request) call.request().tag(Request.class)).getNetworkStatRecord().sslEndSTs = System.currentTimeMillis();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // okhttp3.EventListener
-    public void secureConnectStart(Call call) {
-        EventListener eventListener;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, call) == null) || (eventListener = this.a) == null) {
-            return;
-        }
-        try {
-            eventListener.secureConnectStart(call);
-            if (d(call)) {
-                ((Request) call.request().tag(Request.class)).getNetworkStatRecord().sslStartTs = System.currentTimeMillis();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
+            r60 r60Var = new r60();
+            r60Var.a = i2;
+            r60Var.b = i3;
+            o60.c(r60Var, this.b);
         }
     }
 }

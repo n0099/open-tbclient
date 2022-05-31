@@ -1,13 +1,14 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes6.dex */
-public class ps0 extends rs0 {
+public class ps0 implements jk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,9 +26,10 @@ public class ps0 extends rs0 {
         }
     }
 
-    public static rs0 w(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.repackage.jk0
+    public lv0 create() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? rs0.m(str, 1) : (rs0) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ss0() : (lv0) invokeV.objValue;
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.na6;
-import com.repackage.zi8;
+import com.repackage.ag8;
+import com.repackage.d96;
 import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.Error;
@@ -30,7 +30,7 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public zi8 mUserInfo;
+    public ag8 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberSocketResponseMessage() {
@@ -75,10 +75,10 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public zi8 getUserInfo() {
+    public ag8 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUserInfo : (zi8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mUserInfo : (ag8) invokeV.objValue;
     }
 
     public boolean isBawuShow() {
@@ -110,8 +110,8 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 forumMemberRequestMessage = (ForumMemberRequestMessage) getOrginalMessage().getExtra();
             }
             if (forumMemberRequestMessage != null) {
-                na6 na6Var = new na6();
-                na6Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
+                d96 d96Var = new d96();
+                d96Var.c(forumMemberRequestMessage.getForumName() + "", bArr);
             }
         }
     }
@@ -134,9 +134,9 @@ public class ForumMemberSocketResponseMessage extends SocketResponsedMessage {
                 DataRes dataRes = getMemberInfoResIdl.data;
                 if (dataRes != null) {
                     if (dataRes.forum_member_info != null) {
-                        zi8 zi8Var = new zi8();
-                        this.mUserInfo = zi8Var;
-                        zi8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        ag8 ag8Var = new ag8();
+                        this.mUserInfo = ag8Var;
+                        ag8Var.y(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.u(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.x(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.z(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());

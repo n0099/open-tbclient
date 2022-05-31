@@ -1,34 +1,30 @@
 package com.repackage;
 
-import android.graphics.Rect;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import android.webkit.DownloadListener;
+import android.widget.Toast;
+import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-import com.xiaomi.mipush.sdk.MiPushClient;
+import com.win.opensdk.downloader.WDownLoadService;
+import org.json.JSONException;
 /* loaded from: classes7.dex */
-public class so9 {
+public class so9 implements DownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public boolean b;
-    public po9 c;
-    public Info d;
-    public Handler e;
+    public final /* synthetic */ wo9 a;
 
-    public so9() {
+    public so9(wo9 wo9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wo9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,67 +34,60 @@ public class so9 {
                 return;
             }
         }
-        this.e = new pn9(this, Looper.getMainLooper());
+        this.a = wo9Var;
     }
 
-    public void a(View view2, Info info, po9 po9Var) {
+    @Override // android.webkit.DownloadListener
+    public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
+        Info info;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, view2, info, po9Var) == null) {
-            this.a = view2;
-            this.c = po9Var;
-            this.d = info;
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) || (info = this.a.c) == null || info.getOpent() != 1 || j <= 10) {
+            return;
+        }
+        wo9 wo9Var = this.a;
+        Context context = wo9Var.a;
+        Info info2 = wo9Var.c;
+        if (!ll9.H(context)) {
+            Toast.makeText(context, context.getString(R.string.obfuscated_res_0x7f0f15ac) + info2.getDl_name(), 0).show();
+            nn9 a = rn9.a(context);
+            a.q(new vn9(info2), 1);
+            a.m();
+            return;
+        }
+        try {
+            if (ll9.B(context, info2.getOpen()) && ll9.A(context, info2)) {
+                nn9 a2 = rn9.a(context);
+                vn9 vn9Var = new vn9(info2);
+                String open = info2.getOpen();
+                try {
+                    a2.b = rn9.d("wii", vn9Var);
+                    a2.l("msg", rn9.b(open));
+                } catch (JSONException unused) {
+                }
+                a2.m();
+                ll9.z(info2, context, ll9.f(context, info2.getOpen()));
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (info2 != null) {
             try {
-                Log.e(MiPushClient.COMMAND_REGISTER, "b111:" + this.b);
-                if (!this.b) {
-                    this.e.sendEmptyMessage(1101);
+                if (TextUtils.isEmpty(info2.getOpen())) {
+                    return;
                 }
-                Log.e(MiPushClient.COMMAND_REGISTER, "b2222");
-                ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
-                viewTreeObserver.addOnScrollChangedListener(new tn9(this, po9Var));
-                viewTreeObserver.addOnGlobalFocusChangeListener(new xn9(this, po9Var));
-                if (Build.VERSION.SDK_INT >= 18) {
-                    viewTreeObserver.addOnWindowFocusChangeListener(new bo9(this));
-                }
-                if (Build.VERSION.SDK_INT >= 18) {
-                    viewTreeObserver.addOnWindowAttachListener(new eo9(this));
-                }
-                viewTreeObserver.addOnTouchModeChangeListener(new ho9(this));
-                if (Build.VERSION.SDK_INT >= 16) {
-                    viewTreeObserver.addOnDrawListener(new ko9(this, viewTreeObserver));
-                }
-                viewTreeObserver.addOnGlobalLayoutListener(new no9(this, viewTreeObserver));
-            } catch (Exception e) {
-                e.printStackTrace();
+                bn9.f(context, info2.getDl_pkg(), info2);
+                Intent intent = new Intent(context, WDownLoadService.class);
+                intent.putExtra("down_load_apk_url", info2.getOpen());
+                intent.putExtra("down_load_pkg_name", info2.getDl_pkg());
+                context.startService(intent);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                nn9 a3 = rn9.a(context);
+                a3.q(new vn9(info2), 2);
+                a3.l("desc", e2.getMessage());
+                a3.m();
             }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x004f A[ORIG_RETURN, RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:27:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean b(View view2) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) != null) {
-            return invokeL.booleanValue;
-        }
-        if (view2 == null || !view2.isShown()) {
-            return false;
-        }
-        Rect rect = new Rect();
-        if (view2.getGlobalVisibleRect(rect) && this.d != null) {
-            if (rect.width() >= this.d.getSper() * view2.getMeasuredWidth()) {
-                if (rect.height() >= this.d.getSper() * view2.getMeasuredHeight()) {
-                    z = false;
-                    return z;
-                }
-            }
-        }
-        z = true;
-        if (z) {
         }
     }
 }

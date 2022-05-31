@@ -1,101 +1,107 @@
 package com.repackage;
 
+import android.content.Context;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tbadk.core.atomData.PayWalletActivityConfig;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.pay.PayConfig;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.a75;
 /* loaded from: classes6.dex */
-public class p75<T extends a75> extends m75<T> {
+public class p75 {
     public static /* synthetic */ Interceptable $ic;
+    public static p75 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p75(int i, String str, Class<T> cls) {
-        super(i, str, cls);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-755456989, "Lcom/repackage/p75;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-755456989, "Lcom/repackage/p75;");
+        }
+    }
+
+    public p75() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
-        InterceptResult invokeL;
-        String j;
+    public static synchronized p75 c() {
+        InterceptResult invokeV;
+        p75 p75Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof WriteCacheMessage)) {
-                return null;
-            }
-            WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
-            WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            a75 a75Var = (a75) a();
-            if (a75Var != null) {
-                if (a75Var instanceof z65) {
-                    mr4.f();
-                    qe<byte[]> e = mr4.e(this.b, currentAccount);
-                    if (writeCacheMessage.isClear()) {
-                        a75 a75Var2 = (a75) writeCacheMessage.getData();
-                        if (a75Var2 == null) {
-                            BdCacheService.k().j(e);
-                        } else {
-                            e.remove(a75Var2.getCacheKey());
-                        }
-                        writeCacheRespMsg.setSuccess(true);
-                    } else {
-                        a75 a75Var3 = (a75) writeCacheMessage.getData();
-                        if (a75Var3 == null) {
-                            return writeCacheRespMsg;
-                        }
-                        e.g(a75Var3.getCacheKey(), ((z65) a75Var3).toCacheByteArray());
-                        writeCacheRespMsg.setSuccess(true);
-                    }
-                } else if (a75Var instanceof c75) {
-                    mr4.f();
-                    qe<String> h = mr4.h(this.b, currentAccount);
-                    if (writeCacheMessage.isClear()) {
-                        a75 a75Var4 = (a75) writeCacheMessage.getData();
-                        if (a75Var4 == null) {
-                            BdCacheService.k().j(h);
-                        } else {
-                            h.remove(a75Var4.getCacheKey());
-                        }
-                        writeCacheRespMsg.setSuccess(true);
-                    } else {
-                        a75 a75Var5 = (a75) writeCacheMessage.getData();
-                        if (a75Var5 != null && (j = ((c75) a75Var5).j()) != null) {
-                            h.g(a75Var5.getCacheKey(), j);
-                            writeCacheRespMsg.setSuccess(true);
-                        }
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (p75.class) {
+                if (a == null) {
+                    a = new p75();
                 }
+                p75Var = a;
             }
-            return writeCacheRespMsg;
+            return p75Var;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (p75) invokeV.objValue;
+    }
+
+    public void a(PayConfig payConfig, Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, payConfig, context) == null) {
+            if (payConfig != null && context != null) {
+                if (!d()) {
+                    e(R.string.obfuscated_res_0x7f0f0e98);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PayWalletActivityConfig(context, payConfig)));
+                return;
+            }
+            e(R.string.obfuscated_res_0x7f0f0e97);
+        }
+    }
+
+    public void b(String str, TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, tbPageContext) == null) || tbPageContext == null) {
+            return;
+        }
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().appResponseToCmd(2001351) && TbadkCoreApplication.getInst().isWalletShouldOpen() && Build.VERSION.SDK_INT >= 8 : invokeV.booleanValue;
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            li.N(TbadkCoreApplication.getInst().getContext(), i);
+        }
     }
 }

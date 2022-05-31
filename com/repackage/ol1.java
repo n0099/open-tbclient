@@ -1,21 +1,31 @@
 package com.repackage;
 
-import android.content.Context;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.Map;
-import org.json.JSONObject;
+import android.view.View;
+import android.webkit.ValueCallback;
 /* loaded from: classes6.dex */
-public interface ol1 {
-    void a(Context context, JSONObject jSONObject);
+public interface ol1 extends fy1 {
+    boolean canGoBack();
 
-    void b(Context context, JSONObject jSONObject);
+    View covertToView();
 
-    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
+    void destroy();
 
-    void d(Context context, String[] strArr, int i);
+    @Override // com.repackage.fy1
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
+    int getContentHeight();
 
-    void f(Context context, JSONObject jSONObject);
+    View getCurrentWebView();
+
+    float getScale();
+
+    int getWebViewScrollX();
+
+    int getWebViewScrollY();
+
+    void goBack();
+
+    void setDefaultViewSize(int i, int i2, String str);
+
+    void webViewScrollTo(int i, int i2);
 }

@@ -1,232 +1,190 @@
 package com.repackage;
 
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Build;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
+import android.view.Display;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.zx9;
-import java.util.concurrent.PriorityBlockingQueue;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public final class zz9 extends zx9 {
+public class zz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final zz9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final int b;
+    public final boolean c;
+    public final int d;
+    public final int e;
+    public final boolean f;
+    public final float g;
 
-    /* loaded from: classes7.dex */
-    public static final class a extends zx9.a implements dy9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-        public final PriorityBlockingQueue<b> b;
-        public final p2a c;
-        public final AtomicInteger d;
-
-        /* renamed from: com.repackage.zz9$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0577a implements jy9 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-            public final /* synthetic */ a b;
-
-            public C0577a(a aVar, b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = bVar;
-            }
-
-            @Override // com.repackage.jy9
-            public void call() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.b.remove(this.a);
-                }
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger();
-            this.b = new PriorityBlockingQueue<>();
-            this.c = new p2a();
-            this.d = new AtomicInteger();
-        }
-
-        @Override // com.repackage.zx9.a
-        public dy9 b(jy9 jy9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jy9Var)) == null) ? d(jy9Var, a()) : (dy9) invokeL.objValue;
-        }
-
-        @Override // com.repackage.zx9.a
-        public dy9 c(jy9 jy9Var, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{jy9Var, Long.valueOf(j), timeUnit})) == null) {
-                long a = a() + timeUnit.toMillis(j);
-                return d(new yz9(jy9Var, this, a), a);
-            }
-            return (dy9) invokeCommon.objValue;
-        }
-
-        public final dy9 d(jy9 jy9Var, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, jy9Var, j)) == null) {
-                if (this.c.isUnsubscribed()) {
-                    return t2a.c();
-                }
-                b bVar = new b(jy9Var, Long.valueOf(j), this.a.incrementAndGet());
-                this.b.add(bVar);
-                if (this.d.getAndIncrement() == 0) {
-                    do {
-                        b poll = this.b.poll();
-                        if (poll != null) {
-                            poll.a.call();
-                        }
-                    } while (this.d.decrementAndGet() > 0);
-                    return t2a.c();
-                }
-                return t2a.a(new C0577a(this, bVar));
-            }
-            return (dy9) invokeLJ.objValue;
-        }
-
-        @Override // com.repackage.dy9
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.isUnsubscribed() : invokeV.booleanValue;
-        }
-
-        @Override // com.repackage.dy9
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.c.unsubscribe();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b implements Comparable<b> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final jy9 a;
-        public final Long b;
-        public final int c;
-
-        public b(jy9 jy9Var, Long l, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jy9Var, l, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jy9Var;
-            this.b = l;
-            this.c = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.lang.Comparable
-        /* renamed from: a */
-        public int compareTo(b bVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-                int compareTo = this.b.compareTo(bVar.b);
-                return compareTo == 0 ? zz9.a(this.c, bVar.c) : compareTo;
-            }
-            return invokeL.intValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755094568, "Lcom/repackage/zz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-755094568, "Lcom/repackage/zz9;");
-                return;
-            }
-        }
-        a = new zz9();
-    }
-
-    public zz9() {
+    public zz9(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Resources resources = activity.getResources();
+        this.f = resources.getConfiguration().orientation == 1;
+        this.g = h(activity);
+        this.a = c(resources, SapiSystemBarTintManager.SystemBarConfig.g);
+        this.b = b(activity);
+        this.d = e(activity);
+        this.e = g(activity);
+        this.c = this.d > 0;
     }
 
-    public static int a(int i, int i2) {
-        InterceptResult invokeII;
+    @TargetApi(14)
+    public static boolean j(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            if (i < i2) {
-                return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            Display defaultDisplay = activity.getWindowManager().getDefaultDisplay();
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            if (Build.VERSION.SDK_INT >= 17) {
+                defaultDisplay.getRealMetrics(displayMetrics);
             }
-            return i == i2 ? 0 : 1;
+            int i = displayMetrics.heightPixels;
+            int i2 = displayMetrics.widthPixels;
+            DisplayMetrics displayMetrics2 = new DisplayMetrics();
+            defaultDisplay.getMetrics(displayMetrics2);
+            return i2 - displayMetrics2.widthPixels > 0 || i - displayMetrics2.heightPixels > 0;
         }
-        return invokeII.intValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.repackage.zx9
-    public zx9.a createWorker() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (zx9.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    @TargetApi(14)
+    public final int b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 14) {
+                TypedValue typedValue = new TypedValue();
+                context.getTheme().resolveAttribute(16843499, typedValue, true);
+                return TypedValue.complexToDimensionPixelSize(typedValue.data, context.getResources().getDisplayMetrics());
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public final int c(Resources resources, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, resources, str)) == null) {
+            try {
+                Class<?> cls = Class.forName("com.android.internal.R$dimen");
+                int parseInt = Integer.parseInt(cls.getField(str).get(cls.newInstance()).toString());
+                if (parseInt > 0) {
+                    return resources.getDimensionPixelSize(parseInt);
+                }
+                return 0;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
+            }
+        }
+        return invokeLL.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    @TargetApi(14)
+    public final int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            Resources resources = context.getResources();
+            if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
+                return 0;
+            }
+            return c(resources, this.f ? SapiSystemBarTintManager.SystemBarConfig.h : SapiSystemBarTintManager.SystemBarConfig.i);
+        }
+        return invokeL.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    @TargetApi(14)
+    public final int g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
+            Resources resources = context.getResources();
+            if (Build.VERSION.SDK_INT < 14 || !j((Activity) context)) {
+                return 0;
+            }
+            return c(resources, SapiSystemBarTintManager.SystemBarConfig.j);
+        }
+        return invokeL.intValue;
+    }
+
+    @SuppressLint({"NewApi"})
+    public final float h(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            if (Build.VERSION.SDK_INT >= 16) {
+                activity.getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+            } else {
+                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+            }
+            float f = displayMetrics.density;
+            return Math.min(displayMetrics.widthPixels / f, displayMetrics.heightPixels / f);
+        }
+        return invokeL.floatValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.g >= 600.0f || this.f : invokeV.booleanValue;
     }
 }

@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
+import com.repackage.ki;
 /* loaded from: classes3.dex */
 public class FrsShareCardView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
@@ -61,7 +61,7 @@ public class FrsShareCardView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return li.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f064b);
+            return ki.cutString(str, 18) + this.b.getString(R.string.obfuscated_res_0x7f0f0652);
         }
         return (String) invokeL.objValue;
     }
@@ -78,14 +78,14 @@ public class FrsShareCardView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0348, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0341, this);
             setOrientation(1);
-            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cf4);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ad8);
-            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f090600);
-            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090ad4);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090ad6);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090ad9);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c9f);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ac5);
+            this.c = (EditText) findViewById(R.id.obfuscated_res_0x7f0905f8);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090ac1);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090ac3);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090ac6);
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1);
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0105, 2);
             this.c.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
@@ -126,7 +126,7 @@ public class FrsShareCardView extends LinearLayout {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             EditText editText = this.c;
             if (editText != null) {
-                return li.charSequence2String(editText.getText(), null);
+                return ki.charSequence2String(editText.getText(), null);
             }
             return null;
         }

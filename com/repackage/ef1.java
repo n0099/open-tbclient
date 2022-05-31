@@ -1,150 +1,114 @@
 package com.repackage;
 
-import com.baidu.android.imsdk.IMConstants;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sso.o.d;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.te1;
-import java.util.ArrayList;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ef1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public com.baidu.sso.o.d b;
+    public ServiceConnection c;
+    public df1 d;
 
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ te1.a a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ArrayList d;
+        public final /* synthetic */ ef1 a;
 
-        /* renamed from: com.repackage.ef1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0407a extends ag1 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ te1.a b;
-            public final /* synthetic */ a c;
-
-            public C0407a(a aVar, te1.a aVar2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, aVar2};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.b = aVar2;
-            }
-
-            @Override // com.repackage.ag1
-            public void b() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.b.onFinish(this.c.b);
-                }
-            }
-        }
-
-        public a(te1.a aVar, String str, int i, ArrayList arrayList) {
+        public a(ef1 ef1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, str, Integer.valueOf(i), arrayList};
+                Object[] objArr = {ef1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = aVar;
-            this.b = str;
-            this.c = i;
-            this.d = arrayList;
+            this.a = ef1Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.content.ServiceConnection
+        public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onFinish(this.b);
-                if (this.c != 1 || this.d == null) {
-                    return;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+                synchronized (this) {
+                    this.a.b = d.a.a(iBinder);
+                    df1 df1Var = this.a.d;
                 }
-                for (int i = 0; i < this.d.size(); i++) {
-                    te1.a aVar = (te1.a) this.d.get(i);
-                    if (aVar != null) {
-                        cg1.c().b(new C0407a(this, aVar));
-                    }
-                }
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+                ef1 ef1Var = this.a;
+                ef1Var.b = null;
+                df1 df1Var = ef1Var.d;
             }
         }
     }
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public ef1(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i == 1) {
-                return 2010;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (i == 2) {
-                return 2011;
-            }
-            return i == 3 ? IMConstants.IM_MSG_TYPE_SHIELD_ME : i == 4 ? IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME : i == 5 ? IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL : i == 6 ? 2015 : 2009;
         }
-        return invokeI.intValue;
+        this.a = null;
+        this.a = context;
     }
 
-    public static void b(te1.a aVar, bf1 bf1Var, int i, ArrayList<te1.a> arrayList, boolean z) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{aVar, bf1Var, Integer.valueOf(i), arrayList, Boolean.valueOf(z)}) == null) || bf1Var == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("0", bf1Var.a);
-            jSONObject.put("1", bf1Var.b);
-            jSONObject.put("2", String.valueOf(bf1Var.c));
-            jSONObject.put("3", bf1Var.d);
-            String jSONObject2 = jSONObject.toString();
-            if (aVar != null) {
-                if (i == 1) {
-                    if (z) {
-                        ye1.c().f(false);
-                    }
-                } else if (i == 2) {
-                    if (z) {
-                        ye1.c().d(false);
-                    }
-                } else if (i == 3) {
-                    if (z) {
-                        ye1.c().j(false);
-                    }
-                } else if (z) {
-                    ye1.c().n(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                if (this.b != null) {
+                    return ((d.a.C0151a) this.b).a();
                 }
-                new Thread(new a(aVar, jSONObject2, i, arrayList)).start();
+                return null;
+            } catch (Throwable unused) {
+                return null;
             }
-        } catch (Throwable th) {
-            fg1.d(th);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new a(this);
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            this.a.bindService(intent, this.c, 1);
         }
     }
 }

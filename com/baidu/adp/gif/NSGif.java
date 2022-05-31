@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.repackage.hi;
 import com.repackage.ii;
-import com.repackage.ji;
 import com.repackage.kb;
-import com.repackage.qg;
+import com.repackage.pg;
 /* loaded from: classes.dex */
 public class NSGif implements kb {
     public static /* synthetic */ Interceptable $ic;
@@ -63,7 +63,7 @@ public class NSGif implements kb {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends ji {
+    public static class b extends ii {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,7 +81,7 @@ public class NSGif implements kb {
             }
         }
 
-        @Override // com.repackage.ji
+        @Override // com.repackage.ii
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -104,7 +104,7 @@ public class NSGif implements kb {
             }
         }
         e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-        f = ii.d().i("nsgif_jni", 2, new b());
+        f = hi.d().i("nsgif_jni", 2, new b());
     }
 
     public NSGif(long j) {
@@ -217,7 +217,7 @@ public class NSGif implements kb {
                 return;
             }
             this.a = 0L;
-            qg.a().c(new a(this, j));
+            pg.a().c(new a(this, j));
         }
     }
 

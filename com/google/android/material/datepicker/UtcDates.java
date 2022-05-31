@@ -175,7 +175,7 @@ public class UtcDates {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, resources, simpleDateFormat)) == null) {
-            return simpleDateFormat.toLocalizedPattern().replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0b11)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0b12)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0b13));
+            return simpleDateFormat.toLocalizedPattern().replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0b17)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0b18)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0b19));
         }
         return (String) invokeLL.objValue;
     }

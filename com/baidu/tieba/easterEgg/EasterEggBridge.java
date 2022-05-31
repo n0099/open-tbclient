@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.li;
-import com.repackage.ok8;
-import com.repackage.p36;
-import com.repackage.t36;
-import com.repackage.u36;
-import com.repackage.v36;
+import com.repackage.a26;
+import com.repackage.e26;
+import com.repackage.f26;
+import com.repackage.g26;
+import com.repackage.ki;
+import com.repackage.ph8;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class EasterEggBridge implements ok8 {
+public class EasterEggBridge implements ph8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ARGS = "args";
     public static final String KEY_ARGS_EXT = "native_exts";
@@ -26,7 +26,7 @@ public class EasterEggBridge implements ok8 {
     public static final String KEY_INTERFACE_NAME = "EasterEggBridge";
     public static final String KEY_METHOD_NAME = "method_name";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<p36> mListener;
+    public List<a26> mListener;
 
     public EasterEggBridge() {
         Interceptable interceptable = $ic;
@@ -42,22 +42,22 @@ public class EasterEggBridge implements ok8 {
             }
         }
         this.mListener = new ArrayList();
-        addListener(new u36());
-        addListener(new v36());
-        addListener(new t36());
+        addListener(new f26());
+        addListener(new g26());
+        addListener(new e26());
     }
 
-    public void addListener(p36 p36Var) {
-        List<p36> list;
+    public void addListener(a26 a26Var) {
+        List<a26> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, p36Var) == null) || p36Var == null || (list = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, a26Var) == null) || a26Var == null || (list = this.mListener) == null) {
             return;
         }
-        list.add(p36Var);
+        list.add(a26Var);
     }
 
     public void clearListener() {
-        List<p36> list;
+        List<a26> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.mListener) == null) {
             return;
@@ -65,7 +65,7 @@ public class EasterEggBridge implements ok8 {
         list.clear();
     }
 
-    @Override // com.repackage.ok8
+    @Override // com.repackage.ph8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -74,13 +74,13 @@ public class EasterEggBridge implements ok8 {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
                     String optString = jSONObject.optString(KEY_METHOD_NAME);
-                    if (li.isEmpty(str2)) {
+                    if (ki.isEmpty(str2)) {
                         return false;
                     }
                     String trim = optString.trim();
-                    for (p36 p36Var : this.mListener) {
-                        if (trim.equals(p36Var.b())) {
-                            p36Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
+                    for (a26 a26Var : this.mListener) {
+                        if (trim.equals(a26Var.b())) {
+                            a26Var.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                         }
                     }
                 } catch (JSONException unused) {
@@ -91,12 +91,12 @@ public class EasterEggBridge implements ok8 {
         return invokeLLLL.booleanValue;
     }
 
-    public void removeListener(p36 p36Var) {
-        List<p36> list;
+    public void removeListener(a26 a26Var) {
+        List<a26> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, p36Var) == null) || p36Var == null || (list = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, a26Var) == null) || a26Var == null || (list = this.mListener) == null) {
             return;
         }
-        list.remove(p36Var);
+        list.remove(a26Var);
     }
 }

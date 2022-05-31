@@ -1,30 +1,42 @@
 package com.repackage;
 
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.AutoChangeLineView;
-import com.baidu.tieba.write.write.work.selectview.SelectTagView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: lambda */
 /* loaded from: classes6.dex */
-public final /* synthetic */ class q19 implements AutoChangeLineView.b {
+public class q19 {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ q19 a = new q19();
+    public static volatile m19 a;
+    public static s19 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    private /* synthetic */ q19() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755432840, "Lcom/repackage/q19;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755432840, "Lcom/repackage/q19;");
+                return;
+            }
+        }
+        b = new s19();
     }
 
-    @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
-    public final CharSequence a(TextView textView, int i, Object obj) {
-        InterceptResult invokeLIL;
+    public static m19 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i, obj)) == null) {
-            String str = (String) obj;
-            SelectTagView.d(textView, i, str);
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
+            }
+            return a;
         }
-        return (CharSequence) invokeLIL.objValue;
+        return (m19) invokeV.objValue;
     }
 }

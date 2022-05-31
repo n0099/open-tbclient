@@ -1,7 +1,47 @@
 package com.repackage;
-/* loaded from: classes7.dex */
-public interface s82 {
-    void a(String str, String str2);
 
-    void fail(int i, String str);
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+/* loaded from: classes7.dex */
+public class s82 extends o82 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s82(@NonNull n82 n82Var) {
+        super(n82Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {n82Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((n82) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.repackage.o82
+    public void e() {
+        ArrayList<String> arrayList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (arrayList = this.d.b) == null || arrayList.isEmpty()) {
+            return;
+        }
+        r72 d = t72.c().d();
+        ArrayList<String> arrayList2 = this.d.b;
+        c92 l = c92.l();
+        l.i(15);
+        d.g(arrayList2, true, false, l.k());
+    }
 }

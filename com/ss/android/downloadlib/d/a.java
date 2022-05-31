@@ -22,12 +22,12 @@ public class a {
 
     /* renamed from: com.ss.android.downloadlib.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0588a {
+    public static class C0590a {
         public static a a = new a();
     }
 
     public static a a() {
-        return C0588a.a;
+        return C0590a.a;
     }
 
     public void b(long j, int i) {

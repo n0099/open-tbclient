@@ -1,9 +1,9 @@
 package com.repackage;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.math.BigInteger;
 /* loaded from: classes6.dex */
-public class p30 implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p30 {
+    BigInteger a();
+
+    BigInteger b();
 }

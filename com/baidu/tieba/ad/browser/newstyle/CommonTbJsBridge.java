@@ -17,13 +17,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ok8;
-import com.repackage.si;
-import com.repackage.sk8;
+import com.repackage.ph8;
+import com.repackage.ri;
+import com.repackage.th8;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements ok8 {
+public class CommonTbJsBridge implements ph8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements ok8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.repackage.ok8
+    @Override // com.repackage.ph8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements ok8 {
         return invokeLLLL.booleanValue;
     }
 
-    public sk8 getSupplementInfo() {
+    public th8 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            sk8 sk8Var = new sk8();
+            th8 th8Var = new th8();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements ok8 {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c = si.c(sb.toString());
+            String c = ri.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements ok8 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                sk8Var.o(jSONObject.toString());
-                return sk8Var;
+                th8Var.o(jSONObject.toString());
+                return th8Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                sk8Var.o("");
-                return sk8Var;
+                th8Var.o("");
+                return th8Var;
             }
         }
-        return (sk8) invokeV.objValue;
+        return (th8) invokeV.objValue;
     }
 }

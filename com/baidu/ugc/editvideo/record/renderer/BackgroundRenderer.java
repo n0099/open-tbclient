@@ -10,8 +10,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
-import com.repackage.ag0;
-import com.repackage.sf0;
+import com.repackage.fe0;
+import com.repackage.ne0;
 /* loaded from: classes4.dex */
 public class BackgroundRenderer extends MediaBaseRenderer {
     public static /* synthetic */ Interceptable $ic;
@@ -32,15 +32,15 @@ public class BackgroundRenderer extends MediaBaseRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(sf0 sf0Var, int i, float[] fArr) {
+    public void onDrawFrame(fe0 fe0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, sf0Var, i, fArr) == null) || sf0Var == null || sf0Var.l() == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, fe0Var, i, fArr) == null) || fe0Var == null || fe0Var.l() == null) {
             return;
         }
-        for (int i2 = 1; i2 < sf0Var.l().size(); i2++) {
-            MediaTrack mediaTrack = sf0Var.l().get(i2);
-            if (mediaTrack != null && ag0.m(mediaTrack, "only_background")) {
-                long a = sf0Var.a();
+        for (int i2 = 1; i2 < fe0Var.l().size(); i2++) {
+            MediaTrack mediaTrack = fe0Var.l().get(i2);
+            if (mediaTrack != null && ne0.m(mediaTrack, "only_background")) {
+                long a = fe0Var.a();
                 for (MediaSegment mediaSegment : mediaTrack.mediaSegments) {
                     if (mediaSegment.start != 0 || mediaSegment.end != 0) {
                         long j = mediaSegment.start;

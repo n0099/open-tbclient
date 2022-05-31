@@ -12,10 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.ro;
+import com.repackage.jn;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public class TransmitForumData implements ro, Parcelable {
+public class TransmitForumData implements jn, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<TransmitForumData> CREATOR;
     public static final BdUniqueId ID_TRANSMIT_SELECT_DATA;
@@ -116,7 +116,7 @@ public class TransmitForumData implements ro, Parcelable {
         return invokeV.intValue;
     }
 
-    @Override // com.repackage.ro
+    @Override // com.repackage.jn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

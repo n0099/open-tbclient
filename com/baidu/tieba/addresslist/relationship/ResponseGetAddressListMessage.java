@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.iu4;
-import com.repackage.nk5;
+import com.repackage.hj5;
+import com.repackage.ys4;
 import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetAddressList.GetAddressListResIdl;
@@ -17,7 +17,7 @@ import tbclient.GetAddressList.GetAddressListResIdl;
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nk5 mAddressListData;
+    public hj5 mAddressListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetAddressListMessage() {
@@ -37,16 +37,16 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
         }
     }
 
-    public nk5 getAddressListData() {
+    public hj5 getAddressListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAddressListData : (nk5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAddressListData : (hj5) invokeV.objValue;
     }
 
-    public void setAddressListData(nk5 nk5Var) {
+    public void setAddressListData(hj5 hj5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, nk5Var) == null) {
-            this.mAddressListData = nk5Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, hj5Var) == null) {
+            this.mAddressListData = hj5Var;
         }
     }
 
@@ -59,10 +59,10 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             return;
         }
         if (getAddressListResIdl.data != null) {
-            nk5 nk5Var = new nk5();
-            this.mAddressListData = nk5Var;
-            if (nk5Var.c(getAddressListResIdl.data)) {
-                iu4 k = iu4.k();
+            hj5 hj5Var = new hj5();
+            this.mAddressListData = hj5Var;
+            if (hj5Var.c(getAddressListResIdl.data)) {
+                ys4 k = ys4.k();
                 k.u("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
             }
         }

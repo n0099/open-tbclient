@@ -1,22 +1,26 @@
 package com.repackage;
 
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ba4 {
+public class ba4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public g84 a;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(String str, String str2, JSONObject jSONObject);
-
-        void b(String str, int i);
-
-        void onFail(Exception exc);
-
-        void onStart();
+    public ba4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
-
-    void a(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, a aVar);
-
-    void j(String str, Map<String, String> map, Map<String, String> map2, a aVar);
 }

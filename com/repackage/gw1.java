@@ -1,104 +1,133 @@
 package com.repackage;
 
-import android.graphics.Color;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class gw1 extends iw1 {
+public class gw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, ml1> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public String B;
-    public String C;
-    public String t;
-    public int u;
-    public boolean v;
-    public double w;
-    public int x;
-    public int y;
-    public String z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gw1(String str, @NonNull String str2) {
-        super(str, str2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755663728, "Lcom/repackage/gw1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755663728, "Lcom/repackage/gw1;");
                 return;
             }
         }
-        this.t = "";
-        this.v = false;
-        this.z = "";
-        this.A = "";
-        this.B = "";
-        this.C = "";
+        a = rf1.a;
+        b = new HashMap(2);
     }
 
-    private void i() {
-        JSONObject jSONObject;
+    public static ml1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (jSONObject = this.j) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a) {
+                Log.d("ConsoleCache", "create new sConsole");
+            }
+            hw1.n(true);
+            return b62.U().f0().b(AppRuntime.getAppContext());
         }
-        try {
-            this.u = Color.parseColor(jSONObject.optString("color"));
-            this.v = true;
-        } catch (Exception unused) {
-            ux1.o("Component-Model-TextView", "text color occurs exception");
-            this.v = false;
-        }
-        this.w = this.j.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 0.0d);
-        this.x = le3.g((float) this.j.optDouble("lineHeight", 0.0d));
-        this.y = le3.g((float) this.j.optDouble("lineSpace", 0.0d));
-        this.z = this.j.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
-        this.A = this.j.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
-        this.B = this.j.optString("whiteSpace");
-        this.C = this.j.optString("lineBreak");
+        return (ml1) invokeV.objValue;
     }
 
-    @Override // com.repackage.iw1, com.repackage.kw1, com.repackage.tq2
-    public void a(JSONObject jSONObject) throws JSONException {
+    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x006f, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0057 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized ml1 b() {
+        InterceptResult invokeV;
+        String str;
+        ml1 ml1Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (gw1.class) {
+                hz2 a0 = hz2.a0();
+                if (a0 != null && !TextUtils.isEmpty(a0.getAppId())) {
+                    str = a0.getAppId();
+                    String a2 = jr1.a(str);
+                    ml1Var = b.get(a2);
+                    if (ml1Var == null) {
+                        e();
+                        ml1Var = a();
+                        b.put(a2, ml1Var);
+                        if (a) {
+                            Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
+                        }
+                    }
+                    if (a) {
+                        Log.d("ConsoleCache", "get sconsole for appId - " + str);
+                    }
+                }
+                str = "_no_id_";
+                String a22 = jr1.a(str);
+                ml1Var = b.get(a22);
+                if (ml1Var == null) {
+                }
+                if (a) {
+                }
+            }
+            return ml1Var;
         }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("text");
-        i();
+        return (ml1) invokeV.objValue;
     }
 
-    @Override // com.repackage.iw1, com.repackage.kw1
-    public void g(JSONObject jSONObject) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            super.g(jSONObject);
-            this.t = jSONObject.optString("text", this.t);
-            i();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            hz2 a0 = hz2.a0();
+            if (a0 != null && !TextUtils.isEmpty(a0.b)) {
+                return fw1.b(jr1.a(a0.b));
+            }
+            if (a) {
+                Log.w("ConsoleCache", "swanApp is null or appId is empty");
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
+            b();
         }
     }
 
-    public void j(String str) {
+    public static synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.t = str;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (gw1.class) {
+                if (b.size() > 0) {
+                    for (String str : b.keySet()) {
+                        ml1 ml1Var = b.get(str);
+                        if (ml1Var != null) {
+                            ml1Var.G();
+                        }
+                    }
+                    b.clear();
+                }
+            }
         }
     }
 }

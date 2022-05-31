@@ -1,25 +1,29 @@
 package com.repackage;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+@Autowired
 /* loaded from: classes7.dex */
-public class wy3 extends JSEvent {
+public final class wy3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final wy3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static final class a implements vy3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        @V8JavascriptField
-        public boolean devhook;
-        @V8JavascriptField
-        public String scene;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -34,38 +38,128 @@ public class wy3 extends JSEvent {
                 }
             }
         }
+
+        @Override // com.repackage.vy3
+        public void a(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void b(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void c(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void d(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void e(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void g(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void h(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void i(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            }
+        }
+
+        @Override // com.repackage.vy3
+        public void k(JsObject jsObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
+                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wy3(rl2 rl2Var) {
-        super("appshow");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rl2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-755185088, "Lcom/repackage/wy3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-755185088, "Lcom/repackage/wy3;");
                 return;
             }
         }
-        this.data = a(rl2Var);
+        a = new wy3();
     }
 
-    public final Object a(rl2 rl2Var) {
-        InterceptResult invokeL;
+    public wy3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rl2Var)) == null) {
-            a aVar = new a();
-            aVar.scene = rl2Var.T();
-            aVar.devhook = rl2Var.m0();
-            return aVar;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return invokeL.objValue;
+    }
+
+    @Inject(force = false)
+    public final vy3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (vy3) invokeV.objValue;
     }
 }

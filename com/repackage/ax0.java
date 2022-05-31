@@ -1,7 +1,15 @@
 package com.repackage;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface ax0 extends st0 {
-    void g(@NonNull rs0 rs0Var);
+public class ax0 implements cs0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract zw0 a();
+
+    public abstract bx0 b();
+
+    public abstract cx0 c();
 }

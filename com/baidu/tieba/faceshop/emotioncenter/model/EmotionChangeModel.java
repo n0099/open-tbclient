@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.h96;
+import com.repackage.x76;
 /* loaded from: classes3.dex */
 public class EmotionChangeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
@@ -57,14 +57,14 @@ public class EmotionChangeModel extends BdBaseModel {
             Object extra;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003355 && (httpResponsedMessage instanceof EmotionCenterResponseMessage)) {
-                h96 h96Var = null;
-                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof h96)) {
-                    h96Var = (h96) extra;
+                x76 x76Var = null;
+                if (httpResponsedMessage.getOrginalMessage() != null && (extra = httpResponsedMessage.getOrginalMessage().getExtra()) != null && (extra instanceof x76)) {
+                    x76Var = (x76) extra;
                 }
-                if (h96Var == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
+                if (x76Var == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                h96Var.Z(emotionCenterResponseMessage.data);
+                x76Var.a0(emotionCenterResponseMessage.data);
             }
         }
     }
@@ -124,11 +124,11 @@ public class EmotionChangeModel extends BdBaseModel {
         }
     }
 
-    public void y(h96 h96Var) {
+    public void y(x76 x76Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, h96Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, x76Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
-            httpMessage.setExtra(h96Var);
+            httpMessage.setExtra(x76Var);
             sendMessage(httpMessage);
         }
     }

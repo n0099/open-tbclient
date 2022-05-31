@@ -1,52 +1,85 @@
 package com.repackage;
 
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
+import java.util.Arrays;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class p06 implements Comparator<l0> {
+public class p06 implements n06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final n06 a;
+    public final Map<Integer, n06> b;
 
-    public p06() {
+    public p06(n06 defaultRenderer, Pair<Integer, ? extends n06>... renderers) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {defaultRenderer, renderers};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(defaultRenderer, "defaultRenderer");
+        Intrinsics.checkNotNullParameter(renderers, "renderers");
+        this.a = defaultRenderer;
+        this.b = MapsKt__MapsKt.mutableMapOf((Pair[]) Arrays.copyOf(renderers, renderers.length));
+    }
+
+    @Override // com.repackage.n06
+    public z06 a(ry5 item, r06 displayer, ly5 config) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, displayer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            n06 n06Var = this.b.get(Integer.valueOf(c(item)));
+            if (n06Var == null) {
+                n06Var = this.a;
+            }
+            return n06Var.a(item, displayer, config);
+        }
+        return (z06) invokeLLL.objValue;
+    }
+
+    @Override // com.repackage.n06
+    public void b(ry5 item, Canvas canvas, r06 displayer, ly5 config) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item, canvas, displayer, config) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(canvas, "canvas");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            n06 n06Var = this.b.get(Integer.valueOf(c(item)));
+            if (n06Var == null) {
+                n06Var = this.a;
+            }
+            n06Var.b(item, canvas, displayer, config);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.util.Comparator
-    /* renamed from: a */
-    public int compare(l0 entity1, l0 entity2) {
-        InterceptResult invokeLL;
+    public int c(ry5 item) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
-            Intrinsics.checkNotNullParameter(entity1, "entity1");
-            Intrinsics.checkNotNullParameter(entity2, "entity2");
-            s06 b = q16.b(entity2);
-            g06 a = b == null ? null : b.a();
-            if (a == null) {
-                return 0;
-            }
-            s06 b2 = q16.b(entity1);
-            g06 a2 = b2 != null ? b2.a() : null;
-            if (a2 == null) {
-                return 0;
-            }
-            return a2.compareTo(a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, item)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            return item.e().g();
         }
-        return invokeLL.intValue;
+        return invokeL.intValue;
     }
 }

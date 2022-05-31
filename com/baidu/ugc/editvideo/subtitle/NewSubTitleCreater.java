@@ -25,8 +25,8 @@ import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
 import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
 import com.baidu.ugc.utils.FileUtils;
-import com.repackage.ob9;
-import com.repackage.ya9;
+import com.repackage.i89;
+import com.repackage.s79;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -153,7 +153,7 @@ public class NewSubTitleCreater {
                 if (i2 > 0 && (i = subTitleUnit.height) > 0) {
                     Bitmap createBitmap = Bitmap.createBitmap(i2, i, Bitmap.Config.ARGB_8888);
                     Canvas canvas = new Canvas(createBitmap);
-                    ya9.b(this.mNineBitmap, this.mNinePatchChunk, canvas, subTitleUnit.padding);
+                    s79.b(this.mNineBitmap, this.mNinePatchChunk, canvas, subTitleUnit.padding);
                     int i3 = 0;
                     if (!TextUtils.isEmpty(subTitleUnit.line)) {
                         SubTitleConfig.StrokeConfig strokeConfig = subTitleUnit.chineseStrokeConfig;
@@ -207,7 +207,7 @@ public class NewSubTitleCreater {
             if (shadowConfig != null) {
                 textPaint.setShadowLayer(shadowConfig.shadowRadius, shadowConfig.shadowDx, shadowConfig.shadowDy, subTitleUnit.chineseShadowColor);
             }
-            ya9.c(textPaint, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+            s79.c(textPaint, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
             textPaint.setFakeBoldText(subTitleUnit.isChineseBold == 1);
             textPaint.setTextSkewX(subTitleUnit.isChineseItalic == 1 ? -0.5f : 0.0f);
             Typeface typeface = subTitleUnit.chineseTypeface;
@@ -225,7 +225,7 @@ public class NewSubTitleCreater {
                     textPaint.setColor(subTitleUnit.chineseStrokeConfig.strokeColor);
                 }
             }
-            int g = ya9.g(textPaint);
+            int g = s79.g(textPaint);
             int i5 = subTitleUnit.padding;
             int i6 = subTitleUnit.backgroudPaddingLeft;
             int abs = (g / 2) + ((int) (Math.abs(textPaint.ascent() + textPaint.descent()) / 2.0f)) + subTitleUnit.padding + subTitleUnit.backgroudPaddingTop;
@@ -242,10 +242,10 @@ public class NewSubTitleCreater {
                 } else if (i13 != 3) {
                     i = subTitleUnit.padding + subTitleUnit.backgroudPaddingLeft;
                     int i14 = i;
-                    d = ya9.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                    d = s79.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                     int i15 = i7;
                     int i16 = abs;
-                    ya9.e(canvas, textPaint, i14, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                    s79.e(canvas, textPaint, i14, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                     if (d[0] == 0) {
                         i2 = i14;
                         i3 = i16;
@@ -266,10 +266,10 @@ public class NewSubTitleCreater {
                 }
                 i = (int) measureText;
                 int i142 = i;
-                d = ya9.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                d = s79.d(textPaint, textPaint2, textPaint3, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                 int i152 = i7;
                 int i162 = abs;
-                ya9.e(canvas, textPaint, i142, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
+                s79.e(canvas, textPaint, i142, i10, i12, subTitleUnit.mTextStyleEntity, subTitleUnit.mTextColorEntity);
                 if (d[0] == 0) {
                 }
                 if (d[1] == 0) {
@@ -361,7 +361,7 @@ public class NewSubTitleCreater {
                 float f = subTitleConfig.mScale;
                 return (int) ((subTitleConfig.mVideoWidth - (subTitleConfig.mMinLeftPadding / f)) - (subTitleConfig.mMinRightPadding / f));
             }
-            return (int) (ob9.e() * 0.8d);
+            return (int) (i89.e() * 0.8d);
         }
         return invokeV.intValue;
     }
@@ -585,9 +585,9 @@ public class NewSubTitleCreater {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65556, this, subTitleUnit) == null) {
             int[] subtileWH = getSubtileWH(subTitleUnit);
-            Bitmap a = ya9.a(subTitleUnit.mTextStyleEntity);
+            Bitmap a = s79.a(subTitleUnit.mTextStyleEntity);
             this.mNineBitmap = a;
-            NinePatchChunk f = ya9.f(a, subTitleUnit.mTextStyleEntity);
+            NinePatchChunk f = s79.f(a, subTitleUnit.mTextStyleEntity);
             this.mNinePatchChunk = f;
             int i = subtileWH[0];
             subTitleUnit.width = i;

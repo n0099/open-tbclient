@@ -1,39 +1,31 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONObject;
+import com.repackage.lz2;
 /* loaded from: classes7.dex */
-public class s13 extends r23 {
+public class s13 extends r13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s13(r13 r13Var) {
-        super(r13Var, "/swanAPI/abTestConfig");
+    public s13(kz2 kz2Var) {
+        super(kz2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
+            Object[] objArr = {kz2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((kz2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,75 +33,45 @@ public class s13 extends r23 {
         }
     }
 
-    public static String k() {
+    @Override // com.repackage.r13
+    public void H(String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && L() && (str2 = this.d) != null && str2.equals(str)) {
+            gz2 J = gz2.J();
+            if (J.D()) {
+                if (J.r().m0()) {
+                    J.o("flag_finish_activity", "flag_remove_task");
+                    return;
+                }
+                ab3 ab3Var = new ab3();
+                ab3Var.k(10L);
+                ab3Var.i(2107L);
+                ab3Var.d("app forbidden");
+                nz2.x0(c74.i().u(str), oi2.c(), J.r().V(), false, null, ab3Var);
+            }
+        }
+    }
+
+    public boolean L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File a = jd3.a();
-            if (a == null) {
-                return null;
-            }
-            String path = a.getPath();
-            if (TextUtils.isEmpty(path)) {
-                return null;
-            }
-            return path + "/debug_abtest_config.json";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (hz2.a0() == null || this.b == 0) ? false : true : invokeV.booleanValue;
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.repackage.ae3
+    /* renamed from: M */
+    public void onCallback(lz2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (r23.b) {
-                JSONObject a = r23.a(unitedSchemeEntity, "params");
-                if (a != null && context != null) {
-                    JSONObject optJSONObject = a.optJSONObject("abtest");
-                    if (optJSONObject != null) {
-                        Toast.makeText(context, l(optJSONObject) ? R.string.obfuscated_res_0x7f0f12a1 : R.string.obfuscated_res_0x7f0f129f, 1).show();
-                    } else {
-                        j();
-                        Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12a2, 1).show();
-                    }
-                    return true;
-                }
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f12a0, 1).show();
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            if (tv2.I(aVar.D(), "swan_forbidden_kill_on_client")) {
+                this.b = aVar.j("ipc_forbidden_flag", 1);
+                this.d = aVar.o("mAppId", gz2.J().getAppId());
             }
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return;
-            }
-            File file = new File(k);
-            if (file.exists()) {
-                file.delete();
+            if (tv2.I(aVar.D(), "swan_kill_to_client")) {
+                gz2.J().o("flag_finish_activity", "flag_remove_task");
             }
         }
-    }
-
-    public final boolean l(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return false;
-            }
-            return xj2.b(k, jSONObject.toString(), false);
-        }
-        return invokeL.booleanValue;
     }
 }

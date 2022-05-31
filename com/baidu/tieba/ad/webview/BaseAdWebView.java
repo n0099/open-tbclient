@@ -27,10 +27,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.fn4;
-import com.repackage.mm4;
-import com.repackage.n11;
-import com.repackage.rj0;
+import com.repackage.a01;
+import com.repackage.al4;
+import com.repackage.ei0;
+import com.repackage.ul4;
 import java.lang.reflect.Method;
 import java.util.Map;
 /* loaded from: classes3.dex */
@@ -43,7 +43,7 @@ public abstract class BaseAdWebView extends WebView {
     public String c;
     public boolean d;
     public d e;
-    public rj0 f;
+    public ei0 f;
     public e g;
 
     /* loaded from: classes3.dex */
@@ -180,7 +180,7 @@ public abstract class BaseAdWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                mm4.a("BaseAdWebView", webView);
+                al4.a("BaseAdWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -216,7 +216,7 @@ public abstract class BaseAdWebView extends WebView {
 
     /* loaded from: classes3.dex */
     public interface d {
-        void onDownloadStart(rj0 rj0Var);
+        void onDownloadStart(ei0 ei0Var);
     }
 
     /* loaded from: classes3.dex */
@@ -282,7 +282,7 @@ public abstract class BaseAdWebView extends WebView {
         }
     }
 
-    public abstract void b(@NonNull rj0 rj0Var, boolean z);
+    public abstract void b(@NonNull ei0 ei0Var, boolean z);
 
     public final void c() {
         Interceptable interceptable = $ic;
@@ -320,16 +320,16 @@ public abstract class BaseAdWebView extends WebView {
             setScrollBarStyle(0);
             setAcceptThirdPartyCookies(true);
             setDownloadListener(new b(this));
-            if (fn4.e()) {
+            if (ul4.e()) {
                 Log.e(h, "init webview succeed");
             }
         }
     }
 
-    public void d(@NonNull rj0 rj0Var) {
+    public void d(@NonNull ei0 ei0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rj0Var) == null) {
-            this.f = rj0Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ei0Var) == null) {
+            this.f = ei0Var;
         }
     }
 
@@ -348,19 +348,19 @@ public abstract class BaseAdWebView extends WebView {
             return;
         }
         if (this.f == null) {
-            if (fn4.e()) {
+            if (ul4.e()) {
                 throw new IllegalArgumentException("cache key is null");
             }
             return;
         }
-        if (fn4.e()) {
+        if (ul4.e()) {
             Log.e(h, "start downloading.....");
             String str4 = h;
             Log.e(str4, "download url：" + str);
         }
         this.f.g = str;
-        String e2 = n11.e(str, str2, str3);
-        boolean z = n11.b(n11.c(e2), str3) == 3;
+        String e2 = a01.e(str, str2, str3);
+        boolean z = a01.b(a01.c(e2), str3) == 3;
         if (TextUtils.isEmpty(e2)) {
             String[] split = str.split("/");
             if (split.length > 1) {
@@ -368,9 +368,9 @@ public abstract class BaseAdWebView extends WebView {
             }
             e2 = (str == null || str.length() <= 50) ? str : str.substring(0, 50);
         }
-        rj0 rj0Var = this.f;
-        rj0Var.d = e2;
-        b(rj0Var, z);
+        ei0 ei0Var = this.f;
+        ei0Var.d = e2;
+        b(ei0Var, z);
     }
 
     public abstract String getUserAgent();

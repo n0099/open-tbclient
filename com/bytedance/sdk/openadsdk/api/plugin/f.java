@@ -278,11 +278,11 @@ public class f {
         }
         if (z) {
             if (Zeus.loadPlugin(str)) {
-                Plugin plugin2 = Zeus.getPlugin(str);
-                if (plugin2 != null) {
-                    a(plugin2, tTPluginListener);
+                Plugin plugin = Zeus.getPlugin(str);
+                if (plugin != null) {
+                    a(plugin, tTPluginListener);
                     handler.removeCallbacksAndMessages(null);
-                    tTPluginListener.onPluginListener(1000, plugin2.mClassLoader, plugin2.mResources, null);
+                    tTPluginListener.onPluginListener(1000, plugin.mClassLoader, plugin.mResources, null);
                 } else {
                     tTPluginListener.onPluginListener(1001, null, null, null);
                 }
@@ -356,9 +356,9 @@ public class f {
     }
 
     public Bundle a(String str, Bundle bundle) {
-        Plugin plugin2;
-        if (Zeus.isPluginInstalled(str) && (plugin2 = Zeus.getPlugin(str)) != null) {
-            bundle.putString("plugin_version", a(plugin2.getVersion()));
+        Plugin plugin;
+        if (Zeus.isPluginInstalled(str) && (plugin = Zeus.getPlugin(str)) != null) {
+            bundle.putString("plugin_version", a(plugin.getVersion()));
         }
         g.a(str, bundle);
         Bundle bundle2 = new Bundle();
@@ -378,15 +378,15 @@ public class f {
             }
         }, Service.TRIGGER_INTERVAL);
         String packageName = tTPluginListener.packageName();
-        Plugin plugin2 = (Zeus.isPluginInstalled(packageName) && (Zeus.isPluginLoaded(packageName) || Zeus.loadPlugin(packageName))) ? Zeus.getPlugin(packageName) : null;
+        Plugin plugin = (Zeus.isPluginInstalled(packageName) && (Zeus.isPluginLoaded(packageName) || Zeus.loadPlugin(packageName))) ? Zeus.getPlugin(packageName) : null;
         StringBuilder sb = new StringBuilder();
         sb.append("Find plugin:");
-        sb.append(plugin2 != null);
+        sb.append(plugin != null);
         com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", sb.toString());
-        if (plugin2 != null) {
-            a(plugin2, tTPluginListener);
+        if (plugin != null) {
+            a(plugin, tTPluginListener);
             handler.removeCallbacksAndMessages(null);
-            tTPluginListener.onPluginListener(1000, plugin2.mClassLoader, plugin2.mResources, null);
+            tTPluginListener.onPluginListener(1000, plugin.mClassLoader, plugin.mResources, null);
             return;
         }
         d.put(packageName, tTPluginListener);
@@ -467,11 +467,11 @@ public class f {
         }
     }
 
-    public static void a(Plugin plugin2, TTPluginListener tTPluginListener) {
+    public static void a(Plugin plugin, TTPluginListener tTPluginListener) {
         Bundle bundle = new Bundle();
         Bundle config = tTPluginListener.config();
-        config.putString("plugin_version", a(plugin2.getVersion()));
-        bundle.putBundle(plugin2.mPkgName, config);
+        config.putString("plugin_version", a(plugin.getVersion()));
+        bundle.putBundle(plugin.mPkgName, config);
         bundle.putInt("action", 0);
         TTAdManager adManager = TTAdSdk.getAdManager();
         if (adManager != null) {

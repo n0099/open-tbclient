@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -157,7 +156,7 @@ public class NativeLoader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, aVar)) == null) {
-            return PluginInstallerService.APK_LIB_DIR_PREFIX + aVar.a() + "/";
+            return "lib/" + aVar.a() + "/";
         }
         return (String) invokeL.objValue;
     }

@@ -1,126 +1,153 @@
 package com.repackage;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import android.os.AsyncTask;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.d02;
-import java.util.UUID;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes6.dex */
-public class g43 extends r23 {
+public abstract class g43 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Exception a;
+    public e43 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g43(r13 r13Var) {
-        super(r13Var, "/swanAPI/navigateBack");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r13Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g43 a;
+
+        public a(g43 g43Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g43Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g43Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.f()) {
+                        this.a.d();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    this.a.e(e);
+                }
             }
         }
     }
 
-    @Override // com.repackage.r23
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, u03 u03Var) {
-        InterceptResult invokeLLLL;
-        int optInt;
-        uq2 uq2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, u03Var)) == null) {
-            if (r23.b) {
-                Log.d("NavigateBackAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            String uuid = UUID.randomUUID().toString();
-            au2.b(uuid);
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (TextUtils.isEmpty(str)) {
-                optInt = 1;
-            } else {
-                try {
-                    optInt = new JSONObject(str).optInt("delta", 1);
-                } catch (JSONException e) {
-                    if (r23.b) {
-                        e.printStackTrace();
-                    }
-                    ux1.c("navigateBack", "params parse fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g43 a;
+
+        public b(g43 g43Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g43Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            d02 V = hm2.U().V();
-            if (V == null) {
-                ux1.c("navigateBack", "fragmentManager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            int k = V.k();
-            if (r23.b) {
-                Log.d("NavigateBackAction", "back delta: " + optInt);
-            }
-            if (k == 1) {
-                ux1.c("NavigateBackAction", "navigateBack api can only work when slave's count greater than 1");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "navigateBack api can only work when slave's count greater than 1");
-                return false;
-            }
-            if (optInt >= k) {
-                optInt = k - 1;
-            }
-            if (r23.b) {
-                Log.d("NavigateBackAction", "real back delta: " + optInt);
-            }
-            a02 j = V.j((k - optInt) - 1);
-            if (j instanceof c02) {
-                uq2Var = ((c02) j).l3();
-                uq2Var.e = "1";
-                uq2Var.f = uuid;
-            } else {
-                uq2Var = null;
-            }
-            i73.g(uq2Var);
-            au2.c(1, uuid);
-            ed3.a(V, context);
-            d02.b i = V.i("navigateBack");
-            i.n(d02.i, d02.h);
-            i.h(optInt);
-            i.a();
-            c02 o = V.o();
-            uq2 l3 = o != null ? o.l3() : null;
-            zt2.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
-            au2.a(uuid, l3);
-            if (!(V.m() instanceof c02)) {
-                ux1.c("navigateBack", "top fragment error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                i73.i(uq2Var);
-                return false;
-            }
-            c02 c02Var = (c02) V.m();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(d43.c(c02Var != null ? c02Var.s3() : ""), 0));
-            return true;
+            this.a = g43Var;
         }
-        return invokeLLLL.booleanValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b.l(this.a);
+            }
+        }
+    }
+
+    public g43() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public Exception b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Exception) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a == null : invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            e(null);
+        }
+    }
+
+    public void e(@Nullable Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
+            this.a = exc;
+            f43.l(new b(this));
+        }
+    }
+
+    public abstract boolean f() throws Exception;
+
+    public g43 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            AsyncTask.execute(new a(this));
+            return this;
+        }
+        return (g43) invokeV.objValue;
+    }
+
+    public g43 h(e43 e43Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, e43Var)) == null) {
+            this.b = e43Var;
+            return this;
+        }
+        return (g43) invokeL.objValue;
     }
 }

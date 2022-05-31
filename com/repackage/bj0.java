@@ -1,56 +1,68 @@
 package com.repackage;
 
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.crius.view.AdCriusPopView;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class bj0 extends qc1<o51> {
+public class bj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<ei0> a;
 
     /* loaded from: classes5.dex */
-    public class a implements o51 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final bj0 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a(bj0 bj0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bj0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-498569940, "Lcom/repackage/bj0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-498569940, "Lcom/repackage/bj0$a;");
+                    return;
                 }
             }
+            a = new bj0(null);
         }
+    }
 
-        @Override // com.repackage.o51
-        public Object a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) ? zi0.b(jSONObject) : invokeL.objValue;
-        }
+    public /* synthetic */ bj0(aj0 aj0Var) {
+        this();
+    }
 
-        @Override // com.repackage.o51
-        public c61<View> b(@NonNull Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new AdCriusPopView(context) : (c61) invokeL.objValue;
+    public static bj0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (bj0) invokeV.objValue;
+    }
+
+    public void b(ei0 ei0Var) {
+        File file;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ei0Var) == null) || ei0Var == null || (file = ei0Var.h) == null || !file.exists()) {
+            return;
         }
+        String str = ei0Var.p.h;
+        String absolutePath = ei0Var.h.getAbsolutePath();
+        if (TextUtils.isEmpty(str) || TextUtils.isEmpty(absolutePath)) {
+            return;
+        }
+        ei0Var.q.m = "reminded_type_none";
+        gx0.b(this.a, ei0Var);
     }
 
     public bj0() {
@@ -63,16 +75,9 @@ public class bj0 extends qc1<o51> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.repackage.qc1
-    /* renamed from: a */
-    public o51 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (o51) invokeV.objValue;
+        this.a = new ArrayList();
     }
 }

@@ -1,35 +1,31 @@
 package com.repackage;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AlaInfoData;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class km7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, UserData userData) {
+    public km7() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, str, userData) == null) || userData == null || userData.getUserId() == null || userData.getAlaUserData() == null || userData.getAlaInfo() == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        AlaInfoData alaInfo = userData.getAlaInfo();
-        String str2 = StringUtils.isNull(alaInfo.appId) ? null : alaInfo.appId;
-        if (alaInfo.mYyExtData != null) {
-            str2 = TiebaStatic.YYValues.YY_LIVE;
+    }
+
+    public void update(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
         }
-        statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(alaInfo));
-        statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
-        TiebaStaticHelper.addYYParam(statisticItem, alaInfo.mYyExtData);
-        TiebaStatic.log(statisticItem);
     }
 }

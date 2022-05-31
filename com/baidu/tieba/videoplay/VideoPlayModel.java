@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.repackage.b9;
-import com.repackage.ki;
-import com.repackage.mi;
-import com.repackage.oc5;
-import com.repackage.ul4;
+import com.repackage.hk4;
+import com.repackage.ib5;
+import com.repackage.ji;
+import com.repackage.li;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -150,8 +150,8 @@ public class VideoPlayModel extends BdBaseModel {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            if (!ki.z()) {
-                mi.K(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2d));
+            if (!ji.z()) {
+                li.L(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c33));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -210,13 +210,13 @@ public class VideoPlayModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<ul4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<hk4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<ul4> it = videoRecordList.iterator();
+                        Iterator<hk4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            ul4 next = it.next();
+                            hk4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());
@@ -251,7 +251,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
             httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
         }
-        httpMessage.addParam("app_transmit_data", oc5.a());
+        httpMessage.addParam("app_transmit_data", ib5.a());
         sendMessage(httpMessage);
     }
 
@@ -288,7 +288,7 @@ public class VideoPlayModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", oc5.a());
+            httpMessage.addParam("app_transmit_data", ib5.a());
             sendMessage(httpMessage);
         }
     }

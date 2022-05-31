@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.repackage.g55;
+import com.repackage.b45;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 /* loaded from: classes2.dex */
 public class InitNavigationBarTask extends LaunchTask {
@@ -41,9 +41,9 @@ public class InitNavigationBarTask extends LaunchTask {
                 if (mainActivity == null) {
                     return;
                 }
-                g55.e().a(1022, new NavigationBar(mainActivity));
-                g55.e().a(1042, new NavigationBar(mainActivity));
-                g55.e().a(RevenueServerConst.GetChargeCouponDiscountRequest, new NavigationBar(mainActivity));
+                b45.e().a(1022, new NavigationBar(mainActivity));
+                b45.e().a(1042, new NavigationBar(mainActivity));
+                b45.e().a(RevenueServerConst.GetChargeCouponDiscountRequest, new NavigationBar(mainActivity));
             } catch (Exception e) {
                 BdLog.e(e);
             }

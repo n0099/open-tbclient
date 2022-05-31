@@ -16,7 +16,7 @@ public class b {
 
     /* renamed from: com.kwad.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC0281b {
+    public interface InterfaceC0282b {
         void a(String str);
 
         String[] a();
